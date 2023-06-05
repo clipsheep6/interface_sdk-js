@@ -213,8 +213,8 @@ declare namespace avSession {
   /**
    * Register system session changed callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { string } type - Registration Type, session creation, deletion or top priority session change
-   * @param { function } callback - Used to handle ('sessionCreate' | 'sessionDestroy' | 'topSessionChange' command)
+   * @param { 'sessionCreate' } type - Registration Type, session creation
+   * @param { function } callback - Used to handle ('sessionCreate' command)
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
    * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
@@ -222,13 +222,41 @@ declare namespace avSession {
    * @systemapi
    * @since 9
    */
-  function on(type: 'sessionCreate' | 'sessionDestroy' | 'topSessionChange', callback: (session: AVSessionDescriptor) => void): void;
+  function on(type: 'sessionCreate', callback: (session: AVSessionDescriptor) => void): void;
+
+  /**
+   * Register system session changed callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { 'sessionDestroy' } type - Registration Type, session deletion
+   * @param { function } callback - Used to handle ('sessionDestroy' command)
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 9
+   */
+  function on(type: 'sessionDestroy', callback: (session: AVSessionDescriptor) => void): void;
+
+  /**
+   * Register system session changed callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { 'topSessionChange' } type - Registration Type, top priority session change
+   * @param { function } callback - Used to handle ('topSessionChange' command)
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 9
+   */
+  function on(type: 'topSessionChange', callback: (session: AVSessionDescriptor) => void): void;
 
   /**
    * Unregister system session changed callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { string } type - Registration Type, session creation, deletion or top priority session change
-   * @param { function } callback - Used to unregister listener for ('sessionCreate' | 'sessionDestroy' | 'topSessionChange') command
+   * @param { 'sessionCreate' } type - Registration Type, session creation
+   * @param { function } callback - Used to unregister listener for ('sessionCreate') command
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
    * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
@@ -236,11 +264,39 @@ declare namespace avSession {
    * @systemapi
    * @since 9
    */
-  function off(type: 'sessionCreate' | 'sessionDestroy' | 'topSessionChange', callback?: (session: AVSessionDescriptor) => void): void;
+  function off(type: 'sessionCreate', callback?: (session: AVSessionDescriptor) => void): void;
+
+  /**
+   * Unregister system session changed callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { 'sessionDestroy' } type - Registration Type, session deletion
+   * @param { function } callback - Used to unregister listener for ('sessionDestroy') command
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 9
+   */
+  function off(type: 'sessionDestroy', callback?: (session: AVSessionDescriptor) => void): void;
+
+  /**
+   * Unregister system session changed callback
+   * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
+   * @param { 'topSessionChange' } type - Registration Type, top priority session change
+   * @param { function } callback - Used to unregister listener for ('topSessionChange') command
+   * @throws { BusinessError } 201 - permission denied
+   * @throws { BusinessError } 401 - parameter check failed
+   * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+   * @syscap SystemCapability.Multimedia.AVSession.Manager
+   * @systemapi
+   * @since 9
+   */
+  function off(type: 'topSessionChange', callback?: (session: AVSessionDescriptor) => void): void;
 
   /**
    * Register Session service death callback, notifying the application to clean up resources.
-   * @param { string } type - Registration Type
+   * @param { 'sessionServiceDie' } type - Registration Type
    * @param { function } callback - Used to handle ('sessionServiceDie') command.
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
@@ -253,7 +309,7 @@ declare namespace avSession {
 
   /**
    * Unregister Session service death callback, notifying the application to clean up resources.
-   * @param { string } type - Registration Type
+   * @param { 'sessionServiceDie' } type - Registration Type
    * @param { function } callback -  Used to unregister listener for ('sessionServiceDie') command.
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 401 - parameter check failed
@@ -565,32 +621,212 @@ declare namespace avSession {
      * When canceling the callback, need to update the supported commands list.
      * Each playback command only supports registering one callback,
      * and the new callback will replace the previous one.
-     * @param { string } type - Command to register.
-     * @param { function } callback - Used to handle ('play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind') command
+     * @param { 'play' } type - Command to register.
+     * @param { function } callback - Used to handle ('play') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    on(type: 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind', callback: () => void): void;
+    on(type: 'play', callback: () => void): void;
+
+    /**
+     * Register or unregister playback command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * When canceling the callback, need to update the supported commands list.
+     * Each playback command only supports registering one callback,
+     * and the new callback will replace the previous one.
+     * @param { 'pause' } type - Command to register.
+     * @param { function } callback - Used to handle ('pause') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    on(type: 'pause', callback: () => void): void;
+
+    /**
+     * Register or unregister playback command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * When canceling the callback, need to update the supported commands list.
+     * Each playback command only supports registering one callback,
+     * and the new callback will replace the previous one.
+     * @param { 'stop' } type - Command to register.
+     * @param { function } callback - Used to handle ('stop') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    on(type: 'stop', callback: () => void): void;
+
+    /**
+     * Register or unregister playback command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * When canceling the callback, need to update the supported commands list.
+     * Each playback command only supports registering one callback,
+     * and the new callback will replace the previous one.
+     * @param { 'playNext' } type - Command to register.
+     * @param { function } callback - Used to handle ('playNext') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    on(type: 'playNext', callback: () => void): void;
+
+    /**
+     * Register or unregister playback command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * When canceling the callback, need to update the supported commands list.
+     * Each playback command only supports registering one callback,
+     * and the new callback will replace the previous one.
+     * @param { 'playPrevious' } type - Command to register.
+     * @param { function } callback - Used to handle ('playPrevious') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    on(type: 'playPrevious', callback: () => void): void;
+
+    /**
+     * Register or unregister playback command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * When canceling the callback, need to update the supported commands list.
+     * Each playback command only supports registering one callback,
+     * and the new callback will replace the previous one.
+     * @param { 'fastForward' } type - Command to register.
+     * @param { function } callback - Used to handle ('fastForward') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    on(type: 'fastForward', callback: () => void): void;
+
+    /**
+     * Register or unregister playback command callback.
+     * As long as it is registered, it means that the ability supports this command.
+     * If you cancel the callback, you need to call off {@link off}
+     * When canceling the callback, need to update the supported commands list.
+     * Each playback command only supports registering one callback,
+     * and the new callback will replace the previous one.
+     * @param { 'rewind' } type - Command to register.
+     * @param { function } callback - Used to handle ('rewind') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    on(type: 'rewind', callback: () => void): void;
 
     /**
      * Unregister playback command callback.
      * When canceling the callback, need to update the supported commands list.
-     * @param { string } type - Command to register.
-     * @param { function } callback - Used to handle ('play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind') command
+     * @param { 'play' } type - Command to register.
+     * @param { function } callback - Used to handle ('play') command
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
      * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    off(type: 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind', callback?: () => void): void;
+    off(type: 'play', callback?: () => void): void;
+
+    /**
+     * Unregister playback command callback.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'pause' } type - Command to register.
+     * @param { function } callback - Used to handle ('pause') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    off(type: 'pause', callback?: () => void): void;
+
+    /**
+     * Unregister playback command callback.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'stop' } type - Command to register.
+     * @param { function } callback - Used to handle ('stop') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    off(type: 'stop', callback?: () => void): void;
+
+    /**
+     * Unregister playback command callback.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'playNext' } type - Command to register.
+     * @param { function } callback - Used to handle ('playNext') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    off(type: 'playNext', callback?: () => void): void;
+
+    /**
+     * Unregister playback command callback.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'playPrevious' } type - Command to register.
+     * @param { function } callback - Used to handle ('playPrevious') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    off(type: 'playPrevious', callback?: () => void): void;
+
+    /**
+     * Unregister playback command callback.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'fastForward' } type - Command to register.
+     * @param { function } callback - Used to handle ('fastForward') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    off(type: 'fastForward', callback?: () => void): void;
+
+    /**
+     * Unregister playback command callback.
+     * When canceling the callback, need to update the supported commands list.
+     * @param { 'rewind' } type - Command to register.
+     * @param { function } callback - Used to handle ('rewind') command
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
+     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    off(type: 'rewind', callback?: () => void): void;
 
     /**
      * Register seek command callback
-     * @param { string } type - Registration Type 'seek'
+     * @param { 'seek' } type - Registration Type 'seek'
      * @param { function } callback - Used to handle seek command.The callback provides the seek time(ms)
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
@@ -602,7 +838,7 @@ declare namespace avSession {
 
     /**
      * Unregister seek command callback
-     * @param { string } type - Registration Type 'seek'
+     * @param { 'seek' } type - Registration Type 'seek'
      * @param { function } callback - Used to handle seek command.The callback provides the seek time(ms)
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
@@ -614,7 +850,7 @@ declare namespace avSession {
 
     /**
      * Register setSpeed command callback
-     * @param { string } type - Registration Type 'setSpeed'
+     * @param { 'setSpeed' } type - Registration Type 'setSpeed'
      * @param { function } callback - Used to handle setSpeed command.The callback provides the speed value
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
@@ -626,7 +862,7 @@ declare namespace avSession {
 
     /**
      * Unregister setSpeed command callback
-     * @param { string } type - Registration Type 'setSpeed'
+     * @param { 'setSpeed' } type - Registration Type 'setSpeed'
      * @param { function } callback - Used to handle setSpeed command.The callback provides the speed value
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
@@ -638,7 +874,7 @@ declare namespace avSession {
 
     /**
      * Register setLoopMode command callback
-     * @param { string } type - Registration Type 'setLoopMode'
+     * @param { 'setLoopMode' } type - Registration Type 'setLoopMode'
      * @param { function } callback - Used to handle setLoopMode command.The callback provides the {@link LoopMode}
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
@@ -650,7 +886,7 @@ declare namespace avSession {
 
     /**
      * Unregister setLoopMode command callback
-     * @param { string } type - Registration Type 'setLoopMode'
+     * @param { 'setLoopMode' } type - Registration Type 'setLoopMode'
      * @param { function } callback - Used to handle setLoopMode command.The callback provides the {@link LoopMode}
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
@@ -662,7 +898,7 @@ declare namespace avSession {
 
     /**
      * Register toggle favorite command callback
-     * @param { string } type - Registration Type 'toggleFavorite'
+     * @param { 'toggleFavorite' } type - Registration Type 'toggleFavorite'
      * @param { function } callback - Used to handle toggleFavorite command.The callback provides
      * the assetId for which the favorite status needs to be switched.
      * @throws { BusinessError } 401 - parameter check failed
@@ -675,7 +911,7 @@ declare namespace avSession {
 
     /**
      * Unregister toggle favorite command callback
-     * @param { string } type - Registration Type 'toggleFavorite'
+     * @param { 'toggleFavorite' } type - Registration Type 'toggleFavorite'
      * @param { function } callback - Used to handle toggleFavorite command.The callback provides
      * the assetId for which the favorite status needs to be switched.
      * @throws { BusinessError } 401 - parameter check failed
@@ -688,7 +924,7 @@ declare namespace avSession {
 
     /**
      * Register media key handling callback
-     * @param { string } type - Registration Type
+     * @param { 'handleKeyEvent' } type - Registration Type
      * @param { function } callback - Used to handle key events.The callback provides the KeyEvent
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
@@ -700,7 +936,7 @@ declare namespace avSession {
 
     /**
      * Unregister media key handling callback
-     * @param { string } type - Registration Type
+     * @param { 'handleKeyEvent' } type - Registration Type
      * @param { function } callback - Used to handle key events.The callback provides the KeyEvent
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
@@ -712,7 +948,7 @@ declare namespace avSession {
 
     /**
      * Register session output device change callback
-     * @param { string } type - Registration Type
+     * @param { 'outputDeviceChange' } type - Registration Type
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
@@ -725,7 +961,7 @@ declare namespace avSession {
 
     /**
      * Unregister session output device change callback
-     * @param { string } type - Registration Type
+     * @param { 'outputDeviceChange' } type - Registration Type
      * @param { function } callback - Used to handle output device changed.
      * The callback provide the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
@@ -738,7 +974,7 @@ declare namespace avSession {
 
     /**
      * Register session custom command change callback
-     * @param { string } type - Registration Type
+     * @param { 'commonCommand' } type - Registration Type
      * @param { function } callback - Used to handle event when the common command is received
      * The callback provide the command name and command args
      * @throws { BusinessError } 401 - parameter check failed
@@ -751,7 +987,7 @@ declare namespace avSession {
 
     /**
      * Unregister session custom command change callback
-     * @param { string } type - Registration Type
+     * @param { 'commonCommand' } type - Registration Type
      * @param { function } callback - Used to cancel a specific listener
      * The callback provide the command name and command args
      * @throws { BusinessError } 401 - parameter check failed
@@ -764,7 +1000,7 @@ declare namespace avSession {
 
     /**
      * Register the item to play from the playlist change callback
-     * @param { string } type - Registration Type
+     * @param { 'skipToQueueItem' } type - Registration Type
      * @param { function } callback - Used to handle the item to be played.
      * The callback provide the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
@@ -777,7 +1013,7 @@ declare namespace avSession {
 
     /**
      * Unregister the item to play from the playlist change callback
-     * @param { string } type - Registration Type
+     * @param { 'skipToQueueItem' } type - Registration Type
      * @param { function } callback - Used to handle the item to be played.
      * The callback provide the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
@@ -1691,7 +1927,7 @@ declare namespace avSession {
 
     /**
      * Register metadata changed callback
-     * @param { string } type 
+     * @param { 'metadataChange' } type 
      * @param { Array<keyof AVMetadata> | 'all' } filter - The properties of {@link AVMetadata} that you cared about
      * @param { function } callback - The callback used to handle metadata changed event.
      * The callback function provides the {@link AVMetadata} parameter.
@@ -1706,7 +1942,7 @@ declare namespace avSession {
 
     /**
      * Unregister metadata changed callback
-     * @param { string } type
+     * @param { 'metadataChange' } type
      * @param { function } callback - The callback used to handle metadata changed event.
      * The callback function provides the {@link AVMetadata} parameter.
      * It only contains the properties set in the filter.
@@ -1720,7 +1956,7 @@ declare namespace avSession {
 
     /**
      * Register playback state changed callback
-     * @param { string } type
+     * @param { 'playbackStateChange' } type
      * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState} that you cared about
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
@@ -1734,7 +1970,7 @@ declare namespace avSession {
 
     /**
      * Unregister playback state changed callback
-     * @param { string } type
+     * @param { 'playbackStateChange' } type
      * @param { function } callback - The callback used to handle playback state changed event.
      * The callback function provides the {@link AVPlaybackState} parameter.
      * @throws { BusinessError } 401 - parameter check failed
@@ -1747,7 +1983,7 @@ declare namespace avSession {
 
     /**
      * Register current session destroyed callback
-     * @param { string } type
+     * @param { 'sessionDestroy' } type
      * @param { function } callback - The callback used to handle current session destroyed event.
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
@@ -1759,7 +1995,7 @@ declare namespace avSession {
 
     /**
      * Unregister current session destroyed callback
-     * @param { string } type - 'sessionDestroy'
+     * @param { 'sessionDestroy' } type - 'sessionDestroy'
      * @param { function } callback - The callback used to handle current session destroyed event.
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
@@ -1771,7 +2007,7 @@ declare namespace avSession {
 
     /**
      * Register the active state of this session changed callback
-     * @param { string } type - 'activeStateChange'
+     * @param { 'activeStateChange' } type - 'activeStateChange'
      * @param { function } callback - The callback used to handle the active state of this session changed event.
      * The callback function provides the changed session state.
      * @throws { BusinessError } 401 - parameter check failed
@@ -1784,7 +2020,7 @@ declare namespace avSession {
 
     /**
      * Unregister the active state of this session changed callback
-     * @param { string } type - 'activeStateChange'
+     * @param { 'activeStateChange' } type - 'activeStateChange'
      * @param { function } callback - The callback used to handle the active state of this session changed event.
      * The callback function provides the changed session state.
      * @throws { BusinessError } 401 - parameter check failed
@@ -1797,7 +2033,7 @@ declare namespace avSession {
 
     /**
      * Register the valid commands of the session changed callback
-     * @param { string } type - 'validCommandChange'
+     * @param { 'validCommandChange' } type - 'validCommandChange'
      * @param { function } callback - The callback used to handle the changes.
      * The callback function provides an array of AVControlCommandType.
      * @throws { BusinessError } 401 - parameter check failed
@@ -1810,7 +2046,7 @@ declare namespace avSession {
 
     /**
      * Unregister the valid commands of the session changed callback
-     * @param { string } type - 'validCommandChange'
+     * @param { 'validCommandChange' } type - 'validCommandChange'
      * @param { function } callback - The callback used to handle the changes.
      * The callback function provides an array of AVControlCommandType.
      * @throws { BusinessError } 401 - parameter check failed
@@ -1823,7 +2059,7 @@ declare namespace avSession {
 
     /**
      * Register session output device change callback
-     * @param { string } type - Registration Type
+     * @param { 'outputDeviceChange' } type - Registration Type
      * @param { function } callback - Used to handle output device changed.
      * The callback provides the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
@@ -1836,7 +2072,7 @@ declare namespace avSession {
 
     /**
      * Unregister session output device change callback
-     * @param { string } type - Registration Type
+     * @param { 'outputDeviceChange' } type - Registration Type
      * @param { function } callback - Used to handle output device changed.
      * The callback provides the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
@@ -1849,7 +2085,7 @@ declare namespace avSession {
 
     /**
      * Register session event callback
-     * @param { string } type - 'sessionEvent'
+     * @param { 'sessionEvent' } type - 'sessionEvent'
      * @param { function } callback - The callback used to handle session event changed event.
      * The callback function provides the event string and key-value pair parameters.
      * @throws { BusinessError } 401 - parameter check failed
@@ -1862,7 +2098,7 @@ declare namespace avSession {
 
     /**
      * Unregister session event callback
-     * @param { string } type - 'sessionEvent'
+     * @param { 'sessionEvent' } type - 'sessionEvent'
      * @param { function } callback - Used to cancel a specific listener
      * The callback function provides the event string and key-value pair parameters.
      * @throws { BusinessError } 401 - parameter check failed
@@ -1875,7 +2111,7 @@ declare namespace avSession {
 
     /**
      * Register session playlist change callback
-     * @param { string } type - Registration Type
+     * @param { 'queueItemsChange' } type - Registration Type
      * @param { function } callback - Used to handle playlist changed.
      * The callback provides the new array of AVQueueItem {@link AVQueueItem}
      * @throws { BusinessError } 401 - parameter check failed
@@ -1888,7 +2124,7 @@ declare namespace avSession {
 
     /**
      * Unregister session playlist change callback
-     * @param { string } type - Registration Type
+     * @param { 'queueItemsChange' } type - Registration Type
      * @param { function } callback - Used to handle playlist changed.
      * The callback provides the new array of AVQueueItem {@link AVQueueItem}
      * @throws { BusinessError } 401 - parameter check failed
@@ -1901,7 +2137,7 @@ declare namespace avSession {
 
     /**
      * Register the name of session playlist change callback
-     * @param { string } type - Registration Type
+     * @param { 'queueTitleChange' } type - Registration Type
      * @param { function } callback - Used to handle name of playlist changed.
      * The callback provides the new name.
      * @throws { BusinessError } 401 - parameter check failed
@@ -1914,7 +2150,7 @@ declare namespace avSession {
 
     /**
      * Unregister the name of session playlist change callback
-     * @param { string } type - Registration Type
+     * @param { 'queueTitleChange' } type - Registration Type
      * @param { function } callback - Used to handle name of playlist changed.
      * The callback provides the new name.
      * @throws { BusinessError } 401 - parameter check failed
@@ -1927,7 +2163,7 @@ declare namespace avSession {
 
     /**
      * Register the custom media packets change callback
-     * @param { string } type - Registration Type
+     * @param { 'extrasChange' } type - Registration Type
      * @param { function } callback - Used to handle custom media packets changed.
      * The callback provides the new media packets.
      * @throws { BusinessError } 401 - parameter check failed
@@ -1940,7 +2176,7 @@ declare namespace avSession {
 
     /**
      * Unregister the custom media packets change callback
-     * @param { string } type - Registration Type
+     * @param { 'extrasChange' } type - Registration Type
      * @param { function } callback - Used to handle custom media packets changed.
      * The callback provides the new media packets.
      * @throws { BusinessError } 401 - parameter check failed
