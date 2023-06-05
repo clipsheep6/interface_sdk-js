@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./basic";
-import connection from "./@ohos.net.connection";
+import { AsyncCallback, Callback } from './basic';
+import connection from './@ohos.net.connection';
 
 /**
  * Provides interfaces to manage network policy rules.
@@ -385,7 +385,7 @@ declare namespace policy {
    */
   function updateRemindPolicy(netType: NetBearType, simId: string, remindType: RemindType, callback: AsyncCallback<void>): void;
 
-   /**
+  /**
    * Update the limit or warning remind time of quota policy.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { NetBearType } simId Specify the matched simId of quota policy when netType is cellular.
@@ -614,7 +614,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: "netUidPolicyChange", callback: Callback<{ uid: number, policy: NetUidPolicy }>): void;
+  function on(type: 'netUidPolicyChange', callback: Callback<{ uid: number, policy: NetUidPolicy }>): void;
 
   /**
    * Unregister uid policy change listener.
@@ -625,7 +625,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: "netUidPolicyChange", callback?: Callback<{ uid: number, policy: NetUidPolicy }>): void;
+  function off(type: 'netUidPolicyChange', callback?: Callback<{ uid: number, policy: NetUidPolicy }>): void;
 
   /**
    * Register uid rule change listener.
@@ -636,7 +636,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: "netUidRuleChange", callback: Callback<{ uid: number, rule: NetUidRule }>): void;
+  function on(type: 'netUidRuleChange', callback: Callback<{ uid: number, rule: NetUidRule }>): void;
 
   /**
    * Unregister uid rule change listener.
@@ -647,7 +647,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: "netUidRuleChange", callback?: Callback<{ uid: number, rule: NetUidRule }>): void;
+  function off(type: 'netUidRuleChange', callback?: Callback<{ uid: number, rule: NetUidRule }>): void;
 
   /**
    * Register metered ifaces change listener.
@@ -658,7 +658,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: "netMeteredIfacesChange", callback: Callback<Array<string>>): void;
+  function on(type: 'netMeteredIfacesChange', callback: Callback<Array<string>>): void;
 
   /**
    * Unregister metered ifaces change listener.
@@ -669,7 +669,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: "netMeteredIfacesChange", callback?: Callback<Array<string>>): void;
+  function off(type: 'netMeteredIfacesChange', callback?: Callback<Array<string>>): void;
 
   /**
    * Register quota policies change listener.
@@ -680,7 +680,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: "netQuotaPolicyChange", callback: Callback<Array<NetQuotaPolicy>>): void;
+  function on(type: 'netQuotaPolicyChange', callback: Callback<Array<NetQuotaPolicy>>): void;
 
   /**
    * Unregister quota policies change listener.
@@ -691,7 +691,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: "netQuotaPolicyChange", callback?: Callback<Array<NetQuotaPolicy>>): void;
+  function off(type: 'netQuotaPolicyChange', callback?: Callback<Array<NetQuotaPolicy>>): void;
 
   /**
    * Register network background policy change listener.
@@ -702,7 +702,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: "netBackgroundPolicyChange", callback: Callback<boolean>): void;
+  function on(type: 'netBackgroundPolicyChange', callback: Callback<boolean>): void;
 
   /**
    * Unregister network background policy change listener.
@@ -713,7 +713,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: "netBackgroundPolicyChange", callback?: Callback<boolean>): void;
+  function off(type: 'netBackgroundPolicyChange', callback?: Callback<boolean>): void;
 
   /**
    * Indicate whether the application can use metered networks in background.
