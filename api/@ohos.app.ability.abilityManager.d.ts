@@ -185,6 +185,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModeOnly
+   * @systemapi
    * @since 10
    */
   function notifySaveAsResult(parameter: AbilityResult, requestCode: number, callback: AsyncCallback<void>): void;
