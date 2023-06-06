@@ -547,7 +547,7 @@ declare namespace intelligentVoice {
      */
     getParameter(key: string): Promise<string>;
     /**
-     * Releases engine, This method uses an asynchronous callback to return the result.
+     * Releases the engine, This method uses an asynchronous callback to return the result.
      * @param callback Callback used to return the result.
      * @since 10
      * @syscap SystemCapability.Ai.IntelligentVoice.Core
@@ -555,7 +555,7 @@ declare namespace intelligentVoice {
      */
     release(callback: AsyncCallback<void>): void;
     /**
-     * Releases engine, This method uses a promise to return the result.
+     * Releases the engine, This method uses a promise to return the result.
      * @returns Promise used to return the result.
      * @since 10
      * @syscap SystemCapability.Ai.IntelligentVoice.Core
@@ -661,7 +661,7 @@ declare namespace intelligentVoice {
      */
     getParameter(key: string): Promise<string>;
     /**
-     * Releases engine, This method uses an asynchronous callback to return the result.
+     * Releases the engine, This method uses an asynchronous callback to return the result.
      * @param callback Callback used to return the result.
      * @since 10
      * @syscap SystemCapability.Ai.IntelligentVoice.Core
@@ -669,7 +669,7 @@ declare namespace intelligentVoice {
      */
     release(callback: AsyncCallback<void>): void;
     /**
-     * Releases engine, This method uses a promise to return the result.
+     * Releases the engine, This method uses a promise to return the result.
      * @returns Promise used to return the result.
      * @since 10
      * @syscap SystemCapability.Ai.IntelligentVoice.Core
