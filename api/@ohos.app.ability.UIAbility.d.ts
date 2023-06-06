@@ -461,4 +461,15 @@ export default class UIAbility extends Ability {
    * @since 10
    */
   onShare(wantParam: { [key: string]: Object }): void;
+
+  /**
+   * Called back when back press is dispatched.
+   *
+   * @returns { boolean } Returns {@code true} means the ability will move to background when back is pressed;
+   *          Returns {@code false} means the ability will be destroyed when back is pressed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @since 10
+   */
+   onInterceptBackPressed(): boolean;
 }
