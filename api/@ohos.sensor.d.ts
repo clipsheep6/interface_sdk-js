@@ -65,6 +65,13 @@ declare namespace sensor {
     BAROMETER = 8,
 
     /**
+     * Temperature sensor.
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 10
+     */
+    TEMPERATURE = 9,
+
+    /**
      * Hall effect sensor.
      * @syscap SystemCapability.Sensors.Sensor
      * @since 9
@@ -325,6 +332,19 @@ declare namespace sensor {
    * @since 9
    */
   function on(type: SensorId.HUMIDITY, callback: Callback<HumidityResponse>,
+    options?: Options): void;
+
+  /**
+   * Subscribe to temperature sensor data.
+   * @param { SensorId.TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.TEMPERATURE}.
+   * @param { Callback<TemperatureResponse> } callback - callback temperature data.
+   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 10
+   */
+  function on(type: SensorId.TEMPERATURE, callback: Callback<TemperatureResponse>,
     options?: Options): void;
 
   /**
@@ -594,6 +614,17 @@ declare namespace sensor {
   function once(type: SensorId.HUMIDITY, callback: Callback<HumidityResponse>): void;
 
   /**
+   * Subscribe to temperature sensor data once.
+   * @param { SensorId.TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.TEMPERATURE}.
+   * @param { Callback<TemperatureResponse> } callback - callback temperature data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14500101 - Service exception.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 10
+   */
+  function once(type: SensorId.TEMPERATURE, callback: Callback<TemperatureResponse>): void;
+
+  /**
    * Subscribe to linear acceleration sensor data once.
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.LINEAR_ACCELEROMETER } type - Indicate the sensor type to listen for, {@code SensorId.LINEAR_ACCELEROMETER}.
@@ -830,6 +861,16 @@ declare namespace sensor {
    * @since 9
    */
   function off(type: SensorId.HUMIDITY, callback?: Callback<HumidityResponse>): void;
+
+  /**
+   * Unsubscribe to temperature sensor data.
+   * @param { SensorId.TEMPERATURE } type - Indicate the sensor type to listen for, {@code SensorId.TEMPERATURE}.
+   * @param { Callback<TemperatureResponse> } callback - callback temperature data.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 10
+   */
+  function off(type: SensorId.TEMPERATURE, callback?: Callback<TemperatureResponse>): void;
 
   /**
    * Unsubscribe to linear acceleration sensor data.
@@ -3163,6 +3204,22 @@ declare namespace sensor {
      * @since 8
      */
     humidity: number;
+  }
+
+  /**
+   * Temperature sensor event data.
+   * @typedef TemperatureResponse
+   * @syscap SystemCapability.Sensors.Sensor
+   * @since 10
+   */
+  interface TemperatureResponse extends Response {
+    /**
+     * Indicates the number of temperature.
+     * @type { number }
+     * @syscap SystemCapability.Sensors.Sensor
+     * @since 10
+     */
+    temperature: number;
   }
 
   /**
