@@ -1484,7 +1484,8 @@ declare namespace audio {
      * @param { Callback<VolumeEvent> } callback - Callback used to get the system volume change event.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
-     * @since 9
+     * @since 8
+     * @deprecated since 9
      * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:volumeChange
      */
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
