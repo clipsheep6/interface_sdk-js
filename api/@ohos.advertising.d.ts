@@ -33,7 +33,7 @@ declare namespace advertising {
    */
   export interface AdRequestParams {
     /**
-     * @argument adId the advertisement slot id.
+     * @argument adIds the advertisement slot ids.
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
