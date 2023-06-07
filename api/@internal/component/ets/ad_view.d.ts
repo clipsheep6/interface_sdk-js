@@ -26,7 +26,7 @@ interface AdViewInterface {
   /**
    * Create AdView Component with listener.
    * @param ads - The ads to display
-   * @param option - The interaction options info for displaying an ad
+   * @param options - The interaction options info for displaying an ad
    * @param adListener - The interaction listener to be registered that use to show ad
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
