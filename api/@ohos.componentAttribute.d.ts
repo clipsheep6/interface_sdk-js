@@ -69,31 +69,31 @@ declare namespace componentAttribute {
      * @syscap ComponentRect.
      * @since 10
      */
-    export class ComponentRect {
+    export interface ComponentRect {
         /**
          * Obtain property information relative to the parent component.
          * @return RectAttribute.
          * @since 10
          */
-        getComponentRect: RectAttribute
+        size: Size
         /**
          * Obtain attribute information relative to the window.
          * @return OffsetAttribute.
          * @since 10
          */
-        getOffsetToWindow: OffsetAttribute
+        localOffset: Offset
         /**
          * Obtain attribute information relative to the screen.
          * @return OffsetAttribute.
          * @since 10
          */
-        getOffsetToScreen: OffsetAttribute
+        screenOffset: Offset
         /**
          * Obtain attribute information of the transformation matrix.
          * @return RectAttribute.
          * @since 10
          */
-        getRectMatrix: RectAttribute
+        matrix: Matrix4
     }
     /**
      * Provide the ability to obtain the coordinates and size of component drawing areas.
