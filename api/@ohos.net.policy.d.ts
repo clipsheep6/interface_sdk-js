@@ -740,7 +740,7 @@ declare namespace policy {
 
     /**
      * Net quota policy the content of the policy that needs to be set.
-     * @type {string}
+     * @type {QuotaPolicy}
      * @since 10
      */
     quotaPolicy: QuotaPolicy;
