@@ -28,8 +28,8 @@ declare namespace policy {
   /**
    * Control if applications can use data on background.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { boolean } isAllowed Allow applications to use data on background.
-   * @param { AsyncCallback<void> } callback Returns the setBackgroundAllowed.
+   * @param { boolean } isAllowed - Allow applications to use data on background.
+   * @param { AsyncCallback<void> } callback - Returns the setBackgroundAllowed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -45,7 +45,7 @@ declare namespace policy {
   /**
    * Control if applications can use data on background.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { boolean } isAllowed Allow applications to use data on background.
+   * @param { boolean } isAllowed - Allow applications to use data on background.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -62,7 +62,7 @@ declare namespace policy {
   /**
    * Get the status if applications can use data on background.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { AsyncCallback<boolean> } callback Returns that it's allowed or not to use data on background.
+   * @param { AsyncCallback<boolean> } callback - Returns that it's allowed or not to use data on background.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -94,8 +94,8 @@ declare namespace policy {
   /**
    * Get the background network restriction policy for the specified uid.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid The specified UID of application.
-   * @param { AsyncCallback<NetBackgroundPolicy> } callback Returns the getBackgroundPolicyByUid.
+   * @param { number } uid - The specified UID of application.
+   * @param { AsyncCallback<NetBackgroundPolicy> } callback - Returns the getBackgroundPolicyByUid.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -111,7 +111,7 @@ declare namespace policy {
   /**
    * Get the background network restriction policy for the specified uid.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid The specified UID of application.
+   * @param { number } uid - The specified UID of application.
    * @returns { Promise<NetBackgroundPolicy> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -128,8 +128,9 @@ declare namespace policy {
   /**
    * Set the policy for the specified UID.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid the specified UID of application.
-   * @param { NetUidPolicy } policy the policy of the current UID of application.For details, see {@link NetUidPolicy}.
+   * @param { number } uid - the specified UID of application.
+   * @param { NetUidPolicy } policy - the policy of the current UID of application.For details, see {@link NetUidPolicy}.
+   * @param { AsyncCallback<void> } callback - Returns the setPolicyByUid.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -146,8 +147,8 @@ declare namespace policy {
   /**
    * Set the policy for the specified UID.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid the specified UID of application.
-   * @param { NetUidPolicy } policy the policy of the current UID of application.For details, see {@link NetUidPolicy}.
+   * @param { number } uid - the specified UID of application.
+   * @param { NetUidPolicy } policy - the policy of the current UID of application.For details, see {@link NetUidPolicy}.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -164,8 +165,8 @@ declare namespace policy {
   /**
    * Query the policy of the specified UID.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid the specified UID of application.
-   * @param { AsyncCallback<NetUidPolicy> } callback Returns the getPolicyByUid.
+   * @param { number } uid - the specified UID of application.
+   * @param { AsyncCallback<NetUidPolicy> } callback - Returns the getPolicyByUid.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -181,7 +182,7 @@ declare namespace policy {
   /**
    * Query the policy of the specified UID.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid the specified UID of application.
+   * @param { number } uid - the specified UID of application.
    * @returns { Promise<NetUidPolicy> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -198,8 +199,8 @@ declare namespace policy {
   /**
    * Query the application UIDs of the specified policy.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetUidPolicy } policy the policy of the current UID of application.For details, see {@link NetUidPolicy}.
-   * @param { AsyncCallback<Array<number>> } callback Returns the getUidsByPolicy.
+   * @param { NetUidPolicy } policy - the policy of the current UID of application.For details, see {@link NetUidPolicy}.
+   * @param { AsyncCallback<Array<number>> } callback - Returns the getUidsByPolicy.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -215,7 +216,7 @@ declare namespace policy {
   /**
    * Query the application UIDs of the specified policy.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetUidPolicy } policy the policy of the current UID of application.For details, see {@link NetUidPolicy}.
+   * @param { NetUidPolicy } policy - the policy of the current UID of application.For details, see {@link NetUidPolicy}.
    * @returns { Promise<Array<number>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -232,9 +233,9 @@ declare namespace policy {
   /**
    * Get the status whether the specified uid app can access the metered network or non-metered network.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid The specified UID of application.
-   * @param { boolean } isMetered Indicates metered network or non-metered network.
-   * @param { AsyncCallback<boolean> } callback Returns the isUidNetAllowed.
+   * @param { number } uid - The specified UID of application.
+   * @param { boolean } isMetered - Indicates metered network or non-metered network.
+   * @param { AsyncCallback<boolean> } callback - Returns the isUidNetAllowed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -250,8 +251,8 @@ declare namespace policy {
   /**
    * Get the status whether the specified uid app can access the metered network or non-metered network.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid The specified UID of application.
-   * @param { boolean } isMetered Indicates metered network or non-metered network.
+   * @param { number } uid - The specified UID of application.
+   * @param { boolean } isMetered - Indicates metered network or non-metered network.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -268,9 +269,9 @@ declare namespace policy {
   /**
    * Get the status whether the specified uid app can access the specified iface network.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid The specified UID of application.
-   * @param { string } iface Iface name.
-   * @param { AsyncCallback<boolean> } callback Returns the isUidNetAllowed.
+   * @param { number } uid - The specified UID of application.
+   * @param { string } iface - Iface name.
+   * @param { AsyncCallback<boolean> } callback - Returns the isUidNetAllowed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -286,8 +287,8 @@ declare namespace policy {
   /**
    * Get the status whether the specified uid app can access the specified iface network.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid The specified UID of application.
-   * @param { string } iface Iface name.
+   * @param { number } uid - The specified UID of application.
+   * @param { string } iface - Iface name.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -304,8 +305,8 @@ declare namespace policy {
   /**
    * Set network policies.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<NetQuotaPolicy> } quotaPolicies Indicates {@link NetQuotaPolicy}.
-   * @param { AsyncCallback<void> } callback Returns the setNetQuotaPolicies.
+   * @param { Array<NetQuotaPolicy> } quotaPolicies - Indicates {@link NetQuotaPolicy}.
+   * @param { AsyncCallback<void> } callback - Returns the setNetQuotaPolicies.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -321,7 +322,7 @@ declare namespace policy {
   /**
    * Set network policies.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<NetQuotaPolicy> } quotaPolicies Indicates {@link NetQuotaPolicy}.
+   * @param { Array<NetQuotaPolicy> } quotaPolicies - Indicates {@link NetQuotaPolicy}.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -338,7 +339,7 @@ declare namespace policy {
   /**
    * Get network policies.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { AsyncCallback<Array<NetQuotaPolicy>> } callback Returns the UIDs of the getNetQuotaPolicies.
+   * @param { AsyncCallback<Array<NetQuotaPolicy>> } callback - Returns the UIDs of the getNetQuotaPolicies.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -369,10 +370,10 @@ declare namespace policy {
   /**
    * Update the limit or warning remind time of quota policy.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetBearType } simId Specify the matched simId of quota policy when netType is cellular.
-   * @param { string } netType {@link NetBearType}.
-   * @param { RemindType } RemindType {@link RemindType}.
-   * @param { AsyncCallback<void> } callback Returns the updateRemindPolicy.
+   * @param { NetBearType } simId - Specify the matched simId of quota policy when netType is cellular.
+   * @param { string } netType - {@link NetBearType}.
+   * @param { RemindType } RemindType - {@link RemindType}.
+   * @param { AsyncCallback<void> } callback - Returns the updateRemindPolicy.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -388,9 +389,9 @@ declare namespace policy {
   /**
    * Update the limit or warning remind time of quota policy.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetBearType } simId Specify the matched simId of quota policy when netType is cellular.
-   * @param { string } netType {@link NetBearType}.
-   * @param { RemindType } RemindType {@link RemindType}.
+   * @param { NetBearType } simId - Specify the matched simId of quota policy when netType is cellular.
+   * @param { string } netType - {@link NetBearType}.
+   * @param { RemindType } RemindType - {@link RemindType}.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -406,9 +407,9 @@ declare namespace policy {
   /**
    * Set the UID into device idle allow list.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<number> } uids The specified UID of application.
-   * @param { boolean } isAllowed The UID is into allow list or not.
-   * @param { AsyncCallback<void> } callback Returns the setDeviceIdleAllowList.
+   * @param { Array<number> } uids - The specified UID of application.
+   * @param { boolean } isAllowed - The UID is into allow list or not.
+   * @param { AsyncCallback<void> } callback - Returns the setDeviceIdleAllowList.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -424,8 +425,8 @@ declare namespace policy {
   /**
    * Set the UID into device idle allow list.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<number> } uids The specified UID of application.
-   * @param { boolean } isAllowed The UID is into allow list or not.
+   * @param { Array<number> } uids - The specified UID of application.
+   * @param { boolean } isAllowed - The UID is into allow list or not.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -442,7 +443,7 @@ declare namespace policy {
   /**
    * Get the allow list of in device idle mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { AsyncCallback<Array<number>> } callback Returns the list of UIDs.
+   * @param { AsyncCallback<Array<number>> } callback - Returns the list of UIDs.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -473,9 +474,9 @@ declare namespace policy {
   /**
    * Set the UID into power save allow list.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<number> } uids The specified UID of application.
-   * @param { boolean } isAllowed The UID is into allow list or not.
-   * @param { AsyncCallback<void> } callback Returns the setPowerSaveAllowList.
+   * @param { Array<number> } uids - The specified UID of application.
+   * @param { boolean } isAllowed - The UID is into allow list or not.
+   * @param { AsyncCallback<void> } callback - Returns the setPowerSaveAllowList.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -491,8 +492,8 @@ declare namespace policy {
   /**
    * Set the UID into power save allow list.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<number> } uids The specified UID of application.
-   * @param { boolean } isAllowed The UID is into allow list or not.
+   * @param { Array<number> } uids - The specified UID of application.
+   * @param { boolean } isAllowed - The UID is into allow list or not.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -509,7 +510,7 @@ declare namespace policy {
   /**
    * Get the allow list in power save mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { AsyncCallback<Array<number>> } callback Returns the list of UIDs.
+   * @param { AsyncCallback<Array<number>> } callback - Returns the list of UIDs.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -540,8 +541,8 @@ declare namespace policy {
   /**
    * Reset network policies\rules\quota policies\firewall rules.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { string } simId Specify the matched simId of quota policy.
-   * @param { AsyncCallback<void> } callback Returns the resetPolicies.
+   * @param { string } simId - Specify the matched simId of quota policy.
+   * @param { AsyncCallback<void> } callback - Returns the resetPolicies.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -557,7 +558,7 @@ declare namespace policy {
   /**
    * Reset network policies\rules\quota policies\firewall rules.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { string } simId Specify the matched simId of quota policy.
+   * @param { string } simId - Specify the matched simId of quota policy.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -572,44 +573,10 @@ declare namespace policy {
   function resetPolicies(simId: string): Promise<void>;
 
   /**
-   * Reset the specified network management policy.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { string } simId Indicates the specified sim that is valid when netType is cellular.
-   * @param { AsyncCallback<void> } callback Returns the restoreAllPolicies.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  function restoreAllPolicies(simId: string, callback: AsyncCallback<void>): void;
-
-  /**
-   * Reset the specified network management policy.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { string } simId Indicates the specified sim that is valid when netType is cellular.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  function restoreAllPolicies(simId: string): Promise<void>;
-
-  /**
    * Register uid policy change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { "netUidPolicyChange" } type Indicates Event name.
-   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback Returns the on.
+   * @param { 'netUidPolicyChange' } type - Indicates Event name.
+   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback - Returns the on.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -619,8 +586,8 @@ declare namespace policy {
   /**
    * Unregister uid policy change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { "netUidPolicyChange" } type Indicates Event name.
-   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback Returns the off.
+   * @param { 'netUidPolicyChange' } type - Indicates Event name.
+   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback - Returns the off.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -630,8 +597,8 @@ declare namespace policy {
   /**
    * Register uid rule change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { "netUidRuleChange" } type Indicates Event name.
-   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback Returns the on.
+   * @param { 'netUidRuleChange' } type - Indicates Event name.
+   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback - Returns the on.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -641,8 +608,8 @@ declare namespace policy {
   /**
    * Unregister uid rule change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { "netUidRuleChange" } type Indicates Event name.
-   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback Returns the off.
+   * @param { 'netUidRuleChange' } type - Indicates Event name.
+   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback - Returns the off.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -652,8 +619,8 @@ declare namespace policy {
   /**
    * Register metered ifaces change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { "netMeteredIfacesChange" } type Indicates Event name.
-   * @param { Callback<Array<string>> } callback Returns the on.
+   * @param { 'netMeteredIfacesChange' } type - Indicates Event name.
+   * @param { Callback<Array<string>> } callback - Returns the on.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -663,8 +630,8 @@ declare namespace policy {
   /**
    * Unregister metered ifaces change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { "netMeteredIfacesChange" } type Indicates Event name.
-   * @param { Callback<Array<string>> } callback Returns the off.
+   * @param { 'netMeteredIfacesChange' } type - Indicates Event name.
+   * @param { Callback<Array<string>> } callback - Returns the off.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -674,7 +641,7 @@ declare namespace policy {
   /**
    * Register quota policies change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { "netQuotaPolicyChange" } type Indicates Event name.
+   * @param { 'netQuotaPolicyChange' } type - Indicates Event name.
    * @param { Callback<Array<NetQuotaPolicy>> } callback Returns the on.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -685,8 +652,8 @@ declare namespace policy {
   /**
    * Unregister quota policies change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { "netQuotaPolicyChange" } type Indicates Event name.
-   * @param { Callback<Array<NetQuotaPolicy>> } callback Returns the off.
+   * @param { 'netQuotaPolicyChange' } type - Indicates Event name.
+   * @param { Callback<Array<NetQuotaPolicy>> } callback - Returns the off.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -696,8 +663,8 @@ declare namespace policy {
   /**
    * Register network background policy change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { "netBackgroundPolicyChange" } type Indicates Event name.
-   * @param { Callback<boolean> } callback Returns the on. 
+   * @param { 'netBackgroundPolicyChange' } type - Indicates Event name.
+   * @param { Callback<boolean> } callback - Returns the on. 
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -707,8 +674,8 @@ declare namespace policy {
   /**
    * Unregister network background policy change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { "netBackgroundPolicyChange" } type Indicates Event name.
-   * @param { Callback<boolean> } callback Returns the off.
+   * @param { 'netBackgroundPolicyChange' } type - Indicates Event name.
+   * @param { Callback<boolean> } callback - Returns the off.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
