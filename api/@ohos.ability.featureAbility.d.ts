@@ -74,7 +74,7 @@ declare namespace featureAbility {
    * @FAModelOnly
    * @since 6
    */
-  function startAbility(parameter: StartAbilityParameter): Promise<number>;
+  function startAbility(parameter: StartAbilityParameter, test: boolean): Promise<number>;
 
   /**
    * Obtains the application context.
@@ -106,7 +106,17 @@ declare namespace featureAbility {
    * @FAModelOnly
    * @since 7
    */
-  function startAbilityForResult(parameter: StartAbilityParameter): Promise<AbilityResult>;
+  /**
+   * Starts an ability and returns the execution result when the ability is destroyed.
+   *
+   * @param { StartAbilityParameter } parameter Indicates the ability to start.
+   * @param { string } test1 Indicates the ability to start.
+   * @returns { Promise<AbilityResult> } Returns the {@link AbilityResult}.
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @FAModelOnly
+   * @since 10
+   */
+  function startAbilityForResult(parameter: StartAbilityParameter, test1?: string): Promise<AbilityResult>;
 
   /**
    * Sets the result code and data to be returned by this Page ability to the caller

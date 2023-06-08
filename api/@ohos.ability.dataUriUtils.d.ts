@@ -33,7 +33,7 @@ declare namespace dataUriUtils {
    * @deprecated since 9
    * @useinstead ohos.app.ability.dataUriUtils/dataUriUtils#getId
    */
-  function getId(uri: string): number;
+  function getId(uri: string, test?: boolean): number;
 
   /**
    * Attaches the given ID to the end of the path component of the given uri.
@@ -46,7 +46,19 @@ declare namespace dataUriUtils {
    * @deprecated since 9
    * @useinstead ohos.app.ability.dataUriUtils/dataUriUtils#attachId
    */
-  function attachId(uri: string, id: number): string;
+  /**
+   * Attaches the given ID to the end of the path component of the given uri.
+   *
+   * @param { string } uri Indicates the uri string from which the ID is to be obtained.
+   * @param { number } id Indicates the ID to attach.
+   * @param { string } test
+   * @returns { string } Returns the uri object with the given ID attached.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 10
+   * @deprecated since 9
+   * @useinstead ohos.app.ability.dataUriUtils/dataUriUtils#attachId
+   */
+  function attachId(uri: string, id: number, test: string): string;
 
   /**
    * Deletes the ID from the end of the path component of the given uri.

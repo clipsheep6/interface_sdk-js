@@ -155,6 +155,10 @@ const ErrorType = {
   ILLEGAL_ANY: {
     id: 11,
     description: 'illegal any'
+  },
+  API_CHANGE_ERRORS: {
+    id: 11,
+    description: 'api change errors'
   }
 };
 exports.ErrorType = ErrorType;
