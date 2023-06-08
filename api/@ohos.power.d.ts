@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -127,7 +127,19 @@ declare namespace power {
    * @systemapi
    * @since 9
    */
-  function suspend(): void;
+
+  /**
+   * Suspends the device to turn off the screen.
+   *
+   * @param { boolean } isImmediate Indicates whether suspend the device immediately.
+   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 10
+   */
+  function suspend(isImmediate?: boolean): void;
+
 
   /**
    * Obtains the power mode of the current device. For details, see {@link DevicePowerMode}.
