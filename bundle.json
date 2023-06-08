@@ -14,9 +14,7 @@
     "component": {
         "name": "init",
         "subsystem": "startup",
-        "syscap": [
-            "SystemCapability.Startup.SystemInfo"
-        ],
+        "syscap": [],
         "adapted_system_type": [
             "standard"
         ],
