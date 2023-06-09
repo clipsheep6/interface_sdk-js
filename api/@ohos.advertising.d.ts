@@ -157,7 +157,7 @@ declare namespace advertising {
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    [key:string] : number | boolean | string | undefined;
+    [key:string]? : number | boolean | string | undefined;
   }
 
   export interface AdInteractionListener {
