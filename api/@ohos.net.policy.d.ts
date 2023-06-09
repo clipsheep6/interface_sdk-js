@@ -731,7 +731,7 @@ declare namespace policy {
    */
   export interface NetQuotaPolicy {
     /**
-     * identifies the type of network and sim card
+     * Rules For Network Matching.
      * @type {NetworkMatchRule}
      * @since 10
      */
@@ -745,6 +745,12 @@ declare namespace policy {
     quotaPolicy: QuotaPolicy;
   }
 
+  /**
+   * Net quota policy the content of the policy that needs to be set.
+   * @interface QuotaPolicy
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
   export interface QuotaPolicy {
     
     /**
@@ -797,6 +803,12 @@ declare namespace policy {
     limitAction: LimitAction;
   }
 
+  /**
+   * Rules For Network Matching.
+   * @interface NetworkMatchRule
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 10
+   */
   export interface NetworkMatchRule {
     /**
      * netType see {@link NetBearType}.
@@ -806,18 +818,18 @@ declare namespace policy {
     netType: NetBearType;
 
     /**
-     * The ID of the target card, valid when netType is BEARER_CELLULAR..
-     * @type {string}
-     * @since 10
-     */
-    simId: string;
-    
-    /**
      * To specify the identity of network, such as different WLAN.
      * @type {string}
      * @since 10
      */
     ident: string;
+
+    /**
+     * The ID of the target card, valid when netType is BEARER_CELLULAR..
+     * @type {string}
+     * @since 10
+     */
+    simId: string;
   }
 
   /**
