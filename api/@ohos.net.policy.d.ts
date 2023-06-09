@@ -302,7 +302,7 @@ declare namespace policy {
   function isUidNetAllowed(uid: number, iface: string): Promise<boolean>;
 
   /**
-   * Set network policies.
+   * Set metered network quota policies.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Array<NetQuotaPolicy> } quotaPolicies - Indicates {@link NetQuotaPolicy}.
    * @param { AsyncCallback<void> } callback - the callback of setNetQuotaPolicies.
@@ -319,7 +319,7 @@ declare namespace policy {
   function setNetQuotaPolicies(quotaPolicies: Array<NetQuotaPolicy>, callback: AsyncCallback<void>): void;
 
   /**
-   * Set network policies.
+   * Set metered network quota policies.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Array<NetQuotaPolicy> } quotaPolicies - Indicates {@link NetQuotaPolicy}.
    * @returns { Promise<void> } The promise returned by the function.
@@ -336,7 +336,7 @@ declare namespace policy {
   function setNetQuotaPolicies(quotaPolicies: Array<NetQuotaPolicy>): Promise<void>;
 
   /**
-   * Get network policies.
+   * Get metered network quota policies.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { AsyncCallback<Array<NetQuotaPolicy>> } callback - the callback of getNetQuotaPolicies.
    * @throws { BusinessError } 201 - Permission denied.
@@ -352,7 +352,7 @@ declare namespace policy {
   function getNetQuotaPolicies(callback: AsyncCallback<Array<NetQuotaPolicy>>): void;
 
   /**
-   * Get network policies.
+   * Get metered network quota policies.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @returns { Promise<Array<NetQuotaPolicy>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -732,10 +732,10 @@ declare namespace policy {
   export interface NetQuotaPolicy {
     /**
      * identifies the type of network and sim card
-     * @type {NetLogotype}
+     * @type {NetworkMatchRule}
      * @since 10
      */
-    netLogoType: NetLogoType;
+    networkMatchRule: NetworkMatchRule;
 
     /**
      * Net quota policy the content of the policy that needs to be set.
@@ -797,7 +797,7 @@ declare namespace policy {
     limitAction: LimitAction;
   }
 
-  export interface NetLogoType {
+  export interface NetworkMatchRule {
     /**
      * netType see {@link NetBearType}.
      * @type {NetBearType}
