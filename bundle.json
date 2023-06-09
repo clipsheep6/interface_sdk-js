@@ -7,7 +7,7 @@
     "repository": "https://gitee.com/openharmony/startup_init_lite",
     "publishAs": "code-segment",
     "segment": {
-        "destPath": "foundation/bundlemanager/bundle_framework_lite"
+        "destPath": "foundation/bundlemanager/bundle_framework_lite123"
     },
     "dirs": {},
     "scripts": {},
