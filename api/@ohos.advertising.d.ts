@@ -33,11 +33,11 @@ declare namespace advertising {
    */
   export interface AdRequestParams {
     /**
-     * @argument adIds the advertisement slot ids.
+     * @argument adId the advertisement slot id.
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    adIds: string[];
+    adId: string;
 
     /**
      * the advertisement type of request.
@@ -72,7 +72,7 @@ declare namespace advertising {
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    [key:string] : number | boolean | string | undefined;
+    [key:string]? : number | boolean | string | undefined;
   }
 
   /**
@@ -107,7 +107,7 @@ declare namespace advertising {
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    [key:string] : number | boolean | string | undefined;
+    [key:string]? : number | boolean | string | undefined;
   }
 
   /**
@@ -136,21 +136,21 @@ declare namespace advertising {
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    useMobileDataReminder: boolean;
+    useMobileDataReminder?: boolean;
 
     /**
      * indicates whether to mute the playback of the incentive ad video.
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    mute: boolean;
+    mute?: boolean;
 
     /**
      * the type of the scenario where the audio focus is obtained during video playback.
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    audioFocusType: number;
+    audioFocusType?: number;
 
     /**
      * the extended attributes for interaction options.
@@ -191,13 +191,11 @@ declare namespace advertising {
     /**
      * Called by system when the ad load has been successed.
      *
-     * @param { Map<string, Array<Advertisement>> } adMap - one or more advertisements are loaded successfully. The key
-     * is slot id, and the value is a list of advertisements
-     *
+     * @param { Advertisement[] } ads - advertisements are loaded successfully.
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    onAdLoadSuccess(adMap: Map<string, Array<Advertisement>>): void;
+    onAdLoadSuccess(ads: Array<Advertisement>): void;
   }
 
   /**
@@ -263,7 +261,7 @@ declare namespace advertising {
     /**
      * Load advertising.
      *
-     * @param { AdRequestParams } adParams - Indicates the parameters in the request for load ad.
+     * @param { AdRequestParams } adParam - Indicates the parameters in the request for load ad.
      * @param { AdOptions } adOptions - Indicates the global advertisement configuration.
      * @param { AdLoadListener } listener - Indicates the listener to be registered that use to load Ad.
      * @throws {BusinessError} 401 - Invalid input parameter.
@@ -272,7 +270,7 @@ declare namespace advertising {
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    loadAd(adParams: AdRequestParams, adOptions: AdOptions, listener: AdLoadListener): void;
+    loadAd(adParam: AdRequestParams, adOptions: AdOptions, listener: AdLoadListener): void;
   }
 }
 
