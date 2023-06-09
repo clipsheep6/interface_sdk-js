@@ -93,5 +93,5 @@ export interface Advertisement {
   /**
    * the extended attributes of advertisement.
    */
-  [key:string] : number | boolean | string | undefined;
+  [key:string]? : number | boolean | string | undefined;
 }
