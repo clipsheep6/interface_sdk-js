@@ -13,13 +13,13 @@
     "scripts": {},
     "component": {
         "name": "init",
-        "subsystem": "startup",
+        "subsystem": "startup23444444444444444444444444",
         "syscap": [],
         "adapted_system_type": [
             "standard"
         ],
-        "rom": "",
-        "ram": "",
+        "rom": "234234243",
+        "ram": "34343434343434",
         "deps": {
             "components": [
                 "startup",
