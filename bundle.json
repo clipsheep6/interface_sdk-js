@@ -13,7 +13,7 @@
     "scripts": {},
     "component": {
         "name": "init",
-        "subsystem": "startup23444444444444444444444444",
+        "subsystem": "bundlemanager",
         "syscap": [],
         "adapted_system_type": [
             "standard"
