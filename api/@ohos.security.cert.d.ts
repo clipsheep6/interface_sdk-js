@@ -330,7 +330,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @since 9
      * @deprecated since 10
-     * @useinstead ohos.security.cert.X509Cert.getSerialNumberBigInt
+     * @useinstead ohos.security.cert.X509Cert.getCertSerialNumber
      */
     getSerialNumber(): number;
 
@@ -343,7 +343,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @since 10
      */
-    getSerialNumberBigInt(): bigint;
+    getCertSerialNumber(): bigint;
 
     /**
      * Get X509 cert issuer name.
@@ -566,7 +566,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @since 9
      * @deprecated since 10
-     * @useinstead ohos.security.cert.X509CrlEntry.getSerialNumberBigInt
+     * @useinstead ohos.security.cert.X509CrlEntry.getCrlEntrySerialNumber
      */
     getSerialNumber(): number;
 
@@ -579,7 +579,7 @@ declare namespace cert {
      * @syscap SystemCapability.Security.Cert
      * @since 10
      */
-    getSerialNumberBigInt(): bigint;
+    getCrlEntrySerialNumber(): bigint;
 
     /**
      * Get the issuer of the x509 certificate described by this entry.
