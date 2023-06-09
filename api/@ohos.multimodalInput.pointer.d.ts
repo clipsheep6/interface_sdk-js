@@ -393,6 +393,18 @@ declare namespace pointer {
   }
 
   /**
+   * Defines image used for pointer icon drawing.
+   *
+   * @since 10
+   * @param style Style for which image is applied
+   * @param image (Path to?) Image used for pointer icon.
+   */
+  interface PointerImage {
+    style: PointerStyle;
+    image: string;
+  }
+
+  /**
    * Sets the pointer moving speed.
    *
    * @param { number } speed - Pointer moving speed, which is any number.
@@ -680,6 +692,75 @@ declare namespace pointer {
    * @since 10
    */
   function getMouseScrollRows(): Promise<number>;
+
+  /**
+   * Sets pointer icon size.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @param size Size of pointer icon.
+   * @param callback Callback used to return the result.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function setPointerSize(size: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets pointer icon size.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @param size Size of pointer icon.
+   * @returns Returns the result through a promise.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function setPointerSize(size: number): Promise<void>;
+
+  /**
+   * Gets pointer icon size.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @param callback Callback used to return the result.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function getPointerSize(callback: AsyncCallback<number>): void;
+
+  /**
+   * Gets pointer icon size.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @returns Returns the result through a promise.
+   */
+  function getPointerSize(): Promise<number>;
+
+  /**
+   * Sets pointer icon images.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @param images Images to set for pointer icon
+   * @param callback Callback used to return the result.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function setPointerImages(images: Array<PointerImage>, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets pointer icon images.
+   *
+   * @since 10
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @param images Images to set for pointer icon
+   * @returns Returns the result through a promise.
+   * @throws {BusinessError} 401 - Parameter error.
+   */
+  function setPointerImages(images: Array<PointerImage>): Promise<void>;
 }
 
 export default pointer;
