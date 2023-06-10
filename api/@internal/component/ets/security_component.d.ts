@@ -39,31 +39,6 @@ declare enum SecurityComponentLayoutDirection {
 }
 
 /**
- * Enumerates the relative position of the icon and text.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
- */
-declare enum SecurityComponentLayoutOrder {
-  /**
-   * The icon will be placed on the left in horizontal layout and on the top in vertical layout.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  ICON_FIRST = 0,
-
-  /**
-   * The text will be placed on the left in horizontal layout and on the top in vertical layout.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  TEXT_FIRST = 1
-}
-
-/**
  * Defines the attributes of a security component.
  *
  * @typedef SecurityComponentAttribute
@@ -90,16 +65,6 @@ declare interface SecurityComponentAttribute {
    * @since 10
    */
   layoutDirection(value: SecurityComponentLayoutDirection): SecurityComponentAttribute;
-
-  /**
-   * Layout order of the icon and text.
-   *
-   * @param { SecurityComponentLayoutOrder } value - Indicates the layout order of the icon and text.
-   * @returns { SecurityComponentAttribute } Returns the attribute of the security component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  layoutOrder(value: SecurityComponentLayoutOrder): SecurityComponentAttribute;
 
   /**
    * Position of the security component.
