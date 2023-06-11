@@ -651,51 +651,51 @@ declare namespace audio {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 7
+   * @deprecated since 10
    */
   enum ContentType {
     /**
      * Unknown content.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 10
      */
     CONTENT_TYPE_UNKNOWN = 0,
     /**
      * Speech content.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 10
      */
     CONTENT_TYPE_SPEECH = 1,
     /**
      * Music content.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 10
      */
     CONTENT_TYPE_MUSIC = 2,
     /**
      * Movie content.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 10
      */
     CONTENT_TYPE_MOVIE = 3,
     /**
      * Notification content.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
+     * @deprecated since 10
      */
     CONTENT_TYPE_SONIFICATION = 4,
     /**
      * Ringtone content.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
+     * @deprecated since 10
      */
     CONTENT_TYPE_RINGTONE = 5,
-    /**
-     * Ultrasonic content.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @since 10
-     */
-    CONTENT_TYPE_ULTRASONIC = 9
   }
 
   /**
@@ -818,7 +818,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
-    content: ContentType;
+    content?: ContentType;
     /**
      * Stream usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
