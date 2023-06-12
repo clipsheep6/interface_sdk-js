@@ -92,7 +92,7 @@ declare namespace policy {
   function isBackgroundAllowed(): Promise<boolean>;
 
   /**
-   * Get the background network restriction policy for the specified uid.
+   * Get the background network policy for the specified uid.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { number } uid - The specified UID of application.
    * @param { AsyncCallback<NetBackgroundPolicy> } callback - the callback of getBackgroundPolicyByUid.
@@ -109,7 +109,7 @@ declare namespace policy {
   function getBackgroundPolicyByUid(uid: number, callback: AsyncCallback<NetBackgroundPolicy>): void;
 
   /**
-   * Get the background network restriction policy for the specified uid.
+   * Get the background network policy for the specified uid.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { number } uid - The specified UID of application.
    * @returns { Promise<NetBackgroundPolicy> } The promise returned by the function.
@@ -266,10 +266,10 @@ declare namespace policy {
   function isUidNetAllowed(uid: number, isMetered: boolean): Promise<boolean>;
 
   /**
-   * Get the status of whether the specified uid can access the specified iface network.
+   * Get the status of whether the specified uid can access the specified network.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { number } uid - The specified UID of application.
-   * @param { string } iface - Iface name.
+   * @param { string } iface - The specified network interface name.
    * @param { AsyncCallback<boolean> } callback - the callback of isUidNetAllowed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -284,10 +284,10 @@ declare namespace policy {
   function isUidNetAllowed(uid: number, iface: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get the status of whether the specified uid can access the specified iface network.
+   * Get the status of whether the specified uid can access the specified network.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { number } uid - The specified UID of application.
-   * @param { string } iface - Iface name.
+   * @param { string } iface - The specified network interface name.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -367,11 +367,11 @@ declare namespace policy {
   function getNetQuotaPolicies(): Promise<Array<NetQuotaPolicy>>;
 
   /**
-   * Update the limit or warning reminder time of the quota policy.
+   * Update the policy when the quota reaches the upper limit.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetBearType } simId - Specify the matched simId of quota policy when netType is cellular.
-   * @param { string } netType - {@link NetBearType}.
-   * @param { RemindType } RemindType - {@link RemindType}.
+   * @param { NetBearType } netType - {@link NetBearType}.
+   * @param { string } simId - Specify the matched simId of quota policy when netType is cellular.
+   * @param { RemindType } remindType - {@link RemindType}.
    * @param { AsyncCallback<void> } callback - the callback of updateRemindPolicy.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -386,11 +386,11 @@ declare namespace policy {
   function updateRemindPolicy(netType: NetBearType, simId: string, remindType: RemindType, callback: AsyncCallback<void>): void;
 
   /**
-   * Update the limit or warning reminder time of the quota policy.
+   * Update the policy when the quota reaches the upper limit.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetBearType } simId - Specify the matched simId of quota policy when netType is cellular.
-   * @param { string } netType - {@link NetBearType}.
-   * @param { RemindType } RemindType - {@link RemindType}.
+   * @param { NetBearType } netType - {@link NetBearType}.
+   * @param { string } simId - Specify the matched simId of quota policy when netType is cellular.
+   * @param { RemindType } remindType - {@link RemindType}.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -755,7 +755,7 @@ declare namespace policy {
   export interface QuotaPolicy {
     
     /**
-     * The period and the start time for quota policy, default: "M1".
+     * The period and the start time for quota policy, default: "M1"(Monthly cycle).
      * @type {string}
      * @since 10
      */
@@ -776,14 +776,14 @@ declare namespace policy {
     limitBytes: number;
 
     /**
-     * The updated wall time that last warning remind, default: REMIND_NEVER.
+     * The time of the last warning, default: REMIND_NEVER.
      * @type {number}
      * @since 10
      */
     lastWarningRemind: number;
 
     /**
-     * The updated wall time that last limit remind, default: REMIND_NEVER.
+     * The time of the last reminder, default: REMIND_NEVER.
      * @type {number}
      * @since 10
      */
