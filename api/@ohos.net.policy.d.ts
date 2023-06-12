@@ -28,7 +28,7 @@ declare namespace policy {
   /**
    * Set whether the application can access the Internet in background mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { boolean } isAllowed - Allow applications to use data in the background.
+   * @param { boolean } isAllowed - Whether to allow applications to use data in the background.
    * @param { AsyncCallback<void> } callback - the callback of setBackgroundAllowed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -45,7 +45,7 @@ declare namespace policy {
   /**
    * Set whether the application can access the Internet in background mode
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { boolean } isAllowed - Allow applications to use data in the background.
+   * @param { boolean } isAllowed - Whether to allow applications to use data in the background.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -407,8 +407,8 @@ declare namespace policy {
   /**
    * Set the Internet access policy of the uid in hibernation mode. 
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<number> } uids - The specified UID of application.
-   * @param { boolean } isAllowed - The UID is into allow list or not.
+   * @param { Array<number> } uids - The specified uids of application.
+   * @param { boolean } isAllowed - Whether to allow Uids in the list to access the Internet.
    * @param { AsyncCallback<void> } callback - the callback of setDeviceIdleTrustlist.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -425,8 +425,8 @@ declare namespace policy {
   /**
    * Set the Internet access policy of the uid in hibernation mode. 
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<number> } uids - The specified UID of application.
-   * @param { boolean } isAllowed - The UID is into allow list or not.
+   * @param { Array<number> } uids - The specified uids of application.
+   * @param { boolean } isAllowed - Whether to allow Uids in the list to access the Internet.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -474,8 +474,8 @@ declare namespace policy {
   /**
    * Set the list of Uids that are allowed to access the Internet in power saving mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<number> } uids - The specified UID of application.
-   * @param { boolean } isAllowed - The UID is into allow list or not.
+   * @param { Array<number> } uids - The specified uids of application.
+   * @param { boolean } isAllowed - Whether to allow Uids in the list to access the Internet.
    * @param { AsyncCallback<void> } callback - the callback of setPowerSaveTrustlist.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -492,8 +492,8 @@ declare namespace policy {
   /**
    * Set the list of Uids that are allowed to access the Internet in power saving mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<number> } uids - The specified UID of application.
-   * @param { boolean } isAllowed - The UID is into allow list or not.
+   * @param { Array<number> } uids - The specified uids of application.
+   * @param { boolean } isAllowed - Whether to allow Uids in the list to access the Internet.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
