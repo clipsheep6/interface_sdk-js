@@ -184,7 +184,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModeOnly
+   * @StageModelOnly
    * @systemapi
    * @since 10
    */
@@ -198,7 +198,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModeOnly
+   * @StageModelOnly
    * @systemapi
    * @since 10
    */
