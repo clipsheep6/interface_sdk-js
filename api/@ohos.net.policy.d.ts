@@ -26,9 +26,9 @@ declare namespace policy {
   type NetBearType = connection.NetBearType;
 
   /**
-   * Set whether the application can access the Internet in background mode.
+   * Control if applications can use data on background.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { boolean } isAllowed - Whether to allow applications to use data in the background.
+   * @param { boolean } isAllowed - Allow applications to use data on background.
    * @param { AsyncCallback<void> } callback - the callback of setBackgroundAllowed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -43,9 +43,9 @@ declare namespace policy {
   function setBackgroundAllowed(isAllowed: boolean, callback: AsyncCallback<void>): void;
   
   /**
-   * Set whether the application can access the Internet in background mode
+   * Control if applications can use data on background.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { boolean } isAllowed - Whether to allow applications to use data in the background.
+   * @param { boolean } isAllowed - Allow applications to use data on background.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -60,7 +60,7 @@ declare namespace policy {
   function setBackgroundAllowed(isAllowed: boolean): Promise<void>;
 
   /**
-   * Get whether the application can surf the Internet in the background.
+   * Get the status if applications can use data on background.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { AsyncCallback<boolean> } callback - the callback of allowed or not to use data on background.
    * @throws { BusinessError } 201 - Permission denied.
@@ -76,7 +76,7 @@ declare namespace policy {
   function isBackgroundAllowed(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get whether the application can surf the Internet in the background.
+   * Get the status if applications can use data on background.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -230,7 +230,7 @@ declare namespace policy {
   function getUidsByPolicy(policy: NetUidPolicy): Promise<Array<number>>;
 
   /**
-   * Get the status whether the specified uid app can access the metered network or non-metered network.
+   * Get the status whether the uid app can access the metered network or non-metered network.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { number } uid - The specified UID of application.
    * @param { boolean } isMetered - Indicates metered network or non-metered network.
@@ -248,7 +248,7 @@ declare namespace policy {
   function isUidNetAllowed(uid: number, isMetered: boolean, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get the status whether the specified uid app can access the metered network or non-metered network.
+   * Get the status whether the uid app can access the metered network or non-metered network.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { number } uid - The specified UID of application.
    * @param { boolean } isMetered - Indicates metered network or non-metered network.
@@ -732,7 +732,7 @@ declare namespace policy {
    */
   export interface NetQuotaPolicy {
     /**
-     * The quota policy matches the network rules.
+     * Matches the rules of the network.
      * @type {NetworkMatchRule}
      * @since 10
      */
@@ -755,7 +755,7 @@ declare namespace policy {
   export interface QuotaPolicy {
     
     /**
-     * The period and the start time for quota policy, default: "M1"(Monthly cycle).
+     * The period and the start time for quota policy, default: "M1" (Monthly cycle).
      * @type {string}
      * @since 10
      */
@@ -805,7 +805,7 @@ declare namespace policy {
   }
 
   /**
-   * The quota policy matches the network rules.
+   * Matches the rules of the network.
    * @interface NetworkMatchRule
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -858,7 +858,7 @@ declare namespace policy {
     LIMIT_ACTION_DISABLE = 0,
 
     /**
-     * when the quota policy reaches the limit the user is automatically belled.
+     * When the quota policy reaches the upper limit, the system automatically alerts users.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -867,7 +867,7 @@ declare namespace policy {
   }
 
   /**
-   * Whether uid can access the rules of a metered or non-metered network
+   * Rules whether an uid can access to a metered or non-metered network.
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -926,14 +926,14 @@ declare namespace policy {
    */
   export enum RemindType {
     /**
-     * Warning remind.
+     * Warning alerts when the limit is reached.
      * @systemapi Hide this for inner system use.
      * @since 10
      */
     REMIND_TYPE_WARNING = 1,
 
     /**
-     * Limit remind.
+     * Limit alerts when the limit is reached.
      * @systemapi Hide this for inner system use.
      * @since 10
      */
