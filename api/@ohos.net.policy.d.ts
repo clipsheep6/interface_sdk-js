@@ -26,7 +26,7 @@ declare namespace policy {
   type NetBearType = connection.NetBearType;
 
   /**
-   * Control if applications can use data on background.
+   * Set whether the application can access the Internet in background mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { boolean } isAllowed - Allow applications to use data in the background.
    * @param { AsyncCallback<void> } callback - the callback of setBackgroundAllowed.
@@ -43,7 +43,7 @@ declare namespace policy {
   function setBackgroundAllowed(isAllowed: boolean, callback: AsyncCallback<void>): void;
   
   /**
-   * Control if applications can use data on background.
+   * Set whether the application can access the Internet in background mode
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { boolean } isAllowed - Allow applications to use data in the background.
    * @returns { Promise<void> } The promise returned by the function.
@@ -60,7 +60,7 @@ declare namespace policy {
   function setBackgroundAllowed(isAllowed: boolean): Promise<void>;
 
   /**
-   * Get the status if applications can use data on background.
+   * Get whether the application can surf the Internet in the background.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { AsyncCallback<boolean> } callback - the callback of allowed or not to use data on background.
    * @throws { BusinessError } 201 - Permission denied.
@@ -76,7 +76,7 @@ declare namespace policy {
   function isBackgroundAllowed(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get the status if applications can use data on background.
+   * Get whether the application can surf the Internet in the background.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
