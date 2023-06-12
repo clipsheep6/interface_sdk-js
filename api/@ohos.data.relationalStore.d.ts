@@ -178,7 +178,31 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    SYNC_MODE_PULL = 1
+    SYNC_MODE_PULL = 1,
+
+    /**
+     * Indicates the data is pulled from remote device to local device.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SYNC_MODE_TIME_FIRST,
+
+    /**
+     * Indicates force push the native data to the cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SYNC_MODE_NATIVE_FIRST,
+
+    /**
+     * Indicates the data is pulled from cloud to local device.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SYNC_MODE_CLOUD_FIRST
   }
 
   /**
@@ -206,7 +230,112 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SUBSCRIBE_TYPE_CLOUD
+    SUBSCRIBE_TYPE_CLOUD,
+
+    /**
+     * Subscription to cloud data changes details
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    SUBSCRIBE_TYPE_CLOUD_DETAILS
+  }
+
+  /**
+   * Indicates the notify info
+   *
+   * @interface ChangeInfo
+   * @since 10
+   */
+  interface ChangeInfo {
+    /**
+     * Indicates the changed table
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    table: string;
+
+    /**
+     * Indicates the changed type
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    type: ChangeType;
+
+    /**
+     * Indicates if there is a string primary key, the inserted will keep data's primary keys
+     * otherwise it will keep the data's rowid.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    inserted: Array<string> | Array<number>;
+
+    /**
+     * Indicates if there is a string primary key, the updated will keep data's primary keys
+     * otherwise it will keep the data's rowid.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    updated: Array<string> | Array<number>;
+
+    /**
+     * Indicates if there is a string primary key, the deleted will keep data's primary keys
+     * otherwise it will keep the data's rowid.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    deleted: Array<string> | Array<number>;
+  }
+
+  /**
+   * Describes the distribution type of the tables.
+   *
+   * @permission ohos.permission.DISTRIBUTED_DATASYNC
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  enum DistributedType {
+    /**
+     * Indicates the table is distributed among the devices
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    DISTRIBUTED_DEVICE = 0,
+
+    /**
+     * Indicates the table is distributed between the cloud and the devices.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    DISTRIBUTED_CLOUD
+  }
+
+  /**
+   * Manages the distributed configuration of the table.
+   *
+   * @interface DistributedConfig
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  interface DistributedConfig {
+    /**
+     * Specifies whether the database auto sync.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    autoSync: boolean;
   }
 
   /**
