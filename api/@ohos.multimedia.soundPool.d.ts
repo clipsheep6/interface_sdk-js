@@ -91,23 +91,35 @@ declare namespace soundPool {
      * @since 10
      * @syscap SystemCapability.Multimedia.SoundPool
      * @param soundID returned by the load()
-     * @param loop loop mode (0 = no loop, -1 = loop forever)
-     * @param rate playback rate
-     * @param volume volume value(range = 0.0 to 1.0)
+     * @param params player parameters
      * @param callback Callback used to return a non-zero streamID if successful, zero if it fails.
      */
-    play(soundID: number, loop: number, rate: audio.AudioRendererRate, volume: number, callback: AsyncCallback<number>): void;
+    play(soundID: number, params: PlayParameters, callback: AsyncCallback<number>): void;
     /**
      * Play a sound from a sound ID.
      * @since 10
      * @syscap SystemCapability.Multimedia.SoundPool
      * @param soundID returned by the load()
-     * @param loop loop mode (0 = no loop, -1 = loop forever)
-     * @param rate playback rate
-     * @param volume volume value(range = 0.0 to 1.0)
+     * @param params player parameters
      * @returns Returns a non-zero streamID if successful, zero if it fails.
      */
-    play(soundID: number, loop: number, rate: number, volume: number): Promise<number>;
+    play(soundID: number, params: PlayParameters): Promise<number>;
+    /**
+     * Stop a stream which is playing.
+     * @since 10
+     * @syscap SystemCapability.Multimedia.SoundPool
+     * @param streamID returned by the play()
+     * @param callback Callback used to return the result.
+     */
+     stop(streamID: number, callback: AsyncCallback<void>): void;
+     /**
+      * Stop a stream which is playing.
+      * @since 10
+      * @syscap SystemCapability.Multimedia.SoundPool
+      * @param streamID returned by the play()
+      * @returns Promise used to return the result.
+      */
+    stop(streamID: number): Promise<void>;
     /**
      * set loop mode.
      * @since 10
@@ -137,9 +149,10 @@ declare namespace soundPool {
      * @since 10
      * @syscap SystemCapability.Multimedia.SoundPool
      * @param streamID returned by the play()
-     * @param volume volume value(range = 0.0 to 1.0)
+     * @param leftVolume volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
+     * @param rightVolume volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
      */
-    setVolume(streamID: number, volume: number): void;
+    setVolume(streamID: number, leftVolume: number, rightVolume: number): void;
     /**
      * Unload a sound from a sound ID.
      * @since 10
@@ -188,6 +201,43 @@ declare namespace soundPool {
      */
      on(type: 'playFinished', callback: Callback<void>): void;
      off(type: 'playFinished'): void;
+  }
+  /**
+   * Describes play parameters.
+   * @since 10
+   * @syscap SystemCapability.Multimedia.SoundPool
+   */
+  interface PlayParameters {
+    /**
+     * loop mode (0 = no loop, -1 = loop forever)
+     * @since 10
+     * @syscap SystemCapability.Multimedia.SoundPool
+     */
+    loop: number;
+    /**
+     * playback rate
+     * @since 10
+     * @syscap SystemCapability.Multimedia.SoundPool
+     */
+    rate: number;
+    /**
+     * left volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
+     * @since 10
+     * @syscap SystemCapability.Multimedia.SoundPool
+     */
+    leftVolume: number;
+    /**
+     * right volume value(range = 0.0 to 1.0),current leftVolume = rightVolume
+     * @since 10
+     * @syscap SystemCapability.Multimedia.SoundPool
+     */
+    rightVolume: number;
+    /**
+     * stream priority (0 = lowest priority)
+     * @since 10
+     * @syscap SystemCapability.Multimedia.SoundPool
+     */
+    priority: number;
   }
 
 }
