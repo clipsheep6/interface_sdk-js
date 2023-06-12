@@ -799,7 +799,7 @@ declare namespace policy {
     networkMatchRule: NetworkMatchRule;
 
     /**
-     * Policies that limit network quotas.
+     * Policies that limit network quota.
      * @type {QuotaPolicy}
      * @since 10
      */
@@ -807,7 +807,7 @@ declare namespace policy {
   }
 
   /**
-   * Policies that limit network quotas.
+   * Policies that limit network quota.
    * @interface QuotaPolicy
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
