@@ -143,6 +143,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when overflowX property is set.
    * @param { string } value - textarea component horizontal direction overflow type.
+   * @returns { TextAreaAttribute } the attribute of the textarea.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
