@@ -577,6 +577,12 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netUidPolicyChange' } type - Indicates Event name.
    * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback - the callback of on.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -588,6 +594,12 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netUidPolicyChange' } type - Indicates Event name.
    * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback - the callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -599,6 +611,12 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netUidRuleChange' } type - Indicates Event name.
    * @param { Callback<{ uid: number, rule: NetUidRule }> } callback - the callback of on.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -610,6 +628,12 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netUidRuleChange' } type - Indicates Event name.
    * @param { Callback<{ uid: number, rule: NetUidRule }> } callback - the callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -621,6 +645,12 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netMeteredIfacesChange' } type - Indicates Event name.
    * @param { Callback<Array<string>> } callback - the callback of on.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -632,6 +662,12 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netMeteredIfacesChange' } type - Indicates Event name.
    * @param { Callback<Array<string>> } callback - the callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -643,6 +679,12 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netQuotaPolicyChange' } type - Indicates Event name.
    * @param { Callback<Array<NetQuotaPolicy>> } callback the callback of on.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -654,6 +696,12 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netQuotaPolicyChange' } type - Indicates Event name.
    * @param { Callback<Array<NetQuotaPolicy>> } callback - the callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -665,6 +713,12 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netBackgroundPolicyChange' } type - Indicates Event name.
    * @param { Callback<boolean> } callback - the callback of on. 
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -676,6 +730,12 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netBackgroundPolicyChange' } type - Indicates Event name.
    * @param { Callback<boolean> } callback - the callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
