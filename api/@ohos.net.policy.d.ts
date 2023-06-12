@@ -408,7 +408,7 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Array<number> } uids - The specified UID of application.
    * @param { boolean } isAllowed - The UID is into allow list or not.
-   * @param { AsyncCallback<void> } callback - the callback of setDeviceIdleAllowList.
+   * @param { AsyncCallback<void> } callback - the callback of setDeviceIdleTrustlist.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -419,7 +419,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setDeviceIdleAllowList(uids: Array<number>, isAllowed: boolean, callback: AsyncCallback<void>): void;
+  function setDeviceIdleTrustlist(uids: Array<number>, isAllowed: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Set the UID into device idle allow list.
@@ -437,12 +437,12 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setDeviceIdleAllowList(uids: Array<number>, isAllowed: boolean): Promise<void>;
+  function setDeviceIdleTrustlist(uids: Array<number>, isAllowed: boolean): Promise<void>;
 
   /**
    * Get the allow list of in device idle mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { AsyncCallback<Array<number>> } callback - the callback of getDeviceIdleAllowList.
+   * @param { AsyncCallback<Array<number>> } callback - the callback of getDeviceIdleTrustlist.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -453,7 +453,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getDeviceIdleAllowList(callback: AsyncCallback<Array<number>>): void;
+  function getDeviceIdleTrustlist(callback: AsyncCallback<Array<number>>): void;
 
   /**
    * Get the allow list of in device idle mode.
@@ -468,14 +468,14 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getDeviceIdleAllowList(): Promise<Array<number>>;
+  function getDeviceIdleTrustlist(): Promise<Array<number>>;
 
   /**
    * Set the UID into power save allow list.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Array<number> } uids - The specified UID of application.
    * @param { boolean } isAllowed - The UID is into allow list or not.
-   * @param { AsyncCallback<void> } callback - the callback of setPowerSaveAllowList.
+   * @param { AsyncCallback<void> } callback - the callback of setPowerSaveTrustlist.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -486,7 +486,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setPowerSaveAllowList(uids: Array<number>, isAllowed: boolean, callback: AsyncCallback<void>): void;
+  function setPowerSaveTrustlist(uids: Array<number>, isAllowed: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Set the UID into power save allow list.
@@ -504,7 +504,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setPowerSaveAllowList(uids: Array<number>, isAllowed: boolean): Promise<void>;
+  function setPowerSaveTrustlist(uids: Array<number>, isAllowed: boolean): Promise<void>;
 
   /**
    * Get the allow list in power save mode.
@@ -520,7 +520,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getPowerSaveAllowList(callback: AsyncCallback<Array<number>>): void;
+  function getPowerSaveTrustlist(callback: AsyncCallback<Array<number>>): void;
 
   /**
    * Get the allow list in power save mode.
@@ -535,7 +535,7 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getPowerSaveAllowList(): Promise<Array<number>>;
+  function getPowerSaveTrustlist(): Promise<Array<number>>;
 
   /**
    * Reset network policies\rules\quota policies\firewall rules.
@@ -719,7 +719,7 @@ declare namespace policy {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    NET_BACKGROUND_POLICY_ALLOW_LIST = 3,
+    NET_BACKGROUND_POLICY_TRUSTLIST = 3,
   }
 
   /**
@@ -822,7 +822,7 @@ declare namespace policy {
      * @type {string}
      * @since 10
      */
-    ident: string;
+    identity: string;
 
     /**
      * The ID of the target card, valid when netType is BEARER_CELLULAR..
@@ -955,13 +955,14 @@ declare namespace policy {
     NET_POLICY_NONE = 0,
 
     /**
-     * Reject on metered networks when app in background.
+     * Allow on metered networks when app in background.
      * @systemapi Hide this for inner system use.
      * @since 10
      */
     NET_POLICY_ALLOW_METERED_BACKGROUND = 1 << 0,
+
     /**
-     * Allow on metered networks when app in background.
+     * Reject on metered networks when app in background.
      * @systemapi Hide this for inner system use.
      * @since 10
      */
