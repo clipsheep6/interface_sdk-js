@@ -3135,6 +3135,27 @@ declare namespace audio {
      */
     SOURCE_TYPE_VOICE_RECOGNITION = 1,
     /**
+     * Playback capture source type.
+     * @permission ohos.permission.CAPTURE_INTERNAL_AUDIO
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    SOURCE_TYPE_PLAYBACK_CAPTURE = 2,
+    /**
+     * Wakeup source type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 10
+     */
+    SOURCE_TYPE_WAKEUP = 3,
+    /**
+     * Ultrasonic source type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 10
+     */
+    SOURCE_TYPE_ULTRASONIC = 4,
+    /**
      * Voice communication source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
