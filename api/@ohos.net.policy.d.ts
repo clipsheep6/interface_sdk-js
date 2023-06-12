@@ -28,7 +28,7 @@ declare namespace policy {
   /**
    * Control if applications can use data on background.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { boolean } isAllowed - Allow applications to use data on background.
+   * @param { boolean } isAllowed - Allow applications to use data in the background.
    * @param { AsyncCallback<void> } callback - the callback of setBackgroundAllowed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -45,7 +45,7 @@ declare namespace policy {
   /**
    * Control if applications can use data on background.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { boolean } isAllowed - Allow applications to use data on background.
+   * @param { boolean } isAllowed - Allow applications to use data in the background.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -266,7 +266,7 @@ declare namespace policy {
   function isUidNetAllowed(uid: number, isMetered: boolean): Promise<boolean>;
 
   /**
-   * Get the status whether the specified uid app can access the specified iface network.
+   * Get the status of whether the specified uid can access the specified iface network.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { number } uid - The specified UID of application.
    * @param { string } iface - Iface name.
@@ -284,7 +284,7 @@ declare namespace policy {
   function isUidNetAllowed(uid: number, iface: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get the status whether the specified uid app can access the specified iface network.
+   * Get the status of whether the specified uid can access the specified iface network.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { number } uid - The specified UID of application.
    * @param { string } iface - Iface name.
@@ -367,7 +367,7 @@ declare namespace policy {
   function getNetQuotaPolicies(): Promise<Array<NetQuotaPolicy>>;
 
   /**
-   * Update the limit or warning remind time of quota policy.
+   * Update the limit or warning reminder time of the quota policy.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { NetBearType } simId - Specify the matched simId of quota policy when netType is cellular.
    * @param { string } netType - {@link NetBearType}.
@@ -386,7 +386,7 @@ declare namespace policy {
   function updateRemindPolicy(netType: NetBearType, simId: string, remindType: RemindType, callback: AsyncCallback<void>): void;
 
   /**
-   * Update the limit or warning remind time of quota policy.
+   * Update the limit or warning reminder time of the quota policy.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { NetBearType } simId - Specify the matched simId of quota policy when netType is cellular.
    * @param { string } netType - {@link NetBearType}.
@@ -403,8 +403,9 @@ declare namespace policy {
    * @since 10
    */
   function updateRemindPolicy(netType: NetBearType, simId: string, remindType: RemindType): Promise<void>;
+
   /**
-   * Set the UID into device idle allow list.
+   * Set the Internet access policy of the uid in hibernation mode. 
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Array<number> } uids - The specified UID of application.
    * @param { boolean } isAllowed - The UID is into allow list or not.
@@ -422,7 +423,7 @@ declare namespace policy {
   function setDeviceIdleTrustlist(uids: Array<number>, isAllowed: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the UID into device idle allow list.
+   * Set the Internet access policy of the uid in hibernation mode. 
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Array<number> } uids - The specified UID of application.
    * @param { boolean } isAllowed - The UID is into allow list or not.
@@ -440,7 +441,7 @@ declare namespace policy {
   function setDeviceIdleTrustlist(uids: Array<number>, isAllowed: boolean): Promise<void>;
 
   /**
-   * Get the allow list of in device idle mode.
+   * Obtain the list of Uids that are allowed to access the Internet in hibernation mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { AsyncCallback<Array<number>> } callback - the callback of getDeviceIdleTrustlist.
    * @throws { BusinessError } 201 - Permission denied.
@@ -456,7 +457,7 @@ declare namespace policy {
   function getDeviceIdleTrustlist(callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Get the allow list of in device idle mode.
+   * Obtain the list of Uids that are allowed to access the Internet in hibernation mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @returns { Promise<Array<number>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -471,7 +472,7 @@ declare namespace policy {
   function getDeviceIdleTrustlist(): Promise<Array<number>>;
 
   /**
-   * Set the UID into power save allow list.
+   * Set the list of Uids that are allowed to access the Internet in power saving mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Array<number> } uids - The specified UID of application.
    * @param { boolean } isAllowed - The UID is into allow list or not.
@@ -489,7 +490,7 @@ declare namespace policy {
   function setPowerSaveTrustlist(uids: Array<number>, isAllowed: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the UID into power save allow list.
+   * Set the list of Uids that are allowed to access the Internet in power saving mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Array<number> } uids - The specified UID of application.
    * @param { boolean } isAllowed - The UID is into allow list or not.
@@ -507,7 +508,7 @@ declare namespace policy {
   function setPowerSaveTrustlist(uids: Array<number>, isAllowed: boolean): Promise<void>;
 
   /**
-   * Get the allow list in power save mode.
+   * Obtain the list of Uids that are allowed to access the Internet in power saving mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { AsyncCallback<Array<number>> } callback - the callback of UIDs list.
    * @throws { BusinessError } 201 - Permission denied.
@@ -523,7 +524,7 @@ declare namespace policy {
   function getPowerSaveTrustlist(callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Get the allow list in power save mode.
+   * Obtain the list of Uids that are allowed to access the Internet in power saving mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @returns { Promise<Array<number>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -723,7 +724,7 @@ declare namespace policy {
   }
 
   /**
-   * Policy for net quota, includes usage period, limit and warning actions.
+   * Net quota policies, including matching network rule usage periods, restrictions, and warnings.
    * @interface NetQuotaPolicy
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -731,14 +732,14 @@ declare namespace policy {
    */
   export interface NetQuotaPolicy {
     /**
-     * Rules For Network Matching.
+     * The quota policy matches the network rules.
      * @type {NetworkMatchRule}
      * @since 10
      */
     networkMatchRule: NetworkMatchRule;
 
     /**
-     * Net quota policy the content of the policy that needs to be set.
+     * Policies that limit network quotas.
      * @type {QuotaPolicy}
      * @since 10
      */
@@ -746,7 +747,7 @@ declare namespace policy {
   }
 
   /**
-   * Net quota policy the content of the policy that needs to be set.
+   * Policies that limit network quotas.
    * @interface QuotaPolicy
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -804,7 +805,7 @@ declare namespace policy {
   }
 
   /**
-   * Rules For Network Matching.
+   * The quota policy matches the network rules.
    * @interface NetworkMatchRule
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
@@ -825,7 +826,7 @@ declare namespace policy {
     identity: string;
 
     /**
-     * The ID of the target card, valid when netType is BEARER_CELLULAR..
+     * The ID of the target card, valid when netType is BEARER_CELLULAR.
      * @type {string}
      * @since 10
      */
@@ -866,7 +867,7 @@ declare namespace policy {
   }
 
   /**
-   * Rules whether an uid can access to a metered or non-metered network.
+   * Whether uid can access the rules of a metered or non-metered network
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -940,7 +941,7 @@ declare namespace policy {
   }
 
   /**
-   * Network policy for uid.
+   * Uid Specifies the Internet access policy in background mode.
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
