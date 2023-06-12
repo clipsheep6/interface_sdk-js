@@ -901,7 +901,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      * @deprecated since 10
-     * @useinstead ohos.multimedia.audio.AudioRendererInfo#attr:usage
+     * @useinstead ohos.multimedia.audio.AudioRendererInfo#usage
      */
     content?: ContentType;
     /**
