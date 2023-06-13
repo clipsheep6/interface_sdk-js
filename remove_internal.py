@@ -46,6 +46,7 @@ def main(argv):
     if not os.path.exists(options.output):
         os.makedirs(options.output)
     copy_files(options.input, options.output)
+    print('-----Done...')
 
 
 if __name__ == "__main__":
