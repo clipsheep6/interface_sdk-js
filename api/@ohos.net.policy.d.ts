@@ -794,6 +794,7 @@ declare namespace policy {
     /**
      * Matches the rules of the network.
      * @type {NetworkMatchRule}
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     networkMatchRule: NetworkMatchRule;
@@ -801,6 +802,7 @@ declare namespace policy {
     /**
      * Policies that limit network quota.
      * @type {QuotaPolicy}
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     quotaPolicy: QuotaPolicy;
@@ -810,13 +812,14 @@ declare namespace policy {
    * Policies that limit network quota.
    * @interface QuotaPolicy
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface QuotaPolicy {
-    
     /**
      * The period and the start time for quota policy, default: "M1" (Monthly cycle).
      * @type {string}
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     periodDuration: string;
@@ -824,6 +827,7 @@ declare namespace policy {
     /**
      * The warning threshold of traffic, default:  DATA_USAGE_UNKNOWN.
      * @type {number}
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     warningBytes: number;
@@ -831,27 +835,15 @@ declare namespace policy {
     /**
      * The limit threshold of traffic, default: DATA_USAGE_UNKNOWN.
      * @type {number}
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     limitBytes: number;
 
     /**
-     * The time of the last warning, default: REMIND_NEVER.
-     * @type {number}
-     * @since 10
-     */
-    lastWarningRemind: number;
-
-    /**
-     * The time of the last reminder, default: REMIND_NEVER.
-     * @type {number}
-     * @since 10
-     */
-    lastLimitRemind: number;
-
-    /**
      * Is metered network or not.
      * @type {number}
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     metered: boolean;
@@ -859,21 +851,40 @@ declare namespace policy {
     /**
      * The action while the used bytes reach the limit, see {@link LimitAction}.
      * @type {number}
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     limitAction: LimitAction;
+
+    /**
+     * The time of the last warning, For obtaining only, default: REMIND_NEVER.
+     * @type {number}
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    lastWarningRemind?: number;
+
+    /**
+     * The time of the last reminder, For obtaining only, default: REMIND_NEVER.
+     * @type {number}
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    lastLimitRemind?: number;
   }
 
   /**
    * Matches the rules of the network.
    * @interface NetworkMatchRule
    * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface NetworkMatchRule {
     /**
      * netType see {@link NetBearType}.
      * @type {NetBearType}
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     netType: NetBearType;
@@ -881,6 +892,7 @@ declare namespace policy {
     /**
      * To specify the identity of network, such as different WLAN.
      * @type {string}
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     identity: string;
@@ -888,6 +900,7 @@ declare namespace policy {
     /**
      * The ID of the target card, valid when netType is BEARER_CELLULAR.
      * @type {string}
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     simId: string;
