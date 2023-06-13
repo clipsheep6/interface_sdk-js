@@ -3143,6 +3143,7 @@ declare namespace audio {
     SOURCE_TYPE_VOICE_RECOGNITION = 1,
     /**
      * Wakeup source type.
+     * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 10
