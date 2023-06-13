@@ -898,10 +898,17 @@ declare namespace audio {
   interface AudioRendererInfo {
     /**
      * Content type.
+     * @type { ContentType }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      * @deprecated since 10
      * @useinstead ohos.multimedia.audio.AudioRendererInfo#usage
+     */
+    /**
+     * Content type.
+     * @type { ?ContentType }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
      */
     content?: ContentType;
     /**
