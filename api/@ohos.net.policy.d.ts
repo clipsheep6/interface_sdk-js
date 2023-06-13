@@ -405,7 +405,7 @@ declare namespace policy {
   function updateRemindPolicy(netType: NetBearType, simId: string, remindType: RemindType): Promise<void>;
 
   /**
-   * Set the Internet access policy of the uid in hibernation mode. 
+   * Set the list of uids that are allowed to access the Internet in hibernation mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Array<number> } uids - The specified uids of application.
    * @param { boolean } isAllowed - Whether to allow Uids in the list to access the Internet.
@@ -423,7 +423,7 @@ declare namespace policy {
   function setDeviceIdleTrustlist(uids: Array<number>, isAllowed: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the Internet access policy of the uid in hibernation mode. 
+   * Set the list of uids that are allowed to access the Internet in hibernation mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Array<number> } uids - The specified uids of application.
    * @param { boolean } isAllowed - Whether to allow Uids in the list to access the Internet.
@@ -441,7 +441,7 @@ declare namespace policy {
   function setDeviceIdleTrustlist(uids: Array<number>, isAllowed: boolean): Promise<void>;
 
   /**
-   * Obtain the list of Uids that are allowed to access the Internet in hibernation mode.
+   * Obtain the list of uids that are allowed to access the Internet in hibernation mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { AsyncCallback<Array<number>> } callback - the callback of getDeviceIdleTrustlist.
    * @throws { BusinessError } 201 - Permission denied.
@@ -457,7 +457,7 @@ declare namespace policy {
   function getDeviceIdleTrustlist(callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Obtain the list of Uids that are allowed to access the Internet in hibernation mode.
+   * Obtain the list of uids that are allowed to access the Internet in hibernation mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @returns { Promise<Array<number>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -472,7 +472,7 @@ declare namespace policy {
   function getDeviceIdleTrustlist(): Promise<Array<number>>;
 
   /**
-   * Set the list of Uids that are allowed to access the Internet in power saving mode.
+   * Set the list of uids that are allowed to access the Internet in power saving mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Array<number> } uids - The specified uids of application.
    * @param { boolean } isAllowed - Whether to allow Uids in the list to access the Internet.
@@ -490,7 +490,7 @@ declare namespace policy {
   function setPowerSaveTrustlist(uids: Array<number>, isAllowed: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the list of Uids that are allowed to access the Internet in power saving mode.
+   * Set the list of uids that are allowed to access the Internet in power saving mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { Array<number> } uids - The specified uids of application.
    * @param { boolean } isAllowed - Whether to allow Uids in the list to access the Internet.
@@ -508,7 +508,7 @@ declare namespace policy {
   function setPowerSaveTrustlist(uids: Array<number>, isAllowed: boolean): Promise<void>;
 
   /**
-   * Obtain the list of Uids that are allowed to access the Internet in power saving mode.
+   * Obtain the list of uids that are allowed to access the Internet in power saving mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { AsyncCallback<Array<number>> } callback - the callback of UIDs list.
    * @throws { BusinessError } 201 - Permission denied.
@@ -524,7 +524,7 @@ declare namespace policy {
   function getPowerSaveTrustlist(callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Obtain the list of Uids that are allowed to access the Internet in power saving mode.
+   * Obtain the list of uids that are allowed to access the Internet in power saving mode.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @returns { Promise<Array<number>> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
