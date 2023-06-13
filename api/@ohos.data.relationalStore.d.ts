@@ -251,24 +251,6 @@ declare namespace relationalStore {
    */
   interface ChangeInfo {
     /**
-     * Indicates if there is a string primary key, the inserted will keep data's primary keys
-     * otherwise it will keep the data's rowid.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    inserted: Array<string> | Array<number>;
-
-    /**
-     * Indicates if there is a string primary key, the updated will keep data's primary keys
-     * otherwise it will keep the data's rowid.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    updated: Array<string> | Array<number>;
-
-    /**
      * Indicates if there is a string primary key, the deleted will keep data's primary keys
      * otherwise it will keep the data's rowid.
      *
