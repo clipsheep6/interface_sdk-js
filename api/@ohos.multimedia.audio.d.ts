@@ -726,7 +726,7 @@ declare namespace audio {
      * @useinstead ohos.multimedia.audio.StreamUsage.STREAM_USAGE_MUSIC or
      *             ohos.multimedia.audio.StreamUsage.STREAM_USAGE_MOVIE or
      *             ohos.multimedia.audio.StreamUsage.STREAM_USAGE_GAME or
-     *             ohos.multimedia.audio.StreamUsage.STREAM_USAGE_VOICEBOOK
+     *             ohos.multimedia.audio.StreamUsage.STREAM_USAGE_AUDIOBOOK
      */
     STREAM_USAGE_MEDIA = 1,
     /**
@@ -805,11 +805,11 @@ declare namespace audio {
      */
     STREAM_USAGE_GAME = 11,
     /**
-     * Voicebook usage.
+     * Audiobook usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 10
      */
-    STREAM_USAGE_VOICEBOOK = 12,
+    STREAM_USAGE_AUDIOBOOK = 12,
     /**
      * Navigation usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
