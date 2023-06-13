@@ -923,20 +923,20 @@ declare namespace policy {
     LIMIT_ACTION_NONE = -1,
 
     /**
-     * Access is disabled, when quota policy hit the limit.
+     * When the quota policy reaches the limit, the system prohibits users from accessing the network.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    LIMIT_ACTION_DISABLE = 0,
+    LIMIT_ACTION_ACCESS_DISABLED = 0,
 
     /**
-     * When the quota policy reaches the upper limit, the system automatically alerts users.
+     * When the quota policy reaches the upper limit, the system notifies the user.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    LIMIT_ACTION_AUTO_BILL = 1,
+    LIMIT_ACTION_ALERT_ONLY = 1,
   }
 
   /**
