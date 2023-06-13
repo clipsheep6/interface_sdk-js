@@ -89,7 +89,7 @@ declare namespace wifiManager {
    * Obtain the scanned sta list.
    * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or
    * (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
-   * @param { AsyncCallback<WifiScanInfo> } callback - Returns information about scanned Wi-Fi hotspot if any.
+   * @param { AsyncCallback<Array<WifiScanInfo>> } callback - Returns information about scanned Wi-Fi hotspot if any.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -499,7 +499,7 @@ declare namespace wifiManager {
    * If the Wi-Fi DeviceConfig is being connected, the connection will be interrupted.
    * The application can only delete Wi-Fi DeviceConfig it has created.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } networkId - Indicate the ID of the Wi-Fi DeviceConfig.
+   * @param { number } id - Indicate the ID of the Wi-Fi DeviceConfig.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -2428,7 +2428,7 @@ declare namespace wifiManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    channel: number;
+    channel?: number;
 
     /**
      * The password of the Wi-Fi hotspot
@@ -2452,7 +2452,7 @@ declare namespace wifiManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    ipAddress: string;
+    ipAddress?: string;
   }
 
   /**
