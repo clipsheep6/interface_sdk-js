@@ -85,11 +85,7 @@
       "undocumented"
     ]
   },
-  "namingWhitelist": [
-    "Symbol",
-    "StageModelOnly",
-    "FAModelOnly"
-  ],
+  "namingWhitelist": ["Symbol", "StageModelOnly", "FAModelOnly"],
   "syscap": {
     "SystemCapability": [
       "SystemCapability.ArkUI.ArkUI.Full",
@@ -326,6 +322,9 @@
     },
     {
       "user": "8046261"
+    },
+    {
+      "user": "6570462"
     }
   ]
 }

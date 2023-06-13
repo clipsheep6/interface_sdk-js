@@ -174,6 +174,7 @@ declare namespace accessibility {
    * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
    * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
    * @returns { Promise<Array<AccessibilityAbilityInfo>> } Returns the list of abilityInfos.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Input parameter error.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9

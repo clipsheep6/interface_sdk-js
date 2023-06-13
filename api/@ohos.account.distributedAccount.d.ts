@@ -72,7 +72,7 @@ declare namespace distributedAccount {
      * @param { AsyncCallback<DistributedInfo> } callback - Asynchronous callback interface.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
