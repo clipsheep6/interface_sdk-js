@@ -363,13 +363,17 @@ export declare function canIUse(syscap: string): boolean;
 
 /**
  * Obtains all attributes of the component with the specified ID.
- * @param id ID of the component whose attributes are to be obtained.
+ * @param { string } id - ID of the component whose attributes are to be obtained.
+ * @returns { string } all attributes of the component in json string
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @test
  */
 /**
  * Obtains all attributes of the component with the specified ID.
- * @param id ID of the component whose attributes are to be obtained.
+ * @param { string } id - ID of the component whose attributes are to be obtained.
+ * @returns { string } all attributes of the component in json string
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
@@ -378,11 +382,15 @@ export declare function getInspectorByKey(id: string): string;
 
 /**
  * Get components tree.
+ * @returns { Object } attributes of all components in json object
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @test
  */
 /**
  * Get components tree.
+ * @returns { Object } attributes of all components in json object
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
@@ -391,17 +399,21 @@ export declare function getInspectorTree(): Object;
 
 /**
  * Sends an event to the component with the specified ID.
- * @param id ID of the component for which the event is to be sent.
- * @param action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
- * @param params Event parameters. If there is no parameter, pass an empty string "".
+ * @param { string } id - ID of the component for which the event is to be sent.
+ * @param { number } action - Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
+ * @param { string } params - Event parameters. If there is no parameter, pass an empty string "".
+ * @returns { boolean } False if no component with the specified id is found, true otherwise.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @test
  */
 /**
  * Sends an event to the component with the specified ID.
- * @param id ID of the component for which the event is to be sent.
- * @param action Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
- * @param params Event parameters. If there is no parameter, pass an empty string "".
+ * @param { string } id - ID of the component for which the event is to be sent.
+ * @param { number } action - Type of the event to be sent. The options are as follows: Click event: 10 LongClick: 11.
+ * @param { string } params - Event parameters. If there is no parameter, pass an empty string "".
+ * @returns { boolean } False if no component with the specified id is found, true otherwise.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
@@ -410,13 +422,17 @@ export declare function sendEventByKey(id: string, action: number, params: strin
 
 /**
  * Send touch event.
- * @param event TouchObject to be sent.
+ * @param { TouchObject } event - TouchObject to be sent.
+ * @returns { boolean } False if send fail, true otherwise.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @test
  */
 /**
  * Send touch event.
- * @param event TouchObject to be sent.
+ * @param { TouchObject } event - TouchObject to be sent.
+ * @returns { boolean } False if send fail, true otherwise.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
@@ -425,13 +441,17 @@ export declare function sendTouchEvent(event: TouchObject): boolean;
 
 /**
  * Send key event.
- * @param event KeyEvent to be sent.
+ * @param { KeyEvent } event - KeyEvent to be sent.
+ * @returns { boolean } False if send fail, true otherwise.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @test
  */
 /**
  * Send key event.
- * @param event KeyEvent to be sent.
+ * @param { KeyEvent } event - KeyEvent to be sent.
+ * @returns { boolean } False if send fail, true otherwise.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
@@ -440,13 +460,17 @@ export declare function sendKeyEvent(event: KeyEvent): boolean;
 
 /**
  * Send mouse event.
- * @param event MouseEvent to be sent.
+ * @param { MouseEvent } event - MouseEvent to be sent.
+ * @returns { boolean } False if send fail, true otherwise.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @test
  */
 /**
  * Send mouse event.
- * @param event MouseEvent to be sent.
+ * @param { MouseEvent } event - MouseEvent to be sent.
+ * @returns { boolean } False if send fail, true otherwise.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
