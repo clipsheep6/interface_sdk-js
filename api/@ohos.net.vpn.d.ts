@@ -71,24 +71,32 @@
       * underlying network so its traffic will not be forwarded through the VPN.
       * @permission ohos.permission.MANAGE_VPN
       * @param { number } socketFd - file descriptor of socket, this socket from @ohos.net.socket.
-      * @param { AsyncCallback<void> } callback - the callback of protect.
+      * @param { AsyncCallback<boolean> } callback - Returns true if protect the socketFd successfully.
+      * @throws { BusinessError } 201 - Permission denied.
+      * @throws { BusinessError } 202 - Non-system applications use system APIs.
       * @throws { BusinessError } 2200003 - System internal error.
+      * @throws { BusinessError } 2203004 - Invalid socket file discriptor.
       * @syscap SystemCapability.Communication.NetManager.vpn
       * @systemapi Hide this for inner system use.
       * @since 10
       */
-     protect(socketFd: number, callback: AsyncCallback<void>): void;
+     protect(socketFd: number, callback: AsyncCallback<boolean>): void;
  
      /**
       * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
       * underlying network so its traffic will not be forwarded through the VPN.
+      * @permission ohos.permission.MANAGE_VPN
       * @param { number } socketFd - file descriptor of socket, this socket from @ohos.net.socket.
-      * @returns { Promise<void> } The promise returned by the function.
+      * @returns { Promise<boolean> } The promise returns true if protect the socketFd successfully.
+      * @throws { BusinessError } 201 - Permission denied.
+      * @throws { BusinessError } 202 - Non-system applications use system APIs.
       * @throws { BusinessError } 2200003 - System internal error.
+      * @throws { BusinessError } 2203004 - Invalid socket file discriptor.
       * @syscap SystemCapability.Communication.NetManager.vpn
+      * @systemapi Hide this for inner system use.
       * @since 10
       */
-     protect(socketFd: number): Promise<void>;
+     protect(socketFd: number): Promise<boolean>;
  
      /**
       * Destroy the vpn connection Before vpn hap exit.
@@ -120,7 +128,7 @@
    }
 
   /**
-   * vpn hap and remote vpn server negotiate, hap notify system to create vpn network.
+   * Vpn hap and remote vpn server negotiate, hap notify system to create vpn network.
    * @interface VpnConfig
    * @syscap SystemCapability.Communication.NetManager.vpn
    * @systemapi Hide this for inner system use.
@@ -129,7 +137,7 @@
    export interface VpnConfig {
  
      /**
-      * the tun device address.
+      * The tun device address.
       * @type {LinkAddress}
       * @syscap SystemCapability.Communication.NetManager.vpn
       * @systemapi Hide this for inner system use.
@@ -138,22 +146,22 @@
      tunAddress: LinkAddress;
  
      /**
-      * array address.
-      * @type {Array<LinkAddress>}
+      * The array address.
+      * @type {?Array<LinkAddress>}
       * @syscap SystemCapability.Communication.NetManager.vpn
       * @systemapi Hide this for inner system use.
       * @since 10
       */
-     addresses: Array<LinkAddress>;
+     addresses?: Array<LinkAddress>;
  
      /**
-      * array route.
-      * @type {Array<RouteInfo>}
+      * The array route.
+      * @type {?Array<RouteInfo>}
       * @syscap SystemCapability.Communication.NetManager.vpn
       * @systemapi Hide this for inner system use.
       * @since 10
       */
-     routes: Array<RouteInfo>;
+     routes?: Array<RouteInfo>;
  
      /**
       * Set the maximum transmission unit (MTU) of the VPN interface.
@@ -219,7 +227,7 @@
      isAcceptBypass?: boolean;
  
      /**
-      * dns server address.
+      * Add a DNS server to the VPN connection.
       * @type {?Array<string>}
       * @syscap SystemCapability.Communication.NetManager.vpn
       * @systemapi Hide this for inner system use.
