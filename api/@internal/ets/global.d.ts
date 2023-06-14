@@ -350,11 +350,17 @@ export declare function clearTimeout(timeoutID?: number): void;
 
 /**
  * Defining syscap function.
+ *
+ * @param { string } syscap - SystemCapability string, such as SystemCapability.Developtools.Syscap.
+ * @returns { boolean } Returns whether the syscap exists.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defining syscap function.
+ *
+ * @param { string } syscap - SystemCapability string, such as SystemCapability.Developtools.Syscap.
+ * @returns { boolean } Returns whether the syscap exists.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
