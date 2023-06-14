@@ -6123,6 +6123,8 @@ declare interface LinearGradientBlurOptions {
  * @form
  * @crossplatform
  * @since 10
+ * @deprecated since 10
+ * @useinstead LayoutMsgInfo
  */
 declare interface LayoutBorderInfo {
   /**
@@ -6163,6 +6165,59 @@ declare interface LayoutBorderInfo {
    * @since 10
    */
   padding: Padding,
+}
+
+/**
+ * Sub component Layout info.
+ * @crossplatform
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface LayoutMsgInfo {
+  /**
+   * Sub component borderWidth info.
+   * @type EdgeWidths
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  borderWidth: EdgeWidths,
+
+  /**
+   * Sub component margin info.
+   * @type Margin
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  margin: Margin,
+
+  /**
+   * Sub component padding info.
+   * @type Padding
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  padding: Padding,
+
+  /**
+   * Sub component layout Weight.
+   * @type number | string
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  layoutWeight : number | string,
+
+  /**
+   * Sub component aspectRatio.
+   * @type number
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  aspectRatio : number,
 }
 
 /**
@@ -6210,7 +6265,7 @@ declare interface LayoutInfo {
  * @since 9
  */
 /**
- * Sub component info passed from framework when layout and measure happens.
+ * Sub component info passed from framework when layout happens.
  * @form
  * @crossplatform
  * @since 10
@@ -6265,10 +6320,26 @@ declare interface LayoutChild {
    * @form
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead LayoutMsgInfo
    */
   borderInfo: LayoutBorderInfo,
 
   /**
+   * Sub component border info.
+   * @crossplatform
+   * @since 10
+   */
+  layoutMsgInfo: LayoutMsgInfo,
+
+  /**
+   * Sub component measured size.
+   * @crossplatform
+   * @since 10
+   */
+  measuredSize :SizeOptions,
+
+  /** 
    * Sub component position.
    * @form
    * @since 9
@@ -6291,6 +6362,8 @@ declare interface LayoutChild {
    * @form
    * @crossplatform
    * @since 10
+   * @deprecated since 10
+   * @useinstead MeasureChild
    */
   measure(childConstraint: ConstraintSizeOptions),
 
@@ -6306,6 +6379,62 @@ declare interface LayoutChild {
    * @since 10
    */
   layout(childLayoutInfo: LayoutInfo)
+}
+
+/**
+ * Sub component info passed from framework when measure happens.
+ * @crossplatform
+ * @since 10
+ */
+declare interface MeasureChild {
+  /**
+   * Sub component name.
+   * @crossplatform
+   * @since 10
+   */
+  name: string,
+
+  /**
+   * Sub component id.
+   * @crossplatform
+   * @since 10
+   */
+  id: string,
+
+  /**
+   * Sub component constraint.
+   * @crossplatform
+   * @since 10
+   */
+  constraint: ConstraintSizeOptions,
+
+  /**
+   * Sub component border info.
+   * @crossplatform
+   * @since 10
+   */
+  layoutMsgInfo: LayoutMsgInfo,
+
+  /**
+   * Sub component size info.
+   * @crossplatform
+   * @since 10
+   */
+  size: SizeOptions,
+  
+  /**
+   * Sub component position.
+   * @crossplatform
+   * @since 10
+   */
+  position: Position,
+
+  /**
+   * Call this measure method in onMeasure callback to supply sub component size.
+   * @crossplatform
+   * @since 10
+   */
+  measure(childConstraint: ConstraintSizeOptions)
 }
 
 /**
@@ -6411,6 +6540,16 @@ declare class CustomComponent extends CommonAttribute {
    * @since 10
    */
   onMeasure?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
+
+  /**
+   * Custom component override this method to measure each of its sub components.
+   * @param { children } children - indicate the measure child
+   * @param { constraint } constraint - indicate child constraint size
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onMeasureNG?(children: Array<MeasureChild>, constraint: ConstraintSizeOptions): SizeOptions;
 
   /**
    * onPageShow Method
