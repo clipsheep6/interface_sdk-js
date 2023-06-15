@@ -51,7 +51,6 @@ declare namespace intelligentVoice {
      * Subscribes service change events. When the state of intelligent voice service changes,
      * the callback is invoked.
      * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
-     * @param { string } type - Type of the event to listen for. Only the serviceChange event is supported.
      * @param { Callback<ServiceChangeType>Callback<ServiceChangeType> } callback - Callback is invoked when the event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -61,7 +60,6 @@ declare namespace intelligentVoice {
     /**
      * Unsubscribes service change events.
      * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
-     * @param { string } type - Type of the event to listen for. Only the serviceChange event is supported.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
@@ -153,7 +151,7 @@ declare namespace intelligentVoice {
    * @param { EnrollIntelligentVoiceEngineDescriptor } descriptor - descriptor indicates enroll intelligent voice engine descriptor.
    * @param { AsyncCallback<EnrollIntelligentVoiceEngine> } callback - the callback used to return the EnrollIntelligentVoiceEngine instance.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+   * @throws { BusinessError } 401 - if input parameter type or number mismatch
    * @throws { BusinessError } 22700101 - No memory.
    * @throws { BusinessError } 22700102 - if input parameter value error.
    * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -167,7 +165,7 @@ declare namespace intelligentVoice {
    * @param { EnrollIntelligentVoiceEngineDescriptor } descriptor - descriptor indicates enroll intelligent voice engine descriptor.
    * @returns { Promise<EnrollIntelligentVoiceEngine>; } the promise used to return the EnrollIntelligentVoiceEngine instance.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+   * @throws { BusinessError } 401 - if input parameter type or number mismatch
    * @throws { BusinessError } 22700101 - No memory.
    * @throws { BusinessError } 22700102 - if input parameter value error.
    * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -181,7 +179,7 @@ declare namespace intelligentVoice {
    * @param { WakeupIntelligentVoiceEngineDescriptor } descriptor - descriptor indicates wakeup intelligent voice engine descriptor.
    * @param { AsyncCallback<WakeupIntelligentVoiceEngine> } callback - the callback used to return the WakeupIntelligentVoiceEngine instance.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+   * @throws { BusinessError } 401 - if input parameter type or number mismatch
    * @throws { BusinessError } 22700101 - No memory.
    * @throws { BusinessError } 22700102 - if input parameter value error.
    * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -195,7 +193,7 @@ declare namespace intelligentVoice {
    * @param { WakeupIntelligentVoiceEngineDescriptor } descriptor - descriptor indicates wakeup intelligent voice engine descriptor.
    * @returns { Promise<WakeupIntelligentVoiceEngine> } the promise used to return the WakeupIntelligentVoiceEngine instance.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+   * @throws { BusinessError } 401 - if input parameter type or number mismatch
    * @throws { BusinessError } 22700101 - No memory.
    * @throws { BusinessError } 22700102 - if input parameter value error.
    * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -340,7 +338,7 @@ declare namespace intelligentVoice {
      */
     INTELLIGENT_VOICE_SUCCESS = 0,
     /**
-     * Memory is insufficient.
+     * memory is insufficient.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -462,8 +460,7 @@ declare namespace intelligentVoice {
      * @param { EnrollEngineConfig } config - config indicates enroll engine configuration.
      * @param { AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -474,8 +471,7 @@ declare namespace intelligentVoice {
      * @param { EnrollEngineConfig } config - config indicates enroll engine configuration.
      * @returns { Promise<EnrollIntelligentVoiceEngineCallbackInfo> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 22700102 - if input parameter value error.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -486,7 +482,7 @@ declare namespace intelligentVoice {
      * @param { boolean } isLast - isLast indicates if it is the last time to start.
      * @param { AsyncCallback<EnrollIntelligentVoiceEngineCallbackInfo> } callback - the callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -497,7 +493,7 @@ declare namespace intelligentVoice {
      * @param { boolean } isLast - isLast indicates if it is the last time to start.
      * @returns { Promise<EnrollIntelligentVoiceEngineCallbackInfo> } the promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
      */
@@ -658,8 +654,9 @@ declare namespace intelligentVoice {
 
   /**
    * Implements wakeup intelligent voice engine.
-   * @since 10
+   * @typedef WakeupIntelligentVoiceEngine
    * @syscap SystemCapability.AI.IntelligentVoice.Core
+   * @since 10
    */
   interface WakeupIntelligentVoiceEngine {
     /**
@@ -800,7 +797,6 @@ declare namespace intelligentVoice {
      * Subscribes wakeup intelligent voice events. When wakeup intelligent voice events reach,
      * the callback is invoked.
      * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
-     * @param { string } type - Type of the event to listen for. Only the wakeupIntelligentVoice event is supported.
      * @param { Callback<WakeupIntelligentVoiceEngineCallbackInfo> } callback - the callback invoked when the event is triggered.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -810,7 +806,6 @@ declare namespace intelligentVoice {
     /**
      * Unsubscribes wakeup intelligent voice events.
      * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
-     * @param { string } type - Type of the event to listen for. Only the wakeupIntelligentVoice event is supported.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @since 10
