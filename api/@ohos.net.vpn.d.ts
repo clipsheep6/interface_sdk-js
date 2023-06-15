@@ -1,4 +1,4 @@
- /*
+/*
  * Copyright (C) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,256 +13,251 @@
  * limitations under the License.
  */
 
- import { AsyncCallback, Callback } from "./basic";
- import connection from "./@ohos.net.connection";
- import AbilityContext from "./application/AbilityContext";
+import { AsyncCallback, Callback } from "./basic";
+import connection from "./@ohos.net.connection";
+import AbilityContext from "./application/UIAbilityContext";
  
- /**
-  * Provides VPN related interfaces.
-  * @namespace vpn
-  * @syscap SystemCapability.Communication.NetManager.vpn
-  * @since 10
-  */
- declare namespace vpn {
-   export type LinkAddress = connection.LinkAddress;
-   export type RouteInfo = connection.RouteInfo;
- 
-   function createVpnConnection(context: AbilityContext): VpnConnection;
- 
-   export interface VpnConnection {
-     /**
-      * Create a VPN connection using the VpnConfig.
-      * @permission ohos.permission.MANAGE_VPN
-      * @param { VpnConfig } config - After vpn hap and remote vpn server negotiate, hap notify system to create vpn network.
-      * @param { AsyncCallback<number> } callback - the callback is used to return file descriptor of tun device. 
-      * @throws { BusinessError } 201 - Permission denied.
-      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-      * @throws { BusinessError } 401 - Parameter error.
-      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-      * @throws { BusinessError } 2200003 - System internal error.
-      * @throws { BusinessError } 2203001 - Deny vpn creation.
-      * @throws { BusinessError } 2203003 - Create virtual device failed.
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     setUp(config: VpnConfig, callback: AsyncCallback<number>): void;
- 
-     /**
-      * Create a VPN connection using the VpnConfig.
-      * @permission ohos.permission.MANAGE_VPN
-      * @param { VpnConfig } config - After vpn hap and remote vpn server negotiate, hap notify system to create vpn network.
-      * @returns { Promise<number> } The promise returns file descriptor of tun device.
-      * @throws { BusinessError } 201 - Permission denied.
-      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-      * @throws { BusinessError } 401 - Parameter error.
-      * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
-      * @throws { BusinessError } 2200003 - System internal error.
-      * @throws { BusinessError } 2203001 - Deny vpn creation.
-      * @throws { BusinessError } 2203003 - Create virtual device failed.
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     setUp(config: VpnConfig): Promise<number>;
- 
-     /**
-      * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
-      * underlying network so its traffic will not be forwarded through the VPN.
-      * @permission ohos.permission.MANAGE_VPN
-      * @param { number } socketFd - file descriptor of socket, this socket from @ohos.net.socket.
-      * @param { AsyncCallback<boolean> } callback - Returns true if protect the socketFd successfully.
-      * @throws { BusinessError } 201 - Permission denied.
-      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-      * @throws { BusinessError } 2200003 - System internal error.
-      * @throws { BusinessError } 2203004 - Invalid socket file discriptor.
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     protect(socketFd: number, callback: AsyncCallback<boolean>): void;
- 
-     /**
-      * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
-      * underlying network so its traffic will not be forwarded through the VPN.
-      * @permission ohos.permission.MANAGE_VPN
-      * @param { number } socketFd - file descriptor of socket, this socket from @ohos.net.socket.
-      * @returns { Promise<boolean> } The promise returns true if protect the socketFd successfully.
-      * @throws { BusinessError } 201 - Permission denied.
-      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-      * @throws { BusinessError } 2200003 - System internal error.
-      * @throws { BusinessError } 2203004 - Invalid socket file discriptor.
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     protect(socketFd: number): Promise<boolean>;
- 
-     /**
-      * Destroy the vpn connection Before vpn hap exit.
-      * @permission ohos.permission.MANAGE_VPN
-      * @param { AsyncCallback<boolean> } callback - Returns true if the vpn connection destroy successfully.
-      * @throws { BusinessError } 201 - Permission denied.
-      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-      * @throws { BusinessError } 2200003 - System internal error.
-      * @throws { BusinessError } 2203002 - Destroy vpn failed.
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     destroy(callback: AsyncCallback<boolean>): void;
- 
-     /**
-      * Destroy the vpn connection Before vpn hap exit.
-      * @permission ohos.permission.MANAGE_VPN
-      * @returns { Promise<boolean> } The promise returns true if the vpn connection destroy successfully.
-      * @throws { BusinessError } 201 - Permission denied.
-      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-      * @throws { BusinessError } 2200003 - System internal error.
-      * @throws { BusinessError } 2203002 - Destroy vpn failed.
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     destroy(): Promise<boolean>;
-   }
+/**
+ * Provides VPN related interfaces.
+ * @namespace vpn
+ * @syscap SystemCapability.Communication.NetManager.vpn
+ * @since 10
+ */
+declare namespace vpn {
+  export type LinkAddress = connection.LinkAddress;
+  export type RouteInfo = connection.RouteInfo;
 
   /**
-   * Vpn hap and remote vpn server negotiate, hap notify system to create vpn network.
-   * @interface VpnConfig
+   * Create a VPN connection using the AbilityContext.
+   * @returns { VpnConnection } the VpnConnection of the construct VpnConnection instance.
    * @syscap SystemCapability.Communication.NetManager.vpn
-   * @systemapi Hide this for inner system use.
    * @since 10
    */
-   export interface VpnConfig {
+  function createVpnConnection(context: AbilityContext): VpnConnection;
  
-     /**
-      * The tun device address.
-      * @type {LinkAddress}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     tunAddress: LinkAddress;
+  /**
+   * Defines a VPN connection.
+   * @interface VpnConnection
+   * @syscap SystemCapability.Communication.NetManager.vpn
+   * @since 10
+   */
+  export interface VpnConnection {
+    /**
+     * Create a VPN network using the VpnConfig.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { VpnConfig } config - Indicates the {@link VpnConfig} configuration of the VPN network.
+     * @param { AsyncCallback<number> } callback - The callback is used to return file descriptor of VPN interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied, please check the user type.
+     * @throws { BusinessError } 2203002 - VPN exist already, please execute destroy first.
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setUp(config: VpnConfig, callback: AsyncCallback<number>): void;
  
-     /**
-      * The array address.
-      * @type {?Array<LinkAddress>}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     addresses?: Array<LinkAddress>;
+    /**
+     * Create a VPN network using the VpnConfig.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { VpnConfig } config - Indicates the {@link VpnConfig} configuration of the VPN network.
+     * @returns { Promise<number> } The promise returns file descriptor of VPN interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied, please check the user type.
+     * @throws { BusinessError } 2203002 - VPN exist already, please execute destroy first.
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setUp(config: VpnConfig): Promise<number>;
  
-     /**
-      * The array route.
-      * @type {?Array<RouteInfo>}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     routes?: Array<RouteInfo>;
+    /**
+     * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
+     * underlying network so its traffic will not be forwarded through the VPN.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { number } socketFd - File descriptor of socket, this socket from @ohos.net.socket.
+     * @param { AsyncCallback<void> } callback - The callback of protect.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203004 - Invalid socket file descriptor.
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    protect(socketFd: number, callback: AsyncCallback<void>): void;
  
-     /**
-      * Set the maximum transmission unit (MTU) of the VPN interface.
-      * @type {?number}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     mtu?: number;
+    /**
+     * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
+     * underlying network so its traffic will not be forwarded through the VPN.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { number } socketFd - File descriptor of socket, this socket from @ohos.net.socket.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203004 - Invalid socket file descriptor.
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    protect(socketFd: number): Promise<void>;
  
-     /**
-      * Whether ipv4 is supported.
-      * @type {?boolean}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     isAcceptIPv4?: boolean;
+    /**
+     * Destroy the VPN network.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { AsyncCallback<void> } callback - The callback of destroy.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    destroy(callback: AsyncCallback<void>): void;
  
-     /**
-      * Whether ipv6 is supported.
-      * @type {?boolean}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     isAcceptIPv6?: boolean;
+    /**
+     * Destroy the VPN network.
+     * @permission ohos.permission.MANAGE_VPN
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    destroy(): Promise<void>;
+  }
+
+  /**
+   * Define configration of the VPN network.
+   * @interface VpnConfig
+   * @syscap SystemCapability.Communication.NetManager.vpn
+   * @since 10
+   */
+  export interface VpnConfig {
+    /**
+     * The array of addresses for VPN interface.
+     * @type {Array<LinkAddress>}
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @since 10
+     */
+    addresses: Array<LinkAddress>;
  
-     /**
-      * Whether to use the built-in vpn
-      * @type {?boolean}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     isLegacy?: boolean;
+    /**
+     * The array of routes for VPN interface.
+     * @type {?Array<RouteInfo>}
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @since 10
+     */
+    routes?: Array<RouteInfo>;
+
+    /**
+     * The array of DNS serveres for the VPN network.
+     * @type {?Array<string>}
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @since 10
+     */
+    dnsAddresses?: Array<string>;
  
-     /**
-      * Sets the VPN interface's file descriptor to be in blocking/non-blocking mode.
-      * @type {?boolean}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     isBlock?: boolean;
+    /**
+     * The array of search domains for the DNS resolver.
+     * @type {?Array<string>}
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @since 10
+     */
+    searchDomains?: Array<string>;
  
-     /**
-      * Marks the VPN network as metered.
-      * @type {?boolean}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     isMetered?: boolean;
+    /**
+     * The maximum transmission unit (MTU) for the VPN interface.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @since 10
+     */
+    mtu?: number;
  
-     /**
-      * Allows all apps to bypass this VPN connection.
-      * @type {?boolean}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     isAcceptBypass?: boolean;
+    /**
+     * Whether ipv4 is supported. The default value is true.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @since 10
+     */
+    isAcceptIPv4?: boolean;
  
-     /**
-      * Add a DNS server to the VPN connection.
-      * @type {?Array<string>}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     dnsAddresses?: Array<string>;
+    /**
+     * Whether ipv6 is supported. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @since 10
+     */
+    isAcceptIPv6?: boolean;
  
-     /**
-      * Add a search domain to the DNS resolver.
-      * @type {?Array<string>}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     searchDomains?: Array<string>;
+    /**
+     * Whether to use the built-in VPN. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @since 10
+     */
+    isLegacy?: boolean;
  
-     /**
-      * Add whitelist to the vpn network.
-      * @type {?Array<string>}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     acceptedApplications?: Array<string>;
+    /**
+     * Whether the VPN interface's file descriptor is in blocking/non-blocking mode. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @since 10
+     */
+    isBlock?: boolean;
  
-     /**
-      * Add blacklist to the vpn network.
-      * @type {?Array<string>}
-      * @syscap SystemCapability.Communication.NetManager.vpn
-      * @systemapi Hide this for inner system use.
-      * @since 10
-      */
-     refusedApplications?: Array<string>;
-   }
- }
+    /**
+     * Whether the VPN network is metered. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @since 10
+     */
+    isMetered?: boolean;
  
- export default vpn;
+    /**
+     * Whether allows all apps to bypass this VPN network. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @since 10
+     */
+    isAcceptBypass?: boolean;
+ 
+    /**
+     * The array of trustlist for the VPN network. The string indicates package name.
+     * @type {?Array<string>}
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @since 10
+     */
+    acceptedApplications?: Array<string>;
+ 
+    /**
+     * The array of blocklist for the VPN network. The string indicates package name.
+     * @type {?Array<string>}
+     * @syscap SystemCapability.Communication.NetManager.vpn
+     * @since 10
+     */
+    refusedApplications?: Array<string>;
+  }
+}
+export default vpn;
  

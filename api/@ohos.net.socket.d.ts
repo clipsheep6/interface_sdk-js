@@ -1139,10 +1139,9 @@ declare namespace socket {
     /**
      * Obtains the file descriptor of the TCPSocket connection.
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<number> } callback The callback returns the file descriptor of the TCPSocket connection.
+     * @param { AsyncCallback<number> } callback - The callback returns the file descriptor of the TCPSocket connection.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
      * @since 10
      */
     getSocketFd(callback: AsyncCallback<number>): void;
@@ -1153,7 +1152,6 @@ declare namespace socket {
      * @returns { Promise<number> } The promise returns the file descriptor of the TCPSocket connection.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
      * @since 10
      */
     getSocketFd(): Promise<number>;
