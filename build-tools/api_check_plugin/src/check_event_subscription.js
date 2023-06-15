@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-const { getApiVersion, ErrorType, ErrorLevel, LogType, requireTypescriptModule, getCheckApiVersion } = require('./utils');
+const { getApiVersion, ErrorType, ErrorLevel, LogType, requireTypescriptModule, getCheckApiVersion, createErrorInfo, ErrorValueInfo } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 const { checkSmallHump } = require('./check_hump');
 const ts = requireTypescriptModule();
@@ -22,14 +22,14 @@ const ts = requireTypescriptModule();
 function checkOnAndOffAppearInPair(node, sourcefile, fileName, onEventAllNames, onEventCheckNames, offEventAllNames, offEventCheckNames) {
   for (const value of onEventCheckNames) {
     if (!offEventAllNames.has(value)) {
-      const checkErrorResult = 'The on and off event subscription methods do not appear in pair.';
+      const checkErrorResult = createErrorInfo(ErrorValueInfo.ERROR_EVENT_ON_AND_OFF_PAIR, []);
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.API_PAIR_ERRORS, checkErrorResult, LogType.LOG_API,
         ErrorLevel.MIDDLE);
     }
   }
   for (const value of offEventCheckNames) {
     if (!onEventAllNames.has(value)) {
-      const checkErrorResult = 'The on and off event subscription methods do not appear in pair.';
+      const checkErrorResult = createErrorInfo(ErrorValueInfo.ERROR_EVENT_ON_AND_OFF_PAIR, []);
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.API_PAIR_ERRORS, checkErrorResult, LogType.LOG_API,
         ErrorLevel.MIDDLE);
     }
@@ -47,50 +47,73 @@ function checkVersionNeedCheck(node) {
 }
 
 function checkTheFirstParameter(node, sourcefile, fileName) {
+  if (node.parameters === undefined) {
+    return;
+  }
+  if (node.parameters[0].type === undefined) {
+    return;
+  }
+  const firstParameterType = node.parameters[0].type;
   // check the type of first parameter
-  if ((node.parameters[0].type.kind === ts.SyntaxKind.LiteralType && node.parameters[0].type.literal.kind === 
+  if ((firstParameterType.kind === ts.SyntaxKind.LiteralType && firstParameterType.literal.kind === 
     ts.SyntaxKind.StringLiteral)) {
     // if the first parameter is string
-    const parameterName = node.parameters[0].type.literal.text;
+    const parameterName = firstParameterType.literal.text;
     if (!checkSmallHump(parameterName)) {
-    const checkErrorResult = 'The event name [${parameterName}] should be named by small hump.';
+    const checkErrorResult = createErrorInfo(ErrorValueInfo.ERROR_EVENT_NAME_SMALL_HUMP, [parameterName]);
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.PARAMETER_ERRORS, checkErrorResult, LogType.LOG_API,
       ErrorLevel.MIDDLE);
       return;
     }
-  } else if (node.parameters[0].type.kind === ts.SyntaxKind.StringKeyword) {
+  } else if (firstParameterType.kind === ts.SyntaxKind.StringKeyword) {
     // if the first parameter is 'string'
     return;
   } else {
-    const checkErrorResult = 'The event name should be string.';
+    let checkErrorResult = createErrorInfo(ErrorValueInfo.ERROR_EVENT_NAME_STRING, []);
+    if (firstParameterType.typeName !== undefined && firstParameterType.typeName.escapedText === '') {
+      checkErrorResult = createErrorInfo(ErrorValueInfo.ERROR_EVENT_NAME_NULL, []);
+    }
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.PARAMETER_ERRORS, checkErrorResult, LogType.LOG_API,
       ErrorLevel.MIDDLE);
   }
 }
 
-// check if the callback parameter of off function is optional
-function checkOffFunctions(nodes, sourcefile, fileName) {
-  let hasOffWithoutCallbackParameter = false;
-  let hasOffCallbackParameterNotOptional = false;
-  for (let node of nodes) {
-    if (node.parameters.length > 1) {
-      const lastParameter = node.parameters[node.parameters.length - 1];
-      if (lastParameter.name.escapedText !== 'callback' || lastParameter.name.escapedText !== 'observerCallback' ||
-      lastParameter.name.escapedText !== 'listener') {
-        hasOffWithoutCallbackParameter = true;
-      } else if (lastParameter.questionToken === undefined) {
-        hasOffCallbackParameterNotOptional = true;
-      }
-    } else {
-      hasOffWithoutCallbackParameter = true;
+function isBasicType(node) {
+  if (node.type !== undefined) {
+    const nodeKind = node.type.kind;
+    const basicTypes = [ts.SyntaxKind.NumberKeyword, ts.SyntaxKind.StringKeyword, ts.SyntaxKind.BooleanKeyword, ts.SyntaxKind.UndefinedKeyword,
+      ts.SyntaxKind.LiteralType]
+    if (basicTypes.includes(nodeKind)) {
+      return true;
     }
   }
-  // has off fucntion with callback parameter which is not optional, and doesn't have off function without callback parameter
-  if (hasOffCallbackParameterNotOptional && !hasOffWithoutCallbackParameter) {
-    const checkErrorResult = 'The callback parameter of off function should be optional.';
+  return false;
+}
+
+// check if the callback parameter of off function is optional
+function checkOffFunctions(nodes, sourcefile, fileName) {
+  let isAllCallbackNotOptional = true; 
+  let someoneMissingCallback = false;
+  let someoneHasCallback = false;
+  for (let node of nodes) {
+    if (node.parameters.length === 0) {
+      continue;
+    }
+    const lastParameter = node.parameters[node.parameters.length - 1];
+    if (isBasicType(lastParameter)) {
+      someoneMissingCallback = true;
+    } else {
+      someoneHasCallback = true;
+      if (lastParameter.questionToken !== undefined) {
+        isAllCallbackNotOptional = false;
+      }
+    }
+  }
+  if (isAllCallbackNotOptional && !someoneMissingCallback) {
+    const checkErrorResult = createErrorInfo(ErrorValueInfo.ERROR_EVENT_CALLBACK_OPTIONAL, []);
     addAPICheckErrorLogs(nodes[0], sourcefile, fileName, ErrorType.PARAMETER_ERRORS, checkErrorResult, LogType.LOG_API, 
       ErrorLevel.MIDDLE);
-  } 
+  }
 }
 
 // handle event subscription node
