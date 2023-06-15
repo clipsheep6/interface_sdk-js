@@ -15,7 +15,7 @@
 
 import UIAbilityContext from './application/UIAbilityContext';
 import { AsyncCallback } from './basic';
-import { Advertisement } from './advertising/advertisement';
+import { Advertisement as _Advertisement } from './advertising/advertisement';
 
 /**
  * Advertising.
@@ -26,6 +26,13 @@ import { Advertisement } from './advertising/advertisement';
  * @import advertising from '@ohos.advertising';
  */
 declare namespace advertising {
+  /**
+   * Indicates the advertisement.
+   * @syscap SystemCapability.Cloud.Ads
+   * @since 10
+   */
+  export type Advertisement = _Advertisement;
+
   /**
    * The parameters in the request for loading one or more advertisements.
    *
@@ -80,7 +87,7 @@ declare namespace advertising {
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    [key:string]? : number | boolean | string | undefined;
+    [key: string]?: number | boolean | string | undefined;
   }
 
   /**
@@ -120,7 +127,7 @@ declare namespace advertising {
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    [key:string]? : number | boolean | string | undefined;
+    [key: string]?: number | boolean | string | undefined;
   }
 
   /**
@@ -177,7 +184,7 @@ declare namespace advertising {
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    [key:string]? : number | boolean | string | undefined;
+    [key: string]?: number | boolean | string | undefined;
   }
 
   /**
@@ -265,7 +272,7 @@ declare namespace advertising {
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
-   function showAd(context: UIAbilityContext, ad: Advertisement, option: AdDisplayOptions): void;
+  function showAd(context: UIAbilityContext, ad: Advertisement, option: AdDisplayOptions): void;
 
   /**
    * A class for advertising loader.
