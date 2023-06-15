@@ -19,6 +19,7 @@ declare type AdDisplayOptions = import('../api/@ohos.advertising').default.AdDis
 
 /**
  * Defines the AdView Component.
+ * @interface AdViewInterface
  * @syscap SystemCapability.Cloud.Ads
  * @since 10
  */
