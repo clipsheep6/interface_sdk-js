@@ -787,7 +787,7 @@ declare namespace inputMethodEngine {
      * @param { number } length - length of text which will be deleted forward.
      * @param { AsyncCallback<boolean> } callback - the callback of deleteForward.
      * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800002 - Input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -800,7 +800,7 @@ declare namespace inputMethodEngine {
      * @param { number } length - length of text which will be deleted forward.
      * @returns { Promise<boolean> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800002 - Input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -813,7 +813,7 @@ declare namespace inputMethodEngine {
      * @param { number } length - length of text which will be deleted backward.
      * @param { AsyncCallback<boolean> } callback - the callback of deleteBackward.
      * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800002 - Input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -826,7 +826,7 @@ declare namespace inputMethodEngine {
      * @param { number } length - length of text which will be deleted backward.
      * @returns { Promise<boolean> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800002 - Input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -839,7 +839,7 @@ declare namespace inputMethodEngine {
      * @param { string } text - text which will be inserted.
      * @param { AsyncCallback<boolean> } callback - the callback of insertText.
      * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800002 - Input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -852,7 +852,7 @@ declare namespace inputMethodEngine {
      * @param { string } text - text which will be inserted.
      * @returns { Promise<boolean> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800002 - Input method engine error.
+     * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
@@ -866,7 +866,7 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<string> } callback - the callback of getForward.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -879,7 +879,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<string> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -892,7 +892,7 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<string> } callback - the callback of getBackward.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -905,7 +905,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<string> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1009,7 +1009,7 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<number> } callback - the callback of getTextIndexAtCursor, number represents the index
      *        number of text at cursor.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1021,7 +1021,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<number> } the promise returned by the function, number represents the index number of text
      *          at cursor.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1034,7 +1034,7 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<void> } callback - the callback of sendExtendAction.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1047,7 +1047,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @throws { BusinessError } 12800006 - input method controller error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
