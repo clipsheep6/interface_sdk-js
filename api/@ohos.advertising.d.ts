@@ -18,57 +18,65 @@ import { AsyncCallback } from './basic';
 import { Advertisement } from './advertising/advertisement';
 
 /**
- * advertising.
+ * Advertising.
  *
+ * @namespace advertising
  * @syscap SystemCapability.Cloud.Ads
  * @since 10
  * @import advertising from '@ohos.advertising';
  */
 declare namespace advertising {
   /**
-   * the parameters in the request for loading one or more advertisements.
+   * The parameters in the request for loading one or more advertisements.
    *
+   * @interface AdRequestParams
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
   export interface AdRequestParams {
     /**
-     * @argument adId the advertisement slot id.
+     * The advertisement slot id.
+     * @type { string }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     adId: string;
 
     /**
-     * the advertisement type of request.
+     * The advertisement type of request.
+     * @type { string }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     adType?: number;
 
     /**
-     * the advertisement quantity of request.
+     * The advertisement quantity of request.
+     * @type { number }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     adCount?: number;
 
     /**
-     * the advertisement view size width that expect.
+     * The advertisement view size width that expect.
+     * @type { number }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     adWidth?: number;
 
     /**
-     * the advertisement view size height that expect.
+     * The advertisement view size height that expect.
+     * @type { number }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     adHeight?: number;
 
     /**
-     * the extended attributes for request parameters.
+     * The extended attributes for request parameters.
+     * @type { number | boolean | string | undefined }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
@@ -76,34 +84,39 @@ declare namespace advertising {
   }
 
   /**
-   * load advertising options.
+   * Load advertising options.
+   * @interface AdOptions
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
   export interface AdOptions {
     /**
-     * the tags for children's content.
+     * The tags for children's content.
+     * @type { number }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     tagForChildProtection?: number;
 
     /**
-     * advertisement content Classification setting.
+     * Advertisement content Classification setting.
+     * @type { string }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     adContentClassification?: string;
 
     /**
-     * non-personalized advertising settings.
+     * Non-personalized advertising settings.
+     * @type { number }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     nonPersonalizedAd?: number;
 
     /**
-     * the extended attributes for advertising options.
+     * The extended attributes for advertising options.
+     * @type { number | boolean | string | undefined }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
@@ -111,58 +124,71 @@ declare namespace advertising {
   }
 
   /**
-   * the interaction options info for show advertising.
+   * The interaction options info for show advertising.
+   * @interface AdDisplayOptions
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
   export interface AdDisplayOptions {
     /**
-     * advertising custom data.
+     * Advertising custom data.
+     * @type { string }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     customData?: string;
 
     /**
-     * advertising user Id.
+     * Advertising user Id.
+     * @type { string }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     userId?: string;
 
     /**
-     * indicates whether a dialog box is displayed to notify users of video playback
+     * Indicates whether a dialog box is displayed to notify users of video playback
      * and application download in non-Wi-Fi scenarios.
+     * @type { boolean }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     useMobileDataReminder?: boolean;
 
     /**
-     * indicates whether to mute the playback of the incentive ad video.
+     * Indicates whether to mute the playback of the incentive ad video.
+     * @type { boolean }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     mute?: boolean;
 
     /**
-     * the type of the scenario where the audio focus is obtained during video playback.
+     * The type of the scenario where the audio focus is obtained during video playback.
+     * @type { number }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     audioFocusType?: number;
 
     /**
-     * the extended attributes for interaction options.
+     * The extended attributes for interaction options.
+     * @type { number | boolean | string | undefined }
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
     [key:string]? : number | boolean | string | undefined;
   }
 
+    /**
+     * The listener of ad interaction.
+     * @interface AdInteractionListener
+     * @syscap SystemCapability.Cloud.Ads
+     * @since 10
+     */
   export interface AdInteractionListener {
     /**
-     * ads status callback
+     * Ads status callback
      * @param status The current advertising status. The status contains onAdOpen,onAdClose,onAdReward,onAdClick,onVideoPlayBegin and onVideoPlayEnd
      * @param ad - The ad which status is changed
      * @param data The data of current advertising status
@@ -173,7 +199,8 @@ declare namespace advertising {
   }
 
   /**
-   * the listener of load advertising.
+   * The listener of load advertising.
+   * @interface AdLoadListener
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
@@ -199,7 +226,7 @@ declare namespace advertising {
   }
 
   /**
-   * initializing the global advertisement configuration.
+   * Initializing the global advertisement configuration.
    *
    * @param { UIAbilityContext } abilityContext - Context of the Media Application.
    * @param { AdOptions } adConfig - the global advertisement configuration.
@@ -213,7 +240,7 @@ declare namespace advertising {
   function init(abilityContext: UIAbilityContext, adConfig: AdOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * initializing the global advertisement configuration.
+   * Initializing the global advertisement configuration.
    *
    * @param { UIAbilityContext } abilityContext - Context of the Media Application.
    * @param { AdOptions } adConfig - the global advertisement configuration.
@@ -227,7 +254,7 @@ declare namespace advertising {
   function init(abilityContext: UIAbilityContext, adConfig: AdOptions): Promise<void>;
 
   /**
-   * show full screen advertising.
+   * Show full screen advertising.
    *
    * @param { UIAbilityContext } context - Indicates the UIAbility Context of the Media Application.
    * @param { Advertisement } ad - Indicates the Advertisement content information.
