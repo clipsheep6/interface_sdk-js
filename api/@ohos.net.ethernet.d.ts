@@ -30,6 +30,12 @@ declare namespace ethernet {
   type HttpProxy = connection.HttpProxy;
 
   /**
+   * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @since 10
+   */
+  type NetAddress = connection.NetAddress;
+
+  /**
    * Get the specified network interface information.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { string } iface - Indicates the network interface name.
@@ -219,6 +225,7 @@ declare namespace ethernet {
      * @since 9
      */
     mode: IPSetMode;
+
     /**
      * Ethernet connection static configuration IP information.
      * The address value range is 0-255.0-255.0-255.0-255.0-255
@@ -228,7 +235,17 @@ declare namespace ethernet {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    ipAddr: string;
+    /**
+     * Ethernet connection static configuration IP information.
+     * If this parameter is set as type of string, the value can only be set to type of IPv4.
+     * If this parameter is set as type of NetAddress, the value can be set to type of IPv4 and IPv6.
+     * (DHCP mode does not need to be configured)
+     * @type {?string | NetAddress}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    ipAddr?: string | NetAddress;
 
     /**
      * Ethernet connection static configuration route information.
@@ -239,7 +256,17 @@ declare namespace ethernet {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    route: string;
+    /**
+     * Ethernet connection static configuration route information.
+     * If this parameter is set as type of string, the value can only be set to type of IPv4.
+     * If this parameter is set as type of NetAddress, the value can be set to type of IPv4 and IPv6.
+     * (DHCP mode does not need to be configured)
+     * @type {?string | NetAddress}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    route?: string | NetAddress;
 
     /**
      * Ethernet connection static configuration gateway information.
