@@ -16,82 +16,96 @@
 /**
  * Defines the advertisement.
  *
+ * @interface Advertisement
  * @syscap SystemCapability.Cloud.Ads
  * @since 10
  */
 export interface Advertisement {
   /**
-   * the advertising type.
+   * The advertising type.
+   * @type { number }
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
   adType: number;
 
   /**
-   * the content id that is being played in the media.
+   * The content id that is being played in the media.
+   * @type { string }
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
   contentId: string;
 
   /**
-   * the advertising close keywords.
+   * The advertising close keywords.
+   * @type { string[] }
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
   adCloseKeyWords: string[];
 
   /**
-   * the detailed creative type returned by an advertisement.
+   * The detailed creative type returned by an advertisement.
+   * @type { number }
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
   creativeType: number;
 
   /**
-   * the server verifies the configuration parameters.
+   * The server verifies the configuration parameters.
+   * @type { Map<string, string> }
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
   rewardVerifyConfig: Map<string, string>;
 
   /**
-   * the advertising content data.
+   * The advertising content data.
+   * @type { object }
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
   adContentData: object;
 
   /**
-   * the unique identifier of the advertising event generation.
+   * The unique identifier of the advertising event generation.
+   * @type { string }
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
   uniqueId: string;
 
   /**
-   * the subscriber has been rewarded.
+   * The subscriber has been rewarded.
+   * @type { boolean }
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
   rewarded: boolean;
 
   /**
-   * the ad has been shown.
+   * The ad has been shown.
+   * @type { boolean }
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
   shown: boolean;
 
   /**
-   * the ad has been clicked.
+   * The ad has been clicked.
+   * @type { boolean }
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
   clicked: boolean;
 
   /**
-   * the extended attributes of advertisement.
+   * The extended attributes of advertisement.
+   * @type { number | boolean | string | undefined }
+   * @syscap SystemCapability.Cloud.Ads
+   * @since 10
    */
   [key:string]? : number | boolean | string | undefined;
 }
