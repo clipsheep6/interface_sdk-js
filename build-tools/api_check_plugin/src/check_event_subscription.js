@@ -53,7 +53,7 @@ function checkTheFirstParameter(node, sourcefile, fileName) {
     // if the first parameter is string
     const parameterName = node.parameters[0].type.literal.text;
     if (!checkSmallHump(parameterName)) {
-    const checkErrorResult = 'The event name [${parameterName}] should be named by small hump.';
+    const checkErrorResult = `The event name should be named by small hump. (Received [\'${parameterName}\'])`;
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.PARAMETER_ERRORS, checkErrorResult, LogType.LOG_API,
       ErrorLevel.MIDDLE);
       return;
@@ -62,7 +62,10 @@ function checkTheFirstParameter(node, sourcefile, fileName) {
     // if the first parameter is 'string'
     return;
   } else {
-    const checkErrorResult = 'The event name should be string.';
+    let checkErrorResult = 'The event name should be string.';
+    if (node.parameters[0].type.typeName !== undefined && node.parameters[0].type.typeName.escapedText === '') {
+      checkErrorResult = 'The event name cannot be Null value';
+    }
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.PARAMETER_ERRORS, checkErrorResult, LogType.LOG_API,
       ErrorLevel.MIDDLE);
   }
