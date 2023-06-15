@@ -180,12 +180,12 @@ declare namespace advertising {
     [key:string]? : number | boolean | string | undefined;
   }
 
-    /**
-     * The listener of ad interaction.
-     * @interface AdInteractionListener
-     * @syscap SystemCapability.Cloud.Ads
-     * @since 10
-     */
+  /**
+   * The listener of ad interaction.
+   * @interface AdInteractionListener
+   * @syscap SystemCapability.Cloud.Ads
+   * @since 10
+   */
   export interface AdInteractionListener {
     /**
      * Ads status callback
