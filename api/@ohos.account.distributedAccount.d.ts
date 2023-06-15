@@ -18,7 +18,7 @@ import { AsyncCallback } from './@ohos.base';
 /**
  * This module provides the capability to manage distributed accounts.
  *
- * @namespace distributedAccount
+ * @namespace test1
  * @syscap SystemCapability.Account.OsAccount
  * @since 7
  */
@@ -26,7 +26,7 @@ declare namespace distributedAccount {
   /**
    * Gets the ability of the distributed account.
    *
-   * @returns { DistributedAccountAbility } Ability to manage operations of distributed account.
+   * @returns { test2 } Ability to manage operations of distributed account.
    * @syscap SystemCapability.Account.OsAccount
    * @since 7
    */
@@ -35,17 +35,17 @@ declare namespace distributedAccount {
   /**
    * Defines distributed account functions and interfaces.
    *
+   * @since 7
    * @interface DistributedAccountAbility
    * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
    * @syscap SystemCapability.Account.OsAccount
-   * @since 7
    */
   interface DistributedAccountAbility {
     /**
      * Queries the distributed information of the current OS account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { AsyncCallback<DistributedInfo> } callback - Asynchronous callback interface.
+     * @param { AsyncCallback<DistributedInfo> } test3 - Asynchronous callback interface.
      * @syscap SystemCapability.Account.OsAccount
      * @since 7
      * @deprecated since 9
@@ -60,7 +60,6 @@ declare namespace distributedAccount {
      * @returns { Promise<DistributedInfo> } The distributed information of the current OS account.
      * @syscap SystemCapability.Account.OsAccount
      * @since 7
-     * @deprecated since 9
      * @useinstead distributedAccount.DistributedAccountAbility#getOsAccountDistributedInfo
      */
     queryOsAccountDistributedInfo(): Promise<DistributedInfo>;
@@ -70,13 +69,13 @@ declare namespace distributedAccount {
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.GET_DISTRIBUTED_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC
      * @param { AsyncCallback<DistributedInfo> } callback - Asynchronous callback interface.
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
-    getOsAccountDistributedInfo(callback: AsyncCallback<DistributedInfo>): void;
+    getOsAccountDistributedInfo(callback: AsyncCallback<any>): void;
 
     /**
      * Gets the distributed information of the current OS account.
