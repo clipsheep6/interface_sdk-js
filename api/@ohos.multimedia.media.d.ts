@@ -722,7 +722,7 @@ declare namespace media {
      * Register or unregister listens for trackinfo update events.
      * This event will be triggered after a successful call to {@link #addSubUrl} or {@link #addSubFdSrc}.
      * @param { 'trackInfoUpdate' } type - Type of the playback event to listen for.
-     * @param { fuction } callback - Callback used to listen for the track info update event.
+     * @param { function } callback - Callback used to listen for the track info update event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 10
      */
