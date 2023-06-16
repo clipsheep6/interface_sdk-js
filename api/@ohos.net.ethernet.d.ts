@@ -36,6 +36,12 @@ declare namespace ethernet {
   type NetAddress = connection.NetAddress;
 
   /**
+   * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @since 10
+   */
+  type LinkAddress = connection.LinkAddress;
+
+  /**
    * Get the specified network interface information.
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { string } iface - Indicates the network interface name.
@@ -238,14 +244,14 @@ declare namespace ethernet {
     /**
      * Ethernet connection static configuration IP information.
      * If this parameter is set as type of string, the value can only be set to type of IPv4.
-     * If this parameter is set as type of NetAddress, the value can be set to type of IPv4 and IPv6.
+     * If this parameter is set as type of LinkAddress, the value can be set to type of IPv4 and IPv6.
      * (DHCP mode does not need to be configured)
-     * @type {?string | NetAddress}
+     * @type {?string | LinkAddress}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    ipAddr?: string | NetAddress;
+    ipAddr?: string | LinkAddress;
 
     /**
      * Ethernet connection static configuration route information.
@@ -259,14 +265,14 @@ declare namespace ethernet {
     /**
      * Ethernet connection static configuration route information.
      * If this parameter is set as type of string, the value can only be set to type of IPv4.
-     * If this parameter is set as type of NetAddress, the value can be set to type of IPv4 and IPv6.
+     * If this parameter is set as type of LinkAddress, the value can be set to type of IPv4 and IPv6.
      * (DHCP mode does not need to be configured)
-     * @type {?string | NetAddress}
+     * @type {?string | LinkAddress}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    route?: string | NetAddress;
+    route?: string | LinkAddress;
 
     /**
      * Ethernet connection static configuration gateway information.
