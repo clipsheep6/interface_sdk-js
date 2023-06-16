@@ -219,9 +219,10 @@ declare namespace ethernet {
      * @since 9
      */
     mode: IPSetMode;
+
     /**
      * Ethernet connection static configuration IP information.
-     * The address value range is 0-255.0-255.0-255.0-255.0-255
+     * The address value range for IPv4 is 0-255.0-255.0-255.0-255.0-255, for IPv6 is 0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff
      * (DHCP mode does not need to be configured)
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
@@ -231,8 +232,20 @@ declare namespace ethernet {
     ipAddr: string;
 
     /**
+     * Indicates the ip address prefix length.
+     * The prefix length range for IPv4 is 0-32, for IPv6 is 0-128
+     * When the IP address is set to IPv6, ipPrefixLen must be set, otherwise it may not need to be set.
+     * (DHCP mode does not need to be configured)
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    ipPrefixLen?: number;
+
+    /**
      * Ethernet connection static configuration route information.
-     * The address value range is 0-255.0-255.0-255.0-255.0-255
+     * The address value range for IPv4 is 0-255.0-255.0-255.0-255.0-255, for IPv6 is 0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff
      * (DHCP mode does not need to be configured)
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
@@ -240,6 +253,18 @@ declare namespace ethernet {
      * @since 9
      */
     route: string;
+
+    /**
+     * Ethernet connection static configuration IP information.
+     * The prefix length range for IPv4 is 0-32, for IPv6 is 0-128
+     * When the route address is set to IPv6, ipPrefixLen must be set, otherwise it may not need to be set.
+     * (DHCP mode does not need to be configured)
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    routePrefixLen?: number;
 
     /**
      * Ethernet connection static configuration gateway information.
