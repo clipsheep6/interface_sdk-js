@@ -15,6 +15,7 @@
 
 import { Callback } from './@ohos.base';
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
+import { Pinch, ThreeFingerSwipe, FourFingerSwipe } from './@ohos.multimodalInput.gestureEvent';
 
 /**
  * Global input event listener
@@ -96,5 +97,95 @@ declare namespace inputMonitor {
    * @since 9
    */
   function off(type: 'mouse', receiver?: Callback<MouseEvent>): void;
+
+  /**
+   * Listens for touchPad pinch events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'pinch' } type - Event type, which is **pinch**.
+   * @param { Callback<Pinch> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function on(type: 'pinch', receiver: Callback<Pinch>): void;
+
+  /**
+   * Cancel listening for touchPad pinch events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'pinch' } type - Event type, which is **pinch**.
+   * @param { Callback<Pinch> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function off(type: 'pinch', receiver?: Callback<Pinch>): void;
+
+  /**
+   * Listens for touchPad three finger swipe events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'threeFingerSwipe' } type - Event type, which is **threeFingerSwipe**.
+   * @param { Callback<ThreeFingerSwipe> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function on(type: 'threeFingerSwipe', receiver: Callback<ThreeFingerSwipe>): void;
+
+  /**
+   * Cancel listening touchPad three finger swipe events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'threeFingerSwipe' } type - Event type, which is **threeFingerSwipe**.
+   * @param { Callback<ThreeFingerSwipe> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function off(type: 'threeFingerSwipe', receiver?: Callback<ThreeFingerSwipe>): void;
+
+  /**
+   * Listens for touchPad four finger swipe events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'fourFingerSwipe' } type - Event type, which is **fourFingerSwipe**..
+   * @param { Callback<FourFingerSwipe> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function on(type: 'fourFingerSwipe', receiver: Callback<FourFingerSwipe>): void;
+
+  /**
+   * Cancel listening touchPad four finger swipe events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'fourFingerSwipe' } type - Event type, which is **fourFingerSwipe**.
+   * @param { Callback<FourFingerSwipe> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function off(type: 'fourFingerSwipe', receiver?: Callback<FourFingerSwipe>): void;
 }
 export default inputMonitor;
