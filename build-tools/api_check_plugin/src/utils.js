@@ -155,6 +155,10 @@ const ErrorType = {
   ILLEGAL_ANY: {
     id: 11,
     description: 'illegal any'
+  },
+  API_CHANGE_ERRORS: {
+    id: 12,
+    description: 'api change errors'
   }
 };
 exports.ErrorType = ErrorType;
@@ -321,7 +325,16 @@ const ErrorValueInfo = {
   ERROR_MORELABEL: 'JSDoc tag validity verification failed. The [$$] [$$] tag is redundant. Please check if the tag should be deleted.',
   ERROR_REPEATLABEL: 'the validity verification of the JSDoc tag failed. The [$$] tag is not allowed to be reused, please delete the extra tags',
   ERROR_USE_INTERFACE: 'the validity verification of the JSDoc tag failed. The [interface] tag and [typedef] tag are not allowed to be used simultaneously. Please confirm the interface class.',
-  ILLEGAL_USE_ANY: 'Illegal [any] keyword used in the API'
+  ILLEGAL_USE_ANY: 'Illegal [any] keyword used in the API',
+  ERROR_CHANGES_VERSION: 'Please check if the changed API version number is 10.',
+  ERROR_CHANGES_API_HISTORY_PARAM_CHANGE: 'Forbid changes: previous parameters cannot be changed.',
+  ERROR_CHANGES_API_NEW_REQUIRED_PARAM: 'Forbid changes: required parameters cannot be created.',
+  ERROR_CHANGES_API_DELETE_PARAM: 'Forbid changes: parameters cannot be deleted.',
+  ERROR_CHANGES_DEPRECATED: 'Forbid changes: the api has deprecated tag.',
+  ERROR_CHANGES_JSDOC_NUMBER: 'Please create new JSDoc.',
+  ERROR_CHANGES_JSDOC_CHANGE: 'Forbid changes: previous JSDoc cannot be changed.',
+  ERROR_CHANGES_JSDOC_TRROWS: 'Forbid changes: throws tag cannot be created.',
+  ERROR_CHANGES_JSDOC_PERMISSION: 'Forbid changes: permission tag cannot be created or modified.'
 };
 exports.ErrorValueInfo = ErrorValueInfo;
 
