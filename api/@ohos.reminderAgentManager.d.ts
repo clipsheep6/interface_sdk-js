@@ -196,7 +196,7 @@ declare namespace reminderAgentManager {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 9
      */
-    ACTION_BUTTON_TYPE_SNOOZE = 1,
+    ACTION_BUTTON_TYPE_SNOOZE = 1
   }
 
   /**
