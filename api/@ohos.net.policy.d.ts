@@ -792,7 +792,7 @@ declare namespace policy {
    */
   export interface NetQuotaPolicy {
     /**
-     * Matches the rules of the network.
+     * The matching rules of network quota policies.
      * @type {NetworkMatchRule}
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -857,7 +857,7 @@ declare namespace policy {
     limitAction: LimitAction;
 
     /**
-     * The time of the last warning, For obtaining only, default: REMIND_NEVER.
+     * The time of the last warning reminder. For notifying only, default: REMIND_NEVER.
      * @type {number}
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -865,7 +865,7 @@ declare namespace policy {
     lastWarningRemind?: number;
 
     /**
-     * The time of the last reminder, For obtaining only, default: REMIND_NEVER.
+     * The time of the last limit reminder. For notifying only, default: REMIND_NEVER.
      * @type {number}
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -874,7 +874,7 @@ declare namespace policy {
   }
 
   /**
-   * Matches the rules of the network.
+   * The matching rules of network quota policies.
    * @interface NetworkMatchRule
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
