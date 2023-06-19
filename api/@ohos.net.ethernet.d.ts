@@ -244,14 +244,14 @@ declare namespace ethernet {
     /**
      * Ethernet connection static configuration IP information.
      * If this parameter is set as type of string, the value can only be set to type of IPv4.
-     * If this parameter is set as type of LinkAddress, the value can be set to type of IPv4 and IPv6.
+     * If this parameter is set as type of LinkAddress, the value can be set to both IPv4 and IPv6 simultaneously.
      * (DHCP mode does not need to be configured)
-     * @type {?string | LinkAddress}
+     * @type {string | Array<LinkAddress>}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    ipAddr?: string | LinkAddress;
+    ipAddr: string | Array<LinkAddress>;
 
     /**
      * Ethernet connection static configuration route information.
@@ -265,14 +265,14 @@ declare namespace ethernet {
     /**
      * Ethernet connection static configuration route information.
      * If this parameter is set as type of string, the value can only be set to type of IPv4.
-     * If this parameter is set as type of LinkAddress, the value can be set to type of IPv4 and IPv6.
+     * If this parameter is set as type of LinkAddress, the value can be set to both IPv4 and IPv6 simultaneously.
      * (DHCP mode does not need to be configured)
-     * @type {?string | LinkAddress}
+     * @type {string | Array<LinkAddress>}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    route?: string | LinkAddress;
+    route: string | Array<LinkAddress>;
 
     /**
      * Ethernet connection static configuration gateway information.
