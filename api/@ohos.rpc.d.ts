@@ -1157,6 +1157,7 @@ declare namespace rpc {
      *
      * @param { number } size - Indicates the data size of the {@link MessageSequence} object.
      * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 1900009 - write data to message sequence failed
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1169,6 +1170,7 @@ declare namespace rpc {
      *
      * @param { number } size - Indicates the storage capacity of the {@link MessageSequence} object.
      * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 1900009 - write data to message sequence failed
      * @throws { BusinessError } 1900011 - parcel memory alloc failed
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -1221,6 +1223,7 @@ declare namespace rpc {
      *
      * @param { number } pos - Indicates the target position to start data reading.
      * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 1900010 - read data from message sequence failed
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1233,6 +1236,7 @@ declare namespace rpc {
      *
      * @param { number } pos - Indicates the target position to start data writing.
      * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 1900009 - write data to message sequence failed 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -1509,7 +1513,7 @@ declare namespace rpc {
     writeRemoteObjectArray(objectArray: IRemoteObject[]): void;
 
     /**
-     * Reads a byte value from the {@link MessageParcel} object.
+     * Reads a byte value from the {@link MessageSequence} object.
      *
      * @returns { number } Return a byte value.
      * @throws { BusinessError } 1900010 - read data from message sequence failed
@@ -1626,7 +1630,6 @@ declare namespace rpc {
      * Reads a byte array from the {@link MessageSequence} object.
      *
      * @returns { number[] } Return a byte array.
-     * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 1900010 - read data from message sequence failed
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -1893,8 +1896,8 @@ declare namespace rpc {
      *
      * @param { Ashmem } ashmem - Anonymous shared memory object to wrote.
      * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900003 - write to ashmem failed
-     * @syscap SystemCapability.Communication.IPC.Core
+     * @throws { BusinessError } 1900009 - write data to message sequence failed
+     * @syscap SystemCapability.Communication.IPC.Core   
      * @since 9
      */
     writeAshmem(ashmem: Ashmem): void;
@@ -1903,8 +1906,7 @@ declare namespace rpc {
      * Reads the anonymous shared memory object from this {@link MessageSequence} object.
      *
      * @returns { Ashmem } Return the anonymous share object obtained.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900004 - read from ashmem failed
+     * @throws { BusinessError } 1900010 - read data from message sequence failed
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2274,8 +2276,7 @@ declare namespace rpc {
      *
      * @param { DeathRecipient } recipient - Indicates the callback to be registered.
      * @param { number } flags - Indicates the flag of the death notification.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+     * @throws { BusinessError } 1900005 - only proxy object permitted 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2300,8 +2301,7 @@ declare namespace rpc {
      *
      * @param { DeathRecipient } recipient - Indicates the callback to be unregister.
      * @param { number } flags - Indicates the flag of the death notification.
-     * @throws { BusinessError } 401 - check param failed
-     * @throws { BusinessError } 1900008 - proxy or remote object is invalid
+     * @throws { BusinessError } 1900005 - only proxy object permitted 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
      */
@@ -2820,7 +2820,6 @@ declare namespace rpc {
      *
      * @param { string } interface - Indicates the descriptor of the interface to query.
      * @returns { IRemoteBroker } Return null by default, indicating a proxy interface.
-     * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 1900006 - only remote object permitted
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
