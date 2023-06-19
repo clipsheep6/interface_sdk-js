@@ -500,6 +500,14 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   nestedScroll(value: NestedScrollOptions): ListAttribute
 
   /**
+   * Set the nested scroll children.
+   * @param { string } value - the ID of nested scroll children..
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  nestedScrollChildren(value: string): ListAttribute
+  /**
    * Called when the offset and status callback of the slide are set.
    * @since 7
    */
