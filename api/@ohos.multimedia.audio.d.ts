@@ -1861,11 +1861,11 @@ declare namespace audio {
     getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo): Promise<AudioDeviceDescriptors>;
 
     /**
-     * Subscribes to preferred input device change events. When prefer device for target audio capturer info changes,
+     * Subscribes to preferred input device change events. When preferred device for target audio capturer info changes,
      * registered clients will receive the callback.
      * @param { 'preferredInputDeviceChangeForCapturerInfo' } type - Type of the event to listen for.
      * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
-     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices information.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -1875,7 +1875,7 @@ declare namespace audio {
     /**
      * Unsubscribes to preferred input device change events.
      * @param { 'preferredInputDeviceChangeForCapturerInfo' } type - Type of the event to listen for.
-     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices in subscribe.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices in subscribe.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Device
