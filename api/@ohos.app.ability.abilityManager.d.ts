@@ -165,7 +165,7 @@ declare namespace abilityManager {
 
   /**
    * Acquire the shared data from target ability.
-   * @param { number } - The missionId of target ability.
+   * @param { number } missionId - The missionId of target ability.
    * @returns { Promise<{[key: string]: Object}> } The promise returned by the function.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -180,12 +180,13 @@ declare namespace abilityManager {
    * Notify the result of save as to target ability.
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @param { number } requestCode - Request code defined by the user.
+   * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
    * @systemapi
+   * @StageModelOnly
    * @since 10
    */
   function notifySaveAsResult(parameter: AbilityResult, requestCode: number, callback: AsyncCallback<void>): void;
@@ -194,12 +195,13 @@ declare namespace abilityManager {
    * Notify the result of save as to target ability.
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @param { number } requestCode - Request code defined by the user.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
    * @systemapi
+   * @StageModelOnly
    * @since 10
    */
    function notifySaveAsResult(parameter: AbilityResult, requestCode: number): Promise<void>;
