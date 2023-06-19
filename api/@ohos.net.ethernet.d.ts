@@ -245,6 +245,7 @@ declare namespace ethernet {
      * Ethernet connection static configuration IP information.
      * If this parameter is set as type of string, the value can only be set to type of IPv4.
      * If this parameter is set as type of Array<LinkAddress>, the value can be set to both IPv4 and IPv6 simultaneously.
+     * The address value range for IPv4 is 0-255.0-255.0-255.0-255.0-255, for IPv6 is 0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff.
      * (DHCP mode does not need to be configured)
      * @type {string | Array<LinkAddress>}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
@@ -266,6 +267,7 @@ declare namespace ethernet {
      * Ethernet connection static configuration route information.
      * If this parameter is set as type of string, the value can only be set to type of IPv4.
      * If this parameter is set as type of Array<LinkAddress>, the value can be set to both IPv4 and IPv6 simultaneously.
+     * The address value range for IPv4 is 0-255.0-255.0-255.0-255.0-255, for IPv6 is 0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff.
      * (DHCP mode does not need to be configured)
      * @type {string | Array<LinkAddress>}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
@@ -283,7 +285,18 @@ declare namespace ethernet {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    gateway: string;
+    /**
+     * Ethernet connection static configuration gateway information.
+     * If this parameter is set as type of string, the value can only be set to type of IPv4.
+     * If this parameter is set as type of Array<string>, the value can be set to both IPv4 and IPv6 simultaneously.
+     * The address value range for IPv4 is 0-255.0-255.0-255.0-255.0-255, for IPv6 is 0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff.
+     * (DHCP mode does not need to be configured)
+     * @type {string | Array<string>}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    gateway: string | Array<string>;
 
     /**
      * Ethernet connection static configuration netMask information.
@@ -294,7 +307,18 @@ declare namespace ethernet {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    netMask: string;
+    /**
+     * Ethernet connection static configuration netMask information.
+     * If this parameter is set as type of string, the value can only be set to type of IPv4.
+     * If this parameter is set as type of Array<string>, the value can be set to both IPv4 and IPv6 simultaneously.
+     * The address value range for IPv4 is 0-255.0-255.0-255.0-255.0-255, for IPv6 is 0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff:0-ffff.
+     * (DHCP mode does not need to be configured)
+     * @type {string | Array<string>}
+     * @syscap SystemCapability.Communication.NetManager.Ethernet
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    netMask: string | Array<string>;
 
     /**
      * The Ethernet connection is configured with the dns service address.
