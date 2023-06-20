@@ -485,12 +485,14 @@ declare namespace sms {
   /**
    * Get an SMS segment encode relation information.
    *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index
    * number supported by the device.
    * @param { string } message - Indicates short message.
    * @param { boolean } force7bit - Indicates whether to use 7 bit encoding.
    * @param { AsyncCallback<SmsSegmentsInfo> } callback - Indicates the callback for getting a {@code SmsSegmentsInfo}
    * object.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -506,11 +508,13 @@ declare namespace sms {
   /**
    * Get an SMS segment encode relation information.
    *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot index
    * number supported by the device.
    * @param { string } message - Indicates short message.
    * @param { boolean } force7bit - Indicates whether to use 7 bit encoding.
    * @returns { Promise<SmsSegmentsInfo> } Returns a {@code SmsSegmentsInfo} object.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -563,7 +567,9 @@ declare namespace sms {
   /**
    * Gets SMS format supported on IMS. SMS over IMS format is either 3GPP or 3GPP2.
    *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting format, 3gpp, 3gpp2 or unknown.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -579,7 +585,9 @@ declare namespace sms {
   /**
    * Gets SMS format supported on IMS. SMS over IMS format is either 3GPP or 3GPP2.
    *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
    * @returns { Promise<string> } Returns format, 3gpp, 3gpp2 or unknown.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
