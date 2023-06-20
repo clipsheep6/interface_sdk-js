@@ -15,6 +15,8 @@
 
 /**
  * Provide an interface for the ui extension component
+ *
+ * @interface UIExtensionComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -23,81 +25,88 @@ interface UIExtensionComponentInterface {
     /**
      * Construct the ui extension component.
      * Called when the ui extension component is used.
+     *
      * @param { string } action - indicates implicit query fields of the UIExtensionAbility
-     * @param { { [key: string]: any } } parameters - indicates info of the UIExtensionAbility
+     * @param { object } parameters - indicates info of the UIExtensionAbility
+     * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @returns { UIExtensionComponentAttribute }
      * @since 10
      */
     (action: string, parameters?: { [key: string]: any }): UIExtensionComponentAttribute;
-}
-
-/**
- * Define the attribute functions of ui extension component.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 10
- */
-declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComponentAttribute> {
-
+  }
+  
+  /**
+   * Define the attribute functions of ui extension component.
+   *
+   * @extends CommonMethod
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComponentAttribute> {
     /**
      * Called when the component is connected to ability.
-     * @param { () => void } Callback function when UIExtensionAbility connects successfully
+     *
+     * @param { function } Callback function when UIExtensionAbility connects successfully
+     * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @returns { UIExtensionComponentAttribute }
      * @since 10
      */
     onConnected(callback: () => void): UIExtensionComponentAttribute;
-
+  
     /**
      * Called when the component is disconnected.
-     * @param { () => void } - Callback function when UIExtensionAbility disconnects
+     *
+     * @param { function } - Callback function when UIExtensionAbility disconnects
+     * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @returns { UIExtensionComponentAttribute }
      * @since 10
      */
     onDisconnected(callback: () => void): UIExtensionComponentAttribute;
-
+  
     /**
      * Called when the provider sends data
-     * @param { (info: {code: number, want?: import('../api/@ohos.app.ability.Want').default}) => void } indicates info of the UIExtensionAbility
+     *
+     * @param { function } indicates info of the UIExtensionAbility
+     * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @returns { UIExtensionComponentAttribute }
      * @since 10
      */
-    onResult(callback: (info: {
-        code: number, want?: import('../api/@ohos.app.ability.Want').default
-    }) => void): UIExtensionComponentAttribute
-
+    onResult(
+      callback: (info: { code: number; want?: import('../api/@ohos.app.ability.Want').default }) => void
+    ): UIExtensionComponentAttribute;
+  
     /**
      * Called when loading failed, takes the error messages as input parameter
-     * @param { (info: {errCode: number, errMsg: string}) => void } indicates info of the UIExtensionAbility
+     *
+     * @param { function } indicates info of the UIExtensionAbility
+     * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @returns { UIExtensionComponentAttribute }
      * @since 10
      */
-    onError(callback: (info: {
-        errCode: number, errMsg: string
-    }) => void): UIExtensionComponentAttribute
-}
-
-/**
- * Defines UIExtensionComponent Component.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 10
- */
-declare const UIExtensionComponent: UIExtensionComponentInterface;
-
-/**
- * Defines UIExtensionComponent Component instance.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 10
- */
-declare const UIExtensionComponentInstance: UIExtensionComponentAttribute;
+    onError(callback: (info: { errCode: number; errMsg: string }) => void): UIExtensionComponentAttribute;
+  }
+  
+  /**
+   * Defines UIExtensionComponent Component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  declare const UIExtensionComponent: UIExtensionComponentInterface;
+  
+  /**
+   * Defines UIExtensionComponent Component instance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   */
+  declare const UIExtensionComponentInstance: UIExtensionComponentAttribute;
+  
