@@ -4157,3 +4157,32 @@ declare enum NestedScrollMode {
    */
   PARALLEL,
 }
+
+/*
+ * Declare drag direction
+ * @enum { number } DragDirection
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum DragDirection {
+  /**
+   * Free drag.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  FREE,
+
+  /**
+   * Drag along the vertical direction.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  VERTICAL,
+
+  /**
+   * Drag along the horizontal direction.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  HORIZONTAL,
+}
