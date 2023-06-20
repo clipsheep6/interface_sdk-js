@@ -114,7 +114,7 @@ declare namespace print {
         printerIcon?: number;    // resource id of printer icon
         description?: string;    // printer description
         capability?: PrinterCapability;  // printer capability
-        option? :string;    // json object string
+        options? :string;    // json object string
     }
 
     interface PrintJob {
@@ -131,7 +131,7 @@ declare namespace print {
         duplexMode: number;          // duplex mode
         margin?: PrintMargin;        // current margin setting
         preview?: PreviewAttribute;  // preview setting
-        option? :string;              // json object string
+        options? :string;              // json object string
     }
 
     enum PrinterState {
