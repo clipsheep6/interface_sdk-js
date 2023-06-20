@@ -3835,6 +3835,24 @@ declare interface ContextMenuOptions {
   placement?: Placement;
 
   /**
+   * whether show arrow belong to the menu, default: false, not show arrow
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  enableArrow?: boolean;
+
+  /**
+    * The horizontal offset to the left of menu or vertical offset to the top of menu
+    * @type { ?Length }
+    * @default 0
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 10
+    */
+  arrowOffset?: Length; 
+
+  /**
    * Callback function when the context menu appears.
    * @type { ?() => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3968,8 +3986,8 @@ declare interface PixelStretchEffectOptions {
 declare interface ClickEffect {
   /**
    * Set the click effect level.
+   * When level is undefined or null, the level is equal to ClickEffectLevel.Light.
    * @type { ClickEffectLevel }
-   * @default ClickEffectLevel.Light
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -3983,6 +4001,29 @@ declare interface ClickEffect {
    * @since 10
    */
   scale?: number;
+}
+
+/*
+ * Define nested scroll options
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface NestedScrollOptions {
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls forward
+   * @type { NestedScrollMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scrollForward: NestedScrollMode;
+
+  /**
+   * Set NestedScrollMode when the scrollable component scrolls backward
+   * @type { NestedScrollMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scrollBackward: NestedScrollMode;
 }
 
 /**
