@@ -1480,28 +1480,6 @@ declare namespace commonEvent {
     COMMON_EVENT_USB_DEVICE_DETACHED = 'usual.event.hardware.usb.action.USB_DEVICE_DETACHED',
 
     /**
-     * The usb accessory attached.
-     * This is a protected common event that can only be sent by system.
-     *
-     * @syscap SystemCapability.Notification.CommonEvent
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USB_ACCESSORY_ATTACHED
-     */
-    COMMON_EVENT_USB_ACCESSORY_ATTACHED = 'usual.event.hardware.usb.action.USB_ACCESSORY_ATTACHED',
-
-    /**
-     * The usb accessory detached.
-     * This is a protected common event that can only be sent by system.
-     *
-     * @syscap SystemCapability.Notification.CommonEvent
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_USB_ACCESSORY_DETACHED
-     */
-    COMMON_EVENT_USB_ACCESSORY_DETACHED = 'usual.event.hardware.usb.action.USB_ACCESSORY_DETACHED',
-
-    /**
      * The external storage was removed.
      * This is a protected common event that can only be sent by system.
      *
