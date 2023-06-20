@@ -15,6 +15,7 @@
 
 import { ErrorCallback, AsyncCallback } from './@ohos.base';
 import { Context } from './app/context';
+import { PixelMap } from './@ohos.multimedia.image';
 
 /**
  * @namespace camera
@@ -265,6 +266,26 @@ declare namespace camera {
   }
 
   /**
+   * PreLaunch config object.
+   *
+   * @typedef PreLaunchConfig
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 10
+   */
+  interface PreLaunchConfig {
+    /**
+     * Camera instance.
+     *
+     * @type { CameraDevice }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 10
+     */
+    cameraDevice: CameraDevice;
+  }
+
+  /**
    * Camera manager object.
    *
    * @interface CameraManager
@@ -422,6 +443,54 @@ declare namespace camera {
      * @since 10
      */
     on(type: 'cameraMute', callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Determine whether the camera device supports prelaunch startup.
+     * Called before the setPreLaunchConfig and preLaunch function.
+     *
+     * @param { CameraDevice } camera Camera device.
+     * @returns { boolean } Is preLaunch is supported.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 10
+     */
+    isPreLaunchSupported(camera: CameraDevice): boolean;
+
+    /**
+     * Configure camera preheating parameters, specify camera device.
+     * Send prelaunch configuration parameters to the camera service when exit camera or change configuration for the next time.
+     *
+     * @param { PreLaunchConfig } preLaunchConfig Prelaunch configuration info.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect
+     * @throws { BusinessError } 7400102 - Operation not allow.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 10
+     */
+    setPreLaunchConfig(preLaunchConfig: PreLaunchConfig): void;
+
+    /**
+     * Enable the camera to prelaunch and start.
+     * The user clicks on the system camera icon, pulls up the camera application, and calls it simultaneously.
+     *
+     * @throws { BusinessError } 7400102 - Operation not allow.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 10
+     */
+    preLaunch(): void;
+
+    /**
+     * Creates a deferred PreviewOutput instance.
+     *
+     * @param { Profile } profile Preview output profile.
+     * @returns { PreviewOutput } the PreviewOutput instance.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 10
+     */
+    createDeferredPreviewOutput(profile: Profile): PreviewOutput;
   }
 
   /**
@@ -1504,6 +1573,17 @@ declare namespace camera {
      * @since 10
      */
     on(type: 'error', callback: ErrorCallback<BusinessError>): void;
+
+    /**
+     * Add deferred surface.
+     *
+     * @param { string } surfaceId Surface object id used in camera photo output.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 10
+     */
+    addDeferredSurface(surfaceId: string): void;
   }
 
   /**
@@ -1765,6 +1845,43 @@ declare namespace camera {
      * @since 10
      */
     on(type: 'error', callback: ErrorCallback<BusinessError>): void;
+
+    /**
+     * Check if PhotoOutput supports quick thumbnails.
+     * Effective between CaptureSession.addOutput() and CaptureSession.commitConfig().
+     *
+     * @returns { boolean } Is quick thumbnail supported.
+     * @throws { BusinessError } 7400104 - session is not running.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 10
+     */
+    isQuickThumbnailSupported(): boolean;
+
+    /**
+     * Enable/disable quick thumbnails.
+     * Effective between CaptureSession.addOutput() and CaptureSession.commitConfig().
+     *
+     * @param { boolean } enabled Enable quick thumbnail if TRUE, otherwise disable quick thumbnail.
+     * @throws { BusinessError } 7400104 - session is not running.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 10
+     */
+    enableQuickThumbnail(enabled: boolean): void;
+
+    /**
+     * Configure camera thumbnail callback interface.
+     * Effective after enableQuickThumbnail(true).
+     *
+     * @param { 'quickThumbnail' } type Event type.
+     * @param { AsyncCallback<PixelMap> } callback Callback used to get the quick thumbnail.
+     * @throws { BusinessError } 7400104 - session is not running.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 10
+     */
+    on(type: 'quickThumbnail', callback: AsyncCallback<PixelMap>): void;
   }
 
   /**
