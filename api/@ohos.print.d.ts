@@ -57,6 +57,14 @@ declare namespace print {
      * @permission ohos.permission.PRINT
      */
     function print(files: Array<string>, callback: AsyncCallback<PrintTask>): void;
+
+    /**
+     * Start new print task for App.
+     * @since 10
+     * @param files Indicates the filepath list to be printed. Only pdf and picture filetype are supported.
+     * @param callback The callback function for print task.
+     * @permission ohos.permission.PRINT
+     */
     function print(files: Array<string>): Promise<PrintTask>;
 
     interface PrintMargin {
