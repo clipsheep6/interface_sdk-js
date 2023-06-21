@@ -15,168 +15,569 @@
 
 /// <reference path="../component/units.d.ts" />
 
-import {AsyncCallback} from "./basic";
-import {Callback} from "./basic";
-import {Resource} from 'GlobalResource';
-import image from "./@ohos.multimedia.image";
+import { AsyncCallback } from "./@ohos.base";
+import { Callback } from "./@ohos.base";
+import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
+import image from './@ohos.multimedia.image';
 
 /**
  * This module provides the capability to manage web modules.
  *
- * @since 9
+ * @namespace webview
  * @syscap SystemCapability.Web.Webview.Core
+ * @since 9
  */
 declare namespace webview {
+  /**
+   * Defines the Web's request/response header.
+   * 
+   * @interface WebHeader
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  interface WebHeader {
     /**
-     * Defines the Web's request/response header.
+     * Gets the key of the request/response header.
+     * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
-    interface WebHeader {
-        /**
-         * Gets the key of the request/response header.
-         * @since 9
-         */
-        headerKey: string;
-
-        /**
-         * Gets the value of the request/response header.
-         * @since 9
-         */
-        headerValue: string;
-    }
+    headerKey: string;
 
     /**
-     * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
+     * Gets the value of the request/response header.
+     * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
-    enum WebHitTestType {
-        /**
-         * The edit text.
-         * @since 9
-         */
-        EditText,
+    headerValue: string;
+  }
 
-        /**
-         * The email address.
-         * @since 9
-         */
-        Email,
-
-        /**
-         * The HTML::a tag with src=http.
-         * @since 9
-         */
-        HttpAnchor,
-
-        /**
-         * The HTML::a tag with src=http + HTML::img.
-         * @since 9
-         */
-        HttpAnchorImg,
-
-        /**
-         * The HTML::img tag.
-         * @since 9
-         */
-        Img,
-
-        /**
-         * The map address.
-         * @since 9
-         */
-        Map,
-
-        /**
-         * The phone number.
-         * @since 9
-         */
-        Phone,
-
-        /**
-         * Other unknown HitTest.
-         * @since 9
-         */
-        Unknown
-    }
+  /**
+   * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  enum WebHitTestType {
+    /**
+     * The edit text.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    EditText,
 
     /**
-     * Defines the mode for using HttpDns.
+     * The email address.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    Email,
+
+    /**
+     * The HTML::a tag with src=http.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    HttpAnchor,
+
+    /**
+     * The HTML::a tag with src=http + HTML::img.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    HttpAnchorImg,
+
+    /**
+     * The HTML::img tag.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    Img,
+
+    /**
+     * The map address.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    Map,
+
+    /**
+     * The phone number.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    Phone,
+
+    /**
+     * Other unknown HitTest.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    Unknown
+  }
+
+  /**
+   * Defines the mode for using HttpDns.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 10
+   */
+  enum SecureDnsMode {
+    /**
+     * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead SecureDnsMode#OFF
+     */
+    Off = 0,
+    /**
+     * By default, the set HttpDns server is used for dns resolution, and if it fails,
+     * the system dns is used for resolution.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead SecureDnsMode#AUTO
+     */
+    Auto = 1,
+    /**
+     * Forcibly use the set HttpDns server for dns resolution. If it fails, it will not
+     * fall back to the system dns, which will directly cause the page to fail to load.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead SecureDnsMode#SECURE_ONLY
+     */
+    SecureOnly = 2,
+    /**
+     * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
+     * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
-    enum SecureDnsMode {
-        /**
-         * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
-         * @since 10
-         */
-        Off = 0,
-        /**
-         * By default, the set HttpDns server is used for dns resolution, and if it fails,
-         * the system dns is used for resolution.
-         * @since 10
-         */
-        Auto = 1,
-        /**
-         * Forcibly use the set HttpDns server for dns resolution. If it fails, it will not
-         * fall back to the system dns, which will directly cause the page to fail to load.
-         * @since 10
-         */
-        SecureOnly = 2,
-    }
+    OFF = 0,
+    /**
+     * By default, the set HttpDns server is used for dns resolution, and if it fails,
+     * the system dns is used for resolution.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    AUTO = 1,
+    /**
+     * Forcibly use the set HttpDns server for dns resolution. If it fails, it will not
+     * fall back to the system dns, which will directly cause the page to fail to load.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    SECURE_ONLY = 2,
+  }
+
+  /**
+   * Defines the hit test value, related to {@link getHitTestValue} method.
+   * 
+   * @interface HitTestValue
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  interface HitTestValue {
 
     /**
-     * Defines the hit test value, related to {@link getHitTestValue} method.
+     * Get the hit test type.
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
-    interface HitTestValue {
-
-        /**
-         * Get the hit test type.
-         *
-         * @since 9
-         */
-        type: WebHitTestType;
-
-        /**
-         * Get the hit test extra data.
-         *
-         * @since 9
-         */
-        extra: string;
-    }
+    type: WebHitTestType;
 
     /**
-     * Defines the configuration of web custom scheme, related to {@link customizeSchemes} method.
+     * Get the hit test extra data.
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
-    interface WebCustomScheme {
+    extra: string;
+  }
 
-        /**
-         * Name of the custom scheme.
-         *
-         * @since 9
-         */
-        schemeName: string;
-
-        /**
-         * Whether Cross-Origin Resource Sharing is supported.
-         *
-         * @since 9
-         */
-        isSupportCORS: boolean;
-
-        /**
-         * Whether fetch request is supported.
-         *
-         * @since 9
-         */
-        isSupportFetch: boolean;
-    }
+  /**
+   * Defines the configuration of web custom scheme, related to {@link customizeSchemes} method.
+   * 
+   * @interface WebCustomScheme
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  interface WebCustomScheme {
 
     /**
-     * Provides basic information of web storage.
-     * @name WebStorageOrigin
+     * Name of the custom scheme.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    schemeName: string;
+
+    /**
+     * Whether Cross-Origin Resource Sharing is supported.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    isSupportCORS: boolean;
+
+    /**
+     * Whether fetch request is supported.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    isSupportFetch: boolean;
+  }
+
+  /**
+   * Provides basic information of web storage.
+   * 
+   * @interface WebStorageOrigin
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  interface WebStorageOrigin {
+    origin: string;
+    usage: number;
+    quota: number;
+  }
+
+  /**
+   * Subscribe to a callback of a specified type of web event once.
+   *
+   * @param {string} type Types of web event.
+   * @param {Callback<void>} callback Indicate callback used to receive the web event.
+   *
+   * @throws { BusinessError } 401 - Invalid input parameter.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  function once(type: string, callback: Callback<void>): void;
+
+  /**
+   * Provides methods for managing web storage.3
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  class WebStorage {
+    /**
+     * Delete all the storage data.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static deleteAllData(): void;
+
+    /**
+     * Delete the storage data with the origin.
+     *
+     * @param { string } origin - The origin which to be deleted.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static deleteOrigin(origin: string): void;
+
+    /**
+     * Get current all the web storage origins.
+     * @returns { Promise<Array<WebStorageOrigin>> } - returns all the WebStorageOrigin.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100012 - Invalid web storage origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static getOrigins(): Promise<Array<WebStorageOrigin>>;
+
+    /**
+     * Get current all the web storage origins.
+     * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - callback used to return all the WebStorageOrigin.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100012 - Invalid web storage origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
+
+    /**
+     * Get the web storage quota with the origin.
+     * @param { string } origin -  The origin which to be inquired.
+     * @returns { Promise<number> } - the promise returned by the function
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static getOriginQuota(origin: string): Promise<number>;
+
+    /**
+     * Get the web storage quota with the origin.
+     * @param { string } origin -  The origin which to be inquired.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
+
+    /**
+     * Get the web storage quota with the origin.
+     * @param { string } origin -  The origin which to be inquired.
+     * @returns { Promise<number> } - the promise returned by the function
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static getOriginUsage(origin: string): Promise<number>;
+
+    /**
+     * Get the web storage quota with the origin.
+     * @param { string } origin -  The origin which to be inquired.
+     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
+  }
+
+  /**
+   * Provides methods for managing web database.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  class WebDataBase {
+    /**
+    * Get whether instances holds any http authentication credentials.
+    * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 9
+    */
+    static existHttpAuthCredentials(): boolean;
+
+    /**
+     * Delete all http authentication credentials.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static deleteHttpAuthCredentials(): void;
+
+    /**
+     * Get http authentication credentials.
+     * @param { string } host - The host to which the credentials apply.
+     * @param { string } realm - The realm to which the credentials apply.
+     * @returns { Array<string> } Return an array containing username and password.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static getHttpAuthCredentials(host: string, realm: string): Array<string>;
+
+    /**
+     * Save http authentication credentials.
+     * @param { string } host - The host to which the credentials apply.
+     * @param { string } realm - The realm to which the credentials apply.
+     * @param { string } username - The username.
+     * @param { string } password - The password.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
+  }
+
+  /**
+   * Provides a method for managing web geographic location permissions.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  class GeolocationPermissions {
+    /**
+     * Allow geolocation permissions for specifies source.
+     * @param { string } origin - Url source.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static allowGeolocation(origin: string): void;
+
+    /**
+     * Delete geolocation permissions for specifies source.
+     * @param { string } origin - Url source.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static deleteGeolocation(origin: string): void;
+
+    /**
+     * Delete all geolocation permissions.
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static deleteAllGeolocation(): void;
+
+    /**
+     * Gets the geolocation permission status of the specified source.
+     * @param { string } origin - Url source.
+     * @returns { Promise<boolean> } Return whether there is a saved result.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static getAccessibleGeolocation(origin: string): Promise<boolean>;
+
+    /**
+     * Gets the geolocation permission status of the specified source.
+     * @param { string } origin - Url source.
+     * @param { AsyncCallback<boolean> } callback - Return to the specified source
+     *                                              geographic location permission status.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100011 - Invalid origin.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static getAccessibleGeolocation(origin: string, callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Get all stored geolocation permission url source.
+     * @returns { Promise<Array<string>> } Return whether there is a saved result.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static getStoredGeolocation(): Promise<Array<string>>;
+
+    /**
+     * Get all stored geolocation permission url source.
+     * @param { AsyncCallback<Array<string>> } callback - Return all source information of
+     *                                              stored geographic location permission status.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static getStoredGeolocation(callback: AsyncCallback<Array<string>>): void;
+  }
+
+  /**
+   * Provides methods for managing the web cookies.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 9
+   */
+  class WebCookieManager {
+    /**
+     * Gets all cookies for the given URL.
+     *
+     * @param { string } url - The URL for which the cookies are requested.
+     * @returns { string } - The cookie value for the given URL.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static getCookie(url: string): string;
+
+    /**
+     * Set a single cookie (key-value pair) for the given URL.
+     *
+     * @param { string } url - The URL for which the cookie is to be set.
+     * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static setCookie(url: string, value: string): void;
+
+    /**
+     * Save the cookies Asynchronously.
+     * @returns { Promise<void> } - A promise resolved after the cookies have been saved.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static saveCookieAsync(): Promise<void>;
+
+    /**
+     * Save the cookies Asynchronously.
+     * @param { AsyncCallback<void> } callback - Called after the cookies have been saved.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static saveCookieAsync(callback: AsyncCallback<void>): void;
+
+    /**
+     * Get whether the instance can send and accept cookies.
+     *
+     * @returns { boolean } True if the instance can send and accept cookies else false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static isCookieAllowed(): boolean;
+
+    /**
+     * Set whether the instance should send and accept cookies.
+     * By default this is set to be true.
+     *
+     * @param { boolean } accept - Whether the instance should send and accept cookies.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static putAcceptCookieEnabled(accept: boolean): void;
+
+    /**
+     * Get whether the instance can send and accept thirdparty cookies.
+     *
+     * @returns { boolean } True if the instance can send and accept thirdparty cookies else false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static isThirdPartyCookieAllowed(): boolean;
+
+    /**
+     * Set whether the instance should send and accept thirdparty cookies.
+     * By default this is set to be false.
+     *
+     * @param { boolean } accept - Whether the instance should send and accept thirdparty cookies.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static putAcceptThirdPartyCookieEnabled(accept: boolean): void;
+
+    /**
+     * Check whether exists any cookies.
+     *
+     * @returns { boolean } True if exists more than one cookie else false;
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static existCookie(): boolean;
+
+    /**
+     * Remove all cookies.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    static deleteEntireCookie(): void;
+
+    /**
+     * Delete the session cookies.
      * @syscap SystemCapability.Web.Webview.Core
      */
     interface WebStorageOrigin {
