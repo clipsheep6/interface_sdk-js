@@ -2176,6 +2176,15 @@ declare namespace image {
     getColorSpace(): colorSpaceManager.ColorSpaceManager;
 
     /**
+     * Get parcel from jsMessageParcel and fill parcel with marshalling pixelmap.
+     *
+     * @returns { NAPI_MessageParcel } If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     */
+    getParcel(): MessageParcel;
+
+    /**
      * Set color space of pixel map.
      *
      * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
@@ -2350,6 +2359,16 @@ declare namespace image {
      * @since 10
      */
     createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap>): void;
+
+    /**
+     * Creates a PixelMap object based on jsMessageParcel. This method uses a callback to
+     * return the object.
+     * @since 7
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @param options Image decoding parameters.
+     * @param callback Callback used to return the PixelMap object.
+     */
+    createPixelMapFromParcel(MessageParcel): void;
 
     /**
      * Creates a PixelMap array based on image decoding parameters. This method uses a promise to
