@@ -1470,6 +1470,7 @@ declare namespace inputMethodEngine {
      * Cursor moves up
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CURSOR_UP = 1,
 
@@ -1477,6 +1478,7 @@ declare namespace inputMethodEngine {
      * Cursor moves down
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CURSOR_DOWN,
 
@@ -1484,6 +1486,7 @@ declare namespace inputMethodEngine {
      * Cursor moves left
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CURSOR_LEFT,
 
@@ -1491,6 +1494,7 @@ declare namespace inputMethodEngine {
      * Cursor moves right
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CURSOR_RIGHT
   }
@@ -1533,7 +1537,7 @@ declare namespace inputMethodEngine {
     /**
      * Indicates the direction of cursor movement
      *
-     * @type { number }
+     * @type { Direction }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
