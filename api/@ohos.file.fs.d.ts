@@ -608,7 +608,6 @@ declare function createStreamSync(path: string, mode: string): Stream;
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @systemapi
  * @since 10
  */
 declare function createWatcher(path: string, events: number, listener: WatchEventListener): Watcher;
@@ -3977,7 +3976,6 @@ declare interface Stream {
  *
  * @interface WatchEventListener
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @systemapi
  * @since 10
  */
 export interface WatchEventListener {
@@ -3986,7 +3984,6 @@ export interface WatchEventListener {
    *
    * @param { WatchEvent } event - Event type for the callback to invoke.
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
    * @since 10
    */
   (event: WatchEvent): void;
@@ -3997,7 +3994,6 @@ export interface WatchEventListener {
  *
  * @interface WatchEvent
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @systemapi
  * @since 10
  */
 export interface WatchEvent {
@@ -4007,7 +4003,6 @@ export interface WatchEvent {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
    * @since 10
    */
   readonly fileName: string;
@@ -4018,7 +4013,6 @@ export interface WatchEvent {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
    * @since 10
    */
   readonly event: number;
@@ -4029,7 +4023,6 @@ export interface WatchEvent {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
    * @since 10
    */
   readonly cookie: number;
@@ -4040,7 +4033,6 @@ export interface WatchEvent {
  *
  * @interface Watcher
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @systemapi
  * @since 10
  */
 export interface Watcher {
@@ -4061,7 +4053,6 @@ export interface Watcher {
    * @throws { BusinessError } 13900030 - File name too long
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
    * @since 10
    */
   start(): void;
@@ -4083,7 +4074,6 @@ export interface Watcher {
    * @throws { BusinessError } 13900030 - File name too long
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
    * @since 10
    */
   stop(): void;
@@ -4097,42 +4087,42 @@ export interface Watcher {
  */
 export type Filter = {
   /**
-   * @type { Array<string> }
+   * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @systemapi
    * @since 9
    */
   suffix?: Array<string>;
   /**
-   * @type { Array<string> }
+   * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @systemapi
    * @since 9
    */
   displayName?: Array<string>;
   /**
-   * @type { Array<string> }
+   * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @systemapi
    * @since 9
    */
   mimeType?: Array<string>;
   /**
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @systemapi
    * @since 9
    */
   fileSizeOver?: number;
   /**
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @systemapi
    * @since 9
    */
   lastModifiedAfter?: number;
   /**
-   * @type { boolean }
+   * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @systemapi
    * @since 9
