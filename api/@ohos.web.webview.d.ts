@@ -1230,6 +1230,32 @@ declare namespace webview {
          * @since 10
          */
         setAudioMuted(mute: boolean): void;
+
+        /**
+         * Prefetch the resources required by the page, but will not execute js or render the page.
+         *
+         * @param { string } url - Which url to preresolve/preconnect.
+         * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 17100002 - Invalid url.
+         *
+         * @since 10
+         */
+        prefetchPage(url: string, additionalHeaders?: Array<WebHeader>): void;
+
+        /**
+         * Prefetch the resources required by the page, but will not execute js or render the page.
+         *
+         * @param { string } url - Which url to preresolve/preconnect.
+         * @param { boolean } preconnectable - Indicates whether to preconnect.
+         * @param { int } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
+         * @throws { BusinessError } 17100002 - Invalid url.
+         * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
+         *
+         * @since 10
+         */
+        static prepareForPageLoad(url: string, preconnectable: boolean, numSockets: int): void;
     }
 }
 
