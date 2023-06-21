@@ -46,7 +46,7 @@ declare namespace fileIo {
   export { fdatasyncSync };
   export { fdopenStream };
   export { fdopenStreamSync };
-  export { fd2File };
+  export { dup };
   export { fsync };
   export { fsyncSync };
   export { listFile };
@@ -788,7 +788,7 @@ declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
 declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<Stream>): void;
 
 /**
- * Convert fd to File Object.
+ * Duplicate fd to File Object.
  *
  * @param { number } fd - fd.
  * @returns { File } return File
@@ -801,7 +801,7 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 10
  */
-declare function fd2File(fd: number): File;
+declare function dup(fd: number): File;
 
 /**
  * Create class Stream by using fd with sync interface.
@@ -3290,24 +3290,20 @@ declare interface File {
    * 
    * @type { string }
    * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 14300002 - Invalid uri
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
   readonly path: string;
   /**
-   * File uri
-   * 
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 10
-   */
-  readonly uri: string;
-  /**
    * File name
    * 
    * @type { string }
    * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 10
    */
