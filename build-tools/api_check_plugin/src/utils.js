@@ -445,3 +445,16 @@ function splitPath(filePath, pathElements) {
   }
 }
 exports.splitPath = splitPath;
+
+function isConstantType(currentNode) {
+  let isConstantCondition = false;
+  const constantTypeKind = currentNode.declarationList?.declarations[0].type ?
+    currentNode.declarationList?.declarations[0].type?.literal?.kind :
+    currentNode.declarationList?.declarations[0].initializer?.kind;
+  if (constantTypeKind === ts.SyntaxKind.NumericLiteral || constantTypeKind === ts.SyntaxKind.StringLiteral ||
+    constantTypeKind === ts.SyntaxKind.BigIntLiteral) {
+    isConstantCondition = true;
+  }
+  return isConstantCondition;
+}
+exports.isConstantType = isConstantType;

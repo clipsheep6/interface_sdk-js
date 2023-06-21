@@ -15,7 +15,7 @@
 
 const whiteLists = require('../config/jsdocCheckWhiteList.json');
 const { parseJsDoc, commentNodeWhiteList, requireTypescriptModule, ErrorType, ErrorLevel, FileType, ErrorValueInfo,
-  createErrorInfo, isWhiteListFile } = require('./utils');
+  createErrorInfo, isWhiteListFile, isConstantType } = require('./utils');
 const { checkApiOrder, checkAPITagName, checkInheritTag } = require('./check_jsdoc_value/check_order');
 const { addAPICheckErrorLogs } = require('./compile_info');
 const ts = requireTypescriptModule();
@@ -30,8 +30,9 @@ function checkJsDocLegality(node, comments, checkInfoMap) {
   // const定义语句必填
   legalityCheck(node, comments, [ts.SyntaxKind.VariableStatement], ['constant'], true, checkInfoMap,
     (currentNode, checkResult) => {
-      return (checkResult && (currentNode.kind !== ts.SyntaxKind.VariableStatement || !/^const\s/.test(currentNode.getText()))) ||
-        (!checkResult && currentNode.kind === ts.SyntaxKind.VariableStatement && /^const\s/.test(currentNode.getText()));
+      const isConstantCondition = isConstantType(currentNode);
+      return (checkResult && (currentNode.kind !== ts.SyntaxKind.VariableStatement || !isConstantCondition)) ||
+        (!checkResult && currentNode.kind === ts.SyntaxKind.VariableStatement && isConstantCondition);
     });
   // 'enum'
   legalityCheck(node, comments, [ts.SyntaxKind.EnumDeclaration], ['enum'], true, checkInfoMap);
@@ -139,7 +140,7 @@ function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInf
   let illegalKindSet = new Set(illegalKinds);
   const legalKindSet = new Set(legalKinds);
   tagsName.forEach(tagName => {
-    if (tagName === 'extends') {
+    if (tagName === 'extends' || tagName === 'constant') {
       illegalKindSet = new Set(commentNodeWhiteList);
     } else if (tagName === 'syscap') {
       illegalKindSet = new Set([]);
