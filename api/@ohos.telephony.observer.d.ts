@@ -28,17 +28,59 @@ import sim from "./@ohos.telephony.sim";
  * @since 6
  */
 declare namespace observer {
-  type NetworkState = radio.NetworkState;
-  type SignalInformation = radio.SignalInformation;
   /**
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 6
+   */
+  type NetworkState = radio.NetworkState;
+
+  /**
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 6
+   */
+  type SignalInformation = radio.SignalInformation;
+
+  /**
+   * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
+   * @since 6
    */
   type CellInformation = radio.CellInformation;
-  type DataConnectState = data.DataConnectState;
+
+  /**
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 6
+   */
   type RatType = radio.RadioTechnology;
+
+  /**
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 7
+   */
+  type DataConnectState = data.DataConnectState;
+
+  /**
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 7
+   */
   type DataFlowType = data.DataFlowType;
+
+  /**
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 6
+   */
   type CallState = call.CallState;
+
+  /**
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 7
+   */
   type CardType = sim.CardType;
+
+  /**
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 7
+   */
   type SimState = sim.SimState;
 
   /**
