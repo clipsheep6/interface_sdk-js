@@ -29,57 +29,57 @@ import sim from "./@ohos.telephony.sim";
  */
 declare namespace observer {
   /**
-   * @syscap SystemCapability.Telephony.StateRegistry
+   * @syscap SystemCapability.Telephony.CoreService
    * @since 6
    */
   type NetworkState = radio.NetworkState;
 
   /**
-   * @syscap SystemCapability.Telephony.StateRegistry
+   * @syscap SystemCapability.Telephony.CoreService
    * @since 6
    */
   type SignalInformation = radio.SignalInformation;
 
   /**
-   * @syscap SystemCapability.Telephony.StateRegistry
+   * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 6
+   * @since 8
    */
   type CellInformation = radio.CellInformation;
 
   /**
-   * @syscap SystemCapability.Telephony.StateRegistry
+   * @syscap SystemCapability.Telephony.CoreService
    * @since 6
    */
   type RatType = radio.RadioTechnology;
 
   /**
-   * @syscap SystemCapability.Telephony.StateRegistry
+   * @syscap SystemCapability.Telephony.CellularData
    * @since 7
    */
   type DataConnectState = data.DataConnectState;
 
   /**
-   * @syscap SystemCapability.Telephony.StateRegistry
+   * @syscap SystemCapability.Telephony.CellularData
    * @since 7
    */
   type DataFlowType = data.DataFlowType;
 
   /**
-   * @syscap SystemCapability.Telephony.StateRegistry
+   * @syscap SystemCapability.Telephony.CallManager
    * @since 6
    */
   type CallState = call.CallState;
 
   /**
-   * @syscap SystemCapability.Telephony.StateRegistry
+   * @syscap SystemCapability.Telephony.CoreService
    * @since 7
    */
   type CardType = sim.CardType;
 
   /**
-   * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 7
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 6
    */
   type SimState = sim.SimState;
 
@@ -125,7 +125,7 @@ declare namespace observer {
    * Cancel callback when the network state is updated.
    *
    * @param { 'networkStateChange' } type - networkStateChange.
-   * @param { Callback<NetworkState> } type - Event type. Indicates the networkStateChange event to unsubscribe from.
+   * @param { Callback<NetworkState> } callback - Event type. Indicates the networkStateChange event to unsubscribe from.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -174,7 +174,7 @@ declare namespace observer {
    * Cancel callback when the signal strength is updated.
    *
    * @param { 'signalInfoChange' } type - Event type. Indicates the signalInfoChange event to unsubscribe from.
-   * @param { Callback<SignalInformation> } callback - Indicates the callback to unsubscribe from
+   * @param { Callback<Array<SignalInformation>> } callback - Indicates the callback to unsubscribe from
    * the signalInfoChange event.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
