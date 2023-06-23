@@ -4023,3 +4023,137 @@ declare enum ImageSpanAlignment {
    */
   TOP,
 }
+
+/**
+ * ObscuredReasons.
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ObscuredReasons {
+  /**
+   * Displayed data should appear as generic placeholders.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  PLACEHOLDER = 0,
+}
+
+/**
+ * Text content style.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum TextContentStyle {
+  /**
+   * Text content default style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DEFAULT,
+
+  /**
+   * Text content inline style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  INLINE
+}
+
+/**
+ * Enum of click effect level.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum ClickEffectLevel {
+    /**
+     * Click effect level1.
+     * The default scale number of this click effect level1 is 0.90.
+     * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:410, damping:38.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    LIGHT,
+    /**
+     * Click effect level2.
+     * The default scale number of this click effect level2 is 0.95.
+     * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:350, damping:35.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    MIDDLE,
+    /**
+     * Click effect level3.
+     * The default scale number of this click effect level3 is 0.95.
+     * The animation type is interpolatingSpring, velocity:0, mass:1, stiffness:240, damping:28.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    HEAVY,
+}
+
+/**
+ * The type of XComponent
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum XComponentType {
+  /**
+   * Surface type. The default type is used.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SURFACE,
+
+  /**
+   * Component type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  COMPONENT,
+
+  /**
+   * Texture type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  TEXTURE,
+}
+
+/*
+ * Nested scroll nested mode
+ * @enum { number } NestedScrollMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum NestedScrollMode {
+  /**
+   * Only Self response scrolling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SELF_ONLY,
+
+  /**
+   * Self priority response scrolling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SELF_FIRST,
+
+  /**
+   * Parent scrollable component priority response scrolling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  PARENT_FIRST,
+
+  /**
+   * Both self and parent scrollable component response scrolling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  PARALLEL,
+}
