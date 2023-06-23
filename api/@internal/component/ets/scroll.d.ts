@@ -389,7 +389,17 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  nestedScroll(value: NestedScrollOptions): ScrollAttribute
+  nestedScroll(value: NestedScrollOptions): ScrollAttribute;
+
+  /**
+   * Called to setting the friction.
+   * @param { number | Resource } value - options for scrolling friction.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  friction(value: number | Resource): ScrollAttribute;
 }
 
 /**

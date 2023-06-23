@@ -152,7 +152,17 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  nestedScroll(value: NestedScrollOptions): WaterFlowAttribute
+  nestedScroll(value: NestedScrollOptions): WaterFlowAttribute;
+
+  /**
+   * Called to setting the friction.
+   * @param { number | Resource } value - options for scrolling friction.
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  friction(value: number | Resource): WaterFlowAttribute;
 
   /**
    * Called when the water flow begins to arrive.
