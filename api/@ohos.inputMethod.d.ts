@@ -801,8 +801,8 @@ declare namespace inputMethod {
      * Register a callback and when IME sends delete left or delete right event with length,
      * the callback will be invoked.
      *
-     * @param { string } type - event type, fixed as 'deleteLeft' or 'deleteRight'.
-     * @param { (length: number) => void } callback - processes deleteLeft/deleteRight command. The length of
+     * @param { string } type - event type, fixed as 'deleteForward' or 'deleteBackward'.
+     * @param { (length: number) => void } callback - processes deleteForward/deleteBackward command. The length of
      *     delete is provided for this callback. Subscribers are expected to delete specified length of text
      *     to the left/right of the cursor and update changes in editor by changeSelection and updateCursor as needed.
      * @throws { BusinessError } 401 - parameter error.
@@ -810,16 +810,16 @@ declare namespace inputMethod {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    on(type: 'deleteLeft' | 'deleteRight', callback: (length: number) => void): void;
+    on(type: 'deleteForward' | 'deleteBackward', callback: (length: number) => void): void;
 
     /**
-     * Unregister the callback of deleteLeft/deleteRight.
+     * Unregister the callback of deleteForward/deleteBackward.
      *
-     * @param { string } type - event type, fixed as 'deleteLeft'/'deleteRight'.
+     * @param { string } type - event type, fixed as 'deleteLeft'/'deleteBackward'.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'deleteLeft' | 'deleteRight'): void;
+    off(type: 'deleteForward' | 'deleteBackward'): void;
 
     /**
      * Register a callback and when IME sends keyboard status, the callback will be invoked.
