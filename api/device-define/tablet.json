@@ -192,7 +192,6 @@
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.Msdp.DeviceStatus.Stationary",
     "SystemCapability.Request.FileTransferAgent",
-    "SystemCapability.ResourceSchedule.DeviceStandby",
-    "SystemCapability.Print.PrintFramework"
+    "SystemCapability.ResourceSchedule.DeviceStandby"
   ]
 }
