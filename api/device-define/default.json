@@ -199,6 +199,6 @@
     "SystemCapability.XTS.DeviceAttest",
     "SystemCapability.Request.FileTransferAgent",
     "SystemCapability.ResourceSchedule.DeviceStandby",
-    "SystemCapability.DistributedDataManager.UDMF.Core"
+     "SystemCapability.DistributedDataManager.UDMF.Core"    
   ]
 }
