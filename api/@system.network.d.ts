@@ -16,16 +16,20 @@
 /**
  * @since 3
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @deprecated since 10
+ * @useinstead ohos.net.connection.NetCapabilities
  */
 export interface NetworkResponse {
   /**
    * Network type. The values can be 2G, 3G, 4G, WiFi, or none.
    * @since 3
+   * @deprecated since 10
    */
   type: string;
   /**
    * Whether the billing is based on the data volume.
    * @since 3
+   * @deprecated since 10
    */
   metered: boolean;
 }
@@ -33,10 +37,14 @@ export interface NetworkResponse {
 /**
  * @since 3
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @deprecated since 10
+ * @useinstead ohos.net.connection
  */
 export default class Network {
   /**
    * Obtains the network type.
+   * @deprecated since 10
+   * @useinstead ohos.net.connection#getNetCapabilities
    * @param options
    */
   static getType(options?: {
@@ -59,6 +67,8 @@ export default class Network {
 
   /**
    * Listens to the network connection state. If this method is called multiple times, the last call takes effect.
+   * @deprecated since 10
+   * @useinstead ohos.net.connection.NetConnection#register
    * @param options
    */
   static subscribe(options?: {
@@ -76,6 +86,8 @@ export default class Network {
 
   /**
    * Cancels listening to the network connection state.
+   * @deprecated since 10
+   * @useinstead ohos.net.connection.NetConnection#unregister
    * @param options
    */
   static unsubscribe(): void;
