@@ -392,13 +392,13 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
   nestedScroll(value: NestedScrollOptions): ScrollAttribute
 
   /**
-   * Set the nested scroll children.
-   * @param { string } value - the ID of nested scroll children.
-   * @returns { ScrollAttribute } the attribute of the list.
+   * Transmit scrolling action to other scrollable components, self not handling the scrolling action.
+   * @param { Scroller } value - the scroller for another scrollable component.
+   * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  nestedScrollChildren(value: string): ScrollAttribute
+  scrollActionHandover(value: Scroller): ScrollAttribute
 }
 
 /**

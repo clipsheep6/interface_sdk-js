@@ -155,6 +155,15 @@ declare class WaterFlowAttribute extends CommonMethod<WaterFlowAttribute> {
   nestedScroll(value: NestedScrollOptions): WaterFlowAttribute
 
   /**
+   * Transmit scrolling action to other scrollable components, self not handling the scrolling action.
+   * @param { Scroller } value - the scroller for another scrollable component.
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scrollActionHandover(value: Scroller): WaterFlowAttribute
+
+  /**
    * Called when the water flow begins to arrive.
    * @since 9
    */
