@@ -2700,6 +2700,42 @@ declare interface BorderImageOption {
 declare interface ClickEvent extends BaseEvent {
   /**
    * X coordinate of the click point relative to the left edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  displayX: number;
+
+  /**
+   * Y coordinate of the click point relative to the upper edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  displayY: number;
+
+  /**
+   * X coordinate of the click point relative to the left edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowX: number;
+
+  /**
+   * Y coordinate of the click point relative to the upper edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowY: number;
+
+  /**
+   * X coordinate of the click point relative to the left edge of the device screen.
    * @since 7
    */
   /**
@@ -2817,44 +2853,80 @@ declare interface MouseEvent extends BaseEvent {
   action: MouseAction;
 
   /**
-   * X coordinate of the click point relative to the left edge of the device screen.
+   * X coordinate of the mouse point relative to the left edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  displayX: number;
+
+  /**
+   * Y coordinate of the mouse point relative to the upper edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  displayY: number;
+
+  /**
+   * X coordinate of the mouse point relative to the left edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowX: number;
+
+  /**
+   * Y coordinate of the mouse point relative to the upper edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowY: number;
+
+  /**
+   * X coordinate of the mouse point relative to the left edge of the device screen.
    * @since 8
    */
   /**
-   * X coordinate of the click point relative to the left edge of the device screen.
+   * X coordinate of the mouse point relative to the left edge of the device screen.
    * @crossplatform
    * @since 10
    */
   screenX: number;
 
   /**
-   * The Y coordinate of the click point relative to the upper edge of the device screen.
+   * Y coordinate of the mouse point relative to the upper edge of the device screen.
    * @since 8
    */
   /**
-   * The Y coordinate of the click point relative to the upper edge of the device screen.
+   * Y coordinate of the mouse point relative to the upper edge of the device screen.
    * @crossplatform
    * @since 10
    */
   screenY: number;
 
   /**
-   * X coordinate of the click point relative to the left edge of the clicked element.
+   * X coordinate of the mouse point relative to the left edge of the mouse hit element.
    * @since 8
    */
   /**
-   * X coordinate of the click point relative to the left edge of the clicked element.
+   * X coordinate of the mouse point relative to the left edge of the mouse hit element.
    * @crossplatform
    * @since 10
    */
   x: number;
 
   /**
-   * Y coordinate of the click point relative to the upper edge of the clicked element.
+   * Y coordinate of the mouse point relative to the upper edge of the mouse hit element.
    * @since 8
    */
   /**
-   * Y coordinate of the click point relative to the upper edge of the clicked element.
+   * Y coordinate of the mouse point relative to the upper edge of the mouse hit element.
    * @crossplatform
    * @since 10
    */
@@ -2903,6 +2975,42 @@ declare interface TouchObject {
    * @since 10
    */
   id: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  displayX: number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  displayY: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowX: number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowY: number;
 
   /**
    * X coordinate of the touch point relative to the left edge of the device screen.
@@ -3123,22 +3231,58 @@ declare enum DragRet {
  */
 declare interface DragEvent {
   /**
-   * Get the X coordinate of the finger, in vp.
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getDisplayX(): number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getDisplayY(): number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getWindowX(): number;
+
+  /**
+   * Y coordinate of the touch point relative to the left edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getWindowY(): number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window. in vp.
    * @since 7
    */
   /**
-   * Get the X coordinate of the finger, in vp.
+   * X coordinate of the touch point relative to the left edge of the current window. in vp.
    * @crossplatform
    * @since 10
    */
   getX(): number;
 
   /**
-   * Get the Y coordinate of the finger, in vp.
+   * Y coordinate of the touch point relative to the left edge of the current window. in vp.
    * @since 7
    */
   /**
-   * Get the Y coordinate of the finger, in vp.
+   * Y coordinate of the touch point relative to the left edge of the current window. in vp.
    * @crossplatform
    * @since 10
    */
