@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,30 +14,38 @@
  */
 
 /**
- * @since 3
+ * This module provides the Network Response.
+ * @interface NetworkResponse
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @since 3
  */
 export interface NetworkResponse {
   /**
    * Network type. The values can be 2G, 3G, 4G, WiFi, or none.
+   * @type {string}
+   * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
    */
   type: string;
   /**
    * Whether the billing is based on the data volume.
+   *  @type {boolean}
+   * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
    */
   metered: boolean;
 }
 
 /**
- * @since 3
  * @syscap SystemCapability.Communication.NetManager.Core
+ * @since 3
  */
 export default class Network {
   /**
    * Obtains the network type.
-   * @param options
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 3
+   * @param {object} options
    */
   static getType(options?: {
     /**
@@ -59,6 +67,8 @@ export default class Network {
 
   /**
    * Listens to the network connection state. If this method is called multiple times, the last call takes effect.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 3
    * @param options
    */
   static subscribe(options?: {
@@ -76,7 +86,9 @@ export default class Network {
 
   /**
    * Cancels listening to the network connection state.
-   * @param options
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 3
+   * @param {object} options
    */
   static unsubscribe(): void;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,37 +14,48 @@
  */
 
 /**
- * @since 3
+ * This module provides the Fetch Response.
+ * @interface FetchResponse
  * @syscap SystemCapability.Communication.NetStack
+ * @since 3
  */
 export interface FetchResponse {
   /**
    * Server status code.
+   * @type {number}
+   * @syscap SystemCapability.Communication.NetStack
    * @since 3
    */
   code: number;
 
   /**
    * Data returned by the success function.
+   * @type {string | object}
+   * @syscap SystemCapability.Communication.NetStack
    * @since 3
    */
   data: string | object;
 
   /**
    * All headers in the response from the server.
+   * @type {Object}
+   * @syscap SystemCapability.Communication.NetStack
    * @since 3
    */
   headers: Object;
 }
 
 /**
- * @since 3
+ * Obtains data through a network.
  * @syscap SystemCapability.Communication.NetStack
+ * @since 3
  */
 export default class Fetch {
   /**
    * Obtains data through the network.
-   * @param options
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 3
+   * @param {object} options
    */
   static fetch(options: {
     /**
