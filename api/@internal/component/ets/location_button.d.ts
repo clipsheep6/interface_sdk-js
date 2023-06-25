@@ -230,10 +230,11 @@ interface SecLocationButtonInterface {
 /**
  * Defines the attributes of the location button.
  *
+ * @typedef SecPasteButtonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare class SecLocationButtonAttribute {
+declare interface SecLocationButtonAttribute extends SecurityComponentAttribute {
   /**
    * Called when the location button is clicked.
    *
