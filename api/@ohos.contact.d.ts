@@ -59,7 +59,6 @@ declare namespace contact {
    *
    * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
    * Returns the contact list which user select; returns empty contact list if user not select.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
@@ -71,7 +70,6 @@ declare namespace contact {
    *
    * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
    * returns empty contact list if user not select.
-   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
