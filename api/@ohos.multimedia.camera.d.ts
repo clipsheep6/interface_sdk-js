@@ -15,7 +15,7 @@
 
 import { ErrorCallback, AsyncCallback } from './@ohos.base';
 import { Context } from './app/context';
-import { PixelMap } from './@ohos.multimedia.image';
+import image from './@ohos.multimedia.image';
 
 /**
  * @namespace camera
@@ -1848,7 +1848,7 @@ declare namespace camera {
 
     /**
      * Check if PhotoOutput supports quick thumbnails.
-     * Effective between CaptureSession.addOutput() and CaptureSession.commitConfig().
+     * Effective between CaptureSession.addIutput() and CaptureSession.addOutput(photoOutput).
      *
      * @returns { boolean } Is quick thumbnail supported.
      * @throws { BusinessError } 7400104 - session is not running.
@@ -1860,7 +1860,9 @@ declare namespace camera {
 
     /**
      * Enable/disable quick thumbnails.
-     * Effective between CaptureSession.addOutput() and CaptureSession.commitConfig().
+     * The method should be called after CaptureSession.addIutput() and CaptureSession.addOutput(photoOutput),
+     * and advised to use before CaptureSession.commitConfig(). Your Application can also call this method
+     * after CaptureSession.commitConfig(), but will cause streams reconfig, and then cause loss of performance.
      *
      * @param { boolean } enabled Enable quick thumbnail if TRUE, otherwise disable quick thumbnail.
      * @throws { BusinessError } 7400104 - session is not running.
@@ -1881,7 +1883,7 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
-    on(type: 'quickThumbnail', callback: AsyncCallback<PixelMap>): void;
+    on(type: 'quickThumbnail', callback: AsyncCallback<image.PixelMap>): void;
   }
 
   /**
