@@ -50,6 +50,30 @@ declare namespace relationalStore {
     ASSET_NORMAL,
 
     /**
+     * ASSET_ABNORMAL: means the asset needs to be inserted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    ASSET_INSERT,
+
+    /**
+     * ASSET_ABNORMAL: means the asset needs to be updated.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    ASSET_UPDATE,
+
+    /**
+     * ASSET_ABNORMAL: means the asset needs to be deleted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    ASSET_DELETE,
+
+    /**
      * ASSET_ABNORMAL: means the status of asset is abnormal.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -164,6 +188,30 @@ declare namespace relationalStore {
   type ValuesBucket = { [key: string]: ValueType; }
 
   /**
+   * The type of the priority key can be number or string
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  type PRIKeyType = number | string
+
+  /**
+   * The time is in UTC format.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  type UTCTime = Date
+
+  /**
+   * Indicates the primary key and UTC time of the modified rows.
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  type ModifyTimes = Map<PRIKeyType, UTCTime>;
+
+  /**
    * Manages relational database configurations.
    *
    * @interface StoreConfig
@@ -209,6 +257,66 @@ declare namespace relationalStore {
      * @since 9
      */
     encrypt?: boolean;
+  }
+
+  /**
+   * Describes the {@code Statistic} details of the table.
+   *
+   * @interface TableDetails
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 10
+   */
+    interface TableDetails {
+      /**
+       * Describes the {@code Statistic} details of the upload process.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @since 10
+       */
+      upload: Statistic;
+
+      /**
+       * Describes the {@code Statistic} details of the download process.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+       * @since 10
+       */
+      download: Statistic;
+    }
+
+  /**
+   * Describes detail of the cloud sync {@code Process}.
+   *
+   * @interface ProgressDetails
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 10
+   */
+  interface ProgressDetails {
+    /**
+     * Describes the status of data sync progress.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    schedule: Progress;
+
+    /**
+     * Describes the code of data sync progress.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    code: ProgessCode;
+
+    /**
+     * The statistic details of the tables.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    details: {
+      [table: string]: TableDetails;
+    };
   }
 
   /**
@@ -2397,6 +2505,20 @@ declare namespace relationalStore {
      * @since 10
      */
     querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
+
+    /**
+     * Obtains the modify time of current row.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { string } columnName - Indicates the name of the column to check.
+     * @param { PRIKeyType[] } primaryKeys - Indicates the primary keys of the rows to check.
+     * @returns { ModifyTimes } the modify time of current row. if this table does not support cloud, the {@link ModifyTimes} will be empty.
+     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - the parameter check failed.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 10
+     */
+    getModifyTime(table: string, columnName: string, primaryKeys: PRIKeyType[]): ModifyTimes;
 
     /**
      * Executes a SQL statement that contains specified parameters but returns no value.
