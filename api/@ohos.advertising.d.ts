@@ -14,7 +14,7 @@
  */
 
 import UIAbilityContext from './application/UIAbilityContext';
-import { AsyncCallback } from './basic';
+import { AsyncCallback } from '@ohos.base';
 import { Advertisement as _Advertisement } from './advertising/advertisement';
 
 /**
@@ -87,7 +87,7 @@ declare namespace advertising {
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    [key: string]?: number | boolean | string | undefined;
+    [key: string]: number | boolean | string | undefined;
   }
 
   /**
@@ -127,7 +127,7 @@ declare namespace advertising {
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    [key: string]?: number | boolean | string | undefined;
+    [key: string]: number | boolean | string | undefined;
   }
 
   /**
@@ -184,7 +184,7 @@ declare namespace advertising {
      * @syscap SystemCapability.Cloud.Ads
      * @since 10
      */
-    [key: string]?: number | boolean | string | undefined;
+    [key: string]: number | boolean | string | undefined;
   }
 
   /**
