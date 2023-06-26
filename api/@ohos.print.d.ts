@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-import {AsyncCallback} from './@ohos.base';
+import { AsyncCallback } from './@ohos.base';
 
 /**
  * System print
  * @syscap SystemCapability.Print.PrintFramework
- * @import import print from '@ohos.app.print';
  * @since 10
  */
 declare namespace print {
