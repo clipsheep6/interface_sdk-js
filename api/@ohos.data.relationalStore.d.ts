@@ -461,7 +461,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    DISTRIBUTED_DEVICE = 0,
+    DISTRIBUTED_DEVICE,
 
     /**
      * Indicates the table is distributed between the cloud and the devices.
@@ -1726,7 +1726,7 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - indicates the specified column index, which starts from 0.
      * @returns { Asset } the value of the specified column as an asset.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - the parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -1741,7 +1741,7 @@ declare namespace relationalStore {
      *
      * @param { number } columnIndex - indicates the specified column index, which starts from 0.
      * @returns { Assets } the value of the specified column as assets.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - the parameter check failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
