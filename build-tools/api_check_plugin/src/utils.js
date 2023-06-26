@@ -30,6 +30,7 @@ function requireTypescriptModule() {
   } else if (fs.existsSync(tsPathArray[1])) {
     return require(tsPathArray[1]);
   }
+  return null;
 }
 exports.requireTypescriptModule = requireTypescriptModule;
 const ts = requireTypescriptModule();
@@ -86,7 +87,8 @@ function removeDir(url) {
 exports.removeDir = removeDir;
 
 function writeResultFile(resultData, outputPath, option) {
-  fs.writeFile(path.resolve(__dirname, outputPath), JSON.stringify(resultData, null, 2), option, err => {
+  const STANDARD_INDENT = 2;
+  fs.writeFile(path.resolve(__dirname, outputPath), JSON.stringify(resultData, null, STANDARD_INDENT), option, err => {
     if (err) {
       console.error(`ERROR FOR CREATE FILE:${err}`);
     } else {
