@@ -50,6 +50,30 @@ declare namespace relationalStore {
     ASSET_NORMAL,
 
     /**
+     * ASSET_ABNORMAL: means the asset needs to be inserted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    ASSET_INSERT,
+
+    /**
+     * ASSET_ABNORMAL: means the asset needs to be updated.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    ASSET_UPDATE,
+
+    /**
+     * ASSET_ABNORMAL: means the asset needs to be deleted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    ASSET_DELETE,
+
+    /**
      * ASSET_ABNORMAL: means the status of asset is abnormal.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -2628,15 +2652,16 @@ declare namespace relationalStore {
      * Set table to be distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - Indicates the tables name you want to set.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { Array<string> } tables - indicates the tables name you want to set.
+     * @param { DistributedType } type - indicates the tables distributed type {@link DistributedType}.
+     * @param { AsyncCallback<void> } callback - the callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 10
      */
-    setDistributedTables(tables: Array<string>): Promise<void>;
+    setDistributedTables(tables: Array<string>, type: DistributedType, callback: AsyncCallback<void>): void;
 
     /**
      * Set table to be distributed table.
@@ -2655,20 +2680,33 @@ declare namespace relationalStore {
     setDistributedTables(tables: Array<string>, type: number, config: DistributedConfig, callback: AsyncCallback<void>): void;
 
     /**
-     * Set table to be a distributed table.
+     * Set table to be distributed table.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Array<string> } tables - Indicates the tables name you want to set.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 9
+     */
+    /**
+     * Set table to be distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - indicates the tables name you want to set.
-     * @param { number } type - indicates the distribution type of the tables. {@link DistributedType}.
+     * @param { DistributedType } type - indicates the distribution type of the tables. {@link DistributedType}.
      * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
      * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    setDistributedTables(tables: Array<string>, type?: number, config?: DistributedConfig): Promise<void>;
+    setDistributedTables(tables: Array<string>, type?: DistributedType, config?: DistributedConfig): Promise<void>;
 
     /**
      * Obtain distributed table name of specified remote device according to local table name.
@@ -2770,28 +2808,25 @@ declare namespace relationalStore {
      * Registers an observer for the database. When data in the distributed database changes,
      * the callback will be invoked.
      *
-     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
-     *                          If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
+     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> } observer - {Array<string>}: the observer of data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
-
     /**
      * Registers an observer for the database. When data in the distributed database changes,
      * the callback will be invoked.
      *
      * @param { 'dataChange' } event - indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer
-     * {Array<string>}: the observer of data change events in the distributed database.
-     * {Array<ChangeInfo>}: the change info of data change events in the distributed database.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
+     * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer - {Array<string>}: the observer of data change events in the distributed database.
+     * {Array<ChangeInfo>}: the change info already registered. This is available only when type is SUBSCRIBE_TYPE_CLOUD_DETAILS.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -2803,15 +2838,13 @@ declare namespace relationalStore {
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
-     *                          If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
-     * @param { Callback<Array<string>> } observer - {Array<string>}: the data change observer already registered.
+     * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
+     * @param { Callback<Array<string>>} observer - {Array<string>}: the data change observer already registered.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
-    off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
-
     /**
      * Remove specified observer of specified type from the database.
      *
@@ -2819,9 +2852,8 @@ declare namespace relationalStore {
      * @param { SubscribeType } type - indicates the subscription type, which is defined in {@link SubscribeType}.
      * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer - {Array<string>}: the data change observer already registered.
-     * {Array<ChangeInfo>}: the change info already registered.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
+     * {Array<ChangeInfo>}: the change info already registered. This is available only when type is SUBSCRIBE_TYPE_CLOUD_DETAILS.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
