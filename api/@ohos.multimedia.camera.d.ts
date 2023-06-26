@@ -1848,7 +1848,7 @@ declare namespace camera {
 
     /**
      * Check if PhotoOutput supports quick thumbnails.
-     * Effective between CaptureSession.addIutput() and CaptureSession.addOutput(photoOutput).
+     * Effective after CaptureSession.addIutput() and CaptureSession.addOutput(photoOutput).
      *
      * @returns { boolean } Is quick thumbnail supported.
      * @throws { BusinessError } 7400104 - session is not running.
