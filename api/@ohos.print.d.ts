@@ -22,30 +22,83 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace print {
 
+    /**
+     * interface PrintTask provide event callback
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     interface PrintTask {
         /**
          * Register event callback when the current print task is in process.
          * @since 10
-         * @param type blocked Indicates the print task has been blocked.
-         *        type success Indicates the print task succeed.
-         *        type failed Indicates the print task has completed with failure.
-         *        type cancelled Indicates the print task has been cancelled.
+         * @param type block Indicates the print task has been blocked.
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          */
-        on(type: 'blocked' | 'success' | 'failed' | 'cancelled', callback: () => void): void;
+        on(type: 'block', callback: () => void): void;
+
+        /**
+         * Register event callback when the current print task is in process.
+         * @since 10
+         * @param type succeed Indicates the print task succeed.
+         * @param callback The callback function for print task change event
+         * @permission ohos.permission.PRINT
+         */
+        on(type: 'succeed', callback: () => void): void;
+
+        /**
+         * Register event callback when the current print task is in process.
+         * @since 10
+         * @param type fail Indicates the print task has completed with failure.
+         * @param callback The callback function for print task change event
+         * @permission ohos.permission.PRINT
+         */
+        on(type: 'fail', callback: () => void): void;
+
+        /**
+         * Register event callback when the current print task is in process.
+         * @since 10
+         * @param type cancel Indicates the print task has been cancelled.
+         * @param callback The callback function for print task change event
+         * @permission ohos.permission.PRINT
+         */
+        on(type: 'cancel', callback: () => void): void;
 
         /**
          * Unregister event callback when the current print task is in process.
          * @since 10
          * @param type block Indicates the print task has been blocked.
-         *        type success Indicates the print task succeed.
-         *        type fail Indicates the print task has completed with failure.
-         *        type cancel Indicates the print task has been cancelled.
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          */
-        off(type: 'blocked' | 'success' | 'failed' | 'cancelled', callback?: (boolean) => void): void;
+        off(type: 'block', callback?: (boolean) => void): void;
+
+        /**
+         * Unregister event callback when the current print task is in process.
+         * @since 10
+         * @param type succeed Indicates the print task succeed.
+         * @param callback The callback function for print task change event
+         * @permission ohos.permission.PRINT
+         */
+        on(type: 'succeed', callback: (boolean) => void): void;
+
+        /**
+         * Unregister event callback when the current print task is in process.
+         * @since 10
+         * @param type fail Indicates the print task has completed with failure.
+         * @param callback The callback function for print task change event
+         * @permission ohos.permission.PRINT
+         */
+        on(type: 'fail', callback: (boolean) => void): void;
+
+        /**
+         * Unregister event callback when the current print task is in process.
+         * @since 10
+         * @param type cancel Indicates the print task has been cancelled.
+         * @param callback The callback function for print task change event
+         * @permission ohos.permission.PRINT
+         */
+        on(type: 'cancel', callback: (boolean) => void): void;        
     }
 
     /**
