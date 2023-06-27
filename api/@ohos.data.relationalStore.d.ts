@@ -155,6 +155,12 @@ declare namespace relationalStore {
     status?: AssetStatus;
   }
 
+  /**
+   * Indicates several assets in one column
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
   type Assets = Asset[];
 
   /**
