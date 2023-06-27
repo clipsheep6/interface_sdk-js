@@ -357,7 +357,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    code: number;
+    code: ProgressCode;
 
     /**
      * The statistic details of the tables.
@@ -2806,6 +2806,7 @@ declare namespace relationalStore {
      * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
      * @param { AsyncCallback<void> } callback - the callback of setDistributedTables.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -2822,6 +2823,7 @@ declare namespace relationalStore {
      * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
      * @param { AsyncCallback<void> } callback - the callback of setDistributedTables.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -2838,6 +2840,7 @@ declare namespace relationalStore {
      * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
