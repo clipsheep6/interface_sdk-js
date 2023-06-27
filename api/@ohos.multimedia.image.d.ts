@@ -653,27 +653,12 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 9
    */
-  /**
-   * Enum for image formats.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
   enum ImageFormat {
     /**
      * YCBCR422 semi-planar format.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
-     */
-    /**
-     * YCBCR422 semi-planar format.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
      */
     YCBCR_422_SP = 1000,
 
@@ -682,13 +667,6 @@ declare namespace image {
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
-     */
-    /**
-     * JPEG encoding format.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
      */
     JPEG = 2000
   }
