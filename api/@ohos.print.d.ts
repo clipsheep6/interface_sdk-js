@@ -71,7 +71,7 @@ declare namespace print {
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          */
-        off(type: 'block', callback?: (boolean) => void): void;
+        off(type: 'block', callback?: () => void): void;
 
         /**
          * Unregister event callback when the current print task is in process.
@@ -80,7 +80,7 @@ declare namespace print {
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          */
-        off(type: 'succeed', callback: (boolean) => void): void;
+        off(type: 'succeed', callback: () => void): void;
 
         /**
          * Unregister event callback when the current print task is in process.
@@ -89,7 +89,7 @@ declare namespace print {
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          */
-        off(type: 'fail', callback: (boolean) => void): void;
+        off(type: 'fail', callback: () => void): void;
 
         /**
          * Unregister event callback when the current print task is in process.
@@ -98,7 +98,7 @@ declare namespace print {
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          */
-        off(type: 'cancel', callback: (boolean) => void): void;        
+        off(type: 'cancel', callback: () => void): void;        
     }
 
     /**
