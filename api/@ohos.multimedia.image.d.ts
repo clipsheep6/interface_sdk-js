@@ -2364,8 +2364,20 @@ declare namespace image {
      * @returns { colorSpaceManager.ColorSpaceManager } If the operation fails, an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
+     * @throws { BusinessError } 62980105 - If the Image obtaining data error.
+     * @throws { BusinessError } 62980115 - If the Image parameter invalid.
      */
     getColorSpace(): colorSpaceManager.ColorSpaceManager;
+
+    /**
+     * Marshalling pixelmap and write into NAPI_MessageSequence.
+     *
+     * @param { NAPI_MessageSequence } options NAPI_MessageSequence parameter.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 10
+     * @throws { BusinessError } 62980097 - If the ipc error.
+     */
+    marshalling(options: NAPI_MessageSequence): void;
 
     /**
      * Set color space of pixel map.
@@ -2542,6 +2554,18 @@ declare namespace image {
      * @since 10
      */
     createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap>): void;
+
+    /**
+     * Creates a PixelMap object based on NAPI_MessageSequence parameter. This method uses a callback to
+     * return the object.
+     *
+     * @param { NAPI_MessageSequence } options NAPI_MessageSequence parameter.
+     * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 10
+     * @throws { BusinessError } 62980097 - If the ipc error.
+     */
+    unmarshalling(options: NAPI_MessageSequence, callback: AsyncCallback<PixelMap>): void;
 
     /**
      * Creates a PixelMap array based on image decoding parameters. This method uses a promise to
