@@ -1877,7 +1877,7 @@ declare namespace camera {
      * Effective after enableQuickThumbnail(true).
      *
      * @param { 'quickThumbnail' } type Event type.
-     * @param { AsyncCallback<PixelMap> } callback Callback used to get the quick thumbnail.
+     * @param { AsyncCallback<image.PixelMap> } callback Callback used to get the quick thumbnail.
      * @throws { BusinessError } 7400104 - session is not running.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
