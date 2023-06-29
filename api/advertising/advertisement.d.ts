@@ -43,7 +43,7 @@ export interface Advertisement {
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
-  adCloseKeyWords: string[];
+  adCloseKeywords: string[];
 
   /**
    * The detailed creative type returned by an advertisement.
