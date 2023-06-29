@@ -233,6 +233,15 @@ declare namespace relationalStore {
      * @since 9
      */
     encrypt?: boolean;
+
+    /**
+     * The data group id of application.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    dataGroupId?: string;
   }
 
   /**
@@ -363,7 +372,23 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SUBSCRIBE_TYPE_CLOUD_DETAILS
+    SUBSCRIBE_TYPE_CLOUD_DETAILS,
+
+    /**
+     * Subscription to in-process data changes
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    SUBSCRIBE_TYPE_LOCAL,
+
+    /**
+     * Subscription to inter-process data changes
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    SUBSCRIBE_TYPE_LOCAL_SHARED
   }
 
   /**
@@ -2823,6 +2848,24 @@ declare namespace relationalStore {
     on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
 
     /**
+     * Registers an observer for the database. When data in the database changes,
+     * the callback will be invoked.
+     *
+     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
+     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+     *                          Its value should be SUBSCRIBE_TYPE_LOCAL or SUBSCRIBE_TYPE_LOCAL_SHARED.
+     * @param { string } uri - Indicates the subscription entity.
+     * @param { Callback<void> } observer - The observer of data change events in the database.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    on(event: 'dataChange', type: SubscribeType, uri: string, observer: Callback<void>): void;
+
+    /**
      * Remove specified observer of specified type from the database.
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
@@ -2851,6 +2894,44 @@ declare namespace relationalStore {
      * @since 10
      */
     off(event: 'dataChange', type: SubscribeType, observer?: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
+
+    /**
+     * Remove specified observer of specified type from the database.
+     *
+     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
+     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
+     *                          Its value should be SUBSCRIBE_TYPE_LOCAL or SUBSCRIBE_TYPE_LOCAL_SHARED.
+     * @param { string } uri - Indicates the subscription entity.
+     * @param Callback<void> observer - {Array<string>}: the data change observer already registered.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    off(event: 'dataChange', type: SubscribeType, uri: string, observer?: Callback<void>): void;
+
+    /**
+     * Notifies the registered observers of a change to the data resource specified by Uri.
+     *
+     * @param { string } uri - Indicates the subscription entity.
+     * @param { AsyncCallback<void> } callback - The callback of emit.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    emit(uri: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Notifies the registered observers of a change to the data resource specified by Uri.
+     *
+     * @param { string } uri - Indicates the subscription entity.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    emit(uri: string): Promise<void>;
   }
 
   /**
@@ -2882,6 +2963,23 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
+   * @since 10
+   */
+  /**
+   * Obtains a RDB store.
+   * You can set parameters of the RDB store as required. In general, this method is recommended
+   * to obtain a rdb store.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
   function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
@@ -2917,6 +3015,23 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Obtains a RDB store.
+   * You can set parameters of the RDB store as required. In general, this method is recommended
+   * to obtain a rdb store.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @returns { Promise<RdbStore> } The RDB store {@link RdbStore}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
   function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
 
   /**
@@ -2945,6 +3060,21 @@ declare namespace relationalStore {
    * @since 10
    */
   function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
+  /**
+   * Deletes the database with a specified store config.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { AsyncCallback<void> } callback - The callback of deleteRdbStore.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  function deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<void>): void;
 
   /**
    * Deletes the database with a specified name.
@@ -2972,6 +3102,21 @@ declare namespace relationalStore {
    * @since 10
    */
   function deleteRdbStore(context: Context, name: string): Promise<void>;
+  /**
+   * Deletes the database with a specified store config.
+   *
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14801001 - Only supported in Stage mode.
+   * @throws { BusinessError } 14801002 - The dataGroupId not valid.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  function deleteRdbStore(context: Context, config: StoreConfig): Promise<void>;
 }
 
 export default relationalStore;
