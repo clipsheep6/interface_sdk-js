@@ -85,6 +85,35 @@ declare namespace wifiManager {
   function getScanInfoList(): Array<WifiScanInfo>;
 
   /**
+   * Set scan running state, allow the user to set the scan's running state even Wi-Fi is turned off.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @param { boolean } runningState - true for keep the scan running, otherwise close the scan when Wi-Fi is turned off.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setScanRunningState(runningState: boolean): void;
+
+  /**
+   * Get scan running state.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @returns { boolean } Returns {@code true} if scan running state is true, returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getScanRunningState(): boolean;
+
+  /**
    * Add Wi-Fi connection configuration to the device. The configuration will be updated when the configuration is added.</p>
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
    * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
