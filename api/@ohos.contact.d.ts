@@ -20,37 +20,37 @@ import { AsyncCallback } from './@ohos.base';
  * and provides methods for querying the information of contact.
  *
  * @namespace contact
- * @syscap SystemCapability.Applications.ContactsData
  * @since 7
+ * @syscap SystemCapability.Applications.ContactsData
  */
 declare namespace contact {
   /**
    * Creates a contact.
    *
-   * @permission ohos.permission.WRITE_CONTACTS
    * @param { Contact } contact - Indicates the contact information.
    * @param { AsyncCallback<number> } callback - Indicates the callback for getting the result of the call.
+   * @permission ohos.permission.WRITE_CONTACTS
    * Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the creation is successful;
    * returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function addContact(contact: Contact, callback: AsyncCallback<number>): void;
 
   /**
    * Creates a contact.
    *
-   * @permission ohos.permission.WRITE_CONTACTS
    * @param { Contact } contact - Indicates the contact information.
+   * @permission ohos.permission.WRITE_CONTACTS
    * @returns { Promise<number> } Returns the result of the call.
    * Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the creation is successful;
    * returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function addContact(contact: Contact): Promise<number>;
 
@@ -59,9 +59,10 @@ declare namespace contact {
    *
    * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
    * Returns the contact list which user select; returns empty contact list if user not select.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.Contacts
    * @since 7
+   * @syscap SystemCapability.Applications.Contacts
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    */
   function selectContact(callback: AsyncCallback<Array<Contact>>): void;
 
@@ -70,245 +71,245 @@ declare namespace contact {
    *
    * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
    * returns empty contact list if user not select.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.Contacts
    * @since 7
+   * @syscap SystemCapability.Applications.Contacts
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
    */
   function selectContact(): Promise<Array<Contact>>;
 
   /**
    * Deletes a specified contact.
    *
-   * @permission ohos.permission.WRITE_CONTACTS
    * @param { string } key - Indicates the unique query key of a contact to delete.
    * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the call.
    * Returns {@code true} if the contact is deleted; returns {@code false} otherwise.
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function deleteContact(key: string, callback: AsyncCallback<boolean>): void;
 
   /**
    * Deletes a specified contact.
    *
-   * @permission ohos.permission.WRITE_CONTACTS
    * @param { string } key - Indicates the unique query key of a contact to delete.
    * @returns { Promise<boolean> } Returns the result of the call.
    * Returns {@code true} if the contact is deleted; returns {@code false} otherwise.
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function deleteContact(key: string): Promise<boolean>;
 
   /**
    * Queries a specified contact of specified attributes.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } key - Indicates the unique query key of a contact.
    * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call.
    * Returns the specified contact.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContact(key: string, callback: AsyncCallback<Contact>): void;
   
   /**
    * Queries a specified contact of specified attributes.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } key - Indicates the unique query key of a contact.
    * @param { Holder } holder - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call.
    * Returns the specified contact.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContact(key: string, holder: Holder, callback: AsyncCallback<Contact>): void;
   
   /**
    * Queries a specified contact of specified attributes.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } key - Indicates the unique query key of a contact.
    * @param { ContactAttributes } attrs - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call.
    * Returns the specified contact.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContact(key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
   
   /**
    * Queries a specified contact of specified attributes.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } key - Indicates the unique query key of a contact.
    * @param { Holder } holder - Indicates the contact holder.
    * @param { ContactAttributes } attrs - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call.
    * Returns the specified contact.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContact(key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
   
   /**
    * Queries a specified contact of specified attributes.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } key - Indicates the unique query key of a contact.
    * @param { Holder } holder - Indicates the contact holder.
    * @param { ContactAttributes } attrs - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
+   * @permission ohos.permission.READ_CONTACTS
    * @returns { Promise<Contact> } Returns the specified contact.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContact(key: string, holder?: Holder, attrs?: ContactAttributes): Promise<Contact>;
 
   /**
    * Queries contacts with query conditions.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { AsyncCallback<Array<Contact>> } callback - The callback of queryContacts.
    * Returns the {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContacts(callback: AsyncCallback<Array<Contact>>): void;
   
   /**
    * Queries contacts with query conditions.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { Holder } holder - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - The callback of queryContacts.
    * Returns the {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContacts(holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
     
   /**
    * Queries contacts with query conditions.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { ContactAttributes } attrs - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - The callback of queryContacts.
    * Returns the {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContacts(attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
     
   /**
    * Queries contacts with query conditions.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { Holder } holder - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @param { ContactAttributes } attrs - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - The callback of queryContacts.
    * Returns the {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContacts(holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
     
   /**
    * Queries contacts with query conditions.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { Holder } holder - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @param { ContactAttributes } attrs - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
+   * @permission ohos.permission.READ_CONTACTS
    * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContacts(holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
    * Queries contacts by a specified email address.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } email - Indicates the email address.
    * @param { AsyncCallback<Array<Contact>> } callback - The callback of queryContactsByEmail.
    * Returns a {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContactsByEmail(email: string, callback: AsyncCallback<Array<Contact>>): void;
   
   /**
    * Queries contacts by a specified email address and contact holder.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } email - Indicates the email address.
    * @param { Holder } holder - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - The callback of queryContactsByEmail.
    * Returns a {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContactsByEmail(email: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
   
   /**
    * Queries contacts by a specified email address and contact attributes.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } email - Indicates the email address.
    * @param { ContactAttributes } attrs - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - The callback of queryContactsByEmail.
    * Returns a {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContactsByEmail(email: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
   
   /**
    * Queries contacts by a specified email address, contact holder, and contact attributes.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } email - Indicates the email address.
    * @param { Holder } holder - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
@@ -316,83 +317,83 @@ declare namespace contact {
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - The callback of queryContactsByEmail.
    * Returns a {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContactsByEmail(email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
   
   /**
    * Queries contacts by a specified email address, contact holder, and contact attributes.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } email - Indicates the email address.
    * @param { Holder } holder - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @param { ContactAttributes } attrs - Indicates the contact attributes.
    * If this parameter is null, all attributes are used for matching.
+   * @permission ohos.permission.READ_CONTACTS
    * @returns { Promise<Array<Contact>> } Returns a {@code Contact} list object.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContactsByEmail(email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
    * Queries contacts by a phone number.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } phoneNumber - Indicates the phone number.
    * Only full match is supported, and wildcards are not supported.
    * @param { AsyncCallback<Array<Contact>> } callback - The callback of queryContactsByPhoneNumber.
    * Returns the {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContactsByPhoneNumber(phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void;
   
   /**
    * Queries contacts by a phone number and contact holder.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } phoneNumber - Indicates the phone number.
    * Only full match is supported, and wildcards are not supported.
    * @param { Holder } holder - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - The callback of queryContactsByPhoneNumber.
    * Returns the {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
   
   /**
    * Queries contacts by a phone number and contact attribute.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } phoneNumber - Indicates the phone number.
    * Only full match is supported, and wildcards are not supported.
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes will be used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - The callback of queryContactsByPhoneNumber.
    * Returns the {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContactsByPhoneNumber(phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
   
   /**
    * Queries contacts by a phone number, contact holder and contact attribute.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } phoneNumber - Indicates the phone number.
    * Only full match is supported, and wildcards are not supported.
    * @param { Holder } holder - Indicates the contact holder.
@@ -401,83 +402,84 @@ declare namespace contact {
    * If this parameter is null, all attributes will be used for matching.
    * @param { AsyncCallback<Array<Contact>> } callback - The callback of queryContactsByPhoneNumber.
    * Returns the {@code Contact} list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
   
   /**
    * Queries contacts by a phone number, contact holder and contact attribute.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { string } phoneNumber - Indicates the phone number.
    * Only full match is supported, and wildcards are not supported.
    * @param { Holder } holder - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes will be used for matching.
+   * @permission ohos.permission.READ_CONTACTS
    * @returns { Promise<Array<Contact>> } Returns the {@code Contact} list object.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryContactsByPhoneNumber(phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
    * Queries contact groups.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { AsyncCallback<Array<Group>> } callback - The callback of queryGroups.
    * Returns the contact group list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryGroups(callback: AsyncCallback<Array<Group>>): void;
 
   /**
    * Queries contact groups by contact holder.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { Holder } holder - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @param { AsyncCallback<Array<Group>> } callback - The callback of queryGroups.
    * Returns the contact group list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryGroups(holder: Holder, callback: AsyncCallback<Array<Group>>): void;
   
   /**
    * Queries contact groups by contact holder.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { Holder } holder - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
+   * @permission ohos.permission.READ_CONTACTS
    * @returns { Promise<Array<Group>> } Returns the contact group list object.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryGroups(holder?: Holder): Promise<Array<Group>>;
 
   /**
    * Queries contact holders.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { AsyncCallback<Array<Holder>> } callback - The callback of queryHolders.
    * Returns the {@code Holder} list object.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryHolders(callback: AsyncCallback<Array<Holder>>): void;
 
@@ -486,10 +488,10 @@ declare namespace contact {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @returns { AsyncCallback<Array<Holder>> } Returns the {@code Holder} list object.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryHolders(): Promise<Array<Holder>>;
 
@@ -500,357 +502,357 @@ declare namespace contact {
    * @param { number } id - Indicates the contact ID.
    * @param { AsyncCallback<string> } callback - The callback of queryKey.
    * Returns the query key of the contact.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryKey(id: number, callback: AsyncCallback<string>): void;
   
   /**
    * Obtains the query key of a contact based on a specified ID and holder.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { number } id - Indicates the contact ID.
    * @param { Holder } holder - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
    * @param { AsyncCallback<string> } callback - The callback of queryKey.
    * Returns the query key of the contact.
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryKey(id: number, holder: Holder, callback: AsyncCallback<string>): void;
   
   /**
    * Obtains the query key of a contact based on a specified ID and holder.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { number } id - Indicates the contact ID.
    * @param { Holder } holder - Indicates the contact holder.
    * If this parameter is null, the default holder is used for matching.
+   * @permission ohos.permission.READ_CONTACTS
    * @returns { Promise<string> } Returns the query key of the contact.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryKey(id: number, holder?: Holder): Promise<string>;
 
   /**
    * Queries information about "my card".
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { AsyncCallback<Contact> } callback - The callback of queryMyCard.
    * Returns information about "my card".
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryMyCard(callback: AsyncCallback<Contact>): void;
   
   /**
    * Queries information about "my card".
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<Contact> } callback - The callback of queryMyCard.
    * Returns information about "my card".
+   * @permission ohos.permission.READ_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryMyCard(attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
   
   /**
    * Queries information about "my card".
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
+   * @permission ohos.permission.READ_CONTACTS
    * @returns { Promise<Contact> } Returns information about "my card".
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function queryMyCard(attrs?: ContactAttributes): Promise<Contact>;
 
   /**
    * Updates specified attributes of a contact.
    *
-   * @permission ohos.permission.WRITE_CONTACTS
    * @param { Contact } contact - Indicates the contact whose information is to update.
    * @param { AsyncCallback<boolean> } callback - The callback of updateContact.
    * Returns {@code true} if the update is successful; returns {@code false} otherwise.
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function updateContact(contact: Contact, callback: AsyncCallback<boolean>): void;
   
   /**
    * Updates specified attributes of a contact.
    *
-   * @permission ohos.permission.WRITE_CONTACTS
    * @param { Contact } contact - Indicates the contact whose information is to update.
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
    * @param { AsyncCallback<boolean> } callback - The callback of updateContact.
    * Returns {@code true} if the update is successful; returns {@code false} otherwise.
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function updateContact(contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<boolean>): void;
   
   /**
    * Updates specified attributes of a contact.
    *
-   * @permission ohos.permission.WRITE_CONTACTS
    * @param { Contact } contact - Indicates the contact whose information is to update.
    * @param { ContactAttributes } attrs - Indicates the contact attribute.
    * If this parameter is null, all attributes are used for matching.
+   * @permission ohos.permission.WRITE_CONTACTS
    * @returns { Promise<boolean> } Returns {@code true} if the update is successful; returns {@code false} otherwise.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function updateContact(contact: Contact, attrs?: ContactAttributes): Promise<boolean>;
 
   /**
    * Checks whether the contact ID is in the local phone book.
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { number } id - Indicates the contact ID.
    * @param { AsyncCallback<boolean> } callback - The callback of isLocalContact.
+   * @permission ohos.permission.READ_CONTACTS
    * Returns {@code true} if the contact ID is in the local phone book; returns {@code false} otherwise.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function isLocalContact(id: number, callback: AsyncCallback<boolean>): void;
   
   /**
    * Checks whether the contact ID is in the local phone book.
-   *
-   * @permission ohos.permission.READ_CONTACTS
+   * 
    * @param { number } id - Indicates the contact ID.
+   * @permission ohos.permission.READ_CONTACTS
    * @returns { Promise<boolean> } Returns {@code true} if the contact ID is in the local phone book;
    * returns {@code false} otherwise.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function isLocalContact(id: number): Promise<boolean>;
 
   /**
    * Checks whether the contact ID is of "my card".
-   *
-   * @permission ohos.permission.READ_CONTACTS
+   * 
    * @param { number } id - Indicates the contact ID.
    * @param { AsyncCallback<boolean> } callback - The callback of isMyCard.
+   * @permission ohos.permission.READ_CONTACTS
    * Returns {@code true} if the contact ID is of "my card"; returns {@code false} otherwise.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function isMyCard(id: number, callback: AsyncCallback<boolean>): void;
   
   /**
    * Checks whether the contact ID is of "my card".
    *
-   * @permission ohos.permission.READ_CONTACTS
    * @param { number } id - Indicates the contact ID.
+   * @permission ohos.permission.READ_CONTACTS
    * @returns { Promise<boolean> } Returns {@code true} if the contact ID is of "my card";
    * returns {@code false} otherwise.
+   * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.ContactsData
-   * @since 7
    */
   function isMyCard(id: number): Promise<boolean>;
 
   /**
    * Provides methods for contact information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class Contact {
     /**
      * Indicates the contact ID.
      * 
-     * @type { number }
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { number }
      */
     static readonly INVALID_CONTACT_ID: -1
 
     /**
      * Indicates the contact ID.
      * 
-     * @type { ?number }
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?number }
      */
     readonly id?: number
 
     /**
      * Indicates the query key that identifies the contact.
      * 
-     * @type { ?string }
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     readonly key?: string
 
     /**
      * Indicates the contact attributes.
      * 
-     * @type { ?ContactAttributes }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?ContactAttributes }
      */
     contactAttributes?: ContactAttributes
 
     /**
      * Indicates an email address of the contact.
      * 
-     * @type { ?Email[] }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?Email[] }
      */
     emails?: Email[]
 
     /**
      * Indicates an event (special date) of the contact.
      * 
-     * @type { ?Event[] }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?Event[] }
      */
     events?: Event[]
 
     /**
      * Indicates a group of the contact.
      * 
-     * @type { ?Group[] }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?Group[] }
      */
     groups?: Group[]
 
     /**
      * Indicates an IM address of the contact.
      * 
-     * @type { ?ImAddress[] }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?ImAddress[] }
      */
     imAddresses?: ImAddress[]
 
     /**
      * Indicates a phone number of the contact.
      * 
-     * @type { ?PhoneNumber[] }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?PhoneNumber[] }
      */
     phoneNumbers?: PhoneNumber[]
 
     /**
      * Indicates the contact portrait.
      * 
-     * @type { ?Portrait }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?Portrait }
      */
     portrait?: Portrait
 
     /**
      * Indicates a postal address of the contact.
      * 
-     * @type { ?PostalAddress[] }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?PostalAddress[] }
      */
     postalAddresses?: PostalAddress[]
 
     /**
      * Indicates a relation of the contact.
      * 
-     * @type { ?Relation[] }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?Relation[] }
      */
     relations?: Relation[]
 
     /**
      * Indicates a Session Initiation Protocol (SIP) address of the contact.
      * 
-     * @type { ?SipAddress[] }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?SipAddress[] }
      */
     sipAddresses?: SipAddress[]
 
     /**
      * Indicates a website of the contact.
      * 
-     * @type { ?Website[] }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?Website[] }
      */
     websites?: Website[]
 
     /**
      * Indicates the contact name.
      * 
-     * @type { ?Name }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?Name }
      */
     name?: Name
 
     /**
      * Indicates the contact nickname.
      * 
-     * @type { ?NickName }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?NickName }
      */
     nickName?: NickName
 
     /**
      * Indicates the contact note.
      * 
-     * @type { ?Note }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?Note }
      */
     note?: Note
 
     /**
      * Indicates organization information about the contact.
      * 
-     * @type { ?Organization }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?Organization }
      */
     organization?: Organization
   }
@@ -858,16 +860,16 @@ declare namespace contact {
   /**
    * Provides methods for contact attributes information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class ContactAttributes {
     /**
      * Indicates the contact attributes.
      * 
-     * @type { Attribute[] }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { Attribute[] }
      */
     attributes: Attribute[]
   }
@@ -876,119 +878,119 @@ declare namespace contact {
    * Provides methods for attribute information
    * 
    * @enum { number }
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   enum Attribute {
     /**
      * Indicates the contact event.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_CONTACT_EVENT,
 
     /**
      * Indicates the email address.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_EMAIL,
 
     /**
      * Indicates the contact group.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_GROUP_MEMBERSHIP,
 
     /**
      * Indicates the instant messaging (IM) address.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_IM,
 
     /**
      * Indicates the name.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_NAME,
 
     /**
      * Indicates the nickname.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_NICKNAME,
 
     /**
      * Indicates the note.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_NOTE,
 
     /**
      * Indicates the organization.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_ORGANIZATION,
 
     /**
      * Indicates the phone number.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_PHONE,
 
     /**
      * Indicates the portrait.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_PORTRAIT,
 
     /**
      * Indicates the postal address.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_POSTAL_ADDRESS,
 
     /**
      * Indicates the relation.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_RELATION,
 
     /**
      * Indicates the Session Initiation Protocol (SIP) address.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_SIP_ADDRESS,
 
     /**
      * Indicates the website.
      * 
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
      */
     ATTR_WEBSITE
   }
@@ -996,75 +998,75 @@ declare namespace contact {
   /**
    * Provides methods for email information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class Email {
     /**
      * Indicates a custom label.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly CUSTOM_LABEL: 0
 
     /**
      * Indicates a home email.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly EMAIL_HOME: 1
 
     /**
      * Indicates a work email.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly EMAIL_WORK: 2
 
     /**
      * Indicates an email of the OTHER type.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly EMAIL_OTHER: 3
 
     /**
      * Indicates an invalid label ID.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly INVALID_LABEL_ID: -1
 
     /**
      * Indicates the email address.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     email: string
 
     /**
      * Indicates the label name of an attribute.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     labelName?: string
 
@@ -1072,17 +1074,18 @@ declare namespace contact {
      * Indicates the displayed email name.
      * 
      * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     displayName?: string
 
     /**
      * Indicates the label id.
      * 
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?number }
      */
     labelId?: number
   }
@@ -1090,84 +1093,84 @@ declare namespace contact {
   /**
    * Provides methods for event information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class Event {
     /**
      * Indicates a custom label.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly CUSTOM_LABEL: 0
 
     /**
      * Indicates an anniversary event.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly EVENT_ANNIVERSARY: 1
 
     /**
      * Indicates an event of the OTHER type.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly EVENT_OTHER: 2
 
     /**
      * Indicates an birthday event.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly EVENT_BIRTHDAY: 3
 
     /**
      * Indicates an invalid label ID.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly INVALID_LABEL_ID: -1
 
     /**
      * Indicates the event date.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     eventDate: string
 
     /**
      * Indicates the label name of an attribute.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     labelName?: string
 
     /**
      * Indicates the label id.
      * 
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?number }
      */
     labelId?: number
   }
@@ -1175,25 +1178,25 @@ declare namespace contact {
   /**
    * Provides methods for group information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class Group {
     /**
      * Indicates the contact group ID.
      * 
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?number }
      */
     groupId?: number
 
     /**
      * Indicates the contact group title.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     title: string
   }
@@ -1201,17 +1204,17 @@ declare namespace contact {
   /**
    * Provides methods for holder information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class Holder {
     /**
      * Indicates the bundle name of a contact holder.
      * 
      * @readonly
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     readonly bundleName: string
 
@@ -1219,18 +1222,18 @@ declare namespace contact {
      * Indicates the displayed name of a contact holder.
      * 
      * @readonly
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     readonly displayName?: string
 
     /**
      * Indicates the holder ID.
      * 
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?number }
      */
     holderId?: number
   }
@@ -1238,124 +1241,124 @@ declare namespace contact {
   /**
    * Provides methods for ImAddress information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class ImAddress {
     /**
      * Indicates a custom label.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly CUSTOM_LABEL: -1
 
     /**
      * Indicates an AIM instant message.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly IM_AIM: 0
 
     /**
      * Indicates a Windows Live instant message.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly IM_MSN: 1
 
     /**
      * Indicates a Yahoo instant message.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly IM_YAHOO: 2
 
     /**
      * Indicates a Skype instant message.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly IM_SKYPE: 3
 
     /**
      * Indicates a QQ instant message.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly IM_QQ: 4
 
     /**
      * Indicates an ICQ instant message.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly IM_ICQ: 6
 
     /**
      * Indicates a Jabber instant message.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly IM_JABBER: 7
 
     /**
      * Indicates an invalid label ID.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly INVALID_LABEL_ID: -2
 
     /**
      * Indicates the IM address.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     imAddress: string
 
     /**
      * Indicates the label name of an attribute.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     labelName?: string
 
     /**
      * Indicates the label id.
      * 
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?number }
      */
     labelId?: number
   }
@@ -1363,88 +1366,88 @@ declare namespace contact {
   /**
    * Provides methods for name information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class Name {
     /**
      * Indicates the family name of the contact.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     familyName?: string
 
     /**
      * Indicates the phonetic family name of the contact.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     familyNamePhonetic?: string
 
     /**
      * Indicates the full name of the contact.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     fullName: string
 
     /**
      * Indicates the given name of the contact.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     givenName?: string
 
     /**
      * Indicates the phonetic given name of the contact.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     givenNamePhonetic?: string
 
     /**
      * Indicates the middle name of the contact.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     middleName?: string
 
     /**
      * Indicates the phonetic middle name of the contact.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     middleNamePhonetic?: string
 
     /**
      * Indicates the prefix of the contact name.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     namePrefix?: string
 
     /**
      * Indicates the suffix of this contact name.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     nameSuffix?: string
   }
@@ -1452,16 +1455,16 @@ declare namespace contact {
   /**
    * Provides methods for nick name information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class NickName {
     /**
      * Indicates the nickname of the contact.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     nickName: string
   }
@@ -1469,16 +1472,16 @@ declare namespace contact {
   /**
    * Provides methods for note information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class Note {
     /**
      * Indicates the note content.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     noteContent: string
   }
@@ -1486,25 +1489,25 @@ declare namespace contact {
   /**
    * Provides methods for organization information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class Organization {
     /**
      * Indicates the name of the organization to which the contact belongs.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     name: string
 
     /**
      * Indicates the title of the organization.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     title?: string
   }
@@ -1512,254 +1515,254 @@ declare namespace contact {
   /**
    * Provides methods for phone number information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class PhoneNumber {
     /**
      * Indicates a custom label.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly CUSTOM_LABEL: 0
 
     /**
      * Indicates a home number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_HOME: 1
 
     /**
      * Indicates a mobile phone number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_MOBILE: 2
 
     /**
      * Indicates a work number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_WORK: 3
 
     /**
      * Indicates a work fax number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_FAX_WORK: 4
 
     /**
      * Indicates a home fax number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_FAX_HOME: 5
 
     /**
      * Indicates a pager number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_PAGER: 6
 
     /**
      * Indicates a number of the OTHER type.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_OTHER: 7
 
     /**
      * Indicates a callback number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_CALLBACK: 8
 
     /**
      * Indicates a car number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_CAR: 9
 
     /**
      * Indicates a company director number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_COMPANY_MAIN: 10
 
     /**
      * Indicates an Integrated Services Digital Network (ISDN) number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_ISDN: 11
 
     /**
      * Indicates a main number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_MAIN: 12
 
     /**
      * Indicates a number of the OTHER_FAX type.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_OTHER_FAX: 13
 
     /**
      * Indicates a radio number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_RADIO: 14
 
     /**
      * Indicates a telex number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_TELEX: 15
 
     /**
      * Indicates a teletypewriter (TTY) or test-driven development (TDD) number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_TTY_TDD: 16
 
     /**
      * Indicates a work mobile phone number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_WORK_MOBILE: 17
 
     /**
      * Indicates a work pager number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_WORK_PAGER: 18
 
     /**
      * Indicates an assistant number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_ASSISTANT: 19
 
     /**
      * Indicates an MMS number.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly NUM_MMS: 20
 
     /**
      * Indicates an invalid label ID.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly INVALID_LABEL_ID: -1
 
     /**
      * Indicates the label name of an attribute.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     labelName?: string
 
     /**
      * Indicates the phone number of the contact.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     phoneNumber: string
 
     /**
      * Indicates the label id.
      * 
-     * @type { number }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { number }
      */
     labelId?: number
   }
@@ -1767,16 +1770,16 @@ declare namespace contact {
   /**
    * Provides methods for portrait information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class Portrait {
     /**
      * Indicates the uri of the contact portrait.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     uri: string
   }
@@ -1784,147 +1787,147 @@ declare namespace contact {
   /**
    * Provides methods for postal address information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class PostalAddress {
     /**
      * Indicates a custom label.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly CUSTOM_LABEL: 0
 
     /**
      * Indicates a home address.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly ADDR_HOME: 1
 
     /**
      * Indicates a work address.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly ADDR_WORK: 2
 
     /**
      * Indicates an address of the OTHER type.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly ADDR_OTHER: 3
 
     /**
      * Indicates an invalid label ID.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly INVALID_LABEL_ID: -1
 
     /**
      * Indicates the city where this contact is located.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     city?: string
 
     /**
      * Indicates the country/region where this contact is located.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     country?: string
 
     /**
      * Indicates the label name of an attribute.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     labelName?: string
 
     /**
      * Indicates the neighborhood where this contact is located.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     neighborhood?: string
 
     /**
      * Indicates the post box of this contact.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     pobox?: string
 
     /**
      * Indicates the postal address of this contact.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     postalAddress: string
 
     /**
      * Indicates the postal code of this contact.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     postcode?: string
 
     /**
      * Indicates the area where this contact is located.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     region?: string
 
     /**
      * Indicates the street where this contact is located.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     street?: string
 
     /**
      * Indicates the label id.
      * 
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?number }
      */
     labelId?: number
   }
@@ -1932,194 +1935,194 @@ declare namespace contact {
   /**
    * Provides methods for relation information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class Relation {
     /**
      * Indicates a custom label.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly CUSTOM_LABEL: 0
 
     /**
      * Indicates an assistant.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_ASSISTANT: 1
 
     /**
      * Indicates a brother.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_BROTHER: 2
 
     /**
      * Indicates a child.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_CHILD: 3
 
     /**
      * Indicates a domestic partner.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_DOMESTIC_PARTNER: 4
 
     /**
      * Indicates a father.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_FATHER: 5
 
     /**
      * Indicates a friend.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_FRIEND: 6
 
     /**
      * Indicates a manager.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_MANAGER: 7
 
     /**
      * Indicates a mother.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_MOTHER: 8
 
     /**
      * Indicates a parent.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_PARENT: 9
 
     /**
      * Indicates a partner.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_PARTNER: 10
 
     /**
      * Indicates a referrer.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_REFERRED_BY: 11
 
     /**
      * Indicates a relative.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_RELATIVE: 12
 
     /**
      * Indicates a sister.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_SISTER: 13
 
     /**
      * Indicates a spouse.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly RELATION_SPOUSE: 14
 
     /**
      * Indicates an invalid label ID.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly INVALID_LABEL_ID: -1
 
     /**
      * Indicates the label name of an attribute.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     labelName?: string
 
     /**
      * Indicates the relation name.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     relationName: string
 
     /**
      * Indicates the label id.
      * 
-     * @type { number }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { number }
      */
     labelId?: number
   }
@@ -2127,84 +2130,84 @@ declare namespace contact {
   /**
    * Provides methods for sip address information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class SipAddress {
     /**
      * Indicates a custom label.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly CUSTOM_LABEL: 0
 
     /**
      * Indicates a home SIP address.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly SIP_HOME: 1
 
     /**
      * Indicates a work SIP address.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly SIP_WORK: 2
 
     /**
      * Indicates an SIP address of the OTHER type.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly SIP_OTHER: 3
 
     /**
      * Indicates an invalid label ID.
      * 
-     * @static
      * @readonly
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
      */
     static readonly INVALID_LABEL_ID: -1
 
     /**
      * Indicates the label name of an attribute.
      * 
-     * @type { ?string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?string }
      */
     labelName?: string
 
     /**
      * Indicates the SIP address.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     sipAddress: string
 
     /**
      * Indicates the label id.
      * 
-     * @type { ?number }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { ?number }
      */
     labelId?: number
   }
@@ -2212,16 +2215,16 @@ declare namespace contact {
   /**
    * Provides methods for website information
    * 
-   * @syscap SystemCapability.Applications.ContactsData
    * @since 7
+   * @syscap SystemCapability.Applications.ContactsData
    */
   class Website {
     /**
      * Indicates the website.
      * 
-     * @type { string }
-     * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     * @syscap SystemCapability.Applications.ContactsData
+     * @type { string }
      */
     website: string
   }
