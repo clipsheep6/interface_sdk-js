@@ -1883,8 +1883,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
      * @throws { BusinessError } 12300101 - Credential is incorrect.
+     * @throws { BusinessError } 12300102 - Credential not found.
      * @throws { BusinessError } 12300105 - Unsupported authTrustLevel.
      * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300109 - Authentication is canceled.
      * @throws { BusinessError } 12300110 - Authentication is locked.
      * @throws { BusinessError } 12300111 - Authentication timeout.
      * @throws { BusinessError } 12300112 - Authentication service is busy.
@@ -1915,8 +1917,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid userId, challenge, authType or authTrustLevel.
      * @throws { BusinessError } 12300101 - Credential is incorrect.
+     * @throws { BusinessError } 12300102 - Credential not found.
      * @throws { BusinessError } 12300105 - Unsupported authTrustLevel.
      * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300109 - Authentication is canceled.
      * @throws { BusinessError } 12300110 - Authentication is locked.
      * @throws { BusinessError } 12300111 - Authentication timeout.
      * @throws { BusinessError } 12300112 - Authentication service is busy.
@@ -2517,6 +2521,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType.
      * @throws { BusinessError } 12300101 - Token is invalid.
      * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300109 - Operation is canceled.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -2536,6 +2541,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType or token.
      * @throws { BusinessError } 12300101 - Token is invalid.
      * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300109 - Operation is canceled.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
