@@ -25,6 +25,14 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @since 9
  */
 declare namespace config {
+   /**
+   * Indicates the configuration of available screen-locked.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 10
+   */
+  const availableScreenLocked: Config<boolean>;
   /**
    * Indicates the configuration of audio mono.
    *
