@@ -3625,7 +3625,16 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    FINGERPRINT_TIP_FINGER_UP = 7
+    FINGERPRINT_TIP_FINGER_UP = 7,
+
+    /**
+     * Indicates that result of single press.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_TIP_RESULT_OF_SINGLE_PRESS = 8
   }
 
   /**
