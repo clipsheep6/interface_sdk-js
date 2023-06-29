@@ -103,9 +103,9 @@ export interface Advertisement {
 
   /**
    * The extended attributes of advertisement.
-   * @type { number | boolean | string | undefined }
+   * @type { any }
    * @syscap SystemCapability.Cloud.Ads
    * @since 10
    */
-  [key:string] : number | boolean | string | undefined;
+  [key:string]: any;
 }
