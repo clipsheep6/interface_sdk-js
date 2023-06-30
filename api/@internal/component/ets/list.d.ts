@@ -497,7 +497,17 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  nestedScroll(value: NestedScrollOptions): ListAttribute
+  nestedScroll(value: NestedScrollOptions): ListAttribute;
+
+  /**
+   * Called to setting the friction.
+   * @param { number | Resource } value - options for scrolling friction.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  friction(value: number | Resource): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.
