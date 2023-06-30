@@ -263,6 +263,17 @@ declare interface SecurityComponentAttribute {
    * @since 10
    */
   textIconSpace(value: Length): SecurityComponentAttribute;
+
+  /**
+   * Key. User can set an key to the component to identify it.
+   *
+   * @param { string } value - Indentify the key of the component.
+   * @returns { SecurityComponentAttribute } Returns the attribute of the security component.
+   * @systemapi
+   * @test
+   * @since 10
+   */
+  key(value: string): SecurityComponentAttribute;
 }
 
 /**
