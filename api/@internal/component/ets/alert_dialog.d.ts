@@ -15,20 +15,30 @@
 
 /**
  * The alignment of dialog,
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * The alignment of dialog,
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare enum DialogAlignment {
   /**
    * Vertical top alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Vertical top alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,10 +46,14 @@ declare enum DialogAlignment {
 
   /**
    * Align vertically to the center.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Align vertically to the center.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -47,10 +61,14 @@ declare enum DialogAlignment {
 
   /**
    * Vertical bottom alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Vertical bottom alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -58,10 +76,14 @@ declare enum DialogAlignment {
 
   /**
    * Default alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Default alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -69,10 +91,14 @@ declare enum DialogAlignment {
 
   /**
    * Align the upper left corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Align the upper left corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -80,10 +106,14 @@ declare enum DialogAlignment {
 
   /**
    * Align the upper right corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Align the upper right corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -91,10 +121,14 @@ declare enum DialogAlignment {
 
   /**
    * Left center alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Left center alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -102,10 +136,14 @@ declare enum DialogAlignment {
 
   /**
    * Right center alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Right center alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -113,10 +151,14 @@ declare enum DialogAlignment {
 
   /**
    * Align the lower left corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Align the lower left corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -124,32 +166,46 @@ declare enum DialogAlignment {
 
   /**
    * Align the lower right corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Align the lower right corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  BottomEnd,
+  BottomEnd
 }
 
 /**
  * Base param used for AlertDialog.show method.
+ *
+ * @interface AlertDialogParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Base param used for AlertDialog.show method.
+ *
+ * @interface AlertDialogParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface AlertDialogParam {
   /**
    * Title Properties
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Title Properties
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -157,10 +213,14 @@ declare interface AlertDialogParam {
 
   /**
    * message Properties
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * message Properties
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -168,10 +228,14 @@ declare interface AlertDialogParam {
 
   /**
    * Allows users to click the mask layer to exit.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Allows users to click the mask layer to exit.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -179,10 +243,14 @@ declare interface AlertDialogParam {
 
   /**
    * Execute Cancel Function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Execute Cancel Function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -190,10 +258,14 @@ declare interface AlertDialogParam {
 
   /**
    * Alignment in the vertical direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Alignment in the vertical direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -201,10 +273,14 @@ declare interface AlertDialogParam {
 
   /**
    * Offset of the pop-up window relative to the alignment position.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Offset of the pop-up window relative to the alignment position.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -212,10 +288,14 @@ declare interface AlertDialogParam {
 
   /**
    * Grid count of dialog.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Grid count of dialog.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -224,30 +304,44 @@ declare interface AlertDialogParam {
 
 /**
  * Defines the AlertDialog with confirm button.
+ *
+ * @interface AlertDialogParamWithConfirm
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the AlertDialog with confirm button.
+ *
+ * @interface AlertDialogParamWithConfirm
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
   /**
    * Invoke the commit function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Invoke the commit function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   confirm?: {
     /**
      * Text content of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Text content of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -255,10 +349,14 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
 
     /**
      * Text color of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Text color of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -266,10 +364,14 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
 
     /**
      * Background color of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Background color of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -277,10 +379,14 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
 
     /**
      * Method executed by the callback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Method executed by the callback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -290,30 +396,44 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
 
 /**
  * Defines the dialog param with buttons.
+ *
+ * @interface AlertDialogParamWithButtons
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the dialog param with buttons.
+ *
+ * @interface AlertDialogParamWithButtons
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
    * First button.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * First button.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   primaryButton: {
     /**
      * Text content of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Text content of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -321,10 +441,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
 
     /**
      * Text color of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Text color of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -332,10 +456,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
 
     /**
      * Background color of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Background color of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -343,10 +471,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
 
     /**
      * Method executed by the callback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Method executed by the callback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -355,31 +487,43 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
 
   /**
    * Second button.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Second button.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   secondaryButton: {
     /**
      * Text content of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Text content of the confirmation button.
-     *  @crossplatform
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
      * @since 10
      */
     value: ResourceStr;
 
     /**
      * Text color of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Text color of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -387,10 +531,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
 
     /**
      * Background color of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Background color of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -398,10 +546,14 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
 
     /**
      * Method executed by the callback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
      * Method executed by the callback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -411,28 +563,38 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
 
 /**
  * Defines AlertDialog which uses show method to show alert dialog.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines AlertDialog which uses show method to show alert dialog.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class AlertDialog {
   /**
    * Invoking method display.
+   *
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Invoking method display.
+   *
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons);
 }
 
-declare module "AlertDialogParam" {
-  module "AlertDialogParam" {
+declare module 'AlertDialogParam' {
+  module 'AlertDialogParam' {
     // @ts-ignore
     export { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment };
   }
