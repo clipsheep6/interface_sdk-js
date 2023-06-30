@@ -439,4 +439,12 @@ declare namespace wantAgent {
  */
 export type WantAgent = object;
 
+/**
+ * WantAgent object.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 7
+ */
+export type WantAgent = object;
+
 export default wantAgent;
