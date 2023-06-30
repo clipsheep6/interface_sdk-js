@@ -185,7 +185,6 @@
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.Msdp.DeviceStatus.Stationary",
-    "SystemCapability.Request.FileTransferAgent",
-    "SystemCapability.ResourceSchedule.DeviceStandby"
+    "SystemCapability.Request.FileTransferAgent"
   ]
 }
