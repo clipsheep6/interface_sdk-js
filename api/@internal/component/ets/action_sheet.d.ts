@@ -15,20 +15,30 @@
 
 /**
  * The information of sheet.
+ *
+ * @interface SheetInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * The information of sheet.
+ *
+ * @interface SheetInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface SheetInfo {
   /**
    * Title Properties
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Title Properties
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,10 +46,14 @@ interface SheetInfo {
 
   /**
    * Icon Properties.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Icon Properties.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -47,10 +61,14 @@ interface SheetInfo {
 
   /**
    * Callback method after the operation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Callback method after the operation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -59,21 +77,30 @@ interface SheetInfo {
 
 /**
  * The options of ActionSheet.
+ *
+ * @interface ActionSheetOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * The options of ActionSheet.
+ *
+ * @interface ActionSheetOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-interface ActionSheetOptions
-{
+interface ActionSheetOptions {
   /**
    * Title Properties
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Title Properties
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -81,10 +108,14 @@ interface ActionSheetOptions
 
   /**
    * message Properties
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * message Properties
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -92,20 +123,28 @@ interface ActionSheetOptions
 
   /**
    * Invoke the commit function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Invoke the commit function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   confirm?: {
     /**
      * Text content of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
     /**
      * Text content of the confirmation button.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -113,10 +152,14 @@ interface ActionSheetOptions
 
     /**
      * Method executed by the callback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
      */
     /**
      * Method executed by the callback.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
      */
@@ -125,10 +168,14 @@ interface ActionSheetOptions
 
   /**
    * Execute Cancel Function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Execute Cancel Function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -136,10 +183,14 @@ interface ActionSheetOptions
 
   /**
    * The Array of sheets
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * The Array of sheets
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -147,10 +198,14 @@ interface ActionSheetOptions
 
   /**
    * Allows users to click the mask layer to exit.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Allows users to click the mask layer to exit.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -158,10 +213,14 @@ interface ActionSheetOptions
 
   /**
    * Alignment in the vertical direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Alignment in the vertical direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -169,10 +228,14 @@ interface ActionSheetOptions
 
   /**
    * Offset of the pop-up window relative to the alignment position.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Offset of the pop-up window relative to the alignment position.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -181,28 +244,38 @@ interface ActionSheetOptions
 
 /**
  * Declare the ActionSheet
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Declare the ActionSheet
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class ActionSheet {
   /**
    * Invoking method display.
+   *
+   * @param { ActionSheetOptions } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Invoking method display.
+   *
+   * @param { ActionSheetOptions } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   static show(value: ActionSheetOptions);
 }
 
-declare module "actionSheetParam" {
-  module "actionSheetParam" {
+declare module 'actionSheetParam' {
+  module 'actionSheetParam' {
     // @ts-ignore
     export { ActionSheetOptions };
   }
