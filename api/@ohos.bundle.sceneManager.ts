@@ -25,7 +25,7 @@ declare namespace sceneManager {
    * get scene code by bundle name
    *
    * @permission ohos.permission.GET_SCENE_CODE
-   * @param bundleName bundle name
+   * @param { string } bundleName - bundle name
    * @returns { string } scene code of bundle
    * @throws { BusinessError } 201 - Permission denied.
    * @since 10
@@ -36,7 +36,7 @@ declare namespace sceneManager {
    * get original scene code by bundle name
    *
    * @permission ohos.permission.GET_SCENE_CODE
-   * @param bundleName bundle name
+   * @param { string } bundleName - bundle name
    * @returns { string } original scene code of bundle
    * @throws { BusinessError } 201 - Permission denied.
    * @since 10
