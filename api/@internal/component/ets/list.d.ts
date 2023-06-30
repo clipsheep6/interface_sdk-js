@@ -500,6 +500,14 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
   nestedScroll(value: NestedScrollOptions): ListAttribute
 
   /**
+   * Transmit scrolling action to other scrollable components, self not handling the scrolling action.
+   * @param { Scroller } value - the scroller for another scrollable component.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scrollActionHandover(value: Scroller): ListAttribute
+  /**
    * Called when the offset and status callback of the slide are set.
    * @since 7
    */

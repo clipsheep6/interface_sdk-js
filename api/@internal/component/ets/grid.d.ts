@@ -394,6 +394,15 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * @since 10
    */
   nestedScroll(value: NestedScrollOptions): GridAttribute
+
+  /**
+   * Transmit scrolling action to other scrollable components, self not handling the scrolling action.
+   * @param { Scroller } value - the scroller for another scrollable component.
+   * @returns { GridAttribute } the attribute of the grid.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  scrollActionHandover(value: Scroller): GridAttribute
 }
 
 /**
