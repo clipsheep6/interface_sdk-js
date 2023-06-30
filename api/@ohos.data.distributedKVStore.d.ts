@@ -304,6 +304,48 @@ declare namespace distributedKVStore {
   }
 
   /**
+   * Indicates the sync policy type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+   * @since 10
+   */
+  enum PolicyType {
+    /**
+     * If the database autoSync param is true, it would auto sync at device online.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 10
+     */
+    SYNC_ON_DEVICE_ONLINE,
+  }
+
+  /**
+   * Indicates the database sync policy.
+   *
+   * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+   * @since 10
+   */
+  interface SyncPolicy {
+    /**
+     * The sync policy type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 10
+     */
+    type: PolicyType;
+
+    /**
+     * The sync policy value.
+     * Which used to sync param like allowDelay.
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 10
+     */
+    value?: number;
+  }
+
+  /**
    * Describes the subscription type.
    *
    * @enum { number }
@@ -467,9 +509,26 @@ declare namespace distributedKVStore {
      * Indicates the database schema
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @type { ?(Schema) }
      * @since 9
      */
-    schema?: Schema;
+    /**
+     * Indicates the database schema
+     *
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @type { ?(Schema | string) }
+     * @since 10
+     */
+    schema?: Schema | string;
+
+    /**
+     * The database would sync according to these policies, which autoSync param is true.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 10
+     */
+    policies?: Array<SyncPolicy>;
   }
 
   /**
