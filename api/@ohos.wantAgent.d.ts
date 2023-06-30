@@ -435,5 +435,9 @@ declare namespace wantAgent {
   }
 }
 
+/**
+ * WantAgent object.
+ */
+export type WantAgent = object;
 
 export default wantAgent;
