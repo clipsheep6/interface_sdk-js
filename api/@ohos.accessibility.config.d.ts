@@ -25,7 +25,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @since 9
  */
 declare namespace config {
-  /**
+  /**@constant
    * Indicates the configuration of available screen-locked.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
