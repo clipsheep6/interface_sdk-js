@@ -164,7 +164,6 @@
     "SystemCapability.BundleManager.BundleFramework.AppControl",
     "SystemCapability.Ability.AbilityRuntime.QuickFix",
     "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
-    "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
-    "SystemCapability.ResourceSchedule.DeviceStandby"
+    "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply"
   ]
 }
