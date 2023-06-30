@@ -85,9 +85,9 @@ declare namespace wifiManager {
   function getScanInfoList(): Array<WifiScanInfo>;
 
   /**
-   * Set scan running state, allow the user to set the scan's running state even Wi-Fi is turned off.
+   * Set scan always alive even Wi-Fi is turned off.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { boolean } runningState - true for keep the scan running, otherwise close the scan when Wi-Fi is turned off.
+   * @param { boolean } isScanAlwaysAlive - true for keep the scan always alive, otherwise close the scan when Wi-Fi is turned off.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -97,10 +97,10 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setScanRunningState(runningState: boolean): void;
+  function setScanAlwaysAlive(isScanAlwaysAlive: boolean): void;
 
   /**
-   * Get scan running state.
+   * Get scan always alive flag.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
    * @returns { boolean } Returns {@code true} if scan running state is true, returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
@@ -111,7 +111,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getScanRunningState(): boolean;
+  function getScanAlwaysAlive(): boolean;
 
   /**
    * Add Wi-Fi connection configuration to the device. The configuration will be updated when the configuration is added.</p>
