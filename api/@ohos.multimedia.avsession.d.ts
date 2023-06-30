@@ -2064,7 +2064,7 @@ declare namespace avSession {
      * The callback provides the new device info {@link OutputDeviceInfo}
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - {@link #ERR_CODE_SERVICE_EXCEPTION} - server exception
-     * @throws { BusinessError } 6600103 - {@link #ERR_CODE_CONTROLLER_NOT_EXIST} - controller does not exist
+     * @throws { BusinessError } 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
