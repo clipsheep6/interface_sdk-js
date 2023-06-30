@@ -295,4 +295,16 @@ export default class Context extends BaseContext {
    * @since 10
    */
   getApplicationContext(): ApplicationContext;
+
+  /**
+   * Get application group dir.
+   *
+   * @param { string } groupID - Indicates the group ID.
+   * @returns { string } Returns the application group dir.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  getGroupDir(groupID: string): string;
 }
