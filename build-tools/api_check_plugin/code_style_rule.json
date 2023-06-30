@@ -178,6 +178,7 @@
       "SystemCapability.Multimedia.Media.Muxer",
       "SystemCapability.Multimedia.AVSession.Core",
       "SystemCapability.Multimedia.AVSession.Manager",
+      "SystemCapability.Multimedia.AVSession.AVCast",
       "SystemCapability.Multimedia.Audio.Core",
       "SystemCapability.Multimedia.Audio.Tone",
       "SystemCapability.Multimedia.Audio.Interrupt",
@@ -238,7 +239,8 @@
       "SystemCapability.Security.DeviceAuth",
       "SystemCapability.Security.DataTransitManager",
       "SystemCapability.Security.DeviceSecurityLevel",
-      "SystemCapability.Security.Huks",
+      "SystemCapability.Security.Huks.Core",
+      "SystemCapability.Security.Huks.Extension",
       "SystemCapability.Security.AccessToken",
       "SystemCapability.Security.Cipher",
       "SystemCapability.Security.CertificateManager",
@@ -273,6 +275,8 @@
       "SystemCapability.USB.USBManager",
       "SystemCapability.Sensors.Sensor",
       "SystemCapability.Sensors.MiscDevice",
+      "SystemCapability.Sensors.Sensor.Lite",
+      "SystemCapability.Sensors.MiscDevice.Lite",
       "SystemCapability.Startup.SystemInfo",
       "SystemCapability.DistributedDataManager.RelationalStore.Core",
       "SystemCapability.DistributedDataManager.RelationalStore.Synchronize",
@@ -315,7 +319,10 @@
       "SystemCapability.MultimodalInput.Input.ShortKey",
       "SystemCapability.Msdp.DeviceStatus.Cooperate",
       "SystemCapability.Request.FileTransferAgent",
-      "SystemCapability.ResourceSchedule.DeviceStandby"
+      "SystemCapability.ResourceSchedule.DeviceStandby",
+      "SystemCapability.AI.MindSporeLite",
+      "SystemCapability.Print.PrintFramework",
+      "SystemCapability.Driver.ExternalDevice"
     ]
   },
   "administrators": [
@@ -325,5 +332,6 @@
     {
       "user": "8046261"
     }
-  ]
+  ],
+  "ciId":"7387629"
 }

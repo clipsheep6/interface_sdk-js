@@ -13,6 +13,7 @@ actived
 adjusts
 adpu
 adts
+affinities
 agrees
 alerting
 algrithom
@@ -440,6 +441,7 @@ nets
 nextgroup
 nlink
 nmea
+nnrt
 nopadding
 normalizer
 notifies
@@ -480,6 +482,7 @@ owningproperties
 ows
 oximeter
 p2p
+paginated
 paramcheck
 parameterf
 parameteri
@@ -714,6 +717,7 @@ trashed
 traversed
 traverses
 truncates
+trustlist
 tsbundle
 ttls
 tunneled
@@ -734,6 +738,7 @@ unblocking
 uncalibrated
 uncategorized
 uncatergorized
+unclearable
 unconditional
 undisturbed
 unduck
@@ -782,6 +787,7 @@ ussd
 utilized
 uuids
 uwb
+uids
 v9
 varyings
 vibrates
@@ -840,3 +846,4 @@ commonevent
 clouddata
 unprepare
 unchained
+sar

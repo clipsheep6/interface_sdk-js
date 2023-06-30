@@ -7,6 +7,9 @@
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.PowerManager.DisplayPowerManager",
-    "SystemCapability.Communication.NFC.CardEmulation"
+    "SystemCapability.Communication.NFC.CardEmulation",
+    "SystemCapability.Security.Huks.Core",
+    "SystemCapability.Sensors.Sensor.Lite",
+    "SystemCapability.Sensors.MiscDevice.Lite"
   ]
 }
