@@ -15,20 +15,30 @@
 
 /**
  * Sets the sidebar style of showing
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Sets the sidebar style of showing
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare enum SideBarContainerType {
   /**
    * The sidebar invisible
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * The sidebar invisible
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,40 +46,46 @@ declare enum SideBarContainerType {
 
   /**
    * The sidebar visible
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * The sidebar visible
-   * @crossplatform
-   * @since 10
-   */
-  Overlay,
-
-  /**
-   * The sidebar AUTO 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  AUTO,
+  Overlay
 }
 
 /**
  * Sets the sidebar position of showing
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Sets the sidebar position of showing
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare enum SideBarPosition {
   /**
    * The sidebar is on the Start of the container
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * The sidebar is on the Start of the container
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -77,32 +93,46 @@ declare enum SideBarPosition {
 
   /**
    * The sidebar is on the End of the container
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * The sidebar is on the End of the container
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  End,
+  End
 }
 
 /**
  * Sets the control button style
+ *
+ * @interface ButtonStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Sets the control button style
+ *
+ * @interface ButtonStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface ButtonStyle {
   /**
    * Set the left of control button
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set the left of control button
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -110,10 +140,14 @@ declare interface ButtonStyle {
 
   /**
    * Set the top of control button
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set the top of control button
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -121,10 +155,14 @@ declare interface ButtonStyle {
 
   /**
    * Set the width of control button
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set the width of control button
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -132,10 +170,14 @@ declare interface ButtonStyle {
 
   /**
    * Set the height of control button
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set the height of control button
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -143,10 +185,14 @@ declare interface ButtonStyle {
 
   /**
    * Set the button icon when sidebar status has changed
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Set the button icon when sidebar status has changed
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -159,20 +205,34 @@ declare interface ButtonStyle {
 
 /**
  * The construct function of sidebar
+ *
+ * @interface SideBarContainerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * The construct function of sidebar
+ *
+ * @interface SideBarContainerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface SideBarContainerInterface {
   /**
    * Called when showing the sidebar of a block entry.
+   *
+   * @param { SideBarContainerType } type
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when showing the sidebar of a block entry.
+   *
+   * @param { SideBarContainerType } type
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -182,6 +242,7 @@ interface SideBarContainerInterface {
 /**
  * Provides an interface for the style of a divider including stroke width, color, start margin
  * and end margin
+ *
  * @interface DividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -190,6 +251,7 @@ interface SideBarContainerInterface {
 interface DividerStyle {
   /**
    * Define the stroke width of the divider
+   *
    * @type { Length }
    * @default 1vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -200,8 +262,8 @@ interface DividerStyle {
 
   /**
    * Define the color of the divider
-   * @type { ResourceColor }
-   * @default #08000000
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -210,8 +272,8 @@ interface DividerStyle {
 
   /**
    * Define the start margin of the divider
-   * @type { Length }
-   * @default 0
+   *
+   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -220,8 +282,8 @@ interface DividerStyle {
 
   /**
    * Define the end margin of the divider
-   * @type { Length }
-   * @default 0
+   *
+   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -231,20 +293,32 @@ interface DividerStyle {
 
 /**
  * The attribute function of sidebar
+ *
+ * @extends CommonMethod
  * @since 8
  */
 /**
  * The attribute function of sidebar
+ *
+ * @extends CommonMethod
  * @crossplatform
  * @since 10
  */
 declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAttribute> {
   /**
    * Callback showControlButton function when setting the status of sidebar
+   *
+   * @param { boolean } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Callback showControlButton function when setting the status of sidebar
+   *
+   * @param { boolean } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -252,10 +326,18 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
 
   /**
    * Callback controlButton function when setting the style of button
+   *
+   * @param { ButtonStyle } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Callback controlButton function when setting the style of button
+   *
+   * @param { ButtonStyle } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -263,10 +345,18 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
 
   /**
    * Callback showControlButton function when setting the status of button
+   *
+   * @param { boolean } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Callback showControlButton function when setting the status of button
+   *
+   * @param { boolean } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -274,10 +364,18 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
 
   /**
    * Trigger callback when sidebar style of showing change finished.
+   *
+   * @param { function } callback
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Trigger callback when sidebar style of showing change finished.
+   *
+   * @param { function } callback
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -285,10 +383,18 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
 
   /**
    * Sets the length of sidebar.
+   *
+   * @param { number } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the length of sidebar.
+   *
+   * @param { number } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -297,11 +403,19 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   /**
    * Sets the min length of sidebar.
    * default value is 200vp.
+   *
+   * @param { number } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the min length of sidebar.
    * default value is 200vp.
+   *
+   * @param { number } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -310,11 +424,19 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   /**
    * Sets the max length of sidebar.
    * default value is 280vp.
+   *
+   * @param { number } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Sets the max length of sidebar.
    * default value is 280vp.
+   *
+   * @param { number } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -322,10 +444,18 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
 
   /**
    * Sets the length of sidebar.
+   *
+   * @param { Length } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Sets the length of sidebar.
+   *
+   * @param { Length } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -334,11 +464,19 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   /**
    * Sets the min length of sidebar.
    * default value is 200vp.
+   *
+   * @param { Length } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Sets the min length of sidebar.
    * default value is 200vp.
+   *
+   * @param { Length } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -347,11 +485,19 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   /**
    * Sets the max length of sidebar.
    * default value is 280vp.
+   *
+   * @param { Length } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Sets the max length of sidebar.
    * default value is 280vp.
+   *
+   * @param { Length } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -360,11 +506,19 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   /**
    * Sets whether to automatically hide when drag sidebar width is less than the minimum width.
    * default value is true.
+   *
+   * @param { boolean } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Sets whether to automatically hide when drag sidebar width is less than the minimum width.
    * default value is true.
+   *
+   * @param { boolean } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -373,11 +527,19 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   /**
    * Called when determining the location of the sidebar.
    * default value is Start.
+   *
+   * @param { SideBarPosition } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Called when determining the location of the sidebar.
    * default value is Start.
+   *
+   * @param { SideBarPosition } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -385,31 +547,26 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
 
   /**
    * Set divider style for sideBarContainer
+   *
    * @param { DividerStyle | null } value - indicates the style of the divider or whether to show the divider.
+   * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   divider(value: DividerStyle | null): SideBarContainerAttribute;
-  
-  /**
-   * Sets the min length of content.
-   * @param { value: Dimension } value - min length of content.
-   * @default value is 360vp.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @returns { SideBarContainerAttribute }
-   * @crossplatform
-   * @since 10
-   */
-  minContentWidth(value: Dimension): SideBarContainerAttribute;
 }
 
 /**
  * Defines SideBarContainer Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines SideBarContainer Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -417,10 +574,14 @@ declare const SideBarContainer: SideBarContainerInterface;
 
 /**
  * Defines SideBarContainer Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines SideBarContainer Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

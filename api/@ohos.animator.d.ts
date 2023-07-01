@@ -15,13 +15,15 @@
 
 /**
  * Defines the animator options.
- * @interface
+ *
+ * @interface AnimatorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
 /**
  * Defines the animator options.
- * @interface
+ *
+ * @interface AnimatorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -30,13 +32,17 @@ export interface AnimatorOptions {
   /**
    * Duration of the animation, in milliseconds.
    * The default value is 0.
-   * @type {number}
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * Duration of the animation, in milliseconds.
    * The default value is 0.
-   * @type {number}
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -60,7 +66,9 @@ export interface AnimatorOptions {
    * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
    * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
    * The default value is ease.
-   * @type {string}
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
@@ -81,7 +89,9 @@ export interface AnimatorOptions {
    * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
    * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
    * The default value is ease.
-   * @type {string}
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -90,13 +100,17 @@ export interface AnimatorOptions {
   /**
    * Delay for the animation start. The default value indicates no delay.
    * The default value is 0.
-   * @type {number}
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * Delay for the animation start. The default value indicates no delay.
    * The default value is 0.
-   * @type {number}
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -106,44 +120,56 @@ export interface AnimatorOptions {
    * Whether to resume to the initial state after the animation is executed.
    * none: The initial state is restored after the animation is executed.
    * forwards: The state at the end of the animation (defined in the last key frame) is retained after the animation is executed.
-   * @type {string}
+   *
+   * @type { 'none' | 'forwards' | 'backwards' | 'both' }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * Whether to resume to the initial state after the animation is executed.
    * none: The initial state is restored after the animation is executed.
    * forwards: The state at the end of the animation (defined in the last key frame) is retained after the animation is executed.
-   * @type {string}
+   *
+   * @type { 'none' | 'forwards' | 'backwards' | 'both' }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  fill: "none" | "forwards" | "backwards" | "both";
+  fill: 'none' | 'forwards' | 'backwards' | 'both';
 
   /**
    * The animation playback mode.
    * The default value is "normal".
-   * @type {string}
+   *
+   * @type { 'normal' | 'reverse' | 'alternate' | 'alternate-reverse' }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * The animation playback mode.
    * The default value is "normal".
-   * @type {string}
+   *
+   * @type { 'normal' | 'reverse' | 'alternate' | 'alternate-reverse' }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  direction: "normal" | "reverse" | "alternate" | "alternate-reverse";
+  direction: 'normal' | 'reverse' | 'alternate' | 'alternate-reverse';
 
   /**
    * Number of times the animation will be played. number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
    * The default value is 1.
-   * @type {number}
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * Number of times the animation will be played. number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
    * The default value is 1.
-   * @type {number}
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -152,13 +178,17 @@ export interface AnimatorOptions {
   /**
    * Starting point of animator interpolation.
    * The default value is 0.
-   * @type {number}
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * Starting point of animator interpolation.
    * The default value is 0.
-   * @type {number}
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -167,13 +197,17 @@ export interface AnimatorOptions {
   /**
    * Ending point of Dynamic Interpolation
    * The default value is 1.
-   * @type {number}
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * Ending point of Dynamic Interpolation
    * The default value is 1.
-   * @type {number}
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -182,13 +216,15 @@ export interface AnimatorOptions {
 
 /**
  * Defines the Animator result interface.
- * @interface
+ *
+ * @interface AnimatorResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
 /**
  * Defines the Animator result interface.
- * @interface
+ *
+ * @interface AnimatorResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -196,6 +232,7 @@ export interface AnimatorOptions {
 export interface AnimatorResult {
   /**
    * Update the options for current animator.
+   *
    * @param { AnimatorOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
@@ -206,6 +243,7 @@ export interface AnimatorResult {
 
   /**
    * Reset the options for current animator.
+   *
    * @param { AnimatorOptions } options - Options.
    * @throws { BusinessError } 401 - if the type of the parameter 1 is not object.
    * @throws { BusinessError } 100001 - if no page is found for pageId or fail to get object property list.
@@ -214,6 +252,7 @@ export interface AnimatorResult {
    */
   /**
    * Reset the options for current animator.
+   *
    * @param { AnimatorOptions } options - Options.
    * @throws { BusinessError } 401 - if the type of the parameter 1 is not object.
    * @throws { BusinessError } 100001 - if no page is found for pageId or fail to get object property list.
@@ -225,11 +264,13 @@ export interface AnimatorResult {
 
   /**
    * Starts the animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * Starts the animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -238,11 +279,13 @@ export interface AnimatorResult {
 
   /**
    * Ends the animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * Ends the animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -251,11 +294,13 @@ export interface AnimatorResult {
 
   /**
    * Pauses the animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * Pauses the animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -264,11 +309,13 @@ export interface AnimatorResult {
 
   /**
    * Cancels the animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * Cancels the animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -277,26 +324,28 @@ export interface AnimatorResult {
 
   /**
    * Plays the animation in reverse direction.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * Plays the animation in reverse direction.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-   reverse(): void;
+  reverse(): void;
 
   /**
    * Trigger when vsync callback.
-   * @param { number } progress - The current progress of animation
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * Trigger when vsync callback.
-   * @param { number } progress - The current progress of animation
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -305,11 +354,13 @@ export interface AnimatorResult {
 
   /**
    * The animation is finished.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * The animation is finished.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -318,11 +369,13 @@ export interface AnimatorResult {
 
   /**
    * The animation is canceled.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * The animation is canceled.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -331,11 +384,13 @@ export interface AnimatorResult {
 
   /**
    * The animation is repeated.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
   /**
    * The animation is repeated.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -345,11 +400,13 @@ export interface AnimatorResult {
 
 /**
  * Defines the Animator class.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
 /**
  * Defines the Animator class.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -357,7 +414,9 @@ export interface AnimatorResult {
 export default class Animator {
   /**
    * Create an animator object for custom animation.
+   *
    * @param { AnimatorOptions } options - Options.
+   * @returns { AnimatorResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    * @deprecated since 9
@@ -367,14 +426,18 @@ export default class Animator {
 
   /**
    * Create an animator object for custom animation.
+   *
    * @param { AnimatorOptions } options - Options.
+   * @returns { AnimatorResult }
    * @throws { BusinessError } 401 - if parameter error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Create an animator object for custom animation.
+   *
    * @param { AnimatorOptions } options - Options.
+   * @returns { AnimatorResult }
    * @throws { BusinessError } 401 - if parameter error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

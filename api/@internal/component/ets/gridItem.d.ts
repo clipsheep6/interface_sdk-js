@@ -15,20 +15,32 @@
 
 /**
  * Mesh container for static fixed-size layout scenarios.
+ *
+ * @interface GridItemInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Mesh container for static fixed-size layout scenarios.
+ *
+ * @interface GridItemInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 interface GridItemInterface {
   /**
    * Return to get GridItem.
+   *
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Return to get GridItem.
+   *
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -36,19 +48,31 @@ interface GridItemInterface {
 }
 
 /**
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**
    * This parameter specifies the start line number of the current element.
+   *
+   * @param { number } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * This parameter specifies the start line number of the current element.
+   *
+   * @param { number } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -56,10 +80,18 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
 
   /**
    * Specifies the end line number of the current element.
+   *
+   * @param { number } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Specifies the end line number of the current element.
+   *
+   * @param { number } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -67,10 +99,18 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
 
   /**
    * This parameter specifies the start column number of the current element.
+   *
+   * @param { number } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * This parameter specifies the start column number of the current element.
+   *
+   * @param { number } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -78,10 +118,18 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
 
   /**
    * This parameter specifies the end column number of the current element.
+   *
+   * @param { number } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * This parameter specifies the end column number of the current element.
+   *
+   * @param { number } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -89,6 +137,10 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
 
   /**
    * This parameter specifies whether to recreate the node when the component build is triggered.
+   *
+   * @param { boolean } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    * @deprecated since 9
    */
@@ -96,10 +148,18 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
 
   /**
    * Called when judging whether it is selectable.
+   *
+   * @param { boolean } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when judging whether it is selectable.
+   *
+   * @param { boolean } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -107,10 +167,18 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
 
   /**
    * Called when the gridItem is selected.
+   *
+   * @param { function } event
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Called when the gridItem is selected.
+   *
+   * @param { function } event
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -119,21 +187,29 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
 
 /**
  * Defines GridItem Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines GridItem Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare const GridItem: GridItemInterface
+declare const GridItem: GridItemInterface;
 
 /**
  * Defines GridItem Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines GridItem Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */

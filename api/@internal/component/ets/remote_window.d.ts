@@ -16,6 +16,8 @@
 /**
  * Round rect.
  *
+ * @interface RRect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
  */
@@ -34,6 +36,8 @@ interface RRect {
 /**
  * Window animation target.
  *
+ * @interface WindowAnimationTarget
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
  */
@@ -50,6 +54,8 @@ interface WindowAnimationTarget {
 /**
  * Provides an interface for controlling the remote window.
  *
+ * @interface RemoteWindowInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
  */
@@ -57,6 +63,9 @@ interface RemoteWindowInterface {
   /**
    * Called when the remote window interface is used.
    *
+   * @param { WindowAnimationTarget } target
+   * @returns { RemoteWindowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 9
    */
@@ -66,6 +75,8 @@ interface RemoteWindowInterface {
 /**
  * Inheritance CommonMethod Set Styles
  *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
  */
@@ -73,14 +84,18 @@ declare class RemoteWindowAttribute extends CommonMethod<RemoteWindowAttribute> 
 
 /**
  * Defines RemoteWindow Component.
- * @since 9
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 9
  */
 declare const RemoteWindow: RemoteWindowInterface;
 
 /**
  * Defines RemoteWindow Component instance.
- * @since 9
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @since 9
  */
 declare const RemoteWindowInstance: RemoteWindowAttribute;
