@@ -2092,6 +2092,21 @@ declare namespace audio {
      * @since 9
      */
     isActive(volumeType: AudioVolumeType): Promise<boolean>;
+
+    /**
+     * Gets sampling rate for primary output. This method uses an asynchronous callback to return the query result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    getPrimaryOutputSamplingRate(callback: AsyncCallback<number>): void;
+    /**
+     * Gets sampling rate for primary output. This method uses a promise to return the query result.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    getPrimaryOutputSamplingRate(): Promise<number>;
   }
 
   /**
@@ -2652,6 +2667,13 @@ declare namespace audio {
      * @since 9
      */
     readonly deviceDescriptors: AudioDeviceDescriptors;
+
+    /**
+     * Audio capturer muted status.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 11
+     */
+    readonly muted?: boolean;
   }
 
   /**
@@ -2743,6 +2765,13 @@ declare namespace audio {
      * @since 10
      */
     readonly displayName: string;
+
+    /**
+     * Supported channel index masks.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    readonly channelIndexMasks?: Array<number>;
   }
 
   /**
@@ -2908,6 +2937,39 @@ declare namespace audio {
      * @since 7
      */
     deviceDescriptors: AudioDeviceDescriptors;
+  }
+
+  /**
+   * Enumerates channel blend mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 11
+   */
+  enum ChannelBlendMode {
+    /**
+     * No channel process.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    MODE_DEFAULT = 0,
+    /**
+     * Blend left and right channel.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    MODE_BLEND_LR = 1,
+    /**
+     * Replicate left to right channel.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    MODE_ALL_LEFT = 2,
+    /**
+     * Replicate right to left channel.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    MODE_ALL_RIGHT = 3,
   }
 
   /**
@@ -3257,6 +3319,23 @@ declare namespace audio {
      * @since 10
      */
     getCurrentOutputDevices(): Promise<AudioDeviceDescriptors>;
+
+    /**
+     * Sets channel blend mode for this stream. This method uses an asynchronous callback to return the result.
+     * @param { ChannelBlendMode } mode - Target channel blend mode.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    setChannelBlendMode(mode: ChannelBlendMode, callback: AsyncCallback<void>): void;
+    /**
+     * Sets channel blend mode for this stream. This method uses a promise to return the result.
+     * @param { ChannelBlendMode } mode - Target channel blend mode.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    setChannelBlendMode(mode: ChannelBlendMode): Promise<void>;
 
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
@@ -3616,6 +3695,40 @@ declare namespace audio {
     getBufferSize(): Promise<number>;
 
     /**
+     * Gets the input device or devices for this stream.
+     * This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    getCurrentInputDevices(callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    /**
+     * Gets the input device or devices for this stream.
+     * This method uses a promise to return the result.
+     * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    getCurrentInputDevices(): Promise<AudioDeviceDescriptors>;
+
+    /**
+     * Gets full capturer info for this stream.
+     * This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<AudioCapturerChangeInfo> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    getCurrentAudioCapturerChangeInfo(callback: AsyncCallback<AudioCapturerChangeInfo>): void;
+    /**
+     * Gets full capturer info for this stream.
+     * This method uses a promise to return the result.
+     * @returns { Promise<AudioCapturerChangeInfo> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    getCurrentAudioCapturerChangeInfo(): Promise<AudioCapturerChangeInfo>;
+
+    /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
      * the callback is invoked.
      * @param { "markReach" } type - Type of the event to listen for. Only the markReach event is supported.
@@ -3681,6 +3794,50 @@ declare namespace audio {
      * @since 10
      */
     off(type: 'audioInterrupt'): void;
+
+    /**
+     * Subscribes input device change event callback.
+     * The event is triggered when input device change for this stream.
+     * @param { 'inputDeviceChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    on(type: 'inputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
+    /**
+     * Unsubscribes input device change event callback.
+     * @param { 'inputDeviceChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    off(type: 'inputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Subscribes audio capturer info change event callback.
+     * The event is triggered when input device change for this stream.
+     * @param { 'audioCapturerChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfo>): void;
+    /**
+     * Unsubscribes iaudio capturer info change event callback.
+     * @param { 'audioCapturerChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfo>): void;
   }
 
   /**
