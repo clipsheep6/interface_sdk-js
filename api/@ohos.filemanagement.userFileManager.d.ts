@@ -1189,6 +1189,24 @@ declare namespace userFileManager {
      */
     getPhotoAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
     /**
+     * create a pop-up box to delete photos
+     *
+     * @param { Array<string> } uriList - List of the asset URIs to be deleted
+     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @since 10
+     */
+    createPhotoDeleteRequest(uriList: Array<string>, callback: AsyncCallback<void>): void;
+    /**
+     * create a pop-up box to delete photos
+     *
+     * @param { Array<string> } uriList - List of the asset URIs to be deleted
+     * @throws { BusinessError } 13900020 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @since 10
+     */
+    createPhotoDeleteRequest(uriList: Array<string>): Promise<void>;
+    /**
      * Create Photo Asset
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
