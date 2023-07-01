@@ -2772,6 +2772,13 @@ declare namespace audio {
      * @since 11
      */
     readonly channelIndexMasks?: Array<number>;
+
+    /**
+     * Supported encoding types.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    readonly encodingTypes?: Array<AudioEncodingType>;
   }
 
   /**
