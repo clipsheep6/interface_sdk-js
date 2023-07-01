@@ -132,7 +132,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @crossplatform
    * @since 10
    */
-  colors(colors: Array<any>): GaugeAttribute;
+  colors(colors: Array<[ResourceColor, number]>): GaugeAttribute;
 
   /**
    * Sets the thickness of the ring chart.
