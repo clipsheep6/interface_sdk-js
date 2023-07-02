@@ -194,10 +194,12 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
 
   /**
    * Lets you set the spacing between rows.
+   * @default BarState.Off
    * @since 7
    */
   /**
    * Lets you set the spacing between rows.
+   * @default BarState.Auto
    * @crossplatform
    * @since 10
    */

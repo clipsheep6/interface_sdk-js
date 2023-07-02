@@ -353,15 +353,18 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
 
   /**
    * Called when the display mode of the side slider is set.
+   * @default BarState.Off
    * @since 7
    */
   /**
    * Called when the display mode of the side slider is set.
+   * @default BarState.Off
    * @form
    * @since 9
    */
   /**
    * Called when the display mode of the side slider is set.
+   * @default BarState.Auto
    * @form
    * @crossplatform
    * @since 10
