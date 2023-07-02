@@ -19,27 +19,31 @@ import { Resource } from 'GlobalResource';
 
 /**
  * Defines the options of MeasureText.
+ *
+ * @interface MeasureOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 export interface MeasureOptions {
-
   /**
    * Text to display.
+   *
+   * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @type { ( string ) }
    * @since 9
    */
   /**
    * Text to display.
+   *
+   * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @type { ( string | Resource ) }
    * @since 10
    */
   textContent: string | Resource;
 
   /**
    * Text display area of width.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -47,6 +51,7 @@ export interface MeasureOptions {
 
   /**
    * Font Size.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -54,6 +59,7 @@ export interface MeasureOptions {
 
   /**
    * Font style.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -61,6 +67,7 @@ export interface MeasureOptions {
 
   /**
    * Font weight.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -68,6 +75,7 @@ export interface MeasureOptions {
 
   /**
    * Font list of text.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -75,6 +83,7 @@ export interface MeasureOptions {
 
   /**
    * Distance between text fonts.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -82,6 +91,7 @@ export interface MeasureOptions {
 
   /**
    * Alignment of text.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -89,6 +99,7 @@ export interface MeasureOptions {
 
   /**
    * Overflow mode of the font.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -96,6 +107,7 @@ export interface MeasureOptions {
 
   /**
    * Maximum number of lines of text.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -103,6 +115,7 @@ export interface MeasureOptions {
 
   /**
    * Vertical center mode of the font.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -110,6 +123,7 @@ export interface MeasureOptions {
 
   /**
    * Baseline offset.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -117,6 +131,7 @@ export interface MeasureOptions {
 
   /**
    * Type of letter in the text font
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -125,20 +140,24 @@ export interface MeasureOptions {
 
 /**
  * Defines the Measure interface.
- * since 9
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
  */
 export default class MeasureText {
-
   /**
    * Displays the textWidth.
+   *
+   * @param { MeasureOptions } options Options.
+   * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @param options Options.
    * @since 9
    */
   static measureText(options: MeasureOptions): number;
 
   /**
    * Displays the text width and height.
+   *
    * @param { MeasureOptions } options - Options of measure area occupied by text.
    * @returns { SizeOptions } width and height for text to display \
    * @syscap SystemCapability.ArkUI.ArkUI.Full

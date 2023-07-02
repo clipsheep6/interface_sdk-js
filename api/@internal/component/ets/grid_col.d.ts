@@ -15,169 +15,231 @@
 
 /**
  * Defines the option in number unit of grid-container child component.
- * @form
+ * 
+ * @interface GridColColumnOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the option in number unit of grid-container child component.
- * @form
+ *
+ * @interface GridColColumnOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare interface GridColColumnOption {
   /**
    * Grid Col Column Option xs
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Grid Col Column Option xs
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
-  xs?: number,
+  xs?: number;
 
   /**
    * Grid Col Column Option sm
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Grid Col Column Option sm
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
-  sm?: number,
+  sm?: number;
 
   /**
    * Grid Col Column Option md
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Grid Col Column Option md
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
-  md?: number,
+  md?: number;
 
   /**
    * Grid Col Column Option lg
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Grid Col Column Option lg
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
-  lg?: number,
+  lg?: number;
 
   /**
    * Grid Col Column Option xl
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Grid Col Column Option xl
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
-  xl?: number,
+  xl?: number;
 
   /**
    * Grid Col Column Option xxl
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Grid Col Column Option xxl
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
-  xxl?: number,
+  xxl?: number;
 }
 
 /**
  * Defines the options of grid-container child component.
- * @form
+ *
+ * @interface GridColOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the options of grid-container child component.
- * @form
+ *
+ * @interface GridColOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare interface GridColOptions {
   /**
    * Sets the span of current gird-container item.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the span of current gird-container item.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   span?: number | GridColColumnOption;
 
   /**
    * Sets the offset of current gird-container item.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the offset of current gird-container item.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   offset?: number | GridColColumnOption;
 
   /**
    * Sets the order of current gird-container item.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the order of current gird-container item.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   order?: number | GridColColumnOption;
 }
 
 /**
  * Defines the the new version of grid-container child component.
- * @form
+ *
+ * @interface GridColInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the the new version of grid-container child component.
- * @form
+ *
+ * @interface GridColInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 interface GridColInterface {
   /**
    * Defines the constructor of GridContainer.
-   * @form
+   *
+   * @param { GridColOptions } option
+   * @returns { GridColAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the constructor of GridContainer.
-   * @form
+   *
+   * @param { GridColOptions } option
+   * @returns { GridColAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   (option?: GridColOptions): GridColAttribute;
 }
@@ -185,66 +247,98 @@ interface GridColInterface {
 declare class GridColAttribute extends CommonMethod<GridColAttribute> {
   /**
    * Sets the span of current gird-container item.
-   * @form
+   *
+   * @param { number | GridColColumnOption } value
+   * @returns { GridColAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the span of current gird-container item.
-   * @form
+   *
+   * @param { number | GridColColumnOption } value
+   * @returns { GridColAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   span(value: number | GridColColumnOption): GridColAttribute;
 
   /**
    * Sets the offset of current gird-container item.
-   * @form
+   *
+   * @param { number | GridColColumnOption } value
+   * @returns { GridColAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the offset of current gird-container item.
-   * @form
+   *
+   * @param { number | GridColColumnOption } value
+   * @returns { GridColAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   gridColOffset(value: number | GridColColumnOption): GridColAttribute;
 
   /**
    * Sets the order of current gird-container item.
-   * @form
+   *
+   * @param { number | GridColColumnOption } value
+   * @returns { GridColAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Sets the order of current gird-container item.
-   * @form
+   *
+   * @param { number | GridColColumnOption } value
+   * @returns { GridColAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   order(value: number | GridColColumnOption): GridColAttribute;
 }
 
 /**
  * Defines GridCol Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines GridCol Component.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
-declare const GridCol: GridColInterface
+declare const GridCol: GridColInterface;
 
 /**
  * Defines GridCol Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines GridCol Component instance.
- * @form
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare const GridColInstance: GridColAttribute;

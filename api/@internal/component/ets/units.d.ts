@@ -15,117 +15,156 @@
 
 /**
  * Defines the data type of the interface restriction.
+ *
+ * @interface Resource
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the data type of the interface restriction.
- * @form
+ *
+ * @interface Resource
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the data type of the interface restriction.
- * @form
+ *
+ * @interface Resource
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare interface Resource {
   /**
    * Set id.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Set id.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Set id.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly id: number;
 
   /**
    * Set type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Set type.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Set type.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly type: number;
 
   /**
    * Set params.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Set params.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Set params.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly params?: any[];
 
   /**
    * Set bundleName.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Set bundleName.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly bundleName: string;
 
   /**
    * Set moduleName.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Set moduleName.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   readonly moduleName: string;
 }
 
 /**
  * Defines the length property with string, number and resource unit.
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the length property with string, number and resource unit.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the length property with string, number and resource unit.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type Length = string | number | Resource;
 
 /**
  * Defines the length property with number in units of px.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -133,6 +172,7 @@ declare type PX = `${number}px`;
 
 /**
  * Defines the length property with number in units of vp.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -140,6 +180,7 @@ declare type VP = `${number}vp`;
 
 /**
  * Defines the length property with number in units of fp.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -147,6 +188,7 @@ declare type FP = `${number}fp`;
 
 /**
  * Defines the length property with number in units of lpx.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -154,6 +196,7 @@ declare type LPX = `${number}lpx`;
 
 /**
  * Defines the length property with number in units of Percentage.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -161,6 +204,7 @@ declare type Percentage = `${number}%`;
 
 /**
  * Defines the angle property with number in units of deg.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -168,6 +212,7 @@ declare type Degree = `${number}deg`;
 
 /**
  * Defines the dimension property with number with units(vp|px|fp|lpx|%), number and resource unit.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -175,408 +220,525 @@ declare type Dimension = PX | VP | FP | LPX | Percentage | number | Resource;
 
 /**
  * Defines the string which can use resource.
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the string which can use resource.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the string which can use resource.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type ResourceStr = string | Resource;
 
 /**
  * Defines the padding property.
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the padding property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the padding property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type Padding = {
   /**
    * top property.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * top property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * top property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   top?: Length;
 
   /**
    * right property.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * right property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * right property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   right?: Length;
 
   /**
    * bottom property.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * bottom property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * bottom property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   bottom?: Length;
 
   /**
    * left property.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * left property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * left property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   left?: Length;
 };
 
 /**
  * Defines the margin property.
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the margin property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the margin property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type Margin = Padding;
 
 /**
  * Defines the border width property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the border width property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type EdgeWidths = {
   /**
    * top property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * top property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   top?: Length;
 
   /**
    * right property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * right property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   right?: Length;
 
   /**
    * bottom property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * bottom property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   bottom?: Length;
 
   /**
    * left property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * left property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   left?: Length;
 };
 
 /**
  * Defines the border radius property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the border radius property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type BorderRadiuses = {
   /**
    * top-left property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * top-left property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   topLeft?: Length;
 
   /**
    * top-right property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * top-right property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   topRight?: Length;
 
   /**
    * bottom-left property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * bottom-left property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   bottomLeft?: Length;
 
   /**
    * bottom-right property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * bottom-right property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   bottomRight?: Length;
 };
 
 /**
  * Defines the border color property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the border color property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type EdgeColors = {
   /**
    * top property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * top property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   top?: ResourceColor;
 
   /**
    * right property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * right property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   right?: ResourceColor;
 
   /**
    * bottom property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * bottom property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   bottom?: ResourceColor;
 
   /**
    * left property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * left property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   left?: ResourceColor;
 };
 
 /**
  * Defines the border style property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the border style property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type EdgeStyles = {
   /**
    * top property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * top property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   top?: BorderStyle;
 
   /**
    * right property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * right property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   right?: BorderStyle;
 
   /**
    * bottom property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * bottom property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   bottom?: BorderStyle;
 
   /**
    * left property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * left property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   left?: BorderStyle;
 };
 
 /**
  * Defines the offset property.
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the offset property.
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare type Offset = {
   /**
    * dx property.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
    */
   /**
    * dx property.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-   dx: Length;
+  dx: Length;
 
   /**
    * dy property.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
    */
   /**
    * dy property.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -585,75 +747,99 @@ declare type Offset = {
 
 /**
  * Defines the color which can use resource.
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the color which can use resource.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the color which can use resource.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type ResourceColor = Color | number | string | Resource;
 
 /**
  * Defines the length constrain property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the length constrain property.
- * @form
+ *@syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare type LengthConstrain = {
   /**
    * minimum length.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * minimum length.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   minLength: Length;
 
   /**
    * maximum length.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * maximum length.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   maxLength: Length;
 };
 
 /**
  * Defines the font used for text.
+ *
+ * @interface Font
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the font used for text.
+ *
+ * @interface Font
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 declare interface Font {
   /**
    * font size.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
    */
   /**
    * font size.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -661,9 +847,14 @@ declare interface Font {
 
   /**
    * font weight.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
    */
   /**
    * font weight.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -671,9 +862,14 @@ declare interface Font {
 
   /**
    * font family.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
    */
   /**
    * font family.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -681,9 +877,14 @@ declare interface Font {
 
   /**
    * font style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
    */
   /**
    * font style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
@@ -692,375 +893,518 @@ declare interface Font {
 
 /**
  * Defines the area property.
+ *
+ * @interface Area
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the area property.
- * @form
+ *
+ * @interface Area
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the area property.
- * @form
+ *
+ * @interface Area
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare interface Area {
   /**
    * Defines the width property.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines the width property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the width property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   width: Length;
 
   /**
    * Defines the height property.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines the height property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the height property.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   height: Length;
 
   /**
    * Defines the local position.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines the local position.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the local position.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   position: Position;
 
   /**
    * Defines the global position.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines the global position.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the global position.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   globalPosition: Position;
 }
 
 /**
  * Defines the position.
+ *
+ * @interface Position
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the position.
- * @form
+ *
+ * @interface Position
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the position.
- * @form
+ *
+ * @interface Position
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare interface Position {
   /**
    * Coordinate x of the Position.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Coordinate x of the Position.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Coordinate x of the Position.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   x?: Length;
 
   /**
    * Coordinate y of the Position.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Coordinate y of the Position.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Coordinate y of the Position.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   y?: Length;
 }
 
 /**
  * Defines the constrain size options.
+ *
+ * @interface ConstraintSizeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the constrain size options.
- * @form
+ *
+ * @interface ConstraintSizeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the constrain size options.
- * @form
+ *
+ * @interface ConstraintSizeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare interface ConstraintSizeOptions {
   /**
    * Defines the min width.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Defines the min width.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the min width.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   minWidth?: Length;
 
   /**
    * Defines the max width.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Defines the max width.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the max width.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   maxWidth?: Length;
 
   /**
    * Defines the min height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Defines the min height.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the min height.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   minHeight?: Length;
 
   /**
    * Defines the max height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Defines the max height.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the max height.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   maxHeight?: Length;
 }
 
 /**
  * Defines the size options.
+ *
+ * @interface SizeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the size options.
- * @form
+ *
+ * @interface SizeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the size options.
- * @form
+ *
+ * @interface SizeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare interface SizeOptions {
   /**
    * Defines the width.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Defines the width.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the width.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   width?: Length;
 
   /**
    * Defines the height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Defines the height.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the height.
-   * @form
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   height?: Length;
 }
 
 /**
  * Defines the options of border.
+ *
+ * @interface BorderOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the options of border.
- * @form
+ *
+ * @interface BorderOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Defines the options of border.
- * @form
+ *
+ * @interface BorderOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
 declare interface BorderOptions {
   /**
    * Defines the border width.
-   * @type { Length }
+   *
+   * @type { ?EdgeWidths | Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Defines the border width.
-   * @type { EdgeWidths | Length }
-   * @form
+   *
+   * @type { ?EdgeWidths | Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the border width.
-   * @type { EdgeWidths | Length }
-   * @form
+   *
+   * @type { ?EdgeWidths | Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   width?: EdgeWidths | Length;
 
   /**
    * Defines the border color.
-   * @type { ResourceColor }
+   *
+   * @type { ?EdgeColors | ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Defines the border color.
-   * @type { EdgeColors | ResourceColor }
-   * @form
+   *
+   * @type { ?EdgeColors | ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the border color.
-   * @type { EdgeColors | ResourceColor }
-   * @form
+   *
+   * @type { ?EdgeColors | ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   color?: EdgeColors | ResourceColor;
 
   /**
    * Defines the border radius.
-   * @type { Length }
+   *
+   * @type { ?BorderRadiuses | Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Defines the border radius.
-   * @type { BorderRadiuses | Length }
-   * @form
+   *
+   * @type { ?BorderRadiuses | Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the border radius.
-   * @type { BorderRadiuses | Length }
-   * @form
+   *
+   * @type { ?BorderRadiuses | Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   radius?: BorderRadiuses | Length;
 
   /**
    * Defines the border style.
-   * @type { BorderStyle }
+   *
+   * @type { ?EdgeStyles | BorderStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Defines the border style.
-   * @type { EdgeStyles | BorderStyle }
-   * @form
+   *
+   * @type { ?EdgeStyles | BorderStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Defines the border style.
-   * @type { EdgeStyles | BorderStyle }
-   * @form
+   *
+   * @type { ?EdgeStyles | BorderStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   style?: EdgeStyles | BorderStyle;
 }
 
 /**
  * Define the style of checkbox mark.
+ *
+ * @interface MarkStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -1068,7 +1412,8 @@ declare interface BorderOptions {
 declare interface MarkStyle {
   /**
    * Define the stroke color of checkbox mark.
-   * @type { ResourceColor }
+   *
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1077,7 +1422,8 @@ declare interface MarkStyle {
 
   /**
    * Define the size of checkbox mark.
-   * @type { Length }
+   *
+   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1086,7 +1432,8 @@ declare interface MarkStyle {
 
   /**
    * Define the stroke width of checkbox mark.
-   * @type { Length }
+   *
+   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1096,34 +1443,40 @@ declare interface MarkStyle {
 
 /**
  * Defines the ColorFilter object.
- * @form
+ *
  * @since 9
+ * @form
  */
 /**
  * Defines the ColorFilter object.
- * @form
+ *
  * @crossplatform
  * @since 10
+ * @form
  */
 declare class ColorFilter {
   /**
    * Creates ColorFilter with 4*5 matrix.
-   * @param value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
-   * @form
+   *
+   * @param { number[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
    */
   /**
    * Creates ColorFilter with 4*5 matrix.
-   * @param value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
-   * @form
+   *
+   * @param { number[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   constructor(value: number[]);
 }
 
-declare module "GlobalResource" {
-  module "GlobalResource" {
+declare module 'GlobalResource' {
+  module 'GlobalResource' {
     // @ts-ignore
     export { Resource };
   }
