@@ -20,6 +20,7 @@
 /// <reference path="../component/time_picker.d.ts" />
 /// <reference path="../component/text_picker.d.ts" />
 
+import dispatchAction from './@ohos.dispatchAction';
 import font from './@ohos.font';
 import mediaQuery from './@ohos.mediaquery';
 import promptAction from './@ohos.promptAction';
@@ -445,6 +446,39 @@ export class PromptAction {
 }
 
 /**
+ * class DispatchAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+export class DispatchAction {
+  /**
+   * start dispatch event to targetNode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  startDispatchEvent(): void;
+
+  /**
+    * stop dispatch event to targetNode
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 10
+    */
+  stopDispatchEvent(): void;
+  
+  /**
+   * Dispatch touchEvent to targetNode
+   * @param { TouchEvent } dispatchEvent - the touchEvent which will be sent to the targetNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  dispatchEvent(dispatchEvent: TouchEvent): void;
+}
+
+/**
  * class UIContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -486,6 +520,16 @@ export class UIContext {
    * @since 10
    */
   getPromptAction(): PromptAction;
+
+  /**
+   * get object DispatchAction.
+   * @param { string } targetNode - name of the node receive event.
+   * @returns object DispatchAction.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getDispatchAction(targetNode: string): DispatchAction;
 
   /**
    * Create an animator object for custom animation.
