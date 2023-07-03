@@ -5529,6 +5529,17 @@ declare class CommonMethod<T> {
   draggable(value: boolean): T;
 
   /**
+   * Set the drag direction.
+   * @param { DragDirection } value - The drag direction.
+   * @default DragDirection.FREE
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  dragDirection(value: DragDirection): T;
+
+  /**
    * Add mask text to the current component. The layout is the same as that of the current component.
    * @since 7
    */
