@@ -1591,7 +1591,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since 10
    */
   function setAudioDevice(device: AudioDevice, callback: AsyncCallback<void>): void;
 
