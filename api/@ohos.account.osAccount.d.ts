@@ -3543,7 +3543,16 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    FACE_AUTH_TIP_NOT_DETECTED = 11
+    FACE_AUTH_TIP_NOT_DETECTED = 11,
+
+    /**
+     * Indicates that face auth is success.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FACE_AUTH_TIP_AUTH_SUCCESS = 12
   }
 
   /**
@@ -3625,7 +3634,52 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    FINGERPRINT_TIP_FINGER_UP = 7
+    FINGERPRINT_TIP_FINGER_UP = 7,
+
+    /**
+     * Indicates that a single press result.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_TIP_SINGLE_PRESS_RESULT = 8,
+
+    /**
+     * Indicates that the finger area of this press and last press is same.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_TIP_SAME_FINGER_AREA = 9,
+
+    /**
+     * Indicates that the finger is already enrolled.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_TIP_FINGER_ALREADY_ENROLLED = 10,
+
+    /**
+     * Indicates that the finger is too wet.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_TIP_FINGER_TOO_WET = 11,
+
+    /**
+     * Indicates that the enrollment progress.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    FINGERPRINT_TIP_ENROLLMENT_PROGRESS = 12
   }
 
   /**
