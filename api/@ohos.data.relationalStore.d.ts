@@ -219,15 +219,6 @@ declare namespace relationalStore {
     name: string;
 
     /**
-     * The data group id of application.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    dataGroupId?: string;
-
-    /**
      * Specifies the security level of the database.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -242,6 +233,15 @@ declare namespace relationalStore {
      * @since 9
      */
     encrypt?: boolean;
+
+    /**
+     * The data group id of application.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @StageModelOnly
+     * @since 10
+     */
+    dataGroupId?: string;
   }
 
   /**
@@ -373,22 +373,6 @@ declare namespace relationalStore {
      * @since 10
      */
     SUBSCRIBE_TYPE_CLOUD_DETAILS,
-
-    /**
-     * Subscription to in-process data changes
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    SUBSCRIBE_TYPE_LOCAL,
-
-    /**
-     * Subscription to inter-process data changes
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
-     */
-    SUBSCRIBE_TYPE_LOCAL_SHARED
   }
 
   /**
@@ -2848,13 +2832,10 @@ declare namespace relationalStore {
     on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
 
     /**
-     * Registers an observer for the database. When data in the database changes,
-     * the callback will be invoked.
+     * Registers an observer for the database.
      *
-     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
-     *                          Its value should be SUBSCRIBE_TYPE_LOCAL or SUBSCRIBE_TYPE_LOCAL_SHARED.
      * @param { string } uri - Indicates the subscription entity.
+     * @param { boolean } supportShared - Indicates whether it is an interprocess subscription or an in-process subscription.
      * @param { Callback<void> } observer - The observer of data change events in the database.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -2863,7 +2844,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    on(event: 'dataChange', type: SubscribeType, uri: string, observer: Callback<void>): void;
+    on(uri: string, supportShared?: boolean, observer: Callback<void>): void;
 
     /**
      * Remove specified observer of specified type from the database.
@@ -2898,10 +2879,8 @@ declare namespace relationalStore {
     /**
      * Remove specified observer of specified type from the database.
      *
-     * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@link SubscribeType}.
-     *                          Its value should be SUBSCRIBE_TYPE_LOCAL or SUBSCRIBE_TYPE_LOCAL_SHARED.
      * @param { string } uri - Indicates the subscription entity.
+     * @param { boolean } supportShared - Indicates whether it is an interprocess subscription or an in-process subscription.
      * @param Callback<void> observer - {Array<string>}: the data change observer already registered.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -2910,7 +2889,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    off(event: 'dataChange', type: SubscribeType, uri: string, observer?: Callback<void>): void;
+    off(uri: string, supportShared?: boolean, observer?: Callback<void>): void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
