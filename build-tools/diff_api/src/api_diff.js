@@ -150,15 +150,8 @@ function getSycap(api) {
     return 'ArkUI';
   }
   while (curApi && !ts.isSourceFile(curApi.node)) {
-    if (!curApi.jsdoc || curApi.jsdoc.length === 0) {
-      return;
-    }
-
-    const jsdoc = curApi.jsdoc[curApi.jsdoc.length - 1];
-    if (!jsdoc.tags) {
-      return;
-    }
-    const jsdocTagItem = curApi.jsdoc[curApi.jsdoc.length - 1].tags;
+    const jsdoc = curApi.jsdoc ? curApi.jsdoc[curApi.jsdoc.length - 1] : [];
+    const jsdocTagItem = jsdoc.tags ? jsdoc.tags : [];
     jsdocTagItem.forEach(tagInfo => {
       if (tagInfo.tag === 'syscap') {
         syscap = tagInfo.name;
