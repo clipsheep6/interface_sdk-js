@@ -155,6 +155,12 @@ declare namespace relationalStore {
     status?: AssetStatus;
   }
 
+  /**
+   * Indicates several assets in one column
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
   type Assets = Asset[];
 
   /**
@@ -233,6 +239,141 @@ declare namespace relationalStore {
      * @since 9
      */
     encrypt?: boolean;
+  }
+
+  /**
+   * The cloud sync progress
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  enum Progress {
+    /**
+     * SYNC_BEGIN: means the sync process begin.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    SYNC_BEGIN,
+
+    /**
+     * SYNC_BEGIN: means the sync process is in progress
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    SYNC_IN_PROGRESS,
+
+    /**
+     * SYNC_BEGIN: means the sync process is finished
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    SYNC_FINISH
+  }
+
+  /**
+   * Describes the statistic of the cloud sync process.
+   *
+   * @interface Statistic
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  interface Statistic {
+    /**
+     * Describes the total number of data to sync.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    total: number;
+
+    /**
+     * Describes the number of successfully synced data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    success: number;
+
+    /**
+     * Describes the number of data failed to sync.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    failed: number;
+
+    /**
+     * Describes the number of data remained to sync.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    remained: number;
+  }
+
+  /**
+   * Describes the {@code Statistic} details of the table.
+   *
+   * @interface TableDetails
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  interface TableDetails {
+    /**
+     * Describes the {@code Statistic} details of the upload process.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    upload: Statistic;
+
+    /**
+     * Describes the {@code Statistic} details of the download process.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    download: Statistic;
+  }
+
+
+  /**
+   * Describes detail of the cloud sync {@code Progress}.
+   *
+   * @interface ProgressDetails
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 10
+   */
+  interface ProgressDetails {
+    /**
+     * Describes the status of data sync progress.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    schedule: Progress;
+
+    /**
+     * Describes the code of data sync progress.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    code: ProgressCode;
+
+    /**
+     * The statistic details of the tables.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    details: {
+      [table: string]: TableDetails;
+    };
   }
 
   /**
@@ -397,7 +538,7 @@ declare namespace relationalStore {
    * Indicates the notify info
    * 
    * @interface ChangeInfo
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
   interface ChangeInfo {
@@ -2667,32 +2808,50 @@ declare namespace relationalStore {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - indicates the tables name you want to set.
-     * @param { number } type - indicates the tables distributed type {@link DistributedType}.
+     * @param { DistributedType } type - indicates the tables distributed type {@link DistributedType}.
      * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
-     * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
      * @param { AsyncCallback<void> } callback - the callback of setDistributedTables.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    setDistributedTables(tables: Array<string>, type: number, config: DistributedConfig, callback: AsyncCallback<void>): void;
+    setDistributedTables(tables: Array<string>, type: DistributedType, callback: AsyncCallback<void>): void;
+
+        /**
+     * Set table to be distributed table.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Array<string> } tables - indicates the tables name you want to set.
+     * @param { DistributedType } type - indicates the tables distributed type {@link DistributedType}.
+     * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
+     * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
+     * @param { AsyncCallback<void> } callback - the callback of setDistributedTables.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 10
+     */
+    setDistributedTables(tables: Array<string>, type: DistributedType, config: DistributedConfig, callback: AsyncCallback<void>): void;
 
     /**
      * Set table to be a distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Array<string> } tables - indicates the tables name you want to set.
-     * @param { number } type - indicates the distribution type of the tables. {@link DistributedType}.
+     * @param { DistributedType } type - indicates the distribution type of the tables. {@link DistributedType}.
      * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
      * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    setDistributedTables(tables: Array<string>, type?: number, config?: DistributedConfig): Promise<void>;
+    setDistributedTables(tables: Array<string>, type?: DistributedType, config?: DistributedConfig): Promise<void>;
 
     /**
      * Obtain distributed table name of specified remote device according to local table name.
