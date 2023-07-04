@@ -112,3 +112,81 @@ declare namespace wifiext {
 }
 
 export default wifiext;
+
+/**
+   * Wi-Fi IPV6 information.
+   * @typedef IpInfo
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 9
+   */
+  interface IpV6Info {
+    /**
+     * The link IPV6 address of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
+    linkIp6Address: string;
+	
+	/**
+     * The global IPV6 address of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
+    globalIp6Address: string;
+	
+	/**
+     * The rand Global IPV6 address of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
+    randGlobalIp6Address: string;
+
+    /**
+     * The gateway of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
+    gateway: string;
+
+    /**
+     * The network mask of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
+    netmask: string;
+
+    /**
+     * The primary DNS server IPV6 address of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
+    primaryDns: string;
+
+    /**
+     * The secondary DNS server IPV6 address of the Wi-Fi connection
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
+    secondDns: string;
+
+    /**
+     * The DHCP server IPV6 address of the Wi-Fi connection
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
+    serverIp: string;
+
+    /**
+     * The IP address lease duration of the Wi-Fi connection
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 9
+     */
+    leaseDuration: number;
+  }
