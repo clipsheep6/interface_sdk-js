@@ -321,7 +321,8 @@
       "SystemCapability.ResourceSchedule.DeviceStandby",
       "SystemCapability.AI.MindSporeLite",
       "SystemCapability.Print.PrintFramework",
-      "SystemCapability.Driver.ExternalDevice"
+      "SystemCapability.Driver.ExternalDevice",
+      "SystemCapability.BundleManager.EcologicalRuleManager"
     ]
   },
   "administrators": [
