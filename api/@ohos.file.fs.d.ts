@@ -49,6 +49,7 @@ declare namespace fileIo {
   export { fdatasyncSync };
   export { fdopenStream };
   export { fdopenStreamSync };
+  export { dup };
   export { fsync };
   export { fsyncSync };
   export { listFile };
@@ -1087,6 +1088,22 @@ declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
  * @since 9
  */
 declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<Stream>): void;
+
+/**
+ * Duplicate fd to File Object.
+ *
+ * @param { number } fd - fd.
+ * @returns { File } return File
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function dup(fd: number): File;
 
 /**
  * Create class Stream by using fd with sync interface.
@@ -3570,7 +3587,29 @@ declare interface File {
    * @since 10
    */
   readonly fd: number;
-
+  /**
+   * File path
+   * 
+   * @type { string }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 14300002 - Invalid uri
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  readonly path: string;
+  /**
+   * File name
+   * 
+   * @type { string }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  readonly name: string;
   /**
    * Lock file with blocking method.
    *
