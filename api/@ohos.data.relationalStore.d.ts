@@ -372,7 +372,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SUBSCRIBE_TYPE_CLOUD_DETAILS,
+    SUBSCRIBE_TYPE_CLOUD_DETAILS
   }
 
   /**
