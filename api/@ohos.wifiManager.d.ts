@@ -2418,7 +2418,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    linkIp6Address: string;
+    linkIpV6Address: string;
 	
 	/**
      * The global IPV6 address of the Wi-Fi connection
@@ -2426,7 +2426,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    globalIp6Address: string;
+    globalIpV6Address: string;
 	
 	/**
      * The rand Global IPV6 address of the Wi-Fi connection
@@ -2473,7 +2473,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    serverIp: string;
+    serverIpV6: string;
 
     /**
      * The IP address lease duration of the Wi-Fi connection
