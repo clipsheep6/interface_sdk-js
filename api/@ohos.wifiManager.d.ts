@@ -404,7 +404,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 9
+   * @since 10
    */
   function getIpV6Info(): IpV6Info;
 
