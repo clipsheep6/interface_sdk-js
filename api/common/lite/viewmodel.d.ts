@@ -16,16 +16,22 @@
 export interface ViewModel {
   /**
    * Displays content based on the current system language and a path of the language resource key specified through $t.
-   * @param path Path of the language resource key
-   * @param param Content used to replace placeholders during runtime. There are two types of placeholders available:
+   *
+   * @param { string } path Path of the language resource key
+   * @param { object | Array<any> } param Content used to replace placeholders during runtime. There are two types of placeholders available:
    *              1. Named placeholder, for example, {name}. The actual content must be of the object type, for example, $t('strings.object', {name: 'Hello world'}).
    *              2. Digit placeholder, for example, {0}. The actual content must be of the array type, for example, $t('strings.array', ['Hello world']).
-   * @returns content to display
+   * @returns { string } content to display
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   $t(path: string, param?: object | Array<any>): string;
 
   /**
    * An object that holds all DOM elements and component instances that have been registered with the refs attribute
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   $refs: ElementReferences;
 }
@@ -33,6 +39,10 @@ export interface ViewModel {
 export interface ListScrollToOptions {
   /**
    * specified position.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   index: number;
 }
@@ -40,6 +50,10 @@ export interface ListScrollToOptions {
 export interface ListElement {
   /**
    * Scrolls the list to the position of the item at the specified index.
+   *
+   * @param { ListScrollToOptions } position
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   scrollTo(position: ListScrollToOptions): void;
 }
@@ -47,18 +61,30 @@ export interface ListElement {
 export interface ImageAnimatorElement {
   /**
    * Starts to play the frame animation of an image. If this method is called again, the playback starts from the first frame.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   start(): void;
   /**
    * Pauses the frame animation playback of an image.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   pause(): void;
   /**
    * Stops the frame animation playback of an image.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   stop(): void;
   /**
    * Resumes the frame animation playback of an image.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   resume(): void;
   /**
@@ -66,6 +92,10 @@ export interface ImageAnimatorElement {
    * Playing
    * Paused
    * Stopped
+   *
+   * @returns { 'Playing' | 'Paused' | 'Stopped' }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   getState(): "Playing" | "Paused" | "Stopped";
 }
@@ -80,31 +110,50 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * The attribute name cannot start with $ or an underscore (_) or contain the reserved words such as for, if, show, and tid.
    * For a function, the return value must be an object.
    * Set the value of data to the return value of the function during page initialization.
+   *
+   * @type { Data }
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   data?: Data;
 
   /**
    * Called when the page is initialized. This function can be called only once in a lifecycle.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   onInit?(): void;
 
   /**
    * Called when the page is created. This function can be called only once in a lifecycle.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   onReady?(): void;
 
   /**
    * Called when the page is displayed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   onShow?(): void;
 
   /**
    * Called when the application is created
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   onCreate?(): void;
 
   /**
    * Called when the application is destroyed or called when the page is redirected to another one (without entering the navigation stack).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 9
    */
   onDestroy?(): void;
 
@@ -128,6 +177,8 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 
 /**
  * Used for ide.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 4
  */
@@ -135,6 +186,8 @@ type DefaultData<T> = object;
 
 /**
  * Used for ide.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 4
  */
@@ -143,6 +196,8 @@ type CombinedOptions<T extends ViewModel, Data> = object &
   ThisType<T & ViewModel & Data>;
 
 /**
+ * @param { CombinedOptions<T, Data> } options
+ * @returns { ViewModel & Data }
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
  * @since 4
