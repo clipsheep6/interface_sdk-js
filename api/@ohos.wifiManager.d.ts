@@ -2434,7 +2434,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    randGlobalIp6Address: string;
+    randGlobalIpV6Address: string;
 
     /**
      * The gateway of the Wi-Fi connection
@@ -2467,20 +2467,6 @@ declare namespace wifiManager {
      * @since 10
      */
     secondDns: string;
-
-    /**
-     * The DHCP server IPV6 address of the Wi-Fi connection
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
-     */
-    serverIpV6: string;
-
-    /**
-     * The IP address lease duration of the Wi-Fi connection
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
-     */
-    leaseDuration: number;
   }
 
   /**
