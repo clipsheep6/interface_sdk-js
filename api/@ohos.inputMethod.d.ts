@@ -771,7 +771,7 @@ declare namespace inputMethod {
      * Unregister the callback of selectedByRange.
      *
      * @param { 'selectByRange' } type - event type, fixed as 'selectByRange'.
-     * @param { function } [callback] - the callback of 'selectByRange',
+     * @param { Callback<Range> } [callback] - the callback of 'selectByRange',
      *        when subscriber unsubscribes all callback functions of event 'selectByRange', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -796,7 +796,7 @@ declare namespace inputMethod {
      * Unregister the callback of selectedByMovement.
      *
      * @param { 'selectByMovement' } type - event type, fixed as 'selectByMovement'.
-     * @param { function } [callback] - the callback of 'selectByMovement',
+     * @param { Callback<Movement> } [callback] - the callback of 'selectByMovement',
      *        when subscriber unsubscribes all callback functions of event 'selectByMovement', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -1033,6 +1033,7 @@ declare namespace inputMethod {
     /**
      * The label id of input method
      *
+     * @type { ?number }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1451,33 +1452,6 @@ declare namespace inputMethod {
      * @since 10
      */
     inputAttribute: InputAttribute;
-
-    /**
-     * Cursor information.
-     *
-     * @type { ?CursorInfo }
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
-     */
-    cursorInfo?: CursorInfo;
-
-    /**
-     * Selection information.
-     *
-     * @type { ?Range }
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
-     */
-    selection?: Range;
-
-    /**
-     * The window ID of the application currently bound to the input method.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 10
-     */
-    windowId?: number;
   }
 
   /**
