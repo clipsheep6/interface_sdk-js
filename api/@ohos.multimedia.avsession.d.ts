@@ -2706,7 +2706,7 @@ declare namespace avSession {
 
     /**
      * Get custom media packets provided by the corresponding session
-     * @param { AsyncCallback<{[key: string]: Object}> } callback - The triggered asyncCallback when (getExtras).
+     * @param { AsyncCallback<object> } callback - The triggered asyncCallback when (getExtras).
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -2720,7 +2720,7 @@ declare namespace avSession {
 
     /**
      * Get custom media packets provided by the corresponding session
-     * @returns { Promise<{[key: string]: Object}> } the parameters of extras
+     * @returns { Promise<object> } the parameters of extras
      * @throws { BusinessError } 401 - parameter check failed
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
