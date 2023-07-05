@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,238 +13,191 @@
  * limitations under the License.
  */
 
-/**
- * Defines the option of router.
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @deprecated since 8
- * @useinstead @ohos.router
- * @since 3
- */
-export interface RouterOptions {
-  /**
-   * URI of the destination page, which supports the following formats:
-   * 1. Absolute path of the page, which is provided by the pages list in the config.json file.
-   *    Example:
-   *      pages/index/index
-   *      pages/detail/detail
-   * 2. Particular path. If the URI is a slash (/), the home page is displayed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
-   */
-  uri: string;
-
-  /**
-   * Data that needs to be passed to the destination page during navigation.
-   * After the destination page is displayed, the parameter can be directly used for the page.
-   * For example, this.data1 (data1 is the key value of the params used for page navigation.)
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3
-   */
-  params?: Object;
-}
+import { AsyncCallback } from './@ohos.base';
+import Want from './@ohos.app.ability.Want';
 
 /**
- * Defines the option of router back.
+ * Plugin component template property.
+ *
+ * @interface PluginComponentTemplate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @deprecated since 8
- * @useinstead @ohos.router
- * @since 7
+ * @since 8
  */
-export interface BackRouterOptions {
-  /**
-   * Returns to the page of the specified path.
-   * If the page with the specified path does not exist in the page stack, router.back() is called by default.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  uri?: string;
-
-  /**
-   * Data that needs to be passed to the destination page during navigation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 7
-   */
-  params?: Object;
+interface PluginComponentTemplate {
+  source: string;
+  ability: string;
 }
 
 /**
- * Defines the state of router.
+ * Plugin component manager interface.
+ *
+ * @namespace pluginComponentManager
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @deprecated since 8
- * @useinstead @ohos.router
- * @since 3
+ * @since 8
  */
-export interface RouterState {
-  /**
-   * Index of the current page in the stack.
-   * NOTE: The index starts from 1 from the bottom to the top of the stack.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  index: number;
+declare namespace pluginComponentManager {
+  type KVObject = { [key: string]: number | string | boolean | [] | KVObject };
 
   /**
-   * Name of the current page, that is, the file name.
+   * Plugin component push parameters.
+   *
+   * @interface PushParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @since 8
    */
-  name: string;
+  interface PushParameters {
+    want: Want;
+    name: string;
+    data: KVObject;
+    extraData: KVObject;
+    jsonPath?: string;
+  }
 
   /**
-   * Path of the current page.
+   * Plugin component push parameters which is used in push function.
+   *
+   * @interface PushParameterForStage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @systemapi
+   * @since 9
    */
-  path: string;
+  interface PushParameterForStage {
+    owner: Want;
+    target: Want;
+    name: string;
+    data: KVObject;
+    extraData: KVObject;
+    jsonPath?: string;
+  }
+
+  /**
+   * Plugin component request parameters.
+   *
+   * @interface RequestParameters
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  interface RequestParameters {
+    want: Want;
+    name: string;
+    data: KVObject;
+    jsonPath?: string;
+  }
+
+  /**
+   * Plugin component request parameters which is used in request function.
+   *
+   * @interface RequestParameterForStage
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 9
+   */
+  interface RequestParameterForStage {
+    owner: Want;
+    target: Want;
+    name: string;
+    data: KVObject;
+    jsonPath?: string;
+  }
+
+  /**
+   * Plugin component request callback parameters.
+   *
+   * @interface RequestCallbackParameters
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  interface RequestCallbackParameters {
+    componentTemplate: PluginComponentTemplate;
+    data: KVObject;
+    extraData: KVObject;
+  }
+
+  /**
+   * Plugin component request event result value.
+   *
+   * @interface RequestEventResult
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  interface RequestEventResult {
+    template?: string;
+    data?: KVObject;
+    extraData?: KVObject;
+  }
+
+  /**
+   * Plugin component push event callback.
+   *
+   * @since 8
+   */
+  type OnPushEventCallback = (
+    source: Want,
+    template: PluginComponentTemplate,
+    data: KVObject,
+    extraData: KVObject
+  ) => void;
+
+  /**
+   * Plugin component request event callback.
+   *
+   * @since 8
+   */
+  type OnRequestEventCallback = (source: Want, name: string, data: KVObject) => RequestEventResult;
+
+  /**
+   * Plugin component push method.
+   *
+   * @param { PushParameters } param
+   * @param { AsyncCallback<void> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  function push(param: PushParameters, callback: AsyncCallback<void>): void;
+
+  /**
+   * Plugin component request method.
+   *
+   * @param { RequestParameters } param
+   * @param { AsyncCallback<RequestCallbackParameters> } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  function request(param: RequestParameters, callback: AsyncCallback<RequestCallbackParameters>): void;
+
+  /**
+   * Plugin component push method used to send the information of the template it provides.
+   *
+   * @param { PushParameterForStage } param - Plugin component push parameters for stage.
+   * @param { AsyncCallback<void> } callback - Plugin component push event callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @StageModelOnly
+   * @since 9
+   */
+  function push(param: PushParameterForStage, callback: AsyncCallback<void>): void;
+
+  /**
+   * Plugin component request method used to send a request for the information of the template it wants.
+   *
+   * @param { RequestParameterForStage } param - Plugin component request parameters for stage.
+   * @param { AsyncCallback<RequestCallbackParameters> } callback - Plugin component request event callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @StageModelOnly
+   * @since 9
+   */
+  function request(param: RequestParameterForStage, callback: AsyncCallback<RequestCallbackParameters>): void;
+
+  /**
+   * Plugin component event listener.
+   *
+   * @param { string } eventType
+   * @param { OnPushEventCallback | OnRequestEventCallback } callback
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  function on(eventType: string, callback: OnPushEventCallback | OnRequestEventCallback): void;
 }
 
-/**
- * Defines the option of EnableAlertBeforeBackPage.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @deprecated since 8
- * @useinstead @ohos.router
- * @since 6
- */
-export interface EnableAlertBeforeBackPageOptions {
-  /**
-   * dialog context.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  message: string;
-
-  /**
-   * Called when the dialog box is displayed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  success?: (errMsg: string) => void;
-
-  /**
-   * Called when the operation is cancelled.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  cancel?: (errMsg: string) => void;
-
-  /**
-   * Called when the dialog box is closed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  complete?: () => void;
-}
-
-/**
- * Defines the option of DisableAlertBeforeBackPage.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @deprecated since 8
- * @useinstead @ohos.router
- * @since 6
- */
-export interface DisableAlertBeforeBackPageOptions {
-  /**
-   * Called when the dialog box is displayed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  success?: (errMsg: string) => void;
-
-  /**
-   * Called when the operation is cancelled.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  cancel?: (errMsg: string) => void;
-
-  /**
-   * Called when the dialog box is closed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  complete?: () => void;
-}
-
-type ParamsInterface = {
-  [key: string]: Object;
-};
-
-/**
- * Defines the Router interface.
- * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @deprecated since 8
- * @useinstead @ohos.router
- * @since 3
- */
-export default class Router {
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   * @param options Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  static push(options: RouterOptions): void;
-
-  /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @param options Options.
-   * @since 3
-   */
-  static replace(options: RouterOptions): void;
-
-  /**
-   * Returns to the previous page or a specified page.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @param options Options.
-   * @since 3
-   */
-  static back(options?: BackRouterOptions): void;
-
-  /**
-   * Obtains information about the current page params.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @returns Page params.
-   * @since 7
-   */
-  static getParams(): ParamsInterface;
-
-  /**
-   * Clears all historical pages and retains only the current page at the top of the stack.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  static clear(): void;
-
-  /**
-   * Obtains the number of pages in the current stack.
-   * @returns Number of pages in the stack. The maximum value is 32.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  static getLength(): string;
-
-  /**
-   * Obtains information about the current page state.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @returns Page state.
-   * @since 3
-   */
-  static getState(): RouterState;
-
-  /**
-   * Pop up dialog to ask whether to back
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @param options Options.
-   * @since 6
-   */
-  static enableAlertBeforeBackPage(options: EnableAlertBeforeBackPageOptions): void;
-
-  /**
-   * cancel enableAlertBeforeBackPage
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @param options Options.
-   * @since 6
-   */
-  static disableAlertBeforeBackPage(options?: DisableAlertBeforeBackPageOptions): void;
-}
+export default pluginComponentManager;
