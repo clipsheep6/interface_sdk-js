@@ -2844,8 +2844,8 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    on(uri: string, supportShared?: boolean, observer: Callback<void>): void;
-
+    on(uri: string, supportShared: boolean, observer: Callback): void;
+    
     /**
      * Remove specified observer of specified type from the database.
      *
@@ -2889,7 +2889,8 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    off(uri: string, supportShared?: boolean, observer?: Callback<void>): void;
+    off(uri: string, supportShared: boolean, observer?: Callback<void>): void;
+
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
