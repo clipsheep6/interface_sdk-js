@@ -53,5 +53,5 @@ export interface ContinueMissionInfo {
    * @systemapi Hide this for inner system user.
    * @since 10
    */
-  wantParam: { [key: string]: any };
+  wantParam: { [key: string]: Object };
 }
