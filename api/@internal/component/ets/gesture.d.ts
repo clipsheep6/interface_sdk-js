@@ -466,6 +466,30 @@ interface GestureEvent extends BaseEvent {
    * @since 10
    */
   pinchCenterY: number;
+
+  /**
+   * X-axis velocity of the gesture.
+   * Used in PinchGesture.
+   * @crossplatform
+   * @since 10
+   */
+  velocityX: number;
+
+  /**
+   * Y-axis velocity of the gesture.
+   * Used in PinchGesture.
+   * @crossplatform
+   * @since 10
+   */
+  velocityY: number;
+
+  /**
+   * velocity of the gesture.
+   * Used in PinchGesture.
+   * @crossplatform
+   * @since 10
+   */
+  velocity: number;
 }
 
 /**
