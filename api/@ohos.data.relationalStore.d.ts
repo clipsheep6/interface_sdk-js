@@ -2834,7 +2834,7 @@ declare namespace relationalStore {
     /**
      * Registers an observer for the database.
      *
-     * @param { string } uri - Indicates the subscription entity.
+     * @param { string } event - Indicates the subscription event.
      * @param { boolean } supportShared - Indicates whether it is an interprocess subscription or an in-process subscription.
      * @param { Callback<void> } observer - The observer of data change events in the database.
      * @throws { BusinessError } 401 - Parameter error.
@@ -2844,7 +2844,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    on(uri: string, supportShared: boolean, observer: Callback): void;
+    on(event: string, supportShared: boolean, observer: Callback): void;
     
     /**
      * Remove specified observer of specified type from the database.
@@ -2879,7 +2879,7 @@ declare namespace relationalStore {
     /**
      * Remove specified observer of specified type from the database.
      *
-     * @param { string } uri - Indicates the subscription entity.
+     * @param { string } event - Indicates the subscription event.
      * @param { boolean } supportShared - Indicates whether it is an interprocess subscription or an in-process subscription.
      * @param Callback<void> observer - {Array<string>}: the data change observer already registered.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
@@ -2889,13 +2889,13 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    off(uri: string, supportShared: boolean, observer?: Callback<void>): void;
+    off(event: string, supportShared: boolean, observer?: Callback<void>): void;
 
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
      *
-     * @param { string } uri - Indicates the subscription entity.
+     * @param { string } event - Indicates the subscription event.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
@@ -2903,7 +2903,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    emit(uri: string): void;
+    emit(event: string): void;
   }
 
   /**
