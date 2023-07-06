@@ -17,6 +17,7 @@
  * This interface is used for send data to the UIExtensionAbility.
  * It is returned from onRemoteReady callback of class UIExtensionDataSession
  * when UIExtensionAbility connects successfully
+ *
  * @interface UIExtensionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -25,6 +26,7 @@
 declare interface UIExtensionProxy {
   /**
    * this function is called to send data to the UIExtensionAbility.
+   *
    * @param { { [key:string]: Object } } data - data send to UIExtensionAbility
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -36,6 +38,8 @@ declare interface UIExtensionProxy {
 /**
  * This class is used for data IPC to the UIExtensionAbility.
  * when UIExtensionAbility connects successfully
+ *
+ * @interface UIExtensionDataSessionInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -43,6 +47,7 @@ declare interface UIExtensionProxy {
 interface UIExtensionDataSessionInterface {
   /**
    * Default initialization method for UIExtensionDataSessionInterface
+   *
    * @returns { UIExtensionDataSessionInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -52,6 +57,7 @@ interface UIExtensionDataSessionInterface {
 
   /**
    * callback called when data received form UIExtensionAbility
+   *
    * @param { (data: { [key: string]: Object }) => void } callback - called when data received form UIExtensionAbility
    * @returns { UIExtensionDataSessionInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -62,6 +68,7 @@ interface UIExtensionDataSessionInterface {
 
   /**
    * callback called when remote UIExtensionAbility object is ready for receive data
+   *
    * @param { (proxy: UIExtensionProxy) => void } callback - callback called when remote UIExtensionAbility object is
    * <br/>ready for receive data
    * @returns { UIExtensionDataSessionInterface }
@@ -74,6 +81,7 @@ interface UIExtensionDataSessionInterface {
 
 /**
  * Provide an interface for the ui extension component, which is used to render UI of a remote UIExtensionAbility
+ *
  * @interface UIExtensionComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -83,8 +91,9 @@ interface UIExtensionComponentInterface {
   /**
    * Construct the ui extension component.
    * Called when the ui extension component is used.
-   * @param { Want } want - indicates want of the UIExtensionAbility
-   * @param { UIExtensionDataSession }[options] session - indicates session used to data RPC to the UIExtensionAbility
+   *
+   * @param { import('../api/@ohos.app.ability.Want').default } want - indicates want of the UIExtensionAbility
+   * @param { ?UIExtensionDataSession } session session - indicates session used to data RPC to the UIExtensionAbility
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -95,6 +104,8 @@ interface UIExtensionComponentInterface {
 
 /**
  * Define the attribute functions of ui extension component.
+ *
+ * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -102,6 +113,7 @@ interface UIExtensionComponentInterface {
 declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComponentAttribute> {
   /**
    * Called when the provider sends data
+   *
    * @param { (code: number, want?: Want) => void } callback - called when the UIExtensionAbility is terminated with
    * <br/>result data.
    * @returns { UIExtensionComponentAttribute }
@@ -112,6 +124,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   onResult(callback: (
     /**
      * result code.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 10
@@ -119,6 +132,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
     code: number,
     /**
      * result want.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 10
@@ -127,6 +141,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
 
   /**
    * Called when the connect to the UIExtension is broken.
+   *
    * @param { (releaseCode: number) => void } callback - called when the connect to the UIExtension is broken.
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -145,6 +160,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
 
   /**
    * Called when some error occurred except disconnected from UIExtensionAbility.
+   *
    * @param { (errCode: number, errMsg: string) => void } callback - the callback
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -154,6 +170,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   onError(callback: (
     /**
      * error code
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 10
@@ -161,6 +178,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
     errCode: number,
     /**
      * error message
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 10
@@ -170,6 +188,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
 
 /**
  * Defines UIExtensionComponent Component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -178,6 +197,7 @@ declare const UIExtensionComponent: UIExtensionComponentInterface;
 
 /**
  * Defines UIExtensionComponent Component instance.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
@@ -186,6 +206,7 @@ declare const UIExtensionComponentInstance: UIExtensionComponentAttribute;
 
 /**
  * Defines UIExtensionDataSession.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
