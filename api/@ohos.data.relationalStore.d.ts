@@ -1733,10 +1733,10 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the Asset type.
      *
-     * @param { number } columnIndex - indicates the specified column index, which starts from 0.
-     * @returns { Asset } the value of the specified column as an asset.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { Asset } The value of the specified column as an asset.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1748,10 +1748,10 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the Assets type.
      *
-     * @param { number } columnIndex - indicates the specified column index, which starts from 0.
-     * @returns { Assets } the value of the specified column as assets.
-     * @throws { BusinessError } 14800013 - the column value is null or the column type is incompatible.
-     * @throws { BusinessError } 401 - the parameter check failed.
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { Assets } The value of the specified column as assets.
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -1822,14 +1822,16 @@ declare namespace relationalStore {
    */
   interface RdbStore {
     /**
-     * Obtains the RdbStore version. The version number must be an integer greater than 0.
+     * Set RdbStore version. The version number must be an integer greater than 0.
+     * Obtains the RdbStore version.
      *
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
     /**
-     * Obtains the RdbStore version. The version number must be an integer greater than 0.
+     * Set RdbStore version. The version number must be an integer greater than 0.
+     * btains the RdbStore version.
      *
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -2675,12 +2677,12 @@ declare namespace relationalStore {
      * Set table to be distributed table.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Array<string> } tables - indicates the tables name you want to set.
-     * @param { number } type - indicates the tables distributed type {@link DistributedType}.
+     * @param { Array<string> } tables - Indicates the tables name you want to set.
+     * @param { number } type - Indicates the tables distributed type {@link DistributedType}.
      * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
-     * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
-     * @param { AsyncCallback<void> } callback - the callback of setDistributedTables.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @param { DistributedConfig } config - Indicates the distributed config of the tables. {@link DistributedConfig}.
+     * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -2696,7 +2698,7 @@ declare namespace relationalStore {
      * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
      * @param { DistributedConfig } config - indicates the distributed config of the tables. {@link DistributedConfig}.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -2823,8 +2825,8 @@ declare namespace relationalStore {
      * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer
      * {Array<string>}: the observer of data change events in the distributed database.
      * {Array<ChangeInfo>}: the change info of data change events in the distributed database.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -2868,8 +2870,8 @@ declare namespace relationalStore {
      * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> | Callback<Array<ChangeInfo>> } observer - {Array<string>}: the data change observer already registered.
      * {Array<ChangeInfo>}: the change info already registered.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
@@ -2882,7 +2884,7 @@ declare namespace relationalStore {
      * @param { string } event - Indicates the subscription event.
      * @param { boolean } supportShared - Indicates whether it is an interprocess subscription or an in-process subscription.
      * @param Callback<void> observer - {Array<string>}: the data change observer already registered.
-     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
