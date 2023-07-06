@@ -1831,7 +1831,7 @@ declare namespace relationalStore {
      */
     /**
      * Set RdbStore version. The version number must be an integer greater than 0.
-     * btains the RdbStore version.
+     * Obtains the RdbStore version.
      *
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
