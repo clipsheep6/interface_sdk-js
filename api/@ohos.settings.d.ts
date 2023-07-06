@@ -14,6 +14,7 @@
  */
 import { AsyncCallback } from './@ohos.base';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
+import Context from './application/Context';
 
 /**
  * This module provides settings data access abilities.
@@ -793,9 +794,22 @@ declare namespace settings {
    * @since 7
    * @deprecated since 9
    * @FAModelOnly
+   * @useinstead ohos.settings#getValue
    */
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<object>): void;
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise<object>;
+  /**
+   * get value from settingsdata
+   * @param context Indicates the Context or dataAbilityHelper used to access
+   * the database.
+   * @param name Indicates the name of the character string.
+   * @returns Returns the value of the character string in the table if any is found; returns {@code null}
+   * otherwise.
+   * @StageModelOnly
+   * @since 10
+   */
+  function getValue(context: Context, name: string, callback: AsyncCallback<string>): void;
+  function getValue(context: Context, name: string): Promise<string>;
 
   /**
    * Saves a character string name and its value to the database.
@@ -809,9 +823,23 @@ declare namespace settings {
    * @systemapi Hide this for inner system use.
    * @deprecated since 9
    * @FAModelOnly
+   * @useinstead ohos.settings#setValue
    */
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object): Promise<boolean>;
+
+  /**
+   * set settingsdata value.
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @param context Indicates Context or dataAbilityHelper instance
+   * @param name Indicates the name of the character string.
+   * @param value Indicates the value of the character string.
+   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @StageModelOnly
+   * @since 10
+   */
+  function setValue(context: Context, name: string, value: string, callback: AsyncCallback<boolean>): void;
+  function setValue(context: Context, name: string, value: string): Promise<boolean>;
 
   /**
    * Enables or disables airplane mode.
@@ -852,8 +880,20 @@ declare namespace settings {
    * @returns settingsdata value
    * @deprecated since 9
    * @FAModelOnly
+   * @useinstead ohos.settings#getValueSync
    */
   function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
+
+  /**
+   * get value from settingsdata(synchronization method)
+   * @param context Indicates Context or dataAbilityHelper instance
+   * @param name Indicates the name of the character string.
+   * @param defValue Indicates the default value of the character string.
+   * @returns settingsdata value
+   * @StageModelOnly
+   * @since 10
+   */
+  function getValueSync(context: Context, name: string, defValue: string): string;
 
   /**
    * set settingsdata value(synchronization method)
@@ -865,8 +905,21 @@ declare namespace settings {
    * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @deprecated since 9
    * @FAModelOnly
+   * @useinstead ohos.settings#setValueSync
    */
   function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
+
+  /**
+   * set settingsdata value(synchronization method)
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @param context Indicates Context or dataAbilityHelper instance
+   * @param name Indicates the name of the character string.
+   * @param value Indicates the value of the character string.
+   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @StageModelOnly
+   * @since 10
+   */
+  function setValueSync(context: Context, name: string, value: string): boolean;
 }
 
 export default settings;
