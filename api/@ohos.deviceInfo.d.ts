@@ -105,12 +105,12 @@ declare namespace deviceInfo {
   /**
    * Obtains the software model represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
-   * @crossplatform
    * @since 6
    */
   /**
    * Obtains the software model represented by a string.
    * @syscap SystemCapability.Startup.SystemInfo
+   *  @crossplatform
    * @since 10
    */
   const softwareModel: string;
@@ -133,6 +133,12 @@ declare namespace deviceInfo {
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
    * @deprecated since 9
+   */
+  /**
+   * Obtains the hardware model represented by a string.
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @crossplatform
+   * @since 10
    */
   const hardwareProfile: string;
 
