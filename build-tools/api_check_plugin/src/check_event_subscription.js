@@ -181,11 +181,11 @@ function checkEventSubscription(node, sourcefile, fileName) {
       }
     });
     // check the callback parameter of off function is optional
-    for (const event of offEventCheckNames) {
+    for (let event of offEventCheckNames) {
       checkOffFunctions(offEventNodes.get(event), sourcefile, fileName);
     }
     // check if the on and off functions of one event shows in pair
-    checkOnAndOffAppearInPair(node, sourcefile, fileName, onEventAllNames, onEventCheckNames, offEventAllNames, offEventCheckNames);
+    checkOnAndOffAppearInPair(node, sourcefile, fileName, onEventAllNames, onEventCheckNames, offEventAllNames, offEventCheckNames)
   }
 }
 exports.checkEventSubscription = checkEventSubscription;

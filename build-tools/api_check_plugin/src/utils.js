@@ -22,15 +22,14 @@ function requireTypescriptModule() {
     return require('typescript');
   }
   const tsPathArray = [
-    path.resolve(__dirname, '../node_modules/typescript'),
-    path.resolve(__dirname, '../../node_modules/typescript')
+    path.resolve(__dirname, "../node_modules/typescript"),
+    path.resolve(__dirname, "../../node_modules/typescript")
   ];
   if (fs.existsSync(tsPathArray[0])) {
     return require(tsPathArray[0]);
   } else if (fs.existsSync(tsPathArray[1])) {
     return require(tsPathArray[1]);
   }
-  return null;
 }
 exports.requireTypescriptModule = requireTypescriptModule;
 const ts = requireTypescriptModule();
@@ -72,7 +71,7 @@ function hasAPINote(node) {
 exports.hasAPINote = hasAPINote;
 
 function removeDir(url) {
-  const statObj = fs.statSync(url);
+  let statObj = fs.statSync(url);
   if (statObj.isDirectory()) {
     let dirs = fs.readdirSync(url);
     dirs = dirs.map(dir => path.join(url, dir));
@@ -98,8 +97,8 @@ function writeResultFile(resultData, outputPath, option) {
 exports.writeResultFile = writeResultFile;
 
 function overwriteIndexOf(item, array) {
-  const indexArr = [];
-  for (let i = 0; i < array.length; i++) {
+  let indexArr = [];
+  for (var i = 0; i < array.length; i++) {
     if (array[i] === item) {
       indexArr.push(i);
     }
@@ -156,6 +155,10 @@ const ErrorType = {
   ILLEGAL_ANY: {
     id: 11,
     description: 'illegal any'
+  },
+  API_CHANGE_ERRORS: {
+    id: 12,
+    description: 'api change errors'
   }
 };
 exports.ErrorType = ErrorType;
@@ -180,10 +183,10 @@ const FileType = {
 };
 exports.FileType = FileType;
 
-const apiCheckArr = [];
+let apiCheckArr = [];
 exports.apiCheckArr = apiCheckArr;
 
-const apiCheckInfoArr = [];
+let apiCheckInfoArr = [];
 exports.apiCheckInfoArr = apiCheckInfoArr;
 
 class ApiCheckResultClass {
@@ -204,6 +207,7 @@ async function excelApiCheckResult(apiCheckArr) {
   fs.writeFile('Js_Api.xlsx', buffer, function (err) {
     if (err) {
       console.error(err);
+      return;
     }
   });
   return buffer;
@@ -212,8 +216,8 @@ exports.excelApiCheckResult = excelApiCheckResult;
 
 function getApiInfo(node) {
   const notesStr = getAPINote(node);
-  const apiInfo = {};
-  const versionArr = [];
+  let apiInfo = {};
+  let versionArr = [];
   if (notesStr !== '') {
     if (/\@systemapi/g.test(notesStr)) {
       apiInfo.isSystemApi = 'system api';
@@ -223,7 +227,7 @@ function getApiInfo(node) {
     }
     if (/\@since\s*(\d+)/g.test(notesStr)) {
       notesStr.replace(/\@since\s*(\d+)/g, (versionInfo) => {
-        versionArr.push(versionInfo);
+        versionArr.push(versionInfo)
         apiInfo.version = versionInfo.replace(/\@since/g, '').trim();
       });
       apiInfo.humpVersion = versionArr[0].replace(/\@since/g, '').trim();
@@ -281,8 +285,8 @@ function parseJsDoc(node) {
 }
 exports.parseJsDoc = parseJsDoc;
 
-const systemPermissionFile = path.resolve(__dirname, '../../../../../',
-  'base/global/system_resources/systemres/main/config.json');
+let systemPermissionFile = path.resolve(__dirname, '../../../../../',
+  "base/global/system_resources/systemres/main/config.json");
 
 exports.systemPermissionFile = systemPermissionFile;
 
@@ -327,7 +331,20 @@ const ErrorValueInfo = {
   ERROR_EVENT_CALLBACK_OPTIONAL: 'The callback parameter of off function should be optional.',
   ERROR_EVENT_CALLBACK_MISSING: 'The off functions of one single event should have at least one callback parameter, and the callback parameter should be the last parameter.',
   ERROR_EVENT_ON_AND_OFF_PAIR: 'The on and off event subscription methods do not appear in pair.',
-  ILLEGAL_USE_ANY: 'Illegal [any] keyword used in the API'
+  ILLEGAL_USE_ANY: 'Illegal [any] keyword used in the API',
+  ERROR_CHANGES_VERSION: 'Please check if the changed API version number is 10.',
+  ERROR_CHANGES_API_HISTORY_PARAM_REQUIRED_CHANGE: 'Forbid changes: Optional parameters cannot be changed to required parameters.',
+  ERROR_CHANGES_API_HISTORY_PARAM_RANGE_CHANGE: 'Forbid changes: Parameters type range cannot be reduced.',
+  ERROR_CHANGES_API_HISTORY_PARAM_WITHOUT_TYPE_CHANGE: 'Forbid changes: Parameters Parameter must be defined by type.',
+  ERROR_CHANGES_API_HISTORY_PARAM_TYPE_CHANGE: 'Forbid changes: Parameters type cannot be modified.',
+  ERROR_CHANGES_API_HISTORY_PARAM_POSITION_CHANGE: 'Forbid changes: Parameters position not be allowed to be modified.',
+  ERROR_CHANGES_API_NEW_REQUIRED_PARAM: 'Forbid changes: Required parameters cannot be created.',
+  ERROR_CHANGES_API_DELETE_PARAM: 'Forbid changes: Parameters cannot be deleted.',
+  ERROR_CHANGES_DEPRECATED: 'Forbid changes: The api has deprecated tag.',
+  ERROR_CHANGES_JSDOC_NUMBER: 'Forbid changes: API changes must add a new section of JSDoc.',
+  ERROR_CHANGES_JSDOC_CHANGE: 'Forbid changes: Previous JSDoc cannot be changed.',
+  ERROR_CHANGES_JSDOC_TRROWS: 'Forbid changes: Throws tag cannot be created.',
+  ERROR_CHANGES_JSDOC_PERMISSION: 'Forbid changes: Permission tag cannot be created or modified.'
 };
 exports.ErrorValueInfo = ErrorValueInfo;
 
@@ -346,7 +363,7 @@ exports.createErrorInfo = createErrorInfo;
  * judge if it is an API file for Arkui
  */
 function isArkUIApiFile(fileName) {
-  if (fileName.indexOf('component\\ets\\') >= 0 || fileName.indexOf('component/ets/') >= 0) {
+  if (fileName.indexOf("component\\ets\\") >= 0 || fileName.indexOf("component/ets/") >= 0) {
     return true;
   }
   return false;
@@ -356,26 +373,26 @@ exports.isArkUIApiFile = isArkUIApiFile;
 function isWhiteListFile(fileName, whiteList) {
   for (let i = 0; i < whiteList.length; i++) {
     if (path.normalize(fileName).indexOf(path.normalize(whiteList[i])) !== -1) {
-      return true;
+      return true
     }
   }
-  return false;
+  return false
 }
 exports.isWhiteListFile = isWhiteListFile;
 
 function getCheckApiVersion() {
-  const packageJsonPath = path.join(__dirname, '../package.json');
+  const packageJsonPath = path.join(__dirname, "../package.json");
   let packageJson;
   let checkApiVersion;
   try {
-    const packageJsonContent = fs.readFileSync(packageJsonPath, 'utf8');
+    const packageJsonContent = fs.readFileSync(packageJsonPath, "utf8");
     packageJson = JSON.parse(packageJsonContent);
     checkApiVersion = packageJson.checkApiVersion;
   } catch (error) {
     throw `Failed to read package.json or parse JSON content: ${error}`;
   }
   if (!checkApiVersion) {
-    throw 'Please configure the correct API version to be verified';
+    throw `Please configure the correct API version to be verified`;
   }
   return checkApiVersion;
 }
@@ -385,14 +402,15 @@ const OptionalSymbols = {
   QUERY: '?',
   LEFT_BRACKET: '[',
   RIGHT_BRACKET: ']',
-  LEFT_BRACE: '{',
-  RIGHT_BRACE: '}'
+  LEFT_BRACE:'{',
+  RIGHT_BRACE:'}'
 };
 exports.OptionalSymbols = OptionalSymbols;
 
+
 function removeDuplicateObj(array) {
-  const newArr = [];
-  const errorInfoSet = new Set();
+  let newArr = [];
+  let errorInfoSet = new Set();
   for (const errorInfo of array) {
     if (!errorInfoSet.has(JSON.stringify(errorInfo))) {
       errorInfoSet.add(JSON.stringify(errorInfo));
@@ -413,3 +431,7 @@ function checkVersionNeedCheck(node) {
   return false;
 }
 exports.checkVersionNeedCheck = checkVersionNeedCheck;
+
+const FUNCTION_TYPES = [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+  ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor];
+exports.FUNCTION_TYPES = FUNCTION_TYPES;

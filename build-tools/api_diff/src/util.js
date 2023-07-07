@@ -24,28 +24,26 @@ function readFile(dir, utFiles) {
       const status = fs.statSync(filePath);
       if (status.isDirectory()) {
         readFile(filePath, utFiles);
-      } else if (filePath.indexOf('\\component\\') > 0 || filePath.indexOf('\\api\\') >= 0) {
+      } else if (filePath.indexOf("\\component\\") > 0 || filePath.indexOf("\\api\\") >= 0) {
         if (/\.d\.ts/.test(filePath)) {
           utFiles.push(filePath);
         }
       }
-    });
+    })
   } catch (error) {
     console.error('ETS ERROR: ' + error);
   }
 }
-
-function getFilePath(filePath) {
-  if (filePath.indexOf('\\component\\') > 0 || filePath.indexOf('\\api\\') >= 0) {
+function getFilePath(filePath){
+  if (filePath.indexOf("\\component\\") > 0 || filePath.indexOf("\\api\\") >= 0) {
     if (/\.d\.ts/.test(filePath)) {
       return filePath;
     }
   }
-  return '';
 }
 
 function getSubsystemBySyscap(baseApi, syscap) {
-  let syscapInfo = '';
+  let syscapInfo = ''
   let filePath = __dirname.replace('\\src', '') + '\\subsystem.json';
   let subsystemArr = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
   let subsystemSet = new Set([]);
@@ -53,8 +51,7 @@ function getSubsystemBySyscap(baseApi, syscap) {
   subsystemArr.forEach(subsystem => {
     subsystemSet.add(subsystem.subsystem);
   });
-
-  if (syscap !== 'N/A' && syscap.new !== 'N/A') {
+  if (syscap !== 'N/A' && syscap.new!== 'N/A') {
     let syscapArr = syscap instanceof Object ? syscap.new.split('.') : syscap.split('.');
     syscapInfo = syscapArr[1];
   } else if (baseApi.dtsPath.indexOf('component') > 0) {
@@ -64,7 +61,7 @@ function getSubsystemBySyscap(baseApi, syscap) {
     if (/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(fileContent)) {
       fileContent.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g, sysCapInfo => {
         syscapInfo = sysCapInfo.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]/g, '').trim().split('.')[1];
-      });
+      })
     }
   }
   return syscapInfo;
@@ -96,7 +93,7 @@ function getApiInfoWithFlag(baseApi, flag, diffOld, diffNew, subsystemMap, sysca
     diffNew: diffNew,
     note: note,
     typeInfo: baseApi.typeInfo
-  };
+  }
 }
 
 // 给api信息添加去掉dtsPath
@@ -117,7 +114,7 @@ function getApiInfoDeleteDtsPath(baseApi) {
     endexport: baseApi.endexport,
     errorCode: baseApi.errorCode,
     typeInfo: baseApi.typeInfo
-  };
+  }
 }
 
 exports.readFile = readFile;

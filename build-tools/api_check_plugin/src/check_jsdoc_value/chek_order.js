@@ -12,10 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const {
-  requireTypescriptModule, tagsArrayOfOrder, commentNodeWhiteList, parseJsDoc, ErrorType, ErrorLevel, FileType,
-  inheritArr, ErrorValueInfo, createErrorInfo, isWhiteListFile
-} = require('../utils');
+const { requireTypescriptModule, tagsArrayOfOrder, commentNodeWhiteList, parseJsDoc, ErrorType, ErrorLevel, FileType,
+  inheritArr, ErrorValueInfo, createErrorInfo, isWhiteListFile } = require('../utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
 const rules = require('../../code_style_rule.json');
 const whiteLists = require('../../config/jsdocCheckWhiteList.json');
@@ -52,18 +50,18 @@ function isAscendingOrder(tags) {
 
 // check jsdoc order
 function checkApiOrder(comments) {
-  const checkOrderRusult = [];
+  let checkOrderRusult = [];
   comments.forEach(docInfo => {
     if (isAscendingOrder(docInfo.tags)) {
       checkOrderRusult.push({
         checkResult: true,
-        errorInfo: ''
+        errorInfo: "",
       });
     } else {
-      const errorInfo = ErrorValueInfo.ERROR_ORDER;
+      let errorInfo = ErrorValueInfo.ERROR_ORDER;
       checkOrderRusult.push({
         checkResult: false,
-        errorInfo
+        errorInfo: errorInfo,
       });
     }
   });
@@ -74,9 +72,9 @@ exports.checkApiOrder = checkApiOrder;
 function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
   let isIllegalTagWhitetFile = true;
   isIllegalTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag);
-  const APITagNameResult = {
+  let APITagNameResult = {
     checkResult: true,
-    errorInfo: ''
+    errorInfo: '',
   };
   const tagName = tag.tag;
   const docTags = [...rules.decorators['customDoc'], ...rules.decorators['jsDoc']];
@@ -92,7 +90,7 @@ function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
 exports.checkAPITagName = checkAPITagName;
 
 function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
-  const parentTagArr = [];
+  let parentTagArr = [];
   if (ts.isSourceFile(node)) {
     return inheritResult;
   }
@@ -101,10 +99,10 @@ function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
     if (comments.length > 0 && Array.isArray(comments[comments.length - 1].tags)) {
       comments[comments.length - 1].tags.forEach(tag => {
         parentTagArr.push(tag.tag);
-      });
+      })
       if (parentTagArr.includes(inheritTag)) {
         inheritResult.checkResult = false;
-        inheritResult.errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_INHERIT, [inheritTag]);
+        inheritResult.errorInfo += createErrorInfo(ErrorValueInfo.ERROR_INFO_INHERIT, [inheritTag])
       } else {
         checkParentInheritTag(node.parent, inheritTag, inheritResult, JSocIndex);
       }
@@ -119,20 +117,20 @@ function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
 function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex) {
   let isMissingTagWhitetFile = true;
   isMissingTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag);
-  const inheritResult = {
+  let inheritResult = {
     checkResult: true,
-    errorInfo: ''
+    errorInfo: '',
   };
-  const tagArr = [];
+  let tagArr = [];
   if (commentNodeWhiteList.includes(node.kind)) {
     comment.tags.forEach(tag => {
-      tagArr.push(tag.tag);
-    });
+      tagArr.push(tag.tag)
+    })
     inheritArr.forEach((inheritTag, index) => {
       if (!tagArr.includes(inheritTag)) {
         checkParentInheritTag(node, inheritArr[index], inheritResult, JSocIndex);
       }
-    });
+    })
     if (!inheritResult.checkResult && isMissingTagWhitetFile) {
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, inheritResult.errorInfo, FileType.API,
         ErrorLevel.MIDDLE);

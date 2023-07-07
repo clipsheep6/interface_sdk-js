@@ -28,18 +28,19 @@ function checkEntry(prId) {
     const execSync = require('child_process').execSync;
     do {
       try {
-        buffer = execSync('cd interface/sdk-js/build-tools/api_check_plugin && npm install', {
-          timeout: 120000
+        buffer = execSync('cd interface/sdk-js/build-tools/diff_api && npm install && cd ../api_check_plugin && npm install', {
+          timeout: 120000,
         });
         execute = true;
-      } catch (error) { }
+      } catch (error) {}
     } while (++i < 3 && !execute);
     if (!execute) {
       throw 'npm install timeout';
     }
     const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
-    result = scanEntry(mdFilesPath);
+    result = scanEntry(mdFilesPath, prId);
     result = reqGitApi(result, prId);
+    removeDir(path.resolve(__dirname, '../diff_api/node_modules'));
     removeDir(path.resolve(__dirname, 'node_modules'));
   } catch (error) {
     // catch error
@@ -56,7 +57,7 @@ function checkEntry(prId) {
 }
 
 function removeDir(url) {
-  const statObj = fs.statSync(url);
+  let statObj = fs.statSync(url);
   if (statObj.isDirectory()) {
     let dirs = fs.readdirSync(url);
     dirs = dirs.map((dir) => path.join(url, dir));

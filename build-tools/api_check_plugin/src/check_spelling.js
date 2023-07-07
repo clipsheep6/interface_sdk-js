@@ -70,7 +70,7 @@ function checkWordSpelling(nodeText, node, sourcefile, fileName, type) {
   }
 }
 
-/**
+/** 
  *  check base word
  * @param {string} word
  * @return true or false
@@ -97,7 +97,7 @@ function splitComplexWords(complexWord) {
       basicWords = complexWord.split(/(?<!^)(?=[A-Z])/g);
     }
   }
-  const newBaseWords = [];
+  let newBaseWords = [];
   basicWords.forEach(word => {
     if (/[0-9]/g.test(word)) {
       newBaseWords.concat(word.split(/0-9/g));
