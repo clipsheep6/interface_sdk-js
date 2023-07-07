@@ -3203,6 +3203,171 @@ declare enum DragBehavior {
 }
 
 /**
+ * Enum for PreviewUsage.
+ * @enum { number } 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum PreviewUsage {
+  /**
+   * Use Preview for default DRAG and DROP
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DRAG_DROP,
+  /**
+   * Use Preview for CONTEXT_MENU_DRAG
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CONTEXT_MENU_DRAG,
+  /**
+   * Use Preview for ALL, contains DRAG_DROP and CONTEXT_MENU_DRAG
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  ALL,
+  /**
+   * Use Preview for NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  NONE
+}
+
+/**
+ * Enum for Drag Preview Type.
+ * @enum { number } 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum PreviewType {
+  /**
+   * Use Default PreviewType
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DEFAULT,
+  /**
+   * Use Custom Pixelmap
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CUSTOM_PIXELMAP,
+  /**
+   * Use Custom Builder
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CUSTOM_BUILDER,
+  /**
+   * Use Uri to support svg Preview Type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  CUSTOM_URI,
+}
+
+/**
+ * PreviewItemInfo object description.
+ * @interface PreviewItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface PreviewItem {
+  /**
+   * If you use Default PreviewItem, set DEFAULT.
+   * If you use PixelMap PreviewItem, set CUSTOM_PIXELMAP.
+   * If you use CustomBuilder PreviewItem, set CUSTOM_BUILDER.
+   * If you use String PreviewItem, set CUSTOM_URI.
+   * @type { PreviewType } - PreviewItem Type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  type: PreviewType;
+
+  /**
+   * If you use PixelMap, set PixelMap Data.
+   * @type { PixelMap } - PixelMap Data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  pixelMap?: PixelMap;
+
+  /**
+   * If you use CustomBuilder, set CustomBuilder Data.
+   * @type { CustomBuilder } - CustomBuilder Data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  builder?: CustomBuilder;
+
+  /**
+   * If you use String, set String Data.
+   * @type { string } - String.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  src?: string;
+
+  /**
+   * If you use MultiSelected, set itemSelected Data.
+   * @type { Array<number> } - MultiSelected Data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  itemSelected?: Array<number>;
+}
+
+/**
+ * Previews Item Data List.
+ * @interface Previews
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface Previews {
+  /**
+   * Preview Item.
+   * @type { Array<PreviewItem> } - Preview Item Data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  item?: Array<PreviewItem>;
+
+  /**
+   * PreviewUsage for each Preview Item.
+   * @type { Map<PreviewUsage, number> } - PreviewUsage, Preview Item Pair.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  itemUsage?: Map<PreviewUsage, number>;
+}
+
+/**
+ * Declare index for item.
+ * @interface ItemIndex
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare interface ItemIndex{
+  /**
+   * Item index.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  index: number,
+
+  /**
+   * Item index in group.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  indexInGroup?: number
+}
+
+/**
  * Import the UnifiedData, Summary, UnifiedDataType type object for ui component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -3391,6 +3556,59 @@ declare interface DragEvent {
    * @since 10
    */
   getPreviewRect(): Rectangle;
+
+  /**
+   * Called to get insert index.
+   * @returns { ItemIndex } the insert index.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getInsertIndex(): ItemIndex;
+
+  /**
+   * Called to get the index of the dragged item.
+   * @returns { ItemIndex } the Index of the dragged item.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getDraggedIndex(): ItemIndex;
+
+  /**
+   * Called to set the drag is use for sort.
+   * @param { boolean } dragForSort - the drag is use for sort.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  setDragForSort(dragForSort: boolean): void;
+}
+
+/**
+ * Declare drag direction.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum DragDirection {
+  /**
+   * Free Drag.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  FREE,
+  
+  /**
+   * Drag along the vertical direction.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  VERTICAL,
+  
+  /**
+   * Drag along the horizontal direction.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  HORIZONTAL,
 }
 
 /**
@@ -5726,6 +5944,24 @@ declare class CommonMethod<T> {
    * @since 10
    */
   draggable(value: boolean): T;
+  
+  /**
+   * This function is called to set Custom Preview Item.
+   * @param { (event: TouchEvent) => string | PixelMap | CustomBuilder } event - Indicates the callback event.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  onPreview(event: (event: TouchEvent) => Previews): T;
+
+  /**
+   * Called to set drag direction.
+   * @param { DragDirection } dragDirection - drag direction.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  dragDirection(dragDirection: DragDirection): T;
 
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
