@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Callback } from './basic';
+import { Callback } from './@ohos.base';
 
 /**
  * Provides methods for sending and processing in-process events.
@@ -25,34 +25,44 @@ import { Callback } from './basic';
  */
 declare namespace emitter {
   /**
-   * Subscribes to a certain event in persistent manner and receives the event callback.
+   * Subscribe to a certain event in persistent manner and receives the event callback.
    *
    * @since 7
    * @param event indicate event to subscribe to.
    * @param callback indicate callback used to receive the event.
-   * @return -
+   * @returns -
    */
   function on(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
-   * Subscribes to a certain event in one-shot manner and unsubscribes from it
+   * Subscribe to a certain event in one-shot manner and unsubscribe from it
    * after the event callback is received.
    *
    * @since 7
    * @param event indicate event to subscribe to in one shot.
    * @param callback indicate callback used to receive the event.
-   * @return -
+   * @returns -
    */
   function once(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
-   * Unsubscribes from an event.
+   * Unsubscribe from an event.
    *
    * @since 7
    * @param eventId indicate ID of the event to unsubscribe from.
-   * @return -
+   * @returns -
    */
   function off(eventId: number): void;
+
+  /**
+   * Unsubscribe from an event.
+   *
+   * @param { number } eventId - indicates ID of the event to unsubscribe from.
+   * @param { Callback<EventData> } callback - indicates callback used to receive the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @since 10
+   */
+  function off(eventId: number, callback: Callback<EventData>): void;
 
   /**
    * Emits an event to the event queue.
@@ -60,7 +70,7 @@ declare namespace emitter {
    * @since 7
    * @param event indicate event to emit.
    * @param data indicate data carried by the event.
-   * @return -
+   * @returns -
    */
   function emit(event: InnerEvent, data?: EventData): void;
 
@@ -71,7 +81,7 @@ declare namespace emitter {
     /**
      * Data carried by the event.
      */
-    data?: {[key: string]: any};
+    data?: { [key: string]: any };
   }
 
   /**

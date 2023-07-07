@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,45 +13,78 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback } from './basic';
 
 /**
  * Provide APIs to set system uiAppearance.
+ *
+ * @namespace uiAppearance
  * @syscap SystemCapability.ArkUI.UiAppearance
- * @import import uiAppearance from '@ohos.uiAppearance';
- * @since 9
+ * @systemapi hide this for inner system use
+ * @since 10
  */
 declare namespace uiAppearance {
+  /**
+   * Enumerates dark-mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @systemapi hide this for inner system use
+   * @since 10
+   */
+  enum DarkMode {
     /**
-     * Enumerates dark-mode.
+     * Always display with dark mode.
+     *
+     * @syscap SystemCapability.ArkUI.UiAppearance
+     * @systemapi hide this for inner system use
+     * @since 10
      */
-    enum DarkMode {
-        /**
-         * Always display with dark mode.
-         */
-        ALWAYS_DARK = 0,
-
-        /**
-         * Always display with light mode.
-         */
-        ALWAYS_LIGHT = 1
-    }
-
-    /**
-     * Set the system dark-mode.
-     * @param mode Indicates the dark-mode to set
-     * @permission ohos.permission.UPDATE_CONFIGURATION
-     * @systemapi Hide this for inner system use
-     */
-    function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
-    function setDarkMode(mode: DarkMode): Promise<void>;
+    ALWAYS_DARK = 0,
 
     /**
-     * Acquire the current dark-mode.
-     * @return current dark-mode.
-     * @permission ohos.permission.UPDATE_CONFIGURATION
-     * @systemapi Hide this for inner system use
+     * Always display with light mode.
+     *
+     * @syscap SystemCapability.ArkUI.UiAppearance
+     * @systemapi hide this for inner system use
+     * @since 10
      */
-    function getDarkMode(): DarkMode;
+    ALWAYS_LIGHT = 1
+  }
+
+  /**
+   * Set the system dark-mode.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @param { DarkMode } mode - indicates the dark-mode to set
+   * @param { AsyncCallback<void> } callback - the callback of setDarkMode
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @systemapi hide this for inner system use
+   * @since 10
+   */
+  function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the system dark-mode.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @param { DarkMode } mode - indicates the dark-mode to set
+   * @returns { Promise<void> } the promise returned by the function
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @systemapi hide this for inner system use
+   * @since 10
+   */
+  function setDarkMode(mode: DarkMode): Promise<void>;
+
+  /**
+   * Acquire the current dark-mode.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @returns { DarkMode } current dark-mode.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @systemapi hide this for inner system use
+   * @since 10
+   */
+  function getDarkMode(): DarkMode;
 }
 export default uiAppearance;

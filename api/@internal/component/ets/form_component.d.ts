@@ -63,7 +63,27 @@ declare enum FormDimension {
 interface FormComponentInterface {
   /**
    * Set a new value.
+   * @param { number } id - id indicates the formId
+   * @param { string } name - name indicates the form name
+   * @param { string } bundle - bundle indicates the form provider's bundle name
+   * @param { string } ability - ability indicates the form provider's ability name
+   * @param { string } module - module indicates the form provider's ability name
+   * @param { FormDimension } [options] - dimension indicates the form size
+   * @param { boolean } [options] - temporary indicates that if the form is temporary
    * @since 7
+   * @systemapi
+   */
+  /**
+   * Set a new value.
+   * @param { number } id - id indicates the formId
+   * @param { string } name - name indicates the form name
+   * @param { string } bundle - bundle indicates the form provider's bundle name
+   * @param { string } ability - ability indicates the form provider's ability name
+   * @param { string } module - module indicates the form provider's ability name
+   * @param { FormDimension } [options] - dimension indicates the form size
+   * @param { boolean } [options] - temporary indicates that if the form is temporary
+   * @param { Want } [options] - want indicates the want that host send to form provider
+   * @since 9
    * @systemapi
    */
   (value: {
@@ -74,6 +94,7 @@ interface FormComponentInterface {
     module: string;
     dimension?: FormDimension;
     temporary?: boolean;
+    want?: import('../api/@ohos.app.ability.Want').default;
   }): FormComponentAttribute;
 }
 
@@ -145,7 +166,26 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    */
   onUninstall(callback: (info: { id: number }) => void): FormComponentAttribute;
+
+  /**
+   * Card to be loaded.
+   * @since 10
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   */
+  onLoad(callback: () => void): FormComponentAttribute;
 }
 
+/**
+ * Defines FormComponent Component.
+ * @since 7
+ * @systemapi
+ */
 declare const FormComponent: FormComponentInterface;
+
+/**
+ * Defines FormComponent Component instance.
+ * @since 7
+ * @systemapi
+ */
 declare const FormComponentInstance: FormComponentAttribute;

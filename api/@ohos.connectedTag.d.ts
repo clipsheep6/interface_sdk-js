@@ -13,96 +13,146 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './basic';
+import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Provides methods to operate or manage Connected Tag.
  *
  * @since 8
  * @syscap SystemCapability.Communication.ConnectedTag
- * @import import connectedTag from '@ohos.connectedTag';
  */
 declare namespace connectedTag {
-    /**
-     * Initializes Connected Tag.
-     *
-     * @return Returns true or false.
-     * @permissions ohos.permission.NFC_TAG
-     *
-     * @since 8
-     */
-    function init(): boolean;
+  /**
+   * Initializes Connected Tag.
+   *
+   * @returns Returns true or false.
+   * @permission ohos.permission.NFC_TAG
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.connectedTag/connectedTag#initialize
+   */
+  function init(): boolean;
 
-    /**
-     * UnInitializes Connected Tag.
-     *
-     * @return Returns true or false.
-     * @permissions ohos.permission.NFC_TAG
-     *
-     * @since 8
-     */
-    function uninit(): boolean;
+  /**
+   * Initializes the connected NFC tag.
+   *
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
+   * @permission ohos.permission.NFC_TAG
+   * @since 9
+   */
+  function initialize(): void;
 
-    /**
-     * Reads the NDEF Data.
-     *
-     * @return Returns the NDEF Data.
-     * @permissions ohos.permission.NFC_TAG
-     *
-     * @since 8
-     */
-    function readNdefTag(): Promise<string>;
-    function readNdefTag(callback: AsyncCallback<string>): void;
+  /**
+   * UnInitializes Connected Tag.
+   *
+   * @returns Returns true or false.
+   * @permission ohos.permission.NFC_TAG
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.connectedTag/connectedTag#uninitialize
+   */
+  function uninit(): boolean;
 
-    /**
-     * Writes the NDEF Data.
-     *
-     * @param data The Data to write.
-     * @return Returns true or false.
-     * @permissions ohos.permission.NFC_TAG
-     *
-     * @since 8
-     */
-    function writeNdefTag(data: string): Promise<void>;
-    function writeNdefTag(data: string, callback: AsyncCallback<void>): void;
+  /**
+   * Uninitializes the connected NFC tag.
+   *
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
+   * @permission ohos.permission.NFC_TAG
+   * @since 9
+   */
+  function uninitialize(): void;
 
-    /**
-     * Subscribes NFC RF status change events.
-     *
-     * @type The callback type.
-     * @param callback The callback function to be registered.
-     * @return Returns NFC_RF_LEAVE or NFC_RF_ENTER
-     * @permissions ohos.permission.NFC_TAG
-     *
-     * @since 8
-     */
-    function on(type: "notify", callback: Callback<number>): void;
+  /**
+   * Reads the NDEF Data.
+   *
+   * @returns Returns the NDEF Data.
+   * @permission ohos.permission.NFC_TAG
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.connectedTag/connectedTag#read
+   */
+  function readNdefTag(): Promise<string>;
+  function readNdefTag(callback: AsyncCallback<string>): void;
 
-    /**
-     * Unsubscribes NFC RF status change events.
-     *
-     * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
-     *
-     * @type The callback type.
-     * @param callback The callback function to be unregistered.
-     * @permissions ohos.permission.NFC_TAG
-     *
-     * @since 8
-     */
-    function off(type: "notify", callback?:Callback<number>): void;
+  /**
+   * Reads the NDEF data from the connected NFC tag.
+   *
+   * @returns The reponse NDEF data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
+   * @permission ohos.permission.NFC_TAG
+   * @since 9
+   */
+  function read(): Promise<number[]>;
+  function read(callback: AsyncCallback<number[]>): void;
 
-    /**
-     * Describes the NFC RF type.
-     *
-     * @since 8
-     */
-    enum NfcRfType {
-        /** NFC RF LEAVE */
-        NFC_RF_LEAVE = 0,
+  /**
+   * Writes the NDEF Data.
+   *
+   * @param data The Data to write.
+   * @returns Returns true or false.
+   * @permission ohos.permission.NFC_TAG
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.connectedTag/connectedTag#write
+   */
+  function writeNdefTag(data: string): Promise<void>;
+  function writeNdefTag(data: string, callback: AsyncCallback<void>): void;
 
-        /** NFC RF ENTER */
-        NFC_RF_ENTER = 1,
-    }
+  /**
+   * Writes the NDEF data to the connected NFC tag.
+   *
+   * @param data Indicates the NDEF data to send, which is a byte array.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
+   * @permission ohos.permission.NFC_TAG
+   * @since 9
+   */
+  function write(data: number[]): Promise<void>;
+  function write(data: number[], callback: AsyncCallback<void>): void;
+
+  /**
+   * Subscribes NFC RF status change events.
+   *
+   * @type The callback type.
+   * @param callback The callback function to be registered.
+   * @returns Returns NFC_RF_LEAVE or NFC_RF_ENTER
+   * @permission ohos.permission.NFC_TAG
+   * @since 8
+   */
+  function on(type: "notify", callback: Callback<number>): void;
+
+  /**
+   * Unsubscribes NFC RF status change events.
+   *
+   * <p>All callback functions will be unregistered If there is no specific callback parameter.</p>
+   *
+   * @type The callback type.
+   * @param callback The callback function to be unregistered.
+   * @permission ohos.permission.NFC_TAG
+   * @since 8
+   */
+  function off(type: "notify", callback?: Callback<number>): void;
+
+  /**
+   * Describes the NFC RF type.
+   *
+   * @since 8
+   */
+  enum NfcRfType {
+    /** NFC RF LEAVE */
+    NFC_RF_LEAVE = 0,
+
+    /** NFC RF ENTER */
+    NFC_RF_ENTER = 1,
+  }
 }
 
 export default connectedTag;

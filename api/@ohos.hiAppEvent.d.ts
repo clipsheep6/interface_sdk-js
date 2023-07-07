@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,374 +13,213 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
+import type { AsyncCallback } from './basic';
 
 /**
  * Provides the event logging function for applications to log the fault, statistical, security,
  * and user behavior events reported during running. Based on event information,
  * you will be able to analyze the running status of applications.
  *
- * @since 7
+ * @namespace hiAppEvent
  * @syscap SystemCapability.HiviewDFX.HiAppEvent
+ * @since 7
+ * @deprecated since 9
+ * @useinstead ohos.hiviewdfx.hiAppEvent
  */
 declare namespace hiAppEvent {
+  /**
+   * Enumerate application event types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 7
+   * @deprecated since 9
+   */
+  enum EventType {
     /**
-     * Enumerate application event types.
+     * Fault event.
      *
-     * @since 7
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     */
-    enum EventType {
-        /**
-         * Fault event.
-         *
-         * @since 7
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         */
-        FAULT = 1,
-
-        /**
-         * Statistic event.
-         *
-         * @since 7
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         */
-        STATISTIC = 2,
-
-        /**
-         * Security event.
-         *
-         * @since 7
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         */
-        SECURITY = 3,
-
-        /**
-         * User behavior event.
-         *
-         * @since 7
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         */
-        BEHAVIOR = 4
-    }
-
-    /**
-     * Preset event.
-     *
-     * @since 7
-     * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     */
-    namespace Event {
-        /**
-         * user login event.
-         *
-         * @since 7
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         */
-        const USER_LOGIN: string;
-
-        /**
-         * user logout event.
-         *
-         * @since 7
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         */
-        const USER_LOGOUT: string;
-
-        /**
-         * distributed service event.
-         *
-         * @since 7
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         */
-        const DISTRIBUTED_SERVICE_START: string;
-    }
-
-    /**
-     * Preset param.
-     *
-     * @since 7
-     * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     */
-    namespace Param {
-        /**
-         * user id.
-         *
-         * @since 7
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         */
-        const USER_ID: string;
-
-        /**
-         * distributed service name.
-         *
-         * @since 7
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         */
-        const DISTRIBUTED_SERVICE_NAME: string;
-
-        /**
-         * distributed service instance id.
-         *
-         * @since 7
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         */
-        const DISTRIBUTED_SERVICE_INSTANCE_ID: string;
-    }
-
-    /**
-     * write application event.
-     *
      * @since 7
      * @deprecated since 9
-     * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @static
-     * @param {string} eventName application event name.
-     * @param {EventType} eventType application event type.
-     * @param {object} keyValues application event key-value pair params.
-     * @param {AsyncCallback} [callback] callback function.
-     * @return {void | Promise<void>} no callback return Promise otherwise return void.
      */
-    function write(eventName: string, eventType: EventType, keyValues: object): Promise<void>;
-    function write(eventName: string, eventType: EventType, keyValues: object, callback: AsyncCallback<void>): void;
+    FAULT = 1,
 
     /**
-     * application event logging configuration interface.
+     * Statistic event.
      *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 7
-     * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @static
-     * @param {ConfigOption} config application event logging configuration item object.
-     * @return {boolean} configuration result.
+     * @deprecated since 9
      */
-    function configure(config: ConfigOption): boolean;
+    STATISTIC = 2,
 
     /**
-     * Describe the options for the configuration.
+     * Security event.
      *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 7
-     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @deprecated since 9
      */
-    interface ConfigOption {
-        /**
-         * configuration item: application event logging switch.
-         *
-         * @since 7
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         */
-        disable?: boolean;
-
-        /**
-         * configuration item: event file directory storage quota size.
-         *
-         * @since 7
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         */
-        maxStorage?: string;
-    }
+    SECURITY = 3,
 
     /**
-     * Definition of written application event information.
+     * User behavior event.
      *
-     * @since 9
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 7
+     * @deprecated since 9
      */
-    interface AppEventInfo {
-        /**
-         * The domain of the event.
-         */
-        domain: string;
+    BEHAVIOR = 4
+  }
 
-        /**
-         * The name of the event.
-         */
-        name: string;
-
-        /**
-         * The type of the event.
-         */
-        eventType: EventType;
-
-        /**
-         * The params of the event.
-         */
-        params: object;
-    }
+  /**
+   * Preset event.
+   *
+   * @namespace Event
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 7
+   * @deprecated since 9
+   */
+  namespace Event {
+    /**
+     * User login event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 7
+     * @deprecated since 9
+     */
+    const USER_LOGIN: string;
 
     /**
-     * write application event.
+     * User logout event.
      *
-     * @since 9
+     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @static
-     * @param {AppEventInfo} info application event information to be written.
-     * @param {AsyncCallback} [callback] callback function.
-     * @return {void | Promise<void>} no callback return Promise otherwise return void.
+     * @since 7
+     * @deprecated since 9
      */
-     function write(info: AppEventInfo): Promise<void>;
-     function write(info: AppEventInfo, callback: AsyncCallback<void>): void;
+    const USER_LOGOUT: string;
 
     /**
-     * Definition of the read event package.
+     * Distributed service event.
      *
-     * @since 9
+     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 7
+     * @deprecated since 9
      */
-    interface AppEventPackage {
-        /**
-         * The id of the package.
-         */
-        packageId: number;
+    const DISTRIBUTED_SERVICE_START: string;
+  }
 
-        /**
-         * The number of events contained in the package.
-         */
-        row: number;
-
-        /**
-         * The total size of events contained in the package.
-         */
-        size: number;
-
-        /**
-         * The events data contained in the package.
-         */
-        data: string[];
-    }
+  /**
+   * Preset param.
+   *
+   * @namespace Param
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 7
+   * @deprecated since 9
+   */
+  namespace Param {
+    /**
+     * User id.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 7
+     * @deprecated since 9
+     */
+    const USER_ID: string;
 
     /**
-     * Definition of event holder object, which is used to read the event data monitored by the watcher.
+     * Distributed service name.
      *
-     * @since 9
+     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 7
+     * @deprecated since 9
      */
-    class AppEventPackageHolder {
-        /**
-         * Constructor for AppEventPackageHolder.
-         *
-         * @since 9
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         * @param {string} watcherName name of the watcher to read.
-         */
-        constructor(watcherName: string);
-
-        /**
-         * Set the threshold size per read.
-         *
-         * @since 9
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         * @param {number} size threshold size.
-         */
-        setSize(size: number): void;
-
-        /**
-         * Read the event data monitored by the watcher.
-         *
-         * @since 9
-         * @syscap SystemCapability.HiviewDFX.HiAppEvent
-         * @return {AppEventPackage} the read event package.
-         */
-        takeNext(): AppEventPackage;
-    }
+    const DISTRIBUTED_SERVICE_NAME: string;
 
     /**
-     * Definition of the condition for triggering callback when the watcher monitors event data.
+     * Distributed service instance id.
      *
-     * @since 9
+     * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 7
+     * @deprecated since 9
      */
-    interface TriggerCondition {
-        /**
-         * The number of write events that trigger callback.
-         */
-        row?: number;
+    const DISTRIBUTED_SERVICE_INSTANCE_ID: string;
+  }
 
-        /**
-         * The size of write events that trigger callback.
-         */
-        size?: number;
+  /**
+   * Write application event.
+   *
+   * @param { string } eventName Application event name.
+   * @param { EventType } eventType Application event type.
+   * @param { object } keyValues Application event key-value pair params.
+   * @returns { Promise<void> } Return Promise.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 7
+   * @deprecated since 9
+   */
+  function write(eventName: string, eventType: EventType, keyValues: object): Promise<void>;
 
-        /**
-         * The interval for triggering callback.
-         */
-        timeOut?: number;
-    }
+  /**
+   * Write application event.
+   *
+   * @param { string } eventName Application event name.
+   * @param { EventType } eventType Application event type.
+   * @param { object } keyValues Application event key-value pair params.
+   * @param { AsyncCallback<void> } [callback] Callback function.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 7
+   * @deprecated since 9
+   */
+  function write(eventName: string, eventType: EventType, keyValues: object, callback: AsyncCallback<void>): void;
+
+  /**
+   * Application event logging configuration interface.
+   *
+   * @param { ConfigOption } config Application event logging configuration item object.
+   * @returns { boolean } Configuration result.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 7
+   * @deprecated since 9
+   */
+  function configure(config: ConfigOption): boolean;
+
+  /**
+   * Describe the options for the configuration.
+   *
+   * @interface ConfigOption
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 7
+   * @deprecated since 9
+   */
+  interface ConfigOption {
+    /**
+     * Configuration item: application event logging switch.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 7
+     * @deprecated since 9
+     */
+    disable?: boolean;
 
     /**
-     * Definition of event filter object, which is used to filter events monitored by the watcher.
+     * Configuration item: event file directory storage quota size.
      *
-     * @since 9
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 7
+     * @deprecated since 9
      */
-    interface AppEventFilter {
-        /**
-         * The name of the event domain to be monitored by the watcher.
-         */
-        domain: string;
-
-        /**
-         * The types of the events to be monitored by the watcher.
-         */
-        eventTypes?: EventType[];
-    }
-
-    /**
-     * Definition of event watcher object, which is used to monitor written event data.
-     *
-     * @since 9
-     * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     */
-    interface Watcher {
-        /**
-         * The name of watcher.
-         */
-        name: string;
-
-        /**
-         * The condition for triggering callback.
-         */
-        triggerCondition?: TriggerCondition;
-
-        /**
-         * The event filters for monitoring events.
-         */
-        appEventFilters?: AppEventFilter[];
-
-        /**
-         * The callback function of watcher.
-         */
-        onTrigger?: (curRow: number, curSize:number, holder:AppEventPackageHolder) => void;
-    }
-
-    /**
-     * Add event watcher.
-     *
-     * @since 9
-     * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @static
-     * @param {Watcher} watcher watcher object for monitoring events.
-     * @return {AppEventPackageHolder} holder object, which is used to read the monitoring data of the watcher.
-     */
-    function addWatcher(watcher: Watcher): AppEventPackageHolder;
-
-    /**
-     * Remove event watcher.
-     *
-     * @since 9
-     * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @static
-     * @param {Watcher} watcher watcher object for monitoring events.
-     */
-    function removeWatcher(watcher: Watcher): void;
-
-    /**
-     * Clear all local logging data of the application.
-     *
-     * @since 9
-     * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @static
-     */
-    function clearData(): void;
+    maxStorage?: string;
+  }
 }
 
 export default hiAppEvent;

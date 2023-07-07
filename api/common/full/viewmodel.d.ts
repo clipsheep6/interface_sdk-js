@@ -13,13 +13,12 @@
  * limitations under the License.
  */
 
-import { Image, ImageData } from "./global";
-import { WebGLContextAttributes, WebGLRenderingContext } from "../../webgl/webgl";
-import { WebGL2RenderingContext } from "../../webgl/webgl2";
-import { PixelMap } from "../../@ohos.multimedia.image";
+import { Image, ImageData, ImageBitmap } from "./global";
+import image from "../../@ohos.multimedia.image";
+import { CanvasPattern } from './canvaspattern';
 
 /**
- * Defines the foucs param.
+ * Defines the focus param.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
@@ -554,7 +553,7 @@ export interface observer {
   observe(callback: string): void;
 
   /**
-   * Turn off the listenerr.
+   * Turn off the listener.
    * @since 6
    */
   unobserve(): void;
@@ -1161,7 +1160,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param dh Image The height drawn on the target canvas.
    * @since 9
    */
-  drawImage(image: PixelMap, dx: number, dy: number, dw: number, dh: number): void;
+  drawImage(image: image.PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
   /**
    * Draw an Image object.
@@ -1177,7 +1176,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @since 9
    */
   drawImage(
-    image: PixelMap,
+    image: image.PixelMap,
     sx: number,
     sy: number,
     sw: number,
@@ -1341,10 +1340,10 @@ export interface OffscreenCanvasRenderingContext2D {
    * @param sy The upper-left y coordinate of the rectangular region of the image data to be extracted.
    * @param sw The width of the rectangular area of the image data to be extracted.
    * @param sh The height of the rectangular area of the image data to be extracted.
-   * @returns getPixelMap An getPixelMap object that contains the rectangular ImageData given by the canvas.
+   * @returns PixelMap A PixelMap object that contains the rectangular ImageData given by the canvas.
    * @since 9
    */
-  getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap
+  getPixelMap(sx: number, sy: number, sw: number, sh: number): image.PixelMap
 
   /**
    * Draws the specified ImageData object to the canvas.
@@ -2040,7 +2039,7 @@ export interface CanvasRenderingContext2D {
     dHeight: number,
   ): void;
 
-/**
+  /**
    * Draws an image.
    * @param image Image resource.
    * @param dx X-coordinate of the upper left corner of the drawing area on the canvas.
@@ -2049,7 +2048,7 @@ export interface CanvasRenderingContext2D {
    * @param dHeight Height of the drawing area.
    * @since 9
    */
-  drawImage(image: PixelMap, dx: number, dy: number, dWidth: number, dHeight: number): void;
+  drawImage(image: image.PixelMap, dx: number, dy: number, dWidth: number, dHeight: number): void;
 
   /**
    * Draws an image.
@@ -2065,7 +2064,7 @@ export interface CanvasRenderingContext2D {
    * @since 9
    */
   drawImage(
-    image: PixelMap,
+    image: image.PixelMap,
     sx: number,
     sy: number,
     sWidth: number,
@@ -2121,10 +2120,10 @@ export interface CanvasRenderingContext2D {
    * @param sy The upper-left y coordinate of the rectangular region of the image data to be extracted.
    * @param sw The width of the rectangular area of the image data to be extracted.
    * @param sh The height of the rectangular area of the image data to be extracted.
-   * @returns getPixelMap An getPixelMap object that contains the rectangular ImageData given by the canvas.
+   * @returns PixelMap A PixelMap object that contains the rectangular ImageData given by the canvas.
    * @since 9
    */
-  getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap
+  getPixelMap(sx: number, sy: number, sw: number, sh: number): image.PixelMap
 
   /**
    * Puts the ImageData onto a rectangular area on the canvas.
@@ -2545,7 +2544,7 @@ export interface ViewModel {
   $t(path: string, params?: object | Array<any>): string;
 
   /**
-   * Converses between singular and plural forms based on the system language, for example, this.$tc('strings.plurals').
+   * Converse between singular and plural forms based on the system language, for example, this.$tc('strings.plurals').
    * NOTE
    * The resource content is distinguished by the following JSON keys: zero, one, two, few, many, and other.
    * @param path Resource file path.
@@ -2666,23 +2665,23 @@ export interface ViewModel {
  */
 export interface ElementReferences {
   [k: string]: AnimationElement &
-    CanvasElement &
-    object &
-    WebElement &
-    CameraElement &
-    ListElement &
-    SwiperElement &
-    DialogElement &
-    ImageAnimatorElement &
-    MarqueeElement &
-    MenuElement &
-    ChartElement &
-    InputElement &
-    ButtonElement &
-    TextAreaElement &
-    PickerElement &
-    VideoElement &
-    DivElement;
+  CanvasElement &
+  object &
+  WebElement &
+  CameraElement &
+  ListElement &
+  SwiperElement &
+  DialogElement &
+  ImageAnimatorElement &
+  MarqueeElement &
+  MenuElement &
+  ChartElement &
+  InputElement &
+  ButtonElement &
+  TextAreaElement &
+  PickerElement &
+  VideoElement &
+  DivElement;
 }
 
 /**
@@ -2697,7 +2696,7 @@ export declare class Locate {
   language: string;
 
   /**
-   * country or regin, such ass 'CN'.
+   * country or region, such ass 'CN'.
    * @since 4
    */
   countryOrRegion: string;
@@ -2795,7 +2794,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 
   /**
    * Listens for page active.
-   * Called when the page is activing.
+   * Called when the page is active.
    * @since 5
    */
   onActive?(): void;
@@ -2858,21 +2857,18 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 /**
  * Used for ide.
  * @systemapi
- * @hide
  * @since 4
  */
 type DefaultData<T> = object;
 /**
  * Used for ide.
  * @systemapi
- * @hide
  * @since 4
  */
 type CombinedOptions<T extends ViewModel, Data> = object & Options<T, Data> & ThisType<T & ViewModel & Data>;
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @hide
  * @since 4
  */
 export declare function extendViewModel<T extends ViewModel, Data>(options: CombinedOptions<T, Data>): ViewModel & Data;

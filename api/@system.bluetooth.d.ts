@@ -59,14 +59,13 @@ export interface BLEFoundResponse {
  * @since 6
  */
 export interface SubscribeBLEFoundOptions {
-    success: (data: BLEFoundResponse) => void;
-    fail: (data: string, code: number) => void;
+  success: (data: BLEFoundResponse) => void;
+  fail: (data: string, code: number) => void;
 }
 
 /**
  * Provides methods to manage BLE scan.
  * @since 6
- * @import import bluetooth from '@system.bluetooth'
  * @syscap SystemCapability.Communication.Bluetooth.Lite
  */
 export default class Bluetooth {
