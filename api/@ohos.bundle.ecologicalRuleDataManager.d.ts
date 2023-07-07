@@ -24,10 +24,10 @@
 declare namespace ecologicalRuleDataManager {
 
   /**
-   * Set rule infomations into ecological rule manager.
+   * Set rule informations into ecological rule manager.
    *
    * @permission ohos.permission.MANAGE_ECOLOGICAL_RULE
-   * @param { string } ruleInfo - rule infomation string.
+   * @param { string } ruleInfo - rule information string.
    * @returns { number } Returns the result code of this operation.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
