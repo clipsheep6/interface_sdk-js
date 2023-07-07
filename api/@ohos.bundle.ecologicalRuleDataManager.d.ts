@@ -14,7 +14,7 @@
  */
 
 /**
- * This module provides the function of ecological rule data manager
+ * Provides functions for the ecological rule manager.
  *
  * @namespace ecologicalRuleDataManager
  * @syscap SystemCapability.BundleManager.EcologicalRuleManager
@@ -23,29 +23,29 @@
  */
 declare namespace ecologicalRuleDataManager {
   /**
-   * Set rule informations into ecological rule manager.
+   * Sets a rule into the ecological rule manager.
    *
    * @permission ohos.permission.MANAGE_ECOLOGICAL_RULE
-   * @param { string } ruleInfo - rule information string.
+   * @param { string } ruleInfo - Rule information.
    * @returns { number } Returns the result code of this operation.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application calls a system API.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @systemapi
    * @since 10
    */
-  function setRuleInfos(ruleInfo: string): number;
+  function setRuleInfo(ruleInfo: string): number;
 
   /**
-   * Set scene experience and rule config into ecological rule manager.
+   * Sets scene experience corresponding to a rule into the ecological rule manager.
    *
    * @permission ohos.permission.MANAGE_ECOLOGICAL_RULE
-   * @param { string } ruleConfig - rule config string.
-   * @param { string } sceneExperience - scene experience string.
+   * @param { string } ruleConfig - Rule information.
+   * @param { string } sceneExperience - Scene experience.
    * @returns { number } Returns the result code of this operation.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application calls a system API.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @systemapi
@@ -54,15 +54,15 @@ declare namespace ecologicalRuleDataManager {
   function setSceneExperience(ruleConfig: string, sceneExperience: string): number;
 
   /**
-   * Exempt experience for target bundle, in timestamp this bundle will allowed by ecological rule manager.
+   * Exempts experience for a bundle, which will be allowed by the ecological rule manager with a given duration.
    *
    * @permission ohos.permission.MANAGE_ECOLOGICAL_RULE
-   * @param { string } targetBundleName - target bundle name.
-   * @param { number } rule - rule will be exempted.
-   * @param { number } timestamp - timestamp.
+   * @param { string } targetBundleName - Name of the target bundle.
+   * @param { number } rule - Rule to be exempted.
+   * @param { number } timestamp - Duration for which the exemption is valid.
    * @returns { number } Returns the result code of this operation.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application calls a system API.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @systemapi
@@ -71,12 +71,12 @@ declare namespace ecologicalRuleDataManager {
   function exemptExperience(targetBundleName: string, rule: number, timestamp: number): number;
 
   /**
-   * Get version of ecological rule manager in json string format.
+   * Obtains the version of the ecological rule manager.
    *
    * @permission ohos.permission.MANAGE_ECOLOGICAL_RULE
-   * @returns { string } Returns the engine version string.
+   * @returns { string } Returns the version.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application calls a system API.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @systemapi
    * @since 10
@@ -84,20 +84,20 @@ declare namespace ecologicalRuleDataManager {
   function getVersion(): string;
 
   /**
-   * Set scene experience and rule config into ecological rule manager.
+   * Sets enhanced application data into the ecological rule manager.
    *
    * @permission ohos.permission.MANAGE_ECOLOGICAL_RULE
-   * @param { number } operType - operation type, -1: delete data, 0: full replace, 1:append data.
-   * @param { string } appData - scene experience string.
+   * @param { number } operationType - Operation type, which can be -1 (delete data), 0 (full replace), or 1 (append data).
+   * @param { string } appData - Enhanced application data.
    * @returns { number } Returns the result code of this operation.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application calls a system API.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @systemapi
    * @since 10
    */
-  function setAppEnhancedDatas(operType: number, appData: string): number;
+  function setAppEnhancedData(operationType: number, appData: string): number;
 }
 
 export default ecologicalRuleDataManager;

@@ -14,7 +14,7 @@
  */
 
 /**
- * This module provides the function of sceneManager
+ * Provides functions for the scene manager.
  *
  * @namespace sceneManager
  * @syscap SystemCapability.BundleManager.EcologicalRuleManager
@@ -22,11 +22,11 @@
  */
 declare namespace sceneManager {
   /**
-   * Get scene code by bundle name
+   * Obtains the scene code by bundle name.
    *
    * @permission ohos.permission.GET_SCENE_CODE
-   * @param { string } bundleName - bundle name
-   * @returns { string } scene code of bundle
+   * @param { string } bundleName - Bundle name.
+   * @returns { string } Returns the scene code.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @since 10
@@ -34,30 +34,30 @@ declare namespace sceneManager {
   function getSceneCode(bundleName: string): string;
 
   /**
-   * Get original scene code by bundle name
+   * Obtains the initial scene code by bundle name.
    *
    * @permission ohos.permission.GET_SCENE_CODE
-   * @param { string } bundleName - bundle name
-   * @returns { string } original scene code of bundle
+   * @param { string } bundleName - Bundle name.
+   * @returns { string } Returns the initial scene code.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @since 10
    */
-  function getOriginalSceneCode(bundleName: string): string;
+  function getInitialSceneCode(bundleName: string): string;
 
   /**
-   * Get self scene code
+   * Obtains the own scene code.
    *
-   * @returns { string } scene code string of caller
+   * @returns { string } Returns the scene code of the caller.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @since 10
    */
   function getSelfSceneCode(): string;
 
   /**
-   * Get current ads verification version of ecological rule manager
+   * Obtains the ads verification version of the ecological rule manager.
    *
-   * @returns { string } version string of ads verification
+   * @returns { string } Returns the version of ads verification.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @since 10
    */
