@@ -87,7 +87,7 @@ declare namespace wifiManager {
   /**
    * User can trigger scan even Wi-Fi is disabled.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { boolean } isScanAlwaysAlive - true for keep the scan always alive when Wi-Fi is disabled, otherwise disable the scan ability.
+   * @param { boolean } isScanAlwaysAllowed - true for allow trigger scan, otherwise don't allow trigger scan when Wi-Fi is disabled.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters.
@@ -97,10 +97,10 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setScanAlwaysAlive(isScanAlwaysAlive: boolean): void;
+  function setScanAlwaysAllowed(isScanAlwaysAllowed: boolean): void;
 
   /**
-   * Get scan always alive flag.
+   * Get scan always allowed flag.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
    * @returns { boolean } Returns {@code true} if scan running state is true, returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
@@ -111,7 +111,7 @@ declare namespace wifiManager {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function getScanAlwaysAlive(): boolean;
+  function getScanAlwaysAllowed(): boolean;
 
   /**
    * Add Wi-Fi connection configuration to the device. The configuration will be updated when the configuration is added.</p>
@@ -399,14 +399,14 @@ declare namespace wifiManager {
    * Obtain the IPv6 information of the Wi-Fi connection.
    * The IPv6 information includes the host IP address, gateway address, and DNS information.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { IpV6Info } Returns the IPv6 information of the Wi-Fi connection.
+   * @returns { Ipv6Info } Returns the IPv6 information of the Wi-Fi connection.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 10
    */
-  function getIpV6Info(): IpV6Info;
+  function getIpv6Info(): Ipv6Info;
 
   /**
    * Obtain the country code of the device.
@@ -2407,34 +2407,34 @@ declare namespace wifiManager {
 
 /**
    * Wi-Fi IPv6 information.
-   * @typedef IpV6Info
+   * @typedef Ipv6Info
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 10
    */
-  interface IpV6Info {
+  interface Ipv6Info {
     /**
-     * The link IPV6 address of the Wi-Fi connection
+     * The link IPv6 address of the Wi-Fi connection
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    linkIpV6Address: string;
+    linkIpv6Address: string;
 	
 	/**
-     * The global IPV6 address of the Wi-Fi connection
+     * The global IPv6 address of the Wi-Fi connection
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    globalIpV6Address: string;
+    globalIpv6Address: string;
 	
 	/**
-     * The rand Global IPV6 address of the Wi-Fi connection
+     * The rand Global IPv6 address of the Wi-Fi connection
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    randGlobalIpV6Address: string;
+    randomGlobalIpv6Address: string;
 
     /**
      * The gateway of the Wi-Fi connection
