@@ -88,7 +88,7 @@ declare enum LocationDescription {
 
   /**
    * Locating
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -138,11 +138,11 @@ declare enum LocationDescription {
 /**
  * Declares the interface for setting the location button options.
  *
- * @interface SecLocationButtonOptions
+ * @interface LocationButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface SecLocationButtonOptions {
+declare interface LocationButtonOptions {
   /**
    * Style of the icon to be drawn.
    *
@@ -162,12 +162,12 @@ declare interface SecLocationButtonOptions {
   text?: LocationDescription;
 
   /**
-  * Type of the button.
-    *
-    * @type { ?ButtonType }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 10
-    */
+   * Type of the button.
+   *
+   * @type { ?ButtonType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   buttonType?: ButtonType;
 }
 
@@ -178,7 +178,7 @@ declare interface SecLocationButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare enum SecLocationButtonOnClickResult {
+declare enum LocationButtonOnClickResult {
   /**
    * Success.
    *
@@ -199,61 +199,60 @@ declare enum SecLocationButtonOnClickResult {
 /**
  * Defines the interface for setting a location button.
  *
- * @interface SecLocationButtonInterface
+ * @interface LocationButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-interface SecLocationButtonInterface {
+interface LocationButtonInterface {
   /**
    * Creates a location button.
    *
-   * @returns { SecLocationButtonAttribute } TReturns the attribute of the location button.
+   * @returns { LocationButtonAttribute } TReturns the attribute of the location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  (): SecLocationButtonAttribute;
+  (): LocationButtonAttribute;
 
   /**
    * Creates a location button with the specified composition.
    * If an attribute is not set, the corresponding element will not be drawn.
    *
-   * @param { SecLocationButtonOptions } options - Indicates the options of the location button.
-   * @returns { SecLocationButtonAttribute } Returns the attribute of the location button.
+   * @param { LocationButtonOptions } options - Indicates the options of the location button.
+   * @returns { LocationButtonAttribute } Returns the attribute of the location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  (options: SecLocationButtonOptions): SecLocationButtonAttribute;
+  (options: LocationButtonOptions): LocationButtonAttribute;
 }
 
 /**
  * Defines the attributes of the location button.
  *
- * @typedef SecLocationButtonAttribute
+ * @extends SecurityComponentMethod<LocationButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-
-declare interface SecLocationButtonAttribute extends SecurityComponentMethod<SecLocationButtonAttribute> {
+declare class LocationButtonAttribute extends SecurityComponentMethod<LocationButtonAttribute> {
   /**
    * Called when the location button is clicked.
    *
-   * @param { (event: ClickEvent, result: SecLocationButtonOnClickResult) => void } event - Indicates the
+   * @param { (event: ClickEvent, result: LocationButtonOnClickResult) => void } event - Indicates the
    * click event result.
-   * @returns { SecLocationButtonAttribute } Returns the attribute of the location button.
+   * @returns { LocationButtonAttribute } Returns the attribute of the location button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  onClick(event: (event: ClickEvent, result: SecLocationButtonOnClickResult) => void): SecLocationButtonAttribute;
+  onClick(event: (event: ClickEvent, result: LocationButtonOnClickResult) => void): LocationButtonAttribute;
 }
 
 /**
- * Defines a button that interacts with the security component service to 
+ * Defines a button that interacts with the security component service to
  * request the authorization for accessing location data.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare const SecLocationButton: SecLocationButtonInterface;
+declare const LocationButton: LocationButtonInterface;
 
 /**
  * Defines a location button instance for secure access.
@@ -261,4 +260,4 @@ declare const SecLocationButton: SecLocationButtonInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare const SecLocationButtonInstance: SecLocationButtonAttribute;
+declare const LocationButtonInstance: LocationButtonAttribute;

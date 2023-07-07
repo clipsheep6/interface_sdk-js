@@ -41,7 +41,6 @@ declare enum SecurityComponentLayoutDirection {
 /**
  * Defines the method of a security component.
  *
- * @typedef SecurityComponentMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -49,12 +48,12 @@ declare class SecurityComponentMethod<T> {
   /**
    * Icon size.
    *
-   * @param { Length } value - Indicates the size of the icon.
+   * @param { Dimension } value - Indicates the size of the icon.
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  iconSize(value: Length): T;
+  iconSize(value: Dimension): T;
 
   /**
    * Layout direction of the icon and text.
@@ -102,12 +101,12 @@ declare class SecurityComponentMethod<T> {
   /**
    * Font size of the inner text.
    *
-   * @param { Length } value - Indicates the font size of the text in the security component.
+   * @param { Dimension } value - Indicates the font size of the text in the security component.
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  fontSize(value: Length): T;
+  fontSize(value: Dimension): T;
 
   /**
    * Font style of the inner text.
@@ -182,12 +181,12 @@ declare class SecurityComponentMethod<T> {
   /**
    * Width of the border.
    *
-   * @param { Length } value - Indicates the border width of the security component.
+   * @param { Dimension } value - Indicates the border width of the security component.
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  borderWidth(value: Length): T;
+  borderWidth(value: Dimension): T;
 
   /**
    * Color of the border.
@@ -202,45 +201,42 @@ declare class SecurityComponentMethod<T> {
   /**
    * Radius of the border.
    *
-   * @param { Length } value - Indicates the border radius of the security component.
+   * @param { Dimension } value - Indicates the border radius of the security component.
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  borderRadius(value: Length): T;
+  borderRadius(value: Dimension): T;
 
   /**
    * Padding between the background border and icon/inner text.
    *
-   * @param { Padding | Length } value - Indicates the padding of the security component.
+   * @param { Padding | Dimension } value - Indicates the padding of the security component.
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  padding(value: Padding | Length): T;
+  padding(value: Padding | Dimension): T;
 
   /**
    * Space between the inner text and icon.
    *
-   * @param { Length } value - Indicates the space between the inner text and icon.
+   * @param { Dimension } value - Indicates the space between the inner text and icon.
    * @returns { T } Returns the attribute of the security component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  textIconSpace(value: Length): T;
+  textIconSpace(value: Dimension): T;
+
+  /**
+   * Key. User can set an key to the component to identify it.
+   *
+   * @param { string } value - identify the key of the component.
+   * @returns { T } Returns the attribute of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @test
+   */
+  key(value: string): T;
 }
-
-/**
- * Defines the attributes of a security component.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
- */
-declare class SecurityComponentAttribute extends SecurityComponentMethod<SecurityComponentAttribute> { }
-
-/**
- * Defines a security component instance for secure access.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
- */
-declare const SecurityComponentInstance: SecurityComponentAttribute;

@@ -50,11 +50,11 @@ declare enum PasteDescription {
 /**
  * Declares the interface for setting the paste button options.
  *
- * @interface SecPasteButtonOptions
+ * @interface PasteButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface SecPasteButtonOptions {
+declare interface PasteButtonOptions {
   /**
    * Style of the icon to be drawn.
    *
@@ -90,7 +90,7 @@ declare interface SecPasteButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare enum SecPasteButtonOnClickResult {
+declare enum PasteButtonOnClickResult {
   /**
    * Success.
    *
@@ -111,50 +111,50 @@ declare enum SecPasteButtonOnClickResult {
 /**
  * Defines the interface for setting a paste button.
  *
- * @interface SecPasteButtonInterface
+ * @interface PasteButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-interface SecPasteButtonInterface {
+interface PasteButtonInterface {
   /**
    * Creates a paste button.
    *
-   * @returns { SecPasteButtonAttribute } Returns the attribute of the paste button.
+   * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  (): SecPasteButtonAttribute;
+  (): PasteButtonAttribute;
 
   /**
    * Creates a paste button with the specified composition.
    * If an attribute is not set, the corresponding element will not be drawn.
    *
-   * @param { SecPasteButtonOptions } options - Indicates the options of the paste button.
-   * @returns { SecPasteButtonAttribute } Returns the attribute of the paste button.
+   * @param { PasteButtonOptions } options - Indicates the options of the paste button.
+   * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  (options: SecPasteButtonOptions): SecPasteButtonAttribute;
+  (options: PasteButtonOptions): PasteButtonAttribute;
 }
 
 /**
  * Defines the attributes of the paste button.
  *
- * @typedef SecPasteButtonAttribute
+ * @extends SecurityComponentMethod<PasteButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface SecPasteButtonAttribute extends SecurityComponentMethod<SecPasteButtonAttribute> {
+declare class PasteButtonAttribute extends SecurityComponentMethod<PasteButtonAttribute> {
   /**
    * Called when the paste button is clicked.
    *
-   * @param { (event: ClickEvent, result: SecPasteButtonOnClickResult) => void } event - Indicates the
+   * @param { (event: ClickEvent, result: PasteButtonOnClickResult) => void } event - Indicates the
    * click event result.
-   * @returns { SecPasteButtonAttribute } Returns the attribute of the paste button.
+   * @returns { PasteButtonAttribute } Returns the attribute of the paste button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  onClick(event: (event: ClickEvent, result: SecPasteButtonOnClickResult) => void): SecPasteButtonAttribute;
+  onClick(event: (event: ClickEvent, result: PasteButtonOnClickResult) => void): PasteButtonAttribute;
 }
 
 /**
@@ -164,7 +164,7 @@ declare interface SecPasteButtonAttribute extends SecurityComponentMethod<SecPas
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare const SecPasteButton: SecPasteButtonInterface;
+declare const PasteButton: PasteButtonInterface;
 
 /**
  * Defines a paste button instance for secure access.
@@ -172,4 +172,4 @@ declare const SecPasteButton: SecPasteButtonInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare const SecPasteButtonInstance: SecPasteButtonAttribute;
+declare const PasteButtonInstance: PasteButtonAttribute;

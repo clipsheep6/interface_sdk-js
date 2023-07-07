@@ -55,12 +55,12 @@ declare enum SaveDescription {
   DOWNLOAD = 0,
 
   /**
-   * Download Files
+   * Download File
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  DOWNLOAD_FILES = 1,
+  DOWNLOAD_FILE = 1,
 
   /**
    * Save
@@ -71,20 +71,20 @@ declare enum SaveDescription {
   SAVE = 2,
 
   /**
-   * Save Images
+   * Save Image
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  SAVE_IMAGES = 3,
+  SAVE_IMAGE = 3,
 
   /**
-   * Save Files
+   * Save File
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  SAVE_FILES = 4,
+  SAVE_FILE = 4,
 
   /**
    * Download and Share
@@ -114,11 +114,11 @@ declare enum SaveDescription {
 /**
  * Declares the interface for setting the save button options.
  *
- * @interface SecSaveButtonOptions
+ * @interface SaveButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare interface SecSaveButtonOptions {
+declare interface SaveButtonOptions {
   /**
    * Style of the icon to be drawn.
    *
@@ -154,7 +154,7 @@ declare interface SecSaveButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare enum SecSaveButtonOnClickResult {
+declare enum SaveButtonOnClickResult {
   /**
    * Success.
    *
@@ -175,51 +175,50 @@ declare enum SecSaveButtonOnClickResult {
 /**
  * Defines the interface for setting a save button.
  *
- * @interface SecSaveButtonInterface
+ * @interface SaveButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-interface SecSaveButtonInterface {
+interface SaveButtonInterface {
   /**
    * Creates a save button.
    *
-   * @returns { SecSaveButtonAttribute } Returns the attribute of the save button.
+   * @returns { SaveButtonAttribute } Returns the attribute of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  (): SecSaveButtonAttribute;
+  (): SaveButtonAttribute;
 
   /**
    * Creates a save button with the specified composition.
    * If an attribute is not set, the corresponding element will not be drawn.
    *
-   * @param { SecSaveButtonOptions } options - Indicates the options of the save button.
-   * @returns { SecSaveButtonAttribute } Returns the attribute of the save button.
+   * @param { SaveButtonOptions } options - Indicates the options of the save button.
+   * @returns { SaveButtonAttribute } Returns the attribute of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  (options: SecSaveButtonOptions): SecSaveButtonAttribute;
+  (options: SaveButtonOptions): SaveButtonAttribute;
 }
 
 /**
  * Defines the attributes of the save button.
  *
- * @typedef SecSaveButtonAttribute
+ * @extends SecurityComponentMethod<SaveButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-
-declare interface SecSaveButtonAttribute extends SecurityComponentMethod<SecSaveButtonAttribute> {
+declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttribute> {
   /**
    * Called when the save button is clicked.
    *
-   * @param { (event: ClickEvent, result: SecSaveButtonOnClickResult) => void } event - Indicates the
+   * @param { (event: ClickEvent, result: SaveButtonOnClickResult) => void } event - Indicates the
    * click event result.
-   * @returns { SecSaveButtonAttribute } Returns the attribute of the save button.
+   * @returns { SaveButtonAttribute } Returns the attribute of the save button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  onClick(event: (event: ClickEvent, result: SecSaveButtonOnClickResult) => void): SecSaveButtonAttribute;
+  onClick(event: (event: ClickEvent, result: SaveButtonOnClickResult) => void): SaveButtonAttribute;
 }
 
 /**
@@ -229,7 +228,7 @@ declare interface SecSaveButtonAttribute extends SecurityComponentMethod<SecSave
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare const SecSaveButton: SecSaveButtonInterface;
+declare const SaveButton: SaveButtonInterface;
 
 /**
  * Defines a save button instance for secure access.
@@ -237,4 +236,4 @@ declare const SecSaveButton: SecSaveButtonInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare const SecSaveButtonInstance: SecSaveButtonAttribute;
+declare const SaveButtonInstance: SaveButtonAttribute;
