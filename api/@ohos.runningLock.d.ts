@@ -222,6 +222,7 @@ declare namespace runningLock {
    * @param { RunningLockType } type Indicates the {@link RunningLockType}.
    * @param { AsyncCallback<RunningLock>) } callback Indicates the callback of {@link RunningLock} object.
    * @throws { BusinessError } 401 - If the name, type or callback is not valid.
+   * @throws { BusinessError } 4900101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9
    */
@@ -238,6 +239,7 @@ declare namespace runningLock {
    * @param { RunningLockType } type Indicates the {@link RunningLockType}.
    * @returns { Promise<RunningLock> } The {@link RunningLock} object.
    * @throws { BusinessError } 401 - If the name or type is not valid.
+   * @throws { BusinessError } 4900101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9
    */
