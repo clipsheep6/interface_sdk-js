@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-const path = require("path");
+const path = require('path');
 
 const ApiStatusCode = {
   DELETE: 0,
@@ -39,7 +39,7 @@ const ApiStatusCode = {
   CROSSPLATFORM_CHANGED: 20,
   NEW_DTS: 21,
   NEW_CLASS: 22
-}
+};
 
 const StatusMessages = [];
 StatusMessages[ApiStatusCode.DELETE] = '删除';
@@ -76,7 +76,7 @@ function reportDeletedClass(api, syscap) {
     .setStatusMessage(StatusMessages[ApiStatusCode.DELETE_CLASS] + `(${api.getApiType().name})`)
     .setOldMessage('')
     .setNewMessage('')
-    .setSyscap(syscap)
+    .setSyscap(syscap);
   return reporterData;
 }
 

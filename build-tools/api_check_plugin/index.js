@@ -43,10 +43,10 @@ exports.initEnv = function (version) {
       resolve();
     });
   });
-}
+};
 
 function updatePermissionConfig(url, callback) {
-  let requestText = undefined;
+  let requestText;
   const https = require('https');
   const request = https.get(url, { timeout: 2000 }, (res) => {
     res.on('data', (chunk) => {

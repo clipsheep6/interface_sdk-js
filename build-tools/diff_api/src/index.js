@@ -74,7 +74,7 @@ exports.ApiDiffPlugin = {
     let diffMap = new Map();
     if (changelogUrl) {
       diffMap = await applyChangeLogs(diffInfoMap, oldVersion, newVersion, changelogUrl);
-    }else{
+    } else {
       diffMap = diffInfoMap;
     }
     const diffs = this.coverToArray(diffMap);
@@ -88,7 +88,7 @@ exports.ApiDiffPlugin = {
       this.formatToChangelog(diffs, changeLogData);
       ChangelogReporter.write(changeLogData, argv.output);
     }
-    console.log(`elapsed time: ${Date.now() - startTime}`)
+    console.log(`elapsed time: ${Date.now() - startTime}`);
   },
 
   formatToChangelog(diffs, changeLogData) {
@@ -112,20 +112,20 @@ exports.ApiDiffPlugin = {
         changeLogData.push(this.formatDiffApi(diffData.rawText, diffData.rawText, diffData.className,
           diffData.className, diffData.dtsName, diffData.dtsName));
       }
-    })
+    });
   },
 
   formatDiffApi(oldApi, newApi, oldType, newType, oldDtsName, newDtsName) {
     return {
-      "oldApi": oldApi,
-      "newApi": newApi,
-      "oldType": oldType,
-      "newType": newType,
-      "oldDtsName": oldDtsName,
-      "newDtsName": newDtsName,
-      "changelog": "",
-      "compatible": ''
-    }
+      'oldApi': oldApi,
+      'newApi': newApi,
+      'oldType': oldType,
+      'newType': newType,
+      'oldDtsName': oldDtsName,
+      'newDtsName': newDtsName,
+      'changelog': '',
+      'compatible': ''
+    };
   },
 
   coverToArray(diffMap) {
@@ -140,10 +140,10 @@ exports.ApiDiffPlugin = {
     }
 
     diffSet.forEach(data => {
-      diffs.push(JSON.parse(data))
-    })
+      diffs.push(JSON.parse(data));
+    });
     return diffs;
   },
 
   stop: function () { }
-}
+};
