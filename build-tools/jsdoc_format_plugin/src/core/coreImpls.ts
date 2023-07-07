@@ -87,8 +87,8 @@ export class ContextImpl implements Context {
 export class OutputFileHelper {
 
   static getOutputFilePath(inputParam: InputParameter, sourceFile: string): string {
-    return inputParam.isHandleMultiFiles() ? OutputFileHelper.getMultiOutputFilePath(inputParam, sourceFile)
-      : OutputFileHelper.getSingleOutputFilePath(inputParam);
+    return inputParam.isHandleMultiFiles() ? OutputFileHelper.getMultiOutputFilePath(inputParam, sourceFile) :
+      OutputFileHelper.getSingleOutputFilePath(inputParam);
   }
 
   static getMultiOutputFilePath(inputParam: InputParameter, sourceFile: string): string {
@@ -227,7 +227,8 @@ export class SourceCodeParserImpl extends sourceParser.SourceCodeParser {
         callback.onVisitNode(currentCommentNode);
       } else {
         LogUtil.d('SourceCodeParserImpl',
-          `skip, [ ${node.getText()} ] kind: ${node.kind}, line: ${line + 1}, character: ${character}, comment size: ${currentCommentNode.commentInfos?.length}`);
+          `skip, [ ${node.getText()} ] kind: ${node.kind}, line: ${line + 1},` +
+          ` character: ${character}, comment size: ${currentCommentNode.commentInfos?.length}`);
       }
       if (thiz.shouldForEachChildren(node)) {
         node.forEachChild((child) => {
@@ -445,9 +446,9 @@ export class CommentHelper {
     }
   }
 
-  private static fixReferenceComment(commentInfo: comment.CommentInfo, parsedCommentInfos: Array<comment.CommentInfo>) {
-    if (commentInfo.isMultiLine || commentInfo.isApiComment
-      || !StringUtils.hasSubstring(commentInfo.text, this.REFERENCE_COMMENT_REGEXP)) {
+  private static fixReferenceComment(commentInfo: comment.CommentInfo, parsedCommentInfos: Array<comment.CommentInfo>): void {
+    if (commentInfo.isMultiLine || commentInfo.isApiComment ||
+      !StringUtils.hasSubstring(commentInfo.text, this.REFERENCE_COMMENT_REGEXP)) {
       return;
     }
     parsedCommentInfos.push(this.getEmptyLineComment());
@@ -601,7 +602,7 @@ class CommentWriter {
     }
   }
 
-  private addTags(newSourceArray: Array<comment.CommentSource>, commentTags: Array<comment.CommentTag>) {
+  private addTags(newSourceArray: Array<comment.CommentSource>, commentTags: Array<comment.CommentTag>): void {
     commentTags.forEach((commentTag) => {
       // tag的描述为多行,复用原始的描述信息
       const tokenSourceLen = commentTag.tokenSource.length;
@@ -1038,7 +1039,7 @@ export namespace logWriter {
       const results: JsonResult = {
         checkResults: undefined,
         modifyResults: undefined
-      }
+      };
       if (checkResults) {
         results.checkResults = checkResults;
       }

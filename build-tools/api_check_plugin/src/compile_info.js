@@ -17,7 +17,7 @@ const result = require('../check_result.json');
 const { apiCheckArr, getApiInfo, ErrorLevel, ApiCheckResult, apiCheckInfoArr } = require('../src/utils');
 
 /**
- * 
+ *
  * @param {ts.Node} node current node
  * @param {ts.Sourcefile} sourcefile root node
  * @param {String} fileName full file name
@@ -34,7 +34,7 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
   if (!checkFailFileNameSet.has(fileName)) {
     result.apiFiles.push(fileName);
   }
-  const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.getStart());
+  const posOfNode = sourcefile.getLineAndCharacterOfPosition(node.pos);
   const baseFileName = fileName.substring(fileName.indexOf('api'), fileName.length);
   const errorMessage = `API check error of [${errorType.description}]: ${errorInfo}`;
 
@@ -52,11 +52,10 @@ function addAPICheckErrorLogs(node, sourcefile, fileName, errorType, errorInfo, 
 
   apiCheckInfoArr.push({
     id: errorType.id,
-    level: level,
+    level,
     location: `${baseFileName}(line: ${posOfNode.line + 1}, col: ${posOfNode.character + 1})`,
     filePath: baseFileName,
     message: errorMessage
   });
-
 }
 exports.addAPICheckErrorLogs = addAPICheckErrorLogs;

@@ -94,8 +94,8 @@ function isTypeDeclaration(api) {
  * @returns {string}
  */
 function getNodeSignature(astNode, packageName, className) {
-  if (ts.isInterfaceDeclaration(astNode) || ts.isClassDeclaration(astNode)
-    || ts.isModuleDeclaration(astNode) || ts.isEnumDeclaration(astNode)) {
+  if (ts.isInterfaceDeclaration(astNode) || ts.isClassDeclaration(astNode) ||
+    ts.isModuleDeclaration(astNode) || ts.isEnumDeclaration(astNode)) {
     return `${packageName}#${className}`;
   }
   let signature = '';
@@ -305,4 +305,4 @@ exports.apiDataHelper = {
   addApiInfo: addApiInfo,
   addApiDigestInfo: addApiDigestInfo,
   getNodeSignature: getNodeSignature
-}
+};

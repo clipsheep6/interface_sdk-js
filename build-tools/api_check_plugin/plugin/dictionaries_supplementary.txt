@@ -63,7 +63,6 @@ bevels
 bgra
 bidirectionally
 bitrates
-blocklist
 bms
 bolder
 bonded
@@ -292,8 +291,6 @@ hitrace
 hiview
 hiviewdfx
 hkdf
-hogp
-hsp
 hspa
 hspap
 htmltext
@@ -847,7 +844,6 @@ zooms
 zpass
 commonevent
 clouddata
-unadjustable
 unprepare
 unchained
 sar
