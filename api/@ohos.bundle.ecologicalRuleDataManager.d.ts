@@ -22,7 +22,6 @@
  * @since 10
  */
 declare namespace ecologicalRuleDataManager {
-
   /**
    * Set rule informations into ecological rule manager.
    *

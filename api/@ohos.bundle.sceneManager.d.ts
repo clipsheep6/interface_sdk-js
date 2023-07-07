@@ -28,6 +28,7 @@ declare namespace sceneManager {
    * @param { string } bundleName - bundle name
    * @returns { string } scene code of bundle
    * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @since 10
    */
   function getSceneCode(bundleName: string): string;
@@ -39,6 +40,7 @@ declare namespace sceneManager {
    * @param { string } bundleName - bundle name
    * @returns { string } original scene code of bundle
    * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @since 10
    */
   function getOriginalSceneCode(bundleName: string): string;
@@ -47,6 +49,7 @@ declare namespace sceneManager {
    * Get self scene code
    *
    * @returns { string } scene code string of caller
+   * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @since 10
    */
   function getSelfSceneCode(): string;
@@ -55,6 +58,7 @@ declare namespace sceneManager {
    * Get current ads verification version of ecological rule manager
    *
    * @returns { string } version string of ads verification
+   * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @since 10
    */
   function getAdsVerificationVersion(): string;
