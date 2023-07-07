@@ -370,6 +370,40 @@ declare namespace bluetoothManager {
   function stopBluetoothDiscovery(): void;
 
   /**
+   * Obtains the profile UUIDs supported by the local device.
+   * 
+   * @permission ohos.permission.USE_BLUETOOTH
+   * @param { AsyncCallback<Array<ProfileUuids>> } callback - the callback of getLocalProfileUuids.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 10
+   */
+  function getLocalProfileUuids(callback: AsyncCallback<Array<ProfileUuids>>): void;
+
+  /**
+   * Obtains the profile UUIDs supported by the local device.
+   * 
+   * @permission ohos.permission.USE_BLUETOOTH
+   * @returns { Promise<Array<ProfileUuids>> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 10
+   */
+  function getLocalProfileUuids(): Promise<Array<ProfileUuids>>;
+  
+  /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
    *
    * @permission ohos.permission.USE_BLUETOOTH
@@ -3726,6 +3760,96 @@ declare namespace bluetoothManager {
      * @since 10
      */
     PIN_TYPE_PIN_16_DIGITS = 7
+  }
+    /**
+     * Enum for the type of pairing to a remote device
+     * 
+     * @enum { string }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 10
+     */
+  enum ProfileUuids {
+    /**
+     * Hands-Free Profile: Audio Gateway
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 10
+     */
+    PROFILE_UUID_HFP_AG = "0000111F-0000-1000-8000-00805F9B34FB",
+    /**
+     * Hands-Free Profile: Hands Free
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 10
+     */
+    PROFILE_UUID_HFP_HF = "0000111E-0000-1000-8000-00805F9B34FB",
+    /**
+     * Headset Profile: Audio Gateway
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 10
+     */
+    PROFILE_UUID_HSP_AG = "00001112-0000-1000-8000-00805F9B34FB",
+    /**
+     * Headset Profile: Headset
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 10
+     */
+    PROFILE_UUID_HSP_HS = "00001108-0000-1000-8000-00805F9B34FB",
+    /**
+     * Advanced Audio Distribution Profile: Source
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 10
+     */
+    PROFILE_UUID_A2DP_SRC = "0000110A-0000-1000-8000-00805F9B34FB",
+    /**
+     * Advanced Audio Distribution Profile: Sink
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 10
+     */
+    PROFILE_UUID_A2DP_SINK = "0000110B-0000-1000-8000-00805F9B34FB",
+    /**
+     * Audio/Video Remote Control Profile: Controller
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 10
+     */
+    PROFILE_UUID_AVRCP_CT = "0000110E-0000-1000-8000-00805F9B34FB",
+    /**
+     * Audio/Video Remote Control Profile: Target
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 10
+     */
+    PROFILE_UUID_AVRCP_TG = "0000110C-0000-1000-8000-00805F9B34FB",
+    /**
+     * Human Interface Device Profile
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 10
+     */
+    PROFILE_UUID_HID = "00001124-0000-1000-8000-00805F9B34FB",
+    /**
+     * HID over GATT Profile
+     * 
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 10
+     */
+    PROFILE_UUID_HOGP = "00001812-0000-1000-8000-00805F9B34FB"
   }
 }
 
