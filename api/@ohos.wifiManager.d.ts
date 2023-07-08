@@ -2458,7 +2458,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    primaryDns: string;
+    primaryDNS: string;
 
     /**
      * The secondary DNS server IPV6 address of the Wi-Fi connection
@@ -2466,7 +2466,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    secondDns: string;
+    secondDNS: string;
   }
 
   /**
