@@ -3394,6 +3394,149 @@ declare interface DragEvent {
 }
 
 /**
+ * CustomDragEvent object which implements DragEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare class CustomDragEvent implements DragEvent {
+  /**
+   * Constructor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  constructor();
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getDisplayX(): number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getDisplayY(): number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getWindowX(): number;
+
+  /**
+   * Y coordinate of the touch point relative to the left edge of the current window.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getWindowY(): number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window. in vp.
+   * @since 10
+   * @deprecated since 10
+   * @useinstead CustomDragEvent#getWindowX()
+   */
+  getX(): number;
+
+  /**
+   * Y coordinate of the touch point relative to the left edge of the current window. in vp.
+   * @since 10
+   * @deprecated since 10
+   * @useinstead CustomDragEvent#getWindowY()
+   */
+  getY(): number;
+
+  /**
+   * If copy is COPY, this DragEvent is a copy event.
+   * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
+   * @default COPY
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  dragBehavior: DragBehavior;
+
+  /**
+   * If useCustomDropAnimation is true, System will not use drop animation.
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  useCustomDropAnimation: boolean;
+
+  /**
+   * Set dragData into DragEvent.
+   * @param { UnifiedData } unifiedData - dragData.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  setData(unifiedData: UnifiedData): void;
+
+  /**
+   * Get dragData from DragEvent.
+   * @returns { UnifiedData } - get dragData.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getData(): UnifiedData;
+
+  /**
+   * Get dragData summary from DragEvent.
+   * @returns { Summary } - get Summary Data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getSummary(): Summary;
+
+  /**
+   * Set dragEvent result to DragEvent.
+   * @param { DragRet } dragRet - the return of dragEvent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  setResult(dragRet: DragRet): void;
+
+  /**
+   * Get dragEvent result from DragEvent.
+   * @returns { DragRet } - dragRet Data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getResult(): DragRet;
+
+  /**
+   * Get the rectangle of drag window.
+   * @returns { Rectangle } - getPreview rectangle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getPreviewRect(): Rectangle;
+
+  /**
+   * A unique identifier to identify which touch point.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  pointerId: number;
+
+  /**
+   * The event source info.
+   * @type { SourceType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  source: SourceType;
+}
+
+/**
  * Import the IntentionCode type object for IntentionCode.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -7001,5 +7144,12 @@ declare module "AnimateToParam" {
   module "AnimateToParam" {
     // @ts-ignore
     export { AnimateParam };
+  }
+}
+
+declare module "DragControllerParam" {
+  module "DragControllerParam" {
+    // @ts-ignore
+    export { CustomBuilder, DragItemInfo, DragEvent };
   }
 }
