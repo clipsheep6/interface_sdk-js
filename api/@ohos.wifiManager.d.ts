@@ -85,6 +85,35 @@ declare namespace wifiManager {
   function getScanInfoList(): Array<WifiScanInfo>;
 
   /**
+   * User can trigger scan even Wi-Fi is disabled.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @param { boolean } isScanAlwaysAllowed - true for allow trigger scan, otherwise don't allow trigger scan when Wi-Fi is disabled.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setScanAlwaysAllowed(isScanAlwaysAllowed: boolean): void;
+
+  /**
+   * Get scan always allowed flag.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @returns { boolean } Returns {@code true} if scan running state is true, returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function getScanAlwaysAllowed(): boolean;
+
+  /**
    * Add Wi-Fi connection configuration to the device. The configuration will be updated when the configuration is added.</p>
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
    * @param { WifiDeviceConfig } config - Indicates the device configuration for connection to the Wi-Fi network.
