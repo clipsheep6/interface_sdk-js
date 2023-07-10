@@ -271,8 +271,7 @@ declare class CanvasGradient {
   /**
    * Add a breakpoint defined by offset and color to the gradient
    * @param number Value between 0 and 1, out of range throws INDEX_SIZE_ERR error
-   * @param string CSS color value <color>. If the color value cannot be resolved to a valid CSS color value <color>
-   *    a SYNTAX_ERR error is thrown.
+   * @param string Set the gradient color.
    * @form
    * @crossplatform
    * @since 10
