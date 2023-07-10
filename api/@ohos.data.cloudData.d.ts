@@ -52,7 +52,7 @@ declare namespace cloudData {
    */
   class Config {
     /**
-     * opens the cloud function.
+     * enables the cloud function.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
@@ -75,7 +75,7 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * opens the cloud function.
+     * enables the cloud function.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
@@ -94,7 +94,7 @@ declare namespace cloudData {
     static enableCloud(accountId: string, switches: { [bundleName: string]: boolean }): Promise<void>;
 
     /**
-     * closes the cloud function.
+     * disables the cloud function.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
@@ -110,7 +110,7 @@ declare namespace cloudData {
     static disableCloud(accountId: string, callback: AsyncCallback<void>): void;
 
     /**
-     * closes the cloud function.
+     * disables the cloud function.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
