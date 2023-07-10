@@ -31,6 +31,7 @@ declare namespace systemParameter {
    * @returns if the parameter is empty or doesn't exist, empty string will be returned.
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
+   * @deprecated since 9
    */
   function getSync(key: string, def?: string): string;
 
@@ -41,6 +42,7 @@ declare namespace systemParameter {
    * @param callback Callback function.
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
+   * @deprecated since 9
    */
   function get(key: string, callback: AsyncCallback<string>): void;
 
@@ -52,6 +54,7 @@ declare namespace systemParameter {
    * @param callback Callback function.
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
+   * @deprecated since 9
    */
   function get(key: string, def: string, callback: AsyncCallback<string>): void;
 
@@ -63,6 +66,7 @@ declare namespace systemParameter {
    * @returns Promise, which is used to obtain the result asynchronously.
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
+   * @deprecated since 9
    */
   function get(key: string, def?: string): Promise<string>;
 
@@ -73,6 +77,7 @@ declare namespace systemParameter {
    * @param value System attribute value to set.
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
+   * @deprecated since 9
    */
   function setSync(key: string, value: string): void;
 
@@ -84,6 +89,7 @@ declare namespace systemParameter {
    * @param callback Callback function.
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
+   * @deprecated since 9
    */
   function set(key: string, value: string, callback: AsyncCallback<void>): void;
 
@@ -95,6 +101,7 @@ declare namespace systemParameter {
    * @returns Promise, which is used to obtain the result asynchronously.
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
+   * @deprecated since 9
    */
   function set(key: string, value: string): Promise<void>;
 }
