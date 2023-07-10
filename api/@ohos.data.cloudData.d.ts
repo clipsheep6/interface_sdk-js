@@ -23,7 +23,7 @@ declare namespace cloudData {
    * @systemapi
    * @since 10
    */
-  enum Action {
+  enum CleanAction {
     /**
      * Indicates clearing cloud-related data only, which includes cloud meta data and cloud-related local data.
      *
@@ -52,7 +52,7 @@ declare namespace cloudData {
    */
   class Config {
     /**
-     * opens the cloud sync function.
+     * opens the cloud function.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
@@ -75,7 +75,7 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * opens the cloud sync function.
+     * opens the cloud function.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
@@ -94,7 +94,7 @@ declare namespace cloudData {
     static enableCloud(accountId: string, switches: { [bundleName: string]: boolean }): Promise<void>;
 
     /**
-     * closes the cloud sync function.
+     * closes the cloud function.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
@@ -110,7 +110,7 @@ declare namespace cloudData {
     static disableCloud(accountId: string, callback: AsyncCallback<void>): void;
 
     /**
-     * closes the cloud sync function.
+     * closes the cloud function.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
@@ -126,7 +126,7 @@ declare namespace cloudData {
     static disableCloud(accountId: string): Promise<void>;
 
     /**
-     * Changes the cloud sync switch of a single application.
+     * Changes the cloud switch of a single application.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
@@ -149,7 +149,7 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * Changes the cloud sync switch of a single application.
+     * Changes the cloud switch of a single application.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
@@ -205,7 +205,7 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
-     * @param { {[bundleName: string]: Action} } appActions - Indicates information about the application data need to clear in which way.
+     * @param { {[bundleName: string]: CleanAction} } appActions - Indicates information about the application data need to clear in which way.
      * @param { AsyncCallback<void> } callback - the callback of clean.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -215,14 +215,14 @@ declare namespace cloudData {
      * @systemapi
      * @since 10
      */
-    static clean(accountId: string, appActions: { [bundleName: string]: Action }, callback: AsyncCallback<void>): void;
+    static clean(accountId: string, appActions: { [bundleName: string]: CleanAction }, callback: AsyncCallback<void>): void;
 
     /**
      * deletes cloud information from local data.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
-     * @param { {[bundleName: string]: Action} } appActions - Indicates information about the application data need to clear in which way.
+     * @param { {[bundleName: string]: CleanAction} } appActions - Indicates information about the application data need to clear in which way.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -232,7 +232,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 10
      */
-    static clean(accountId: string, appActions: { [bundleName: string]: Action }): Promise<void>;
+    static clean(accountId: string, appActions: { [bundleName: string]: CleanAction }): Promise<void>;
   }
 }
 
