@@ -25,6 +25,7 @@
 /**
  * looping function.
  * @form
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -40,14 +41,19 @@ interface ForEachInterface {
    */
   /**
    * Set the value, array, and key.
+   * @param { Array<T> } arr - The value that needs to loop.
+   * @param { (item: T, index?: number) => void } itemGenerator - lambda functions that generate child components.
+   * @param { (item: T, index?: number) => string } keyGenerator - Used to generate a unique and stable key value for a given array item.
+   * @returns { ForEachInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @crossplatform
    * @since 10
    */
-  (
-    arr: Array<any>,
-    itemGenerator: (item: any, index?: number) => void,
-    keyGenerator?: (item: any, index?: number) => string,
+  <T> (
+    arr: Array<T>,
+    itemGenerator: (item: T, index?: number) => void,
+    keyGenerator?: (item: T, index?: number) => string,
   ): ForEachInterface;
 }
 

@@ -117,10 +117,11 @@ declare interface DataChangeListener {
  */
 /**
  * Developers need to implement this interface to provide data to LazyForEach component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare interface IDataSource {
+declare interface IDataSource<T> {
   /**
    * Total data count.
    * @since 7
@@ -138,10 +139,11 @@ declare interface IDataSource {
    */
   /**
    * Return the data of index.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  getData(index: number): any;
+  getData(index: number): T;
 
   /**
    * Register data change listener.
@@ -182,13 +184,18 @@ interface LazyForEachInterface {
    */
   /**
    * Enter the value to obtain the LazyForEach.
+   * @param { IDataSource<T> } dataSource - An object that implements the IDataSource interface.
+   * @param { (item: T, index?: number) => void } itemGenerator - lambda functions that generate child components.
+   * @param { (item: T, index?: number) => string } keyGenerator - Used to generate a unique and stable key value for a given array item.
+   * @returns { ForEachInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */
-  (
-    dataSource: IDataSource,
-    itemGenerator: (item: any, index?: number) => void,
-    keyGenerator?: (item: any, index?: number) => string,
+   */  
+  <T> (
+    dataSource: IDataSource<T>,
+    itemGenerator: (item: T, index?: number) => void,
+    keyGenerator?: (item: T, index?: number) => string,
   ): LazyForEachInterface;
 }
 
