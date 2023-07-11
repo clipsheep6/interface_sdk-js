@@ -14,6 +14,7 @@
  */
 import { AsyncCallback } from './@ohos.base';
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
+import Context from './application/Context';
 
 /**
  * This module provides settings data access abilities.
@@ -653,14 +654,14 @@ declare namespace settings {
    */
   namespace wireless {
     /**
-       * Specifies whether the device can be discovered or connected by other devices through Bluetooth.
-       *
-       * If the value is {@code 0}, the device cannot be connected or discovered. If the value is {@code 1}, the
-       * device can be connected but cannot be discovered. If the value is {@code 2}, the device can be connected
-       * and discovered.
-       *
-       * @since 7
-       */
+     * Specifies whether the device can be discovered or connected by other devices through Bluetooth.
+     *
+     * If the value is {@code 0}, the device cannot be connected or discovered. If the value is {@code 1}, the
+     * device can be connected but cannot be discovered. If the value is {@code 2}, the device can be connected
+     * and discovered.
+     *
+     * @since 7
+     */
     const BLUETOOTH_DISCOVER_ABILITY_STATUS: string
 
     /**
@@ -774,99 +775,253 @@ declare namespace settings {
    * Constructs a URI for a specific name-value pair for monitoring data of the ability that uses the Data
    * template.
    *
-   * @param name Indicates the name of the setting to set.
-   * @returns Returns the corresponding URI; returns {@code null} if the URI does not exist.
+   * @param { string } name - Indicates the name of the setting to set.
+   * @param { AsyncCallback } callback - The callback of getURI result.
+   * @syscap SystemCapability.Applications.settings.Core
    * @since 7
    * @deprecated since 9
    */
   function getURI(name: string, callback: AsyncCallback<object>): void;
+
+  /**
+   * Constructs a URI for a specific name-value pair for monitoring data of the ability that uses the Data
+   * template.
+   *
+   * @param { string } name - Indicates the name of the setting to set.
+   * @returns { Promise<object> } Returns the corresponding URI; returns {@code null} if the URI does not exist.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @since 7
+   * @deprecated since 9
+   */
   function getURI(name: string): Promise<object>;
 
   /**
    * Obtains the value of a specified character string in the database.
    *
-   * @param dataAbilityHelper Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used to access
-   * the database.
-   * @param name Indicates the name of the character string.
-   * @returns Returns the value of the character string in the table if any is found; returns {@code null}
-   * otherwise.
+   * @param { DataAbilityHelper } dataAbilityHelper - Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used
+   * to access the database.
+   * @param { string } name - Indicates the name of the character string.
+   * @param { AsyncCallback } callback - The callback of getValue result.
+   * @syscap SystemCapability.Applications.settings.Core
    * @since 7
    * @deprecated since 9
    * @FAModelOnly
+   * @useinstead ohos.settings#getValue
    */
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback<object>): void;
+
+  /**
+   * Obtains the value of a specified character string in the database.
+   *
+   * @param { DataAbilityHelper } dataAbilityHelper - Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used
+   * to access the database.
+   * @param { string } name - Indicates the name of the character string.
+   * @returns { Promise<object> } Returns the value of the character string in the table if any is found; returns {@code
+   * null} otherwise.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @since 7
+   * @deprecated since 9
+   * @FAModelOnly
+   * @useinstead ohos.settings#getValue
+   */
   function getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise<object>;
+
+  /**
+   * Get value from settingsdata
+   *
+   * @param { Context } context - Indicates the Context or dataAbilityHelper used to access
+   * the database.
+   * @param { string } name - Indicates the name of the character string.
+   * @param { AsyncCallback } callback - The callback of getValue result.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  function getValue(context: Context, name: string, callback: AsyncCallback<string>): void;
+
+  /**
+   * Get value from settingsdata
+   *
+   * @param { Context } context - Indicates the Context or dataAbilityHelper used to access
+   * the database.
+   * @param { string } name - Indicates the name of the character string.
+   * @returns { Promise<string> } Returns the value of the character string in the table if any is found; returns {@code
+   * null} otherwise.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  function getValue(context: Context, name: string): Promise<string>;
 
   /**
    * Saves a character string name and its value to the database.
    *
-   * @param dataAbilityHelper Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used to access
-   * the database.
-   * @param name Indicates the name of the character string.
-   * @param value Indicates the value of the character string.
-   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
-   * @since 7
+   * @param { DataAbilityHelper } dataAbilityHelper - Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used
+   * to access the database.
+   * @param { string } name - Indicates the name of the character string.
+   * @param { object } value - Indicates the value of the character string.
+   * @param { AsyncCallback } callback - The callback of setValue result.
+   * @syscap SystemCapability.Applications.settings.Core
    * @systemapi Hide this for inner system use.
+   * @since 7
    * @deprecated since 9
    * @FAModelOnly
+   * @useinstead ohos.settings#setValue
    */
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Saves a character string name and its value to the database.
+   *
+   * @param { DataAbilityHelper } dataAbilityHelper - Indicates the {@link ohos.aafwk.ability.DataAbilityHelper} used
+   * to access the database.
+   * @param { string } name - Indicates the name of the character string.
+   * @param { object } value - Indicates the value of the character string.
+   * @returns { Promise<boolean> } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @systemapi Hide this for inner system use.
+   * @since 7
+   * @deprecated since 9
+   * @FAModelOnly
+   * @useinstead ohos.settings#setValue
+   */
   function setValue(dataAbilityHelper: DataAbilityHelper, name: string, value: object): Promise<boolean>;
+
+  /**
+   * Set settingsdata value.
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @param { Context } context - Indicates Context or dataAbilityHelper instance.
+   * @param { string } name - Indicates the name of the character string.
+   * @param { string } value - Indicates the value of the character string.
+   * @param { AsyncCallback } callback - The callback of setValue result.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  function setValue(context: Context, name: string, value: string, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Set settingsdata value.
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @param { Context } context - Indicates Context or dataAbilityHelper instance.
+   * @param { string } name - Indicates the name of the character string.
+   * @param { string } value - Indicates the value of the character string.
+   * @returns { Promise<boolean> } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  function setValue(context: Context, name: string, value: string): Promise<boolean>;
 
   /**
    * Enables or disables airplane mode.
    *
-   * @param enable Specifies whether to enable airplane mode. The value {@code true} means to enable airplane
-   * mode, and {@code false} means to disable airplane mode.
-   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @param { boolean } enable - Specifies whether to enable airplane mode. The value {@code true} means to enable
+   * airplane mode, and {@code false} means to disable airplane mode.
+   * @param { AsyncCallback } callback - The callback of enableAirplaneMode result.
+   * @syscap SystemCapability.Applications.settings.Core
    * @since 7
    */
   function enableAirplaneMode(enable: boolean, callback: AsyncCallback<void>): void;
+
+  /**
+   * Enables or disables airplane mode.
+   *
+   * @param { boolean } enable - Specifies whether to enable airplane mode. The value {@code true} means to enable
+   * airplane mode, and {@code false} means to disable airplane mode.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @since 7
+   */
   function enableAirplaneMode(enable: boolean): Promise<void>;
 
   /**
    * Checks whether a specified application can show as float window.
    *
-   * @param context Indicates the application context.
-   * @returns Returns {@code true} if the application can draw over other applications; returns {@code false}
-   * otherwise.
+   * @param { AsyncCallback } callback - The callback of canShowFloating result.
+   * @syscap SystemCapability.Applications.settings.Core
    * @since 7
    */
   function canShowFloating(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Checks whether a specified application can show as float window.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if the application can draw over other applications; returns
+   * {@code false} otherwise.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @since 7
+   */
   function canShowFloating(): Promise<boolean>;
 
   /**
-   * get settingsdata uri(synchronization method)
+   * Get settingsdata uri(synchronization method)
+   *
+   * @param { string } name - Indicates the name of the setting to set.
+   * @returns { string } Returns settingsdata uri.
+   * @syscap SystemCapability.Applications.settings.Core
    * @since 8
-   * @param name Indicates the name of the setting to set.
-   * @returns Returns settingsdata uri.
    */
   function getUriSync(name: string): string;
 
   /**
-   * get value from settingsdata(synchronization method)
+   * Get value from settingsdata(synchronization method)
+   *
+   * @param { DataAbilityHelper } dataAbilityHelper - Indicates dataAbilityHelper instance.
+   * @param { string } name - Indicates the name of the character string.
+   * @param { string } defValue - Indicates the default value of the character string.
+   * @returns { string } Returns settingsdata value.
+   * @syscap SystemCapability.Applications.settings.Core
    * @since 8
-   * @param dataAbilityHelper Indicates dataAbilityHelper instance
-   * @param name Indicates the name of the character string.
-   * @param defValue Indicates the default value of the character string.
-   * @returns settingsdata value
    * @deprecated since 9
    * @FAModelOnly
+   * @useinstead ohos.settings#getValueSync
    */
   function getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string;
 
   /**
-   * set settingsdata value(synchronization method)
+   * Get value from settingsdata(synchronization method)
+   *
+   * @param { Context } context - Indicates Context or dataAbilityHelper instance
+   * @param { string } name - Indicates the name of the character string.
+   * @param { string } defValue - Indicates the default value of the character string.
+   * @returns { string } Returns settingsdata value.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  function getValueSync(context: Context, name: string, defValue: string): string;
+
+  /**
+   * Set settingsdata value(synchronization method)
+   *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @param { DataAbilityHelper } dataAbilityHelper Indicates dataAbilityHelper instance.
+   * @param { string } name Indicates the name of the character string.
+   * @param { string } value Indicates the value of the character string.
+   * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @syscap SystemCapability.Applications.settings.Core
    * @since 8
-   * @param dataAbilityHelper Indicates dataAbilityHelper instance
-   * @param name Indicates the name of the character string.
-   * @param value Indicates the value of the character string.
-   * @returns Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @deprecated since 9
    * @FAModelOnly
+   * @useinstead ohos.settings#setValueSync
    */
   function setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean;
+
+  /**
+   * Set settingsdata value(synchronization method)
+   *
+   * @permission ohos.permission.MANAGE_SECURE_SETTINGS
+   * @param { Context } context - Indicates Context or dataAbilityHelper instance.
+   * @param { string } name - Indicates the name of the character string.
+   * @param { string } value - Indicates the value of the character string.
+   * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
+   * @syscap SystemCapability.Applications.settings.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  function setValueSync(context: Context, name: string, value: string): boolean;
 }
 
 export default settings;
