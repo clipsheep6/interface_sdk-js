@@ -26,8 +26,23 @@
  */
 declare class AppStorage {
   /**
+    * Create and return a two-way sync "(link") to named property
+    *
+    * Same as @see LocalStorage.link()
+    *
+    * @param { string } propName name of source property in AppStorage
+    * @returns { SubscribedAbstractProperty<T> } instance of SubscribedAbstractProperty<S>
+    *           return 'undefined' if named property does not already exist in AppStorage
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 10
+    */
+  static Link<T>(propName: string): SubscribedAbstractProperty<T>;
+
+  /**
    * Called when a link is set.
    * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#Link
    */
   /**
    * Called when a link is set.
@@ -64,8 +79,23 @@ declare class AppStorage {
   static SetAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
+     * Create and return a one-way sync ('prop') to named property
+     *
+     * Same as @see LocalStorage.prop()
+     *
+     * @param { string } propName name of source property in AppStorage
+     * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<S>
+     *           return undefined if named property does not already exist in AppStorage.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+  static Prop<T>(propName: string): SubscribedAbstractProperty<T>;
+
+  /**
    * Called when a property is set.
    * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#Prop
    */
   /**
    * Called when a property is set.
