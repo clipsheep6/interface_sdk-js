@@ -26,8 +26,23 @@
  */
 declare class AppStorage {
   /**
+    * Create and return a two-way sync "(link") to named property
+    *
+    * Same as @see LocalStorage.link()
+    *
+    * @param { string } propName name of source property in AppStorage
+    * @returns { SubscribedAbstractProperty<T> } instance of SubscribedAbstractProperty<S>
+    *           return 'undefined' if named property does not already exist in AppStorage
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 10
+    */
+  static link<T>(propName: string): SubscribedAbstractProperty<T>;
+
+  /**
    * Called when a link is set.
    * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#link
    */
   /**
    * Called when a link is set.
@@ -46,7 +61,23 @@ declare class AppStorage {
    *        default value must be of type T, must not be 'undefined' or 'null'.
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *
+   * @since 10
+   */
+  static setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
+
+  /**
+   * Like see Link(), but will create and initialize a new source property in AppStorage if missing
+   *
+   * Same as see LocalStorage.setAndLink()
+   *
+   * @param { string } propName name of source property in AppStorage
+   * @param { T } defaultValue value to be used for initializing if new creating new property in AppStorage
+   *        default value must be of type T, must not be 'undefined' or 'null'.
+   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
+   *
    * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#setAndLink
    */
   /**
    * Like see Link(), but will create and initialize a new source property in AppStorage if missing
@@ -64,8 +95,24 @@ declare class AppStorage {
   static SetAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
+     * Create and return a one-way sync ('prop') to named property
+     *
+     * Same as @see LocalStorage.prop()
+     *
+     * @param { string } propName name of source property in AppStorage
+     * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<S>
+     *           return undefined if named property does not already exist in AppStorage.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     *
+     * @since 10
+     */
+  static prop<T>(propName: string): SubscribedAbstractProperty<T>;
+
+  /**
    * Called when a property is set.
    * @since 7
+   * @deprecated since 10
+   * @useinstead AppStorage#prop
    */
   /**
    * Called when a property is set.
@@ -738,7 +785,15 @@ declare class Environment {
 
   /**
    * Called when a property value is checked.
+   * @since 10
+   */
+  static envProp<S>(key: string, value: S): boolean;
+
+  /**
+   * Called when a property value is checked.
    * @since 7
+   * @deprecated since 10
+   * @useinstead Environment#envProp
    */
   /**
    * Called when a property value is checked.
@@ -794,7 +849,15 @@ declare class PersistentStorage {
 
   /**
    * Called when a persistence property is stored.
+   * @since 10
+   */
+  static persistProp<T>(key: string, defaultValue: T): void;
+
+  /**
+   * Called when a persistence property is stored.
    * @since 7
+   * @deprecated since 10
+   * @useinstead Environment#envProp
    */
   /**
    * Called when a persistence property is stored.
