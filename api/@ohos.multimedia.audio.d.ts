@@ -975,6 +975,34 @@ declare namespace audio {
      * @since 8
      */
     rendererInfo: AudioRendererInfo;
+    /**
+     * Privacy configuration.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    privacyType?: AudioPrivacyType;
+  }
+
+  /**
+   * Enumerates audio stream privacy type for playback capture.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @since 10
+   */
+  enum AudioPrivacyType {
+    /**
+     * Privacy type that stream can be captured by third party applications.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    PRIVACY_TYPE_PUBLIC = 0,
+
+    /**
+     * Privacy type that stream can not be captured.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    PRIVACY_TYPE_PRIVATE = 1,
   }
 
   /**
@@ -1227,6 +1255,30 @@ declare namespace audio {
      * @since 8
      */
     AUDIO_SCENE_VOICE_CHAT = 3
+  }
+
+  /**
+   * Enumerates volume adjustment types.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   * @since 10
+   */
+  enum VolumeAdjustType {
+    /**
+     * Adjust volume up.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 10
+     */
+    VOLUME_UP = 0,
+    /**
+     * Adjust volume down.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 10
+     */
+    VOLUME_DOWN = 1,
   }
 
   /**
@@ -1572,7 +1624,7 @@ declare namespace audio {
     isDeviceActive(deviceType: ActiveDeviceType): Promise<boolean>;
     /**
      * Listens for system volume change events. This method uses a callback to get volume change events.
-     * @param { string } type - Type of the event to listen for. Only the volumeChange event is supported.
+     * @param { 'volumeChange' } type - Type of the event to listen for. Only the volumeChange event is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to get the system volume change event.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
@@ -1583,7 +1635,7 @@ declare namespace audio {
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
     /**
      * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
-     * @param { string } type - Type of the event to listen for. Only the ringerModeChange event is supported.
+     * @param { 'ringerModeChange' } type - Type of the event to listen for. Only the ringerModeChange event is supported.
      * @param { Callback<AudioRingMode> } callback - Callback used to get the updated ringer mode.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
@@ -1628,7 +1680,7 @@ declare namespace audio {
     /**
      * Subscribes to device change events. When a device is connected/disconnected, registered clients will receive
      * the callback.
-     * @param { string } type - Type of the event to listen for. Only the deviceChange event is supported.
+     * @param { 'deviceChange' } type - Type of the event to listen for. Only the deviceChange event is supported.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
@@ -1639,7 +1691,7 @@ declare namespace audio {
 
     /**
      * UnSubscribes to device change events.
-     * @param { string } type - Type of the event to listen for. Only the deviceChange event is supported.
+     * @param { 'deviceChange' } type - Type of the event to listen for. Only the deviceChange event is supported.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7
@@ -1651,7 +1703,7 @@ declare namespace audio {
     /**
      * Listens for audio interruption events. When the audio of an application is interrupted by another application,
      * the callback is invoked to notify the former application.
-     * @param { string } type - Type of the event to listen for. Only the interrupt event is supported.
+     * @param { 'interrupt' } type - Type of the event to listen for. Only the interrupt event is supported.
      * @param { AudioInterrupt } interrupt - Parameters of the audio interruption event type.
      * @param { Callback<InterruptAction> } callback - Callback invoked for the audio interruption event.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -1661,7 +1713,7 @@ declare namespace audio {
 
     /**
      * Cancels the listening of audio interruption events.
-     * @param { string } type - Type of the event to listen for. Only the interrupt event is supported.
+     * @param { 'interrupt' } type - Type of the event to listen for. Only the interrupt event is supported.
      * @param { AudioInterrupt } interrupt - Input parameters of the audio interruption event.
      * @param { Callback<InterruptAction> } callback - Callback invoked for the audio interruption event.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -1769,7 +1821,7 @@ declare namespace audio {
     /**
      * Subscribes to device change events. When a device is connected/disconnected, registered clients will receive
      * the callback.
-     * @param { string } type - Type of the event to listen for. Only the deviceChange event is supported.
+     * @param { 'deviceChange' } type - Type of the event to listen for. Only the deviceChange event is supported.
      * @param { DeviceFlag } deviceFlag - Audio device flag.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
@@ -1781,7 +1833,7 @@ declare namespace audio {
 
     /**
      * UnSubscribes to device change events.
-     * @param { string } type - Type of the event to listen for. Only the deviceChange event is supported.
+     * @param { 'deviceChange' } type - Type of the event to listen for. Only the deviceChange event is supported.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
@@ -1907,7 +1959,7 @@ declare namespace audio {
     /**
      * Subscribes to prefer output device change events. When prefer device for target audio renderer info changes,
      * registered clients will receive the callback.
-     * @param { string } type - Type of the event to listen for. Only the
+     * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
      * preferOutputDeviceChangeForRendererInfo event is supported.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
@@ -1919,7 +1971,8 @@ declare namespace audio {
     on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
     /**
      * UnSubscribes to prefer output device change events.
-     * @param { string } type - Type of the event to listen for. Only the preferOutputDeviceChangeForRendererInfo event is supported.
+     * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the 
+     * preferOutputDeviceChangeForRendererInfo event is supported.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices in subscribe.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
@@ -1972,18 +2025,18 @@ declare namespace audio {
 
     /**
      * Gets information of audio effects.
-     * @param content Content type.
-     * @param usage Stream usage.
-     * @param callback Callback used to return the information of audio effects.
+     * @param { ContentType } content - Content type.
+     * @param { StreamUsage } usage - Stream usage.
+     * @param { AsyncCallback<AudioEffectInfoArray> } callback - Callback used to return the information of audio effects.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     getAudioEffectInfoArray(content: ContentType, usage: StreamUsage, callback: AsyncCallback<AudioEffectInfoArray>): void;
     /**
      * Gets information of audio effects.
-     * @param content Content type.
-     * @param usage Stream usage.
-     * @returns Promise used to return the information of audio effects.
+     * @param { ContentType } content - Content type.
+     * @param { StreamUsage } usage - Stream usage.
+     * @returns { Promise<AudioEffectInfoArray> } Promise used to return the information of audio effects.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -1992,7 +2045,7 @@ declare namespace audio {
     /**
      * Listens for audio renderer change events. When there is any audio renderer change,
      * registered clients will receive the callback.
-     * @param { string } type - Type of the event to listen for. Only the audioRendererChange event is supported.
+     * @param { "audioRendererChange" } type - Type of the event to listen for. Only the audioRendererChange event is supported.
      * @param { Callback<AudioRendererChangeInfoArray> } callback - Callback invoked for the audio renderer change event.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
@@ -2003,7 +2056,7 @@ declare namespace audio {
 
     /**
      * UnSubscribes to audio renderer change events.
-     * @param { string } type - Type of the event to listen for. Only the audioRendererChange event is supported.
+     * @param { "audioRendererChange" } type - Type of the event to listen for. Only the audioRendererChange event is supported.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -2014,7 +2067,7 @@ declare namespace audio {
     /**
      * Listens for audio capturer change events. When there is any audio capturer change,
      * registered clients will receive the callback.
-     * @param { string } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
+     * @param { "audioCapturerChange" } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
      * @param { Callback<AudioCapturerChangeInfoArray> } callback - Callback invoked for the audio capturer change event.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
@@ -2025,7 +2078,7 @@ declare namespace audio {
 
     /**
      * UnSubscribes to audio capturer change events.
-     * @param { string } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
+     * @param { "audioCapturerChange" } type - Type of the event to listen for. Only the audioCapturerChange event is supported.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -2098,7 +2151,7 @@ declare namespace audio {
 
     /**
      * Listens for system volume change events. This method uses a callback to get volume change events.
-     * @param { string } type - Type of the event to listen for. Only the volumeChange event is supported.
+     * @param { 'volumeChange' } type - Type of the event to listen for. Only the volumeChange event is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to get the system volume change event.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
@@ -2269,7 +2322,7 @@ declare namespace audio {
 
     /**
      * Listens for ringer mode change events. This method uses a callback to get ringer mode changes.
-     * @param { string } type - Type of the event to listen for. Only the ringerModeChange event is supported.
+     * @param { 'ringerModeChange' } type - Type of the event to listen for. Only the ringerModeChange event is supported.
      * @param { Callback<AudioRingMode> } callback - Callback used to get the updated ringer mode.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
@@ -2316,7 +2369,7 @@ declare namespace audio {
 
     /**
      * Listens for system microphone state change events. This method uses a callback to get microphone change events.
-     * @param { string } type - Type of the event to listen for. Only the micStateChange event is supported.
+     * @param { 'micStateChange' } type - Type of the event to listen for. Only the micStateChange event is supported.
      * @param { Callback<MicStateChangeEvent> } callback - Callback used to get the system microphone state change event.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
@@ -2324,6 +2377,107 @@ declare namespace audio {
      * @since 9
      */
     on(type: 'micStateChange', callback: Callback<MicStateChangeEvent>): void;
+
+    /**
+     * Gets if this volume group is volume unadjustable.
+     * @returns { boolean } Whether it is volume unadjustable.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    isVolumeUnadjustable(): boolean;
+
+    /**
+     * Adjusts system volume by step, volume type is decided by system.
+     * This method uses an asynchronous callback to return the result.
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { VolumeAdjustType } adjustType - Volume adjustment type.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 6800301 - System error. Return by callback.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 10
+     */
+    adjustVolumeByStep(adjustType: VolumeAdjustType, callback: AsyncCallback<void>): void;
+    /**
+     * Adjusts system volume by step, volume type is decided by system.
+     * This method uses a promise to return the result.
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { VolumeAdjustType } adjustType - Volume adjustment type.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 10
+     */
+    adjustVolumeByStep(adjustType: VolumeAdjustType): Promise<void>;
+
+    /**
+     * Adjusts system volume by step for target volume type.
+     * This method uses an asynchronous callback to return the result.
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { VolumeAdjustType } adjustType - Volume adjustment type.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by callback.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 6800301 - System error. Return by callback.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 10
+     */
+    adjustSystemVolumeByStep(volumeType: AudioVolumeType, adjustType: VolumeAdjustType, callback: AsyncCallback<void>): void;
+    /**
+     * Adjusts system volume by step for target volume type.
+     * This method uses a promise to return the result.
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { VolumeAdjustType } adjustType - Volume adjustment type.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 10
+     */
+    adjustSystemVolumeByStep(volumeType: AudioVolumeType, adjustType: VolumeAdjustType): Promise<void>;
+
+    /**
+     * Gets the volume db value that system calculate by volume type, volume level and device type.
+     * This method uses an asynchronous callback to return the result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { number } volumeLevel - Volume level to set.
+     * @param { DeviceType } device - Output device type.
+     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Return by callback.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by callback.
+     * @throws { BusinessError } 6800301 - System error. Return by callback.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType, callback: AsyncCallback<number>): void;
+    /**
+     * Gets the volume db value that system calculate by volume type, volume level and device type.
+     * This method uses a promise to return the result.
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * @param { number } volumeLevel - Volume level to set.
+     * @param { DeviceType } device - Output device type.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Return by promise.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @throws { BusinessError } 6800301 - System error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @since 10
+     */
+    getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): Promise<number>;
   }
 
   /**
@@ -2614,29 +2768,25 @@ declare namespace audio {
    * Describes the volume event received by the app when the volume is changed.
    * @typedef VolumeEvent
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @systemapi
-   * @since 8
+   * @since 9
    */
   interface VolumeEvent {
     /**
      * Volume type of the current stream.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @since 8
+     * @since 9
      */
     volumeType: AudioVolumeType;
     /**
      * Volume level.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @since 8
+     * @since 9
      */
     volume: number;
     /**
      * Whether to show the volume change in UI.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @since 8
+     * @since 9
      */
     updateUi: boolean;
     /**
@@ -2834,15 +2984,15 @@ declare namespace audio {
     getAudioStreamId(): Promise<number>;
 
     /**
-     * Gets the current audio effect mode. This method uses an asynchronous callback to return the query result.
-     * @param callback Callback used to return the current audio effect mode.
+     * Obtains the current audio effect mode. This method uses an asynchronous callback to return the query result.
+     * @param { AsyncCallback<AudioEffectMode> } callback - Callback used to return the current audio effect mode.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     getAudioEffectMode(callback: AsyncCallback<AudioEffectMode>): void;
     /**
-     * Gets the current audio effect mode. This method uses a promise to return the query result.
-     * @returns Promise used to return the current audio effect mode.
+     * Obtains the current audio effect mode. This method uses a promise to return the query result.
+     * @returns { Promise<AudioEffectMode> } Promise used to return the current audio effect mode.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -2850,16 +3000,16 @@ declare namespace audio {
 
     /**
      * Sets the current audio effect mode. This method uses an asynchronous callback to return the result.
-     * @param mode Audio effect mode.
-     * @param callback Callback used to return the result.
+     * @param { AudioEffectMode } mode - Audio effect mode.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
     setAudioEffectMode(mode: AudioEffectMode, callback: AsyncCallback<void>): void;
     /**
      * Sets the current audio effect mode. This method uses a promise to return the result.
-     * @param mode Audio effect mode.
-     * @returns Promise used to return the result.
+     * @param { AudioEffectMode } mode - Audio effect mode.
+     * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 10
      */
@@ -3059,9 +3209,71 @@ declare namespace audio {
     setVolume(volume: number): Promise<void>;
 
     /**
+     * Gets the min volume this stream can set. This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getMinStreamVolume(callback: AsyncCallback<number>): void;
+    /**
+     * Gets the min volume this stream can set. This method uses a promise to return the result.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getMinStreamVolume(): Promise<number>;
+
+    /**
+     * Gets the max volume this stream can set. This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getMaxStreamVolume(callback: AsyncCallback<number>): void;
+    /**
+     * Gets the max volume this stream can set. This method uses a promise to return the result.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getMaxStreamVolume(): Promise<number>;
+
+    /**
+     * Gets buffer underflow count. This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getUnderflowCount(callback: AsyncCallback<number>): void;
+    /**
+     * Gets buffer underflow count. This method uses a promise to return the result.
+     * @returns { Promise<number> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 10
+     */
+    getUnderflowCount(): Promise<number>;
+
+    /**
+     * Gets the output device or devices for this stream.
+     * This method uses an asynchronous callback to return the result.
+     * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    getCurrentOutputDevices(callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    /**
+     * Gets the output device or devices for this stream.
+     * This method uses a promise to return the result.
+     * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    getCurrentOutputDevices(): Promise<AudioDeviceDescriptors>;
+
+    /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
-     * @param { string } type - Type of the event to listen for. Only the audioInterrupt event is supported.
+     * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
      * @param { Callback<InterruptEvent> } callback - Callback used to listen for interrupt callback.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
@@ -3073,7 +3285,7 @@ declare namespace audio {
     /**
      * Subscribes to mark reached events. When the number of frames rendered reaches the value of the frame parameter,
      * the callback is invoked.
-     * @param { string } type - Type of the event to listen for. Only the markReach event is supported.
+     * @param { "markReach" } type - Type of the event to listen for. Only the markReach event is supported.
      * @param { number } frame - Number of frames to trigger the event. The value must be greater than 0.
      * @param { Callback<number> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -3082,7 +3294,7 @@ declare namespace audio {
     on(type: "markReach", frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from mark reached events.
-     * @param { string } type - Type of the event to listen for. Only the markReach event is supported.
+     * @param { "markReach" } type - Type of the event to listen for. Only the markReach event is supported.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
@@ -3091,7 +3303,7 @@ declare namespace audio {
     /**
      * Subscribes to period reached events. When the period of frame rendering reaches the value of frame parameter,
      * the callback is invoked.
-     * @param { string } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @param { "periodReach" } type - Type of the event to listen for. Only the periodReach event is supported.
      * @param { number } frame - Period during which frame rendering is listened. The value must be greater than 0.
      * @param { Callback<number> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -3100,7 +3312,7 @@ declare namespace audio {
     on(type: "periodReach", frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from period reached events.
-     * @param { string } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @param { "periodReach" } type - Type of the event to listen for. Only the periodReach event is supported.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
@@ -3108,12 +3320,34 @@ declare namespace audio {
 
     /**
      * Subscribes audio state change event callback.
-     * @param { string } type - Type of the event to listen for. Only the stateChange event is supported.
+     * @param { "stateChange" } type - Type of the event to listen for. Only the stateChange event is supported.
      * @param { Callback<AudioState> } callback - Callback invoked when state change.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 8
      */
     on(type: "stateChange", callback: Callback<AudioState>): void;
+
+    /**
+     * Subscribes output device change event callback.
+     * The event is triggered when output device change for this stream.
+     * @param { 'outputDeviceChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    on(type: 'outputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
+    /**
+     * Unsubscribes output device change event callback.
+     * @param { 'outputDeviceChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 10
+     */
+    off(type: 'outputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
   }
 
   /**
@@ -3141,6 +3375,12 @@ declare namespace audio {
      * @since 9
      */
     SOURCE_TYPE_VOICE_RECOGNITION = 1,
+    /**
+     * Playback capture source type.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    SOURCE_TYPE_PLAYBACK_CAPTURE = 2,
     /**
      * Wakeup source type.
      * @permission ohos.permission.MANAGER_INTELLIGENT_VOICE
@@ -3204,6 +3444,43 @@ declare namespace audio {
      * @since 8
      */
     capturerInfo: AudioCapturerInfo;
+    /**
+     * Playback capture config.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    playbackCaptureConfig?: AudioPlaybackCaptureConfig;
+  }
+
+  /**
+   * Describe playback capture filtering options
+   * @typedef CaptureFilterOptions
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @since 10
+   */
+  interface CaptureFilterOptions {
+    /**
+     * Filter by stream usages. If you want to capture voice streams, additional permission is needed.
+     * @permission ohos.permission.CAPTURE_VOICE_DOWNLINK_AUDIO
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    usages: Array<StreamUsage>;
+  }
+
+  /**
+   * Describe playback capture config object.
+   * @typedef AudioPlaybackCaptureConfig
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @since 10
+   */
+  interface AudioPlaybackCaptureConfig {
+    /**
+     * Add filter options to decide which streams to be captured.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    filterOptions: CaptureFilterOptions;
   }
 
   /**
@@ -3368,7 +3645,7 @@ declare namespace audio {
     /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
      * the callback is invoked.
-     * @param { string } type - Type of the event to listen for. Only the markReach event is supported.
+     * @param { "markReach" } type - Type of the event to listen for. Only the markReach event is supported.
      * @param { number } frame - Number of frames to trigger the event. The value must be greater than 0.
      * @param { Callback<number> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -3377,7 +3654,7 @@ declare namespace audio {
     on(type: "markReach", frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from the mark reached events.
-     * @param { string } type - Type of the event to listen for. Only the markReach event is supported.
+     * @param { "markReach" } type - Type of the event to listen for. Only the markReach event is supported.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
@@ -3386,7 +3663,7 @@ declare namespace audio {
     /**
      * Subscribes to period reached events. When the period of frame capturing reaches the value of frame parameter,
      * the callback is invoked.
-     * @param { string } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @param { "periodReach" } type - Type of the event to listen for. Only the periodReach event is supported.
      * @param { number } frame - Period during which frame capturing is listened. The value must be greater than 0.
      * @param { Callback<number> } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -3395,7 +3672,7 @@ declare namespace audio {
     on(type: "periodReach", frame: number, callback: Callback<number>): void;
     /**
      * Unsubscribes from period reached events.
-     * @param { string } type - Type of the event to listen for. Only the periodReach event is supported.
+     * @param { "periodReach" } type - Type of the event to listen for. Only the periodReach event is supported.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
      */
@@ -3403,7 +3680,7 @@ declare namespace audio {
 
     /**
      * Subscribes audio state change event callback.
-     * @param { string } type - Type of the event to listen for. Only the stateChange event is supported.
+     * @param { "stateChange" } type - Type of the event to listen for. Only the stateChange event is supported.
      * @param { Callback<AudioState> } callback - Callback used to listen for the audio state change event.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 8
@@ -3413,7 +3690,7 @@ declare namespace audio {
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio recording is interrupted.
-     * @param { string } type - Type of the event to listen for. Only the audioInterrupt event is supported.
+     * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
      * @param { Callback<InterruptEvent> } callback - Callback used to listen for interrupt callback.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch
      * @throws { BusinessError } 6800101 - if input parameter value error
@@ -3421,6 +3698,16 @@ declare namespace audio {
      * @since 10
      */
     on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void;
+
+    /**
+     * UnSubscribes to audio interrupt events.
+     * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch
+     * @throws { BusinessError } 6800101 - if input parameter value error
+     * @syscap SystemCapability.Multimedia.Audio.Interrupt
+     * @since 10
+     */
+    off(type: 'audioInterrupt'): void;
   }
 
   /**
@@ -3709,7 +3996,8 @@ declare namespace audio {
   type AudioEffectInfoArray = Array<Readonly<AudioEffectMode>>;
 
   /**
-   * Enumerates audio effect modes.
+   * Describes an audio effect mode group.
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 10
    */
