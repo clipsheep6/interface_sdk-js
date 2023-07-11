@@ -469,7 +469,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 10
      */
-    HIDDEN = 'hidden'
+    HIDDEN = 'hidden',
+    /**
+     * Session Id of the file, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 10
+     */
+    SESSION_ID = 'session_id'
   }
 
   /**
@@ -537,6 +545,14 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     subtype?: PhotoSubtype;
+    /**
+     * SessionId of the asset to create
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    sessionId?: string;
   }
 
   /**
