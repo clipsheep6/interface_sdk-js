@@ -2837,7 +2837,7 @@ declare namespace relationalStore {
      * Registers an observer for the database.
      *
      * @param { string } event - Indicates the subscription event.
-     * @param { boolean } supportShared - Indicates whether it is an interprocess subscription or an in-process subscription.
+     * @param { boolean } interProcess - Indicates whether it is an interprocess subscription or an in-process subscription.
      * @param { Callback<void> } observer - The observer of data change events in the database.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -2846,7 +2846,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    on(event: string, supportShared: boolean, observer: Callback): void;
+    on(event: string, interProcess: boolean, observer: Callback): void;
     
     /**
      * Remove specified observer of specified type from the database.
@@ -2882,7 +2882,7 @@ declare namespace relationalStore {
      * Remove specified observer of specified type from the database.
      *
      * @param { string } event - Indicates the subscription event.
-     * @param { boolean } supportShared - Indicates whether it is an interprocess subscription or an in-process subscription.
+     * @param { boolean } interProcess - Indicates whether it is an interprocess subscription or an in-process subscription.
      * @param Callback<void> observer - {Array<string>}: the data change observer already registered.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -2891,8 +2891,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    off(event: string, supportShared: boolean, observer?: Callback<void>): void;
-
+    off(event: string, interProcess: boolean, observer?: Callback<void>): void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
