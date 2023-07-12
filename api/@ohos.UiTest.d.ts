@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Callback } from './@ohos.base';
+import type { Callback } from './@ohos.base';
 
 /**
  * Enumerates the string value match pattern.
@@ -2733,7 +2733,7 @@ export {
   WindowMode,
   PointerMatrix,
   UiDirection,
-  MouseButton,
-  UIElementInfo,
-  UIEventObserver
+  MouseButton
 };
+
+export type { UIElementInfo, UIEventObserver};
