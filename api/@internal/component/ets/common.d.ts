@@ -7123,3 +7123,280 @@ declare module 'DragControllerParam' {
     export type { CustomBuilder, DragItemInfo, DragEvent };
   }
 }
+
+/**
+ * The mouse click action triggers this method invocation.
+ * @crossplatform
+ * @since 10
+ */
+declare interface MouseEventParam extends BaseEvent {
+  /**
+   * Mouse button of the click event.
+   * @type { MouseButton }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  button: MouseButton;
+
+  /**
+   * Mouse action of the click event.
+   * @type { MouseAction }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  action: MouseAction;
+
+  /**
+   * X coordinate of the mouse point relative to the left edge of the current window.
+   * @since 8
+   * @deprecated since 10
+   * @useinstead MouseEventParam#windowX
+   */
+  screenX: number;
+
+  /**
+   * Y coordinate of the mouse point relative to the upper edge of the current window.
+   * @since 8
+   * @deprecated since 10
+   * @useinstead MouseEventParam#windowY
+   */
+  screenY: number;
+
+  /**
+   * X coordinate of the mouse point relative to the left edge of the mouse hit element.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  x: number;
+
+  /**
+   * Y coordinate of the mouse point relative to the upper edge of the mouse hit element.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  y: number;
+
+  /**
+   * X coordinate of the mouse point relative to the left edge of the device screen.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  displayX?: number;
+
+  /**
+   * Y coordinate of the mouse point relative to the upper edge of the device screen.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  displayY?: number;
+
+  /**
+   * X coordinate of the mouse point relative to the left edge of the current window.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowX?: number;
+
+  /**
+   * Y coordinate of the mouse point relative to the upper edge of the current window.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowY?: number;
+}
+
+/**
+ * KeyEvent object description:
+ * @crossplatform
+ * @since 10
+ */
+declare interface KeyEventParam {
+  /**
+   * Type of a key.
+   * @type { KeyType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  type: KeyType;
+
+  /**
+   * Key code of a key
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  keyCode: number;
+
+  /**
+   * Key value of a key.
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  keyText: string;
+
+  /**
+   * Type of the input device that triggers the current key, such as the keyboard or handle.
+   * @type { KeySource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  keySource: KeySource;
+
+  /**
+   * Indicates the ID of the input device that triggers the current key.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  deviceId: number;
+
+  /**
+   * Indicates the status of the key when the key is pressed.
+   * The value 1 indicates the pressed state, and the value 0 indicates the unpressed state.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  metaKey: number;
+
+  /**
+   * Timestamp when the key was pressed.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  timestamp: number;
+
+  /**
+   * Intention code of a key or modifier keys.
+   * @type { ?IntentionCode }
+   * @default IntentionCode.INTENTION_UNKNOWN
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  intentionCode?: IntentionCode;
+}
+
+/**
+ * Type of the touch event.
+ * @crossplatform
+ * @since 10
+ */
+declare interface TouchObjectParam {
+  /**
+   * Type of the touch event.
+   * @type { TouchType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  type: TouchType;
+
+  /**
+   * Finger unique identifier.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  id: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window.
+   * @since 7
+   * @deprecated since 10
+   * @useinstead TouchObjectParam#windowX
+   */
+  screenX: number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the current window.
+   * @since 7
+   * @deprecated since 10
+   * @useinstead TouchObjectParam#windowY
+   */
+  screenY: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the touched element.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  x: number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the touched element.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  y: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  displayX?: number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  displayY?: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the current window.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowX?: number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the current window.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  windowY?: number;
+}
+
+declare module "SpecialEventParam" {
+  module "SpecialEventParam" {
+    // @ts-ignore
+    export { TouchObjectParam, KeyEventParam, MouseEventParam };
+  }
+}
