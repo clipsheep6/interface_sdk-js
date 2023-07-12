@@ -256,7 +256,7 @@ declare namespace inputMethod {
      *
      * @param { 'imeShow' } type - Indicates the event type.
      * @param { function } callback - the callback of 'imeShow'.
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10
@@ -280,7 +280,7 @@ declare namespace inputMethod {
      *
      * @param { 'imeHide' } type - Indicates the event type.
      * @param { function } callback - the callback of 'imeHide'.
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10
