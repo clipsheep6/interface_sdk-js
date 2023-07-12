@@ -3118,6 +3118,117 @@ declare interface TouchObject {
    * @since 10
    */
   y: number;
+
+  
+  /**
+   * Get the historical points.
+   * @returns { Array<HistoricalPoint> } - return all historical points.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getHistoricalPoints(): Array<HistoricalPoint>;
+}
+
+declare interface HistoricalPoint {
+  /**
+   * Type of the touch event.
+   * @type { TouchType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  type: TouchType;
+
+  /**
+   * Finger unique identifier.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  id: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  screenX: number;
+
+  /**
+   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  screenY: number;
+
+  /**
+   * X coordinate of the touch point relative to the left edge of the touched element.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  x: number;
+
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the touched element.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  y: number;
+
+  /**
+   * The angle between pencil projection on plane-X-Y and axis-Z.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  tiltX: number;
+
+  /**
+   * The angle between pencil projection on plane-Y-Z and axis-Z.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  tiltY: number;
+
+  /**
+   * Contact area between the finger pad and the screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  size: number;
+
+  /**
+   * Pressure of the touch event.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  force: number;
+
+  /**
+   * Timestamp of the touch event.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  timestamp: number;
 }
 
 /**
