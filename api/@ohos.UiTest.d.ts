@@ -2736,4 +2736,4 @@ export {
   MouseButton
 };
 
-export type { UIElementInfo, UIEventObserver};
+export type {UIElementInfo, UIEventObserver};
