@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import type { Callback } from './@ohos.base';
+import { Callback } from './@ohos.base';
 
 /**
  * Enumerates the string value match pattern.
