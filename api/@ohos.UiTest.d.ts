@@ -2735,5 +2735,3 @@ export {
   UiDirection,
   MouseButton
 };
-
-export type {UIElementInfo, UIEventObserver};
