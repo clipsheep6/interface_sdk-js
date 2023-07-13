@@ -718,6 +718,12 @@ declare namespace audio {
      */
     STREAM_USAGE_MEDIA = 1,
     /**
+     * Music usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_MUSIC = 1,
+    /**
      * Voice communication usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
@@ -736,11 +742,29 @@ declare namespace audio {
      */
     STREAM_USAGE_ALARM = 4,
     /**
+     * Voice message usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_VOICE_MESSAGE = 5,
+    /**
      * Notification or ringtone usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7
      */
     STREAM_USAGE_NOTIFICATION_RINGTONE = 6,
+    /**
+     * Ringtone usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_RINGTONE = 6,
+    /**
+     * Notification usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_NOTIFICATION = 7,
     /**
      * Accessibility usage, such as screen reader.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -754,6 +778,51 @@ declare namespace audio {
      * @since 10
      */
     STREAM_USAGE_SYSTEM = 9,
+    /**
+     * Movie or video usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_MOVIE = 10,
+    /**
+     * Game sound effect usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_GAME = 11,
+    /**
+     * Audiobook usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_AUDIOBOOK = 12,
+    /**
+     * Navigation usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    STREAM_USAGE_NAVIGATION = 13,
+    /**
+     * DTMF dial tone usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 10
+     */
+    STREAM_USAGE_DTMF = 14,
+    /**
+     * Enforced tone usage, such as camera shutter.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 10
+     */
+    STREAM_USAGE_ENFORCED_TONE = 15,
+    /**
+     * Ultrasonic playing usage.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 10
+     */
+    STREAM_USAGE_ULTRASONIC = 16,
   }
 
   /**
@@ -815,10 +884,19 @@ declare namespace audio {
   interface AudioRendererInfo {
     /**
      * Content type.
+     * @type { ContentType }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
+     * @deprecated since 10
+     * @useinstead ohos.multimedia.audio.AudioRendererInfo#usage
      */
-    content: ContentType;
+    /**
+     * Content type.
+     * @type { ?ContentType }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 10
+     */
+    content?: ContentType;
     /**
      * Stream usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -883,6 +961,34 @@ declare namespace audio {
      * @since 8
      */
     rendererInfo: AudioRendererInfo;
+    /**
+     * Privacy configuration.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    privacyType?: AudioPrivacyType;
+  }
+
+  /**
+   * Enumerates audio stream privacy type for playback capture.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @since 10
+   */
+  enum AudioPrivacyType {
+    /**
+     * Privacy type that stream can be captured by third party applications.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    PRIVACY_TYPE_PUBLIC = 0,
+
+    /**
+     * Privacy type that stream can not be captured.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    PRIVACY_TYPE_PRIVATE = 1,
   }
 
   /**
@@ -2648,29 +2754,25 @@ declare namespace audio {
    * Describes the volume event received by the app when the volume is changed.
    * @typedef VolumeEvent
    * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @systemapi
-   * @since 8
+   * @since 9
    */
   interface VolumeEvent {
     /**
      * Volume type of the current stream.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @since 8
+     * @since 9
      */
     volumeType: AudioVolumeType;
     /**
      * Volume level.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @since 8
+     * @since 9
      */
     volume: number;
     /**
      * Whether to show the volume change in UI.
      * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @since 8
+     * @since 9
      */
     updateUi: boolean;
     /**
@@ -3260,6 +3362,12 @@ declare namespace audio {
      */
     SOURCE_TYPE_VOICE_RECOGNITION = 1,
     /**
+     * Playback capture source type.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    SOURCE_TYPE_PLAYBACK_CAPTURE = 2,
+    /**
      * Voice communication source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
@@ -3307,6 +3415,43 @@ declare namespace audio {
      * @since 8
      */
     capturerInfo: AudioCapturerInfo;
+    /**
+     * Playback capture config.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    playbackCaptureConfig?: AudioPlaybackCaptureConfig;
+  }
+
+  /**
+   * Describe playback capture filtering options
+   * @typedef CaptureFilterOptions
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @since 10
+   */
+  interface CaptureFilterOptions {
+    /**
+     * Filter by stream usages. If you want to capture voice streams, additional permission is needed.
+     * @permission ohos.permission.CAPTURE_VOICE_DOWNLINK_AUDIO
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    usages: Array<StreamUsage>;
+  }
+
+  /**
+   * Describe playback capture config object.
+   * @typedef AudioPlaybackCaptureConfig
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @since 10
+   */
+  interface AudioPlaybackCaptureConfig {
+    /**
+     * Add filter options to decide which streams to be captured.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 10
+     */
+    filterOptions: CaptureFilterOptions;
   }
 
   /**

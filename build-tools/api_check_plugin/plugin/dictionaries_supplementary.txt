@@ -292,6 +292,8 @@ hitrace
 hiview
 hiviewdfx
 hkdf
+hogp
+hsp
 hspa
 hspap
 htmltext
@@ -520,6 +522,9 @@ pread
 precisiontype
 precomposed
 precon
+preconnect
+preconnected
+preconnectable
 preempted
 preferentially
 preloads
@@ -527,6 +532,7 @@ premises
 premultiplied
 premultiply
 prepares
+preresolve
 presently
 prevgroup
 prikey

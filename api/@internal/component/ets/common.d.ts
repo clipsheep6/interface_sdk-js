@@ -1290,6 +1290,28 @@ declare interface RotateOptions {
   centerY?: number | string;
 
   /**
+   * The param of center point of z.
+   * @form
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @default 0
+   * @crossplatform
+   * @since 10
+   */
+  centerZ?: number;
+
+  /**
+   * The param of camera distance, value range (1, ∞).
+   * @type { ?number }
+   * @form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @default 1.0
+   * @crossplatform
+   * @since 10
+   */
+  perspective?: number;
+
+  /**
    * The param of angle.
    * @since 7
    */
@@ -3099,6 +3121,51 @@ declare interface TouchObject {
 }
 
 /**
+ * TouchObject getHistoricalPoints Function Parameters
+ * @interface HistoricalPoint 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface HistoricalPoint {
+  /**
+   * The base touchObject information of historicalPoint
+   * @type { TouchObject }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  touchObject: TouchObject;
+
+  /**
+   * Contact area between the finger pad and the screen.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  size: number;
+
+  /**
+   * Pressure of the touch event.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  force: number;
+
+  /**
+   * Timestamp of the touch event.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  timestamp: number;
+}
+
+/**
  * Touch Action Function Parameters
  * @since 7
  */
@@ -3151,6 +3218,15 @@ declare interface TouchEvent extends BaseEvent {
    * @since 10
    */
   stopPropagation?: () => void;
+
+  /**
+   * Get the historical points.
+   * @returns { Array<HistoricalPoint> } - return all historical points.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getHistoricalPoints(): Array<HistoricalPoint>;
 }
 
 /**
@@ -3391,6 +3467,33 @@ declare interface DragEvent {
    * @since 10
    */
   getPreviewRect(): Rectangle;
+
+  /**
+   * Get the x axis velocity of drag gesture.
+   * @returns { number } - get x axis velocity.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getVelocityX(): number;
+
+  /**
+   * Get the y axis velocity of drag gesture.
+   * @returns { number } - get y axis velocity.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getVelocityY(): number;
+
+  /**
+   * Get the velocity of drag gesture.
+   * @returns { number } - get velocity.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getVelocity(): number;
 }
 
 /**
@@ -5207,6 +5310,16 @@ declare class CommonMethod<T> {
   backdropBlur(value: number): T;
 
   /**
+   * Composite the contents of this view and its children into an offscreen cache before display in the screen.
+   * @param { boolean } value if this view and its children need to composite into an offscreen cache.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  renderGroup(value: boolean): T;
+
+  /**
    * Sets the translation effect during page transition.
    * The value is the start point of entry and end point of exit.
    * When this parameter is set together with slide, slide takes effect by default.
@@ -7001,5 +7114,12 @@ declare module "AnimateToParam" {
   module "AnimateToParam" {
     // @ts-ignore
     export { AnimateParam };
+  }
+}
+
+declare module 'DragControllerParam' {
+  module 'DragControllerParam' {
+    // @ts-ignore
+    export type { CustomBuilder, DragItemInfo, DragEvent };
   }
 }
