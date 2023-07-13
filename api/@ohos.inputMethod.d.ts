@@ -252,11 +252,11 @@ declare namespace inputMethod {
     ): void;
 
     /**
-     * Subscribe input window show event.
+     * Subscribes to input window show events.
      *
      * @param { 'imeShow' } type - Indicates the event type.
-     * @param { function } callback - the callback of 'imeShow'.
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @param { (Array<InputWindowInfo>) => void } callback - the callback of 'imeShow'.
+     * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10
@@ -276,11 +276,11 @@ declare namespace inputMethod {
     off(type: 'imeShow', callback?: (info: Array<InputWindowInfo>) => void): void;
 
     /**
-     * Subscribe input window hide event.
+     * Subscribes to input window hidden events.
      *
      * @param { 'imeHide' } type - Indicates the event type.
-     * @param { function } callback - the callback of 'imeHide'.
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @param { (Array<InputWindowInfo>) => void } callback - the callback of 'imeHide'.
+     * @throws { BusinessError } 202 - not system application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10
