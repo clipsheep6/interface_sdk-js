@@ -2696,7 +2696,7 @@ export declare class Locate {
   language: string;
 
   /**
-   * country or region, such ass 'CN'.
+   * country or region, such as 'CN'.
    * @since 4
    */
   countryOrRegion: string;
