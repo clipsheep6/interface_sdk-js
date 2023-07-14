@@ -28,17 +28,59 @@ import sim from "./@ohos.telephony.sim";
  * @since 6
  */
 declare namespace observer {
-  type NetworkState = radio.NetworkState;
-  type SignalInformation = radio.SignalInformation;
   /**
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 6
+   */
+  type NetworkState = radio.NetworkState;
+
+  /**
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 6
+   */
+  type SignalInformation = radio.SignalInformation;
+
+  /**
+   * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
+   * @since 8
    */
   type CellInformation = radio.CellInformation;
-  type DataConnectState = data.DataConnectState;
+
+  /**
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 6
+   */
   type RatType = radio.RadioTechnology;
+
+  /**
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 7
+   */
+  type DataConnectState = data.DataConnectState;
+
+  /**
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 7
+   */
   type DataFlowType = data.DataFlowType;
+
+  /**
+   * @syscap SystemCapability.Telephony.CallManager
+   * @since 6
+   */
   type CallState = call.CallState;
+
+  /**
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 7
+   */
   type CardType = sim.CardType;
+
+  /**
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 6
+   */
   type SimState = sim.SimState;
 
   /**
@@ -64,7 +106,7 @@ declare namespace observer {
    *
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { 'networkStateChange' } type - Event type. Indicates the networkStateChange event to be subscribed to.
-   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * @param { object } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { Callback<NetworkState> } callback - Indicates the callback for getting
    * an instance of the {@code NetworkState} class.
@@ -82,8 +124,8 @@ declare namespace observer {
   /**
    * Cancel callback when the network state is updated.
    *
-   * @param { string } type - networkStateChange.
-   * @param { 'networkStateChange' } type - Event type. Indicates the networkStateChange event to unsubscribe from.
+   * @param { 'networkStateChange' } type - networkStateChange.
+   * @param { Callback<NetworkState> } callback - Event type. Indicates the networkStateChange event to unsubscribe from.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -114,7 +156,7 @@ declare namespace observer {
    * Callback when the signal strength corresponding to a monitored {@code slotId} is updated.
    *
    * @param { 'signalInfoChange' } type - Event type. Indicates the signalInfoChange event to be subscribed to.
-   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * @param { object } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { Callback<Array<SignalInformation>> } callback - Indicates the callback for getting
    * an array of instances of the classes derived from {@link SignalInformation}.
@@ -132,7 +174,7 @@ declare namespace observer {
    * Cancel callback when the signal strength is updated.
    *
    * @param { 'signalInfoChange' } type - Event type. Indicates the signalInfoChange event to unsubscribe from.
-   * @param { Callback<SignalInformation> } callback - Indicates the callback to unsubscribe from
+   * @param { Callback<Array<SignalInformation>> } callback - Indicates the callback to unsubscribe from
    * the signalInfoChange event.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -169,7 +211,7 @@ declare namespace observer {
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { 'cellInfoChange' } type - Event type. Indicates the cellInfoChange event to be subscribed to.
-   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * @param { object } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { Callback<Array<CellInformation>> } callback - Indicates the callback for getting
    * an array of instances of the classes derived from {@link CellInformation}.
@@ -228,7 +270,7 @@ declare namespace observer {
    *
    * @param { 'cellularDataConnectionStateChange' } type - Event type. Indicates the cellularDataConnectionStateChange
    * event to be subscribed to.
-   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * @param { object } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { Callback<{ state: DataConnectState, network: RatType }> } callback - Indicates the callback for
    * getting the cellular data link connection state, and networkType Indicates the radio access technology for
@@ -283,7 +325,7 @@ declare namespace observer {
    * corresponding to the monitored {@code slotId} is updated.
    *
    * @param { 'cellularDataFlowChange' } type - Event type. Indicates the cellularDataFlowChange event to be subscribed to.
-   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * @param { object } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { Callback<DataFlowType> } callback - Indicates the callback for getting the cellular data flow state.
    * @throws { BusinessError } 401 - Parameter error.
@@ -332,7 +374,7 @@ declare namespace observer {
    * Callback when the call state corresponding to the monitored {@code slotId} is updated.
    *
    * @param { 'callStateChange' } type - Event type. Indicates the callStateChange event to be subscribed to.
-   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * @param { object } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { Callback<{ state: CallState, number: string }> } callback - Indicates the callback for
    * getting the call state and the called number.
@@ -382,7 +424,7 @@ declare namespace observer {
    * Callback when the sim state corresponding to the monitored {@code slotId} is updated.
    *
    * @param { 'simStateChange' } type - Event type. Indicates the simStateChange event to be subscribed to.
-   * @param { { slotId: number } } options - Indicates the ID of the target card slot.
+   * @param { object } options - Indicates the ID of the target card slot.
    * The value {@code 0} indicates card 1, and the value {@code 1} indicates card 2.
    * @param { Callback<SimStateData> } callback - Indicates the callback for getting the SimStateData object.
    * @throws { BusinessError } 401 - Parameter error.
