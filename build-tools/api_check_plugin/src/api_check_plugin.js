@@ -88,13 +88,13 @@ function checkAllNode(node, sourcefile, fileName) {
     checkDeprecated(node, sourcefile, fileName);
     // check permission
     checkPermission(node, sourcefile, fileName);
-    // check event subscription
-    checkEventSubscription(node, sourcefile, fileName);
 
     if (commentNodeWhiteList.includes(node.kind)) {
       checkJSDoc(node, sourcefile, fileName, true);
     }
   }
+  // check event subscription
+  checkEventSubscription(node, sourcefile, fileName);
   checkAnyInAPI(node, sourcefile, fileName);
   if (ts.isIdentifier(node)) {
     // check variable spelling
