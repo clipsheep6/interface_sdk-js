@@ -384,6 +384,22 @@ declare namespace media {
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
+     * Add external subtitles.
+     * @param { string } url External subtitle URI, Network:http://xxx.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 10
+     */
+    addSubtitleUrl(url: string): void;
+
+    /**
+     * Add external subtitles.
+     * @param { AVFileDescriptor } fdSrc Subtitle file descriptor.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 10
+     */
+    addSubtitleFdSrc(fdSrc: AVFileDescriptor): void;
+
+    /**
      * Select audio or subtitle track.
      * By default, the first audio stream with data is played, and the subtitle track is not played.
      * After the settings take effect, the original track will become invalid and users will be notified
@@ -702,6 +718,25 @@ declare namespace media {
      * @since 10
      */
      off(type: 'trackChange'): void;
+    /**
+     * Register or unregister listens for trackinfo update events.
+     * This event will be triggered after a successful call to {@link #addSubUrl} or {@link #addSubFdSrc}.
+     * @param { 'trackInfoUpdate' } type - Type of the playback event to listen for.
+     * @param { function } callback - Callback used to listen for the track info update event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 10
+     */
+    on(type: 'trackInfoUpdate', callback: (trackInfo: Array<MediaDescription>) => void): void;
+    off(type: 'trackInfoUpdate'): void;
+    /**
+     * Register or unregister listens for receiving subtitle data.
+     * @param { 'subtitleTextUpdate' } type - Type of the playback event to listen for.
+     * @param { function } callback - Callback used to listen for the playback event return subtitle data.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 10
+     */
+    on(type: 'subtitleTextUpdate', callback: (textInfo: TextInfoDescriptor) => void): void;
+    off(type: 'subtitleTextUpdate'): void;
   }
 
   /**
@@ -830,7 +865,7 @@ declare namespace media {
    */
   interface AVFileDescriptor {
     /**
-     * The file descriptor of audio or video source from file system. The caller
+     * The file descriptor of media source from file system. The caller
      * is responsible to close the file descriptor.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 9
@@ -2410,6 +2445,12 @@ declare namespace media {
      * @since 8
      */
     MEDIA_TYPE_VID = 1,
+    /**
+     * Track is subtitle.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 10
+     */
+    MEDIA_TYPE_SUBTITLE = 2,
   }
 
   /**
@@ -2829,6 +2870,22 @@ declare namespace media {
      * @since 8
      */
     [key: string]: Object;
+  }
+
+  /**
+   * Subtitle text information descriptor.
+   *
+   * @typedef TextInfoDescriptor
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 10
+   */
+  interface TextInfoDescriptor {
+    /**
+     * Subtitle text. If null, stop rendering current text.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 10
+     */
+    text: string;
   }
 
   /**
