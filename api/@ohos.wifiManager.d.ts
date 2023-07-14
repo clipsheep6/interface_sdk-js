@@ -1601,127 +1601,111 @@ declare namespace wifiManager {
    * Wi-Fi EAP config.
    * @typedef WifiEapConfig
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 10
    */
   interface WifiEapConfig {
     /** 
      * EAP authentication method 
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     eapMethod: EapMethod;
 
     /** 
      * Phase 2 authentication method
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     phase2Method: Phase2Method;
 
     /** 
      * The identity
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     identity: string;
 
     /** 
      * Anonymous identity
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     anonymousIdentity: string;
 
     /** 
      * Password
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     password: string;
 
     /** 
      * CA certificate alias
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     caCertAliases: string;
 
     /** 
      * CA certificate path
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     caPath: string;
 
     /** 
      * Client certificate alias
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     clientCertAliases: string;
 
     /** 
      * content of user's certificate
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     certEntry: Uint8Array;
 
     /** 
      * Password of user's certificate
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     certPassword: string;
 
     /** 
      * Alternate subject match
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     altSubjectMatch: string;
 
     /** 
      * Domain suffix match
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     domainSuffixMatch: string;
 
     /** 
      * Realm for Passpoint credential
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     realm: string;
 
     /** 
      * Public Land Mobile Network of the provider of Passpoint credential
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     plmn: string;
 
     /** 
      * Sub ID of the SIM card
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     eapSubId: number;
   }
@@ -1746,6 +1730,13 @@ declare namespace wifiManager {
      * @since 9
      */
     bssid?: string;
+
+    /**
+     * Wi-Fi bssid type.
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    bssidType?: number;
 
     /**
      * Wi-Fi key: maximum length is 64.
@@ -1827,8 +1818,7 @@ declare namespace wifiManager {
     /**
      * EAP config info.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 10
      */
     eapConfig?: WifiEapConfig;
 
@@ -1992,6 +1982,14 @@ declare namespace wifiManager {
      * @since 9
      */
     bssid: string;
+
+    /**
+     * Wi-Fi bssid type
+     *
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    bssidType: string;
 
     /**
      * Hotspot capability
@@ -2649,6 +2647,14 @@ declare namespace wifiManager {
     macAddress: string;
 
     /**
+     * The MAC address type of the Wi-Fi client
+     * @syscap SystemCapability.Communication.WiFi.AP.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    macAddressType?: string;
+
+    /**
      * The IP address of the Wi-Fi client
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
@@ -2895,6 +2901,14 @@ declare namespace wifiManager {
     deviceAddress: string;
 
     /**
+     * Device mac address type
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 10
+     */
+    deviceAddressType?: number;
+
+    /**
      * Primary device type
      *
      * @syscap SystemCapability.Communication.WiFi.P2P
@@ -2934,6 +2948,14 @@ declare namespace wifiManager {
      * @since 9
      */
     deviceAddress: string;
+
+    /**
+     * Device mac address type
+     *
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 10
+     */
+    deviceAddressType?: string;
 
     /**
      * Group network ID. When creating a group, -1 indicates creates a temporary group,
