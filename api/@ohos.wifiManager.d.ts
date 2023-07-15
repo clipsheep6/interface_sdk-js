@@ -1757,7 +1757,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    bssidType?: number;
+    bssidType?: DeviceAddressType;
 
     /**
      * Wi-Fi key: maximum length is 64.
@@ -2010,7 +2010,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    bssidType: string;
+    bssidType: DeviceAddressType;
 
     /**
      * Hotspot capability
@@ -2927,7 +2927,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 10
      */
-    deviceAddressType?: number;
+    deviceAddressType?: DeviceAddressType;
 
     /**
      * Primary device type
@@ -2976,7 +2976,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 10
      */
-    deviceAddressType?: string;
+    deviceAddressType?: DeviceAddressType;
 
     /**
      * Group network ID. When creating a group, -1 indicates creates a temporary group,
