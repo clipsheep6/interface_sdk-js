@@ -2673,7 +2673,7 @@ declare namespace wifiManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    macAddressType?: string;
+    macAddressType?: DeviceAddressType;
 
     /**
      * The IP address of the Wi-Fi client
