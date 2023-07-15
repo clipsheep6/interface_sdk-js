@@ -1344,6 +1344,27 @@ declare namespace wifiManager {
   function off(type: "p2pDiscoveryChange", callback?: Callback<number>): void;
 
   /**
+   * Wi-Fi device address( mac / bssid ) type.
+   * @enum { number }
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @since 10
+   */
+  enum DeviceAddressType {
+    /**
+     * real device address
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    REAL_DEVICE_ADDRESS,
+    /**
+     * random device address
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    RANDOM_DEVICE_ADDRESS
+  }
+
+  /**
    * Wi-Fi EAP method.
    * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.STA
