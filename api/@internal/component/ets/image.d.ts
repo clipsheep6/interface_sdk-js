@@ -258,16 +258,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   fillColor(value: ResourceColor): ImageAttribute;
 
   /**
-   * Sets the zoom type of an image.
+   * Set the zoom type of an image.
    * @since 7
    */
   /**
-   * Sets the zoom type of an image.
+   * Set the zoom type of an image.
    * @form
    * @since 9
    */
   /**
-   * Sets the zoom type of an image.
+   * Set the zoom type of an image.
+   * Unsupported objectFit attribute animation for pixelMap, svg and texture compressed image sources.
+   * @param { ImageFit } value - the type of image fit.
    * @form
    * @crossplatform
    * @since 10
