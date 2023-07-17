@@ -426,7 +426,15 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    UNSPECIFIED = 255
+    UNSPECIFIED = 255,
+
+    /**
+     * Indicates extension info with type of sysPicker/mediaControl
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    SYS_PICKER_MEDIA_CONTROL = 400
   }
 
   /**
