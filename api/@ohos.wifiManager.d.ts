@@ -1351,17 +1351,18 @@ declare namespace wifiManager {
    */
   enum DeviceAddressType {
     /**
+     * random device address
+     * @syscap SystemCapability.Communication.WiFi.STA
+     * @since 10
+     */
+    RANDOM_DEVICE_ADDRESS,
+
+    /**
      * real device address
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
     REAL_DEVICE_ADDRESS,
-    /**
-     * random device address
-     * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
-     */
-    RANDOM_DEVICE_ADDRESS
   }
 
   /**
