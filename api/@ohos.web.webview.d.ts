@@ -1323,6 +1323,17 @@ declare namespace webview {
     getUserAgent(): string;
 
     /**
+     * Set user agent.
+     * @param { string } userAgent - User agent information.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    setUserAgent(userAgent: string): void;
+
+    /**
      * Gets the title of current Web page.
      * @returns { string } Return to File Selector Title.
      * @throws { BusinessError } 17100001 - Init error.
