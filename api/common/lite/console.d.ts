@@ -13,34 +13,60 @@
  * limitations under the License.
  */
 
+/**
+ * The common api for log outputs.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 4
+ */
 export declare class console {
   /**
    * Prints "debug" logs.
-   * @param message Text to print
+   *
+   * @param { string } message - Text to print
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 4
    */
   static debug(message: string): void;
 
   /**
    * Prints "log" logs.
-   * @param message Text to print
+   *
+   * @param { string } message - Text to print
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 4
    */
   static log(message: string): void;
 
   /**
    * Prints "info" logs.
-   * @param message Text to print
+   *
+   * @param { string } message - Text to print
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 4
    */
   static info(message: string): void;
 
   /**
    * Prints "warn" logs.
-   * @param message Text to print
+   *
+   * @param { string } message - Text to print
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 4
    */
   static warn(message: string): void;
 
   /**
    * Prints "error" logs.
-   * @param message Text to print
+   *
+   * @param { string } message - Text to print
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Lite
+   * @since 4
    */
   static error(message: string): void;
 }
