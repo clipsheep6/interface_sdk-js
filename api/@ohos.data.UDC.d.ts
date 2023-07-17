@@ -19,6 +19,7 @@ import UDD from './@ohos.data.UDD';
 /**
  * UDMF - Unified Data Management Framework
  * UDC - Unified Data Channel
+ * @since 10
  * 
  * @namespace UDC
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core

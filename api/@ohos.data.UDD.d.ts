@@ -16,6 +16,7 @@
 /**
  * UDMF - Unified Data Management Framework
  * UDD - Unified Data Describe
+ * @since 10
  * 
  * @namespace UDD
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -24,6 +25,7 @@ declare namespace UDD {
   /**
    * the data type supported by unified data
    *
+   * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
@@ -553,6 +555,7 @@ declare namespace UDD {
   /**
    * describe the sharing channel that UDMF support
    *
+   * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
