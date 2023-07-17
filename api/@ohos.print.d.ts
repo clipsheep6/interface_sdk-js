@@ -35,6 +35,8 @@ declare namespace print {
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @systemapi Hide this for inner system use.
+         * @throws { BusinessError } 201 - the application does not have permission to call this function.
+         * @throws { BusinessError } 202 - not system application.
          */
         on(type: 'block', callback: () => void): void;
 
@@ -45,6 +47,8 @@ declare namespace print {
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @systemapi Hide this for inner system use.
+         * @throws { BusinessError } 201 - the application does not have permission to call this function.
+         * @throws { BusinessError } 202 - not system application.		 
          */
         on(type: 'succeed', callback: () => void): void;
 
@@ -55,6 +59,8 @@ declare namespace print {
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @systemapi Hide this for inner system use.
+         * @throws { BusinessError } 201 - the application does not have permission to call this function.
+         * @throws { BusinessError } 202 - not system application.		 
          */
         on(type: 'fail', callback: () => void): void;
 
@@ -65,6 +71,8 @@ declare namespace print {
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @systemapi Hide this for inner system use.
+         * @throws { BusinessError } 201 - the application does not have permission to call this function.
+         * @throws { BusinessError } 202 - not system application.		 
          */
         on(type: 'cancel', callback: () => void): void;
 
@@ -75,6 +83,8 @@ declare namespace print {
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @systemapi Hide this for inner system use.
+         * @throws { BusinessError } 201 - the application does not have permission to call this function.
+         * @throws { BusinessError } 202 - not system application.		 
          */
         off(type: 'block', callback?: () => void): void;
 
@@ -85,6 +95,8 @@ declare namespace print {
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @systemapi Hide this for inner system use.
+         * @throws { BusinessError } 201 - the application does not have permission to call this function.
+         * @throws { BusinessError } 202 - not system application.		 
          */
         off(type: 'succeed', callback?: () => void): void;
 
@@ -95,6 +107,8 @@ declare namespace print {
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @systemapi Hide this for inner system use.
+         * @throws { BusinessError } 201 - the application does not have permission to call this function.
+         * @throws { BusinessError } 202 - not system application.		 
          */
         off(type: 'fail', callback?: () => void): void;
 
@@ -104,7 +118,9 @@ declare namespace print {
          * @param type cancel Indicates the print task has been cancelled.
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
-         * @systemapi Hide this for inner system use.         
+         * @systemapi Hide this for inner system use. 
+         * @throws { BusinessError } 201 - the application does not have permission to call this function.
+         * @throws { BusinessError } 202 - not system application.		 
          */
         off(type: 'cancel', callback?: () => void): void;        
     }
