@@ -20,11 +20,13 @@ import { AsyncCallback } from './@ohos.base';
  *
  * @namespace UDMF
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+ * @since 10
  */
 declare namespace UDMF {
   /**
    * the data type supported by unified data
    *
+   * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
@@ -554,6 +556,7 @@ declare namespace UDMF {
   /**
    * describe the sharing channel that UDMF support
    *
+   * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
