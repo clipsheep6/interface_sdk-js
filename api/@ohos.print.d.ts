@@ -527,7 +527,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function on(type: 'printerStateChange', callback: Callback<state: PrinterState, info: PrinterInfo>): void;
+    function on(type: 'printerStateChange', callback: Callback<printerState, printerInfo>): void;
 
     /**
      * Unregister event callback for the state change of printer.
@@ -549,7 +549,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function on(type: 'jobStateChange', callback: Callback<state: PrintJobState, job: PrintJob>): void;
+    function on(type: 'jobStateChange', callback: Callback<printJobState, printJob>): void;
 
      /**
      * Unregister event callback for the state change of print job.
