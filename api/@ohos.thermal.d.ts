@@ -105,7 +105,7 @@ declare namespace thermal {
    *
    * @param { Callback<ThermalLevel> } callback Callback of thermal level changes.
    * @throws { BusinessError } 401 - If callback is not valid.
-   * @throws { BusinessError } 4800101 If connecting to the service failed.
+   * @throws { BusinessError } 4800101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9
    */
@@ -127,7 +127,7 @@ declare namespace thermal {
    *
    * @param { Callback<void> } callback Callback of thermal level changes.
    * @throws { BusinessError } 401 - If callback is not valid.
-   * @throws { BusinessError } 4800101 If connecting to the service failed.
+   * @throws { BusinessError } 4800101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9
    */
@@ -148,7 +148,7 @@ declare namespace thermal {
    * Obtains the current thermal level.
    *
    * @returns { ThermalLevel } The thermal level.
-   * @throws { BusinessError } 4800101 If connecting to the service failed.
+   * @throws { BusinessError } 4800101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9
    */
