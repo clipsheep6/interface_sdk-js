@@ -15,13 +15,12 @@
 
 /**
  * UDMF - Unified Data Management Framework
- * UDD - Unified Data Describe
  * @since 10
  * 
- * @namespace UDD
+ * @namespace uniformTypeDescriber
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  */
-declare namespace UDD {
+declare namespace uniformTypeDescriber {
   /**
    * the data type supported by unified data
    *
@@ -71,28 +70,28 @@ declare namespace UDD {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    IMAGE = 'File.Media.Image',
+    IMAGE = 'Media.Image',
     /**
      * indicate the data type is video
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    VIDEO = 'File.Media.Video',
+    VIDEO = 'Media.Video',
     /**
      * indicate the data type is audio
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    AUDIO = 'File.Media.Audio',
+    AUDIO = 'Media.Audio',
     /**
      * indicate the data type is Folder
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    FOLDER = 'File.Folder',
+    FOLDER = 'Folder',
     /**
      * indicate the data type is system defined record(this kind of data is provided and bound to OpenHarmony,
      * also can be parsed by system provided API)
@@ -326,11 +325,11 @@ declare namespace UDD {
   /**
    * describe the unified image data
    *
-   * @extends File
+   * @extends UnifiedRecord
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
-  class Image extends File {
+  class Image extends UnifiedRecord {
     /**
      * indicates the uri of image
      *
@@ -343,11 +342,11 @@ declare namespace UDD {
   /**
    * describe the unified video data
    *
-   * @extends File
+   * @extends UnifiedRecord
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
-  class Video extends File {
+  class Video extends UnifiedRecord {
     /**
      * indicates the uri of video
      *
@@ -360,11 +359,11 @@ declare namespace UDD {
   /**
    * describe the unified audio data
    *
-   * @extends File
+   * @extends UnifiedRecord
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
-  class Audio extends File {
+  class Audio extends UnifiedRecord {
     /**
      * indicates the uri of audio
      *
@@ -377,11 +376,11 @@ declare namespace UDD {
   /**
    * describe the unified folder data
    *
-   * @extends File
+   * @extends UnifiedRecord
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
-  class Folder extends File {
+  class Folder extends UnifiedRecord {
     /**
      * indicates the uri of folder
      *
@@ -594,4 +593,4 @@ declare namespace UDD {
   };
 }
 
-export default UDD;
+export default uniformTypeDescriber;

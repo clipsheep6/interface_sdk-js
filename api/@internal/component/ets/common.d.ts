@@ -3283,9 +3283,9 @@ declare enum DragBehavior {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare type UnifiedData = import('../api/@ohos.data.UDMF').UnifiedData;
-declare type Summary = import('../api/@ohos.data.UDMF').Summary;
-declare type UnifiedDataType = import('../api/@ohos.data.UDMF').UnifiedDataType;
+declare type UnifiedData = import('../api/@ohos.data.uniformTypeDescriber').UnifiedData;
+declare type Summary = import('../api/@ohos.data.uniformTypeDescriber').Summary;
+declare type UnifiedDataType = import('../api/@ohos.data.uniformTypeDescriber').UnifiedDataType;
 
 /**
  * Enum for Drag Result.
