@@ -20,7 +20,6 @@ import type Want from './@ohos.app.ability.Want';
 /**
  * class of driver extension ability.
  * @syscap SystemCapability.Driver.ExternalDevice
- * @systemapi
  * @StageModelOnly
  * @since 10
  */
