@@ -28,7 +28,6 @@ export default class DriverExtensionAbility {
   /**
    * Indicates driver extension ability context.
    * @syscap SystemCapability.Driver.ExternalDevice
-   * @systemapi
    * @StageModelOnly
    * @since 10
    */
