@@ -488,6 +488,75 @@ declare interface SliderBlockStyle {
   shape?: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute;
 }
 
+
+/**
+ * Declare SliderTrackType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum SliderTrackType {
+  /**
+   * Use the default track.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  LINEAR,
+
+  /**
+   * Use an image as the arc track.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  ARC,
+}
+
+/**
+ * Defines the style of slider track.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface SliderTrackStyle {
+  /**
+   * Sets the type of slider track.
+   * @type { SliderTrackType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  type: SliderTrackType;
+
+  /**
+   * Sets the image of slider block while the type is set to SliderTrackType.ARC.
+   * @type number
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  radius?: number;
+
+    /**
+   * Sets the image of slider block while the type is set to SliderTrackType.ARC.
+   * @type number
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  startAngle?: number;
+
+      /**
+   * Sets the image of slider block while the type is set to SliderTrackType.ARC.
+   * @type number
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  sweepAngle?: number;
+}
+
 /**
  * Provides an interface for the slide bar component.
  *
@@ -872,6 +941,17 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 10
    */
   stepSize(value: Length): SliderAttribute;
+  
+  
+  /**
+   * Called when the style of track is set.
+   * @param { SliderTrackStyle } value - the style of track.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  trackStyle(value: SliderTrackStyle): SliderAttribute;
 }
 
 /**
