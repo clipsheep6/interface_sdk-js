@@ -34,6 +34,8 @@ export interface ViewModel {
 
   /**
    * An object that holds all DOM elements and component instances that have been registered with the refs attribute
+   *
+   * @type { ElementReferences }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
@@ -49,6 +51,8 @@ export interface ViewModel {
 export interface ListScrollToOptions {
   /**
    * specified position.
+   *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
@@ -68,24 +72,28 @@ export interface ListElement {
 export interface ImageAnimatorElement {
   /**
    * Starts to play the frame animation of an image. If this method is called again, the playback starts from the first frame.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
   start(): void;
   /**
    * Pauses the frame animation playback of an image.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
   pause(): void;
   /**
    * Stops the frame animation playback of an image.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
   stop(): void;
   /**
    * Resumes the frame animation playback of an image.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
@@ -95,7 +103,8 @@ export interface ImageAnimatorElement {
    * Playing
    * Paused
    * Stopped
-   * @returns { string } the playback state value
+   *
+   * @returns { "Playing" | "Paused" | "Stopped" }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
@@ -118,6 +127,8 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
    * The attribute name cannot start with $ or an underscore (_) or contain the reserved words such as for, if, show, and tid.
    * For a function, the return value must be an object.
    * Set the value of data to the return value of the function during page initialization.
+   *
+   * @type { ?Data }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
@@ -125,6 +136,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 
   /**
    * Called when the page is initialized. This function can be called only once in a lifecycle.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
@@ -132,6 +144,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 
   /**
    * Called when the page is created. This function can be called only once in a lifecycle.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
@@ -139,6 +152,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 
   /**
    * Called when the page is displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
@@ -146,6 +160,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 
   /**
    * Called when the application is created
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
@@ -153,6 +168,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 
   /**
    * Called when the application is destroyed or called when the page is redirected to another one (without entering the navigation stack).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
@@ -160,6 +176,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 
   /**
    * Called when the user data need to be saved
+   *
    * @param { Object } data - Indicates the user data to save.
    * @returns { boolean } Returns {@code true} if the data is successfully saved; returns {@code false} otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
@@ -169,6 +186,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 
   /**
    * Called when the user data need to be restored
+   *
    * @param { Object } data - Indicates the user data to restore.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 10
@@ -178,6 +196,7 @@ export interface Options<T extends ViewModel, Data = DefaultData<T>> {
 
 /**
  * Used for ide.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
  * @since 4
@@ -186,6 +205,7 @@ type DefaultData<T> = object;
 
 /**
  * Used for ide.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
  * @since 4

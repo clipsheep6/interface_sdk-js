@@ -70,8 +70,11 @@ export declare function clearTimeout(timeoutID?: number): void;
 /**
  * Get the java interface instance. The java instance needs to register, otherwise it cannot be obtained.
  * After obtaining the instance, you can call the function with the same name on the Java side.
- * @param { string } name - Java interface name, including package path, such as com.example.test.timeinterfaceimpl.
- * @returns { any } A promise object is returned. The resolve callback is the object of PA. The reject callback returns the object containing code and error data.
+ *
+ * @param { ?string } name - Java interface name, including package path, such as com.example.test.timeinterfaceimpl.
+ * @returns { any } A promise object is returned. The resolve callback is the object of PA.
+ *         The reject callback returns the object containing code and error data.
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5
  * @deprecated since 8
  */
@@ -79,11 +82,17 @@ export declare function createLocalParticleAbility(name?: string): any;
 
 /**
  * Conditional compilation for rich equipment
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 5
  */
 export declare const STANDARD: string;
 
 /**
  * Conditional compilation for lite equipment
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 5
  */
 export declare const LITE: string;
 
