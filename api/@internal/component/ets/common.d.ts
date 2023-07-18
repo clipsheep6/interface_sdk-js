@@ -885,28 +885,6 @@ declare interface Rectangle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
-/**
- * global $r function
- *
- * @param { string } value
- * @param { any[] } params
- * @returns { Resource }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- * @form
- */
-/**
- * global $r function
- *
- * @param { string } value
- * @param { any[] } params
- * @returns { Resource }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- * @form
- */
-declare function $r(value: string, ...params: any[]): Resource;
 
 /**
  * global $rawfile function

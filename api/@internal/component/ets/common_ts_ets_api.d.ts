@@ -1550,6 +1550,29 @@ declare class LocalStorage {
   clear(): boolean;
 }
 
+/**
+ * global $r function
+ *
+ * @param { string } value
+ * @param { any[] } params
+ * @returns { Resource }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * global $r function
+ *
+ * @param { string } value
+ * @param { any[] } params
+ * @returns { Resource }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+declare function $r(value: string, ...params: any[]): Resource;
+
 declare module "StateManagement" {
   module "StateManagement" {
     // @ts-ignore
