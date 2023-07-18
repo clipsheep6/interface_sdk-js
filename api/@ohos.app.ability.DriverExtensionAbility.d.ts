@@ -20,6 +20,7 @@ import type Want from './@ohos.app.ability.Want';
 /**
  * class of driver extension ability.
  * @syscap SystemCapability.Driver.ExternalDevice
+ * @systemapi
  * @StageModelOnly
  * @since 10
  */
@@ -27,6 +28,7 @@ export default class DriverExtensionAbility {
   /**
    * Indicates driver extension ability context.
    * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
    * @StageModelOnly
    * @since 10
    */
@@ -36,6 +38,7 @@ export default class DriverExtensionAbility {
    * Called back when a driver extension is started for initialization.
    * @param { Want } want - Indicates the want of created driver extension.
    * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
    * @StageModelOnly
    * @since 10
    */
@@ -44,6 +47,7 @@ export default class DriverExtensionAbility {
   /**
    * Called back before a driver extension is destroyed.
    * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
    * @StageModelOnly
    * @since 10
    */
@@ -53,6 +57,7 @@ export default class DriverExtensionAbility {
    * Called back when a driver extension is first connected to an ability.
    * @param { Want } want - Indicates connection information about the Driver ability.
    * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
    * @StageModelOnly
    * @since 10
    */
@@ -62,6 +67,7 @@ export default class DriverExtensionAbility {
    * Called back when all abilities connected to a driver extension are disconnected.
    * @param { Want } want - Indicates disconnection information about the driver extension.
    * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
    * @StageModelOnly
    * @since 10
    */
@@ -73,6 +79,7 @@ export default class DriverExtensionAbility {
    * @param { Array<string> } params - Indicates th e params from command.
    * @returns { Array<string> } The dump info array.
    * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
    * @StageModelOnly
    * @since 10
    */
