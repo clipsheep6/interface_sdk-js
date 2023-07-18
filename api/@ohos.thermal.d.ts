@@ -81,7 +81,7 @@ declare namespace thermal {
      *
      * @param {Callback<ThermalLevel>} callback Callback of thermal level changes.
      * @throws {BusinessError} 401 - If callback is not valid.
-     * @throws {BusinessError} 4800101 If connecting to the service failed.
+     * @throws {BusinessError} 4800101 - If connecting to the service failed.
      * @since 9
      */
     function registerThermalLevelCallback(callback: Callback<ThermalLevel>): void;
@@ -101,7 +101,7 @@ declare namespace thermal {
      *
      * @param {Callback<void>} callback Callback of thermal level changes.
      * @throws {BusinessError} 401 - If callback is not valid.
-     * @throws {BusinessError} 4800101 If connecting to the service failed.
+     * @throws {BusinessError} 4800101 - If connecting to the service failed.
      * @since 9
      */
     function unregisterThermalLevelCallback(callback?: Callback<void>): void;
@@ -120,7 +120,7 @@ declare namespace thermal {
      * Obtains the current thermal level.
      *
      * @returns {ThermalLevel} The thermal level.
-     * @throws {BusinessError} 4800101 If connecting to the service failed.
+     * @throws {BusinessError} 4800101 - If connecting to the service failed.
      * @since 9
      */
     function getLevel(): ThermalLevel;
