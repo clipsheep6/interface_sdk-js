@@ -36,7 +36,7 @@ declare namespace print {
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          */
-        on(type: 'block', callback: () => void): void;
+        on(type: 'block', callback: Callback<void>): void;
 
         /**
          * Register event callback when the current print task is in process.
@@ -46,7 +46,7 @@ declare namespace print {
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          */
-        on(type: 'succeed', callback: () => void): void;
+        on(type: 'succeed', callback: Callback<void>): void;
 
         /**
          * Register event callback when the current print task is in process.
@@ -56,7 +56,7 @@ declare namespace print {
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          */
-        on(type: 'fail', callback: () => void): void;
+        on(type: 'fail', callback: Callback<void>): void;
 
         /**
          * Register event callback when the current print task is in process.
@@ -66,7 +66,7 @@ declare namespace print {
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          */
-        on(type: 'cancel', callback: () => void): void;
+        on(type: 'cancel', callback: Callback<void>): void;
 
         /**
          * Unregister event callback when the current print task is in process.
@@ -76,7 +76,7 @@ declare namespace print {
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          */
-        off(type: 'block', callback?: () => void): void;
+        off(type: 'block', callback?: Callback<void>): void;
 
         /**
          * Unregister event callback when the current print task is in process.
@@ -86,7 +86,7 @@ declare namespace print {
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          */
-        off(type: 'succeed', callback?: () => void): void;
+        off(type: 'succeed', callback?: Callback<void>): void;
 
         /**
          * Unregister event callback when the current print task is in process.
@@ -96,7 +96,7 @@ declare namespace print {
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          */
-        off(type: 'fail', callback?: () => void): void;
+        off(type: 'fail', callback?: Callback<void>): void;
 
         /**
          * Unregister event callback when the current print task is in process.
@@ -106,7 +106,7 @@ declare namespace print {
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
          */
-        off(type: 'cancel', callback?: () => void): void;        
+        off(type: 'cancel', callback?: Callback<void>): void;        
     }
 
     /**
@@ -127,6 +127,11 @@ declare namespace print {
      */
     function print(files: Array<string>): Promise<PrintTask>;
 
+    /**
+     * interface print margin param
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     interface PrintMargin {
         top?: number;  // top margin
         bottom?: number;  // bottom margin
@@ -134,23 +139,43 @@ declare namespace print {
         right?: number;  // right side margin
     }
 
+    /**
+     * interface print range param
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     interface PrinterRange {
         startPage?: number;  // start page of sequence
         endPage?: number;  // end page of sequence
         pages?: Array<number>;  // discrete page of sequence
     }
 
+    /**
+     * interface print preview attribute
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     interface PreviewAttribute {
         previewRange: PrinterRange;  // preview page range
         result?: number;        // preview file
     }
 
+    /**
+     * interface print resolution param
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     interface PrintResolution {
         id: string;          // resolution id
         horizontalDpi: number    // horizontal DPI
         verticalDpi: number;    // vertical DPI
     }
 
+    /**
+     * interface print pageSize param
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     interface PrintPageSize {
         id: string;    // page size id
         name: string;  // page size name
@@ -158,6 +183,11 @@ declare namespace print {
         height: number;  // unit: millimeter
     }
 
+    /**
+     * interface printer capability param
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     interface PrinterCapability {
         /* Printer Capability */
         colorMode: number;            // color mode
@@ -167,6 +197,11 @@ declare namespace print {
         minMargin?: PrintMargin;  // min margin of printer
     }
 
+    /**
+     * interface Printer info
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     interface PrinterInfo {
         printerId: string;      // printer id
         printerName: string;    // printer name
@@ -174,9 +209,14 @@ declare namespace print {
         printerIcon?: number;    // resource id of printer icon
         description?: string;    // printer description
         capability?: PrinterCapability;  // printer capability
-        options? :string;    // json object string
+        options? :Object;    // json object string
     }
 
+    /**
+     * interface Print Job
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     interface PrintJob {
         fdList: Array<number>;       // document fd list to be printed
         jobId: string;               // job id
@@ -191,9 +231,14 @@ declare namespace print {
         duplexMode: number;          // duplex mode
         margin?: PrintMargin;        // current margin setting
         preview?: PreviewAttribute;  // preview setting
-        options? :string;              // json object string
+        options? :Object;              // json object string
     }
 
+    /**
+     * enum Printer State
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     enum PrinterState {
         PRINTER_ADDED = 0,          // new printers arrival
         PRINTER_REMOVED = 1,        // printers lost
@@ -203,6 +248,11 @@ declare namespace print {
         PRINTER_RUNNING = 5,        // printer is working
     }
 
+    /**
+     * enum Print Job State
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     enum PrintJobState {
         PRINT_JOB_PREPARE = 0,      // initial state of print job
         PRINT_JOB_QUEUED = 1,       // deliver print job to the printer
@@ -211,6 +261,11 @@ declare namespace print {
         PRINT_JOB_COMPLETED = 4,    // print job completed
     }
 
+    /**
+     * enum Print Job Sub State
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     enum PrintJobSubState {
         PRINT_JOB_COMPLETED_SUCCESS = 0,        // print job succeed
         PRINT_JOB_COMPLETED_FAILED = 1,         // print job fail
@@ -232,6 +287,11 @@ declare namespace print {
         PRINT_JOB_BLOCK_UNKNOWN = 17,           // unknown issue
     }
 
+    /**
+     * enum Print error Code
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     enum PrintErrorCode {
         E_PRINT_NONE = 0,                       // no error
         E_PRINT_NO_PERMISSION = 201,            // no permission
@@ -245,6 +305,11 @@ declare namespace print {
         E_PRINT_FILE_IO = 13100007,             // file i/o error
     }
 
+    /**
+     * interface printer ExtensionInfo
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 10 
+     */
     interface PrinterExtensionInfo {
         extensionId: string;    // extension id of printer extension
         vendorId: string;       // vendor id of extension
@@ -283,7 +348,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<boolean>): void;
+    function startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<void>): void;
 
     /**
      * Load the specific printer extension and start to discover printer.
@@ -307,7 +372,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-     function stopDiscoverPrinter(callback: AsyncCallback<boolean>): void;
+     function stopDiscoverPrinter(callback: AsyncCallback<void>): void;
 
     /**
      * Stop discovering the printer with specific printer extension.
@@ -330,7 +395,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-      function connectPrinter(printerId: string, callback: AsyncCallback<boolean>): void;
+      function connectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
      /**
      * Connect the specific printer.
@@ -352,7 +417,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-      function disconnectPrinter(printerId: string, callback: AsyncCallback<boolean>): void;
+      function disconnectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
      /**
      * Disconnect the specific printer.
@@ -374,7 +439,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-     function queryPrinterCapability(printerId: string, callback: AsyncCallback<boolean>): void;
+     function queryPrinterCapability(printerId: string, callback: AsyncCallback<void>): void;
 
     /**
      * Query capability for the specific printer.
@@ -396,7 +461,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function startPrintJob(jobInfo: PrintJob, callback: AsyncCallback<boolean>): void;
+    function startPrintJob(jobInfo: PrintJob, callback: AsyncCallback<void>): void;
 
     /**
      * Start print job.
@@ -418,7 +483,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function cancelPrintJob(jobId: string, callback: AsyncCallback<boolean>): void;
+    function cancelPrintJob(jobId: string, callback: AsyncCallback<void>): void;
 
     /**
      * Cancel the print job has been sent to printer.
@@ -440,7 +505,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function requestPrintPreview(jobInfo: PrintJob, callback: (result: number) => void): void;
+    function requestPrintPreview(jobInfo: PrintJob, callback: Callback<number>): void;
 
     /**
      * Request preview of the print job.
@@ -462,7 +527,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function on(type: 'printerStateChange', callback: (state: PrinterState, info: PrinterInfo) => void): void;
+    function on(type: 'printerStateChange', callback: Callback<state: PrinterState, info: PrinterInfo>): void;
 
     /**
      * Unregister event callback for the state change of printer.
@@ -473,7 +538,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function off(type: 'printerStateChange', callback?: (boolean) => void): void;
+    function off(type: 'printerStateChange', callback?: Callback<boolean>): void;
 
     /**
      * Register event callback for the state change of print job.
@@ -484,7 +549,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function on(type: 'jobStateChange', callback: (state: PrintJobState, job: PrintJob) => void): void;
+    function on(type: 'jobStateChange', callback: Callback<state: PrintJobState, job: PrintJob>): void;
 
      /**
      * Unregister event callback for the state change of print job.
@@ -495,7 +560,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function off(type: 'jobStateChange', callback?: (boolean) => void): void;
+    function off(type: 'jobStateChange', callback?: Callback<boolean>): void;
 
     /**
      * Register event callback for the information change of print extension.
@@ -506,7 +571,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function on(type: 'extInfoChange', callback: (extensionId: string, info: string) => void): void;
+    function on(type: 'extInfoChange', callback: Callback<extensionId: string, info: string>): void;
 
      /**
      * Unregister event callback for the information change of print extension.
@@ -517,7 +582,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function off(type: 'extInfoChange', callback?: (boolean) => void): void;
+    function off(type: 'extInfoChange', callback?: Callback<boolean>): void;
 
     /**
      * New printers have been found and notify Print SA.
@@ -528,7 +593,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function addPrinters(printers: Array<PrinterInfo>, callback: AsyncCallback<boolean>): void;
+    function addPrinters(printers: Array<PrinterInfo>, callback: AsyncCallback<void>): void;
 
     /**
      * New printers have been found and notify Print SA.
@@ -551,7 +616,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function removePrinters(printerIds: Array<string>, callback: AsyncCallback<boolean>): void;
+    function removePrinters(printerIds: Array<string>, callback: AsyncCallback<void>): void;
 
     /**
      * Printers have been lost and notify Print SA.
@@ -574,7 +639,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function updatePrinters(printers: Array<PrinterInfo>, callback: AsyncCallback<boolean>): void;
+    function updatePrinters(printers: Array<PrinterInfo>, callback: AsyncCallback<void>): void;
 
     /**
      * Update the information of the specific printers
@@ -597,7 +662,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function updatePrinterState(printerId: string, state: PrinterState, callback: AsyncCallback<boolean>): void;
+    function updatePrinterState(printerId: string, state: PrinterState, callback: AsyncCallback<void>): void;
 
     /**
      * Notify Print SA the state of printer has been changed.
@@ -622,7 +687,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState, callback: AsyncCallback<boolean>): void;
+    function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState, callback: AsyncCallback<void>): void;
 
     /**
      * Notify Print SA the state of print job has been changed.
@@ -646,7 +711,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function updateExtensionInfo(info: string, callback: AsyncCallback<boolean>): void;
+    function updateExtensionInfo(info: string, callback: AsyncCallback<void>): void;
 
     /**
      * Notify Print SA the state of print extension has been changed.
@@ -667,7 +732,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function queryAllPrintJobs(callback: AsyncCallback<boolean>): void;
+    function queryAllPrintJobs(callback: AsyncCallback<void>): void;
 
     /**
      * Get all the printJobs in the queue.
