@@ -399,6 +399,7 @@ luma
 lushort
 lux
 mah
+markModuleCollectable
 mcc
 md5
 mdns
