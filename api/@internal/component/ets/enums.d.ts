@@ -585,6 +585,13 @@ declare enum BorderStyle {
    * @form
    */
   Solid,
+
+  /**
+   * Shows as a solid 3D line.
+   * @form
+   * @since 10
+   */
+  Solid3D,
 }
 
 /**
