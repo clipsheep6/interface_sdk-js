@@ -13,6 +13,9 @@
  * limitations under the License.
  */
 
+import Want from './@ohos.application.Want';
+import print from "./@ohos.print";
+
 /**
  * class of print extensionAbility.
  *
@@ -21,10 +24,6 @@
  * @syscap SystemCapability.Print.PrintFramework
  * @StageModelOnly
  */
-import Want from './@ohos.application.Want';
-import print from "./@ohos.print";
-
-
 export default class PrintExtensionAbility {
 
     /**
