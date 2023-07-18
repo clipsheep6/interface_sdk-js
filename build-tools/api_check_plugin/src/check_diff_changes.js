@@ -274,8 +274,8 @@ function checkHistoryParameters(currentParameters, lastParameters, change) {
         errorInfo: ErrorValueInfo.ERROR_CHANGES_API_HISTORY_PARAM_WITHOUT_TYPE_CHANGE,
         LogType: LogType.LOG_API
       });
-      // 变更后参数范围大于变更前
-    } else if (currentParamType.length > historyParamType.length) {
+      // 变更后参数范围大于等于变更前
+    } else if (currentParamType.length >= historyParamType.length) {
       for (let j = 0; j < historyParamType.length; j++) {
         if (!new Set(currentParamType).has(historyParamType[j])) {
           changeErrors.push({
