@@ -63,7 +63,7 @@ declare namespace wifiManager {
 
   /**
    * Scan Wi-Fi hotspot, This API works in asynchronous mode.
-   * @permission ohos.permission.SET_WIFI_INFO
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -76,7 +76,7 @@ declare namespace wifiManager {
 
   /**
    * Scan Wi-Fi hotspot.
-   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -845,7 +845,7 @@ declare namespace wifiManager {
    */
   /**
    * Obtain the information about the found devices.
-   * @permission ohos.permission.GET_WIFI_INFO.
+   * @permission ohos.permission.GET_WIFI_INFO
    * @returns { Promise<WifiP2pDevice[]> } Returns p2p device information.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -1452,7 +1452,6 @@ declare namespace wifiManager {
    */
   /**
    * Unsubscribe P2P local device change events.
-   * @permission ohos.permission.GET_WIFI_INFO
    * @param { "p2pDeviceChange" } type - event name.
    * @param { Callback<WifiP2pDevice> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
@@ -1504,7 +1503,6 @@ declare namespace wifiManager {
    */
   /**
    * Unsubscribe P2P peer device change events.
-   * @permission ohos.permission.GET_WIFI_INFO
    * @param { "p2pPeerDeviceChange" } type - event name.
    * @param { Callback<WifiP2pDevice[]> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
