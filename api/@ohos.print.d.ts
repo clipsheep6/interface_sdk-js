@@ -571,7 +571,7 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      */
-    function on(type: 'extInfoChange', callback: Callback<extensionId: string, info: string>): void;
+    function on(type: 'extInfoChange', callback: Callback<extensionId, info>): void;
 
      /**
      * Unregister event callback for the information change of print extension.
