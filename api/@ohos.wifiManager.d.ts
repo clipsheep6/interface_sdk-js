@@ -89,7 +89,8 @@ declare namespace wifiManager {
 
   /**
    * Obtain the scanned sta list.
-   * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC)
+   * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or
+   * (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
    * @returns { Promise<Array<WifiScanInfo>> } Returns information about scanned Wi-Fi hotspot if any.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
