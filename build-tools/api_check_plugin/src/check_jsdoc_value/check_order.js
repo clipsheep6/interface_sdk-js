@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 const { requireTypescriptModule, tagsArrayOfOrder, commentNodeWhiteList, parseJsDoc, ErrorType, ErrorLevel, FileType,
-  inheritArr, ErrorValueInfo, createErrorInfo, isWhiteListFile } = require('../utils');
+  inheritArr, ErrorValueInfo, createErrorInfo } = require('../utils');
 const { addAPICheckErrorLogs } = require('../compile_info');
 const rules = require('../../code_style_rule.json');
-const whiteLists = require('../../config/jsdocCheckWhiteList.json');
 const ts = requireTypescriptModule();
 
 /**
@@ -70,8 +69,6 @@ function checkApiOrder(comments) {
 exports.checkApiOrder = checkApiOrder;
 
 function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
-  let isIllegalTagWhitetFile = true;
-  isIllegalTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkIllegalTag);
   let APITagNameResult = {
     checkResult: true,
     errorInfo: '',
@@ -79,7 +76,7 @@ function checkAPITagName(tag, node, sourcefile, fileName, JSDocIndec) {
   const tagName = tag.tag;
   const docTags = [...rules.decorators.customDoc, ...rules.decorators.jsDoc];
   const decoratorRuleSet = new Set(docTags);
-  if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind) && isIllegalTagWhitetFile) {
+  if (!decoratorRuleSet.has(tagName) && commentNodeWhiteList.includes(node.kind)) {
     APITagNameResult.checkResult = false;
     APITagNameResult.errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LABELNAME, [tagName]);
     addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, APITagNameResult.errorInfo,
@@ -91,7 +88,7 @@ exports.checkAPITagName = checkAPITagName;
 
 function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
   let parentTagArr = [];
-  if (ts.isSourceFile(node)) {
+  if (ts.isSourceFile(node.parent)) {
     return inheritResult;
   }
   if (!ts.isModuleBlock(node.parent)) {
@@ -115,8 +112,6 @@ function checkParentInheritTag(node, inheritTag, inheritResult, JSocIndex) {
 }
 
 function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex) {
-  let isMissingTagWhitetFile = true;
-  isMissingTagWhitetFile = isWhiteListFile(fileName, whiteLists.JSDocCheck.checkMissingTag);
   let inheritResult = {
     checkResult: true,
     errorInfo: '',
@@ -131,7 +126,7 @@ function checkInheritTag(comment, node, sourcefile, fileName, JSocIndex) {
         checkParentInheritTag(node, inheritArr[index], inheritResult, JSocIndex);
       }
     })
-    if (!inheritResult.checkResult && isMissingTagWhitetFile) {
+    if (!inheritResult.checkResult) {
       addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, inheritResult.errorInfo, FileType.API,
         ErrorLevel.MIDDLE);
     }
