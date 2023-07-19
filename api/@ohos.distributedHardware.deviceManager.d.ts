@@ -30,6 +30,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
+   * @deprecated since 10
    */
   interface DeviceInfo {
     /**
@@ -38,6 +39,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     deviceId: string;
 
@@ -47,6 +49,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     deviceName: string;
 
@@ -56,6 +59,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     deviceType: DeviceType;
 
@@ -65,6 +69,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
+     * @deprecated since 10
      */
     networkId: string;
 
@@ -72,6 +77,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      * The distance of discovered device, in centimeter(cm).
      */
     range: number;
@@ -82,6 +88,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
+     * @deprecated since 10
      */
     authForm: AuthForm;
   }
@@ -139,6 +146,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
+   * @deprecated since 10
    */
   enum DeviceType {
     /**
@@ -147,6 +155,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     UNKNOWN_TYPE = 0,
 
@@ -156,6 +165,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     SPEAKER = 0x0A,
 
@@ -165,6 +175,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     PHONE = 0x0E,
 
@@ -174,6 +185,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     TABLET = 0x11,
 
@@ -183,6 +195,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     WEARABLE = 0x6D,
 
@@ -192,6 +205,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     CAR = 0x83,
 
@@ -201,6 +215,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     TV = 0x9C
   }
@@ -212,6 +227,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
+   * @deprecated since 10
    */
   enum DeviceStateChangeAction {
     /**
@@ -220,6 +236,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     ONLINE = 0,
 
@@ -230,6 +247,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     READY = 1,
 
@@ -239,6 +257,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     OFFLINE = 2,
 
@@ -248,6 +267,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     CHANGE = 3
   }
@@ -259,6 +279,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
+   * @deprecated since 10
    */
   interface SubscribeInfo {
     /**
@@ -267,6 +288,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     subscribeId: number;
 
@@ -276,6 +298,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     mode: DiscoverMode;
 
@@ -285,6 +308,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     medium: ExchangeMedium;
 
@@ -294,6 +318,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     freq: ExchangeFreq;
 
@@ -303,6 +328,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     isSameAccount: boolean;
 
@@ -312,6 +338,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     isWakeRemote: boolean;
 
@@ -321,6 +348,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     capability: SubscribeCap;
   }
@@ -332,6 +360,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 9
+   * @deprecated since 10
    */
   interface PublishInfo {
     /**
@@ -340,6 +369,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     publishId: number;
 
@@ -349,6 +379,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     mode: DiscoverMode;
 
@@ -358,6 +389,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     freq: ExchangeFreq;
 
@@ -367,6 +399,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     ranging: boolean;
   }
@@ -378,6 +411,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
+   * @deprecated since 10
    */
   enum DiscoverMode {
     /**
@@ -388,6 +422,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     DISCOVER_MODE_PASSIVE = 0x55,
 
@@ -399,6 +434,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     DISCOVER_MODE_ACTIVE = 0xAA
   }
@@ -410,6 +446,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
+   * @deprecated since 10
    */
   enum ExchangeMedium {
     /**
@@ -418,6 +455,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     AUTO = 0,
 
@@ -427,6 +465,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     BLE = 1,
 
@@ -436,6 +475,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     COAP = 2,
 
@@ -445,6 +485,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     USB = 3
   }
@@ -456,6 +497,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
+   * @deprecated since 10
    */
   enum ExchangeFreq {
     /**
@@ -464,6 +506,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     LOW = 0,
 
@@ -473,6 +516,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     MID = 1,
 
@@ -482,6 +526,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     HIGH = 2,
 
@@ -491,6 +536,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     SUPER_HIGH = 3
   }
@@ -502,6 +548,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
+   * @deprecated since 10
    */
   enum SubscribeCap {
     /**
@@ -510,6 +557,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     SUBSCRIBE_CAPABILITY_DDMP = 0,
 
@@ -519,6 +567,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     SUBSCRIBE_CAPABILITY_OSD = 1
   }
@@ -530,6 +579,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications
    * @since 7
+   * @deprecated since 10
    */
   interface AuthParam {
     /**
@@ -538,6 +588,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
      * @since 7
+     * @deprecated since 10
      */
     authType: number;
 
@@ -547,6 +598,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
      * @since 7
+     * @deprecated since 10
      */
     extraInfo: { [key: string]: any };
   }
@@ -558,6 +610,7 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications
    * @since 7
+   * @deprecated since 10
    */
   interface AuthInfo {
     /**
@@ -566,6 +619,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
      * @since 7
+     * @deprecated since 10
      */
     authType: number;
 
@@ -575,6 +629,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
      * @since 7
+     * @deprecated since 10
      */
     token: number;
 
@@ -584,6 +639,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications
      * @since 7
+     * @deprecated since 10
      */
     extraInfo: { [key: string]: any };
   }
@@ -635,6 +691,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     getTrustedDeviceListSync(): Array<DeviceInfo>;
 
@@ -664,6 +721,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
+     * @deprecated since 10
      */
     getTrustedDeviceList(callback: AsyncCallback<Array<DeviceInfo>>): void;
 
@@ -676,6 +734,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
+     * @deprecated since 10
      */
     getTrustedDeviceList(): Promise<Array<DeviceInfo>>;
 
@@ -690,6 +749,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
+     * @deprecated since 10
      */
     getLocalDeviceInfoSync(): DeviceInfo;
 
@@ -703,6 +763,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
+     * @deprecated since 10
      */
     getLocalDeviceInfo(callback: AsyncCallback<DeviceInfo>): void;
 
@@ -715,6 +776,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
+     * @deprecated since 10
      */
     getLocalDeviceInfo(): Promise<DeviceInfo>;
 
@@ -759,6 +821,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
+     * @deprecated since 10
      */
     startDeviceDiscovery(subscribeInfo: SubscribeInfo): void;
 
@@ -776,6 +839,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     startDeviceDiscovery(subscribeInfo: SubscribeInfo, filterOptions?: string): void;
 
@@ -791,6 +855,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     stopDeviceDiscovery(subscribeId: number): void;
 
@@ -807,6 +872,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     publishDeviceDiscovery(publishInfo: PublishInfo): void;
 
@@ -822,6 +888,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     unPublishDeviceDiscovery(publishId: number): void;
 
@@ -837,6 +904,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     authenticateDevice(
       deviceInfo: DeviceInfo,
@@ -856,6 +924,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 8
+     * @deprecated since 10
      */
     unAuthenticateDevice(deviceInfo: DeviceInfo): void;
 
@@ -870,6 +939,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     verifyAuthInfo(authInfo: AuthInfo, callback: AsyncCallback<{ deviceId: string, level: number }>): void;
 
@@ -885,6 +955,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     setUserOperation(operateAction: number, params: string): void;
 
@@ -944,6 +1015,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     on(type: 'uiStateChange', callback: Callback<{ param: string }>): void;
 
@@ -959,6 +1031,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     off(type: 'uiStateChange', callback?: Callback<{ param: string }>): void;
 
@@ -975,6 +1048,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }>): void;
 
@@ -989,6 +1063,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChangeAction, device: DeviceInfo }>): void;
 
@@ -1003,6 +1078,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     on(type: 'deviceFound', callback: Callback<{ subscribeId: number, device: DeviceInfo }>): void;
 
@@ -1017,6 +1093,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     off(type: 'deviceFound', callback?: Callback<{ subscribeId: number, device: DeviceInfo }>): void;
 
@@ -1031,6 +1108,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     on(type: 'discoverFail', callback: Callback<{ subscribeId: number, reason: number }>): void;
 
@@ -1045,6 +1123,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     off(type: 'discoverFail', callback?: Callback<{ subscribeId: number, reason: number }>): void;
 
@@ -1059,6 +1138,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     on(type: 'publishSuccess', callback: Callback<{ publishId: number }>): void;
 
@@ -1073,6 +1153,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     off(type: 'publishSuccess', callback?: Callback<{ publishId: number }>): void;
 
@@ -1087,6 +1168,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     on(type: 'publishFail', callback: Callback<{ publishId: number, reason: number }>): void;
 
@@ -1101,6 +1183,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 9
+     * @deprecated since 10
      */
     off(type: 'publishFail', callback?: Callback<{ publishId: number, reason: number }>): void;
 
@@ -1115,6 +1198,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     on(type: 'serviceDie', callback: () => void): void;
 
@@ -1129,6 +1213,7 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
+     * @deprecated since 10
      */
     off(type: 'serviceDie', callback?: () => void): void;
   }
