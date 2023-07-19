@@ -33,6 +33,7 @@ export default class PrintExtensionAbility {
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @StageModelOnly
+	 * @throws { BusinessError } 202 - not system application
      */
     onCreate(want: Want): void;
 
@@ -43,6 +44,7 @@ export default class PrintExtensionAbility {
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @StageModelOnly
+	 * @throws { BusinessError } 202 - not system application
      */
     onStartDiscoverPrinter(): void;
 
@@ -53,6 +55,7 @@ export default class PrintExtensionAbility {
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @StageModelOnly
+	 * @throws { BusinessError } 202 - not system application 
      */
     onStopDiscoverPrinter(): void;
 
@@ -63,6 +66,7 @@ export default class PrintExtensionAbility {
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @StageModelOnly
+	 * @throws { BusinessError } 202 - not system application	 
      */
     onConnectPrinter(printerId: number): void;
 
@@ -73,6 +77,7 @@ export default class PrintExtensionAbility {
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @StageModelOnly
+	 * @throws { BusinessError } 202 - not system application
      */
     onDisconnectPrinter(printerId: number): void;
 
@@ -83,6 +88,7 @@ export default class PrintExtensionAbility {
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @StageModelOnly
+	 * @throws { BusinessError } 202 - not system application
      */
     onStartPrintJob(jobInfo: print.PrintJob): void;
 
@@ -93,6 +99,7 @@ export default class PrintExtensionAbility {
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @StageModelOnly
+	 * @throws { BusinessError } 202 - not system application
      */
     onCancelPrintJob(jobInfo: print.PrintJob): void;
 
@@ -103,6 +110,7 @@ export default class PrintExtensionAbility {
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @StageModelOnly
+	 * @throws { BusinessError } 202 - not system application
      */
     onRequestPrinterCapability(printerId: number): print.PrinterCapability;
 
@@ -113,6 +121,7 @@ export default class PrintExtensionAbility {
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @StageModelOnly
+	 * @throws { BusinessError } 202 - not system application
      */
     onRequestPreview(jobInfo: print.PrintJob): string;
 
@@ -123,6 +132,7 @@ export default class PrintExtensionAbility {
      * @since 10
      * @syscap SystemCapability.Print.PrintFramework
      * @StageModelOnly
+	 * @throws { BusinessError } 202 - not system application	 
      */
     onDestroy(): void;
 }
