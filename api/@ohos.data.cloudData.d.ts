@@ -19,6 +19,7 @@ declare namespace cloudData {
   /**
    * Describes the clear action type.
    *
+   * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 10
@@ -56,7 +57,7 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { {[bundleName:string]:boolean} } switches - Indicates switches information of all applications.
+     * @param { { [bundleName:string]:boolean } } switches - Indicates switches information of all applications.
      * switches will overwrite the saved application switch information.If the specific application switch changes,
      * the {@link changeCloudSwitchByApp(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
      * @param { AsyncCallback<void> } callback - the callback of enableCloud.
@@ -79,7 +80,7 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { {[bundleName:string]:boolean} } switches - Indicates switches information of all applications.
+     * @param { { [bundleName:string]:boolean } } switches - Indicates switches information of all applications.
      * switches will overwrite the saved application switch information.If the specific application switch changes,
      * the {@link changeCloudSwitchByApp(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
      * @returns { Promise<void> } the promise returned by the function.
@@ -205,7 +206,7 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { {[bundleName: string]: ClearAction} } appActions - Indicates the way in which the application data is to be cleared.
+     * @param { { [bundleName: string]: ClearAction } } appActions - Indicates the way in which the application data is to be cleared.
      * @param { AsyncCallback<void> } callback - the callback of clear.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -222,7 +223,7 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
-     * @param { {[bundleName: string]: ClearAction} } appActions - Indicates the way in which the application data is to be cleared.
+     * @param { { [bundleName: string]: ClearAction } } appActions - Indicates the way in which the application data is to be cleared.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
