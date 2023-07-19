@@ -1512,42 +1512,6 @@ declare namespace userFileManager {
      */
     off(uri: string, callback?: Callback<ChangeData>): void;
     /**
-     * Get Active Peer device information
-     *
-     * @param { AsyncCallback<Array<PeerInfo>> } callback - Callback return the list of the active peer devices' information
-     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
-     * @systemapi
-     * @since 9
-     */
-    getActivePeers(callback: AsyncCallback<Array<PeerInfo>>): void;
-    /**
-     * Get Active Peer device information
-     *
-     * @returns { Promise<Array<PeerInfo>> } Promise used to return the list of the active peer devices' information
-     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
-     * @systemapi
-     * @since 9
-     */
-    getActivePeers(): Promise<Array<PeerInfo>>;
-    /**
-     * Get all the peer devices' information
-     *
-     * @param { AsyncCallback<Array<PeerInfo>> } callback - Callback return the list of the all the peer devices' information
-     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
-     * @systemapi
-     * @since 9
-     */
-    getAllPeers(callback: AsyncCallback<Array<PeerInfo>>): void;
-    /**
-     * Get all the peer devices' information
-     *
-     * @returns { Promise<Array<PeerInfo>> } Promise used to return the list of the all the peer devices' information
-     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
-     * @systemapi
-     * @since 9
-     */
-    getAllPeers(): Promise<Array<PeerInfo>>;
-    /**
      * Release UserFileManager instance
      *
      * @param { AsyncCallback<void> } callback - No value returned
@@ -1686,41 +1650,6 @@ declare namespace userFileManager {
      * @since 10
      */
     subUris: Array<string>;
-  }
-
-  /**
-   * Peer devices' information
-   *
-   * @interface PeerInfo
-   * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
-   * @systemapi
-   * @since 9
-   */
-  interface PeerInfo {
-    /**
-     * Peer device name
-     *
-     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
-     * @systemapi
-     * @since 9
-     */
-    readonly deviceName: string;
-    /**
-     * Peer device network id
-     *
-     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
-     * @systemapi
-     * @since 9
-     */
-    readonly networkId: string;
-    /**
-     * Peer device online status
-     *
-     * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
-     * @systemapi
-     * @since 9
-     */
-    readonly isOnline: boolean;
   }
 
   /**
