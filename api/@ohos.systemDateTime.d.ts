@@ -56,6 +56,8 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.systemDateTime.getTime
    */
   function getCurrentTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -66,6 +68,8 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.systemDateTime.getTime
    */
   function getCurrentTime(callback: AsyncCallback<number>): void;
 
@@ -77,8 +81,20 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.systemDateTime.getTime
    */
   function getCurrentTime(isNano?: boolean): Promise<number>;
+
+  /**
+   * Obtains the number of milliseconds that have elapsed since the Unix epoch.
+   *
+   * @param { ?boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
+   * @param { number } The timestamp returned of getTime.
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 10
+   */
+  function getTime(isNano?: boolean): number;
 
   /**
    * Obtains the number of milliseconds elapsed since the system was booted, not including deep sleep time.
@@ -88,6 +104,8 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.systemDateTime.getTime
    */
   function getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -98,6 +116,8 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.systemDateTime.getTime
    */
   function getRealActiveTime(callback: AsyncCallback<number>): void;
 
@@ -109,6 +129,8 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.systemDateTime.getTime
    */
   function getRealActiveTime(isNano?: boolean): Promise<number>;
 
@@ -120,6 +142,8 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.systemDateTime.getTime
    */
   function getRealTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -130,6 +154,8 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.systemDateTime.getTime
    */
   function getRealTime(callback: AsyncCallback<number>): void;
 
@@ -141,8 +167,46 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.systemDateTime.getTime
    */
   function getRealTime(isNano?: boolean): Promise<number>;
+
+  /**
+   * Indicates time type.
+   *
+   * @enum { number } TimeType
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 10
+   */
+  enum TimeType {
+    /**
+     * Indicates the milliseconds elapsed since the system was booted, including deep sleep time..
+     *
+     * @syscap SystemCapability.MiscServices.Time
+     * @since 10
+     */
+    REAL_TIME,
+
+    /**
+     * Indicates the milliseconds elapsed since the system was booted, not including deep sleep time.
+     *
+     * @syscap SystemCapability.MiscServices.Time
+     * @since 10
+     */
+    REAL_ACTIVE_TIME
+  }
+
+  /**
+   * Obtains the number of milliseconds since the system has been running.
+   *
+   * @param { TimeType } timeType - indicates the type of get time.
+   * @param { ?boolean } isNano - True if the result is in nanoseconds, otherwise in milliseconds
+   * @param { number } The timestamp returned of getRuntime.
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 10
+   */
+  function getRuntime(timeType: TimeType, isNano?: boolean): number;
 
   /**
    * Sets the system time.
@@ -154,6 +218,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9
+   * @deprecated since 10
    */
   function setDate(date: Date, callback: AsyncCallback<void>): void;
 
@@ -167,6 +232,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9
+   * @deprecated since 10
    */
   function setDate(date: Date): Promise<void>;
 
@@ -177,6 +243,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
    */
   function getDate(callback: AsyncCallback<Date>): void;
 
@@ -187,6 +254,7 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
    */
   function getDate(): Promise<Date>;
 
@@ -223,6 +291,8 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.systemDateTime.getTimezoneSync
    */
   function getTimezone(callback: AsyncCallback<string>): void;
 
@@ -233,8 +303,19 @@ declare namespace systemDateTime {
    * @throws { BusinessError } 401 - Invalid parameters
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.systemDateTime.getTimezoneSync
    */
   function getTimezone(): Promise<string>;
+
+  /**
+   * Obtains the system time zone.
+   *
+   * @returns { string } The timezone returned of getTimezoneSync.
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 10
+   */
+  function getTimezoneSync(): string;
 }
 
 export default systemDateTime;

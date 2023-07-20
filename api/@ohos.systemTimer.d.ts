@@ -62,6 +62,7 @@ declare namespace systemTimer {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7
+   * @deprecated since 10
    */
   const TIMER_TYPE_IDLE: number;
 
