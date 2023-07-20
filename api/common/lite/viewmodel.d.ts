@@ -13,12 +13,17 @@
  * limitations under the License.
  */
 
+/**
+ * The internal interface used for IDE.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 4
+ */
 export interface ViewModel {
   /**
    * Displays content based on the current system language and a path of the language resource key specified through $t.
-   *
-   * @param { string } path Path of the language resource key
-   * @param { ?(object | Array<any>) } param Content used to replace placeholders during runtime. There are two types of placeholders available:
+   * @param { string } path - Path of the language resource key
+   * @param { object | Array<any> } param - Content used to replace placeholders during runtime. There are two types of placeholders available:
    *              1. Named placeholder, for example, {name}. The actual content must be of the object type, for example, $t('strings.object', {name: 'Hello world'}).
    *              2. Digit placeholder, for example, {0}. The actual content must be of the array type, for example, $t('strings.array', ['Hello world']).
    * @returns { string } content to display
@@ -37,6 +42,12 @@ export interface ViewModel {
   $refs: ElementReferences;
 }
 
+/**
+ * The option used for scroll api.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 4
+ */
 export interface ListScrollToOptions {
   /**
    * specified position.
@@ -51,8 +62,7 @@ export interface ListScrollToOptions {
 export interface ListElement {
   /**
    * Scrolls the list to the position of the item at the specified index.
-   *
-   * @param { ListScrollToOptions } position
+   * @param { ListScrollToOptions } position - the target position to scroll to
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 4
    */
@@ -105,6 +115,12 @@ export interface ElementReferences {
   [k: string]: object & ListElement & ImageAnimatorElement;
 }
 
+/**
+ * The internal interface used for IDE.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Lite
+ * @since 4
+ */
 export interface Options<T extends ViewModel, Data = DefaultData<T>> {
   /**
    * Data model of the page that can be converted into a JSON object.
@@ -199,8 +215,8 @@ type CombinedOptions<T extends ViewModel, Data> = object &
   ThisType<T & ViewModel & Data>;
 
 /**
- * @param { CombinedOptions<T, Data> } options
- * @returns { ViewModel & Data }
+ * @param { CombinedOptions<T, Data> } options - the combined options.
+ * @returns { ViewModel & Data } the ViewModel
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
  * @since 4

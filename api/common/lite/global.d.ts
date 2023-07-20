@@ -16,12 +16,13 @@
 /**
  * Sets the interval for repeatedly calling a function.
  *
- * @param { Function } handler Indicates the function to be called repeatedly at the interval.
- * @param { number } delay Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
- * @param { any[] } arguments Indicates additional arguments to pass to "handler" when the timer goes off.
- * @returns { number } Returns the timer ID.
+ * @param { Function } handler - Indicates the function to be called repeatedly at the interval.
+ * @param { number } delay - Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
+ * @param { any[] } ...arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @returns { number } the timer ID.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5
+ * @since 4
  */
 export declare function setInterval(
   handler: Function,
@@ -32,13 +33,13 @@ export declare function setInterval(
 /**
  * Sets a timer after which a function will be executed.
  *
- * @param { Function } handler Indicates the function to be called after the timer goes off.
- * @param { number } delay Indicates the delay (in milliseconds) after which the function will be called.
- * If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
- * @param { any[] } arguments Indicates additional arguments to pass to "handler" when the timer goes off.
- * @returns { number } Returns the timer ID.
+ * @param { Function } handler - Indicates the function to be called after the timer goes off.
+ * @param { number } delay - Indicates the delay (in milliseconds) after which the function will be called. If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
+ * @param { any[] } ...arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @returns { number } the timer ID.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5
+ * @since 4
  */
 export declare function setTimeout(
   handler: Function,
@@ -49,18 +50,20 @@ export declare function setTimeout(
 /**
  * Cancels the interval set by " setInterval()".
  *
- * @param { number } intervalID Indicates the timer ID returned by "setInterval()".
+ * @param { number } intervalID - Indicates the timer ID returned by "setInterval()".
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5
+ * @since 4
  */
 export declare function clearInterval(intervalID?: number): void;
 
 /**
  * Cancels the timer set by " setTimeout()".
  *
- * @param { number } timeoutID Indicates the timer ID returned by "setTimeout()".
+ * @param { number } timeoutID - Indicates the timer ID returned by "setTimeout()".
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5
+ * @since 4
  */
 export declare function clearTimeout(timeoutID?: number): void;
 
@@ -68,9 +71,9 @@ export declare function clearTimeout(timeoutID?: number): void;
  * Get the java interface instance. The java instance needs to register, otherwise it cannot be obtained.
  * After obtaining the instance, you can call the function with the same name on the Java side.
  *
- * @param { ?string } name Java interface name, including package path, such as com.example.test.timeinterfaceimpl.
+ * @param { ?string } name - Java interface name, including package path, such as com.example.test.timeinterfaceimpl.
  * @returns { any } A promise object is returned. The resolve callback is the object of PA.
- * The reject callback returns the object containing code and error data.
+ *         The reject callback returns the object containing code and error data.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 5
  * @deprecated since 8
@@ -96,8 +99,9 @@ export declare const LITE: string;
 /**
  * Defining syscap function.
  *
- * @param { string } syscap
- * @returns { boolean }
+ * @param { string } syscap - Indicates the system capability to be check.
+ * @returns { boolean } the result indicating whether the given system capability is supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 8
  */
@@ -106,7 +110,8 @@ export declare function canIUse(syscap: string): boolean;
 /**
  * Obtain the objects exposed in app.js
  *
- * @returns { object }
+ * @returns { object } return the whole app object to caller.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 10
  */
