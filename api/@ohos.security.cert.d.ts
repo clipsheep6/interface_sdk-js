@@ -444,8 +444,21 @@ declare namespace cert {
      * @returns { number } X509 cert serial number.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509Cert.getCertSerialNumber
      */
     getSerialNumber(): number;
+
+    /**
+     * Get X509 cert serial number.
+     *
+     * @returns { bigint } X509 cert serial number.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getCertSerialNumber(): bigint;
 
     /**
      * Get X509 cert issuer name.
@@ -772,8 +785,21 @@ declare namespace cert {
      * @returns { number } serial number of crl entry.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CrlEntry.getCrlEntrySerialNumber
      */
     getSerialNumber(): number;
+
+    /**
+     * Get the serial number from this x509crl entry.
+     *
+     * @returns { bigint } serial number of crl entry.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getCrlEntrySerialNumber(): bigint;
 
     /**
      * Get the issuer of the x509 certificate described by this entry.
@@ -933,8 +959,23 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509Crl.getRevokedCertWithSerialNumber
      */
     getRevokedCert(serialNumber: number): X509CrlEntry;
+
+    /**
+     * This method can be used to find CRL entries in specified CRLs.X509Crl
+     *
+     * @param { bigint } serialNumber - serial number of crl.
+     * @returns { X509CrlEntry } next update of crl.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getRevokedCertWithSerialNumber(serialNumber: bigint): X509CrlEntry;
 
     /**
      * This method can be used to find CRL entries in specified cert.
