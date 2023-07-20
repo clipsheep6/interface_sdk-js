@@ -245,7 +245,7 @@ export class Router {
    * @crossplatform
    * @since 10
    */
-  back(options: router.RouterOptions): void;
+  back(options?: router.RouterOptions): void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
