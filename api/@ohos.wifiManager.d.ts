@@ -1964,7 +1964,6 @@ declare namespace wifiManager {
 
     /**
      * Wi-Fi bssid type.
-     * @type { DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2049,7 +2048,7 @@ declare namespace wifiManager {
 
     /**
      * EAP config info.
-     * @type { WifiEapConfig }
+     * @type { ?WifiEapConfig }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2218,7 +2217,6 @@ declare namespace wifiManager {
 
     /**
      * Wi-Fi bssid type
-     * @type { DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
@@ -2881,7 +2879,6 @@ declare namespace wifiManager {
 
     /**
      * The MAC address type of the Wi-Fi client
-     * @type { DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -3136,7 +3133,6 @@ declare namespace wifiManager {
 
     /**
      * Device mac address type
-     * @type { DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 10
      */
@@ -3185,7 +3181,6 @@ declare namespace wifiManager {
 
     /**
      * Device mac address type
-     * @type { DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 10
      */
