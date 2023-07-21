@@ -16,6 +16,7 @@
 import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager.d.ts';
 import type rpc from './@ohos.rpc';
+import type units from './@units.d.ts';
 
 /**
  * @namespace image
@@ -1337,6 +1338,15 @@ declare namespace image {
      * @since 10
      */
     fitDensity?: number;
+
+    /**
+     * fill color.
+     *
+     * @type { ?units.ResourceColor }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 10
+     */
+    fillSVGColor?: units.ResourceColor
   }
 
   /**
