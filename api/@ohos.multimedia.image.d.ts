@@ -16,7 +16,6 @@
 import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager.d.ts';
 import type rpc from './@ohos.rpc';
-import type effectKit from './@ohos.effectKit.d.ts';
 
 /**
  * @namespace image
@@ -1340,13 +1339,13 @@ declare namespace image {
     fitDensity?: number;
 
     /**
-     * fill color.
+     * fill svg color.
      *
-     * @type { ?effectKit.Color }
+     * @type { ?Color }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 10
      */
-    fillSVGColor?: effectKit.Color
+    fillSVGColor?: Color;
   }
 
   /**
