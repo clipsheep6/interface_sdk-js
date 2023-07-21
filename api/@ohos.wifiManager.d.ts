@@ -2218,7 +2218,7 @@ declare namespace wifiManager {
 
     /**
      * Wi-Fi bssid type
-     * @type { ?DeviceAddressType }
+     * @type { DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
