@@ -2094,19 +2094,13 @@ declare namespace audio {
     isActive(volumeType: AudioVolumeType): Promise<boolean>;
 
     /**
-     * Gets sampling rate for primary output. This method uses an asynchronous callback to return the query result.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result.
+     * Gets sampling rate for hardware output.
+     * @param { AudioDeviceDescriptor } device - Target output device.
+     * @returns { number } The sampling rate for output.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
      */
-    getPrimaryOutputSamplingRate(callback: AsyncCallback<number>): void;
-    /**
-     * Gets sampling rate for primary output. This method uses a promise to return the query result.
-     * @returns { Promise<number> } Promise used to return the result.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 11
-     */
-    getPrimaryOutputSamplingRate(): Promise<number>;
+    getHardwareOutputSamplingRate(device?: AudioDeviceDescriptor): number;
   }
 
   /**
