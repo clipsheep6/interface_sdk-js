@@ -13,18 +13,18 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
-
 /**
  * UDMF - Unified Data Management Framework
- *
- * @namespace UDMF
+ * @since 10
+ * 
+ * @namespace uniformTypeDescriber
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  */
-declare namespace UDMF {
+declare namespace uniformTypeDescriber {
   /**
    * the data type supported by unified data
    *
+   * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
@@ -70,28 +70,28 @@ declare namespace UDMF {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    IMAGE = 'File.Media.Image',
+    IMAGE = 'Media.Image',
     /**
      * indicate the data type is video
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    VIDEO = 'File.Media.Video',
+    VIDEO = 'Media.Video',
     /**
      * indicate the data type is audio
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    AUDIO = 'File.Media.Audio',
+    AUDIO = 'Media.Audio',
     /**
      * indicate the data type is Folder
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    FOLDER = 'File.Folder',
+    FOLDER = 'Folder',
     /**
      * indicate the data type is system defined record(this kind of data is provided and bound to OpenHarmony,
      * also can be parsed by system provided API)
@@ -325,11 +325,11 @@ declare namespace UDMF {
   /**
    * describe the unified image data
    *
-   * @extends File
+   * @extends UnifiedRecord
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
-  class Image extends File {
+  class Image extends UnifiedRecord {
     /**
      * indicates the uri of image
      *
@@ -342,11 +342,11 @@ declare namespace UDMF {
   /**
    * describe the unified video data
    *
-   * @extends File
+   * @extends UnifiedRecord
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
-  class Video extends File {
+  class Video extends UnifiedRecord {
     /**
      * indicates the uri of video
      *
@@ -359,11 +359,11 @@ declare namespace UDMF {
   /**
    * describe the unified audio data
    *
-   * @extends File
+   * @extends UnifiedRecord
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
-  class Audio extends File {
+  class Audio extends UnifiedRecord {
     /**
      * indicates the uri of audio
      *
@@ -376,11 +376,11 @@ declare namespace UDMF {
   /**
    * describe the unified folder data
    *
-   * @extends File
+   * @extends UnifiedRecord
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
-  class Folder extends File {
+  class Folder extends UnifiedRecord {
     /**
      * indicates the uri of folder
      *
@@ -554,6 +554,7 @@ declare namespace UDMF {
   /**
    * describe the sharing channel that UDMF support
    *
+   * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
@@ -590,106 +591,6 @@ declare namespace UDMF {
      */
     key?: string;
   };
-
-  /**
-   * Insert data into UDMF by Intention
-   *
-   * @param { Options } options - fill the intention field to indicate the target {@link Intention}.
-   * @param { UnifiedData } data - {@link UnifiedData} data object to insert into target intention.
-   * @param { AsyncCallback<string> } callback - {string}: the unique identifier.
-   * @throws { BusinessError } 201 - Permission denied..
-   * @throws { BusinessError } 401 - Parameter error..
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 10
-   */
-  function insertData(options: Options, data: UnifiedData, callback: AsyncCallback<string>): void;
-
-  /**
-   * Insert data into UDMF by Intention
-   *
-   * @param { Options } options - fill the intention field to indicate the target {@link Intention}.
-   * @param { UnifiedData } data - {@link UnifiedData} data object to insert into target intention.
-   * @returns { Promise<string> } {string}: the unique identifier.
-   * @throws { BusinessError } 201 - Permission denied..
-   * @throws { BusinessError } 401 - Parameter error..
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 10
-   */
-  function insertData(options: Options, data: UnifiedData): Promise<string>;
-
-  /**
-   * Update data to UDMF by Unique Identifier
-   *
-   * @param { Options } options - fill the unique identifier field to indicate the target {@link UnifiedData}.
-   * @param { UnifiedData } data - {@link UnifiedData} data object to update the target data.
-   * @param { AsyncCallback<void> } callback - the callback of updateData.
-   * @throws { BusinessError } 201 - Permission denied..
-   * @throws { BusinessError } 401 - Parameter error..
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 10
-   */
-  function updateData(options: Options, data: UnifiedData, callback: AsyncCallback<void>): void;
-
-  /**
-   * Update data to UDMF by Unique Identifier
-   *
-   * @param { Options } options - fill the unique identifier field to indicate the target {@link UnifiedData}.
-   * @param { UnifiedData } data - {@link UnifiedData} data object to update the target data.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied..
-   * @throws { BusinessError } 401 - Parameter error..
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 10
-   */
-  function updateData(options: Options, data: UnifiedData): Promise<void>;
-
-  /**
-   * Query data of UDMF by Intention or Unique Identifier
-   *
-   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
-   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the target {@link UnifiedData} object array.
-   * @throws { BusinessError } 201 - Permission denied..
-   * @throws { BusinessError } 401 - Parameter error..
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 10
-   */
-  function queryData(options: Options, callback: AsyncCallback<Array<UnifiedData>>): void;
-
-  /**
-   * Query data of UDMF by Intention or Unique Identifier
-   *
-   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
-   * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the target {@link UnifiedData} object array.
-   * @throws { BusinessError } 201 - Permission denied..
-   * @throws { BusinessError } 401 - Parameter error..
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 10
-   */
-  function queryData(options: Options): Promise<Array<UnifiedData>>;
-
-  /**
-   * Delete data of UDMF by Intention or Unique Identifier
-   *
-   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
-   * @param { AsyncCallback<Array<UnifiedData>> } callback - {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
-   * @throws { BusinessError } 201 - Permission denied..
-   * @throws { BusinessError } 401 - Parameter error..
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 10
-   */
-  function deleteData(options: Options, callback: AsyncCallback<Array<UnifiedData>>): void;
-
-  /**
-   * Delete data of UDMF by Intention or Unique Identifier
-   *
-   * @param { Options } options - fill the intention or unique identifier field to indicate the target {@link Intention} or {@link UnifiedData}.
-   * @returns { Promise<Array<UnifiedData>> } {Array<UnifiedData>}: the deleted {@link UnifiedData} object array.
-   * @throws { BusinessError } 201 - Permission denied..
-   * @throws { BusinessError } 401 - Parameter error..
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 10
-   */
-  function deleteData(options: Options): Promise<Array<UnifiedData>>;
 }
 
-export default UDMF;
+export default uniformTypeDescriber;
