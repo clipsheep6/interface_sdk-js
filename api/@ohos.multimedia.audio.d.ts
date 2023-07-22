@@ -3703,37 +3703,19 @@ declare namespace audio {
 
     /**
      * Gets the input device or devices for this stream.
-     * This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
+     * @returns { AudioDeviceDescriptors } Descriptors of input devices.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
-    getCurrentInputDevices(callback: AsyncCallback<AudioDeviceDescriptors>): void;
-    /**
-     * Gets the input device or devices for this stream.
-     * This method uses a promise to return the result.
-     * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 11
-     */
-    getCurrentInputDevices(): Promise<AudioDeviceDescriptors>;
+    getCurrentInputDevices(): AudioDeviceDescriptors;
 
     /**
      * Gets full capturer info for this stream.
-     * This method uses an asynchronous callback to return the result.
-     * @param { AsyncCallback<AudioCapturerChangeInfo> } callback - Callback used to return the result.
+     * @returns { AudioCapturerChangeInfo } Full capture info.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 11
      */
-    getCurrentAudioCapturerChangeInfo(callback: AsyncCallback<AudioCapturerChangeInfo>): void;
-    /**
-     * Gets full capturer info for this stream.
-     * This method uses a promise to return the result.
-     * @returns { Promise<AudioCapturerChangeInfo> } Promise used to return the result.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 11
-     */
-    getCurrentAudioCapturerChangeInfo(): Promise<AudioCapturerChangeInfo>;
+    getCurrentAudioCapturerChangeInfo(): AudioCapturerChangeInfo;
 
     /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
