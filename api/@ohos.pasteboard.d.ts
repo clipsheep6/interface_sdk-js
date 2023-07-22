@@ -629,8 +629,7 @@ declare namespace pasteboard {
     /**
      * Remove a callback invoked when pasteboard content changes.
      * @param { string } type - indicates pasteboard content changed.
-     * @param { () => void } [callback] - the callback to remove. If this parameter is not filled in, it indicates that all
-     * callbacks for this application will be cleared. Otherwise, it indicates that the specified callback will be cleared.
+     * @param { () => void } [callback] - the callback to remove.
      * @throws { BusinessError } 401 - if type is not string or callback is not () => void.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
