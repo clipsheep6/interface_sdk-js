@@ -441,7 +441,7 @@ declare namespace print {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
-     */	 
+     */
       function disconnectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
      /**
@@ -454,7 +454,7 @@ declare namespace print {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
-     */     
+     */  
       function disconnectPrinter(printerId: string): Promise<boolean>;
 
     /**
@@ -519,7 +519,7 @@ declare namespace print {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
-     */	 
+     */
     function cancelPrintJob(jobId: string, callback: AsyncCallback<void>): void;
 
     /**
@@ -532,7 +532,7 @@ declare namespace print {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
-     */	
+     */
     function cancelPrintJob(jobId: string): Promise<boolean>;
 	 
     /**
@@ -545,7 +545,7 @@ declare namespace print {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
-     */	 
+     */
     function requestPrintPreview(jobInfo: PrintJob, callback: Callback<number>): void;
 
     /**
@@ -558,7 +558,7 @@ declare namespace print {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
-     */	 
+     */
     function requestPrintPreview(jobInfo: PrintJob): Promise<number>;
 
     /**
@@ -597,7 +597,7 @@ declare namespace print {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
-     */	 
+     */
     function on(type: 'jobStateChange', callback: Callback<printJobState, printJob>): void;
 	 
     /**
@@ -610,7 +610,7 @@ declare namespace print {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
-     */	 
+     */
     function off(type: 'jobStateChange', callback?: Callback<boolean>): void;
 
     /**
@@ -636,7 +636,7 @@ declare namespace print {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
-     */		 
+     */ 
     function off(type: 'extInfoChange', callback?: Callback<boolean>): void;
 
     /**
@@ -728,7 +728,7 @@ declare namespace print {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
-     */ 
+     */
     function updatePrinterState(printerId: string, state: PrinterState, callback: AsyncCallback<void>): void;
 
     /**
@@ -742,7 +742,7 @@ declare namespace print {
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
-     */ 
+     */
     function updatePrinterState(printerId: string, state: PrinterState): Promise<boolean>;
 
     /**
