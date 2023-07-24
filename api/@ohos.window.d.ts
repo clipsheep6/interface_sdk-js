@@ -1376,6 +1376,21 @@ declare namespace window {
   function setGestureNavigationEnabled(enable: boolean): Promise<void>;
 
   /**
+   * Set watermark snapshot to RS.
+   *
+   * @param { image.PixelMap } callback - The callback used to return the pixelMap set to RS.
+   * @param { boolean } enable - Whether watermark snapshot set successed.
+   * @returns { Promise<void> } - Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error..
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setWatermarkSnapshot(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
+
+  /**
    * Register the callback of systemBarTintChange
    *
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
@@ -1426,6 +1441,35 @@ declare namespace window {
    * @since 10
    */
   function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Register the callback for watermark flag change.
+   *
+   * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
+   * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+   function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
+
+   /**
+    * Unregister the callback for watermark flag change.
+    *
+    * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
+    * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
+    * @throws { BusinessError } 401 - Parameter error.
+    * @throws { BusinessError } 1300002 - This window state is abnormal.
+    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+    * @syscap SystemCapability.WindowManager.WindowManager.Core
+    * @systemapi Hide this for inner system use.
+    * @since 10
+    */
+   function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
+
   /**
    * Display orientation
    *
