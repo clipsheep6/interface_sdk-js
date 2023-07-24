@@ -33,7 +33,7 @@ export default class PrintExtensionAbility {
      * @syscap SystemCapability.Print.PrintFramework
      * @StageModelOnly
      * @throws { BusinessError } 202 - not system application
-	 * @since 10
+     * @since 10
      */
     onCreate(want: Want): void;
 
