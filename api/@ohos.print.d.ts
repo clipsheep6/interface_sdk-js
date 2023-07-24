@@ -30,102 +30,102 @@ declare namespace print {
     interface PrintTask {
         /**
          * Register event callback when the current print task is in process.
-         * @since 10
          * @param type block Indicates the print task has been blocked.
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
+		 * @since 10
          */
         on(type: 'block', callback: Callback<void>): void;
 
         /**
          * Register event callback when the current print task is in process.
-         * @since 10
          * @param type succeed Indicates the print task succeed.
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
+		 * @since 10
          */
         on(type: 'succeed', callback: Callback<void>): void;
 
         /**
          * Register event callback when the current print task is in process.
-         * @since 10
          * @param type fail Indicates the print task has completed with failure.
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
+		 * @since 10
          */
         on(type: 'fail', callback: Callback<void>): void;
 
         /**
          * Register event callback when the current print task is in process.
-         * @since 10
          * @param type cancel Indicates the print task has been cancelled.
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
+		 * @since 10
          */
         on(type: 'cancel', callback: Callback<void>): void;
 
         /**
          * Unregister event callback when the current print task is in process.
-         * @since 10
          * @param type block Indicates the print task has been blocked.
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
+		 * @since 10
          */
         off(type: 'block', callback?: Callback<void>): void;
 
         /**
          * Unregister event callback when the current print task is in process.
-         * @since 10
          * @param type succeed Indicates the print task succeed.
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
+		 * @since 10
          */
         off(type: 'succeed', callback?: Callback<void>): void;
 
         /**
          * Unregister event callback when the current print task is in process.
-         * @since 10
          * @param type fail Indicates the print task has completed with failure.
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
+		 * @since 10
          */
         off(type: 'fail', callback?: Callback<void>): void;
 
         /**
          * Unregister event callback when the current print task is in process.
-         * @since 10
          * @param type cancel Indicates the print task has been cancelled.
          * @param callback The callback function for print task change event
          * @permission ohos.permission.PRINT
          * @throws { BusinessError } 201 - the application does not have permission to call this function.
+		 * @since 10
          */
         off(type: 'cancel', callback?: Callback<void>): void;        
     }
 
     /**
      * Start new print task for App.
-     * @since 10
      * @param files Indicates the filepath list to be printed. Only pdf and picture filetype are supported.
      * @param callback The callback function for print task.
      * @permission ohos.permission.PRINT
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
+	 * @since 10
      */
     function print(files: Array<string>, callback: AsyncCallback<PrintTask>): void;
 
     /**
      * Start new print task for App.
-     * @since 10
      * @param files Indicates the filepath list to be printed. Only pdf and picture filetype are supported.
      * @param callback The callback function for print task.
      * @permission ohos.permission.PRINT
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
+	 * @since 10
      */
     function print(files: Array<string>): Promise<PrintTask>;
 
@@ -323,45 +323,44 @@ declare namespace print {
     /**
      * Get all printer extension installed.
      *
-     * @since 10
      * @param callback The callback function for handling the extension list found.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application
+	 * @since 10
      */
     function queryAllPrinterExtensionInfos(callback: AsyncCallback<Array<PrinterExtensionInfo>>): void;
 
     /**
      * Get all printer extension installed.
      *
-     * @since 10
      * @param callback The callback function for handling the extension list found.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function queryAllPrinterExtensionInfos(): Promise<Array<PrinterExtensionInfo>>;
 
     /**
      * Load the specific printer extension and start to discover printer.
      *
-     * @since 10
      * @param extensionList Indicates the list of printer extension.
      *        empty list of extensionList Indicates to find printer with all installed extension.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
-     * @throws { BusinessError } 202 - not system application	 
+     * @throws { BusinessError } 202 - not system application	
+	 * @since 10
      */
     function startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<void>): void;
 
     /**
      * Load the specific printer extension and start to discover printer.
      *
-     * @since 10
      * @param extensionList Indicates the list of printer extension.
      *        empty list of extensionList Indicates to find printer with all installed extension.
      * @param callback The callback function for indcating the result of API execution.
@@ -369,13 +368,13 @@ declare namespace print {
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function startDiscoverPrinter(extensionList: Array<string>): Promise<boolean>;
 
     /**
      * Stop discovering the printer with specific printer extension.
      *
-     * @since 10
      * @param extensionList Indicates the list of printer extension.
      *        empty list of extensionList Indicates to find printer with all installed extension.
      * @param callback The callback function for indcating the result of API execution.
@@ -383,13 +382,13 @@ declare namespace print {
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
      function stopDiscoverPrinter(callback: AsyncCallback<void>): void;
 
     /**
      * Stop discovering the printer with specific printer extension.
      *
-     * @since 10
      * @param extensionList Indicates the list of printer extension.
      *        empty list of extensionList Indicates to find printer with all installed extension.
      * @param callback The callback function for indcating the result of API execution.
@@ -397,327 +396,325 @@ declare namespace print {
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
      function stopDiscoverPrinter(): Promise<boolean>;
 
      /**
      * Connect the specific printer.
      *
-     * @since 10
      * @param printerId Indicates id of the printer.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
       function connectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
      /**
      * Connect the specific printer.
      *
-     * @since 10
      * @param printerId Indicates id of the printer.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
       function connectPrinter(printerId: string): Promise<boolean>;
 
      /**
      * Disconnect the specific printer.
      *
-     * @since 10
      * @param printerId Indicates id of the printer.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
       function disconnectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
      /**
      * Disconnect the specific printer.
      *
-     * @since 10
      * @param printerId Indicates id of the printer.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
       function disconnectPrinter(printerId: string): Promise<boolean>;
 
     /**
      * Query capability for the specific printer.
      *
-     * @since 10
      * @param printerId Indicates id of the printer.
      * @param callback The callback function for capability from printer.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
      function queryPrinterCapability(printerId: string, callback: AsyncCallback<void>): void;
 
     /**
      * Query capability for the specific printer.
      *
-     * @since 10
      * @param printerId Indicates id of the printer.
      * @param callback The callback function for capability from printer.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
      function queryPrinterCapability(printerId: string): Promise<boolean>
 
     /**
      * Start print job.
      *
-     * @since 10
      * @param jobInfo Indicates the information of print job.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function startPrintJob(jobInfo: PrintJob, callback: AsyncCallback<void>): void;
 
     /**
      * Start print job.
      *
-     * @since 10
      * @param jobInfo Indicates the information of print job.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
 	 * @throws { BusinessError } 201 - the application does not have permission to call this function.
-	 * @throws { BusinessError } 202 - not system application	 
+	 * @throws { BusinessError } 202 - not system application
+	 * @since 10
      */
     function startPrintJob(jobInfo: PrintJob): Promise<boolean>;
 
     /**
      * Cancel the print job has been sent to printer.
      *
-     * @since 10
      * @param jobId Indicates the specific print job.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function cancelPrintJob(jobId: string, callback: AsyncCallback<void>): void;
 
     /**
      * Cancel the print job has been sent to printer.
      *
-     * @since 10
      * @param jobId Indicates the specific print job.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function cancelPrintJob(jobId: string): Promise<boolean>;
 
     /**
      * Request preview of the print job.
      *
-     * @since 10
      * @param jobInfo Indicates the information of print job.
      * @param callback The callback function for preview result from printer.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function requestPrintPreview(jobInfo: PrintJob, callback: Callback<number>): void;
 
     /**
      * Request preview of the print job.
      *
-     * @since 10
      * @param jobInfo Indicates the information of print job.
      * @param callback The callback function for preview result from printer.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function requestPrintPreview(jobInfo: PrintJob): Promise<number>;
 
     /**
      * Register event callback for the state change of printer.
      *
-     * @since 10
      * @param printerStateChange Indicates state change of printer.
      * @param callback The callback function for state change of printer.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function on(type: 'printerStateChange', callback: Callback<printerState, printerInfo>): void;
 
     /**
      * Unregister event callback for the state change of printer.
      *
-     * @since 10
      * @param printerStateChange Indicates state change of printer.
      * @param callback The callback function for state change of printer.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function off(type: 'printerStateChange', callback?: Callback<boolean>): void;
 
     /**
      * Register event callback for the state change of print job.
      *
-     * @since 10
      * @param jobStateChange Indicates state change of print job.
      * @param callback The callback function for state change of print job.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function on(type: 'jobStateChange', callback: Callback<printJobState, printJob>): void;
 
      /**
      * Unregister event callback for the state change of print job.
      *
-     * @since 10
      * @param printerStateChange Indicates state change of print job.
      * @param callback The callback function for state change of print job.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function off(type: 'jobStateChange', callback?: Callback<boolean>): void;
 
     /**
      * Register event callback for the information change of print extension.
      *
-     * @since 10
      * @param extInfoChange Indicates information change of print extension.
      * @param callback The callback function for information change of print extension.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function on(type: 'extInfoChange', callback: Callback<extensionId, info>): void;
 
      /**
      * Unregister event callback for the information change of print extension.
      *
-     * @since 10
      * @param extInfoChange Indicates information change of print extension.
      * @param callback The callback function for information change of print extension.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function off(type: 'extInfoChange', callback?: Callback<boolean>): void;
 
     /**
      * New printers have been found and notify Print SA.
      *
-     * @since 10
      * @param printers Indicates new arrived printer lists.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function addPrinters(printers: Array<PrinterInfo>, callback: AsyncCallback<void>): void;
 
     /**
      * New printers have been found and notify Print SA.
      *
-     * @since 10
      * @param printers Indicates new arrived printer lists.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function addPrinters(printers: Array<PrinterInfo>): Promise<boolean>;
 
     /**
      * Printers have been lost and notify Print SA.
      *
-     * @since 10
-     *
      * @param printerIds Indicates the lost printer lists.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function removePrinters(printerIds: Array<string>, callback: AsyncCallback<void>): void;
 
     /**
      * Printers have been lost and notify Print SA.
      *
-     * @since 10
-     *
      * @param printerIds Indicates the lost printer lists.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function removePrinters(printerIds: Array<string>): Promise<boolean>;
 
     /**
      * Update the information of the specific printers
      *
-     * @since 10
      * @param printers Indicates to be updated printer lists.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function updatePrinters(printers: Array<PrinterInfo>, callback: AsyncCallback<void>): void;
 
     /**
      * Update the information of the specific printers
      *
-     * @since 10
      * @param printers Indicates to be updated printer lists.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function updatePrinters(printers: Array<PrinterInfo>): Promise<boolean>;
 
     /**
      * Notify Print SA the state of printer has been changed.
      *
-     * @since 10
      * @param printerId Indicates id of the printer.
      * @param state Indicates new state of printer.
      * @param callback The callback function for indcating the result of API execution.
@@ -725,13 +722,13 @@ declare namespace print {
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function updatePrinterState(printerId: string, state: PrinterState, callback: AsyncCallback<void>): void;
 
     /**
      * Notify Print SA the state of printer has been changed.
      *
-     * @since 10
      * @param printerId Indicates id of the printer.
      * @param state Indicates new state of printer.
      * @param callback The callback function for indcating the result of API execution.
@@ -739,13 +736,13 @@ declare namespace print {
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function updatePrinterState(printerId: string, state: PrinterState): Promise<boolean>;
 
     /**
      * Notify Print SA the state of print job has been changed.
      *
-     * @since 10
      * @param jobId Indicates id of the print job.
      * @param state Indicates new state of print job.
      * @param subState Indicates sub state of print job.
@@ -754,13 +751,13 @@ declare namespace print {
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState, callback: AsyncCallback<void>): void;
 
     /**
      * Notify Print SA the state of print job has been changed.
      *
-     * @since 10
      * @param jobId Indicates id of the print job.
      * @param state Indicates new state of print job.
      * @param subState Indicates sub state of print job.
@@ -769,56 +766,57 @@ declare namespace print {
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise<boolean>;
 
     /**
      * Notify Print SA the state of print extension has been changed.
      *
-     * @since 10
      * @param info Indicates changed information of print extension.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function updateExtensionInfo(info: string, callback: AsyncCallback<void>): void;
 
     /**
      * Notify Print SA the state of print extension has been changed.
      *
-     * @since 10
      * @param info Indicates changed information of print extension.
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function updateExtensionInfo(info: string): Promise<boolean>;
 
     /**
      * Get all the printJobs in the queue.
      *
-     * @since 10
      * @param callback The callback function for handling the printJob list found.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function queryAllPrintJobs(callback: AsyncCallback<void>): void;
 
     /**
      * Get all the printJobs in the queue.
      *
-     * @since 10
      * @param callback The callback function for handling the printJob list found.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
+	 * @since 10
      */
     function queryAllPrintJobs(): Promise<boolean>
 }
