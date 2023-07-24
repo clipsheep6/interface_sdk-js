@@ -335,6 +335,36 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 10
    */
   onChange?: (value: TimePickerResult) => void;
+
+  /**
+   * Mask Region of dialog.
+   *
+   * @type { ?RectResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maskRect?: RectResult;
+
+  /**
+   * Defines the dialog alignment of the screen.
+   *
+   * @type { ?DialogAlignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  alignment?: DialogAlignment;
+
+  /**
+   * Defines the dialog offset.
+   *
+   * @type { ?Offset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  offset?: Offset;
 }
 
 /**

@@ -314,6 +314,16 @@ declare interface AlertDialogParam {
    * @since 10
    */
   gridCount?: number;
+
+  /**
+   * Mask Region of dialog.
+   *
+   * @type { ?RectResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maskRect?: RectResult;
 }
 
 /**

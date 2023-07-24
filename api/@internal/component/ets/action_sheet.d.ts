@@ -267,6 +267,16 @@ interface ActionSheetOptions
    * @since 10
    */
   offset?: { dx: number | string | Resource; dy: number | string | Resource };
+
+  /**
+   * Mask Region of dialog.
+   *
+   * @type { ?RectResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maskRect?: RectResult;
 }
 
 /**

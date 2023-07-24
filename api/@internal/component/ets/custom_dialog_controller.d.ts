@@ -159,6 +159,16 @@ declare interface CustomDialogControllerOptions {
   maskColor?: ResourceColor;
 
   /**
+   * Mask Region of dialog.
+   *
+   * @type { ?RectResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  maskRect?: RectResult;
+
+  /**
    * Animation parameters of dialog opening.
    *
    * @type { ?AnimateParam }
