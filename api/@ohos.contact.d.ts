@@ -93,19 +93,6 @@ declare namespace contact {
    * Returns the contact list which user select; returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
-   * @deprecated since 10
-   * @useinstead contact.selectContact#selectContact
-   */
-  function selectContact(callback: AsyncCallback<Array<Contact>>): void;
-
-  /**
-   * Select a contact.
-   *
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   * Returns the contact list which user select; returns empty contact list if user not select.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.Contacts
-   * @since 10
    */
   function selectContact(callback: AsyncCallback<Array<Contact>>): void;
 
@@ -117,19 +104,6 @@ declare namespace contact {
    * returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
-   * @deprecated since 10
-   * @useinstead contact.selectContact#selectContact
-   */
-  function selectContact(): Promise<Array<Contact>>;
-
-  /**
-   * Select a contact.
-   *
-   * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
-   * returns empty contact list if user not select.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Applications.Contacts
-   * @since 10
    */
   function selectContact(): Promise<Array<Contact>>;
 
