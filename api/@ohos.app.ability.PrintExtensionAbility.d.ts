@@ -44,7 +44,7 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 10
-     */	 
+     */
     onStartDiscoverPrinter(): void;
 	
     /**
@@ -54,7 +54,7 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 10
-     */	 	 
+     */ 	 
     onStopDiscoverPrinter(): void;
 	 
     /**
@@ -65,7 +65,7 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 10
-     */	 
+     */
     onConnectPrinter(printerId: number): void;
 
     /**
@@ -76,7 +76,7 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 10
-     */	 
+     */
     onDisconnectPrinter(printerId: number): void;
 	 
     /**
@@ -87,7 +87,7 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 10
-     */	 
+     */
     onStartPrintJob(jobInfo: print.PrintJob): void;
 	 
     /**
@@ -98,7 +98,7 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 10
-     */		 
+     */
     onCancelPrintJob(jobInfo: print.PrintJob): void;
 	 
     /**
@@ -110,7 +110,7 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 10
-     */		 
+     */ 
     onRequestPrinterCapability(printerId: number): print.PrinterCapability;
 
     /**
@@ -122,7 +122,7 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 10
-     */		 
+     */
     onRequestPreview(jobInfo: print.PrintJob): string;
 
     /**
@@ -132,6 +132,6 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 10
-     */		 
+     */ 
     onDestroy(): void;
 }
