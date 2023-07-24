@@ -132,6 +132,6 @@ export default class PrintExtensionAbility {
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 10
-     */ 
+     */
     onDestroy(): void;
 }
