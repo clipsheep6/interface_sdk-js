@@ -104,7 +104,7 @@ export default class PrintExtensionAbility {
     /**
      * Called once to request the capability of the printer.
      * @param { number } printerId - Indicates the information of printer.
-	 * @returns { print.PrinterCapability } printer capability.
+     * @returns { print.PrinterCapability } printer capability.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
@@ -116,7 +116,7 @@ export default class PrintExtensionAbility {
     /**
      * Called once to request preview and send result to Print SA.
      * @param {  print.PrintJob } jobInfo - Indicates the information of job.
-	 * @returns { string} preview result.
+     * @returns { string} preview result.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.
