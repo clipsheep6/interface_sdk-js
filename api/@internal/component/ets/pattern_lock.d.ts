@@ -53,7 +53,7 @@ declare class PatternLockController {
    * @crossplatform
    * @since 10
    */
-  reset();
+  reset(): void;
 }
 
 /**

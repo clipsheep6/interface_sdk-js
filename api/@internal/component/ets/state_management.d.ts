@@ -160,6 +160,7 @@ declare class Storage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
+   * @deprecated since 10
    */
   set(key: string, val: any): void;
 

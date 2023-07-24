@@ -1037,7 +1037,7 @@ declare class ListAttribute extends CommonMethod<ListAttribute> {
    * @crossplatform
    * @since 10
    */
-  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => ((() => any) | void)): ListAttribute;
+  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => CustomBuilder): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.

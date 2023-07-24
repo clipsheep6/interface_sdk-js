@@ -32,19 +32,19 @@ declare interface CustomDialogControllerOptions {
   /**
    * Custom builder function.
    *
-   * @type { any }
+   * @type { CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Custom builder function.
    *
-   * @type { any }
+   * @type { CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  builder: any;
+  builder: CustomBuilder;
 
   /**
    * Defines the cancel function.
@@ -233,7 +233,7 @@ declare class CustomDialogController {
    * @crossplatform
    * @since 10
    */
-  open();
+  open(): void;
 
   /**
    * Closes the custom pop-up window. If the window is closed, the window does not take effect.
@@ -248,5 +248,5 @@ declare class CustomDialogController {
    * @crossplatform
    * @since 10
    */
-  close();
+  close(): void;
 }

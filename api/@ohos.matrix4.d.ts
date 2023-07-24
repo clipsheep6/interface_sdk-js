@@ -498,8 +498,8 @@ declare namespace matrix4 {
       number,
       number,
       number,
-      number,
-    ],
+      number
+    ]
   ): Matrix4Transit;
 
   /**

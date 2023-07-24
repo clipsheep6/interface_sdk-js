@@ -70,7 +70,7 @@ interface RectInterface {
       {
         width?: number | string;
         height?: number | string;
-        radius?: number | string | Array<any>;
+        radius?: number | string | Array<string|number>;
       }
       | {
         width?: number | string;
@@ -112,7 +112,7 @@ interface RectInterface {
       {
         width?: number | string;
         height?: number | string;
-        radius?: number | string | Array<any>;
+        radius?: number | string | Array<string|number>;
       }
       | {
         width?: number | string;
