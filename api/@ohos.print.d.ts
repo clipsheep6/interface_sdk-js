@@ -498,9 +498,9 @@ declare namespace print {
      * @param callback The callback function for indcating the result of API execution.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @systemapi Hide this for inner system use.
-	 * @throws { BusinessError } 201 - the application does not have permission to call this function.
-	 * @throws { BusinessError } 202 - not system application
-	 * @since 10
+     * @throws { BusinessError } 201 - the application does not have permission to call this function.
+     * @throws { BusinessError } 202 - not system application
+     * @since 10
      */
     function startPrintJob(jobInfo: PrintJob): Promise<boolean>;
 
