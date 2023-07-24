@@ -59,7 +59,7 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
      * @param { { [bundleName:string]:boolean } } switches - Indicates switches information of all applications.
      * switches will overwrite the saved application switch information.If the specific application switch changes,
-     * the {@link changeCloudSwitchByApp(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
+     * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
      * @param { AsyncCallback<void> } callback - the callback of enableCloud.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -82,7 +82,7 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
      * @param { { [bundleName:string]:boolean } } switches - Indicates switches information of all applications.
      * switches will overwrite the saved application switch information.If the specific application switch changes,
-     * the {@link changeCloudSwitchByApp(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
+     * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -133,7 +133,7 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
      * @param { string } bundleName -  Indicates the name of application.
      * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
-     * @param { AsyncCallback<void> } callback - the callback of changeCloudSwitchByApp.
+     * @param { AsyncCallback<void> } callback - the callback of changeAppCloudSwitch.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error.
@@ -142,7 +142,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 10
      */
-    static changeCloudSwitchByApp(
+    static changeAppCloudSwitch(
       accountId: string,
       bundleName: string,
       status: boolean,
@@ -165,7 +165,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 10
      */
-    static changeCloudSwitchByApp(accountId: string, bundleName: string, status: boolean): Promise<void>;
+    static changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
 
     /**
      * notifies changes of the cloud records
