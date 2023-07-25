@@ -110,27 +110,25 @@ declare namespace contact {
   /**
    * Select contact with option.
    *
-   * @param { ContactSelectOptions } option - Indicates the Single-select or multiple-select.
+   * @param { ContactSelectOptions } options - Indicates the Single-select or multiple-select.
    * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   * @returns Returns the contact list which user select;
-   * returns empty contact list if user not select.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
-  function selectContact(option: ContactSelectOptions, callback: AsyncCallback<Array<Contact>>): void;
+  function selectContact(options: ContactSelectOptions, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
    * Select contact with option.
    *
-   * @param { ContactSelectOptions } option - Indicates the Single-select or multiple-select.
+   * @param { ContactSelectOptions } options - Indicates the Single-select or multiple-select.
    * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
    * returns empty contact list if user not select.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
-  function selectContact(option: ContactSelectOptions): Promise<Array<Contact>>;
+  function selectContact(options: ContactSelectOptions): Promise<Array<Contact>>;
 
   /**
    * Deletes a specified contact.
@@ -1336,6 +1334,7 @@ declare namespace contact {
   /**
    * ContactSelectOptions Object
    *
+   * @interface ContactSelectOptions
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
