@@ -64,6 +64,7 @@ declare namespace ecologicalRuleDataManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application calls a system API.
    * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @systemapi
    * @since 10

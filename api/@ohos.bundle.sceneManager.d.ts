@@ -28,6 +28,8 @@ declare namespace sceneManager {
    * @param { string } bundleName - Bundle name.
    * @returns { string } Returns the scene code.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @since 10
    */
@@ -40,6 +42,8 @@ declare namespace sceneManager {
    * @param { string } bundleName - Bundle name.
    * @returns { string } Returns the initial scene code.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
    * @since 10
    */

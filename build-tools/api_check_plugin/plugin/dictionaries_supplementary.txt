@@ -32,6 +32,7 @@ apecified
 appselect
 arcs
 arfcn
+arkui
 arrarybuffer
 arraybuffer
 arrlist
@@ -227,6 +228,7 @@ evenodd
 evicted
 excepted
 exempted
+exempts
 extention
 f1
 faultlog
@@ -292,12 +294,15 @@ hitrace
 hiview
 hiviewdfx
 hkdf
+hogp
+hsp
 hspa
 hspap
 htmltext
 huks
 hwid
 icq
+id
 idm
 ifaces
 ima
@@ -371,6 +376,7 @@ lenum
 lfloat
 libraryname
 lifted
+lifts
 lintptr
 listened
 llbackfn
@@ -520,6 +526,9 @@ pread
 precisiontype
 precomposed
 precon
+preconnect
+preconnected
+preconnectable
 preempted
 preferentially
 preloads
@@ -527,6 +536,7 @@ premises
 premultiplied
 premultiply
 prepares
+preresolve
 presently
 prevgroup
 prikey
@@ -601,6 +611,7 @@ sae
 sak
 satellites
 scdma
+scene
 sco
 scrambling
 screenlock
