@@ -94,7 +94,7 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.addContact#addContact
+   * @useinstead contact.selectContacts#selectContacts
    */
   function selectContact(callback: AsyncCallback<Array<Contact>>): void;
 
@@ -118,7 +118,7 @@ declare namespace contact {
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
    * @deprecated since 10
-   * @useinstead contact.addContact#addContact
+   * @useinstead contact.selectContacts#selectContacts
    */
   function selectContact(): Promise<Array<Contact>>;
 
