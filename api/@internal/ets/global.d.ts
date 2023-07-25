@@ -15,7 +15,7 @@
 
 /// <reference path="../../../component/common.d.ts" />
 
-import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
+import { TouchObjectParam, KeyEventParam, MouseEventParam } from 'SpecialEventParam';
 
 /**
  * Defines the console info.
@@ -523,14 +523,14 @@ export declare function sendEventByKey(id: string, action: number, params: strin
 /**
  * Send touch event.
  *
- * @param { TouchObject } event TouchObject to be sent.
+ * @param { TouchObjectParam } event TouchObjectParam to be sent.
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
  */
-export declare function sendTouchEvent(event: TouchObject): boolean;
+export declare function sendTouchEvent(event: TouchObjectParam): boolean;
 
 /**
  * Send key event.
@@ -544,14 +544,14 @@ export declare function sendTouchEvent(event: TouchObject): boolean;
 /**
  * Send key event.
  *
- * @param { KeyEvent } event KeyEvent to be sent.
+ * @param { KeyEventParam } event KeyEventParam to be sent.
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
  */
-export declare function sendKeyEvent(event: KeyEvent): boolean;
+export declare function sendKeyEvent(event: KeyEventParam): boolean;
 
 /**
  * Send mouse event.
@@ -565,11 +565,11 @@ export declare function sendKeyEvent(event: KeyEvent): boolean;
 /**
  * Send mouse event.
  *
- * @param { MouseEvent } event MouseEvent to be sent.
+ * @param { MouseEventParam } event MouseEventParam to be sent.
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @test
  */
-export declare function sendMouseEvent(event: MouseEvent): boolean;
+export declare function sendMouseEvent(event: MouseEventParam): boolean;
