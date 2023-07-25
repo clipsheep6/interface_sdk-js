@@ -790,6 +790,75 @@ declare namespace fileAccess {
   }
 
   /**
+   * Describes the notifyType.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  enum NotifyType {
+    /**
+    * Type for add notification
+    * @since 10
+    * @systemapi
+    * @syscap SystemCapability.FileManagement.UserFileService
+    */
+    NOTIFY_ADD,
+    /**
+    * Type for delete notification
+    * @since 10
+    * @systemapi
+    * @syscap SystemCapability.FileManagement.UserFileService
+    */
+    NOTIFY_DELETE,
+    /**
+    * Type for update notification
+    * @since 10
+    * @systemapi
+    * @syscap SystemCapability.FileManagement.UserFileService
+    */
+    NOTIFY_UPDATE
+  }
+
+  /**
+   * the value of the notify callback function
+   *
+   * @interface NotifyMessage
+   * @permission ohos.permission.FILE_ACCESS_MANAGER
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  interface NotifyMessage {
+    /**
+     * Indicates the change type.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { NotifyType }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    type: NotifyType;
+
+    /**
+     * Indicates the uris generated the change event.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    uris: Array<string>;
+  }
+
+  /**
    * FileAccessHelper Object
    *
    * @interface FileAccessHelper
@@ -1683,6 +1752,31 @@ declare namespace fileAccess {
      * @since 9
      */
     getRoots(callback: AsyncCallback<RootIterator>): void;
+
+    /**
+     * Turn on monitor the specified uri.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri - Indicates the file or directory to be monitored.
+     * @param { boolean } notifyForDescendants - Indicates Whether to monitor changes in descendants.
+     * @param { Callback<Array<NotifyMessage>> } callback - The callback is used to return the notify message.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    on(uri: string, notifyForDescendants: boolean, callback: Callback<NotifyMessage>): void;
+
+    /**
+     * Turn off monitor the specified uri.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } uri - Indicates the file or directory the file that will cancel monitored.
+     * @param { Callback<Array<NotifyMessage>> } callback - The callback is used to return the notify message.
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 10
+     */
+    off(uri: string, callback: Callback<NotifyMessage>): void;
   }
 }
 
