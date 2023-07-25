@@ -272,7 +272,7 @@ declare namespace print {
         * @syscap SystemCapability.Print.PrintFramework
         * @since 10
         */
-		options? :Object;
+        options? :Object;
     }
 
     /**
