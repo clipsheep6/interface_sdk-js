@@ -14,7 +14,7 @@
 */
 
 import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
-import audio from "./@ohos.multimedia.audio";
+import audio from './@ohos.multimedia.audio';
 
 /**
  * @namespace media
@@ -392,7 +392,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 10
      */
-     selectTrack(index: number): void;
+    selectTrack(index: number): void;
 
     /**
      * Deselect the current audio or subtitle track.
@@ -402,7 +402,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 10
      */
-     deselectTrack(index: number): void;
+    deselectTrack(index: number): void;
 
     /**
      * Obtain the current audio or subtitle track.
@@ -412,7 +412,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 10
      */
-     getCurrentTrack(trackType: MediaType, callback: AsyncCallback<number>): void;
+    getCurrentTrack(trackType: MediaType, callback: AsyncCallback<number>): void;
 
     /**
      * Obtain the current audio or subtitle track.
@@ -422,7 +422,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 10
      */
-     getCurrentTrack(trackType: MediaType): Promise<number>;
+    getCurrentTrack(trackType: MediaType): Promise<number>;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -694,14 +694,14 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 10
      */
-     on(type: 'trackChange', callback: (index: number, isSelect: boolean) => void): void;
+    on(type: 'trackChange', callback: (index: number, isSelect: boolean) => void): void;
     /**
      * Unregister listens for audio or subtitle track change event.
      * @param { 'trackChange' } type Type of the playback event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 10
      */
-     off(type: 'trackChange'): void;
+    off(type: 'trackChange'): void;
   }
 
   /**
@@ -2380,14 +2380,14 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    CFT_MPEG_4 = "mp4",
+    CFT_MPEG_4 = 'mp4',
 
     /**
      * A audio container format type m4a.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    CFT_MPEG_4A = "m4a",
+    CFT_MPEG_4A = 'm4a',
   }
 
   /**
@@ -2425,77 +2425,77 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_TRACK_INDEX = "track_index",
+    MD_KEY_TRACK_INDEX = 'track_index',
 
     /**
      * key for track type, value type is number, see @MediaType.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_TRACK_TYPE = "track_type",
+    MD_KEY_TRACK_TYPE = 'track_type',
 
     /**
      * key for codec mime type, value type is string.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_CODEC_MIME = "codec_mime",
+    MD_KEY_CODEC_MIME = 'codec_mime',
 
     /**
      * key for duration, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_DURATION = "duration",
+    MD_KEY_DURATION = 'duration',
 
     /**
      * key for bitrate, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_BITRATE = "bitrate",
+    MD_KEY_BITRATE = 'bitrate',
 
     /**
      * key for video width, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_WIDTH = "width",
+    MD_KEY_WIDTH = 'width',
 
     /**
      * key for video height, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_HEIGHT = "height",
+    MD_KEY_HEIGHT = 'height',
 
     /**
      * key for video frame rate, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_FRAME_RATE = "frame_rate",
+    MD_KEY_FRAME_RATE = 'frame_rate',
 
     /**
      * key for audio channel count, value type is number
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_AUD_CHANNEL_COUNT = "channel_count",
+    MD_KEY_AUD_CHANNEL_COUNT = 'channel_count',
 
     /**
      * key for audio sample rate, value type is number
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_AUD_SAMPLE_RATE = "sample_rate",
+    MD_KEY_AUD_SAMPLE_RATE = 'sample_rate',
 
     /**
      * key for language, value type is string
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 10
      */
-     MD_KEY_LANGUAGE = "language",
+    MD_KEY_LANGUAGE = 'language',
   }
 
   /**
