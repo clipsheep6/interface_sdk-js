@@ -228,6 +228,7 @@ evenodd
 evicted
 excepted
 exempted
+exempts
 extention
 f1
 faultlog
