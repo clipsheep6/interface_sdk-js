@@ -880,7 +880,7 @@ declare interface Rectangle {
  * global $r function
  *
  * @param { string } value
- * @param { Array<string|number> } params
+ * @param { Array<string | number> } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -889,7 +889,7 @@ declare interface Rectangle {
  * global $r function
  *
  * @param { string } value
- * @param { Array<string|number> } params
+ * @param { Array<string | number> } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
@@ -899,14 +899,14 @@ declare interface Rectangle {
  * global $r function
  *
  * @param { string } value
- * @param { Array<string|number> } params
+ * @param { Array<string | number> } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
  */
-declare function $r(value: string, ...params: Array<string|number>): Resource;
+declare function $r(value: string, ...params: Array<string | number>): Resource;
 
 /**
  * global $rawfile function
@@ -4557,15 +4557,29 @@ declare enum DragBehavior {
 }
 
 /**
- * Import the UnifiedData, Summary, UnifiedDataType type object for ui component.
+ * Import the UnifiedData type object for ui component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare type UnifiedData = import('../api/@ohos.data.UDMF').UnifiedData;
-declare type Summary = import('../api/@ohos.data.UDMF').Summary;
-declare type UnifiedDataType = import('../api/@ohos.data.UDMF').UnifiedDataType;
+declare type UnifiedData = import('../api/@ohos.data.UDMF').default.UnifiedData;
+
+/**
+ * Import the Summary type object for ui component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type Summary = import('../api/@ohos.data.UDMF').default.Summary;
+
+/**
+ * Import the UnifiedDataType type object for ui component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type UnifiedDataType = import('../api/@ohos.data.UDMF').default.UnifiedDataType;
 
 /**
  * Enum for Drag Result.
@@ -4814,7 +4828,7 @@ declare interface DragEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-declare type IntentionCode = import('../api/@ohos.multimodalInput.IntentionCode').IntentionCode;
+declare type IntentionCode = import('../api/@ohos.multimodalInput.IntentionCode').default.IntentionCode;
 /**
  * KeyEvent object description:
  *
