@@ -139,8 +139,10 @@ declare namespace print {
     function print(files: Array<string>): Promise<PrintTask>;
 
     /**
-     * interface print margin param
+     * Defineds print margin.
+     * @typedef PrintMargin
      * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.	 	 
      * @since 10 
      */
     interface PrintMargin {
@@ -151,8 +153,10 @@ declare namespace print {
     }
 
     /**
-     * interface print range param
+     * Defineds print range.
+     * @typedef PrinterRange
      * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.	 	 
      * @since 10 
      */
     interface PrinterRange {
@@ -162,8 +166,10 @@ declare namespace print {
     }
 
     /**
-     * interface print preview attribute
+     * Defineds print preview attribute.
+     * @typedef PreviewAttribute
      * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.	 	 
      * @since 10 
      */
     interface PreviewAttribute {
@@ -172,10 +178,12 @@ declare namespace print {
     }
 
     /**
-     * interface print resolution param
+     * Defineds print resolution.
+     * @typedef PrintResolution
      * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.	 	 
      * @since 10 
-     */
+     */ 
     interface PrintResolution {
         id: string;          // resolution id
         horizontalDpi: number    // horizontal DPI
@@ -183,8 +191,10 @@ declare namespace print {
     }
 
     /**
-     * interface print pageSize param
+     * Defineds print page size.
+     * @typedef PrintPageSize
      * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.	 	 
      * @since 10 
      */
     interface PrintPageSize {
@@ -195,8 +205,10 @@ declare namespace print {
     }
 
     /**
-     * interface printer capability param
+     * Defineds print capability.
+     * @typedef PrinterCapability
      * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.	 	 
      * @since 10 
      */
     interface PrinterCapability {
@@ -209,10 +221,12 @@ declare namespace print {
     }
 
     /**
-     * interface Printer info
+     * Defineds print info.
+     * @typedef PrinterInfo
      * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.	 	 
      * @since 10 
-     */
+     */ 
     interface PrinterInfo {
         printerId: string;      // printer id
         printerName: string;    // printer name
@@ -220,12 +234,21 @@ declare namespace print {
         printerIcon?: number;    // resource id of printer icon
         description?: string;    // printer description
         capability?: PrinterCapability;  // printer capability
-        options? :Object;    // json object string
+        
+        /**
+        * JSON object string.
+        * @type {Object}
+        * @syscap SystemCapability.Print.PrintFramework
+        * @since 10
+        */
+        options? :Object;
     }
 
     /**
-     * interface Print Job
+     * Defineds print job.
+     * @typedef PrintJob
      * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.	 	 
      * @since 10 
      */
     interface PrintJob {
@@ -242,12 +265,21 @@ declare namespace print {
         duplexMode: number;          // duplex mode
         margin?: PrintMargin;        // current margin setting
         preview?: PreviewAttribute;  // preview setting
-        options? :Object;              // json object string
+		
+        /**
+        * JSON object string.
+        * @type {Object}
+        * @syscap SystemCapability.Print.PrintFramework
+        * @since 10
+        */
+		options? :Object;
     }
 
     /**
-     * enum Printer State
+     * Enumeration of Printer State.
+     * @enum { number } PrinterState
      * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.	 	 
      * @since 10 
      */
     enum PrinterState {
@@ -260,8 +292,10 @@ declare namespace print {
     }
 
     /**
-     * enum Print Job State
+     * Enumeration of  Print Job State.
+     * @enum { number } PrintJobState
      * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.	 	 
      * @since 10 
      */
     enum PrintJobState {
@@ -273,8 +307,10 @@ declare namespace print {
     }
 
     /**
-     * enum Print Job Sub State
+     * Enumeration of  Print Job Sub State.
+     * @enum { number } PrintJobSubState
      * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.	 	 
      * @since 10 
      */
     enum PrintJobSubState {
@@ -299,8 +335,10 @@ declare namespace print {
     }
 
     /**
-     * enum Print error Code
+     * Enumeration of  Print error Code.
+     * @enum { number } PrintErrorCode
      * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.	 	 
      * @since 10 
      */
     enum PrintErrorCode {
@@ -317,10 +355,12 @@ declare namespace print {
     }
 
     /**
-     * interface printer ExtensionInfo
+     * Defineds print ExtensionInfo.
+     * @typedef PrinterExtensionInfo
      * @syscap SystemCapability.Print.PrintFramework
+     * @systemapi Hide this for inner system use.	 	 
      * @since 10 
-     */
+     */	 
     interface PrinterExtensionInfo {
         extensionId: string;    // extension id of printer extension
         vendorId: string;       // vendor id of extension
@@ -552,7 +592,7 @@ declare namespace print {
      * Request preview of the print job.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @param { PrintJob } jobInfo - Indicates the information of print job.
-     * @returns { Promise<boolean> } the promise returned by the function.	 	 
+     * @returns { Promise<number> } the promise returned by the function.	 	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
