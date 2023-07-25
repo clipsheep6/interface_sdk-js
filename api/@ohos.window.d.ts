@@ -1376,19 +1376,36 @@ declare namespace window {
   function setGestureNavigationEnabled(enable: boolean): Promise<void>;
 
   /**
-   * Set watermark snapshot to RS.
+   * Set watermark image.
    *
-   * @param { image.PixelMap } pixelMap - Used to pass the pixelMap set to RS.
-   * @param { boolean } enable - Whether watermark snapshot set successed.
+   * @param { image.PixelMap } pixelMap - Watermark image.
+   * @param { boolean } enable - Show watermark if true.
    * @returns { Promise<void> } - Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error..
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function setWatermarkSnapshot(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
+  function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
+
+  /**
+   * Set watermark image.
+   *
+   * @param { image.PixelMap } pixelMap - Watermark image.
+   * @param { boolean } enable - Show watermark if true.
+   * @param { AsyncCallback<void> } callback - The callback of setWaterMarkImage.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Register the callback of systemBarTintChange
@@ -1447,28 +1464,28 @@ declare namespace window {
    *
    * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
    * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-   function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
+  function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
 
-   /**
-    * Unregister the callback for watermark flag change.
-    *
-    * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
-    * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
-    * @throws { BusinessError } 401 - Parameter error.
-    * @throws { BusinessError } 1300002 - This window state is abnormal.
-    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-    * @syscap SystemCapability.WindowManager.WindowManager.Core
-    * @systemapi Hide this for inner system use.
-    * @since 10
-    */
-   function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
+  /**
+   * Unregister the callback for watermark flag change.
+   *
+   * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
+   * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
 
   /**
    * Display orientation
