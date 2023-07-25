@@ -332,6 +332,7 @@
       "SystemCapability.Driver.ExternalDevice",
       "SystemCapability.FileManagement.PhotoAccessHelper.Core",
       "SystemCapability.BundleManager.EcologicalRuleManager",
+      "SystemCapability.AI.IntelligentVoice.Core",
       "SystemCapability.Msdp.DeviceStatus.Drag"
     ]
   },
