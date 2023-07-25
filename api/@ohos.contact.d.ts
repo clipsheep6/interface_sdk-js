@@ -127,7 +127,6 @@ declare namespace contact {
    *
    * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
    * returns empty contact list if user not select.
-   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
