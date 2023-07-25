@@ -112,7 +112,6 @@ declare namespace contact {
    *
    * @param { ContactSelectOptions } options - Indicates the Single-select or multiple-select.
    * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
@@ -124,7 +123,6 @@ declare namespace contact {
    * @param { ContactSelectOptions } options - Indicates the Single-select or multiple-select.
    * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
    * returns empty contact list if user not select.
-   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
