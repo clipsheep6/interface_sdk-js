@@ -13,9 +13,11 @@
  * limitations under the License.
  */
 
+import AuthorizationExtensionContext from './@ohos.account.appAccount.AuthorizationExtensionContext';
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 import type appAccount from './@ohos.account.appAccount';
 import type { AsyncCallback } from './@ohos.base';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * Class of the application account authorization extension ability.
@@ -27,6 +29,16 @@ import type { AsyncCallback } from './@ohos.base';
  * @since 10
  */
 export default class AuthorizationExtensionAbility extends ExtensionAbility {
+  /**
+   * Indicates authorization extension ability context.
+   *
+   * @syscap SystemCapability.Account.AppAccount
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  context: AuthorizationExtensionContext;
+
   /**
    * Called back when an authorization request is started.
    *
@@ -94,4 +106,16 @@ declare interface AuthorizationCallback {
    * @since 10
    */
   onResult: AsyncCallback<appAccount.AccountCapabilityResponse, { [key: string]: object }>;
+
+  /**
+   * Indicates the callback for redirecting the request.
+   *
+   * @param { Want } want - Carries the target ability information and request parameters for handling the request.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Account.AppAccount
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  onRequestRedirected?(want: Want): void;
 }

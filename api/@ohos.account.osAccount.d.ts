@@ -2153,6 +2153,46 @@ declare namespace osAccount {
   }
 
   /**
+   * Provides the GetDomainAccountInfoOptions type.
+   *
+   * @typedef GetDomainAccountInfoOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  interface GetDomainAccountInfoOptions {
+    /**
+     * Indicates the account name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    accountName: string;
+
+    /**
+     * Indicates the domain to which the account belongs.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    domain?: string;
+
+    /**
+     * Indicates caller UID.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    readonly callerUid?: number;
+  }
+
+  /**
    * Provides the definition of domain plugin.
    *
    * @interface DomainPlugin
@@ -2197,16 +2237,15 @@ declare namespace osAccount {
     authWithToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array, callback: IUserAuthCallback): void;
 
     /**
-     * Gets the domain account information based on its domain and account name.
+     * Gets the domain account information with the specified options.
      *
-     * @param { string } domain - Indicates the domain to which the account belongs.
-     * @param { string } accountName - Indicates the account name.
+     * @param { GetDomainAccountInfoOptions } options - Indicates the options for getting domain account information.
      * @param { AsyncCallback<DomainAccountInfo> } callback - Indicates the callback for notifying the domain account information.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    getAccountInfo(domain: string, accountName: string, callback: AsyncCallback<DomainAccountInfo>): void;
+    getAccountInfo(options: GetDomainAccountInfoOptions, callback: AsyncCallback<DomainAccountInfo>): void;
 
     /**
      * Gets the domain authentication property for the specified domain account.
@@ -2471,6 +2510,42 @@ declare namespace osAccount {
      * @since 10
      */
     static updateAccountToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array): Promise<void>;
+
+    /**
+     * Gets the specified domain account information.
+     *
+     * @permission ohos.permission.GET_DOMAIN_ACCOUNTS
+     * @param { GetDomainAccountInfoOptions } options - Indicates the options for getting domain account information.
+     * @param { AsyncCallback<DomainAccountInfo> } callback - Indicates the result callback.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    static getAccountInfo(options: GetDomainAccountInfoOptions, callback: AsyncCallback<DomainAccountInfo>): void;
+
+    /**
+     * Gets the specified domain account information.
+     *
+     * @permission ohos.permission.GET_DOMAIN_ACCOUNTS
+     * @param { GetDomainAccountInfoOptions } options - Indicates the options for getting domain account information.
+     * @returns { Promise<DomainAccountInfo> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    static getAccountInfo(options: GetDomainAccountInfoOptions): Promise<DomainAccountInfo>;
   }
 
   /**

@@ -16,6 +16,7 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import rpc from './@ohos.rpc';
+import UIAbilityContext from './application/UIAbilityContext';
 
 /**
  * This module provides the capability to manage application accounts.
@@ -2795,6 +2796,17 @@ declare namespace appAccount {
    * @since 10
    */
   class AccountCapabilityScheduler {
+    /**
+     * Set presentation context.
+     *
+     * @param { UIAbilityContext } context - Indicates the context used to present the user interface.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @syscap SystemCapability.Account.AppAccount
+     * @StageModelOnly
+     * @since 10
+     */
+    setPresentationContext(context: UIAbilityContext): void;
+
     /**
      * Executes the specified account capability request.
      *
