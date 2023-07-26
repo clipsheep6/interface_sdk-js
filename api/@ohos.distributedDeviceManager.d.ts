@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2023 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -34,8 +34,9 @@ declare namespace distributedDeviceManager {
    */
   interface DeviceBasicInfo {
     /**
-     * Device unique identifier, The actual value is the udid-hash confused with the appid based on sha256.
+     * Device unique identifier, the actual value is the udid-hash confused with the appid based on sha256.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @type { string }
      * @since 10
      */
     deviceId: string;
@@ -49,7 +50,7 @@ declare namespace distributedDeviceManager {
 
     /**
      * Obtains the device type represented by a string,
-     * which can be {@code phone}, {@code tablet}, {@code tv}, {@code smartVision}, {@code car}.
+     * which can be {@code phone}, {@code tablet}, {@code tv}, {@code smartVision}, {@code car} or {@code 2in1}.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @type { string }
      * @since 10
@@ -59,6 +60,7 @@ declare namespace distributedDeviceManager {
     /**
      * Device network id.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @type { string }
      * @since 10
      */
     networkId?: string;
@@ -80,7 +82,7 @@ declare namespace distributedDeviceManager {
     UNKNOWN = 0,
 
     /**
-     * This state indicates the device has been synchronized to the database, Now the distributed function can be used.
+     * This state indicates the device has been synchronized to the database, now the distributed function can be used.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
@@ -131,7 +133,7 @@ declare namespace distributedDeviceManager {
   interface DeviceManager {
 
     /**
-     * Get a list of available devices. This interface query all authorized and connectable devices.
+     * Get a list of available devices, this interface query all authorized and connectable devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @returns { Array<DeviceBasicInfo> } - Returns a list of available devices.
@@ -144,7 +146,7 @@ declare namespace distributedDeviceManager {
     getAvailableDeviceListSync(): Array<DeviceBasicInfo>;
 
     /**
-     * Get a list of available devices. This interface query all authorized and connectable devices.
+     * Get a list of available devices, this interface query all authorized and connectable devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { AsyncCallback<Array<DeviceBasicInfo>> } callback - Indicates the callback to be
@@ -157,7 +159,7 @@ declare namespace distributedDeviceManager {
     getAvailableDeviceList(callback: AsyncCallback<Array<DeviceBasicInfo>>): void;
 
     /**
-     * Get a list of available devices. This interface query all authorized and connectable devices.
+     * Get a list of available devices, this interface query all authorized and connectable devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @returns { Promise<Array<DeviceBasicInfo>> } - Returns a list of available devices.
@@ -252,14 +254,14 @@ declare namespace distributedDeviceManager {
      *       discoverTargetType : 1     - Discovery target as a device by default, the value is 1.
      * @param { object } filterOptions - FilterOptions to filter discovery device.
      * The type of filterOptions is map. The map are as follows:
-     *       availableStatus: 0-1       - Discover devices only are credible, The value is 0 indicates device isn't credible;
+     *       availableStatus: 0-1       - Discover devices only are credible, the value is 0 indicates device isn't credible;
      *                                      0: Devices are offline, client need to bind the device by calling bindTarget() and then connect to it.
      *                                      1: Devices already online, client can make connection.
      *       discoverDistance: 0-100    - Discover devices within a certain distance from the local, the unit is cm.
      *       authenticationStatus: 0-1  - Discover devices based on different authentication status:
      *                                      0: Devices not authenticated.
                                             1: Devices already authenticated.
-     *                                The value is 1 indicates device is trust.
+     *                                      The value is 1 indicates device is trust.
      *       authorizationType: 0-2     - Discover devices based on different authorization type:
      *                                      0: Devices authenticated based on temporary negotiated session key.
      *                                      1: Devices authenticated based on the same account credential key.
@@ -291,16 +293,16 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string } deviceId - id of device to bind.
-     * @param { object } bindParam - parameters of device to bind, The parameter type is map,such as:
+     * @param { object } bindParam - parameters of device to bind, the parameter type is map,such as:
      *      "bindType" : 1-4,         - This value is type of bind, the values are as follows:
      *                                  1 - The bind type is pin code .
      *                                  2 - The bind type is QR code.
      *                                  3 - The bind type is nfc.
      *                                  4 - The bind type is no_interaction.
 
-     *      "targetPkgName" : "xxxx", - The package name of binding target.
-     *      "appName" : "xxxx",       - The app name that try to bind the target.
-     *      "appOperation" : "xxxx"   - The reason why the app want to bind the target package.
+     *      "targetPkgName" : "xxxx"     - The package name of binding target.
+     *      "appName" : "xxxx"           - The app name that try to bind the target.
+     *      "appOperation" : "xxxx"      - The reason why the app want to bind the target package.
      *      "customDescription" : "xxxx" - The detail description of the operation.
      * @param { AsyncCallback<{deviceId: string}> } callback - indicates the callback to be invoked upon bindDevice.
      * @throws { BusinessError } 401 - Input parameter error.
