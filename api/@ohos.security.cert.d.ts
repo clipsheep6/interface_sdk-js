@@ -456,8 +456,19 @@ declare namespace cert {
      * @returns { number } X509 cert serial number.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509Cert.getCertSerialNumber
      */
     getSerialNumber(): number;
+
+    /**
+     * Get X509 cert serial number.
+     *
+     * @returns { bigint } X509 cert serial number.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getCertSerialNumber(): bigint;
 
     /**
      * Get X509 cert issuer name.
@@ -753,6 +764,8 @@ declare namespace cert {
    * @typedef X509CrlEntry
    * @syscap SystemCapability.Security.Cert
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.security.cert.X509CRLEntry
    */
   interface X509CrlEntry {
     /**
@@ -765,6 +778,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRLEntry.getEncoded
      */
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
 
@@ -778,6 +793,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRLEntry.getEncoded
      */
     getEncoded(): Promise<EncodingBlob>;
 
@@ -787,6 +804,8 @@ declare namespace cert {
      * @returns { number } serial number of crl entry.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRLEntry.getSerialNumber
      */
     getSerialNumber(): number;
 
@@ -799,6 +818,8 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRLEntry.getCertIssuer
      */
     getCertIssuer(): DataBlob;
 
@@ -811,6 +832,76 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRLEntry.getRevocationDate
+     */
+    getRevocationDate(): string;
+  }
+
+  /**
+   * Interface of X509CRLEntry.
+   *
+   * @typedef X509CRLEntry
+   * @syscap SystemCapability.Security.Cert
+   * @since 10
+   */
+  interface X509CRLEntry {
+    /**
+     * Returns the ASN of this CRL entry 1 der coding form, i.e. internal sequence.
+     *
+     * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getEncoded(callback: AsyncCallback<EncodingBlob>): void;
+
+    /**
+     * Returns the ASN of this CRL entry 1 der coding form, i.e. internal sequence.
+     *
+     * @returns { Promise<EncodingBlob> } the promise of CRL entry blob data.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getEncoded(): Promise<EncodingBlob>;
+
+    /**
+     * Get the serial number from this x509CRL entry.
+     *
+     * @returns { number } serial number of CRL entry.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getSerialNumber(): bigint;
+
+    /**
+     * Get the issuer of the x509 certificate described by this entry.
+     *
+     * @returns { DataBlob } DataBlob of issuer.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getCertIssuer(): DataBlob;
+
+    /**
+     * Get the revocation date from x509CRL entry.
+     *
+     * @returns { string } string of revocation date.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
      */
     getRevocationDate(): string;
   }
@@ -821,6 +912,8 @@ declare namespace cert {
    * @typedef X509Crl
    * @syscap SystemCapability.Security.Cert
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.security.cert.X509CRL
    */
   interface X509Crl {
     /**
@@ -831,6 +924,8 @@ declare namespace cert {
      * @throws { BusinessError } 401 - invalid parameters.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.isRevoked
      */
     isRevoked(cert: X509Cert): boolean;
 
@@ -840,6 +935,8 @@ declare namespace cert {
      * @returns { string } string of crl type.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getType
      */
     getType(): string;
 
@@ -853,6 +950,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getEncoded
      */
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
 
@@ -866,6 +965,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getEncoded
      */
     getEncoded(): Promise<EncodingBlob>;
 
@@ -878,6 +979,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.verify
      */
     verify(key: cryptoFramework.PubKey, callback: AsyncCallback<void>): void;
 
@@ -890,6 +993,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.verify
      */
     verify(key: cryptoFramework.PubKey): Promise<void>;
 
@@ -899,6 +1004,8 @@ declare namespace cert {
      * @returns { number } version of crl.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getVersion
      */
     getVersion(): number;
 
@@ -911,6 +1018,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getIssuerName
      */
     getIssuerName(): DataBlob;
 
@@ -923,6 +1032,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getLastUpdate
      */
     getLastUpdate(): string;
 
@@ -935,6 +1046,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getNextUpdate
      */
     getNextUpdate(): string;
 
@@ -948,6 +1061,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getRevokedCert
      */
     getRevokedCert(serialNumber: number): X509CrlEntry;
 
@@ -961,6 +1076,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getRevokedCertWithCert
      */
     getRevokedCertWithCert(cert: X509Cert): X509CrlEntry;
 
@@ -973,6 +1090,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getRevokedCerts
      */
     getRevokedCerts(callback: AsyncCallback<Array<X509CrlEntry>>): void;
 
@@ -985,6 +1104,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getRevokedCerts
      */
     getRevokedCerts(): Promise<Array<X509CrlEntry>>;
 
@@ -997,6 +1118,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getTbsInfo
      */
     getTbsInfo(): DataBlob;
 
@@ -1009,6 +1132,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getSignature
      */
     getSignature(): DataBlob;
 
@@ -1021,6 +1146,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getSignatureAlgName
      */
     getSignatureAlgName(): string;
 
@@ -1033,6 +1160,8 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getSignatureAlgOid
      */
     getSignatureAlgOid(): string;
 
@@ -1046,6 +1175,243 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.security.cert.X509CRL.getSignatureAlgParams
+     */
+    getSignatureAlgParams(): DataBlob;
+  }
+
+  /**
+   * Interface of X509CRL.
+   *
+   * @typedef X509CRL
+   * @syscap SystemCapability.Security.Cert
+   * @since 10
+   */
+  interface X509CRL {
+    /**
+     * Check if the given certificate is on this CRL.
+     *
+     * @param { X509Cert } cert - input cert data.
+     * @returns { boolean } result of Check cert is revoked or not.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    isRevoked(cert: X509Cert): boolean;
+
+    /**
+     * Returns the type of this CRL.
+     *
+     * @returns { string } string of CRL type.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getType(): string;
+
+    /**
+     * Get the der coding format.
+     *
+     * @param { AsyncCallback<EncodingBlob> } callback - the callback of getEncoded.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getEncoded(callback: AsyncCallback<EncodingBlob>): void;
+
+    /**
+     * Get the der coding format.
+     *
+     * @returns { Promise<EncodingBlob> } the promise of CRL blob data.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getEncoded(): Promise<EncodingBlob>;
+
+    /**
+     * Use the public key to verify the signature of CRL.
+     *
+     * @param { cryptoFramework.PubKey } key - input public Key.
+     * @param { AsyncCallback<void> } callback - the callback of getEncoded.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    verify(key: cryptoFramework.PubKey, callback: AsyncCallback<void>): void;
+
+    /**
+     * Use the public key to verify the signature of CRL.
+     *
+     * @param { cryptoFramework.PubKey } key - input public Key.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    verify(key: cryptoFramework.PubKey): Promise<void>;
+
+    /**
+     * Get version number from CRL.
+     *
+     * @returns { number } version of CRL.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getVersion(): number;
+
+    /**
+     * Get the issuer name from CRL. Issuer means the entity that signs and publishes the CRL.
+     *
+     * @returns { DataBlob } issuer name of CRL.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getIssuerName(): DataBlob;
+
+    /**
+     * Get lastUpdate value from CRL.
+     *
+     * @returns { string } last update of CRL.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getLastUpdate(): string;
+
+    /**
+     * Get nextUpdate value from CRL.
+     *
+     * @returns { string } next update of CRL.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getNextUpdate(): string;
+
+    /**
+     * This method can be used to find CRL entries in specified CRLs.
+     *
+     * @param { number } serialNumber - serial number of CRL.
+     * @returns { X509CRLEntry } next update of CRL.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getRevokedCert(serialNumber: bigint): X509CRLEntry;
+
+    /**
+     * This method can be used to find CRL entries in specified cert.
+     *
+     * @param { X509Cert } cert - cert of x509.
+     * @returns { X509CRLEntry } X509CRLEntry instance.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getRevokedCertWithCert(cert: X509Cert): X509CRLEntry;
+
+    /**
+     * Get all entries in this CRL.
+     *
+     * @param { AsyncCallback<Array<X509CRLEntry>> } callback - the callback of getRevokedCerts.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getRevokedCerts(callback: AsyncCallback<Array<X509CRLEntry>>): void;
+
+    /**
+     * Get all entries in this CRL.
+     *
+     * @returns { Promise<Array<X509CRLEntry>> } the promise of X509CRLEntry instance.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getRevokedCerts(): Promise<Array<X509CRLEntry>>;
+
+    /**
+     * Get the CRL information encoded by Der from this CRL.
+     *
+     * @returns { DataBlob } DataBlob of tbs info.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getTbsInfo(): DataBlob;
+
+    /**
+     * Get signature value from CRL.
+     *
+     * @returns { DataBlob } DataBlob of signature.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getSignature(): DataBlob;
+
+    /**
+     * Get the signature algorithm name of the CRL signature algorithm.
+     *
+     * @returns { string } string of signature algorithm name.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getSignatureAlgName(): string;
+
+    /**
+     * Get the signature algorithm oid string from CRL.
+     *
+     * @returns { string } string of signature algorithm oid.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
+     */
+    getSignatureAlgOid(): string;
+
+    /**
+     * Get the der encoded signature algorithm parameters from the CRL signature algorithm.
+     *
+     * @returns { DataBlob } DataBlob of signature algorithm params.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 19020001 - memory error.
+     * @throws { BusinessError } 19020002 - runtime error.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @since 10
      */
     getSignatureAlgParams(): DataBlob;
   }
@@ -1061,6 +1427,8 @@ declare namespace cert {
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.security.cert.createX509CRL
    */
   function createX509Crl(inStream: EncodingBlob, callback: AsyncCallback<X509Crl>): void;
 
@@ -1075,8 +1443,38 @@ declare namespace cert {
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.security.cert.createX509CRL
    */
   function createX509Crl(inStream: EncodingBlob): Promise<X509Crl>;
+
+  /**
+   * Provides to create X509 CRL object.
+   * The returned object provides the data parsing or verification capability.
+   *
+   * @param { EncodingBlob } inStream - indicates the input CRL data.
+   * @param { AsyncCallback<X509CRL> } callback - the callback of createX509CRL to return x509 CRL instance.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @syscap SystemCapability.Security.Cert
+   * @since 10
+   */
+  function createX509CRL(inStream: EncodingBlob, callback: AsyncCallback<X509CRL>): void;
+
+  /**
+   * Provides to create X509 CRL object.
+   * The returned object provides the data parsing or verification capability.
+   *
+   * @param { EncodingBlob } inStream - indicates the input CRL data.
+   * @returns { Promise<X509CRL> } the promise of x509 CRL instance.
+   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 801 - this operation is not supported.
+   * @throws { BusinessError } 19020001 - memory error.
+   * @syscap SystemCapability.Security.Cert
+   * @since 10
+   */
+  function createX509CRL(inStream: EncodingBlob): Promise<X509CRL>;
 
   /**
    * Certification chain validator.
