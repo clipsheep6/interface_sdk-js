@@ -2705,6 +2705,7 @@ declare namespace audio {
 
     /**
      * Audio device address.
+     * @permission ohos.permission.USE_BLUETOOTH
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
      */
@@ -2712,6 +2713,7 @@ declare namespace audio {
 
     /**
      * Supported sampling rates.
+     * @permission ohos.permission.USE_BLUETOOTH
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
      */
