@@ -139,7 +139,7 @@ declare namespace print {
     function print(files: Array<string>): Promise<PrintTask>;
 
     /**
-     * Defineds print margin.
+     * defines print margin.
      * @typedef PrintMargin
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 	 
@@ -153,7 +153,7 @@ declare namespace print {
     }
 
     /**
-     * Defineds print range.
+     * defines print range.
      * @typedef PrinterRange
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 	 
@@ -166,7 +166,7 @@ declare namespace print {
     }
 
     /**
-     * Defineds print preview attribute.
+     * defines print preview attribute.
      * @typedef PreviewAttribute
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 	 
@@ -178,7 +178,7 @@ declare namespace print {
     }
 
     /**
-     * Defineds print resolution.
+     * defines print resolution.
      * @typedef PrintResolution
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 	 
@@ -191,7 +191,7 @@ declare namespace print {
     }
 
     /**
-     * Defineds print page size.
+     * defines print page size.
      * @typedef PrintPageSize
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 	 
@@ -205,7 +205,7 @@ declare namespace print {
     }
 
     /**
-     * Defineds print capability.
+     * defines print capability.
      * @typedef PrinterCapability
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 	 
@@ -221,7 +221,7 @@ declare namespace print {
     }
 
     /**
-     * Defineds print info.
+     * defines print info.
      * @typedef PrinterInfo
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 	 
@@ -245,7 +245,7 @@ declare namespace print {
     }
 
     /**
-     * Defineds print job.
+     * defines print job.
      * @typedef PrintJob
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 	 
@@ -355,7 +355,7 @@ declare namespace print {
     }
 
     /**
-     * Defineds print ExtensionInfo.
+     * defines print ExtensionInfo.
      * @typedef PrinterExtensionInfo
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 	 
