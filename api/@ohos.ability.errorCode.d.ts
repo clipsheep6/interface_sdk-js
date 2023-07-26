@@ -27,7 +27,7 @@ export enum ErrorCode {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 6
    */
-  PERMISSION_DENY = -3,
+  PERMISSION = -3,
 
   /**
    * Ability not found.
