@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import Context from './application/BaseContext';
+import type Context from './application/BaseContext';
 
 /**
  * Contains variety of system contact, provides functions for adding, updating and deleting these system contact
