@@ -3042,8 +3042,8 @@ declare enum BlurStyle {
    * @crossplatform
    * @since 10
    * @form
-   */  
-  NONE,    
+   */
+  NONE,
 }
 
 /**
@@ -3477,7 +3477,7 @@ declare enum ShadowStyle {
 
 /**
  * Enumerates the safe area types.
- * 
+ *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -3485,7 +3485,7 @@ declare enum ShadowStyle {
 declare enum SafeAreaType {
   /**
    * Default area of the system, including the status bar and navigation bar.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -3493,7 +3493,7 @@ declare enum SafeAreaType {
 
   /**
    * Notch or punch hole.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -3501,7 +3501,7 @@ declare enum SafeAreaType {
 
   /**
    * Soft keyboard area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -3510,7 +3510,7 @@ declare enum SafeAreaType {
 
 /**
  * Enumerates the safe area edges.
- * 
+ *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -3518,7 +3518,7 @@ declare enum SafeAreaType {
 declare enum SafeAreaEdge {
   /**
    * Top edge of the safe area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -3526,7 +3526,7 @@ declare enum SafeAreaEdge {
 
   /**
    * Bottom edge of the safe area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -3534,7 +3534,7 @@ declare enum SafeAreaEdge {
 
   /**
    * Start edge of the safe area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -3542,7 +3542,7 @@ declare enum SafeAreaEdge {
 
   /**
    * End edge of the safe area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -3917,7 +3917,7 @@ declare interface BorderImageOption {
 declare interface ClickEvent extends BaseEvent {
   /**
    * X coordinate of the click point relative to the left edge of the device screen.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3927,7 +3927,7 @@ declare interface ClickEvent extends BaseEvent {
 
   /**
    * Y coordinate of the click point relative to the upper edge of the device screen.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3937,7 +3937,7 @@ declare interface ClickEvent extends BaseEvent {
 
   /**
    * X coordinate of the click point relative to the left edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3947,7 +3947,7 @@ declare interface ClickEvent extends BaseEvent {
 
   /**
    * Y coordinate of the click point relative to the upper edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3957,7 +3957,7 @@ declare interface ClickEvent extends BaseEvent {
 
   /**
    * X coordinate of the click point relative to the left edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -3968,7 +3968,7 @@ declare interface ClickEvent extends BaseEvent {
 
   /**
    * Y coordinate of the click point relative to the upper edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -4102,7 +4102,7 @@ declare interface MouseEvent extends BaseEvent {
 
   /**
    * X coordinate of the mouse point relative to the left edge of the device screen.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4112,7 +4112,7 @@ declare interface MouseEvent extends BaseEvent {
 
   /**
    * Y coordinate of the mouse point relative to the upper edge of the device screen.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4122,7 +4122,7 @@ declare interface MouseEvent extends BaseEvent {
 
   /**
    * X coordinate of the mouse point relative to the left edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4132,7 +4132,7 @@ declare interface MouseEvent extends BaseEvent {
 
   /**
    * Y coordinate of the mouse point relative to the upper edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4142,7 +4142,7 @@ declare interface MouseEvent extends BaseEvent {
 
   /**
    * X coordinate of the mouse point relative to the left edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -4153,7 +4153,7 @@ declare interface MouseEvent extends BaseEvent {
 
   /**
    * Y coordinate of the mouse point relative to the upper edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -4266,7 +4266,7 @@ declare interface TouchObject {
 
   /**
    * X coordinate of the touch point relative to the left edge of the device screen.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4276,7 +4276,7 @@ declare interface TouchObject {
 
   /**
    * Y coordinate of the touch point relative to the upper edge of the device screen.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4286,7 +4286,7 @@ declare interface TouchObject {
 
   /**
    * X coordinate of the touch point relative to the left edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4296,7 +4296,7 @@ declare interface TouchObject {
 
   /**
    * Y coordinate of the touch point relative to the upper edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4306,7 +4306,7 @@ declare interface TouchObject {
 
   /**
    * X coordinate of the touch point relative to the left edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -4317,7 +4317,7 @@ declare interface TouchObject {
 
   /**
    * Y coordinate of the touch point relative to the upper edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -4328,14 +4328,14 @@ declare interface TouchObject {
 
   /**
    * X coordinate of the touch point relative to the left edge of the touched element.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * X coordinate of the touch point relative to the left edge of the touched element.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4345,14 +4345,14 @@ declare interface TouchObject {
 
   /**
    * Y coordinate of the touch point relative to the upper edge of the touched element.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Y coordinate of the touch point relative to the upper edge of the touched element.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4363,7 +4363,7 @@ declare interface TouchObject {
 
 /**
  * TouchObject getHistoricalPoints Function Parameters
- * @interface HistoricalPoint 
+ * @interface HistoricalPoint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -4654,7 +4654,7 @@ declare enum DragRet {
 declare interface DragEvent {
   /**
    * X coordinate of the touch point relative to the left edge of the device screen.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4664,7 +4664,7 @@ declare interface DragEvent {
 
   /**
    * Y coordinate of the touch point relative to the upper edge of the device screen.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4674,7 +4674,7 @@ declare interface DragEvent {
 
   /**
    * X coordinate of the touch point relative to the left edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4684,7 +4684,7 @@ declare interface DragEvent {
 
   /**
    * Y coordinate of the touch point relative to the left edge of the current window.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4694,7 +4694,7 @@ declare interface DragEvent {
 
   /**
    * X coordinate of the touch point relative to the left edge of the current window. in vp.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -4705,7 +4705,7 @@ declare interface DragEvent {
 
   /**
    * Y coordinate of the touch point relative to the left edge of the current window. in vp.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -4824,7 +4824,7 @@ declare interface DragEvent {
 
 /**
  * Import the IntentionCode type object for IntentionCode.
- * 
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
@@ -4985,7 +4985,7 @@ declare interface KeyEvent {
 
   /**
    * Intention code of a key or modifier keys.
-   * 
+   *
    * @type { IntentionCode }
    * @default IntentionCode.INTENTION_UNKNOWN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5234,7 +5234,7 @@ declare interface StateStyles {
 
   /**
    * Defines selected state styles.
-   * 
+   *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -5748,7 +5748,7 @@ declare interface ContextMenuOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 10
     */
-  arrowOffset?: Length; 
+  arrowOffset?: Length;
 
   /**
    * Callback function when the context menu appears.
@@ -5921,7 +5921,7 @@ declare interface ClickEffect {
 
 /**
  * Define nested scroll options
- * 
+ *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
@@ -5944,6 +5944,28 @@ declare interface NestedScrollOptions {
    * @since 10
    */
   scrollBackward: NestedScrollMode;
+}
+
+/**
+ * Style Adjuster.
+ *
+ * @interface StyleAdjuster
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+declare interface StyleAdjuster<T> {
+  /**
+   * Defines the style update function
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  updateStyle(instance: T): void;
 }
 
 /**
@@ -5984,6 +6006,17 @@ declare class CommonMethod<T> {
    * @form
    */
   constructor();
+
+  /**
+   * Defines the style update function
+   *
+   * @param { StyleAdjuster<T> } styleAdjuster
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  adjustStyle(styleAdjuster: StyleAdjuster<T>): T;
 
   /**
    * Sets the width of the current component.
@@ -6045,7 +6078,7 @@ declare class CommonMethod<T> {
 
   /**
    * Expands the safe area.
-   * 
+   *
    * @param { ?Array<SafeAreaType> } types - Indicates the types of the safe area.
    * @param { ?Array<SafeAreaEdge> } edges - Indicates the edges of the safe area.
    * @returns { T } The component instance.
@@ -6085,11 +6118,11 @@ declare class CommonMethod<T> {
 
   /**
    * Sets the mouse response region of current component
-   * 
+   *
    * @param { Array<Rectangle> | Rectangle } value
    * @returns { T } return the component attribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform 
+   * @crossplatform
    * @since 10
    */
   mouseResponseRegion(value: Array<Rectangle> | Rectangle): T;
@@ -6275,7 +6308,7 @@ declare class CommonMethod<T> {
 
   /**
    * Background.
-   * 
+   *
    * @param { CustomBuilder } builder
    * @param { ?{ align?: Alignment } } options
    * @returns { T }
@@ -7363,7 +7396,7 @@ declare class CommonMethod<T> {
    * Sets whether the component should apply the effects template defined by the parent effectComponent.
    * If multiple parent effectComponents are found, the nearest one will be used.
    * If no parent effectComponent is found, this method has no effect.
-   * 
+   *
    * @param { boolean } value - true means the component should apply the effects template.
    * @default false
    * @returns { T } return the component attribute.
@@ -8664,7 +8697,7 @@ declare class CommonMethod<T> {
   /**
    * Menu control
    *
-   * @param { { value: ResourceStr; icon?: ResourceStr; 
+   * @param { { value: ResourceStr; icon?: ResourceStr;
    * action: () => void }[] | CustomBuilder } content - Indicates the content of menu.
    * @param { ?MenuOptions } options
    * @returns { T }
@@ -8674,7 +8707,7 @@ declare class CommonMethod<T> {
   /**
    * Menu control
    *
-   * @param { { value: ResourceStr; icon?: ResourceStr; 
+   * @param { { value: ResourceStr; icon?: ResourceStr;
    * action: () => void }[] | CustomBuilder } content - Indicates the content of menu.
    * @param { ?MenuOptions } options - Indicates the options of menu.
    * @returns { T }
@@ -8722,7 +8755,7 @@ declare class CommonMethod<T> {
 
   /**
    * Bind content cover
-   * 
+   *
    * @param { boolean } isShow - true means display content, false means hide content.
    * @param { CustomBuilder } builder - the content to be displayed.
    * @param { ?ContentCoverOptions } options - options of content cover.
@@ -8858,7 +8891,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets accessibilityGroup
-   * 
+   *
    * @param { boolean } value , set group with accessibility
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8869,7 +8902,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets accessibilityText
-   * 
+   *
    * @param { string } value , set accessibility text
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8880,7 +8913,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets accessibilityDescription
-   * 
+   *
    * @param { string } value , set description of accessibility
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8891,7 +8924,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets accessibilityLevel
-   * 
+   *
    * @param { string } value , set accessibility level
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8912,7 +8945,7 @@ declare class CommonMethod<T> {
 
   /**
    * Reuse id is used for identify the reuse type for each custom node.
-   * 
+   *
    * @param { string } id - The id for reusable custom node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8922,7 +8955,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets how content is drawn within nodes duration animation
-   * 
+   *
    * @param { RenderFit } fitMode - The render fit mode of content.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9060,7 +9093,7 @@ declare type CustomBuilder = (() => any) | void;
 
 /**
  * Defines the segment of blur.
- * The first element in the tuple means fraction. 
+ * The first element in the tuple means fraction.
  * The range of this value is [0,1]. A value of 1 means opaque and 0 means completely transparent.
  * The second element means the stop position.
  * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
@@ -10033,7 +10066,7 @@ declare class View {
 declare interface RectResult {
   /**
    * x:Horizontal coordinate relative to the component.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -10042,7 +10075,7 @@ declare interface RectResult {
 
   /**
    * y:Vertical axis coordinate relative to the component.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -10051,7 +10084,7 @@ declare interface RectResult {
 
   /**
    * Get the width of the current textRect.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -10060,7 +10093,7 @@ declare interface RectResult {
 
   /**
    * Get the height of the current textRect.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -10077,7 +10110,7 @@ declare interface RectResult {
 declare abstract class TextContentControllerBase {
   /**
    * Get the start and end positions of the text content.
-   * 
+   *
    * @returns { RectResult } Text content rect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
