@@ -19,6 +19,7 @@
 /// <reference path="./animator.d.ts" />
 /// <reference path="./badge.d.ts" />
 /// <reference path="./blank.d.ts" />
+/// <reference path="./breadcrumb.d.ts" />
 /// <reference path="./button.d.ts" />
 /// <reference path="./calendar.d.ts" />
 /// <reference path="./canvas.d.ts" />
