@@ -127,7 +127,7 @@ declare namespace deviceStandby {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    RUNNING_LOCK = 1 << 1,
+    RUNNING_LOCK = 2,
 
     /**
      * The resource for non-standby timer.
@@ -136,7 +136,7 @@ declare namespace deviceStandby {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    TIMER = 1 << 2,
+    TIMER = 4,
 
     /**
      * The resource for non-standby workscheduler.
@@ -145,7 +145,7 @@ declare namespace deviceStandby {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    WORK_SCHEDULER = 1 << 3,
+    WORK_SCHEDULER = 8,
 
     /**
      * The resource for non-standby automatic synchronization.
@@ -154,7 +154,7 @@ declare namespace deviceStandby {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    AUTO_SYNC = 1 << 4,
+    AUTO_SYNC = 16,
 
     /**
      * The resource for non-standby push-kit.
@@ -163,7 +163,7 @@ declare namespace deviceStandby {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    PUSH = 1 << 5,
+    PUSH = 32,
 
     /**
      * The resource for non-standby freezing application.
@@ -172,7 +172,7 @@ declare namespace deviceStandby {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    FREEZE = 1 << 6
+    FREEZE = 64
   }
 
   /**
