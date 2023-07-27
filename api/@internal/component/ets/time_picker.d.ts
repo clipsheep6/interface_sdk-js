@@ -286,7 +286,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   selectedTextStyle?: PickerTextStyle;
 
   /**
-   * Mask Region of dialog.
+   * Mask Region of dialog. The size cannot exceed the main window.
    *
    * @type { ?Rectangle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

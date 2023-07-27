@@ -484,7 +484,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
   onChange?: (value: TextPickerResult) => void;
 
   /**
-   * Mask Region of dialog.
+   * Mask Region of dialog. The size cannot exceed the main window.
    *
    * @type { ?Rectangle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
