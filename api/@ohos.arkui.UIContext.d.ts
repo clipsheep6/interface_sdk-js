@@ -25,6 +25,7 @@ import mediaQuery from './@ohos.mediaquery';
 import type inspector from './@ohos.arkui.inspector';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
+import type componentUtils from './@ohos.componentUtils';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type { AsyncCallback } from './@ohos.base';
 import { AnimateParam } from 'AnimateToParam';
@@ -239,12 +240,12 @@ export class Router {
   /**
    * Returns to the previous page or a specified page.
    *
-   * @param { router.RouterOptions } options - Options.
+   * @param { ?router.RouterOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  back(options: router.RouterOptions): void;
+  back(options?: router.RouterOptions): void;
 
   /**
    * Clears all historical pages and retains only the current page at the top of the stack.
@@ -491,6 +492,24 @@ export class PromptAction {
 }
 
 /**
+ * class ComponentUtils
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+export class ComponentUtils {
+  /**
+   * Provide the ability to obtain the coordinates and size of component drawing areas.
+   *
+   * @param { string } id ID of the component whose attributes are to be obtained.
+   * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  getRectangleById(id: string): componentUtils.ComponentInfo;
+}
+
+/**
  * class UIContext
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -520,7 +539,7 @@ export class UIContext {
   
   /**
    * get object UIInspector.
-   * @returns object UIInspector.
+   * @returns { UIInspector } object UIInspector.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -548,6 +567,15 @@ export class UIContext {
   getPromptAction(): PromptAction;
 
   /**
+   * get object ComponentUtils.
+   * @returns { ComponentUtils } object ComponentUtils.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getComponentUtils(): ComponentUtils;
+
+  /**
    * Create an animator object for custom animation.
    *
    * @param { AnimatorOptions } options - Options.
@@ -563,7 +591,7 @@ export class UIContext {
    * Defining animation function
    *
    * @param { AnimateParam } value - animateTo parameters.
-   * @param { () => void } event
+   * @param { function } event
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -623,7 +651,7 @@ export class UIContext {
   /**
    * Run custom functions inside the UIContext scope.
    *
-   * @param { () => void } callback The function called through UIContext.
+   * @param { function } callback The function called through UIContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
