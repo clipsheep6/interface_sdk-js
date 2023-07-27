@@ -23,10 +23,10 @@ import { AsyncCallback } from './@ohos.base';
 declare namespace print {
 
     /**
-     * PrintTask provide event callback 
+     * PrintTask provide event callback.
      * @interface PrintTask
      * @syscap SystemCapability.Print.PrintFramework
-     * @since 10 
+     * @since 10
      */
     interface PrintTask {
         /**
@@ -1029,14 +1029,14 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @param { Array<string> } extensionList - Indicates the list of printer extension.
      *        empty list of extensionList Indicates to find printer with all installed extension.
-     * @returns { Promise<boolean> } the promise returned by the function.	 
+     * @returns { Promise<void> } the promise returned by the function.	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */
-    function startDiscoverPrinter(extensionList: Array<string>): Promise<boolean>;
+    function startDiscoverPrinter(extensionList: Array<string>): Promise<void>;
 
     /**
      * Stop discovering the printer with specific printer extension.
@@ -1053,14 +1053,14 @@ declare namespace print {
     /**
      * Stop discovering the printer with specific printer extension.
      * @permission ohos.permission.MANAGE_PRINT_JOB     
-     * @returns { Promise<boolean> } the promise returned by the function.	 
+     * @returns { Promise<void> } the promise returned by the function.	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */
-     function stopDiscoverPrinter(): Promise<boolean>;
+     function stopDiscoverPrinter(): Promise<void>;
 
      /**
      * Connect the specific printer.
@@ -1079,14 +1079,14 @@ declare namespace print {
      * Connect the specific printer.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @param { string } printerId - Indicates id of the printer.
-     * @returns { Promise<boolean> } the promise returned by the function.	 
+     * @returns { Promise<void> } the promise returned by the function.	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */
-      function connectPrinter(printerId: string): Promise<boolean>;
+      function connectPrinter(printerId: string): Promise<void>;
 	 
      /**
      * Disconnect the specific printer.
@@ -1105,14 +1105,14 @@ declare namespace print {
      * Disconnect the specific printer.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @param { string } printerId - Indicates id of the printer.
-     * @returns { Promise<boolean> } the promise returned by the function.	 
+     * @returns { Promise<void> } the promise returned by the function.	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */  
-      function disconnectPrinter(printerId: string): Promise<boolean>;
+      function disconnectPrinter(printerId: string): Promise<void>;
 
     /**
      * Query capability for the specific printer.
@@ -1131,14 +1131,14 @@ declare namespace print {
      * Query capability for the specific printer.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @param { string } printerId - Indicates id of the printer.
-     * @returns { Promise<boolean> } the promise returned by the function.	 
+     * @returns { Promise<void> } the promise returned by the function.	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */
-     function queryPrinterCapability(printerId: string): Promise<boolean>
+     function queryPrinterCapability(printerId: string): Promise<void>;
 
     /**
      * Start print job.
@@ -1157,14 +1157,14 @@ declare namespace print {
      * Start print job.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @param { PrintJob } jobInfo - Indicates the information of print job.
-     * @returns { Promise<boolean> } the promise returned by the function.	 	 
+     * @returns { Promise<void> } the promise returned by the function.	 	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */
-    function startPrintJob(jobInfo: PrintJob): Promise<boolean>;
+    function startPrintJob(jobInfo: PrintJob): Promise<void>;
 
     /**
      * Cancel the print job has been sent to printer.
@@ -1183,14 +1183,14 @@ declare namespace print {
      * Cancel the print job has been sent to printer.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @param { string } jobId - Indicates the specific print job.
-     * @returns { Promise<boolean> } the promise returned by the function.	 	 
+     * @returns { Promise<void> } the promise returned by the function.	 	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */
-    function cancelPrintJob(jobId: string): Promise<boolean>;
+    function cancelPrintJob(jobId: string): Promise<void>;
 	 
     /**
      * Request preview of the print job.
@@ -1313,14 +1313,14 @@ declare namespace print {
      * New printers have been found and notify Print SA.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @param { Array<PrinterInfo> } printers - Indicates new arrived printer lists.
-     * @returns { Promise<boolean> } the promise returned by the function.	 	 	 	 
+     * @returns { Promise<void> } the promise returned by the function.	 	 	 	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */
-    function addPrinters(printers: Array<PrinterInfo>): Promise<boolean>;
+    function addPrinters(printers: Array<PrinterInfo>): Promise<void>;
 
     /**
      * Printers have been lost and notify Print SA.
@@ -1339,14 +1339,14 @@ declare namespace print {
      * Printers have been lost and notify Print SA.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @param { Array<string> } printerIds - Indicates the lost printer lists.
-     * @returns { Promise<boolean> } the promise returned by the function.	 	 	 	 
+     * @returns { Promise<void> } the promise returned by the function.	 	 	 	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */
-    function removePrinters(printerIds: Array<string>): Promise<boolean>;
+    function removePrinters(printerIds: Array<string>): Promise<void>;
 
     /**
      * Update the information of the specific printers.
@@ -1365,14 +1365,14 @@ declare namespace print {
      * Update the information of the specific printers.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @param { Array<PrinterInfo> } printers - Indicates to be updated printer lists.
-     * @returns { Promise<boolean> } the promise returned by the function.	 	 	 	 
+     * @returns { Promise<void> } the promise returned by the function.	 	 	 	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */
-    function updatePrinters(printers: Array<PrinterInfo>): Promise<boolean>;
+    function updatePrinters(printers: Array<PrinterInfo>): Promise<void>;
 	
     /**
      * Notify Print SA the state of printer has been changed.
@@ -1393,14 +1393,14 @@ declare namespace print {
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @param { string } printerId - Indicates id of the printer.
      * @param { PrinterState } state - Indicates state of the printer.	 
-     * @returns { Promise<boolean> } the promise returned by the function.	 	 	 	 
+     * @returns { Promise<void> } the promise returned by the function.	 	 	 	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */
-    function updatePrinterState(printerId: string, state: PrinterState): Promise<boolean>;
+    function updatePrinterState(printerId: string, state: PrinterState): Promise<void>;
 
     /**
      * Notify Print SA the state of print job has been changed.
@@ -1423,14 +1423,14 @@ declare namespace print {
      * @param { string} jobId - Indicates id of the print job.
      * @param { PrintJobState } state - Indicates new state of print job.
      * @param { PrintJobSubState } subState - Indicates sub state of print job.
-     * @returns { Promise<boolean> } the promise returned by the function.	 	 	 	 
+     * @returns { Promise<void> } the promise returned by the function.	 	 	 	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */
-    function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise<boolean>;
+    function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise<void>;
 
     /**
      * Notify Print SA the state of print extension has been changed.
@@ -1449,14 +1449,14 @@ declare namespace print {
      * Notify Print SA the state of print extension has been changed.
      * @permission ohos.permission.MANAGE_PRINT_JOB
      * @param { string } info - Indicates changed information of print extension.
-     * @returns { Promise<boolean> } the promise returned by the function.	 	 	 	 
+     * @returns { Promise<void> } the promise returned by the function.	 	 	 	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */
-    function updateExtensionInfo(info: string): Promise<boolean>;
+    function updateExtensionInfo(info: string): Promise<void>;
 
     /**
      * Get all the printJobs in the queue.
@@ -1473,14 +1473,14 @@ declare namespace print {
     /**
      * Get all the printJobs in the queue.
      * @permission ohos.permission.MANAGE_PRINT_JOB
-     * @returns { Promise<boolean> } the promise returned by the function.	 	 	 	 
+     * @returns { Promise<void> } the promise returned by the function.	 	 	 	 
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 202 - not system application	 
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi Hide this for inner system use.	 
      * @since 10
      */
-    function queryAllPrintJobs(): Promise<boolean>
+    function queryAllPrintJobs(): Promise<void>;
 }
 
 export default print;
