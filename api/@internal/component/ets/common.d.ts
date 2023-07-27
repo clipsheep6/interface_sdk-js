@@ -4591,13 +4591,13 @@ declare type UnifiedDataType = import('../api/@ohos.data.UDMF').default.UnifiedD
  */
 declare enum DragResult {
   /**
-   * If drag success, return DragResult.DRAG_SUCCESS.
+   * If drag success, return DragResult.DRAG_SUCCESSFUL.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  DRAG_SUCCESS,
+  DRAG_SUCCESSFUL = 0,
 
   /**
    * If drag fail, return DragResult.DRAG_FAILED.
@@ -4606,7 +4606,7 @@ declare enum DragResult {
    * @crossplatform
    * @since 10
    */
-  DRAG_FAILED,
+  DRAG_FAILED = 1,
 
   /**
    * If drag action cancel, return DragResult.DRAG_CANCELED.
@@ -4615,7 +4615,7 @@ declare enum DragResult {
    * @crossplatform
    * @since 10
    */
-  DRAG_CANCELED,
+  DRAG_CANCELED = 2,
 
   /**
    * If node allow drop in, return DragResult.DROP_ENABLED.
@@ -4624,7 +4624,7 @@ declare enum DragResult {
    * @crossplatform
    * @since 10
    */
-  DROP_ENABLED,
+  DROP_ENABLED = 3,
 
   /**
    * If node don't allow drop in, return DragResult.DROP_DISABLED.
@@ -4633,7 +4633,7 @@ declare enum DragResult {
    * @crossplatform
    * @since 10
    */
-  DROP_DISABLED
+  DROP_DISABLED = 4
 }
 
 /**
