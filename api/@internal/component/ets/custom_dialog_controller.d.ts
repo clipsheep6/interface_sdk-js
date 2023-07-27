@@ -161,12 +161,12 @@ declare interface CustomDialogControllerOptions {
   /**
    * Mask Region of dialog.
    *
-   * @type { ?RectResult }
+   * @type { ?Rectangle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  maskRect?: RectResult;
+  maskRect?: Rectangle;
 
   /**
    * Animation parameters of dialog opening.
