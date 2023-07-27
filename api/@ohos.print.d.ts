@@ -24,7 +24,8 @@ declare namespace print {
 
     /**
      * PrintTask provide event callback
-	 * @interface PrintTask 
+     * @interface PrintTask 
+     * @interface PrintTask     
      * @syscap SystemCapability.Print.PrintFramework
      * @since 10 
      */
