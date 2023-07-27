@@ -4589,9 +4589,9 @@ declare type UnifiedDataType = import('../api/@ohos.data.UDMF').default.UnifiedD
  * @crossplatform
  * @since 10
  */
-declare enum DragRet {
+declare enum DragResult {
   /**
-   * If drag success, return DragRet.DRAG_SUCCESS.
+   * If drag success, return DragResult.DRAG_SUCCESS.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4600,7 +4600,7 @@ declare enum DragRet {
   DRAG_SUCCESS,
 
   /**
-   * If drag fail, return DragRet.DRAG_FAILED.
+   * If drag fail, return DragResult.DRAG_FAILED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4609,7 +4609,7 @@ declare enum DragRet {
   DRAG_FAILED,
 
   /**
-   * If drag action cancel, return DragRet.DRAG_CANCELED.
+   * If drag action cancel, return DragResult.DRAG_CANCELED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4618,7 +4618,7 @@ declare enum DragRet {
   DRAG_CANCELED,
 
   /**
-   * If node allow drop in, return DragRet.DROP_ENABLED.
+   * If node allow drop in, return DragResult.DROP_ENABLED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4627,7 +4627,7 @@ declare enum DragRet {
   DROP_ENABLED,
 
   /**
-   * If node don't allow drop in, return DragRet.DROP_DISABLED.
+   * If node don't allow drop in, return DragResult.DROP_DISABLED.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4767,22 +4767,22 @@ declare interface DragEvent {
   /**
    * Set dragEvent result to DragEvent.
    *
-   * @param { DragRet } dragRet - the return of dragEvent.
+   * @param { DragResult } dragResult - the return of dragEvent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  setResult(dragRet: DragRet): void;
+  setResult(dragResult: DragResult): void;
 
   /**
    * Get dragEvent result from DragEvent.
    *
-   * @returns { DragRet } - dragRet Data.
+   * @returns { DragResult } - dragResult Data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  getResult(): DragRet;
+  getResult(): DragResult;
 
   /**
    * Get the rectangle of drag window.
