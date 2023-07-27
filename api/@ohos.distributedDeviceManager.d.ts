@@ -44,6 +44,7 @@ declare namespace distributedDeviceManager {
     /**
      * Device name.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @type { string }
      * @since 10
      */
     deviceName: string;
@@ -261,7 +262,6 @@ declare namespace distributedDeviceManager {
      *       authenticationStatus: 0-1  - Discover devices based on different authentication status:
      *                                      0: Devices not authenticated.
                                             1: Devices already authenticated.
-     *                                      The value is 1 indicates device is trust.
      *       authorizationType: 0-2     - Discover devices based on different authorization type:
      *                                      0: Devices authenticated based on temporary negotiated session key.
      *                                      1: Devices authenticated based on the same account credential key.
