@@ -23,8 +23,8 @@ import { AsyncCallback } from './@ohos.base';
 declare namespace print {
 
     /**
-     * PrintTask provide event callback.
-     * @interface PrintTask
+     * PrintTask provide event callback
+     * @interface PrintTask1
      * @syscap SystemCapability.Print.PrintFramework
      * @since 10
      */
