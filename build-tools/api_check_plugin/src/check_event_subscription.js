@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-const { ErrorType, ErrorLevel, LogType, requireTypescriptModule, checkVersionNeedCheck, createErrorInfo, ErrorValueInfo } = require('./utils');
+const { ErrorType, ErrorLevel, LogType, requireTypescriptModule, checkVersionNeedCheck, createErrorInfo, ErrorValueInfo, hasAPINote} = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 const { checkSmallHump } = require('./check_hump');
 const ts = requireTypescriptModule();
@@ -99,6 +99,11 @@ function checkOffFunctions(nodes, sourcefile, fileName) {
       }
     }
   }
+  if (!someoneHasCallback) {
+    const checkErrorResult =  createErrorInfo(ErrorValueInfo.ERROR_EVENT_CALLBACK_MISSING, []);
+    addAPICheckErrorLogs(nodes[0], sourcefile, fileName, ErrorType.PARAMETER_ERRORS, checkErrorResult, LogType.LOG_API,
+      ErrorLevel.MIDDLE);
+  }
   // has off fucntion with callback parameter which is not optional, and doesn't have off function without callback parameter
   if (isAllCallbackMandatory && !someoneMissingCallback) {
     const checkErrorResult = createErrorInfo(ErrorValueInfo.ERROR_EVENT_CALLBACK_OPTIONAL, []);
@@ -171,13 +176,15 @@ function checkEventSubscription(node, sourcefile, fileName) {
     childNodes.forEach((childNode) => {
       // if the node is method or function
       if (ts.isFunctionDeclaration(childNode) || ts.isMethodDeclaration(childNode) || ts.isMethodSignature(childNode)) {
-        // if the version needed to be check
-        let childNodeName = '';
-        if (childNode.name && ts.isIdentifier(childNode.name)) {
-          childNodeName = childNode.name.getText();
+        if (hasAPINote(childNode)) {
+          // if the version needed to be check
+          let childNodeName = '';
+          if (childNode.name && ts.isIdentifier(childNode.name)) {
+            childNodeName = childNode.name.getText();
+          }
+          handleVariousEventSubscriptionAPI(childNode, childNodeName, sourcefile, fileName, onEventAllNames, onEventCheckNames, offEventAllNames,
+            offEventCheckNames, offEventNodes);
         }
-        handleVariousEventSubscriptionAPI(childNode, childNodeName, sourcefile, fileName, onEventAllNames, onEventCheckNames, offEventAllNames,
-          offEventCheckNames, offEventNodes);
       }
     });
     // check the callback parameter of off function is optional
