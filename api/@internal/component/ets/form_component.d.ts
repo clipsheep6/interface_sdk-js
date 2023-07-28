@@ -219,7 +219,7 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * @systemapi
    * @since 7
    */
-  onRouter(callback: (info: any) => void): FormComponentAttribute;
+  onRouter(callback: (info: object) => void): FormComponentAttribute;
 
   /**
    * Uninstall Card.

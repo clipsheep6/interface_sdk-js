@@ -175,7 +175,7 @@ declare interface DataChangeListener {
  * @crossplatform
  * @since 10
  */
-declare interface IDataSource {
+declare interface IDataSource<T> {
   /**
    * Total data count.
    *
@@ -197,7 +197,7 @@ declare interface IDataSource {
    * Return the data of index.
    *
    * @param { number } index
-   * @returns { any }
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -205,12 +205,12 @@ declare interface IDataSource {
    * Return the data of index.
    *
    * @param { number } index
-   * @returns { any }
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  getData(index: number): any;
+  getData(index: number): T;
 
   /**
    * Register data change listener.
@@ -266,7 +266,7 @@ interface LazyForEachInterface {
   /**
    * Enter the value to obtain the LazyForEach.
    *
-   * @param { IDataSource } dataSource
+   * @param { IDataSource<T> } dataSource
    * @param { function } itemGenerator
    * @param { function } keyGenerator
    * @returns { LazyForEachInterface }
@@ -276,7 +276,7 @@ interface LazyForEachInterface {
   /**
    * Enter the value to obtain the LazyForEach.
    *
-   * @param { IDataSource } dataSource
+   * @param { IDataSource<T> } dataSource
    * @param { function } itemGenerator
    * @param { function } keyGenerator
    * @returns { LazyForEachInterface }
@@ -284,10 +284,10 @@ interface LazyForEachInterface {
    * @crossplatform
    * @since 10
    */
-  (
-    dataSource: IDataSource,
-    itemGenerator: (item: any, index?: number) => void,
-    keyGenerator?: (item: any, index?: number) => string,
+  <T> (
+    dataSource: IDataSource<T>,
+    itemGenerator: (item: T, index?: number) => void,
+    keyGenerator?: (item: T, index?: number) => string,
   ): LazyForEachInterface;
 }
 

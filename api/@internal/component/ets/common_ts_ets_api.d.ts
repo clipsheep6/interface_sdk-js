@@ -404,20 +404,22 @@ declare abstract class SubscribedAbstractProperty<T> {
   /**
    * Private user ID.
    *
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
    */
-  private id_;
+  private id_: number;
 
   /**
    * Private user information.
    *
+   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
    */
-  private info_?;
+  private info_?: string;
 
   /**
    * @param { IPropertySubscriber } subscribeMe
@@ -639,11 +641,12 @@ declare class SyncedPropertyTwoWay<T>
   /**
    * Sources of synchronization attributes bidirectionally.
    *
+   * @type { SubscribedAbstractProperty<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
    */
-  private source_;
+  private source_: SubscribedAbstractProperty<T>;
 
   /**
    * constructor parameters.
@@ -712,21 +715,23 @@ declare class SyncedPropertyOneWay<T>
 {
   /**
    * Pack value for single-item binding.
-   *
+   * 
+   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
    */
-  private wrappedValue_;
+  private wrappedValue_: T;
 
   /**
    * Sources of synchronization attributes bidirectionally.
    *
+   * @type { SubscribedAbstractProperty<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
    */
-  private source_;
+  private source_: SubscribedAbstractProperty<T>;
 
   /**
    * Constructor parameters.

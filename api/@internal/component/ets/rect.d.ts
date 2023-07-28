@@ -68,9 +68,9 @@ interface RectInterface {
   new (
     value?:
       {
-        width?: number | string;
-        height?: number | string;
-        radius?: number | string | Array<any>;
+      width?: number | string;
+      height?: number | string;
+      radius?: number | string | Array<string | number>;
       }
       | {
         width?: number | string;
@@ -110,9 +110,9 @@ interface RectInterface {
   (
     value?:
       {
-        width?: number | string;
-        height?: number | string;
-        radius?: number | string | Array<any>;
+      width?: number | string;
+      height?: number | string;
+      radius?: number | string | Array<string | number>;
       }
       | {
         width?: number | string;
@@ -206,7 +206,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Called when the fillet size is set.
    *
-   * @param { number | string | Array<any> } value
+   * @param { number | string | Array<string | number> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -214,7 +214,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Called when the fillet size is set.
    *
-   * @param { number | string | Array<any> } value
+   * @param { number | string | Array<string | number> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -223,14 +223,14 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Called when the fillet size is set.
    *
-   * @param { number | string | Array<any> } value
+   * @param { number | string | Array<string | number> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  radius(value: number | string | Array<any>): RectAttribute;
+  radius(value: number | string | Array<string | number>): RectAttribute;
 }
 
 /**

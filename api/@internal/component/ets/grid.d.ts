@@ -511,7 +511,7 @@ declare class GridAttribute extends CommonMethod<GridAttribute> {
    * @crossplatform
    * @since 10
    */
-  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => (() => any) | void): GridAttribute;
+  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => CustomBuilder): GridAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.

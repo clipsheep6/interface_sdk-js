@@ -446,14 +446,14 @@ declare const Styles: MethodDecorator;
 /**
  * Defining Extend MethodDecorator
  *
- * @returns { MethodDecorator & ((value: any) => MethodDecorator) }
+ * @returns { MethodDecorator & ((value: object) => MethodDecorator) }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defining Extend MethodDecorator
  *
- * @returns { MethodDecorator & ((value: any) => MethodDecorator) }
+ * @returns { MethodDecorator & ((value: object) => MethodDecorator) }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -461,13 +461,13 @@ declare const Styles: MethodDecorator;
 /**
  * Defining Extend MethodDecorator
  *
- * @returns { MethodDecorator & ((value: any) => MethodDecorator) }
+ * @returns { MethodDecorator & ((value: object) => MethodDecorator) }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
  */
-declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
+declare const Extend: MethodDecorator & ((value: object) => MethodDecorator);
 
 /**
  * Define AnimatableExtend MethodDecorator
@@ -880,7 +880,7 @@ declare interface Rectangle {
  * global $r function
  *
  * @param { string } value
- * @param { any[] } params
+ * @param { Array<string | number> } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -889,7 +889,7 @@ declare interface Rectangle {
  * global $r function
  *
  * @param { string } value
- * @param { any[] } params
+ * @param { Array<string | number> } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
@@ -899,14 +899,14 @@ declare interface Rectangle {
  * global $r function
  *
  * @param { string } value
- * @param { any[] } params
+ * @param { Array<string | number> } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
  */
-declare function $r(value: string, ...params: any[]): Resource;
+declare function $r(value: string, ...params: Array<string | number>): Resource;
 
 /**
  * global $rawfile function
@@ -5105,14 +5105,14 @@ declare interface StateStyles {
   /**
    * Defines normal state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines normal state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -5120,25 +5120,25 @@ declare interface StateStyles {
   /**
    * Defines normal state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  normal?: any;
+  normal?: object;
 
   /**
    * Defines pressed state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines pressed state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -5146,25 +5146,25 @@ declare interface StateStyles {
   /**
    * Defines pressed state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  pressed?: any;
+  pressed?: object;
 
   /**
    * Defines disabled state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines disabled state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -5172,25 +5172,25 @@ declare interface StateStyles {
   /**
    * Defines disabled state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  disabled?: any;
+  disabled?: object;
 
   /**
    * Defines focused state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines focused state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -5198,25 +5198,25 @@ declare interface StateStyles {
   /**
    * Defines focused state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  focused?: any;
+  focused?: object;
 
   /**
    * Defines clicked state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines clicked state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -5224,13 +5224,13 @@ declare interface StateStyles {
   /**
    * Defines clicked state styles.
    *
-   * @type { ?any }
+   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  clicked?: any;
+  clicked?: object;
 
   /**
    * Defines selected state styles.
@@ -8300,7 +8300,7 @@ declare class CommonMethod<T> {
    * @param { {
    *  angle?: number | string;
    *  direction?: GradientDirection;
-   *  colors: Array<any>;
+   *  colors: Array<[ResourceColor, number]>;
    *  repeating?: boolean;
    * } } value
    * @returns { T }
@@ -8314,7 +8314,7 @@ declare class CommonMethod<T> {
    * @param { {
   *  angle?: number | string;
   *  direction?: GradientDirection;
-  *  colors: Array<any>;
+  *  colors: Array<[ResourceColor, number]>;
   *  repeating?: boolean;
   * } } value
    * @returns { T }
@@ -8329,7 +8329,7 @@ declare class CommonMethod<T> {
    * @param { {
   *  angle?: number | string;
   *  direction?: GradientDirection;
-  *  colors: Array<any>;
+  *  colors: Array<[ResourceColor, number]>;
   *  repeating?: boolean;
   * } } value
    * @returns { T }
@@ -8341,7 +8341,7 @@ declare class CommonMethod<T> {
   linearGradient(value: {
     angle?: number | string;
     direction?: GradientDirection;
-    colors: Array<any>;
+    colors: Array<[ResourceColor, number]>;
     repeating?: boolean;
   }): T;
 
@@ -8356,11 +8356,11 @@ declare class CommonMethod<T> {
    * repeating:repeating
    *
    * @param { {
-   *  center: Array<any>;
+   *  center: Array<[number, number]>;
    *  start?: number | string;
    *  end?: number | string;
    *  rotation?: number | string;
-   *  colors: Array<any>;
+   *  colors: Array<[ResourceColor, number]>;
    *  repeating?: boolean;
    * } } value
    * @returns { T }
@@ -8378,11 +8378,11 @@ declare class CommonMethod<T> {
    * repeating:repeating
    *
    * @param { {
-   *  center: Array<any>;
+   *  center: Array<[number, number]>;
    *  start?: number | string;
    *  end?: number | string;
    *  rotation?: number | string;
-   *  colors: Array<any>;
+   *  colors: Array<[ResourceColor, number]>;
    *  repeating?: boolean;
    * } } value
    * @returns { T }
@@ -8401,11 +8401,11 @@ declare class CommonMethod<T> {
    * repeating:repeating
    *
    * @param { {
-   *  center: Array<any>;
+   *  center: Array<[number, number]>;
    *  start?: number | string;
    *  end?: number | string;
    *  rotation?: number | string;
-   *  colors: Array<any>;
+   *  colors: Array<[ResourceColor, number]>;
    *  repeating?: boolean;
    * } } value
    * @returns { T }
@@ -8415,11 +8415,11 @@ declare class CommonMethod<T> {
    * @form
    */
   sweepGradient(value: {
-    center: Array<any>;
+    center: Array<[number, number]>;
     start?: number | string;
     end?: number | string;
     rotation?: number | string;
-    colors: Array<any>;
+    colors: Array<[ResourceColor, number]>;
     repeating?: boolean;
   }): T;
 
@@ -8430,7 +8430,7 @@ declare class CommonMethod<T> {
    * colors:Color description for gradients
    * repeating: Refill
    *
-   * @param { { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean } } value
+   * @param { { center: Array<[number, number]>; radius: number | string; colors: Array<[ResourceColor, number]>; repeating?: boolean } } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -8442,7 +8442,7 @@ declare class CommonMethod<T> {
    * colors:Color description for gradients
    * repeating: Refill
    *
-   * @param { { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean } } value
+   * @param { { center: Array<[number, number]>; radius: number | string; colors: Array<[ResourceColor, number]>; repeating?: boolean } } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -8455,14 +8455,14 @@ declare class CommonMethod<T> {
    * colors:Color description for gradients
    * repeating: Refill
    *
-   * @param { { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean } } value
+   * @param { { center: Array<[number, number]>; radius: number | string; colors: Array<[ResourceColor, number]>; repeating?: boolean } } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  radialGradient(value: { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean }): T;
+  radialGradient(value: { center: Array<[number, number]>; radius: number | string; colors: Array<[ResourceColor, number]>; repeating?: boolean }): T;
 
   /**
    * Set the motion path of the component
@@ -9026,14 +9026,14 @@ declare const Common: CommonInterface;
 /**
  * Defines the CustomBuilder Type.
  *
- * @type { (() => any) | void }
+ * @type { (() => void) | void }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the CustomBuilder Type.
  *
- * @type { (() => any) | void }
+ * @type { (() => void) | void }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -9041,13 +9041,13 @@ declare const Common: CommonInterface;
 /**
  * Defines the CustomBuilder Type.
  *
- * @type { (() => any) | void }
+ * @type { (() => void) | void }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  * @form
  */
-declare type CustomBuilder = (() => any) | void;
+declare type CustomBuilder = (() => void) | void;
 
 /**
  * Defines the segment of blur.
@@ -9398,7 +9398,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * Sets the gap for the border.
    *
-   * @param { Array<any> } value
+   * @param { Array<Length> } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -9406,7 +9406,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * Sets the gap for the border.
    *
-   * @param { Array<any> } value
+   * @param { Array<Length> } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -9415,21 +9415,21 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * Sets the gap for the border.
    *
-   * @param { Array<any> } value
+   * @param { Array<Length> } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  strokeDashArray(value: Array<any>): T;
+  strokeDashArray(value: Array<Length>): T;
 }
 
 /**
  * Linear Gradient Interface
  * @param { number | string } angle - Angle of Linear Gradient.
  * @param { GradientDirection } direction - Direction of Linear Gradient.
- * @param { Array<any> } colors - Array of colors
+ * @param { Array<[ResourceColor, number]> } colors - Array of colors
  * @param { boolean } repeating: Image slice repeating.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
@@ -9438,7 +9438,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * Linear Gradient Interface
  * @param { number | string } angle - Angle of Linear Gradient.
  * @param { GradientDirection } direction - Direction of Linear Gradient.
- * @param { Array<any> } colors - Array of colors
+ * @param { Array<[ResourceColor, number]> } colors - Array of colors
  * @param { boolean } repeating: Image slice repeating.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -9447,7 +9447,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
 declare interface LinearGradient {
   angle?: number | string;
   direction?: GradientDirection;
-  colors: Array<any>;
+  colors: Array<[ResourceColor, number]>;
   repeating?: boolean;
 }
 
@@ -9743,7 +9743,7 @@ declare interface LayoutChild {
    * @since 10
    * @form
    */
-  measure(childConstraint: ConstraintSizeOptions),
+  measure(childConstraint: ConstraintSizeOptions): void,
 
   /**
    * Call this layout method in onLayout callback to assign layout info to sub component.
@@ -9762,7 +9762,7 @@ declare interface LayoutChild {
    * @since 10
    * @form
    */
-  layout(childLayoutInfo: LayoutInfo),
+  layout(childLayoutInfo: LayoutInfo): void,
 }
 
 /**
@@ -10001,16 +10001,7 @@ declare class View {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
-   */
-  /**
-   * Just use for generate tsbundle
-   *
-   * @param { any } value
-   * @returns { any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 9
-   * @form
+   * @deprecated since 10
    */
   create(value: any): any;
 }

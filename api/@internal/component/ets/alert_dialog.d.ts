@@ -634,7 +634,7 @@ declare class AlertDialog {
    * @crossplatform
    * @since 10
    */
-  static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons);
+  static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons): void;
 }
 
 declare module "AlertDialogParam" {

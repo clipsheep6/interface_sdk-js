@@ -93,14 +93,14 @@ declare interface Resource {
   /**
    * Set params.
    *
-   * @type { ?any[] }
+   * @type { ?Array<string | number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Set params.
    *
-   * @type { ?any[] }
+   * @type { ?Array<string | number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -108,13 +108,13 @@ declare interface Resource {
   /**
    * Set params.
    *
-   * @type { ?any[] }
+   * @type { ?Array<string | number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  readonly params?: any[];
+  readonly params?: Array<string | number>;
 
   /**
    * Set bundleName.
