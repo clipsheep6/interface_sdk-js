@@ -8300,7 +8300,7 @@ declare class CommonMethod<T> {
    * @param { {
    *  angle?: number | string;
    *  direction?: GradientDirection;
-   *  colors: Array<any>;
+   *  colors: Array<[ResourceColor, number]>;
    *  repeating?: boolean;
    * } } value
    * @returns { T }
@@ -8314,7 +8314,7 @@ declare class CommonMethod<T> {
    * @param { {
   *  angle?: number | string;
   *  direction?: GradientDirection;
-  *  colors: Array<any>;
+  *  colors: Array<[ResourceColor, number]>;
   *  repeating?: boolean;
   * } } value
    * @returns { T }
@@ -8329,7 +8329,7 @@ declare class CommonMethod<T> {
    * @param { {
   *  angle?: number | string;
   *  direction?: GradientDirection;
-  *  colors: Array<any>;
+  *  colors: Array<[ResourceColor, number]>;
   *  repeating?: boolean;
   * } } value
    * @returns { T }
@@ -8356,11 +8356,11 @@ declare class CommonMethod<T> {
    * repeating:repeating
    *
    * @param { {
-   *  center: Array<any>;
+   *  center: Array<[number, number]>;
    *  start?: number | string;
    *  end?: number | string;
    *  rotation?: number | string;
-   *  colors: Array<any>;
+   *  colors: Array<[ResourceColor, number]>;
    *  repeating?: boolean;
    * } } value
    * @returns { T }
@@ -8378,11 +8378,11 @@ declare class CommonMethod<T> {
    * repeating:repeating
    *
    * @param { {
-   *  center: Array<any>;
+   *  center: Array<[number, number]>;
    *  start?: number | string;
    *  end?: number | string;
    *  rotation?: number | string;
-   *  colors: Array<any>;
+   *  colors: Array<[ResourceColor, number]>;
    *  repeating?: boolean;
    * } } value
    * @returns { T }
@@ -8401,11 +8401,11 @@ declare class CommonMethod<T> {
    * repeating:repeating
    *
    * @param { {
-   *  center: Array<any>;
+   *  center: Array<[number, number]>;
    *  start?: number | string;
    *  end?: number | string;
    *  rotation?: number | string;
-   *  colors: Array<any>;
+   *  colors: Array<[ResourceColor, number]>;
    *  repeating?: boolean;
    * } } value
    * @returns { T }
@@ -8415,11 +8415,11 @@ declare class CommonMethod<T> {
    * @form
    */
   sweepGradient(value: {
-    center: Array<any>;
+    center: Array<[number, number]>;
     start?: number | string;
     end?: number | string;
     rotation?: number | string;
-    colors: Array<any>;
+    colors: Array<[ResourceColor, number]>;
     repeating?: boolean;
   }): T;
 
@@ -8430,7 +8430,7 @@ declare class CommonMethod<T> {
    * colors:Color description for gradients
    * repeating: Refill
    *
-   * @param { { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean } } value
+   * @param { { center: Array<[number, number]>; radius: number | string; colors: Array<[ResourceColor, number]>; repeating?: boolean } } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -8442,7 +8442,7 @@ declare class CommonMethod<T> {
    * colors:Color description for gradients
    * repeating: Refill
    *
-   * @param { { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean } } value
+   * @param { { center: Array<[number, number]>; radius: number | string; colors: Array<[ResourceColor, number]>; repeating?: boolean } } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -8455,14 +8455,14 @@ declare class CommonMethod<T> {
    * colors:Color description for gradients
    * repeating: Refill
    *
-   * @param { { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean } } value
+   * @param { { center: Array<[number, number]>; radius: number | string; colors: Array<[ResourceColor, number]>; repeating?: boolean } } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  radialGradient(value: { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean }): T;
+  radialGradient(value: { center: Array<[number, number]>; radius: number | string; colors: Array<[ResourceColor, number]>; repeating?: boolean }): T;
 
   /**
    * Set the motion path of the component
@@ -9398,7 +9398,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * Sets the gap for the border.
    *
-   * @param { Array<any> } value
+   * @param { Array<Length> } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -9406,7 +9406,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * Sets the gap for the border.
    *
-   * @param { Array<any> } value
+   * @param { Array<Length> } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -9415,21 +9415,21 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * Sets the gap for the border.
    *
-   * @param { Array<any> } value
+   * @param { Array<Length> } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  strokeDashArray(value: Array<any>): T;
+  strokeDashArray(value: Array<Length>): T;
 }
 
 /**
  * Linear Gradient Interface
  * @param { number | string } angle - Angle of Linear Gradient.
  * @param { GradientDirection } direction - Direction of Linear Gradient.
- * @param { Array<any> } colors - Array of colors
+ * @param { Array<[ResourceColor, number]> } colors - Array of colors
  * @param { boolean } repeating: Image slice repeating.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
@@ -9438,7 +9438,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * Linear Gradient Interface
  * @param { number | string } angle - Angle of Linear Gradient.
  * @param { GradientDirection } direction - Direction of Linear Gradient.
- * @param { Array<any> } colors - Array of colors
+ * @param { Array<[ResourceColor, number]> } colors - Array of colors
  * @param { boolean } repeating: Image slice repeating.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -9447,7 +9447,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
 declare interface LinearGradient {
   angle?: number | string;
   direction?: GradientDirection;
-  colors: Array<any>;
+  colors: Array<[ResourceColor, number]>;
   repeating?: boolean;
 }
 
@@ -9743,7 +9743,7 @@ declare interface LayoutChild {
    * @since 10
    * @form
    */
-  measure(childConstraint: ConstraintSizeOptions),
+  measure(childConstraint: ConstraintSizeOptions): void,
 
   /**
    * Call this layout method in onLayout callback to assign layout info to sub component.
@@ -9762,7 +9762,7 @@ declare interface LayoutChild {
    * @since 10
    * @form
    */
-  layout(childLayoutInfo: LayoutInfo),
+  layout(childLayoutInfo: LayoutInfo): void,
 }
 
 /**
