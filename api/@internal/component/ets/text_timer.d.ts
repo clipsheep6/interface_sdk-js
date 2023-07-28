@@ -57,7 +57,7 @@ declare class TextTimerController {
    * @since 10
    * @form
    */
-  start();
+  start(): void;
 
   /**
    * Provides a pause event for timer.
@@ -73,7 +73,7 @@ declare class TextTimerController {
    * @since 10
    * @form
    */
-  pause();
+  pause(): void;
 
   /**
    * Provides an event to reset timer.
@@ -89,7 +89,7 @@ declare class TextTimerController {
    * @since 10
    * @form
    */
-  reset();
+  reset(): void;
 }
 
 /**

@@ -237,7 +237,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Called when the gap of the border is set.
    *
-   * @param { Array<any> } value
+   * @param { Array<Length> } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -245,7 +245,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Called when the gap of the border is set.
    *
-   * @param { Array<any> } value
+   * @param { Array<Length> } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -254,14 +254,14 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Called when the gap of the border is set.
    *
-   * @param { Array<any> } value
+   * @param { Array<Length> } value
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  strokeDashArray(value: Array<any>): ShapeAttribute;
+  strokeDashArray(value: Array<Length>): ShapeAttribute;
 
   /**
    * Called when the path endpoint drawing style is set.
@@ -469,7 +469,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Called when shape mesh.
    *
-   * @param { Array<any> } value
+   * @param { Array<number> } value
    * @param { number } column
    * @param { number } row
    * @returns { ShapeAttribute }
@@ -479,7 +479,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Called when shape mesh.
    *
-   * @param { Array<any> } value
+   * @param { Array<number> } value
    * @param { number } column
    * @param { number } row
    * @returns { ShapeAttribute }
@@ -490,7 +490,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Called when shape mesh.
    *
-   * @param { Array<any> } value
+   * @param { Array<number> } value
    * @param { number } column
    * @param { number } row
    * @returns { ShapeAttribute }
@@ -499,7 +499,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @since 10
    * @form
    */
-  mesh(value: Array<any>, column: number, row: number): ShapeAttribute;
+  mesh(value: Array<number>, column: number, row: number): ShapeAttribute;
 }
 
 /**

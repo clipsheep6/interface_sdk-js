@@ -3733,7 +3733,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * Generate a character string in the data url format.
    *
    * @param { string } type - Image format. The default value is image/png.
-   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   * @param { number } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3741,7 +3741,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @since 10
    * @form
    */
-  toDataURL(type?: string, quality?: any): string;
+  toDataURL(type?: string, quality?: number): string;
 
   /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
@@ -3820,7 +3820,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * Generate a character string in the data url format.
    *
    * @param { string } type - Image format. The default value is image/png.
-   * @param { any } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
+   * @param { number } quality - If the image format is image/jpeg or image/webp, you can select the image quality from 0 to 1.
    *    If the value is out of the range, the default value 0.92 is used.
    * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3828,7 +3828,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @since 10
    * @form
    */
-  toDataURL(type?: string, quality?: any): string;
+  toDataURL(type?: string, quality?: number): string;
 
   /**
    * transfer the content to ImageBitmap
