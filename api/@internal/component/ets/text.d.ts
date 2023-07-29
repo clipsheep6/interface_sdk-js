@@ -557,7 +557,6 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @deprecated since 10
    */
   draggable(value: boolean): TextAttribute;
 
