@@ -634,7 +634,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @deprecated since 10
    * @form
    */
   draggable(value: boolean): ImageAttribute;
