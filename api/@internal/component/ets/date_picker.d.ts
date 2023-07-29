@@ -254,6 +254,17 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
   selectedTextStyle(value: PickerTextStyle): DatePickerAttribute;
 
   /**
+   * Sets the curve parameter of picker
+   *
+   * @param { PickerCurveParameter } value - indicates the curve parameter of selected picker.
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  curveParameter(value: PickerCurveParameter): DatePickerAttribute;
+
+  /**
    * This event is triggered when a DatePicker date or time is selected.
    *
    * @param { function } callback
@@ -355,6 +366,16 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 10
    */
   textStyle?: PickerTextStyle;
+
+  /**
+   * Curve parameter of picker
+   *
+   * @type { ?PickerCurveParameter }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  curveParameter?: PickerCurveParameter;
 
   /**
    * Text style of selected items

@@ -203,6 +203,17 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
 
   /**
+   * Sets the curve parameter of picker
+   *
+   * @param { PickerCurveParameter } value - indicates the curve parameter of selected picker.
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  curveParameter(value: PickerCurveParameter): TimePickerAttribute;
+
+  /**
    * This event is triggered when a TimePicker time is selected.
    *
    * @param { function } callback
@@ -284,6 +295,16 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 10
    */
   selectedTextStyle?: PickerTextStyle;
+
+  /**
+   * Curve parameter of picker
+   *
+   * @type { ?PickerCurveParameter }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  curveParameter?: PickerCurveParameter;
 
   /**
    * Called when the OK button in the dialog is clicked.

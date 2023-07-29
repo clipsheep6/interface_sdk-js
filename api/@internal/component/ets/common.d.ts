@@ -3211,6 +3211,51 @@ declare interface PickerTextStyle {
 }
 
 /**
+ * Provide an interface for the curve parameters of picker
+ * @interface PickerCurveParameter
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+ declare interface PickerCurveParameter {
+  /**
+   * Define the velocity of picker curve.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+   velocity?: number;
+
+  /**
+   * Define the mass of picker curve.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+   mass?: number;
+
+  /**
+   * Define the stiffness of picker curve.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+   stiffness?: number;
+
+  /**
+   * Define the damping of picker curve.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+   damping?: number;
+}
+
+/**
  * Define the type of shadow
  *
  * @enum { number }
