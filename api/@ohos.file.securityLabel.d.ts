@@ -22,6 +22,14 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
+/**
+ * Provides securityLabel APIs
+ *
+ * @namespace securityLabel
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @threadsafe
+ * @since 10
+ */
 declare namespace securityLabel {
   type DataLevel = 's0' | 's1' | 's2' | 's3' | 's4';
   /**

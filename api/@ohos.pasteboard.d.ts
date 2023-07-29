@@ -21,6 +21,13 @@ import image from './@ohos.multimedia.image';
  * @namespace pasteboard
  * @syscap SystemCapability.MiscServices.Pasteboard
  */
+/**
+ * systemPasteboard
+ * @namespace pasteboard
+ * @syscap SystemCapability.MiscServices.Pasteboard
+ * @threadsafe
+ * @since 10
+ */
 declare namespace pasteboard {
   /**
    * Indicates the maximum number of records allowed in a PasteData object.

@@ -27,6 +27,7 @@
 * @namespace hilog
 * @syscap SystemCapability.HiviewDFX.HiLog
 * @crossplatform
+* @threadsafe
 * @since 10
 */
 declare namespace hilog {

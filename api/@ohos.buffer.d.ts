@@ -26,6 +26,7 @@
  * @namespace buffer
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 declare namespace buffer {

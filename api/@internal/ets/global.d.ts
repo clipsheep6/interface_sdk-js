@@ -35,6 +35,7 @@ import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @threadsafe
  * @since 10
  * @form
  */
@@ -360,6 +361,7 @@ export declare class console {
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export declare function setInterval(handler: Function | string, delay: number, ...arguments: any[]): number;
@@ -389,6 +391,7 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
@@ -406,6 +409,7 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
  * @param { number } intervalID Indicates the timer ID returned by "setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export declare function clearInterval(intervalID?: number): void;
@@ -423,6 +427,7 @@ export declare function clearInterval(intervalID?: number): void;
  * @param { number } timeoutID Indicates the timer ID returned by "setTimeout()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export declare function clearTimeout(timeoutID?: number): void;

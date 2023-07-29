@@ -28,6 +28,7 @@
  * @namespace ArrayList
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 declare class ArrayList<T> {

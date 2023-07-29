@@ -20,6 +20,7 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace cloudSyncManager
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+ * @threadsafe
  * @since 10
  */
 declare namespace cloudSyncManager {
