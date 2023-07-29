@@ -35,6 +35,7 @@ declare namespace dragInteraction {
      * Dragging starts.
      *
      * @since 10
+     * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      */
     MSG_DRAG_STATE_START = 1,
@@ -43,6 +44,7 @@ declare namespace dragInteraction {
      * Dragging ends.
      *
      * @since 10
+     * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      */
     MSG_DRAG_STATE_STOP = 2,
@@ -51,6 +53,7 @@ declare namespace dragInteraction {
      * Dragging is canceled.
      *
      * @since 10
+     * @systemapi Hide this for inner system use.
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      */
     MSG_DRAG_STATE_CANCEL = 3,
@@ -64,6 +67,7 @@ declare namespace dragInteraction {
    * @systemapi Hide this for inner system use.
    * @param type Indicates the event type.
    * @param callback Indicates the callback to receive the changed dragging state.
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function on(type: 'drag', callback: Callback<DragState>): void;
@@ -75,7 +79,9 @@ declare namespace dragInteraction {
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @param type Indicates the event type.
-   * @param callback Indicates the callback for which listening is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
+   * @param callback Indicates the callback for which listening is disabled. If this parameter is not specified,
+   * listening will be disabled for all registered callbacks.
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function off(type: 'drag', callback?: Callback<DragState>): void;

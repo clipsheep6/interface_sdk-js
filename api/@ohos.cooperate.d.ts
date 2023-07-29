@@ -31,7 +31,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    */
-  enum CooperateMsg {
+  enum CooperateMessage {
     /**
      * Preparing for screen hopping.
      *
@@ -70,7 +70,7 @@ declare namespace cooperate {
      * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
-    COOPERATE_ACTIVATE_FAIL = 4,
+    COOPERATE_ACTIVATE_FAILURE = 4,
 
     /**
      * Success in stopping screen hopping.
@@ -86,7 +86,7 @@ declare namespace cooperate {
      * @since 10
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      */
-    COOPERATE_DEACTIVATE_FAIL = 6,
+    COOPERATE_DEACTIVATE_FAILURE = 6,
 
     /**
      * Inter-device session disconnected.
@@ -104,6 +104,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param callback Asynchronous callback used to return the operation result.
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function prepare(callback: AsyncCallback<void>): void;
@@ -114,6 +115,7 @@ declare namespace cooperate {
    * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function prepare(): Promise<void>;
@@ -125,6 +127,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param callback Asynchronous callback used to return the operation result.
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function unprepare(callback: AsyncCallback<void>): void;
@@ -135,6 +138,7 @@ declare namespace cooperate {
    * @since 10
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function unprepare(): Promise<void>;
@@ -148,6 +152,7 @@ declare namespace cooperate {
    * @param targetNetworkId Descriptor of the target device for screen hopping.
    * @param inputDeviceId Identifier of the input device for screen hopping.
    * @param callback Asynchronous callback used to return the operation result.
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 20900001 - Operation failed.
    */
@@ -161,6 +166,7 @@ declare namespace cooperate {
    * @systemapi Hide this for inner system use.
    * @param targetNetworkId Descriptor of the target device for screen hopping.
    * @param inputDeviceId Identifier of the input device for screen hopping.
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 20900001 - Operation failed.
    */
@@ -174,6 +180,7 @@ declare namespace cooperate {
    * @systemapi Hide this for inner system use.
    * @param callback Asynchronous callback used to return the operation result.
    * @param isUnchained Whether the cross-device link is unchained.
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function deactivate(isUnchained: boolean, callback: AsyncCallback<void>): void;
@@ -196,6 +203,7 @@ declare namespace cooperate {
    * @systemapi Hide this for inner system use.
    * @param networkId Descriptor of the target device for screen hopping.
    * @param callback Asynchronous callback used to return the screen hopping status.
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function getCrossingSwitchState(networkId: string, callback: AsyncCallback<boolean>): void;
@@ -207,6 +215,7 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param networkId Descriptor of the target device for screen hopping.
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @throws {BusinessError} 401 - Parameter error.
    */
   function getCrossingSwitchState(networkId: string): Promise<boolean>;
@@ -219,9 +228,10 @@ declare namespace cooperate {
    * @systemapi Hide this for inner system use.
    * @param type Change type.
    * @param callback Asynchronous callback used to return the screen hopping status change event.
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @throws {BusinessError} 401 - Parameter error.
    */
-  function on(type: 'cooperate', callback: Callback<{ networkId: string, msg: CooperateMsg }>): void;
+  function on(type: 'cooperate', callback: Callback<{ networkId: string, message: CooperateMessage }>): void;
 
   /**
    * Disables listening for screen hopping status change events.
@@ -230,10 +240,12 @@ declare namespace cooperate {
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @param type Change type.
-   * @param callback Callback for which listening is disabled. If this parameter is not specified, listening will be disabled for all registered callbacks.
+   * @param callback Callback for which listening is disabled. If this parameter is not specified,
+   * listening will be disabled for all registered callbacks.
+   * @throws { BusinessError } 202 - The application is not a system application.
    * @throws {BusinessError} 401 - Parameter error.
    */
-  function off(type: 'cooperate', callback?: Callback<void>): void;
+  function off(type: 'cooperate', callback?: Callback<{ networkId: string, message: CooperateMessage }>): void;
 }
 
 export default cooperate;
