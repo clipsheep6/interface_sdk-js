@@ -5830,6 +5830,29 @@ declare interface NestedScrollOptions {
 }
 
 /**
+ * Style Adjuster.
+ *
+ * @interface StyleAdjuster
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+declare interface StyleAdjuster<T> {
+  /**
+   * Defines the style update function
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  updateStyle(instance: T): void;
+}
+
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5867,6 +5890,17 @@ declare class CommonMethod<T> {
    * @form
    */
   constructor();
+
+  /**
+   * Defines the style update function
+   *
+   * @param { StyleAdjuster<T> } styleAdjuster
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  adjustStyle(styleAdjuster: StyleAdjuster<T>): T;
 
   /**
    * Sets the width of the current component.
