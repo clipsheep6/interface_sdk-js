@@ -31,6 +31,7 @@ declare namespace sceneManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
+   * @systemapi
    * @since 10
    */
   function getSceneCode(bundleName: string): string;
@@ -45,6 +46,7 @@ declare namespace sceneManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.EcologicalRuleManager
+   * @systemapi
    * @since 10
    */
   function getInitialSceneCode(bundleName: string): string;
