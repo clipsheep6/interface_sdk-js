@@ -256,7 +256,7 @@ declare namespace installer {
     /**
      * Uninstall an application.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
      * @param { AsyncCallback<void> } callback - The callback of uninstalling application result.
@@ -277,7 +277,7 @@ declare namespace installer {
     /**
      * Uninstall an application.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { AsyncCallback<void> } callback - The callback of uninstalling application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
@@ -296,7 +296,7 @@ declare namespace installer {
     /**
      * Uninstall an application.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
      * @param { InstallParam } installParam - Indicates other parameters required for the uninstall.
      * @returns { Promise<void> }
@@ -317,7 +317,7 @@ declare namespace installer {
     /**
      * Recover an application.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
      * @param { AsyncCallback<void> } callback - The callback of recovering application result.
@@ -335,7 +335,7 @@ declare namespace installer {
     /**
      * Recover an application.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { AsyncCallback<void> } callback - The callback of recovering application result.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
@@ -351,7 +351,7 @@ declare namespace installer {
     /**
      * Recover an application.
      *
-     * @permission ohos.permission.INSTALL_BUNDLE
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Indicates the bundle name of the application to be recovered.
      * @param { InstallParam } installParam - Indicates other parameters required for the recover.
      * @returns { Promise<void> }
