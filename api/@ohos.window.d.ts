@@ -1383,7 +1383,6 @@ declare namespace window {
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -1399,7 +1398,6 @@ declare namespace window {
    * @param { AsyncCallback<void> } callback - The callback of setWaterMarkImage.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -1465,7 +1463,6 @@ declare namespace window {
    * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
    * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-   * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -1479,7 +1476,6 @@ declare namespace window {
    * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
    * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-   * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
