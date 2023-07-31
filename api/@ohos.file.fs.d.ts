@@ -30,6 +30,7 @@ export default fileIo;
  * @namespace fileIo
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 declare namespace fileIo {
@@ -4989,6 +4990,7 @@ declare interface Stream {
  * @interface WatchEventListener
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @systemapi
+ * @threadsafe
  * @since 10
  */
 export interface WatchEventListener {
@@ -5009,6 +5011,7 @@ export interface WatchEventListener {
  * @interface WatchEvent
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @systemapi
+ * @threadsafe
  * @since 10
  */
 export interface WatchEvent {
@@ -5052,6 +5055,7 @@ export interface WatchEvent {
  * @interface Watcher
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @systemapi
+ * @threadsafe
  * @since 10
  */
 export interface Watcher {
@@ -5105,6 +5109,7 @@ export interface Watcher {
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export type Filter = {
@@ -5150,6 +5155,7 @@ export type Filter = {
  * Conflict Files type
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @threadsafe
  * @since 10
  */
 export type ConflictFiles = {

@@ -24,6 +24,14 @@ export default fileIO;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  */
+/**
+ * fileio
+ *
+ * @namespace fileIO
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @threadsafe
+ * @since 10
+ */
 declare namespace fileIO {
   export { access };
   export { accessSync };

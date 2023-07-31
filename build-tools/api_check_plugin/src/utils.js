@@ -48,7 +48,8 @@ exports.commentNodeWhiteList = commentNodeWhiteList;
 const tagsArrayOfOrder = [
   'namespace', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
   'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly', 'FAModelOnly',
-  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'since', 'deprecated', 'useinstead', 'test', 'form', 'example'
+  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'threadsafe', 'since', 'deprecated', 'useinstead', 'test',
+  'form', 'example'
 ];
 exports.tagsArrayOfOrder = tagsArrayOfOrder;
 

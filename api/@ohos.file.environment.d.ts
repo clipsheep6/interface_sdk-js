@@ -23,6 +23,15 @@ import type { AsyncCallback } from './@ohos.base';
  * @systemapi
  * @since 8
  */
+/**
+ * Provides Environment APIs.
+ *
+ * @namespace Environment
+ * @syscap SystemCapability.FileManagement.File.Environment
+ * @systemapi
+ * @threadsafe
+ * @since 10
+ */
 declare namespace Environment {
   /**
    * Get the user data path.

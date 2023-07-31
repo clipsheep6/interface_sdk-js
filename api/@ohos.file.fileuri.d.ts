@@ -20,6 +20,14 @@
  * @syscap SystemCapability.FileManagement.AppFileService
  * @since 9
  */
+/**
+ * Provides fileUri APIS
+ *
+ * @namespace fileUri
+ * @syscap SystemCapability.FileManagement.AppFileService
+ * @threadsafe
+ * @since 10
+ */
 declare namespace fileUri {
   /**
    * Get the uri from the path of file in app sandbox
