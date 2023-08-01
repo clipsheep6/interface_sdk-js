@@ -492,6 +492,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -504,6 +505,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -519,6 +521,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -531,6 +534,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -570,6 +574,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -582,6 +587,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -597,6 +603,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -609,6 +616,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -647,6 +655,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -658,6 +667,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -689,6 +699,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -700,6 +711,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -757,6 +769,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -769,6 +782,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -800,6 +814,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -811,6 +826,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the module resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -945,6 +961,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -960,6 +977,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -978,6 +996,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -993,6 +1012,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -1463,6 +1483,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -1475,6 +1496,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -1492,6 +1514,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @throws { BusinessError } 9001007 - If the resource obtained by resId formatting error.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -1578,6 +1601,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -1590,6 +1614,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -1659,6 +1684,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -1671,6 +1697,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001002 - If the resource not found by module resId.
      * @throws { BusinessError } 9001006 - If the resource re-ref too much.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -2235,6 +2262,7 @@ declare namespace resourceManager {
      * @throws { BusinessError } 9001001 - If the resId invalid.
      * @throws { BusinessError } 9001002 - If the resource not found by resId.
      * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
      * @since 10
      */
     getDrawableDescriptor(resource: Resource, density?: number): DrawableDescriptor;
