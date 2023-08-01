@@ -51,7 +51,7 @@ export interface AppResponse {
   /**
    * Application version.
    *
-   * @type { string }
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3
    */
@@ -69,7 +69,7 @@ export interface ScreenOnVisibleOptions {
   /**
    * Whether to keep the application visible. The default value is false.
    *
-   * @type { ?string }
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -78,7 +78,7 @@ export interface ScreenOnVisibleOptions {
   /**
    * Called when the application always keeps visible.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -87,7 +87,7 @@ export interface ScreenOnVisibleOptions {
   /**
    * Called when the application fails to keep visible.
    *
-   * @type { ?((data: string, code: number) => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -96,7 +96,7 @@ export interface ScreenOnVisibleOptions {
   /**
    * Called when the execution is completed.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -175,7 +175,7 @@ export default class App {
    * Set image cache capacity of decoded image count.
    * if not set, the application will not cache any decoded image.
    *
-   * @param { number } value capacity of decoded image count.
+   * @param { number } value - capacity of decoded image count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -185,7 +185,7 @@ export default class App {
    * Set image cache capacity of raw image data size in bytes before decode.
    * if not set, the application will not cache any raw image data.
    *
-   * @param { number } value capacity of raw image data size in bytes.
+   * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -195,7 +195,7 @@ export default class App {
    * Set image file cache size in bytes on disk before decode.
    * if not set, the application will cache 100MB image files on disk.
    *
-   * @param { number } value capacity of raw image data size in bytes.
+   * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */

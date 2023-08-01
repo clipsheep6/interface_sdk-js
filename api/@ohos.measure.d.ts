@@ -80,7 +80,7 @@ export interface MeasureOptions {
   /**
    * Font list of text.
    *
-   * @type { ?(number | Resource) }
+   * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
@@ -160,7 +160,7 @@ export default class MeasureText {
   /**
    * Displays the textWidth.
    *
-   * @param { MeasureOptions } options Options.
+   * @param { MeasureOptions } options - Options.
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9

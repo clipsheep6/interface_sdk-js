@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Declare item ceiling attribute.
  *
@@ -29,6 +28,7 @@ declare enum Sticky {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   None,
 
@@ -37,6 +37,7 @@ declare enum Sticky {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   Normal,
 
@@ -45,6 +46,7 @@ declare enum Sticky {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   Opacity,
 }
@@ -63,6 +65,7 @@ declare enum EditMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   None,
 
@@ -71,6 +74,7 @@ declare enum EditMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   Deletable,
 
@@ -79,6 +83,7 @@ declare enum EditMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   * @deprecated since 9
    */
   Movable,
 }
@@ -161,7 +166,7 @@ declare interface SwipeActionItem {
   /**
    * Called when ListItem need to be deleted.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -170,7 +175,7 @@ declare interface SwipeActionItem {
   /**
    * Called when swipe entry delete area.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -179,7 +184,7 @@ declare interface SwipeActionItem {
   /**
    * Called when swipe exit delete area.
    *
-   * @type { ?(() => void) }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -329,7 +334,7 @@ interface ListItemInterface {
   /**
    * Called when an interface is used.
    *
-   * @param { ?ListItemOptions } value
+   * @param { ListItemOptions } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -340,8 +345,8 @@ interface ListItemInterface {
 
   /**
    * Called when an interface is used.
-   * 
-   * @param { ?string } value
+   *
+   * @param { string } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -349,7 +354,7 @@ interface ListItemInterface {
   /**
    * Called when an interface is used.
    *
-   * @param { ?string } value
+   * @param { string } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -434,8 +439,8 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Called when judging whether it is selected.
    * This parameter supports $$ for two-way binding of variables.
-   * 
-   * @param { boolean } value if the listItem is selected.
+   *
+   * @param { boolean } value - if the listItem is selected.
    * @returns { ListItemAttribute } the attribute of the listItem.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -447,7 +452,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Sets the action item that appears when the list item slides in the cross axis direction of the list.
    *
-   * @param { SwipeActionOptions } value items defines in the SwipeActionOption.
+   * @param { SwipeActionOptions } value - items defines in the SwipeActionOption.
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -455,7 +460,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Sets the action item that appears when the list item slides in the cross axis direction of the list.
    *
-   * @param { SwipeActionOptions } value items defines in the SwipeActionOption.
+   * @param { SwipeActionOptions } value - items defines in the SwipeActionOption.
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -466,7 +471,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Called when the listItem is selected.
    *
-   * @param { (isSelected: boolean) => void } event
+   * @param { function } event
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -474,7 +479,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Called when the listItem is selected.
    *
-   * @param { (isSelected: boolean) => void } event
+   * @param { function } event
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -483,7 +488,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Called when the listItem is selected.
    *
-   * @param { (isSelected: boolean) => void } event
+   * @param { function } event
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
