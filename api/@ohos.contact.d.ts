@@ -21,6 +21,7 @@ import { AsyncCallback } from './basic';
  *
  * @since 7
  * @syscap SystemCapability.Applications.ContactsData
+ * @FAModelOnly
  */
 declare namespace contact {
   /**
@@ -30,6 +31,7 @@ declare namespace contact {
    * @returns Returns the contact ID (which can be obtained by {@link Contact#getId()}) if the creation is successful;
    * returns {@link Contact#INVALID_CONTACT_ID} if the creation fails.
    * @permission ohos.permission.WRITE_CONTACTS
+   * @FAModelOnly
    */
   function addContact(contact: Contact, callback: AsyncCallback<number>): void;
   function addContact(contact: Contact): Promise<number>;
@@ -41,6 +43,7 @@ declare namespace contact {
    * returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.Contacts
    * @permission ohos.permission.READ_CONTACTS
+   * @FAModelOnly
    */
   function selectContact(callback: AsyncCallback<Array<Contact>>): void;
   function selectContact(): Promise<Array<Contact>>;
@@ -51,6 +54,7 @@ declare namespace contact {
    * @param key Indicates the unique query key of a contact to delete.
    * @returns Returns {@code true} if the contact is deleted; returns {@code false} otherwise.
    * @permission ohos.permission.WRITE_CONTACTS
+   * @FAModelOnly
    */
   function deleteContact(key: string, callback: AsyncCallback<void>): void;
   function deleteContact(key: string): Promise<void>;
@@ -63,6 +67,7 @@ declare namespace contact {
    * @param attrs Indicates the contact attributes. If this parameter is null, all attributes are used for matching.
    * @returns Returns the specified contact.
    * @permission ohos.permission.READ_CONTACTS
+   * @FAModelOnly
    */
   function queryContact(key: string, callback: AsyncCallback<Contact>): void;
   function queryContact(key: string, holder: Holder, callback: AsyncCallback<Contact>): void;
@@ -77,6 +82,7 @@ declare namespace contact {
    * @param attrs Indicates the contact attributes. If this parameter is null, all attributes are used for matching.
    * @returns Returns the {@code Contact} list object.
    * @permission ohos.permission.READ_CONTACTS
+   * @FAModelOnly
    */
   function queryContacts(callback: AsyncCallback<Array<Contact>>): void;
   function queryContacts(holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
@@ -92,6 +98,7 @@ declare namespace contact {
    * @param attrs Indicates the contact attributes. If this parameter is null, all attributes are used for matching.
    * @returns Returns a {@code Contact} list object.
    * @permission ohos.permission.READ_CONTACTS
+   * @FAModelOnly
    */
   function queryContactsByEmail(email: string, callback: AsyncCallback<Array<Contact>>): void;
   function queryContactsByEmail(email: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
@@ -108,6 +115,7 @@ declare namespace contact {
    * all attributes will be used for matching.
    * @returns Returns the {@code Contact} list object.
    * @permission ohos.permission.READ_CONTACTS
+   * @FAModelOnly
    */
   function queryContactsByPhoneNumber(phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void;
   function queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
@@ -121,6 +129,7 @@ declare namespace contact {
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
    * @returns Returns the contact group list.
    * @permission ohos.permission.READ_CONTACTS
+   * @FAModelOnly
    */
   function queryGroups(callback: AsyncCallback<Array<Group>>): void;
   function queryGroups(holder: Holder, callback: AsyncCallback<Array<Group>>): void;
@@ -131,6 +140,7 @@ declare namespace contact {
    *
    * @returns Returns the {@code Holder} list object.
    * @permission ohos.permission.READ_CONTACTS
+   * @FAModelOnly
    */
   function queryHolders(callback: AsyncCallback<Array<Holder>>): void;
   function queryHolders(): Promise<Array<Holder>>;
@@ -142,6 +152,7 @@ declare namespace contact {
    * @param holder Indicates the contact holder. If this parameter is null, the default holder is used for matching.
    * @returns Returns the query key of the contact.
    * @permission ohos.permission.READ_CONTACTS
+   * @FAModelOnly
    */
   function queryKey(id: number, callback: AsyncCallback<string>): void;
   function queryKey(id: number, holder: Holder, callback: AsyncCallback<string>): void;
@@ -153,6 +164,7 @@ declare namespace contact {
    * @param attrs Indicates the contact attributes. If this parameter is null, all attributes are used for matching.
    * @returns Returns information about "my card".
    * @permission ohos.permission.READ_CONTACTS
+   * @FAModelOnly
    */
   function queryMyCard(callback: AsyncCallback<Contact>): void;
   function queryMyCard(attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
@@ -166,6 +178,7 @@ declare namespace contact {
    * all available attributes will be updated.
    * @returns Returns {@code true} if the update is successful; returns {@code false} otherwise.
    * @permission ohos.permission.WRITE_CONTACTS
+   * @FAModelOnly
    */
   function updateContact(contact: Contact, callback: AsyncCallback<void>): void;
   function updateContact(contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void;
@@ -177,6 +190,7 @@ declare namespace contact {
    * @param id Indicates the contact ID.
    * @returns Returns {@code true} if the contact ID is in the local phone book; returns {@code false} otherwise.
    * @permission ohos.permission.READ_CONTACTS
+   * @FAModelOnly
    */
   function isLocalContact(id: number, callback: AsyncCallback<boolean>): void;
   function isLocalContact(id: number): Promise<boolean>;
@@ -187,6 +201,7 @@ declare namespace contact {
    * @param id Indicates the contact ID.
    * @returns Returns {@code true} if the contact ID is of "my card"; returns {@code false} otherwise.
    * @permission ohos.permission.READ_CONTACTS
+   * @FAModelOnly
    */
   function isMyCard(id: number, callback: AsyncCallback<boolean>): void;
   function isMyCard(id: number): Promise<boolean>;
