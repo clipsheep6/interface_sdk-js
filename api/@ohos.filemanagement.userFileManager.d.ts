@@ -575,7 +575,15 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10
      */
-    HIDDEN
+    HIDDEN,
+    /**
+     * Session Id of the file, read only
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    SESSION_ID
   }
 
   /**
@@ -692,6 +700,14 @@ declare namespace userFileManager {
      * @since 10
      */
     subType?: PhotoSubType;
+    /**
+     * SessionId of the photo
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    sessionId?: string;
   }
 
   /**
