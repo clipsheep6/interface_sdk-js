@@ -575,7 +575,23 @@ declare namespace userFileManager {
      * @systemapi
      * @since 10
      */
-    HIDDEN
+    HIDDEN,
+    /**
+     * User comment info
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    USER_COMMENT,
+    /**
+     * Camera shot key
+     *
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    CAMERA_SHOT_KEY
   }
 
   /**
@@ -692,6 +708,15 @@ declare namespace userFileManager {
      * @since 10
      */
     subType?: PhotoSubType;
+    /**
+     * Camera shot key
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    cameraShotKey?: string;
   }
 
   /**

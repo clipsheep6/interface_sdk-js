@@ -469,7 +469,23 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 10
      */
-    HIDDEN = 'hidden'
+    HIDDEN = 'hidden',
+    /**
+     * User comment info
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 10
+     */
+    USER_COMMENT = 'user_comment',
+    /**
+     * Camera shot key
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 10
+     */
+    CAMERA_SHOT_KEY = 'camera_shot_key'
   }
 
   /**
@@ -537,6 +553,15 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     subtype?: PhotoSubtype;
+    /**
+     * Camera shot key
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 10
+     */
+    cameraShotKey?: string;
   }
 
   /**
