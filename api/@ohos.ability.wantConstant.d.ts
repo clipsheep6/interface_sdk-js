@@ -39,7 +39,7 @@ declare namespace wantConstant {
      * @since 6
      * @deprecated since 9
      */
-    ACTION_HOME = 'ohos.want.action.home',
+      ACTION_HOME = 'ohos.want.action.home',
 
     /**
      * Indicates the action of starting a Page ability that displays a keypad.
@@ -48,7 +48,7 @@ declare namespace wantConstant {
      * @since 6
      * @deprecated since 9
      */
-    ACTION_DIAL = 'ohos.want.action.dial',
+    ACTION_dial = 'ohos.want.action.dial',
 
     /**
      * Indicates the action of starting a Page ability for search.
@@ -57,7 +57,7 @@ declare namespace wantConstant {
      * @since 6
      * @deprecated since 9
      */
-    ACTION_SEARCH = 'ohos.want.action.search',
+      ACTION_SEARCH = 'ohos.want.action.search',
 
     /**
      * Indicates the action of starting a Page ability that provides wireless network settings, for example,
