@@ -8093,7 +8093,6 @@ declare class CommonMethod<T> {
    * @param { Array<UnifiedDataType> } value - the unifiedData type for this node.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 10
    */
   allowDrop(value: Array<UnifiedDataType>): T;
