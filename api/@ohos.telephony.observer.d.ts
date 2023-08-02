@@ -31,8 +31,8 @@ declare namespace observer {
   type NetworkState = radio.NetworkState;
   type SignalInformation = radio.SignalInformation;
   /**
-   * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Telephony.StateRegistry
+   * @systemapi Hide this for inner system use.
    * @since 6
    */
   type CellInformation = radio.CellInformation;
@@ -135,7 +135,7 @@ declare namespace observer {
    * Cancel callback when the signal strength is updated.
    *
    * @param { 'signalInfoChange' } type - Event type. Indicates the signalInfoChange event to unsubscribe from.
-   * @param { Callback<SignalInformation> } callback - Indicates the callback to unsubscribe from
+   * @param { Callback<Array<SignalInformation>> } callback - Indicates the callback to unsubscribe from
    * the signalInfoChange event.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
