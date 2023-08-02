@@ -201,7 +201,7 @@ declare namespace prompt {
   /**
    * Displays the notification text.
    *
-   * @param { ShowToastOptions } options Options.
+   * @param { ShowToastOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    * @deprecated since 9
@@ -211,7 +211,7 @@ declare namespace prompt {
   /**
    * Displays the dialog box.
    *
-   * @param { ShowDialogOptions } options Options.
+   * @param { ShowDialogOptions } options - Options.
    * @param { AsyncCallback<ShowDialogSuccessResponse> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -222,7 +222,7 @@ declare namespace prompt {
   /**
    * Displays the dialog box.
    *
-   * @param { ShowDialogOptions } options Options.
+   * @param { ShowDialogOptions } options - Options.
    * @returns { Promise<ShowDialogSuccessResponse> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -233,7 +233,7 @@ declare namespace prompt {
   /**
    * Displays the menu.
    *
-   * @param { ActionMenuOptions } options Options.
+   * @param { ActionMenuOptions } options - Options.
    * @param { AsyncCallback<ActionMenuSuccessResponse> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -244,7 +244,7 @@ declare namespace prompt {
   /**
    * Displays the menu.
    *
-   * @param { ActionMenuOptions } options Options.
+   * @param { ActionMenuOptions } options - Options.
    * @returns { Promise<ActionMenuSuccessResponse> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8

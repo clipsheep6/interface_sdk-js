@@ -27,7 +27,7 @@ declare interface UIExtensionProxy {
   /**
    * This function is for sending data to the UIExtensionAbility.
    *
-   * @param { { [key:string]: Object } } data
+   * @param { object } data
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10

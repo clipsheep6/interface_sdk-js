@@ -47,7 +47,7 @@ declare class TSAlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAtt
   /**
    * Used for TS compiler.
    *
-   * @param { { arrayValue: Array<string>; selected: number } } value
+   * @param { object } value
    * @returns { AlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -895,7 +895,7 @@ declare class TSGaugeAttribute extends CommonMethod<GaugeAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { { value: number; min?: number; max?: number } } options
+   * @param { object } options
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1342,7 +1342,7 @@ declare class TSMarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { { start: boolean; step?: number; loop?: number; fromStart?: boolean; src: string } } value
+   * @param { object } value
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1715,7 +1715,7 @@ declare class TSPluginComponentAttribute extends CommonMethod<PluginComponentAtt
   /**
    * Used for TS compiler.
    *
-   * @param { { template: PluginComponentTemplate; data: any } } value
+   * @param { object } value
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2030,7 +2030,7 @@ declare class TSRefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { { refreshing: boolean; offset?: number | string; friction?: number | string } } value
+   * @param { object } value
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -3003,7 +3003,7 @@ declare class TSToggleAttribute extends CommonMethod<ToggleAttribute> {
   /**
    * Used for TS compiler.
    *
-   * @param { { type: ToggleType; isOn?: boolean } } options
+   * @param { object } options
    * @returns { ToggleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

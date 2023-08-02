@@ -1326,7 +1326,7 @@ declare class CalendarController {
   /**
    * To the specified element.
    *
-   * @param { { year: number; month: number; day: number } } value
+   * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7
@@ -1334,7 +1334,7 @@ declare class CalendarController {
   /**
    * To the specified element.
    *
-   * @param { { year: number; month: number; day: number } } value
+   * @param { object } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
