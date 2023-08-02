@@ -52,24 +52,6 @@ declare namespace sceneManager {
    * @since 10
    */
   function getInitialSceneCode(bundleName: string): string;
-
-  /**
-   * Obtains the own scene code.
-   *
-   * @returns { string } Returns the scene code of the caller.
-   * @syscap SystemCapability.BundleManager.EcologicalRuleManager
-   * @since 10
-   */
-  function getSelfSceneCode(): string;
-
-  /**
-   * Obtains the ads verification version of the ecological rule manager.
-   *
-   * @returns { string } Returns the version of ads verification.
-   * @syscap SystemCapability.BundleManager.EcologicalRuleManager
-   * @since 10
-   */
-  function getAdsVerificationVersion(): string;
 }
 
 export default sceneManager;
