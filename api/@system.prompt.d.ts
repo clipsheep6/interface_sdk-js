@@ -232,7 +232,7 @@ export default class Prompt {
   /**
    * Displays the notification text.
    *
-   * @param { ShowToastOptions } options Options.
+   * @param { ShowToastOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -241,7 +241,7 @@ export default class Prompt {
   /**
    * Displays the dialog box.
    *
-   * @param { ShowDialogOptions } options Options.
+   * @param { ShowDialogOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
@@ -250,7 +250,7 @@ export default class Prompt {
   /**
    * Displays the menu.
    *
-   * @param { ShowActionMenuOptions } options Options.
+   * @param { ShowActionMenuOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
