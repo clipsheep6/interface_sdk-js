@@ -512,15 +512,15 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    */
   /**
    * Called when the height of the bar graph is set.
-   * Notice: barHeight only supports Number type on 7, supports Length type since 8.
+   * Notice: barHeight only supports Number type on 7, supports Length type since 8, and supports "auto" since 10.
    *
-   * @param { Length } value
+   * @param { Length | 'auto' } value
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  barHeight(value: Length): TabsAttribute;
+  barHeight(value: Length | 'auto'): TabsAttribute;
 
   /**
    * Called when the animation duration of the bar graph is set.
