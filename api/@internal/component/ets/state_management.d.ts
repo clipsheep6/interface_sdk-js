@@ -181,3 +181,4 @@ declare class Storage {
    */
   delete(key: string): void;
 }
+
