@@ -4803,6 +4803,7 @@ declare interface KeyEvent {
    */
   deviceId: number;
 
+
   /**
    * Indicates the status of the key when the key is pressed.
    * The value 1 indicates the pressed state, and the value 0 indicates the unpressed state.
