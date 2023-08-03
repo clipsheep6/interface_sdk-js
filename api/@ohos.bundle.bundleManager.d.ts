@@ -418,7 +418,15 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    UNSPECIFIED = 255
+    UNSPECIFIED = 255,
+
+    /**
+     * Indicates extension info with type of share
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    SHARE = 16
   }
 
   /**
