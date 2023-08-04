@@ -397,6 +397,14 @@ declare namespace bundleManager {
     PRINT = 15,
 
     /**
+     * Indicates extension info with type of share
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    SHARE = 16,
+
+    /**
      * Indicates extension info with type of push
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -418,15 +426,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9
      */
-    UNSPECIFIED = 255,
-
-    /**
-     * Indicates extension info with type of share
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @since 10
-     */
-    SHARE = 16
+    UNSPECIFIED = 255
   }
 
   /**
