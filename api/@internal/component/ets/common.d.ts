@@ -8348,20 +8348,24 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @deprecated since 10
+   * @useinstead clipShape
    * @form
    */
+  clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
+
   /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
    * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
    *
-   * @param { boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value
+   * @param { boolean | CircleShape | EllipseShape | PathShape | RectShape } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
+  clipShape(value: boolean | CircleShape | EllipseShape | PathShape | RectShape): T;
 
   /**
    * Applies a mask of the specified shape to the current assembly.
@@ -8378,19 +8382,23 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @deprecated since 10
+   * @useinstead maskShape
    * @form
    */
+  mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
+
   /**
    * Applies a mask of the specified shape to the current assembly.
    *
-   * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - indicates the shape of the mask.
+   * @param { CircleShape | EllipseShape | PathShape | RectShape | ProgressMask } value - indicates the shape of the mask.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    * @form
    */
-  mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
+  maskShape(value: CircleShape | EllipseShape | PathShape | RectShape | ProgressMask): T;
 
   /**
    * Key. User can set an key to the component to identify it.
@@ -9234,6 +9242,63 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @form
    */
   strokeDashArray(value: Array<any>): T;
+}
+
+/**
+ * CommonShape
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+declare class CommonShape<T> {
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @form
+   */
+  constructor(); // 基类需要constructor吗
+
+  /**
+   * Fill color.
+   *
+   * @param { ResourceColor } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  fill(value: ResourceColor): T;
+
+  /**
+   * Coordinate offset relative to the layout completion position.
+   * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
+   *
+   * @param { Position } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  offset(value: Position): T;
+
+  /**
+   * position
+   *
+   * @param { Position } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  position(value: Position): T;
 }
 
 /**

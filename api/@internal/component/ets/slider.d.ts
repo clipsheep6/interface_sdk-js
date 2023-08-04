@@ -480,12 +480,12 @@ declare interface SliderBlockStyle {
   /**
    * Sets the shape of slider block while the type is set to SliderBlockType.Shape.
    *
-   * @type { ?(CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute) }
+   * @type { ?(CircleShape | EllipseShape | PathShape | RectShape) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  shape?: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute;
+  shape?: CircleShape | EllipseShape | PathShape | RectShape;
 }
 
 /**
