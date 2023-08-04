@@ -4018,6 +4018,36 @@ declare interface File {
   readonly fd: number;
 
   /**
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  /**
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 10
+   */
+  readonly name: string;
+
+  /**
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  /**
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 10
+   */
+  readonly path: string;
+
+  /**
    * Lock file with blocking method.
    *
    * @param { boolean } exclusive - whether lock is exclusive.
