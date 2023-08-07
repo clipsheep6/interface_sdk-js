@@ -150,7 +150,7 @@ declare namespace windowAnimationManager {
 
     /**
     /* The mission id of the window animation target.
-     * @type { number }  
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
