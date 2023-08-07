@@ -3855,6 +3855,7 @@ declare interface ClickEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   displayX: number;
 
@@ -3865,6 +3866,7 @@ declare interface ClickEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   displayY: number;
 
@@ -3875,6 +3877,7 @@ declare interface ClickEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   windowX: number;
 
@@ -3885,6 +3888,7 @@ declare interface ClickEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
    */
   windowY: number;
 
@@ -3894,8 +3898,16 @@ declare interface ClickEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * X coordinate of the click point relative to the left edge of the current window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    * @deprecated since 10
    * @useinstead ClickEvent#windowX
+   * @form
    */
   screenX: number;
 
@@ -3905,8 +3917,16 @@ declare interface ClickEvent extends BaseEvent {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
+   */
+  /**
+   * Y coordinate of the click point relative to the upper edge of the current window.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
    * @deprecated since 10
    * @useinstead ClickEvent#windowY
+   * @form
    */
   screenY: number;
 
