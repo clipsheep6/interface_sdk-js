@@ -3014,6 +3014,78 @@ declare namespace audio {
   type MicrophoneDescriptors = Array<Readonly<MicrophoneDescriptor>>;
 
   /**
+   * Enumerates audio volume ramp types.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @since 11
+   */
+  enum VolumeRampType {
+    /**
+     * Linear interpolator type.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    TYPE_LINEAR = 0,
+
+    /**
+     * Cubic interpolator type.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    TYPE_CUBIC = 1,
+
+    /**
+     * Cubic interpolator and sine curve type.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    TYPE_CUBIC_SINE = 2,
+  }
+
+  /**
+   * Enumerates audio volume ramp directions.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @since 11
+   */
+  enum VolumeRampDirection {
+    /**
+     * Ramp up.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    RAMP_UP = 0,
+
+    /**
+     * Ramp down.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    RAMP_DOWN = 1,
+  }
+
+  /**
+   * Describe volume ramp configuration.
+   * @typedef VolumeRampConfiguration
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @since 11
+   */
+  interface VolumeRampConfiguration {
+    /**
+     * Ramp type.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    type: VolumeRampType;
+    /**
+     * Ramp duration.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    duration: number;
+  }
+
+  /**
    * Provides audio playback APIs.
    * @typedef AudioRenderer
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -3364,6 +3436,31 @@ declare namespace audio {
      * @since 10
      */
     getCurrentOutputDevices(): Promise<AudioDeviceDescriptors>;
+
+    /**
+     * Sets the volume ramp. This method uses an asynchronous callback to return the result.
+     * @param { VolumeRampConfiguration } config - Volume ramp configuration.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    attachVolumeRamp(config: VolumeRampConfiguration, callback: AsyncCallback<void>): void;
+    /**
+     * Sets the volume ramp. This method uses a promise to return the result.
+     * @param { VolumeRampConfiguration } config - Volume ramp configuration.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    attachVolumeRamp(config: VolumeRampConfiguration): Promise<void>;
+
+    /**
+     * Apply volume ramp.
+     * @param { VolumeRampDirection } direction - Volume ramp direction.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    applyVolumeRamp(direction: VolumeRampDirection): void;
 
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
