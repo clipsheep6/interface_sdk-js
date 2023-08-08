@@ -418,7 +418,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 10
      */
-    ACTION = 20,
+    ACTION = 19,
 
     /**
      * Indicates extension info with type of unspecified
