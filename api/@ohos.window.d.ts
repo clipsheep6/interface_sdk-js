@@ -447,10 +447,18 @@ declare namespace window {
   interface Rect {
     /**
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    /**
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
      */
     left: number;
+    /**
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
     /**
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
@@ -459,10 +467,18 @@ declare namespace window {
     top: number;
     /**
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    /**
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
      */
     width: number;
+    /**
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */    
     /**
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
