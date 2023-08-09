@@ -393,6 +393,8 @@ declare namespace inputMethodEngine {
    * @interface InputMethodEngine
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.inputMethodEngine/inputMethodEngine.InputMethodAbility
    */
   interface InputMethodEngine {
     /**
@@ -402,6 +404,8 @@ declare namespace inputMethodEngine {
      * @param { function } callback - indicates the callback of on('inputStart').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.inputMethodEngine/inputMethodEngine.InputMethodAbility#event:inputStart
      */
     on(
       type: 'inputStart',
@@ -415,6 +419,8 @@ declare namespace inputMethodEngine {
      * @param { function } callback - optional, indicates the callback of off('inputStart').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.inputMethodEngine/inputMethodEngine.InputMethodAbility#event:inputStart
      */
     off(
       type: 'inputStart',
@@ -428,6 +434,8 @@ declare namespace inputMethodEngine {
      * @param { function } callback - indicates the callback of on('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.inputMethodEngine/inputMethodEngine.InputMethodAbility#event:keyboardShow|keyboardHide
      */
     on(type: 'keyboardShow' | 'keyboardHide', callback: () => void): void;
 
@@ -438,6 +446,8 @@ declare namespace inputMethodEngine {
      * @param { function } [callback] - optional, indicates the callback of off('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.inputMethodEngine/inputMethodEngine.InputMethodAbility#event:keyboardShow|keyboardHide
      */
     off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
   }
