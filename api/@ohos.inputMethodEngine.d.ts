@@ -435,7 +435,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.inputMethodEngine/inputMethodEngine.InputMethodAbility#event:keyboardShow|keyboardHide
+     * @useinstead ohos.inputMethodEngine/inputMethodEngine.InputMethodAbility#event:keyboardShow
      */
     on(type: 'keyboardShow' | 'keyboardHide', callback: () => void): void;
 
@@ -447,7 +447,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.inputMethodEngine/inputMethodEngine.InputMethodAbility#event:keyboardShow|keyboardHide
+     * @useinstead ohos.inputMethodEngine/inputMethodEngine.InputMethodAbility#event:keyboardShow
      */
     off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
   }
