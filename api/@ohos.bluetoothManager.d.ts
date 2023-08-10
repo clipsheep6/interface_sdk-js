@@ -1799,7 +1799,7 @@ declare namespace bluetoothManager {
      */
     off(type: 'BLEConnectionStateChange', callback?: Callback<BLEConnectChangedState>): void;
   }
-
+ 
   /**
    * Describes the Gatt service.
    *
