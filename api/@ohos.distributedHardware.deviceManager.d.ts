@@ -22,7 +22,6 @@ import type { Callback } from './@ohos.base';
  * @namespace deviceManager
  * @syscap SystemCapability.DistributedHardware.DeviceManager
  * @since 7
- * @deprecated since 10
  */
 declare namespace deviceManager {
   /**
@@ -658,7 +657,6 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
-   * @deprecated since 10
    */
   function createDeviceManager(bundleName: string, callback: AsyncCallback<DeviceManager>): void;
 
@@ -668,7 +666,6 @@ declare namespace deviceManager {
    * @interface DeviceManager
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @since 7
-   * @deprecated since 10
    */
   interface DeviceManager {
     /**
@@ -681,7 +678,6 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 7
-     * @deprecated since 10
      */
     release(): void;
 
