@@ -91,7 +91,6 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
-     * @deprecated since 10
      */
     authForm: AuthForm;
   }
@@ -103,7 +102,6 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 10
-   * @deprecated since 10
    */
   enum AuthForm {
     /**
@@ -112,7 +110,6 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
-     * @deprecated since 10
      */
     INVALID_TYPE = -1,
 
@@ -122,7 +119,6 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
-     * @deprecated since 10
      */
     PEER_TO_PEER = 0,
 
@@ -132,7 +128,6 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
-     * @deprecated since 10
      */
     IDENTICAL_ACCOUNT = 1,
 
@@ -142,7 +137,6 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
-     * @deprecated since 10
      */
     ACROSS_ACCOUNT = 2
   }
@@ -719,7 +713,6 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
-     * @deprecated since 10
      */
     getTrustedDeviceListSync(isRefresh: boolean): Array<DeviceInfo>;
 
@@ -803,7 +796,6 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
-     * @deprecated since 10
      */
     getDeviceInfo(networkId: string, callback: AsyncCallback<DeviceInfo>): void;
 
@@ -818,7 +810,6 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
-     * @deprecated since 10
      */
     getDeviceInfo(networkId: string): Promise<DeviceInfo>;
 
@@ -984,7 +975,6 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
-     * @deprecated since 10
      */
     requestCredentialRegisterInfo(requestInfo: string, callback: AsyncCallback<{ registerInfo: string }>): void;
 
@@ -1001,7 +991,6 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
-     * @deprecated since 10
      */
     importCredential(credentialInfo: string, callback: AsyncCallback<{ resultInfo: string }>): void;
 
@@ -1016,7 +1005,6 @@ declare namespace deviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi this method can be used only by system applications.
      * @since 10
-     * @deprecated since 10
      */
     deleteCredential(queryInfo: string, callback: AsyncCallback<{ resultInfo: string }>): void;
 
