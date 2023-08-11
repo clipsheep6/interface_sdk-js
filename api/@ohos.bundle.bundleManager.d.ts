@@ -413,6 +413,14 @@ declare namespace bundleManager {
     DRIVER = 18,
 
     /**
+     * Indicates extension info with type of ACTION
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 10
+     */
+    ACTION = 19,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
