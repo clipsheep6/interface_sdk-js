@@ -31,7 +31,6 @@ declare namespace deviceManager {
    * @syscap SystemCapability.DistributedHardware.DeviceManager
    * @systemapi this method can be used only by system applications.
    * @since 7
-   * @deprecated since 10
    */
   interface DeviceInfo {
     /**
