@@ -689,6 +689,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
      * @since 10
      */
     setLaunchAbility(ability: WantAgent, callback: AsyncCallback<void>): void;
@@ -701,6 +702,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
      * @since 10
      */
     setLaunchAbility(ability: WantAgent): Promise<void>;
@@ -2638,6 +2640,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
      * @since 10
      */
     getLaunchAbility(callback: AsyncCallback<WantAgent>): void;
@@ -2649,6 +2652,7 @@ declare namespace avSession {
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @systemapi
      * @since 10
      */
     getLaunchAbility(): Promise<WantAgent>;
