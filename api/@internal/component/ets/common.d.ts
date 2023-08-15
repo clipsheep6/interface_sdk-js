@@ -9875,8 +9875,8 @@ declare class CustomComponent extends CommonAttribute {
    * @param { Array<Measurable> } children - indicate the measure child
    * @param { ConstraintSizeOptions } constraint - indicate child constraint size
    * @returns { SizeResult }
-   * @crossplatform
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onMeasureSize?(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult;
