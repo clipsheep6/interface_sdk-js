@@ -465,6 +465,28 @@ declare namespace webview {
     static getCookie(url: string): string;
 
     /**
+     * Gets all cookies for the given URL Asynchronously.
+     * @param { string } url - The URL for which the cookies are requested.
+     * @returns { Promise<Array<string>> } the promise of the current website's certificate.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    static getCookieAsync(url: string): Promise<Array<string>>;
+
+    /**
+     * Gets all cookies for the given URL Asynchronously.
+     * @param { string } url - The URL for which the cookies are requested.
+     * @param {AsyncCallback<Array<string>>} callback - the callback of cookies.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getCookieAsync(url: string, callback: AsyncCallback<string>): void;
+
+    /**
      * Set a single cookie (key-value pair) for the given URL.
      *
      * @param { string } url - The URL for which the cookie is to be set.
@@ -476,6 +498,34 @@ declare namespace webview {
      * @since 9
      */
     static setCookie(url: string, value: string): void;
+
+    /**
+     * Set a single cookie (key-value pair) for the given URL Asynchronously.
+     *
+     * @param { string } url - The URL for which the cookie is to be set.
+     * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @returns { Promise<void> } - A promise resolved after the cookies have been set.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static setCookieAsync(url: string, value: string): Promise<void>;
+
+    /**
+     * Set a single cookie (key-value pair) for the given URL Asynchronously.
+     *
+     * @param { string } url - The URL for which the cookie is to be set.
+     * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @param { AsyncCallback<void> } callback - Called after the cookies have been saved.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static setCookieAsync(url: string, value: string, callback: AsyncCallback<void>): void;
 
     /**
      * Save the cookies Asynchronously.
