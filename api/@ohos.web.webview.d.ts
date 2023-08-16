@@ -1839,7 +1839,7 @@ declare namespace webview {
 
     /**
      * Create print document adapter
-     * @param { string } name - the document adapter name.
+     * @param { string } name - The document adapter name.
      * @returns { PrintDocumentAdapter } The print document adapter used for printing.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
@@ -1848,6 +1848,31 @@ declare namespace webview {
      * @since 11
      */
     createPrintDocumentAdapter(name: string): PrintDocumentAdapter;
+
+    /**
+     * Add document start javascript.
+     * @param { string } script - Javascript string.
+     * @param { string[] } allowOriginRules - Allowed origin rule list.
+
+     * @returns { number } The script id.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    addDocumentStartJavascript(script: string, allowOriginRules: string[]): number;
+
+    /**
+     * Remove document start javascript.
+     * @param { number } scriptId - Javascript id.
+     * @param { string[] } allowOriginRules - Allowed origin rule list.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    removeDocumentStartJavascript(scriptId: number): void;
   }
 }
 
