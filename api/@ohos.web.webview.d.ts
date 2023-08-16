@@ -20,6 +20,7 @@ import { Callback } from './@ohos.base';
 import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
+import PrintDocumentAdapter from './@ohos.print';
 
 /**
  * This module provides the capability to manage web modules.
@@ -1775,6 +1776,29 @@ declare namespace webview {
      * @since 10
      */
     getCustomUserAgent(): string;
+
+    /**
+     * Set page load timeout. A built-in 
+     * @param { number } timeout - page load timeout threadhold.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    setPageLoadTimeout(timeout: number): void;
+
+    /**
+     * Create print document adapter
+     * @param { string } name - the document adapter name.
+     * @returns { PrintDocumentAdapter } The print document adapter used for printing.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    createPrintDocumentAdapter(name: string): PrintDocumentAdapter;
   }
 }
 
