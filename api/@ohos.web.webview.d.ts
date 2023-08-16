@@ -1828,15 +1828,14 @@ declare namespace webview {
     getCustomUserAgent(): string;
 
     /**
-     * Set page load timeout. A built-in 
-     * @param { number } timeout - page load timeout threadhold.
+     * Set network timeout while page loading.
+     * @param { number } timeout - network timeout.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 11
      */
-    setPageLoadTimeout(timeout: number): void;
+    static setNetworkTimeout(timeout: number): void;
 
     /**
      * Create print document adapter
