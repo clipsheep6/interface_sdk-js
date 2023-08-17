@@ -36,6 +36,7 @@ export default class DriverExtensionAbility {
    * Called back when a driver extension is started for initialization.
    * @param { Want } want - Indicates the want of created driver extension.
    * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
    * @StageModelOnly
    * @since 10
    */
@@ -44,6 +45,7 @@ export default class DriverExtensionAbility {
   /**
    * Called back before a driver extension is destroyed.
    * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
    * @StageModelOnly
    * @since 10
    */
@@ -54,6 +56,7 @@ export default class DriverExtensionAbility {
    * @param { Want } want - Indicates connection information about the Driver ability.
    * @returns { (rpc.RemoteObject | Promise<rpc.RemoteObject>) } Rpc remoteObject.
    * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
    * @StageModelOnly
    * @since 10
    */
@@ -64,6 +67,7 @@ export default class DriverExtensionAbility {
    * @param { Want } want - Indicates disconnection information about the driver extension.
    * @returns { (void | Promise<void>) }
    * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
    * @StageModelOnly
    * @since 10
    */
@@ -75,6 +79,7 @@ export default class DriverExtensionAbility {
    * @param { Array<string> } params - Indicates th e params from command.
    * @returns { Array<string> } The dump info array.
    * @syscap SystemCapability.Driver.ExternalDevice
+   * @systemapi
    * @StageModelOnly
    * @since 10
    */
