@@ -528,7 +528,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    ID = "file_id",
+    ID = 'file_id',
     /**
      * Relative Path
      * @since 8
@@ -536,7 +536,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    RELATIVE_PATH = "relative_path",
+    RELATIVE_PATH = 'relative_path',
     /**
      * File name
      * @since 8
@@ -544,7 +544,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    DISPLAY_NAME = "display_name",
+    DISPLAY_NAME = 'display_name',
     /**
      * Parent folder file id
      * @since 8
@@ -552,7 +552,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    PARENT = "parent",
+    PARENT = 'parent',
     /**
      * Mime type of the file
      * @since 8
@@ -560,7 +560,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    MIME_TYPE = "mime_type",
+    MIME_TYPE = 'mime_type',
     /**
      * Media type of the file
      * @since 8
@@ -568,7 +568,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    MEDIA_TYPE = "media_type",
+    MEDIA_TYPE = 'media_type',
     /**
      * Size of the file
      * @since 8
@@ -576,7 +576,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    SIZE = "size",
+    SIZE = 'size',
     /**
      * Date of the file creation
      * @since 8
@@ -584,7 +584,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    DATE_ADDED = "date_added",
+    DATE_ADDED = 'date_added',
     /**
      * Modify date of the file
      * @since 8
@@ -592,7 +592,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    DATE_MODIFIED = "date_modified",
+    DATE_MODIFIED = 'date_modified',
     /**
      * Date taken of the file
      * @since 8
@@ -600,7 +600,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    DATE_TAKEN = "date_taken",
+    DATE_TAKEN = 'date_taken',
     /**
      * Title of the file
      * @since 8
@@ -608,7 +608,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    TITLE = "title",
+    TITLE = 'title',
     /**
      * Artist of the audio file
      * @since 8
@@ -616,7 +616,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    ARTIST = "artist",
+    ARTIST = 'artist',
     /**
      * Audio album of the audio file
      * @since 8
@@ -624,7 +624,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    AUDIOALBUM = "audio_album",
+    AUDIOALBUM = 'audio_album',
     /**
      * Duration of the audio and video file
      * @since 8
@@ -632,7 +632,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    DURATION = "duration",
+    DURATION = 'duration',
     /**
      * Width of the image file
      * @since 8
@@ -640,7 +640,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    WIDTH = "width",
+    WIDTH = 'width',
     /**
      * Height of the image file
      * @since 8
@@ -648,7 +648,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    HEIGHT = "height",
+    HEIGHT = 'height',
     /**
      * Orientation of the image file
      * @since 8
@@ -656,7 +656,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    ORIENTATION = "orientation",
+    ORIENTATION = 'orientation',
     /**
      * Album id of the file
      * @since 8
@@ -664,7 +664,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    ALBUM_ID = "bucket_id",
+    ALBUM_ID = 'bucket_id',
     /**
      * Album name of the file
      * @since 8
@@ -672,7 +672,7 @@ declare namespace mediaLibrary {
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
-    ALBUM_NAME = "bucket_display_name",
+    ALBUM_NAME = 'bucket_display_name',
   }
 
   /**
@@ -684,7 +684,7 @@ declare namespace mediaLibrary {
    */
   interface MediaFetchOptions {
     /**
-     * Fields to retrieve, for example, selections: "media_type =? OR media_type =?".
+     * Fields to retrieve, for example, selections: 'media_type =? OR media_type =?'.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @deprecated since 9
@@ -700,7 +700,7 @@ declare namespace mediaLibrary {
      */
     selectionArgs: Array<string>;
     /**
-     * Sorting criterion of the retrieval results, for example, order: "dateTaken DESC,display_name DESC, file_id DESC".
+     * Sorting criterion of the retrieval results, for example, order: 'dateTaken DESC,display_name DESC, file_id DESC'.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @deprecated since 9
