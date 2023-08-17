@@ -8633,6 +8633,7 @@ declare class CommonMethod<T> {
    * @systemapi
    * @crossplatform
    * @since 10
+   * @systemapi
    */
   sphericalEffect(value: number): T;
 
@@ -8646,6 +8647,7 @@ declare class CommonMethod<T> {
    * @systemapi
    * @crossplatform
    * @since 10
+   * @systemapi
    */
   lightUpEffect(value: number): T;
 
@@ -8658,6 +8660,7 @@ declare class CommonMethod<T> {
    * @systemapi
    * @crossplatform
    * @since 10
+   * @systemapi
    */
   pixelStretchEffect(options: PixelStretchEffectOptions): T;
 
