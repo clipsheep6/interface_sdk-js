@@ -19,6 +19,7 @@ const { SystemApiRecognizer } = require('./api_recognizer');
 const { ReporterFormat } = require('./configs');
 const ts = require('typescript');
 const fs = require('fs');
+const path = require('path');
 
 class ProgramFactory {
   setLibPath(libPath) {
@@ -133,6 +134,10 @@ class ApiCollector {
 
   async start() {
     const sdkPath = this.sdk.getPath();
+    const handleFilePath = path.join(sdkPath, '/api/@internal/full/global.d.ts');
+    const originalContent = fs.readFileSync(handleFilePath, 'utf-8');
+    let newContent = originalContent.replace(/\import|export/g, '');
+    fs.writeFileSync(handleFilePath, newContent);
     if (!sdkPath || !fs.existsSync(sdkPath)) {
       return;
     }
@@ -173,6 +178,7 @@ class ApiCollector {
     // avoid oom
     systemApiRecognizer = undefined;
     program = undefined;
+    fs.writeFileSync(handleFilePath, originalContent);
     await apiWriter.flush();
   }
 

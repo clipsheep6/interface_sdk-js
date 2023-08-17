@@ -206,6 +206,8 @@ class SystemApiRecognizer {
       this.recognizeApiWithNode(node.expression, fileName, (node) => node.getStart());
     } else if (ts.isStructDeclaration(node)) {
       this.recognizeHeritageClauses(node, fileName);
+    } else if (ts.isTypeReferenceNode(node) && ts.isQualifiedName(node.typeName)) {
+      this.recognizeApiWithNode(node.typeName.right, fileName, (node) => node.getStart(), true);
     }
   }
 
@@ -220,6 +222,8 @@ class SystemApiRecognizer {
     } else if (ts.isPropertyAccessExpression(node)) {
       this.recognizeNormalCallExpression(node.expression, fileName);
       return this.recognizePropertyAccessExpression(node, fileName);
+    } else if (ts.isIdentifier(node)) {
+      this.recognizeApiWithNode(node, fileName, (node) => node.getStart());
     } else {
       return undefined;
     }
