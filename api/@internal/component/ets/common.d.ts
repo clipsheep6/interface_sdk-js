@@ -351,19 +351,40 @@ declare const StorageProp: (value: string) => PropertyDecorator;
 /**
  * Defining StorageLink PropertyDecorator.
  *
- * @returns { (value: string) => PropertyDecorator }
+ * @returns { (value: string, options?: StorageLinkOptions) => PropertyDecorator }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defining StorageLink PropertyDecorator.
  *
- * @returns { (value: string) => PropertyDecorator }
+ * @returns { (value: string, options?: StorageLinkOptions) => PropertyDecorator }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
-declare const StorageLink: (value: string) => PropertyDecorator;
+declare const StorageLink: (value: string, options?: StorageLinkOptions) => PropertyDecorator;
+
+/**
+ * Defining StorageLinkOptions.
+ *
+ * @interface StorageLinkOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare interface StorageLinkOptions{
+/**
+ * Defining whether the StorageLink supports delayed updates in the inactive state.
+ *
+ * @type { boolean } delayUpdateOnlnActive
+ * @default false
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+  delayUpdateOnlnActive?: boolean
+}
 
 /**
  * Defining Watch PropertyDecorator.
