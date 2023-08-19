@@ -801,7 +801,7 @@ declare namespace radio {
     * @syscap SystemCapability.Telephony.CoreService
     * @since 10
     */
-  function getSignalInformation(slotId: number): SignalInformation;
+  function getSignalInformationSync(slotId: number): SignalInformation;
 
   /**
    * Checks whether the device supports 5G New Radio (NR).
