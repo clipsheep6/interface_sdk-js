@@ -1361,6 +1361,34 @@ declare namespace window {
   function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
 
   /**
+   * Sets whether to enable status bar.
+   *
+   * @param { boolean } enable - Enable status bar if true, or disable if false.
+   * @param { AsyncCallback<void> } callback - The callback of setStatusBarEnabled.
+   * @throws { BusinessError } 401 - Parameter error..
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+   function setStatusBarEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+
+   /**
+    * Sets whether to enable status bar.
+    *
+    * @param { boolean } enable - Enable status bar if true, or disable if false.
+    * @returns { Promise<void> } - The promise returned by the function.
+    * @throws { BusinessError } 401 - Parameter error..
+    * @throws { BusinessError } 1300002 - This window state is abnormal.
+    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+    * @syscap SystemCapability.WindowManager.WindowManager.Core
+    * @systemapi Hide this for inner system use.
+    * @since 10
+    */
+   function setStatusBarEnabled(enable: boolean): Promise<void>;
+
+  /**
    * Sets whether to enable gesture navigation.
    *
    * @param { boolean } enable - Gesture navigation if true, or disable if false.
@@ -1441,6 +1469,34 @@ declare namespace window {
    * @since 8
    */
   function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
+
+  /**
+   * Register the callback for status bar enabled changes.
+   *
+   * @param { 'statusBarEnabledChange' } type the event of status bar enabled changes.
+   * @param { Callback<boolean> } callback Callback used to return the result whether status bar enabled or not.
+   * @throws { BusinessError } 401 - Parameter error..
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+   function on(type: 'statusBarEnabledChange', callback: Callback<boolean>): void;
+
+   /**
+    * Unregister the callback for status bar enabled changes.
+    *
+    * @param { 'statusBarEnabledChange' } type the event of status bar enabled changes.
+    * @param { Callback<boolean> } callback Callback used to return the result whether status bar enabled or not.
+    * @throws { BusinessError } 401 - Parameter error..
+    * @throws { BusinessError } 1300002 - This window state is abnormal.
+    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+    * @syscap SystemCapability.WindowManager.WindowManager.Core
+    * @systemapi Hide this for inner system use.
+    * @since 10
+    */
+   function off(type: 'statusBarEnabledChange', callback?: Callback<boolean>): void;
 
   /**
    * Register the callback for gesture navigation enabled changes.
