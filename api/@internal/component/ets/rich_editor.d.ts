@@ -159,6 +159,24 @@ declare interface RichEditorTextStyle {
    * @since 10
    */
   decoration?: { type: TextDecorationType; color?: ResourceColor; };
+
+  /**
+   * Text alignment.
+   *
+   * @type { ?TextAlign }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  textAlign?: TextAlign;
+
+  /**
+   * Leading margin.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  leadingMargin?: { placeholder?: PixelMap; size: [Dimension, Dimension]; };
 }
 
 /**
@@ -818,6 +836,17 @@ declare class RichEditorController {
    * @since 10
    */
   closeSelectionMenu(): void;
+
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number): void;
 }
 
 /**
@@ -923,6 +952,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 10
    */
   customKeyboard(value: CustomBuilder): RichEditorAttribute;
+
+  /**
+   * Override system paste operations
+   *
+   * @param { () => boolean } callback Indicates callback when the paste button is pressed.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   *
+   * @crossplatform
+   * @since 11
+   */
+  onPaste(callback: () => boolean): RichEditorAttribute;
 }
 
 /**
