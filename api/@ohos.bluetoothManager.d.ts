@@ -41,6 +41,23 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.access/access#getState
    */
+  /**
+   * Obtains the Bluetooth status of a device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @returns { BluetoothState } Returns the Bluetooth status, which can be {@link BluetoothState#STATE_OFF},
+   * {@link BluetoothState#STATE_TURNING_ON}, {@link BluetoothState#STATE_ON}, {@link BluetoothState#STATE_TURNING_OFF},
+   * {@link BluetoothState#STATE_BLE_TURNING_ON}, {@link BluetoothState#STATE_BLE_ON},
+   * or {@link BluetoothState#STATE_BLE_TURNING_OFF}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.access/access#getState
+   */
   function getState(): BluetoothState;
 
   /**
@@ -60,6 +77,23 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getProfileConnectionState
    */
+  /**
+   * Get the local device connection state to any profile of any remote device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @returns { ProfileConnectionState } One of {@link ProfileConnectionState#STATE_DISCONNECTED},
+   * {@link ProfileConnectionState#STATE_CONNECTING}, {@link ProfileConnectionState#STATE_CONNECTED},
+   * {@link ProfileConnectionState#STATE_DISCONNECTING}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#getProfileConnectionState
+   */
   function getBtConnectionState(): ProfileConnectionState;
 
   /**
@@ -75,6 +109,22 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#pairDevice
+   */
+  /**
+   * Starts pairing with a remote Bluetooth device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - The address of the remote device to pair.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#pairDevice
    */
@@ -98,6 +148,24 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#cancelPairedDevice
    */
+  /**
+   * Remove a paired remote device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - The address of the remote device to be removed.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#cancelPairedDevice
+   */
   function cancelPairedDevice(deviceId: string): void;
 
   /**
@@ -114,6 +182,23 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#getRemoteDeviceName
+   */
+  /**
+   * Obtains the name of a peer Bluetooth device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - The address of the remote device.
+   * @returns { string } Returns the device name in character string format.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getRemoteDeviceName
    */
@@ -136,6 +221,23 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getRemoteDeviceClass
    */
+  /**
+   * Obtains the class of a peer Bluetooth device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - The address of the remote device.
+   * @returns { DeviceClass } The class of the remote device, {@link DeviceClass}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#getRemoteDeviceClass
+   */
   function getRemoteDeviceClass(deviceId: string): DeviceClass;
 
   /**
@@ -151,6 +253,19 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.access/access#enableBluetooth
    */
+  /**
+   * Enables Bluetooth on a device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.access/access#enableBluetooth
+   */
   function enableBluetooth(): void;
 
   /**
@@ -163,6 +278,19 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.access/access#disableBluetooth
+   */
+  /**
+   * Disables Bluetooth on a device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
    * @deprecated since 10
    * @useinstead ohos.bluetooth.access/access#disableBluetooth
    */
@@ -182,6 +310,20 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getLocalName
    */
+  /**
+   * Obtains the Bluetooth local name of a device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @returns { string } Returns the name the device.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#getLocalName
+   */
   function getLocalName(): string;
 
   /**
@@ -196,6 +338,21 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#getPairedDevices
+   */
+  /**
+   * Obtains the list of Bluetooth devices that have been paired with the current device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @returns { Array<string> } Returns a list of paired Bluetooth devices's address.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getPairedDevices
    */
@@ -219,6 +376,24 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getProfileConnectionState
    */
+  /**
+   * Obtains the connection state of profile.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { ProfileId } profileId - The profile id.
+   * @returns { ProfileConnectionState } Returns the connection state.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900004 - Profile is not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#getProfileConnectionState
+   */
   function getProfileConnectionState(profileId: ProfileId): ProfileConnectionState;
 
   /**
@@ -238,6 +413,23 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#setDevicePairingConfirmation
    */
+  /**
+   * Sets the confirmation of pairing with a certain device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+   * @param { string } device - The address of the remote device.
+   * @param { boolean } accept - Indicates whether to accept the pairing request, {@code true} indicates accept or {@code false} otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#setDevicePairingConfirmation
+   */
   function setDevicePairingConfirmation(device: string, accept: boolean): void;
 
   /**
@@ -253,6 +445,22 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#setLocalName
+   */
+  /**
+   * Sets the Bluetooth friendly name of a device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } name - Indicates a valid Bluetooth name.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#setLocalName
    */
@@ -275,6 +483,23 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#setBluetoothScanMode
    */
+  /**
+   * Sets the Bluetooth scan mode for a device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { ScanMode } mode - Indicates the Bluetooth scan mode to set, {@link ScanMode}.
+   * @param { number } duration - Indicates the duration in seconds, in which the host is discoverable.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#setBluetoothScanMode
+   */
   function setBluetoothScanMode(mode: ScanMode, duration: number): void;
 
   /**
@@ -289,6 +514,21 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#getBluetoothScanMode
+   */
+  /**
+   * Obtains the Bluetooth scanning mode of a device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @returns { ScanMode } Returns the Bluetooth scanning mode, {@link ScanMode}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getBluetoothScanMode
    */
@@ -309,6 +549,20 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#startBluetoothDiscovery
    */
+  /**
+   * Starts scanning Bluetooth devices.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#startBluetoothDiscovery
+   */
   function startBluetoothDiscovery(): void;
 
   /**
@@ -322,6 +576,20 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection#stopBluetoothDiscovery
+   */
+  /**
+   * Stops Bluetooth device scanning.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#stopBluetoothDiscovery
    */
@@ -342,6 +610,21 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection.on#event:bluetoothDeviceFind
    */
+  /**
+   * Subscribe the event reported when a remote Bluetooth device is discovered.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { 'bluetoothDeviceFind' } type - Type of the discovering event to listen for.
+   * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection.on#event:bluetoothDeviceFind
+   */
   function on(type: 'bluetoothDeviceFind', callback: Callback<Array<string>>): void;
 
   /**
@@ -355,6 +638,20 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection.off#event:bluetoothDeviceFind
+   */
+  /**
+   * Unsubscribe the event reported when a remote Bluetooth device is discovered.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { 'bluetoothDeviceFind' } type - Type of the discovering event to listen for.
+   * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection.off#event:bluetoothDeviceFind
    */
@@ -375,6 +672,21 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection.on#event:bondStateChange
    */
+  /**
+   * Subscribe the event reported when a remote Bluetooth device is bonded.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { 'bondStateChange' } type - Type of the bond state event to listen for.
+   * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event, {@link BondStateParam}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection.on#event:bondStateChange
+   */
   function on(type: 'bondStateChange', callback: Callback<BondStateParam>): void;
 
   /**
@@ -389,6 +701,21 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection.off#event:bondStateChange
+   */
+  /**
+   * Unsubscribe the event reported when a remote Bluetooth device is bonded.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { 'bondStateChange' } type - Type of the bond state event to listen for.
+   * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection.off#event:bondStateChange
    */
@@ -409,6 +736,21 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection.on#event:pinRequired
    */
+  /**
+   * Subscribe the event of a pairing request from a remote Bluetooth device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { 'pinRequired' } type - Type of the pairing request event to listen for.
+   * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection.on#event:pinRequired
+   */
   function on(type: 'pinRequired', callback: Callback<PinRequiredParam>): void;
 
   /**
@@ -423,6 +765,21 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.connection/connection.off#event:pinRequired
+   */
+  /**
+   * Unsubscribe the event of a pairing request from a remote Bluetooth device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { 'pinRequired' } type - Type of the pairing request event to listen for.
+   * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection.off#event:pinRequired
    */
@@ -443,6 +800,21 @@ declare namespace bluetoothManager {
    * @deprecated since 10
    * @useinstead ohos.bluetooth.access/access.on#event:stateChange
    */
+  /**
+   * Subscribe the event reported when the Bluetooth state changes.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
+   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.access/access.on#event:stateChange
+   */
   function on(type: 'stateChange', callback: Callback<BluetoothState>): void;
 
   /**
@@ -457,6 +829,21 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.access/access.off#event:stateChange
+   */
+  /**
+   * Unsubscribe the event reported when the Bluetooth state changes.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
+   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
    * @deprecated since 10
    * @useinstead ohos.bluetooth.access/access.off#event:stateChange
    */
@@ -478,6 +865,25 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.socket/socket#sppListen
+   */
+  /**
+   * Creates a Bluetooth server listening socket.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } name - Indicates the service name.
+   * @param { SppOption } option - Indicates the listen parameters {@link SppOption}.
+   * @param { AsyncCallback<number> } callback - Callback used to return a server socket ID.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900004 - Profile is not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
    * @deprecated since 10
    * @useinstead ohos.bluetooth.socket/socket#sppListen
    */
@@ -517,6 +923,25 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.socket/socket#sppConnect
+   */
+  /**
+   * Connects to a remote device over the socket.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } device - The address of the remote device to connect.
+   * @param { SppOption } option - Indicates the connect parameters {@link SppOption}.
+   * @param { AsyncCallback<number> } callback - Callback used to return a client socket ID.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900004 - Profile is not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 10
    * @deprecated since 10
    * @useinstead ohos.bluetooth.socket/socket#sppConnect
    */
@@ -641,6 +1066,22 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.baseProfile/baseProfile#getConnectedDevices
      */
+    /**
+     * Obtains the connected devices list of profile.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { Array<string> } Returns the address of connected devices list.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.baseProfile/baseProfile#getConnectedDevices
+     */
     getConnectionDevices(): Array<string>;
 
     /**
@@ -658,6 +1099,24 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.baseProfile/baseProfile#getConnectionState
+     */
+    /**
+     * Obtains the profile state of device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } device - The address of bluetooth device.
+     * @returns { ProfileConnectionState } Returns {@link ProfileConnectionState} of device.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.baseProfile/baseProfile#getConnectionState
      */
@@ -691,6 +1150,23 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile#connect
      */
+    /**
+     * Connect to device with a2dp.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } device - The address of the remote device to connect.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile#connect
+     */
     connect(device: string): void;
 
     /**
@@ -710,6 +1186,23 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile#disconnect
      */
+    /**
+     * Disconnect to device with a2dp.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } device - The address of the remote device to disconnect.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile#disconnect
+     */
     disconnect(device: string): void;
 
     /**
@@ -724,6 +1217,19 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile.on#event:connectionStateChange
      */
+    /**
+     * Subscribe the event reported when the profile connection state changes.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
+     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile.on#event:connectionStateChange
+     */
     on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void;
 
     /**
@@ -735,6 +1241,19 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile.off#event:connectionStateChange
+     */
+    /**
+     * Unsubscribe the event reported when the profile connection state changes.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
+     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile.off#event:connectionStateChange
      */
@@ -753,6 +1272,23 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile#getPlayingState
+     */
+    /**
+     * Obtains the playing state of device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } device - The address of the remote device.
+     * @returns { PlayingState } Returns {@link PlayingState} of the remote device.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile#getPlayingState
      */
@@ -786,6 +1322,23 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile#connect
      */
+    /**
+     * Connect to device with hfp.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } device - The address of the remote device to connect.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile#connect
+     */
     connect(device: string): void;
 
     /**
@@ -805,6 +1358,23 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile#disconnect
      */
+    /**
+     * Disconnect to device with hfp.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } device - The address of the remote device to disconnect.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile#disconnect
+     */
     disconnect(device: string): void;
 
     /**
@@ -819,6 +1389,19 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile.on#event:connectionStateChange
      */
+    /**
+     * Subscribe the event reported when the profile connection state changes.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
+     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile.on#event:connectionStateChange
+     */
     on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void;
 
     /**
@@ -830,6 +1413,19 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile.off#event:connectionStateChange
+     */
+    /**
+     * Unsubscribe the event reported when the profile connection state changes.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
+     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile.off#event:connectionStateChange
      */
@@ -865,6 +1461,25 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hid/hid.HidHostProfile#connect
      */
+    /**
+     * Connect to device with hid host.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     * @param { string } device - The address of the remote device to connect.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.hid/hid.HidHostProfile#connect
+     */
     connect(device: string): void;
 
     /**
@@ -886,6 +1501,25 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hid/hid.HidHostProfile#disconnect
      */
+    /**
+     * Disconnect to device with hid host.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     * @param { string } device - The address of the remote device to disconnect.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.hid/hid.HidHostProfile#disconnect
+     */
     disconnect(device: string): void;
 
     /**
@@ -900,6 +1534,19 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hid/hid.HidHostProfile.on#event:connectionStateChange
      */
+    /**
+     * Subscribe the event reported when the profile connection state changes.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
+     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.hid/hid.HidHostProfile.on#event:connectionStateChange
+     */
     on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void;
 
     /**
@@ -911,6 +1558,19 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.hid/hid.HidHostProfile.off#event:connectionStateChange
+     */
+    /**
+     * Unsubscribe the event reported when the profile connection state changes.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for.
+     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hid/hid.HidHostProfile.off#event:connectionStateChange
      */
@@ -946,6 +1606,25 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.pan/pan.PanProfile#disconnect
      */
+    /**
+     * Disconnect to device with pan.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } device - The address of the remote device to disconnect.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.pan/pan.PanProfile#disconnect
+     */
     disconnect(device: string): void;
 
     /**
@@ -960,6 +1639,19 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.pan/pan.PanProfile.on#event:connectionStateChange
      */
+    /**
+     * Subscribe the event reported when the profile connection state changes.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
+     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.pan/pan.PanProfile.on#event:connectionStateChange
+     */
     on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void;
 
     /**
@@ -971,6 +1663,19 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.pan/pan.PanProfile.off#event:connectionStateChange
+     */
+    /**
+     * Unsubscribe the event reported when the profile connection state changes.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for.
+     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.pan/pan.PanProfile.off#event:connectionStateChange
      */
@@ -996,6 +1701,26 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.pan/pan.PanProfile#setTethering
      */
+    /**
+     * Enable bluetooth tethering.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     * @param { boolean } enable - Specifies whether to enable tethering. The value {@code true} indicates
+     * that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.pan/pan.PanProfile#setTethering
+     */
     setTethering(enable: boolean): void;
 
     /**
@@ -1007,6 +1732,19 @@ declare namespace bluetoothManager {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi Hide this for inner system use.
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.pan/pan.PanProfile#isTetheringOn
+     */
+    /**
+     * Obtains the tethering enable or disable.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { boolean } Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi Hide this for inner system use.
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.pan/pan.PanProfile#isTetheringOn
      */
@@ -1054,6 +1792,21 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble#getConnectedBLEDevices
      */
+    /**
+     * Obtains the list of devices in the connected status.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { Array<string> } Returns the list of device address.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble#getConnectedBLEDevices
+     */
     function getConnectedBLEDevices(): Array<string>;
 
     /**
@@ -1077,6 +1830,26 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble#startBLEScan
      */
+    /**
+     * Starts scanning for specified BLE devices with filters.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Array<ScanFilter> } filters - Indicates the list of filters used to filter out specified devices.
+     * If you do not want to use filter, set this parameter to {@code null}.
+     * @param { ScanOptions } options - Indicates the parameters for scanning and if the user does not assign a value, the default value will be used.
+     * {@link ScanOptions#interval} set to 0, {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
+     * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble#startBLEScan
+     */
     function startBLEScan(filters: Array<ScanFilter>, options?: ScanOptions): void;
 
     /**
@@ -1090,6 +1863,20 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble#stopBLEScan
+     */
+    /**
+     * Stops BLE scanning.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble#stopBLEScan
      */
@@ -1110,6 +1897,21 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.on#event:BLEDeviceFind
      */
+    /**
+     * Subscribe BLE scan result.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'BLEDeviceFind' } type - Type of the scan result event to listen for.
+     * @param { Callback<Array<ScanResult>> } callback - Callback used to listen for the scan result event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.on#event:BLEDeviceFind
+     */
     function on(type: 'BLEDeviceFind', callback: Callback<Array<ScanResult>>): void;
 
     /**
@@ -1124,6 +1926,21 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.off#event:BLEDeviceFind
+     */
+    /**
+     * Unsubscribe BLE scan result.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'BLEDeviceFind' } type - Type of the scan result event to listen for.
+     * @param { Callback<Array<ScanResult>> } callback - Callback used to listen for the scan result event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.off#event:BLEDeviceFind
      */
@@ -1159,6 +1976,25 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble#startAdvertising
      */
+    /**
+     * Starts BLE advertising.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { AdvertiseSetting } setting - Indicates the settings for BLE advertising.
+     * If you need to use the default value, set this parameter to {@code null}.
+     * @param { AdvertiseData } advData - Indicates the advertising data.
+     * @param { AdvertiseData } advResponse - Indicates the scan response associated with the advertising data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble#startAdvertising
+     */
     startAdvertising(setting: AdvertiseSetting, advData: AdvertiseData, advResponse?: AdvertiseData): void;
 
     /**
@@ -1172,6 +2008,20 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble#stopAdvertising
+     */
+    /**
+     * Stops BLE advertising.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble#stopAdvertising
      */
@@ -1194,6 +2044,23 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer#addService
      */
+    /**
+     * Adds a specified service to be hosted.
+     * <p>The added service and its characteristics are provided by the local device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { GattService } service - Indicates the service to add.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer#addService
+     */
     addService(service: GattService): void;
 
     /**
@@ -1213,6 +2080,23 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer#removeService
      */
+    /**
+     * Removes a specified service from the list of GATT services provided by this device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } serviceUuid - Indicates the UUID of the service to remove.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900004 - Profile is not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer#removeService
+     */
     removeService(serviceUuid: string): void;
 
     /**
@@ -1226,6 +2110,20 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer#close
+     */
+    /**
+     * Closes this {@code GattServer} object and unregisters its callbacks.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer#close
      */
@@ -1249,6 +2147,24 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer#notifyCharacteristicChanged
      */
+    /**
+     * Sends a notification of a change in a specified local characteristic.
+     * <p>This method should be called for every BLE peripheral device that has requested notifications.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates the address of the BLE peripheral device to receive the notification.
+     * @param { NotifyCharacteristic } notifyCharacteristic - Indicates the local characteristic that has changed.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer#notifyCharacteristicChanged
+     */
     notifyCharacteristicChanged(deviceId: string, notifyCharacteristic: NotifyCharacteristic): void;
 
     /**
@@ -1264,6 +2180,22 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer#sendResponse
+     */
+    /**
+     * Sends a response to a specified read or write request to a given BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { ServerResponse } serverResponse - Indicates the response parameters {@link ServerResponse}.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer#sendResponse
      */
@@ -1283,6 +2215,20 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:characteristicRead
      */
+    /**
+     * Subscribe characteristic read event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'characteristicRead' } type - Type of the characteristic read event to listen for.
+     * @param { Callback<CharacteristicReadRequest> } callback - Callback used to listen for the characteristic read event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:characteristicRead
+     */
     on(type: 'characteristicRead', callback: Callback<CharacteristicReadRequest>): void;
 
     /**
@@ -1296,6 +2242,20 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:characteristicRead
+     */
+    /**
+     * Unsubscribe characteristic read event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'characteristicRead' } type - Type of the characteristic read event to listen for.
+     * @param { Callback<CharacteristicReadRequest> } callback - Callback used to listen for the characteristic read event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:characteristicRead
      */
@@ -1315,6 +2275,20 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:characteristicWrite
      */
+    /**
+     * Subscribe characteristic write event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'characteristicWrite' } type - Type of the characteristic write event to listen for.
+     * @param { Callback<CharacteristicWriteRequest> } callback - Callback used to listen for the characteristic write event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:characteristicWrite
+     */
     on(type: 'characteristicWrite', callback: Callback<CharacteristicWriteRequest>): void;
 
     /**
@@ -1328,6 +2302,20 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:characteristicWrite
+     */
+    /**
+     * Unsubscribe characteristic write event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'characteristicWrite' } type - Type of the characteristic write event to listen for.
+     * @param { Callback<CharacteristicWriteRequest> } callback - Callback used to listen for the characteristic write event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:characteristicWrite
      */
@@ -1347,6 +2335,20 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:descriptorRead
      */
+    /**
+     * Subscribe descriptor read event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'descriptorRead' } type - Type of the descriptor read event to listen for.
+     * @param { Callback<DescriptorReadRequest> } callback - Callback used to listen for the descriptor read event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:descriptorRead
+     */
     on(type: 'descriptorRead', callback: Callback<DescriptorReadRequest>): void;
 
     /**
@@ -1360,6 +2362,20 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:descriptorRead
+     */
+    /**
+     * Unsubscribe descriptor read event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'descriptorRead' } type - Type of the descriptor read event to listen for.
+     * @param { Callback<DescriptorReadRequest> } callback - Callback used to listen for the descriptor read event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:descriptorRead
      */
@@ -1379,6 +2395,20 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:descriptorWrite
      */
+    /**
+     * Subscribe descriptor write event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'descriptorWrite' } type - Type of the descriptor write event to listen for.
+     * @param { Callback<DescriptorWriteRequest> } callback - Callback used to listen for the descriptor write event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:descriptorWrite
+     */
     on(type: 'descriptorWrite', callback: Callback<DescriptorWriteRequest>): void;
 
     /**
@@ -1392,6 +2422,20 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:descriptorWrite
+     */
+    /**
+     * Unsubscribe descriptor write event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'descriptorWrite' } type - Type of the descriptor write event to listen for.
+     * @param { Callback<DescriptorWriteRequest> } callback - Callback used to listen for the descriptor write event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:descriptorWrite
      */
@@ -1411,6 +2455,20 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:connectionStateChange
      */
+    /**
+     * Subscribe server connection state changed event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'connectStateChange' } type - Type of the connection state changed event to listen for.
+     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:connectionStateChange
+     */
     on(type: 'connectStateChange', callback: Callback<BLEConnectChangedState>): void;
 
     /**
@@ -1424,6 +2482,20 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:connectionStateChange
+     */
+    /**
+     * Unsubscribe server connection state changed event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'connectStateChange' } type - Type of the connection state changed event to listen for.
+     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:connectionStateChange
      */
@@ -1455,6 +2527,21 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#connect
      */
+    /**
+     * Connects to a BLE peripheral device.
+     * <p>The 'BLEConnectionStateChange' event is subscribed to return the connection state.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#connect
+     */
     connect(): void;
 
     /**
@@ -1468,6 +2555,20 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#disconnect
+     */
+    /**
+     * Disconnects from or stops an ongoing connection to a BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#disconnect
      */
@@ -1488,6 +2589,21 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#close
      */
+    /**
+     * Disables a BLE peripheral device.
+     * <p> This method unregisters the device and clears the registered callbacks and handles.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#close
+     */
     close(): void;
 
     /**
@@ -1502,6 +2618,21 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getDeviceName
+     */
+    /**
+     * Obtains the name of BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { AsyncCallback<string> } callback - Callback used to obtain the device name.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getDeviceName
      */
@@ -1523,6 +2654,22 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getDeviceName
      */
+    /**
+     * Obtains the name of BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { Promise<string> } Returns a string representation of the name if obtained;
+     * returns {@code null} if the name fails to be obtained or the name does not exist.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getDeviceName
+     */
     getDeviceName(): Promise<string>;
 
     /**
@@ -1540,6 +2687,21 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getServices
      */
+    /**
+     * Starts discovering services.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { AsyncCallback<Array<GattService>> } callback - Callback used to catch the services.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getServices
+     */
     getServices(callback: AsyncCallback<Array<GattService>>): void;
 
     /**
@@ -1554,6 +2716,21 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getServices
+     */
+    /**
+     * Starts discovering services.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { Promise<Array<GattService>> } Returns the list of services {@link GattService} of the BLE peripheral device.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getServices
      */
@@ -1576,6 +2753,23 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readCharacteristicValue
      */
+    /**
+     * Reads the characteristic of a BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { BLECharacteristic } characteristic - Indicates the characteristic to read.
+     * @param { AsyncCallback<BLECharacteristic> } callback - Callback invoked to return the characteristic value read.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2901000 - Read forbidden.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readCharacteristicValue
+     */
     readCharacteristicValue(characteristic: BLECharacteristic, callback: AsyncCallback<BLECharacteristic>): void;
 
     /**
@@ -1592,6 +2786,23 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readCharacteristicValue
+     */
+    /**
+     * Reads the characteristic of a BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { BLECharacteristic } characteristic - Indicates the characteristic to read.
+     * @returns { Promise<BLECharacteristic> } - Promise used to return the characteristic value read.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2901000 - Read forbidden.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readCharacteristicValue
      */
@@ -1614,6 +2825,23 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readDescriptorValue
      */
+    /**
+     * Reads the descriptor of a BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { BLEDescriptor } descriptor - Indicates the descriptor to read.
+     * @param { AsyncCallback<BLEDescriptor> } callback - Callback invoked to return the descriptor read.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2901000 - Read forbidden.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readDescriptorValue
+     */
     readDescriptorValue(descriptor: BLEDescriptor, callback: AsyncCallback<BLEDescriptor>): void;
 
     /**
@@ -1630,6 +2858,23 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readDescriptorValue
+     */
+    /**
+     * Reads the descriptor of a BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { BLEDescriptor } descriptor - Indicates the descriptor to read.
+     * @returns { Promise<BLEDescriptor> } - Promise used to return the descriptor read.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2901000 - Read forbidden.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readDescriptorValue
      */
@@ -1651,6 +2896,22 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#writeCharacteristicValue
      */
+    /**
+     * Writes the characteristic of a BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { BLECharacteristic } characteristic - Indicates the characteristic to write.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2901001 - Write forbidden.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#writeCharacteristicValue
+     */
     writeCharacteristicValue(characteristic: BLECharacteristic): void;
 
     /**
@@ -1666,6 +2927,22 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#writeDescriptorValue
+     */
+    /**
+     * Writes the descriptor of a BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { BLEDescriptor } descriptor - Indicates the descriptor to write.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2901001 - Write forbidden.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#writeDescriptorValue
      */
@@ -1685,6 +2962,20 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getRssiValue
      */
+    /**
+     * Get the RSSI value of this BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { AsyncCallback<number> } callback - Callback invoked to return the RSSI, in dBm.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getRssiValue
+     */
     getRssiValue(callback: AsyncCallback<number>): void;
 
     /**
@@ -1698,6 +2989,20 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getRssiValue
+     */
+    /**
+     * Get the RSSI value of this BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @returns { Promise<number> } Returns the RSSI value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getRssiValue
      */
@@ -1715,6 +3020,21 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#setBLEMtuSize
+     */
+    /**
+     * Set the mtu size of a BLE peripheral device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { number } mtu - The maximum transmission unit.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#setBLEMtuSize
      */
@@ -1737,6 +3057,23 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#setCharacteristicChangeNotification
      */
+    /**
+     * Enables or disables notification of a characteristic when value changed.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { BLECharacteristic } characteristic - BLE characteristic to listen for.
+     * @param { boolean } enable - Specifies whether to enable notification of the characteristic. The value {@code true} indicates
+     * that notification is enabled, and the value {@code false} indicates that notification is disabled.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#setCharacteristicChangeNotification
+     */
     setNotifyCharacteristicChanged(characteristic: BLECharacteristic, enable: boolean): void;
 
     /**
@@ -1749,6 +3086,19 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.on#event:BLECharacteristicChange
+     */
+    /**
+     * Subscribe characteristic value changed event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'BLECharacteristicChange' } type - Type of the characteristic value changed event to listen for.
+     * @param { Callback<BLECharacteristic> } callback - Callback used to listen for the characteristic value changed event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.on#event:BLECharacteristicChange
      */
@@ -1767,6 +3117,19 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.off#event:BLECharacteristicChange
      */
+    /**
+     * Unsubscribe characteristic value changed event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'BLECharacteristicChange' } type - Type of the characteristic value changed event to listen for.
+     * @param { Callback<BLECharacteristic> } callback - Callback used to listen for the characteristic value changed event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.off#event:BLECharacteristicChange
+     */
     off(type: 'BLECharacteristicChange', callback?: Callback<BLECharacteristic>): void;
 
     /**
@@ -1782,6 +3145,19 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.on#event:BLEConnectionStateChange
      */
+    /**
+     * Subscribe client connection state changed event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'BLEConnectionStateChange' } type - Type of the connection state changed event to listen for.
+     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.on#event:BLEConnectionStateChange
+     */
     on(type: 'BLEConnectionStateChange', callback: Callback<BLEConnectChangedState>): void;
 
     /**
@@ -1794,6 +3170,19 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9
+     * @deprecated since 10
+     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.off#event:BLEConnectionStateChange
+     */
+    /**
+     * Unsubscribe client connection state changed event.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { 'BLEConnectionStateChange' } type - Type of the connection state changed event to listen for.
+     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 10
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.off#event:BLEConnectionStateChange
      */
