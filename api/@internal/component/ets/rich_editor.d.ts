@@ -118,7 +118,7 @@ declare interface RichEditorTextStyle {
   /**
    * font size.
    *
-   * @type { ?(Length | number) }
+   * @type { ?Length | number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -136,7 +136,7 @@ declare interface RichEditorTextStyle {
   /**
    * font weight.
    *
-   * @type { ?(number | FontWeight | string) }
+   * @type { ?number | FontWeight | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -786,7 +786,7 @@ declare class RichEditorController {
   /**
    * Modify span style.
    *
-   * @param { RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions } value
+   * @param { RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions } value of span style
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -822,7 +822,7 @@ declare class RichEditorController {
   /**
    * set text style.
    *
-   * @param { RichEditorTextStyle } set text style.
+   * @param { RichEditorTextStyle } value of typing text style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
