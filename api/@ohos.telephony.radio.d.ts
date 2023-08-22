@@ -429,7 +429,7 @@ declare namespace radio {
    * @returns Returns the country code defined in ISO 3166-2.
    * Returns an empty string if the device is not registered with any network.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 7
+   * @since 10
    */
   function getISOCountryCodeForNetworkSync(slotId: number): string;
 
