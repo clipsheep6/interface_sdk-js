@@ -62,7 +62,7 @@ declare interface TimePickerResult {
  * @crossplatform
  * @since 10
  */
-declare enum DisplayedComponentsType {
+declare enum DisplayedComponentType {
   /**
    * Hour and minute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -103,13 +103,13 @@ declare interface TimePickerOptions {
 
   /**
    * Specifies the type of components that need to be displayed.
-   * @type { ?DisplayedComponentsType }
+   * @type { ?DisplayedComponentType }
    * @default HOUR_MINUTE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  displayedComponents?: DisplayedComponentsType;
+  displayedComponent?: DisplayedComponentType;
 }
 
 /**
