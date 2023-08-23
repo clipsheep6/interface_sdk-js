@@ -1989,7 +1989,7 @@ declare namespace sim {
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns Returns the operator name; returns an empty string if no SIM card is inserted or no operator name matched.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 9
+   * @since 10
    */
   function getOpNameSync(slotId: number): string;
 
