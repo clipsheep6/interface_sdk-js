@@ -908,6 +908,14 @@ declare namespace camera {
     CAMERA_FORMAT_RGBA_8888 = 3,
 
     /**
+     * PRIVATE Format.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    CAMERA_FORMAT_PRIVATE = 4,
+
+    /**
      * YUV 420 Format.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
