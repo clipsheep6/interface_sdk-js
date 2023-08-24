@@ -42,6 +42,8 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead missionManager#on(type: 'missionEvent', listener: MissionListener)
    */
   function on(type: 'mission', listener: MissionListener): number;
 
@@ -59,6 +61,8 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead missionManager#off(type: 'missionEvent', listenerId: number)
    */
   function off(type: 'mission', listenerId: number, callback: AsyncCallback<void>): void;
 
@@ -76,8 +80,42 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead missionManager#off(type: 'missionEvent', listenerId: number)
    */
   function off(type: 'mission', listenerId: number): Promise<void>;
+
+  /**
+   * Register the missionListener to ams.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { 'missionEvent' } type - missionEvent.
+   * @param { MissionListener } listener - Indicates the MissionListener to be registered.
+   * @returns { number } Returns the index number of the MissionListener.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  function on(type: 'missionEvent', listener: MissionListener): number;
+
+  /**
+   * Unregister the missionListener to ams.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { 'missionEvent' } type - missionEvent.
+   * @param { number } listenerId - Indicates the listener id to be unregistered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16300002 - Input error. The specified mission listener does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  function off(type: 'missionEvent', listenerId: number): void;
 
   /**
    * Get the missionInfo with the given missionId.
@@ -149,7 +187,8 @@ declare namespace missionManager {
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { string } deviceId - Indicates the device to be queried.
    * @param { number } missionId - Indicates mission id to be queried.
-   * @param { AsyncCallback<MissionSnapshot> } callback - The callback is used to return the MissionSnapshot of the given id.
+   * @param { AsyncCallback<MissionSnapshot> } callback - The callback is used to return the MissionSnapshot of
+   *                                                      the given id.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -181,7 +220,8 @@ declare namespace missionManager {
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { string } deviceId - Indicates the device to be queried.
    * @param { number } missionId - Indicates mission id to be queried.
-   * @param { AsyncCallback<MissionSnapshot> } callback - The callback is used to return the MissionSnapshot of the given id.
+   * @param { AsyncCallback<MissionSnapshot> } callback - The callback is used to return the MissionSnapshot of
+   *                                                      the given id.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -384,6 +424,7 @@ declare namespace missionManager {
 
   /**
    * Schedule the given missions to foreground.
+   *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { Array<number> } missionIds - Indicates mission ids to be moved to foreground.
    * @param { AsyncCallback<void> } callback - The callback of moveMissionsToForeground.
@@ -399,6 +440,7 @@ declare namespace missionManager {
 
   /**
    * Schedule the given missions to foreground.
+   *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { Array<number> } missionIds - Indicates mission ids to be moved to foreground.
    * @param { number } topMission - Indicates mission id to be moved to top.
@@ -415,6 +457,7 @@ declare namespace missionManager {
 
   /**
    * Schedule the given missions to foreground.
+   *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { Array<number> } missionIds - Indicates mission ids to be moved to foreground.
    * @param { number } topMission - Indicates mission id to be moved to top.
@@ -431,6 +474,7 @@ declare namespace missionManager {
 
   /**
    * Schedule the given missions to background.
+   *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { Array<number> } missionIds - Indicates mission ids will be moved to background
    * @param { AsyncCallback<Array<number>> } callback - The callback of moveMissionsToForeground.
@@ -446,6 +490,7 @@ declare namespace missionManager {
 
   /**
    * Schedule the given missions to background.
+   *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { Array<number> } missionIds - Indicates mission ids will be moved to background
    * @returns { Promise<Array<number>> } - The promise returned by the function.
@@ -457,7 +502,7 @@ declare namespace missionManager {
    * @systemapi
    * @since 10
    */
-  function moveMissionsToBackground(missionIds : Array<number>): Promise<Array<number>>;
+  function moveMissionsToBackground(missionIds: Array<number>): Promise<Array<number>>;
 
   /**
    * Mission information corresponding to ability.

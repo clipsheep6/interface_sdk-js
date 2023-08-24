@@ -27,7 +27,7 @@ export interface CommonEventSubscriber {
   /**
    * Obtains the result code of the current ordered common event.
    *
-   * @param { AsyncCallback<number> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<number> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -43,10 +43,19 @@ export interface CommonEventSubscriber {
   getCode(): Promise<number>;
 
   /**
+   * Obtains the result code of the current ordered common event.
+   *
+   * @returns { number } Returns code of this common event
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  getCodeSync(): number;
+
+  /**
    * Sets the result code of the current ordered common event.
    *
-   * @param { number } code Indicates the custom result code to set. You can set it to any value.
-   * @param { AsyncCallback<void> } callback Indicate the callback function to receive the common event.
+   * @param { number } code - Indicates the custom result code to set. You can set it to any value.
+   * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -55,7 +64,7 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result code of the current ordered common event.
    *
-   * @param { number } code Indicates the custom result code to set. You can set it to any value.
+   * @param { number } code - Indicates the custom result code to set. You can set it to any value.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -63,9 +72,19 @@ export interface CommonEventSubscriber {
   setCode(code: number): Promise<void>;
 
   /**
+   * Sets the result code of the current ordered common event.
+   *
+   * @param { number } code - Indicates the custom result code to set. You can set it to any value.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  setCodeSync(code: number): void;
+
+  /**
    * Obtains the result data of the current ordered common event.
    *
-   * @param { AsyncCallback<string> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<string> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -81,10 +100,19 @@ export interface CommonEventSubscriber {
   getData(): Promise<string>;
 
   /**
+   * Obtains the result data of the current ordered common event.
+   *
+   * @returns { string } Returns data of this common event
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  getDataSync(): string;
+
+  /**
    * Sets the result data of the current ordered common event.
    *
-   * @param { string } data Indicates the custom result data to set. You can set it to any character string.
-   * @param { AsyncCallback<void> } callback Indicate the callback function to receive the common event.
+   * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
+   * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -93,7 +121,7 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result data of the current ordered common event.
    *
-   * @param { string } data Indicates the custom result data to set. You can set it to any character string.
+   * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -101,11 +129,21 @@ export interface CommonEventSubscriber {
   setData(data: string): Promise<void>;
 
   /**
+   * Sets the result data of the current ordered common event.
+   *
+   * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  setDataSync(data: string): void;
+
+  /**
    * Sets the result of the current ordered common event.
    *
-   * @param { number } code Indicates the custom result code to set. You can set it to any value.
-   * @param { string } data Indicates the custom result data to set. You can set it to any character string.
-   * @param { AsyncCallback<void> } callback Indicate the callback function to receive the common event.
+   * @param { number } code - Indicates the custom result code to set. You can set it to any value.
+   * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
+   * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -114,8 +152,8 @@ export interface CommonEventSubscriber {
   /**
    * Sets the result of the current ordered common event.
    *
-   * @param { number } code Indicates the custom result code to set. You can set it to any value.
-   * @param { string } data Indicates the custom result data to set. You can set it to any character string.
+   * @param { number } code - Indicates the custom result code to set. You can set it to any value.
+   * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
@@ -123,9 +161,20 @@ export interface CommonEventSubscriber {
   setCodeAndData(code: number, data: string): Promise<void>;
 
   /**
+   * Sets the result of the current ordered common event.
+   *
+   * @param { number } code - Indicates the custom result code to set. You can set it to any value.
+   * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  setCodeAndDataSync(code: number, data: string): void;
+
+  /**
    * Checks whether the current common event is an ordered common event.
    *
-   * @param { AsyncCallback<boolean> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<boolean> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -141,9 +190,18 @@ export interface CommonEventSubscriber {
   isOrderedCommonEvent(): Promise<boolean>;
 
   /**
+   * Checks whether the current common event is an ordered common event.
+   *
+   * @returns { boolean } Returns true if this common event is ordered, false otherwise
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  isOrderedCommonEventSync(): boolean;
+
+  /**
    * Checks whether the current common event is a sticky common event.
    *
-   * @param { AsyncCallback<boolean> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<boolean> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -159,9 +217,18 @@ export interface CommonEventSubscriber {
   isStickyCommonEvent(): Promise<boolean>;
 
   /**
+   * Checks whether the current common event is a sticky common event.
+   *
+   * @returns { boolean } Returns true if this common event is sticky, false otherwise
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  isStickyCommonEventSync(): boolean;
+
+  /**
    * Abort the current ordered common event.
    *
-   * @param { AsyncCallback<void> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -177,9 +244,17 @@ export interface CommonEventSubscriber {
   abortCommonEvent(): Promise<void>;
 
   /**
+   * Abort the current ordered common event.
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  abortCommonEventSync(): void;
+
+  /**
    * Clears the abort state of the current ordered common event
    *
-   * @param { AsyncCallback<void> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<void> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -195,9 +270,17 @@ export interface CommonEventSubscriber {
   clearAbortCommonEvent(): Promise<void>;
 
   /**
+   * Clears the abort state of the current ordered common event
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  clearAbortCommonEventSync(): void;
+
+  /**
    * Checks whether the current ordered common event should be aborted.
    *
-   * @param { AsyncCallback<boolean> } callback Indicate the callback function to receive the common event.
+   * @param { AsyncCallback<boolean> } callback - Indicate the callback function to receive the common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -213,9 +296,18 @@ export interface CommonEventSubscriber {
   getAbortCommonEvent(): Promise<boolean>;
 
   /**
+   * Checks whether the current ordered common event should be aborted.
+   *
+   * @returns { boolean } Returns true if this common event is aborted, false otherwise
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  getAbortCommonEventSync(): boolean;
+
+  /**
    * get the CommonEventSubscribeInfo of this CommonEventSubscriber.
    *
-   * @param { AsyncCallback<CommonEventSubscribeInfo> } callback Indicate callback function to receive common event.
+   * @param { AsyncCallback<CommonEventSubscribeInfo> } callback - Indicate callback function to receive common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    */
@@ -231,9 +323,18 @@ export interface CommonEventSubscriber {
   getSubscribeInfo(): Promise<CommonEventSubscribeInfo>;
 
   /**
+   * Get the CommonEventSubscribeInfo of this CommonEventSubscriber.
+   *
+   * @returns { CommonEventSubscribeInfo } Returns the commonEvent subscribe information
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  getSubscribeInfoSync(): CommonEventSubscribeInfo;
+
+  /**
    * finish the current ordered common event.
    *
-   * @param { AsyncCallback<void> } callback Indicate the callback function after ordered common event is finished.
+   * @param { AsyncCallback<void> } callback - Indicate the callback function after ordered common event is finished.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */

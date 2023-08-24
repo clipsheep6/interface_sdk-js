@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./@ohos.base";
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * Provides methods related to cellular data services.
@@ -365,6 +365,15 @@ declare namespace data {
    * @since 7
    */
   function disableCellularDataRoaming(slotId: number): Promise<void>;
+
+  /**
+   * Obtains the default cellular data SIM ID.
+   *
+   * @returns { number } Returns the SIM ID of the default cellular data sim and SIM ID will increase from 1.
+   * @syscap SystemCapability.Telephony.CellularData
+   * @since 10
+   */
+  function getDefaultCellularDataSimId(): number;
 
   /**
    * Describes the cellular data flow type.

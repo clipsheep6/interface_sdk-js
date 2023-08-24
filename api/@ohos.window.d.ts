@@ -45,14 +45,6 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
-  /**
-   * The type of a window.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
-   */
   enum WindowType {
     /**
      * App.
@@ -60,14 +52,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @FAModelOnly
      * @since 7
-     */
-    /**
-     * App.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @FAModelOnly
-     * @crossplatform
-     * @since 10
      */
     TYPE_APP,
     /**
@@ -461,20 +445,64 @@ declare namespace window {
    * @since 10
    */
   interface Rect {
+
     /**
+     * The left of the Rect.
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    /**
+     * The left of the Rect.
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 10
      */
     left: number;
+
     /**
+     * The top of the Rect.
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    /**
+     * The top of the Rect.
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 10
      */
     top: number;
+
     /**
+     * The width of the Rect.
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    /**
+     * The width of the Rect.
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 10
      */
     width: number;
+
     /**
+     * The height of the Rect.
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 7
+     */
+    /**
+     * The height of the Rect.
+     * 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @since 10
      */
     height: number;
   }
@@ -490,6 +518,7 @@ declare namespace window {
     /**
      * Whether avoidArea is visible on screen
      *
+     * @type { boolean } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -498,6 +527,7 @@ declare namespace window {
     /**
      * Rectangle on the left of the screen
      *
+     * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -506,6 +536,7 @@ declare namespace window {
     /**
      * Rectangle on the top of the screen
      *
+     * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -514,6 +545,7 @@ declare namespace window {
     /**
      * Rectangle on the right of the screen
      *
+     * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -522,6 +554,7 @@ declare namespace window {
     /**
      * Rectangle on the bottom of the screen
      *
+     * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -547,12 +580,14 @@ declare namespace window {
     /**
      * The width of the window.
      *
+     * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The width of the window.
      *
+     * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -568,6 +603,7 @@ declare namespace window {
     /**
      * The height of the window.
      *
+     * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -594,12 +630,14 @@ declare namespace window {
     /**
      * The position and size of the window
      *
+     * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The position and size of the window
      *
+     * @type { Rect } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -609,21 +647,16 @@ declare namespace window {
     /**
      * Window type
      *
+     * @type { WindowType } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
-     */
-    /**
-     * Window type
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     type: WindowType;
 
     /**
      * Whether the window is displayed in full screen mode. The default value is false.
      *
+     * @type { boolean } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 6
      */
@@ -632,6 +665,7 @@ declare namespace window {
     /**
      * Whether the window layout is in full screen mode(whether the window is immersive). The default value is false.
      *
+     * @type { boolean } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -640,6 +674,7 @@ declare namespace window {
     /**
      * Whether the window can gain focus. The default value is true
      *
+     * @type { boolean } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -648,6 +683,7 @@ declare namespace window {
     /**
      * Whether the window is touchable. The default value is false
      *
+     * @type { boolean } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -662,6 +698,7 @@ declare namespace window {
     /**
      * Brightness value of window.
      *
+     * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -671,6 +708,7 @@ declare namespace window {
     /**
      * The dimbehind value of window.
      *
+     * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      * @deprecated since 9
@@ -686,6 +724,7 @@ declare namespace window {
     /**
      * Whether keep screen on.
      *
+     * @type { boolean } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -695,6 +734,7 @@ declare namespace window {
     /**
      * Whether make window in privacy mode or not.
      *
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -703,6 +743,7 @@ declare namespace window {
     /**
      * Whether is round corner or not.
      *
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      * @deprecated since 9
@@ -712,6 +753,7 @@ declare namespace window {
     /**
      * Whether is transparent or not.
      *
+     * @type { boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
@@ -720,6 +762,7 @@ declare namespace window {
     /**
      * Window id.
      *
+     * @type { number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -807,6 +850,7 @@ declare namespace window {
     /**
      * The rotate degree of x direction. Default value is 0.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -816,6 +860,7 @@ declare namespace window {
     /**
      * The rotate degree of y direction. Default value is 0.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -825,6 +870,7 @@ declare namespace window {
     /**
      * The rotate degree of z direction. Default value is 0.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -834,6 +880,7 @@ declare namespace window {
     /**
      * The param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -843,6 +890,7 @@ declare namespace window {
     /**
      * The param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -862,6 +910,7 @@ declare namespace window {
     /**
      * The translate pixel param of x direction. Default is 0.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -871,6 +920,7 @@ declare namespace window {
     /**
      * The translate pixel param of y direction. Default is 0.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -880,6 +930,7 @@ declare namespace window {
     /**
      * The translate pixel param of z direction. Default is 0.f
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -899,6 +950,7 @@ declare namespace window {
     /**
      * The target window with animation
      *
+     * @type { Window }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since 9
@@ -955,14 +1007,6 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
-  /**
-   * Configuration parameters for window creation.
-   *
-   * @interface Configuration
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
-   */
   interface Configuration {
     /**
      * Indicates window id.
@@ -970,72 +1014,41 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    /**
-     * Indicates window id.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
     name: string;
 
     /**
      * Indicates window type
      *
+     * @type { WindowType }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * Indicates window type
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     windowType: WindowType;
 
     /**
      * Indicates window context.
      *
+     * @type { ?BaseContext }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * Indicates window context.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     ctx?: BaseContext;
 
     /**
      * Indicates display ID.
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * Indicates display ID.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     displayId?: number;
 
     /**
      * Indicates Parent window id
      *
+     * @type { ?number }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * Indicates Parent window id
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     parentId?: number;
   }
@@ -1054,21 +1067,6 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
    */
-   /**
-   * Create a window with a specific configuration
-   *
-   * @param { Configuration } config - Parameters for window creation.
-   * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 1300001 - Repeated operation.
-   * @throws { BusinessError } 1300006 - This window context is abnormal.
-   * @throws { BusinessError } 1300008 - The operation is on invalid display.
-   * @throws { BusinessError } 1300009 - The parent window is invalid.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
-   */
   function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
   /**
@@ -1084,21 +1082,6 @@ declare namespace window {
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
-   */
-  /**
-   * Create a window with a specific configuration
-   *
-   * @param { Configuration } config - Parameters for window creation.
-   * @returns { Promise<Window> } Promise used to return the window created.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 1300001 - Repeated operation.
-   * @throws { BusinessError } 1300006 - This window context is abnormal.
-   * @throws { BusinessError } 1300008 - The operation is on invalid display.
-   * @throws { BusinessError } 1300009 - The parent window is invalid.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
    */
   function createWindow(config: Configuration): Promise<Window>;
 
@@ -1310,6 +1293,7 @@ declare namespace window {
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -1322,6 +1306,7 @@ declare namespace window {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
    */
@@ -1383,6 +1368,7 @@ declare namespace window {
    * @throws { BusinessError } 401 - Parameter error..
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
    */
@@ -1396,10 +1382,41 @@ declare namespace window {
    * @throws { BusinessError } 401 - Parameter error..
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
    */
   function setGestureNavigationEnabled(enable: boolean): Promise<void>;
+
+  /**
+   * Set watermark image.
+   *
+   * @param { image.PixelMap } pixelMap - Watermark image.
+   * @param { boolean } enable - Show watermark if true.
+   * @returns { Promise<void> } - Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
+
+  /**
+   * Set watermark image.
+   *
+   * @param { image.PixelMap } pixelMap - Watermark image.
+   * @param { boolean } enable - Show watermark if true.
+   * @param { AsyncCallback<void> } callback - The callback of setWaterMarkImage.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Register the callback of systemBarTintChange
@@ -1452,6 +1469,32 @@ declare namespace window {
    * @since 10
    */
   function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Register the callback for watermark flag change.
+   *
+   * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
+   * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function on(type: 'waterMarkFlagChange', callback: Callback<boolean>): void;
+
+  /**
+   * Unregister the callback for watermark flag change.
+   *
+   * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
+   * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function off(type: 'waterMarkFlagChange', callback?: Callback<boolean>): void;
   /**
    * Display orientation
    *
@@ -1759,7 +1802,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-     /**
+    /**
      * Show window.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -2437,8 +2480,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
@@ -2466,8 +2509,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     loadContent(path: string, storage: LocalStorage): Promise<void>;
@@ -2498,7 +2541,10 @@ declare namespace window {
 
     /**
      * Get the UIContext associate with the window content.
+     *
      * @returns { UIContext } the object of UIContext.
+     * @throws { BusinessError } 401 - If param is invalid
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
      * @crossplatform
@@ -2646,7 +2692,7 @@ declare namespace window {
     /**
      * Register the callback of avoidAreaChange
      *
-     * @param { 'avoidAreaChange' } type: - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2657,7 +2703,7 @@ declare namespace window {
     /**
      * Unregister the callback of avoidAreaChange
      *
-     * @param { 'avoidAreaChange' } type: - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
+     * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2747,7 +2793,8 @@ declare namespace window {
     /**
      * Unregister the callback of dialogTargetTouch
      *
-     * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch', indicating the click event of the target window in the modal window mode.
+     * @param { 'dialogTargetTouch' } type - The value is fixed at 'dialogTargetTouch', 
+     *  indicating the click event of the target window in the modal window mode.
      * @param { Callback<void> } callback - Callback invoked when the click event occurs in the target window of the modal window mode.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2774,7 +2821,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
-    off(type: 'windowEvent', callback: Callback<WindowEventType>): void;
+    off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
 
     /**
      * Bind dialog to the target window.
@@ -2785,6 +2832,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -2799,6 +2847,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -2813,6 +2862,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -2827,6 +2877,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
@@ -2861,7 +2912,8 @@ declare namespace window {
     /**
      * Whether the window supports thr wide gamut setting.
      *
-     * @returns { Promise<boolean> } Promise used to return the result. The value true means that the wide-gamut color space is supported, and false means the opposite.
+     * @returns { Promise<boolean> } Promise used to return the result. 
+     *  The value true means that the wide-gamut color space is supported, and false means the opposite.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
@@ -3590,6 +3642,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
     setAspectRatio(ratio: number, callback: AsyncCallback<void>): void;
@@ -3602,6 +3655,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
     setAspectRatio(ratio: number): Promise<void>;
@@ -3612,6 +3666,7 @@ declare namespace window {
      * @param { AsyncCallback<void> } callback - The callback of setAspectRatio.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
     resetAspectRatio(callback: AsyncCallback<void>): void;
@@ -3622,6 +3677,7 @@ declare namespace window {
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
     resetAspectRatio(): Promise<void>;
@@ -3634,6 +3690,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300008 - The operation is on invalid display.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -3647,10 +3704,144 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300008 - The operation is on invalid display.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
+
+    /**
+     * Raise one app sub window above another.
+     *
+     * @param { number } windowId - Indicates target window id.
+     * @param { AsyncCallback<void> } callback - The callback of raiseAboveTarget.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300009 - The parent window is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    raiseAboveTarget(windowId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Raise one app sub window above another.
+     *
+     * @param { number } windowId - Indicates target window id.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300009 - The parent window is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    raiseAboveTarget(windowId: number): Promise<void>;
+
+    /**
+     * Set whether to enable an app sub window to raise itself by click.
+     *
+     * @param { boolean } enable - Disable app sub window to raise itself by by click if false.
+     * @param { AsyncCallback<void> } callback - The callback of setRaiseByClickEnabled.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300009 - The parent window is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setRaiseByClickEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set whether to enable an app sub window to raise itself by click.
+     *
+     * @param { boolean } enable - Disable app sub window to raise itself by by click if false.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300009 - The parent window is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setRaiseByClickEnabled(enable: boolean): Promise<void>;
+
+    /**
+     * Minimize app main window.
+     *
+     * @param { AsyncCallback<void> } callback - The callback of Minimize.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    minimize(callback: AsyncCallback<void>): void;
+
+    /**
+     * Minimize app main window.
+     *
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    minimize(): Promise<void>;
+
+    /**
+     * Set whether to enable a window to resize by drag.
+     *
+     * @param { boolean } enable - Disable window to resize by drag if false.
+     * @param { AsyncCallback<void> } callback - The callback of setResizeByDragEnabled.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setResizeByDragEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set whether to enable a window to resize by drag.
+     *
+     * @param { boolean } enable - Disable window to resize by drag if false.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    setResizeByDragEnabled(enable: boolean): Promise<void>;
   }
   /**
    * Window stage callback event type
@@ -3660,33 +3851,78 @@ declare namespace window {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * Window stage callback event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
+   */
   enum WindowStageEventType {
     /**
      * The window stage is running in the foreground.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
      * @since 9
+     */
+    /**
+     * The window stage is running in the foreground.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 10
      */
     SHOWN = 1,
     /**
      * The window stage gains focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
      * @since 9
+     */
+    /**
+     * The window stage gains focus.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 10
      */
     ACTIVE,
     /**
      * The window stage loses focus.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
      * @since 9
+     */
+    /**
+     * The window stage loses focus.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 10
      */
     INACTIVE,
     /**
      * The window stage is running in the background.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
      * @since 9
+     */
+    /**
+     * The window stage is running in the background.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @since 10
      */
     HIDDEN
   }
@@ -3723,8 +3959,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     getMainWindow(): Promise<Window>;
@@ -3745,8 +3981,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     getMainWindow(callback: AsyncCallback<Window>): void;
@@ -3767,8 +4003,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     getMainWindowSync(): Window;
@@ -3793,8 +4029,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     createSubWindow(name: string): Promise<Window>;
@@ -3819,8 +4055,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     createSubWindow(name: string, callback: AsyncCallback<Window>): void;
@@ -3839,8 +4075,8 @@ declare namespace window {
      * @returns { Promise<Array<Window>> }
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     getSubWindow(): Promise<Array<Window>>;
@@ -3859,8 +4095,8 @@ declare namespace window {
      * @param { AsyncCallback<Array<Window>> } callback Callback used to return all the subwindows.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     getSubWindow(callback: AsyncCallback<Array<Window>>): void;
@@ -3887,8 +4123,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
@@ -3915,8 +4151,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     loadContent(path: string, storage?: LocalStorage): Promise<void>;
@@ -3941,8 +4177,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     loadContent(path: string, callback: AsyncCallback<void>): void;
@@ -3967,8 +4203,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void;
@@ -3993,8 +4229,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @StageModelOnly
+     * @crossplatform
      * @since 10
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
