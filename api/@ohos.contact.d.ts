@@ -53,6 +53,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function addContact(context: Context, contact: Contact, callback: AsyncCallback<number>): void;
 
@@ -82,6 +83,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function addContact(context: Context, contact: Contact): Promise<number>;
 
@@ -179,6 +181,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function deleteContact(context: Context, key: string, callback: AsyncCallback<void>): void;
 
@@ -206,6 +209,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function deleteContact(context: Context, key: string): Promise<void>;
 
@@ -233,6 +237,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContact(context: Context, key: string, callback: AsyncCallback<Contact>): void;
 
@@ -264,6 +269,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContact(context: Context, key: string, holder: Holder, callback: AsyncCallback<Contact>): void;
 
@@ -295,6 +301,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContact(context: Context, key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
@@ -328,6 +335,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
@@ -361,6 +369,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContact(context: Context, key: string, holder?: Holder, attrs?: ContactAttributes): Promise<Contact>;
 
@@ -386,6 +395,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContacts(context: Context, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -415,6 +425,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContacts(context: Context, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -444,6 +455,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContacts(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -477,6 +489,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContacts(context: Context, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -510,6 +523,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContacts(context: Context, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
@@ -537,6 +551,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContactsByEmail(context: Context, email: string, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -568,6 +583,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContactsByEmail(context: Context, email: string, holder: Holder,
     callback: AsyncCallback<Array<Contact>>): void;
@@ -600,6 +616,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContactsByEmail(context: Context, email: string, attrs: ContactAttributes,
     callback: AsyncCallback<Array<Contact>>): void;
@@ -636,6 +653,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContactsByEmail(context: Context, email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -671,6 +689,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContactsByEmail(context: Context, email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
@@ -700,6 +719,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -733,6 +753,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -766,6 +787,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
@@ -803,6 +825,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, attrs: ContactAttributes,
     callback: AsyncCallback<Array<Contact>>): void;
@@ -841,6 +864,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
@@ -866,6 +890,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryGroups(context: Context, callback: AsyncCallback<Array<Group>>): void;
 
@@ -895,6 +920,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryGroups(context: Context, holder: Holder, callback: AsyncCallback<Array<Group>>): void;
 
@@ -924,6 +950,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryGroups(context: Context, holder?: Holder): Promise<Array<Group>>;
 
@@ -949,6 +976,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryHolders(context: Context, callback: AsyncCallback<Array<Holder>>): void;
 
@@ -974,6 +1002,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryHolders(context: Context): Promise<Array<Holder>>;
 
@@ -1001,6 +1030,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryKey(context: Context, id: number, callback: AsyncCallback<string>): void;
 
@@ -1032,6 +1062,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryKey(context: Context, id: number, holder: Holder, callback: AsyncCallback<string>): void;
 
@@ -1063,6 +1094,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryKey(context: Context, id: number, holder?: Holder): Promise<string>;
 
@@ -1088,6 +1120,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryMyCard(context: Context, callback: AsyncCallback<Contact>): void;
 
@@ -1117,6 +1150,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryMyCard(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
@@ -1146,6 +1180,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function queryMyCard(context: Context, attrs?: ContactAttributes): Promise<Contact>;
 
@@ -1175,6 +1210,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function updateContact(context: Context, contact: Contact, callback: AsyncCallback<void>): void;
 
@@ -1208,6 +1244,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function updateContact(context: Context, contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void;
 
@@ -1239,6 +1276,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function updateContact(context: Context, contact: Contact, attrs?: ContactAttributes): Promise<void>;
 
@@ -1268,6 +1306,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function isLocalContact(context: Context, id: number, callback: AsyncCallback<boolean>): void;
 
@@ -1297,6 +1336,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function isLocalContact(context: Context, id: number): Promise<boolean>;
 
@@ -1326,6 +1366,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function isMyCard(context: Context, id: number, callback: AsyncCallback<boolean>): void;
 
@@ -1353,6 +1394,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
+   * @stagemodelonly
    */
   function isMyCard(context: Context, id: number): Promise<boolean>;
 
