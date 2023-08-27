@@ -15,7 +15,6 @@
 
 import fs, { constants, Stats } from 'fs';
 import path from 'path';
-import { LogUtil } from './logUtil';
 
 export class FileUtils {
   static readFileContent(file: string): string | undefined {
