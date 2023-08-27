@@ -386,7 +386,7 @@ declare namespace sim {
    * @returns Returns the SIM card type.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10
-   */  
+   */
   function getCardTypeSync(slotId: number): CardType;
 
   /**
@@ -761,7 +761,7 @@ declare namespace sim {
    * @returns Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10
-   */  
+   */
   function hasSimCardSync(slotId: number): boolean;
 
   /**
