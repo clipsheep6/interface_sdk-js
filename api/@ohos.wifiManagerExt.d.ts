@@ -90,7 +90,7 @@ declare namespace wifiManagerExt {
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    */
-  function setPowerMode(mode: PowerMode): void
+  function setPowerMode(mode: PowerMode): void;
 
   /**
    * The power Mode enumeration.
