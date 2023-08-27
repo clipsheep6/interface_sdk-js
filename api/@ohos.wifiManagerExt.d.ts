@@ -43,7 +43,7 @@ declare namespace wifiManagerExt {
    * @permission ohos.permission.SET_WIFI_INFO
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2601000 - Operation failed.
+   * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 9
    */
