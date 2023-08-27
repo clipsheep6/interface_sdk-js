@@ -14,7 +14,6 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
-
 /**
  * Provides extended methods to operate or manage Wi-Fi.
  *
@@ -22,8 +21,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * These extended APIs are only used by some product types, such as routers. 
  * Common products should not use these APIs.</p>
  *
+ * @namespace wifiManagerExt
  * @since 9
- * @import import wifiManagerExt from '@ohos.wifiManagerExt';
  */
 declare namespace wifiManagerExt {
   /**
