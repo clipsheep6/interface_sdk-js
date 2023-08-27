@@ -89,7 +89,7 @@ declare namespace wifiext {
    * @deprecated since 9
    * @useinstead ohos.wifiManagerExt/wifiManagerExt.setPowerMode
    */
-  function setPowerModel(model: PowerModel): boolean
+  function setPowerModel(model: PowerModel): boolean;
 
   /**
    * The power model enumeration.
