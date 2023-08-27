@@ -31,7 +31,7 @@ declare namespace wifiext {
    *
    * @returns Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
    * @since 8
-   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @permission ohos.permission.SET_WIFI_INFO
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @deprecated since 9
    * @useinstead ohos.wifiManagerExt/wifiManagerExt.enableHotspot
@@ -42,7 +42,7 @@ declare namespace wifiext {
    * Disables a Wi-Fi hotspot.
    * @returns Returns {@code true} if this method is called successfully; returns {@code false} otherwise.
    * @since 8
-   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @permission ohos.permission.SET_WIFI_INFO
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @deprecated since 9
    * @useinstead ohos.wifiManagerExt/wifiManagerExt.disableHotspot
@@ -97,7 +97,7 @@ declare namespace wifiext {
    * Set the current Wi-Fi power mode.
    * @returns Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
    * @since 8
-   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @permission ohos.permission.SET_WIFI_INFO
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @deprecated since 9
    * @useinstead ohos.wifiManagerExt/wifiManagerExt.setPowerMode
