@@ -33,7 +33,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
-   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @permission ohos.permission.SET_WIFI_INFO
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    */
   function enableHotspot(): void;
@@ -45,7 +45,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
-   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @permission ohos.permission.SET_WIFI_INFO
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    */
   function disableHotspot(): void;
@@ -87,7 +87,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
-   * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
+   * @permission ohos.permission.SET_WIFI_INFO
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    */
   function setPowerMode(mode: PowerMode): void;
