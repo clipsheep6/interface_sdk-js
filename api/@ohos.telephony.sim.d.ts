@@ -284,8 +284,7 @@ declare namespace sim {
    *
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<SimState> } callback - Indicates the callback for getting one of the following
-   * SIM card states:
+   * @param { AsyncCallback<SimState> } callback - Indicates the callback for getting one of the following SIM card states:
    * <ul>
    * <li>{@code SimState#SIM_STATE_UNKNOWN}
    * <li>{@code SimState#SIM_STATE_NOT_PRESENT}
