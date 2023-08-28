@@ -2616,7 +2616,7 @@ declare namespace wifiManager {
     snr: number;
 
     /**
-     * Type of macAddress: 0 - real mac, 1 - random mac.
+     * Type of macAddress.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
