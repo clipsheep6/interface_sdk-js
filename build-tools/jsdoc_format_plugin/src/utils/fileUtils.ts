@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import fs, { constants, Stats } from 'fs';
+import fs, { constants } from 'fs';
 import path from 'path';
 
 export class FileUtils {
