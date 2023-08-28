@@ -21,6 +21,15 @@
  * @systemapi
  * @since 9
  */
+/**
+ * This module provides the capability to parse file or device information.
+ *
+ * @namespace fileExtensionInfo
+ * @syscap SystemCapability.FileManagement.UserFileService
+ * @systemapi
+ * @threadsafe
+ * @since 10
+ */
 declare namespace fileExtensionInfo {
   /**
    * DeviceType Indicates the type of device connected to the fileaccess server.

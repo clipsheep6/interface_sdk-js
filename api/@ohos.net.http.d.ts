@@ -27,6 +27,7 @@ import type connection from './@ohos.net.connection';
  * @namespace http
  * @syscap SystemCapability.Communication.NetStack
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 declare namespace http {
@@ -62,6 +63,7 @@ declare namespace http {
    * @interface HttpRequestOptions
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
+   * @threadsafe
    * @since 10
    */
   export interface HttpRequestOptions {
@@ -232,6 +234,7 @@ declare namespace http {
    * @interface HttpRequest
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
+   * @threadsafe
    * @since 10
    */
   export interface HttpRequest {
@@ -760,6 +763,7 @@ declare namespace http {
    * @enum {string}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
+   * @threadsafe
    * @since 10
    */
   export enum RequestMethod {
@@ -879,6 +883,7 @@ declare namespace http {
    * @enum {number}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
+   * @threadsafe
    * @since 10
    */
   export enum ResponseCode {
@@ -1353,6 +1358,7 @@ declare namespace http {
    * @enum {string}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
+   * @threadsafe
    * @since 10
    */
   export enum HttpProtocol {
@@ -1394,6 +1400,7 @@ declare namespace http {
    * @enum {number}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
+   * @threadsafe
    * @since 10
    */
   export enum HttpDataType {
@@ -1448,6 +1455,7 @@ declare namespace http {
    * @interface HttpResponse
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
+   * @threadsafe
    * @since 10
    */
   export interface HttpResponse {
@@ -1561,6 +1569,7 @@ declare namespace http {
    * @interface HttpResponseCache
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
+   * @threadsafe
    * @since 10
    */
   export interface HttpResponseCache {

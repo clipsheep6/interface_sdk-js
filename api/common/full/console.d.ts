@@ -17,6 +17,11 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @threadsafe
+ * @since 10
+ */
 export declare class console {
   /**
    * Prints "debug" logs.

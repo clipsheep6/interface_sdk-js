@@ -22,6 +22,14 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 9
  */
+/**
+ * Provide the capabilities to use different pickers.
+ *
+ * @namespace picker
+ * @syscap SystemCapability.FileManagement.UserFileService
+ * @threadsafe
+ * @since 10
+ */
 declare namespace picker {
   /**
    * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
@@ -29,6 +37,14 @@ declare namespace picker {
    * @enum { string } PhotoViewMIMETypes
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
+   */
+  /**
+   * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
+   *
+   * @enum { string } PhotoViewMIMETypes
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @threadsafe
+   * @since 10
    */
   export enum PhotoViewMIMETypes {
     IMAGE_TYPE = 'image/*',

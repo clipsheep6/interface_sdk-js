@@ -22,6 +22,14 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.MiscServices.Time
  * @since 9
  */
+/**
+ * System time and timezone.
+ *
+ * @namespace systemDateTime
+ * @syscap SystemCapability.MiscServices.Time
+ * @threadsafe
+ * @since 10
+ */
 declare namespace systemDateTime {
   /**
    * Sets the system time.

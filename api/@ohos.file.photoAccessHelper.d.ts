@@ -23,6 +23,7 @@ import type dataSharePredicates from './@ohos.data.dataSharePredicates';
  *
  * @namespace photoAccessHelper
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @threadsafe
  * @since 10
  */
 declare namespace photoAccessHelper {

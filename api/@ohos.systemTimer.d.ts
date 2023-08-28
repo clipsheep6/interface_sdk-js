@@ -24,6 +24,15 @@ import { WantAgent } from './@ohos.app.ability.wantAgent';
  * @systemapi Hide this for inner system use.
  * @since 7
  */
+/**
+ * Provides js api for systemTimer
+ *
+ * @namespace systemTimer
+ * @syscap SystemCapability.MiscServices.Time
+ * @systemapi Hide this for inner system use.
+ * @threadsafe
+ * @since 10
+ */
 declare namespace systemTimer {
   /**
    * Indicates the timing policy the timer use, which can be REALTIME or UTC.

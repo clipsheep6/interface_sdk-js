@@ -27,6 +27,19 @@ import { OffscreenCanvasRenderingContext2D } from './viewmodel'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
+/**
+ * Sets the interval for repeatedly calling a function.
+ *
+ * @param { Function | string } handler Indicates the function to be called after the timer goes off.
+ * For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string.
+ * For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
+ * @param { number } delay Indicates the interval between each two calls, in milliseconds. The function will be called after this delay.
+ * @param { any[] } arguments Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @returns { number } Returns the timer ID.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @threadsafe
+ * @since 10
+ */
 export declare function setInterval(handler: Function | string, delay: number, ...arguments: any[]): number;
 
 /**
@@ -41,6 +54,20 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
+ */
+/**
+ * Sets a timer after which a function will be executed.
+ *
+ * @param { Function | string } handler Indicates the function to be called after the timer goes off.
+ * For devices of "tv", "phone, tablet", and "wearable" types, this parameter can be a function or string.
+ * For devices of "lite wearable" and "smartVision" types, this parameter must be a function.
+ * @param { number } delay Indicates the delay (in milliseconds) after which the function will be called.
+ * If this parameter is left empty, default value "0" will be used, which means that the function will be called immediately or as soon as possible.
+ * @param { any[] } arguments Indicates additional arguments to pass to "handler" when the timer goes off.
+ * @returns { number } Returns the timer ID.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @threadsafe
+ * @since 10
  */
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
 
@@ -70,6 +97,14 @@ export declare function cancelAnimationFrame(requestId: number): void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
+/**
+ * Cancels the interval set by " setInterval()".
+ *
+ * @param { number } intervalID Indicates the timer ID returned by "setInterval()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @threadsafe
+ * @since 10
+ */
 export declare function clearInterval(intervalID?: number): void;
 
 /**
@@ -78,6 +113,14 @@ export declare function clearInterval(intervalID?: number): void;
  * @param { number } [timeoutID] - Indicates the timer ID returned by "setTimeout()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
+ */
+/**
+ * Cancels the timer set by "setTimeout()".
+ *
+ * @param { number } timeoutID Indicates the timer ID returned by "setTimeout()".
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @threadsafe
+ * @since 10
  */
 export declare function clearTimeout(timeoutID?: number): void;
 

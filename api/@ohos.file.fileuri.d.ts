@@ -21,6 +21,14 @@ import uri from './@ohos.uri';
  * @syscap SystemCapability.FileManagement.AppFileService
  * @since 9
  */
+/**
+ * Provides fileUri APIS
+ *
+ * @namespace fileUri
+ * @syscap SystemCapability.FileManagement.AppFileService
+ * @threadsafe
+ * @since 10
+ */
 declare namespace fileUri {
   /**
    * FileUri represents the uri of the file.

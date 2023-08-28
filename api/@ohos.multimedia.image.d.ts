@@ -21,6 +21,11 @@ import type rpc from './@ohos.rpc';
  * @namespace image
  * @since 6
  */
+/**
+ * @namespace image
+ * @threadsafe
+ * @since 10
+ */
 declare namespace image {
   /**
    * Enumerates pixel map formats.

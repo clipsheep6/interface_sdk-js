@@ -22,6 +22,14 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
+/**
+ * Hash
+ *
+ * @namespace hash
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @threadsafe
+ * @since 10
+ */
 declare namespace hash {
   /**
    * Hash file.

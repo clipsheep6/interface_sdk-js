@@ -25,6 +25,14 @@ import { Filter } from './@ohos.file.fs';
  * @syscap SystemCapability.FileManagement.UserFileService
  * @since 9
  */
+/**
+ * This module provides the capability to access user public files.
+ *
+ * @namespace fileAccess
+ * @syscap SystemCapability.FileManagement.UserFileService
+ * @threadsafe
+ * @since 10
+ */
 declare namespace fileAccess {
   /**
    * Query the want information of HAP configured with fileaccess.

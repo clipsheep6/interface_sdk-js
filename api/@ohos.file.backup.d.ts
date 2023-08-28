@@ -21,6 +21,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @namespace backup
  * @syscap SystemCapability.FileManagement.StorageService.Backup
  * @systemapi
+ * @threadsafe
  * @since 10
  */
 declare namespace backup {
