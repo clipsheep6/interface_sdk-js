@@ -155,11 +155,13 @@ declare enum SlideEffect {
 /**
  * Provides interfaces for common transitions.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Provides interfaces for common transitions.
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
@@ -201,7 +203,7 @@ declare class CommonTransition<T> {
   /**
    * Called when the translation effect of page transition is set.
    *
-   * @param { { x?: number | string; y?: number | string; z?: number | string } } value
+   * @param { object } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -209,7 +211,7 @@ declare class CommonTransition<T> {
   /**
    * Called when the translation effect of page transition is set.
    *
-   * @param { { x?: number | string; y?: number | string; z?: number | string } } value
+   * @param { object } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -220,7 +222,7 @@ declare class CommonTransition<T> {
   /**
    * Called when setting the zoom effect of page transition.
    *
-   * @param { { x?: number; y?: number; z?: number; centerX?: number | string; centerY?: number | string } } value
+   * @param { object } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -228,7 +230,7 @@ declare class CommonTransition<T> {
   /**
    * Called when setting the zoom effect of page transition.
    *
-   * @param { { x?: number; y?: number; z?: number; centerX?: number | string; centerY?: number | string } } value
+   * @param { object } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -420,7 +422,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
   /**
    * Called when the input parameter is the normalized progress of the current exit animation.
    *
-   * @param { (type?: RouteType, progress?: number) => void } event
+   * @param { function } event
    * @returns { PageTransitionExitInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -429,7 +431,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
    * Called frame by frame to customize pageTransition animation when the page exits.
    * The input parameter is the normalized progress of the current exit animation.
    *
-   * @param { (type?: RouteType, progress?: number) => void } event
+   * @param { function } event
    * @returns { PageTransitionExitInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
