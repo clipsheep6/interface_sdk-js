@@ -23,6 +23,15 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @systemapi
  * @since 9
  */
+/**
+ * Provides volumemanager statistics APIs
+ *
+ * @namespace volumeManager
+ * @syscap SystemCapability.FileManagement.StorageService.Volume
+ * @systemapi
+ * @threadsafe
+ * @since 10
+ */
 declare namespace volumeManager {
   /**
    * Get All Volumes
@@ -31,6 +40,15 @@ declare namespace volumeManager {
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
+   */
+  /**
+   * Get All Volumes
+   *
+   * @interface Volume
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @threadsafe
+   * @since 10
    */
   export interface Volume {
     /**

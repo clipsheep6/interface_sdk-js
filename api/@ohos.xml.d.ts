@@ -26,6 +26,7 @@
  * @namespace xml
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 declare namespace xml {

@@ -22,6 +22,14 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
+/**
+ * Provides filesystem statistics APIs
+ *
+ * @namespace statfs
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @threadsafe
+ * @since 10
+ */
 declare namespace statfs {
   /**
    * Get the number of free bytes on the specified path.

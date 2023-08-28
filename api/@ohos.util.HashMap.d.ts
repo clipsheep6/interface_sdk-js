@@ -28,6 +28,7 @@
  * @namespace HashMap
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 declare class HashMap<K, V> {

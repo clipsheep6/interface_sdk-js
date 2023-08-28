@@ -22,6 +22,14 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
  * @since 8
  */
+/**
+ * Provides filesystem statistics APIs
+ *
+ * @namespace storageStatistics
+ * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+ * @threadsafe
+ * @since 10
+ */
 declare namespace storageStatistics {
   /**
    * Get the totalSize of volume.
@@ -100,6 +108,14 @@ declare namespace storageStatistics {
    * @interface BundleStats
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @since 9
+   */
+  /**
+   * Get the bundlestat
+   *
+   * @interface BundleStats
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @threadsafe
+   * @since 10
    */
   export interface BundleStats {
     /**
@@ -225,6 +241,15 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @since 9
+   */
+  /**
+   * Get the UserStorageStats
+   *
+   * @interface StorageStats
+   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @systemapi
+   * @threadsafe
+   * @since 10
    */
   export interface StorageStats {
     /**

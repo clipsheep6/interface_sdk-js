@@ -24,6 +24,7 @@
  * Provides options that can be set for the worker to create.
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export interface WorkerOptions {
@@ -84,6 +85,7 @@ export interface WorkerOptions {
  * Defines the event.
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export interface Event {
@@ -129,6 +131,7 @@ export interface Event {
  * Provides detailed information about the exception occurred during worker execution.
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export interface ErrorEvent extends Event {
@@ -219,6 +222,7 @@ export interface ErrorEvent extends Event {
  * Holds the data transferred between worker threads.
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export interface MessageEvent<T> extends Event {
@@ -249,6 +253,7 @@ export interface MessageEvent<T> extends Event {
  * Saves the data transferred between worker thread and host thread.
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export interface MessageEvents extends Event {
@@ -281,6 +286,7 @@ export interface MessageEvents extends Event {
  * The object must be ArrayBuffer.
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export interface PostMessageOptions {
@@ -333,6 +339,7 @@ export interface EventListener {
  * Implements event listening.
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export interface WorkerEventListener {
@@ -444,6 +451,7 @@ export interface EventTarget {
  * Specific worker event features.
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export interface WorkerEventTarget {
@@ -708,6 +716,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
  * Specifies the thread-worker running environment, which is isolated from the host-thread environment
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 export interface ThreadWorkerGlobalScope extends GlobalScope {
@@ -844,6 +853,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
  * @namespace worker
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
+ * @threadsafe
  * @since 10
  */
 declare namespace worker {
