@@ -2032,6 +2032,14 @@ declare namespace audio {
      * @since 10
      */
     off(type: 'preferredInputDeviceChangeForCapturerInfo', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /*
+     * Gets available microphones.
+     * @returns { MicrophoneDescriptors } Microphone descriptors.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    getAvailableMicrophones(): MicrophoneDescriptors;
   }
 
   /**
@@ -2977,6 +2985,35 @@ declare namespace audio {
   }
 
   /**
+   * Describes microphone information.
+   * @typedef MicrophoneDescriptor
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @since 11
+   */
+  interface MicrophoneDescriptor {
+    /**
+     * Microphone id.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    readonly id: number;
+
+    /**
+     * Audio input device type.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    readonly deviceType: DeviceType;
+  }
+
+  /**
+   * Array of MicrophoneDescriptors, which is read-only.
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @since 11
+   */
+  type MicrophoneDescriptors = Array<Readonly<MicrophoneDescriptor>>;
+
+  /**
    * Provides audio playback APIs.
    * @typedef AudioRenderer
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -3692,6 +3729,14 @@ declare namespace audio {
      * @since 8
      */
     getBufferSize(): Promise<number>;
+
+    /**
+     * Obtains microphones this capturer used currently.
+     * @returns { MicrophoneDescriptors } Microphone descriptors.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    getCurrentMicrophones(): MicrophoneDescriptors;
 
     /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
