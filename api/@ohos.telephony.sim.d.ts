@@ -229,7 +229,7 @@ declare namespace sim {
    * with which the SIM card is currently registered.
    *
    * @param { number } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
+   * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting the SPN;
    * returns an empty string if no SIM card is inserted or no EFSPN file in the SIM card.
    * @throws { BusinessError } 401 - Parameter error.
@@ -271,7 +271,7 @@ declare namespace sim {
    * with which the SIM card is currently registered.
    *
    * @param { number } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   * ranging from 0 to the maximum card slots supported by the device.
    * @returns { string } Returns the SPN; returns an empty string if no EFSPN file is configured for the SIM card.
    * in the SIM card.
    * @syscap SystemCapability.Telephony.CoreService
