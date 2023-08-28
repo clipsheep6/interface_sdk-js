@@ -406,6 +406,8 @@ const OptionalSymbols = {
   RIGHT_BRACKET: ']',
   LEFT_BRACE: '{',
   RIGHT_BRACE: '}',
+  LEFT_PARENTHESES: '(',
+  RIGHT_PARENTHESES: ')'
 };
 exports.OptionalSymbols = OptionalSymbols;
 

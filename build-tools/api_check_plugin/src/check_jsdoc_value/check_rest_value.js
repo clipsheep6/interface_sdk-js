@@ -272,8 +272,12 @@ function checkTypeValue(tag, node, fileName) {
       } else {
         apiTypeValue = node.type?.getText();
       }
+      if (node.questionToken) {
+        apiTypeValue = ts.isUnionTypeNode(node.type) ? OptionalSymbols.LEFT_PARENTHESES + apiTypeValue +
+          OptionalSymbols.RIGHT_PARENTHESES : apiTypeValue;
+        apiTypeValue = OptionalSymbols.QUERY.concat(apiTypeValue);
+      }
     }
-    apiTypeValue = node.questionToken ? OptionalSymbols.QUERY.concat(apiTypeValue) : apiTypeValue;
     if (apiTypeValue.replace(/\n|\r|\s/g, '') !== tagTypeValue) {
       typeResult.checkResult = false;
       typeResult.errorInfo = ErrorValueInfo.ERROR_INFO_VALUE_TYPE;
