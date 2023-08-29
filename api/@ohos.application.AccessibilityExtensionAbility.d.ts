@@ -38,7 +38,6 @@ export declare namespace accessibilityExtensionContext {
    * Indicates an accessibility element.
    * Supports querying element attributes, requesting execution actions, and finding child elements by condition.
    *
-   * @typedef AccessibilityElement
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 10
    */
@@ -87,7 +86,6 @@ export declare namespace accessibilityExtensionContext {
   /**
    * Indicates rectangle.
    *
-   * @typedef Rect
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 10
    */
@@ -96,7 +94,6 @@ export declare namespace accessibilityExtensionContext {
   /**
    * The accessibility extension context. Used to configure, query information, and inject gestures.
    *
-   * @extends ExtensionContext
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 10
    */
