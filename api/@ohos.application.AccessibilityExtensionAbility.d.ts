@@ -117,6 +117,7 @@ type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
  * @since 9
  */
 type TouchGuideType = 'touchBegin' | 'touchEnd';
+
 /**
  * Indicates an accessibility element.
  * Supports querying element attributes, requesting execution actions, and finding child elements by condition.
