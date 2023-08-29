@@ -14,8 +14,77 @@
  */
 
 import type accessibility from './@ohos.accessibility';
-import type AccessibilityExtensionContext, { AccessibilityElement } from './application/AccessibilityExtensionContext';
 import type { KeyEvent } from './@ohos.multimodalInput.keyEvent';
+import {
+  AccessibilityElement as _AccessibilityElement,
+  ElementAttributeValues as _ElementAttributeValues,
+  FocusDirection as _FocusDirection,
+  FocusType as _FocusType,
+  WindowType as _WindowType,
+  Rect as _Rect,
+} from './application/AccessibilityExtensionContext';
+import * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
+
+/**
+ * Indicates an accessibility element.
+ * Supports querying element attributes, requesting execution actions, and finding child elements by condition.
+ *
+ * @typedef AccessibilityElement
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type AccessibilityElement = _AccessibilityElement;
+
+/**
+ * Indicates the possible attributes of the element and the type of the attribute value.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type ElementAttributeValues = _ElementAttributeValues;
+
+/**
+ * Indicates the direction of the search focus.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type FocusDirection = _FocusDirection;
+
+/**
+ * Indicates the type of the focus.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type FocusType = _FocusType;
+
+/**
+ * Indicates the type of the window.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type WindowType = _WindowType;
+
+/**
+ * Indicates rectangle.
+ *
+ * @typedef Rect
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type Rect = _Rect;
+
+/**
+ * The accessibility extension context. Used to configure, query information, and inject gestures.
+ *
+ * @extends ExtensionContext
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+
+export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default
 
 /**
  * class of accessibility extension ability.
