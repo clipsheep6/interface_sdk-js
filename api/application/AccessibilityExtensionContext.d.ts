@@ -191,7 +191,7 @@ declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
-  attributeNames<T extends keyof ElementAttributeValues>(callback: AsyncCallback<Array<T>>): void;
+  attributeNames(callback: AsyncCallback<Array<ElementAttributeKeys>>): void;
 
   /**
    * Get a list of attribute names.
@@ -199,7 +199,7 @@ declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
-  attributeNames<T extends keyof ElementAttributeValues>(): Promise<Array<T>>;
+  attributeNames(): Promise<Array<ElementAttributeKeys>>;
 
   /**
    * Get the value of an attribute.
@@ -211,9 +211,9 @@ declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
-  attributeValue<T extends keyof ElementAttributeValues>(
-    attributeName: T,
-    callback: AsyncCallback<ElementAttributeValues[T]>
+  attributeValue(
+    attributeName: ElementAttributeKeys,
+    callback: AsyncCallback<ElementAttributeValues[ElementAttributeKeys]>
   ): void;
 
   /**
@@ -226,7 +226,7 @@ declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
-  attributeValue<T extends keyof ElementAttributeValues>(attributeName: T): Promise<ElementAttributeValues[T]>;
+  attributeValue(attributeName: ElementAttributeKeys): Promise<ElementAttributeValues[ElementAttributeKeys]>;
 
   /**
    * Get a list of supported actions.
@@ -695,6 +695,20 @@ type ElementAttributeValues = {
    */
   'windowId': number;
 };
+
+/**
+ * Indicates the key of the attribute value.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+type ElementAttributeKeys = 'windowId' | 'valueNow' | 'valueMin' | 'valueMax' | 'type' | 'triggerAction' |
+'textMoveUnit' | 'textMoveUnit' | 'textLengthLimit' | 'text' | 'startIndex' | 'selected' | 'scrollable' |
+'screenRect' | 'resourceName' | 'rect' | 'pluralLineSupported' | 'parent' | 'pageId' | 'longClickable' |
+'layer' | 'lastContent' | 'itemCount' | 'isVisible' | 'isPassword' | 'isFocused' | 'isHint' | 'isEnable' |
+'isActive' | 'inspectorKey' | 'inputType' | 'hintText' | 'focusable' | 'error' | 'endIndex' | 'editable' |
+'description' | 'currentIndex' | 'contents' | 'componentType' | 'componentId' | 'clickable' | 'children' |
+'checked' | 'checkable' | 'bundleName' | 'accessibilityFocused';
 
 /**
  * Indicates the direction of the search focus.
