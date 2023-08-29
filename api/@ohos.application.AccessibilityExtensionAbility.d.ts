@@ -103,19 +103,18 @@ export declare namespace accessibilityExtensionContext {
 
   export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
 }
-
 /**
  * class of accessibility extension ability.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since 9
  */
 export default class AccessibilityExtensionAbility {
   /**
    * Indicates accessibility extension ability context.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
+   * @since 9
    */
   context: accessibilityExtensionContext.AccessibilityExtensionContext;
 
@@ -123,7 +122,7 @@ export default class AccessibilityExtensionAbility {
    * Called when extension ability is connected.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
+   * @since 9
    */
   onConnect(): void;
 
@@ -131,7 +130,7 @@ export default class AccessibilityExtensionAbility {
    * Called when extension ability is disconnected.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
+   * @since 9
    */
   onDisconnect(): void;
 
@@ -140,7 +139,7 @@ export default class AccessibilityExtensionAbility {
    *
    * @param { AccessibilityEvent } event Indicates an accessibility event.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
+   * @since 9
    */
   onAccessibilityEvent(event: AccessibilityEvent): void;
 
@@ -150,7 +149,7 @@ export default class AccessibilityExtensionAbility {
    * @param { KeyEvent } keyEvent Indicates the physical key event.
    * @returns { boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
+   * @since 9
    */
   onKeyEvent(keyEvent: KeyEvent): boolean;
 }
@@ -161,7 +160,7 @@ export default class AccessibilityExtensionAbility {
  *
  * @typedef AccessibilityEvent
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since 9
  */
 declare interface AccessibilityEvent {
   eventType: accessibility.EventType | accessibility.WindowUpdateType | TouchGuideType | GestureType | PageUpdateType;
@@ -173,7 +172,7 @@ declare interface AccessibilityEvent {
  * Indicates the gesture type.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since 9
  */
 type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
 'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
@@ -184,7 +183,7 @@ type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
  * Indicates the page update type.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since 9
  */
 type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
 
@@ -192,6 +191,6 @@ type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
  * Indicates the type of touch event during touch browsing.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since 9
  */
 type TouchGuideType = 'touchBegin' | 'touchEnd';
