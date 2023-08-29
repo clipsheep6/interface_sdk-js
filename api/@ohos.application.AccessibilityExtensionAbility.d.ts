@@ -17,7 +17,14 @@ import type accessibility from './@ohos.accessibility';
 import type AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 import type { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import type {
-  AccessibilityElement as _AccessibilityElement} from './application/AccessibilityExtensionContext';
+  AccessibilityElement as _AccessibilityElement,
+  ElementAttributeValues as _ElementAttributeValues,
+  FocusDirection as _FocusDirection,
+  FocusType as _FocusType,
+  WindowType as _WindowType,
+  Rect as _Rect,
+  ElementAttributeKeys as _ElementAttributeKeys,
+} from './application/AccessibilityExtensionContext';
 
 /**
  * class of accessibility extension ability.
@@ -118,3 +125,51 @@ type TouchGuideType = 'touchBegin' | 'touchEnd';
  * @since 10
  */
 export type AccessibilityElement = _AccessibilityElement;
+
+/**
+ * Indicates the possible attributes of the element and the type of the attribute value.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type ElementAttributeValues = _ElementAttributeValues;
+
+/**
+ * Indicates the direction of the search focus.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type FocusDirection = _FocusDirection;
+
+/**
+ * Indicates the key of the attribute value.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type ElementAttributeKeys = _ElementAttributeKeys;
+
+/**
+ * Indicates the type of the focus.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type FocusType = _FocusType;
+
+/**
+ * Indicates the type of the window.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type WindowType = _WindowType;
+
+/**
+ * Indicates rectangle.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type Rect = _Rect;
