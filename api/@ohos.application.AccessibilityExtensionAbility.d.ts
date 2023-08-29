@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -27,86 +27,95 @@ import {
 import * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 
 /**
- * Indicates an accessibility element.
- * Supports querying element attributes, requesting execution actions, and finding child elements by condition.
+ * The accessibility extension context.
  *
- * @typedef AccessibilityElement
+ * @namespace accessibilityExtensionContext
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10
  */
-export type AccessibilityElement = _AccessibilityElement;
+export declare namespace accessibilityExtensionContext {
+  /**
+   * Indicates an accessibility element.
+   * Supports querying element attributes, requesting execution actions, and finding child elements by condition.
+   *
+   * @typedef AccessibilityElement
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 10
+   */
+  export type AccessibilityElement = _AccessibilityElement;
 
-/**
- * Indicates the key of the attribute value.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-export type ElementAttributeKeys = _ElementAttributeKeys;
+  /**
+   * Indicates the possible attributes of the element and the type of the attribute value.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 10
+   */
+  export type ElementAttributeValues = _ElementAttributeValues;
 
-/**
- * Indicates the possible attributes of the element and the type of the attribute value.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-export type ElementAttributeValues = _ElementAttributeValues;
+  /**
+   * Indicates the direction of the search focus.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 10
+   */
+  export type FocusDirection = _FocusDirection;
 
-/**
- * Indicates the direction of the search focus.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-export type FocusDirection = _FocusDirection;
+  /**
+   * Indicates the key of the attribute value.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 10
+   */
+  export type ElementAttributeKeys = _ElementAttributeKeys;
 
-/**
- * Indicates the type of the focus.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-export type FocusType = _FocusType;
+  /**
+   * Indicates the type of the focus.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 10
+   */
+  export type FocusType = _FocusType;
 
-/**
- * Indicates the type of the window.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-export type WindowType = _WindowType;
+  /**
+   * Indicates the type of the window.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 10
+   */
+  export type WindowType = _WindowType;
 
-/**
- * Indicates rectangle.
- *
- * @typedef Rect
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-export type Rect = _Rect;
+  /**
+   * Indicates rectangle.
+   *
+   * @typedef Rect
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 10
+   */
+  export type Rect = _Rect;
 
-/**
- * The accessibility extension context. Used to configure, query information, and inject gestures.
- *
- * @extends ExtensionContext
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
+  /**
+   * The accessibility extension context. Used to configure, query information, and inject gestures.
+   *
+   * @extends ExtensionContext
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 10
+   */
 
-export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default
+  export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
+}
 
 /**
  * class of accessibility extension ability.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since 10
  */
 export default class AccessibilityExtensionAbility {
   /**
    * Indicates accessibility extension ability context.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 10
    */
   context: AccessibilityExtensionContext;
 
@@ -114,7 +123,7 @@ export default class AccessibilityExtensionAbility {
    * Called when extension ability is connected.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 10
    */
   onConnect(): void;
 
@@ -122,7 +131,7 @@ export default class AccessibilityExtensionAbility {
    * Called when extension ability is disconnected.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 10
    */
   onDisconnect(): void;
 
@@ -131,7 +140,7 @@ export default class AccessibilityExtensionAbility {
    *
    * @param { AccessibilityEvent } event Indicates an accessibility event.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 10
    */
   onAccessibilityEvent(event: AccessibilityEvent): void;
 
@@ -141,7 +150,7 @@ export default class AccessibilityExtensionAbility {
    * @param { KeyEvent } keyEvent Indicates the physical key event.
    * @returns { boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 10
    */
   onKeyEvent(keyEvent: KeyEvent): boolean;
 }
@@ -152,7 +161,7 @@ export default class AccessibilityExtensionAbility {
  *
  * @typedef AccessibilityEvent
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since 10
  */
 declare interface AccessibilityEvent {
   eventType: accessibility.EventType | accessibility.WindowUpdateType | TouchGuideType | GestureType | PageUpdateType;
@@ -164,18 +173,18 @@ declare interface AccessibilityEvent {
  * Indicates the gesture type.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since 10
  */
 type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
-  'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
-  'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
-  'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp';
+'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
+'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
+'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp';
 
 /**
  * Indicates the page update type.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since 10
  */
 type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
 
@@ -183,6 +192,6 @@ type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
  * Indicates the type of touch event during touch browsing.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since 10
  */
 type TouchGuideType = 'touchBegin' | 'touchEnd';
