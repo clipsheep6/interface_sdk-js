@@ -19,10 +19,6 @@ import type { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import type {
   AccessibilityElement as _AccessibilityElement,
   ElementAttributeValues as _ElementAttributeValues,
-  FocusDirection as _FocusDirection,
-  FocusType as _FocusType,
-  WindowType as _WindowType,
-  Rect as _Rect,
 } from './application/AccessibilityExtensionContext';
 
 /**
@@ -133,35 +129,3 @@ export type AccessibilityElement = _AccessibilityElement;
  * @since 10
  */
 export type ElementAttributeValues = _ElementAttributeValues;
-
-/**
- * Indicates the direction of the search focus.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-export type FocusDirection = _FocusDirection;
-
-/**
- * Indicates the type of the focus.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-export type FocusType = _FocusType;
-
-/**
- * Indicates the type of the window.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-export type WindowType = _WindowType;
-
-/**
- * Indicates rectangle.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-export type Rect = _Rect;
