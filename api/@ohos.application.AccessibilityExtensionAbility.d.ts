@@ -14,8 +14,10 @@
  */
 
 import type accessibility from './@ohos.accessibility';
-import type AccessibilityExtensionContext, { AccessibilityElement } from './application/AccessibilityExtensionContext';
+import type AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 import type { KeyEvent } from './@ohos.multimodalInput.keyEvent';
+import type {
+  AccessibilityElement as _AccessibilityElement} from './application/AccessibilityExtensionContext';
 
 /**
  * class of accessibility extension ability.
@@ -108,3 +110,11 @@ type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
  * @since 9
  */
 type TouchGuideType = 'touchBegin' | 'touchEnd';
+/**
+ * Indicates an accessibility element.
+ * Supports querying element attributes, requesting execution actions, and finding child elements by condition.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type AccessibilityElement = _AccessibilityElement;
