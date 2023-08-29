@@ -26,80 +26,73 @@ import {
 } from './application/AccessibilityExtensionContext';
 import * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 
+
 /**
- * The accessibility extension context.
+ * Indicates an accessibility element.
+ * Supports querying element attributes, requesting execution actions, and finding child elements by condition.
  *
- * @namespace accessibilityExtensionContext
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10
  */
-export declare namespace accessibilityExtensionContext {
-  /**
-   * Indicates an accessibility element.
-   * Supports querying element attributes, requesting execution actions, and finding child elements by condition.
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
-   */
-  export type AccessibilityElement = _AccessibilityElement;
+export type AccessibilityElement = _AccessibilityElement;
 
-  /**
-   * Indicates the possible attributes of the element and the type of the attribute value.
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
-   */
-  export type ElementAttributeValues = _ElementAttributeValues;
+/**
+ * Indicates the possible attributes of the element and the type of the attribute value.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type ElementAttributeValues = _ElementAttributeValues;
 
-  /**
-   * Indicates the direction of the search focus.
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
-   */
-  export type FocusDirection = _FocusDirection;
+/**
+ * Indicates the direction of the search focus.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type FocusDirection = _FocusDirection;
 
-  /**
-   * Indicates the key of the attribute value.
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
-   */
-  export type ElementAttributeKeys = _ElementAttributeKeys;
+/**
+ * Indicates the key of the attribute value.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type ElementAttributeKeys = _ElementAttributeKeys;
 
-  /**
-   * Indicates the type of the focus.
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
-   */
-  export type FocusType = _FocusType;
+/**
+ * Indicates the type of the focus.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type FocusType = _FocusType;
 
-  /**
-   * Indicates the type of the window.
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
-   */
-  export type WindowType = _WindowType;
+/**
+ * Indicates the type of the window.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type WindowType = _WindowType;
 
-  /**
-   * Indicates rectangle.
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
-   */
-  export type Rect = _Rect;
+/**
+ * Indicates rectangle.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type Rect = _Rect;
 
-  /**
-   * The accessibility extension context. Used to configure, query information, and inject gestures.
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
-   */
+/**
+ * The accessibility extension context. Used to configure, query information, and inject gestures.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
 
-  export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
-}
+export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
+
 /**
  * class of accessibility extension ability.
  *
@@ -113,7 +106,7 @@ export default class AccessibilityExtensionAbility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
-  context: accessibilityExtensionContext.AccessibilityExtensionContext;
+  context: AccessibilityExtensionContext;
 
   /**
    * Called when extension ability is connected.
@@ -161,7 +154,7 @@ export default class AccessibilityExtensionAbility {
  */
 declare interface AccessibilityEvent {
   eventType: accessibility.EventType | accessibility.WindowUpdateType | TouchGuideType | GestureType | PageUpdateType;
-  target?: accessibilityExtensionContext.AccessibilityElement;
+  target?: AccessibilityElement;
   timeStamp?: number;
 }
 
@@ -172,9 +165,9 @@ declare interface AccessibilityEvent {
  * @since 9
  */
 type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
-  'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
-  'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
-  'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp';
+'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
+'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
+'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp';
 
 /**
  * Indicates the page update type.
