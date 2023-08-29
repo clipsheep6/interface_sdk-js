@@ -42,7 +42,7 @@ export type AccessibilityElement = _AccessibilityElement;
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10
  */
-type ElementAttributeKeys = _ElementAttributeKeys;
+export type ElementAttributeKeys = _ElementAttributeKeys;
 
 /**
  * Indicates the possible attributes of the element and the type of the attribute value.
