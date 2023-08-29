@@ -3004,6 +3004,61 @@ declare namespace audio {
      * @since 11
      */
     readonly deviceType: DeviceType;
+
+    /**
+     * Microphone group id.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    readonly groupId: number;
+
+    /**
+     * Sensitivity level in dBFS.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    readonly sensitivity: number;
+
+    /**
+     * Microphone position.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    readonly position: Vector3D;
+
+    /**
+     * Microphone orientation.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    readonly orientation: Vector3D;
+  }
+
+  /**
+   * Describes three-dimensional value.
+   * @typedef Vector3D
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 11
+   */
+  interface Vector3D {
+    /**
+     * X-axis value.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    x: number;
+    /**
+     * Y-axis value.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    y: number;
+    /**
+     * Z-axis value.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    z: number;
   }
 
   /**
