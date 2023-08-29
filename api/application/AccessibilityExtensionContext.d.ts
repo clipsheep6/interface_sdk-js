@@ -240,7 +240,6 @@ declare interface AccessibilityElement {
   /**
    * Get a list of supported actions.
    *
-   * @param { AsyncCallback<Array<string>> } callback Indicates the listener.
    * @returns { Promise<Array<string>> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
@@ -733,3 +732,11 @@ interface Rect {
   width: number;
   height: number;
 }
+
+/**
+ * Indicates the key of the attribute value.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+type ElementAttributeKeys = keyof ElementAttributeValues;
