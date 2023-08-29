@@ -117,7 +117,7 @@ export default class AccessibilityExtensionAbility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 10
    */
-  context: AccessibilityExtensionContext;
+  context: accessibilityExtensionContext.AccessibilityExtensionContext;
 
   /**
    * Called when extension ability is connected.
@@ -165,7 +165,7 @@ export default class AccessibilityExtensionAbility {
  */
 declare interface AccessibilityEvent {
   eventType: accessibility.EventType | accessibility.WindowUpdateType | TouchGuideType | GestureType | PageUpdateType;
-  target?: AccessibilityElement;
+  target?: accessibilityExtensionContext.AccessibilityElement;
   timeStamp?: number;
 }
 
