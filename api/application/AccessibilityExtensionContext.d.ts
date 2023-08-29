@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -357,6 +357,14 @@ declare interface AccessibilityElement {
    */
   findElement(type: 'focusDirection', condition: FocusDirection): Promise<AccessibilityElement>;
 }
+
+/**
+ * Indicates the key of the attribute value.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+type ElementAttributeKeys = keyof ElementAttributeValues;
 
 /**
  * Indicates the possible attributes of the element and the type of the attribute value.
