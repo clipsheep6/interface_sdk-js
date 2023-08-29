@@ -175,9 +175,9 @@ declare interface AccessibilityEvent {
  * @since 9
  */
 type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
-'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
-'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
-'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp';
+  'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
+  'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
+  'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp';
 
 /**
  * Indicates the page update type.
