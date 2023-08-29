@@ -732,11 +732,3 @@ interface Rect {
   width: number;
   height: number;
 }
-
-/**
- * Indicates the key of the attribute value.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-type ElementAttributeKeys = keyof ElementAttributeValues;
