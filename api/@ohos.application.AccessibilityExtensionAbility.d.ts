@@ -23,7 +23,6 @@ import type {
   FocusType as _FocusType,
   WindowType as _WindowType,
   Rect as _Rect,
-  ElementAttributeKeys as _ElementAttributeKeys,
 } from './application/AccessibilityExtensionContext';
 
 /**
@@ -142,14 +141,6 @@ export type ElementAttributeValues = _ElementAttributeValues;
  * @since 10
  */
 export type FocusDirection = _FocusDirection;
-
-/**
- * Indicates the key of the attribute value.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-export type ElementAttributeKeys = _ElementAttributeKeys;
 
 /**
  * Indicates the type of the focus.
