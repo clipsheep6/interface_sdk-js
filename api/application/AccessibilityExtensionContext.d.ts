@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -191,7 +191,7 @@ declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
-  attributeNames(callback: AsyncCallback<Array<ElementAttributeKeys>>): void;
+  attributeNames<T extends keyof ElementAttributeValues>(callback: AsyncCallback<Array<T>>): void;
 
   /**
    * Get a list of attribute names.
@@ -199,7 +199,7 @@ declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
-  attributeNames(): Promise<Array<ElementAttributeKeys>>;
+  attributeNames<T extends keyof ElementAttributeValues>(): Promise<Array<T>>;
 
   /**
    * Get the value of an attribute.
@@ -211,9 +211,9 @@ declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
-  attributeValue(
-    attributeName: ElementAttributeKeys,
-    callback: AsyncCallback<ElementAttributeValues[ElementAttributeKeys]>
+  attributeValue<T extends keyof ElementAttributeValues>(
+    attributeName: T,
+    callback: AsyncCallback<ElementAttributeValues[T]>
   ): void;
 
   /**
@@ -226,7 +226,7 @@ declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
-  attributeValue(attributeName: ElementAttributeKeys): Promise<ElementAttributeValues[ElementAttributeKeys]>;
+  attributeValue<T extends keyof ElementAttributeValues>(attributeName: T): Promise<ElementAttributeValues[T]>;
 
   /**
    * Get a list of supported actions.
@@ -357,6 +357,14 @@ declare interface AccessibilityElement {
    */
   findElement(type: 'focusDirection', condition: FocusDirection): Promise<AccessibilityElement>;
 }
+
+/**
+ * Indicates the key of the attribute value.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+type ElementAttributeKeys = keyof ElementAttributeValues;
 
 /**
  * Indicates the possible attributes of the element and the type of the attribute value.
@@ -695,20 +703,6 @@ type ElementAttributeValues = {
    */
   'windowId': number;
 };
-
-/**
- * Indicates the key of the attribute value.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-type ElementAttributeKeys = 'windowId' | 'valueNow' | 'valueMin' | 'valueMax' | 'type' | 'triggerAction' |
-'textMoveUnit' | 'textMoveUnit' | 'textLengthLimit' | 'text' | 'startIndex' | 'selected' | 'scrollable' |
-'screenRect' | 'resourceName' | 'rect' | 'pluralLineSupported' | 'parent' | 'pageId' | 'longClickable' |
-'layer' | 'lastContent' | 'itemCount' | 'isVisible' | 'isPassword' | 'isFocused' | 'isHint' | 'isEnable' |
-'isActive' | 'inspectorKey' | 'inputType' | 'hintText' | 'focusable' | 'error' | 'endIndex' | 'editable' |
-'description' | 'currentIndex' | 'contents' | 'componentType' | 'componentId' | 'clickable' | 'children' |
-'checked' | 'checkable' | 'bundleName' | 'accessibilityFocused';
 
 /**
  * Indicates the direction of the search focus.
