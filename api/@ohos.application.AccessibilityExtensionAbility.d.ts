@@ -22,6 +22,7 @@ import {
   FocusType as _FocusType,
   WindowType as _WindowType,
   Rect as _Rect,
+  ElementAttributeKeys as _ElementAttributeKeys,
 } from './application/AccessibilityExtensionContext';
 import * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 
@@ -34,6 +35,14 @@ import * as _AccessibilityExtensionContext from './application/AccessibilityExte
  * @since 10
  */
 export type AccessibilityElement = _AccessibilityElement;
+
+/**
+ * Indicates the key of the attribute value.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+type ElementAttributeKeys = _ElementAttributeKeys;
 
 /**
  * Indicates the possible attributes of the element and the type of the attribute value.
