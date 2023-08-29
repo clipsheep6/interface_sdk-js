@@ -18,7 +18,6 @@ import type AccessibilityExtensionContext from './application/AccessibilityExten
 import type { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import type {
   AccessibilityElement as _AccessibilityElement,
-  ElementAttributeValues as _ElementAttributeValues,
 } from './application/AccessibilityExtensionContext';
 
 /**
@@ -121,11 +120,3 @@ type TouchGuideType = 'touchBegin' | 'touchEnd';
  * @since 10
  */
 export type AccessibilityElement = _AccessibilityElement;
-
-/**
- * Indicates the possible attributes of the element and the type of the attribute value.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
- */
-export type ElementAttributeValues = _ElementAttributeValues;
