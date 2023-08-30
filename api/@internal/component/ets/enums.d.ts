@@ -4608,6 +4608,61 @@ declare enum TextDecorationType {
 }
 
 /**
+ * Type of text decoration line style.
+ * @enum {number}
+ * @form
+ * @crossplatform
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare enum TextDecorationStyle {
+  /**
+   * Solid line.
+   * @form
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  SOLID,
+
+  /**
+   * Double lines.
+   * @form
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DOUBLE,
+
+  /**
+   * Dotted line.
+   * @form
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DOTTED,
+
+  /**
+   * Dashed line.
+   * @form
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  DASHED,
+
+  /**
+   * Wavy line.
+   * @form
+   * @crossplatform
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  WAVY,
+}
+
+/**
  * Letter type in text
  *
  * @enum { number }

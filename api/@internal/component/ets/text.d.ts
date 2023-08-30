@@ -435,15 +435,14 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   /**
    * Called when the text decoration of the text is set.
-   *
-   * @param { object } value
-   * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { { type: TextDecorationType; color?: ResourceColor; style?: TextDecorationStyle } } value Indicates the type, color and style of the decoration.
+   * @returns { TextAttribute } the attribute of the text.
    * @crossplatform
    * @since 10
    * @form
    */
-  decoration(value: { type: TextDecorationType; color?: ResourceColor }): TextAttribute;
+  decoration(value: { type: TextDecorationType; color?: ResourceColor; style?: TextDecorationStyle }): TextAttribute;
 
   /**
    * Called when the distance between text fonts is set.
