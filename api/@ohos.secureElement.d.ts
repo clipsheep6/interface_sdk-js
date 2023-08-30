@@ -112,7 +112,7 @@ declare namespace omapi {
      *
      * @returns { boolean } True if the SE is present, false otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
      */
@@ -125,7 +125,7 @@ declare namespace omapi {
      *
      * @returns { Session } A Session object to be used to create channels.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
@@ -136,7 +136,7 @@ declare namespace omapi {
      * Close all the sessions opened on this reader. All the channels opened by all these sessions will be closed.
      *
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
      */
@@ -169,7 +169,7 @@ declare namespace omapi {
      *
      * @returns { number[] } The ATR as a number array or empty array.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
      */
@@ -179,7 +179,7 @@ declare namespace omapi {
      * Close the connection with the SE. This will close any channels opened by this application with this SE.
      *
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
      */
@@ -199,7 +199,7 @@ declare namespace omapi {
      * Close any channels opened on this session.
      *
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
      */
@@ -448,7 +448,7 @@ declare namespace omapi {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
-     * @throws { BusinessError } 3300103 - SecurityError, the command is filtered by the security policy.
+     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
@@ -463,7 +463,7 @@ declare namespace omapi {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
-     * @throws { BusinessError } 3300103 - SecurityError, the command is filtered by the security policy.
+     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
