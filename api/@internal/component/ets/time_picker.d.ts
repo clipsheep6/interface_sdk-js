@@ -50,7 +50,7 @@ declare interface TimePickerResult {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 11
    */
   second?: number;
 }
@@ -60,14 +60,14 @@ declare interface TimePickerResult {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
+ * @since 11
  */
 declare enum DisplayedComponentType {
   /**
    * Hour and minute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 11
    */
   HOUR_MINUTE,
 
@@ -75,7 +75,7 @@ declare enum DisplayedComponentType {
    * Hour and minute and second
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 11
    */
   HOUR_MINUTE_SECOND,
 }
@@ -107,7 +107,7 @@ declare interface TimePickerOptions {
    * @default HOUR_MINUTE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 11
    */
   displayedComponent?: DisplayedComponentType;
 }
@@ -161,7 +161,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @returns { TimePickerAttribute } the attribute of the time picker
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 11
    */
   loop(value: boolean): TimePickerAttribute;
 
