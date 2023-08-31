@@ -3358,7 +3358,7 @@ declare enum TextDecorationType {
  * @form
  * @crossplatform
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
+ * @since 11
  */
 declare enum TextDecorationStyle {
   /**
@@ -3366,7 +3366,7 @@ declare enum TextDecorationStyle {
    * @form
    * @crossplatform
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 11
    */
   SOLID,
 
@@ -3375,7 +3375,7 @@ declare enum TextDecorationStyle {
    * @form
    * @crossplatform
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 11
    */
   DOUBLE,
 
@@ -3384,7 +3384,7 @@ declare enum TextDecorationStyle {
    * @form
    * @crossplatform
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 11
    */
   DOTTED,
 
@@ -3393,7 +3393,7 @@ declare enum TextDecorationStyle {
    * @form
    * @crossplatform
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 11
    */
   DASHED,
 
@@ -3402,7 +3402,7 @@ declare enum TextDecorationStyle {
    * @form
    * @crossplatform
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 11
    */
   WAVY,
 }
