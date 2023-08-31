@@ -25,7 +25,6 @@ import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.apache.commons.compress.utils.IOUtils;
 
-
 import java.io.File;
 import java.io.InputStream;
 import java.io.IOException;
@@ -176,35 +175,18 @@ public class FileUtils {
      * getSdkVersionFromJsonFile
      *
      * @param jsonFilePath jsonFilePath
-     * @throws IOException If an I/O error occurs
      * @return sdk version
+     * @throws IOException If an I/O error occurs
      */
     public static String getSdkVersionFromJsonFile(String jsonFilePath) {
-        Reader reader = null;
         try {
-            String jsonStr = "";
             File jsonFile = new File(jsonFilePath);
-            FileReader jsonFileReader = new FileReader(jsonFile);
-            reader = new InputStreamReader(new FileInputStream(jsonFile), StandardCharsets.UTF_8);
-            int ch = 0;
-            StringBuilder jsonSb = new StringBuilder();
-            while ((ch = reader.read()) != -1) {
-                jsonSb.append((char) ch);
-            }
-            jsonFileReader.close();
-            reader.close();
-            jsonStr = jsonSb.toString();
+            String jsonStr = getJsonString(jsonFile);
             ApiDiffResultDto dto = JSON.parseObject(jsonStr, ApiDiffResultDto.class);
             return dto.getVersion();
         } catch (IOException e) {
+            LOGGER.error(LOG_TAG, e.getMessage());
             return "";
-        } finally {
-            try {
-                assert reader != null;
-                reader.close();
-            } catch (IOException exception) {
-                exception.printStackTrace();
-            }
         }
     }
 
@@ -218,18 +200,8 @@ public class FileUtils {
      * @throws IOException If an I/O error occurs
      */
     public static <T> List<T> readJsonFileToJavaList(String jsonFilePath, Class<T> clazz) throws IOException {
-        String jsonStr = "";
         File jsonFile = new File(jsonFilePath);
-        FileReader jsonFileReader = new FileReader(jsonFile);
-        Reader reader = new InputStreamReader(new FileInputStream(jsonFile), StandardCharsets.UTF_8);
-        int ch = 0;
-        StringBuilder jsonSb = new StringBuilder();
-        while ((ch = reader.read()) != -1) {
-            jsonSb.append((char) ch);
-        }
-        jsonFileReader.close();
-        reader.close();
-        jsonStr = jsonSb.toString();
+        String jsonStr = getJsonString(jsonFile);
         return JSON.parseArray(jsonStr, clazz);
     }
 
@@ -350,7 +322,6 @@ public class FileUtils {
      * @throws IOException If an I/O error occurs
      */
     public static String getJsonString(File buildFile) throws IOException {
-        String jsonStr;
         FileReader fileReader = new FileReader(buildFile);
         Reader reader = new InputStreamReader(new FileInputStream(buildFile), StandardCharsets.UTF_8);
         int ch = 0;
@@ -360,8 +331,7 @@ public class FileUtils {
         }
         fileReader.close();
         reader.close();
-        jsonStr = stringBuilder.toString();
-        return jsonStr;
+        return stringBuilder.toString();
     }
 
 }

@@ -15,6 +15,8 @@
 
 import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
 import audio from "./@ohos.multimedia.audio";
+import type { SoundPool as _SoundPool } from './multimedia/soundPool';
+import type { PlayParameters as _PlayParameters } from './multimedia/soundPool';
 
 /**
  * @namespace media
@@ -118,6 +120,51 @@ declare namespace media {
    * @since 9
    */
   function createVideoRecorder(): Promise<VideoRecorder>;
+
+  /**
+   * Creates a soundPool instance.
+   *
+   * @param {number} maxStreams The maximum number of simultaneous streams for this soundPool instance
+   * @param {audio.AudioRendererInfo} audioRenderInfo Audio renderer information
+   * @param {AsyncCallback<SoundPool>} callback Callback used to return soundPool instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Return by callback.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 10
+   */
+  function createSoundPool(
+    maxStreams: number,
+    audioRenderInfo: audio.AudioRendererInfo,
+    callback: AsyncCallback<SoundPool>
+  ): void;
+
+  /**
+   * Creates a soundPool instance.
+   *
+   * @param {number} maxStreams The maximum number of simultaneous streams for this soundPool instance
+   * @param {audio.AudioRendererInfo} audioRenderInfo Audio renderer information
+   * @returns {Promise<SoundPool>} A Promise instance used to return SoundPool instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 10
+   */
+  function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
+
+  /**
+   * Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
+   * to create an SoundPool instance.
+   *
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 10
+   */
+  type SoundPool = _SoundPool;
+
+  /**
+   * Describes play parameters.
+   *
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 10
+   */
+  type PlayParameters = _PlayParameters;
 
   /**
    * Enumerates state change reason.
@@ -384,47 +431,6 @@ declare namespace media {
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
-     * Select audio or subtitle track.
-     * By default, the first audio stream with data is played, and the subtitle track is not played.
-     * After the settings take effect, the original track will become invalid and users will be notified
-     * of the {@link #trackChange} event.
-     * @param { number } index Track index, reference {@link #getTrackDescription}.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 10
-     */
-     selectTrack(index: number): void;
-
-    /**
-     * Deselect the current audio or subtitle track.
-     * After audio is deselected, the default track will be played, and after subtitles are deselected,
-     * they will not be played.
-     * @param { number } index Subtitle index that needs to be cancelled.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 10
-     */
-     deselectTrack(index: number): void;
-
-    /**
-     * Obtain the current audio or subtitle track.
-     * @param { MediaType } trackType MEDIA_TYPE_AUD or MEDIA_TYPE_SUBTITLE.
-     * @param { AsyncCallback<number> } callback Async callback return the current track.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 10
-     */
-     getCurrentTrack(trackType: MediaType, callback: AsyncCallback<number>): void;
-
-    /**
-     * Obtain the current audio or subtitle track.
-     * @param { MediaType } trackType MEDIA_TYPE_AUD or MEDIA_TYPE_SUBTITLE.
-     * @returns A Promise instance used to return the current track.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 10
-     */
-     getCurrentTrack(trackType: MediaType): Promise<number>;
-
-    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -476,7 +482,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 10
      */
-     audioEffectMode ?: audio.AudioEffectMode;
+    audioEffectMode ?: audio.AudioEffectMode;
 
     /**
      * Current playback position.
@@ -550,8 +556,8 @@ declare namespace media {
 
     /**
      * Register or unregister listens for media playback events.
-     * @param { string } type - Type of the playback event to listen for.
-     * @param { (state: AVPlayerState, reason: StateChangeReason) => void } callback - Callback used to listen for the playback stateChange event.
+     * @param { 'stateChange' } type - Type of the playback event to listen for.
+     * @param { function } callback - Callback used to listen for the playback stateChange event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
@@ -559,7 +565,7 @@ declare namespace media {
     off(type: 'stateChange'): void;
     /**
      * Register or unregister listens for media playback events.
-     * @param { string } type - Type of the playback event to listen for.
+     * @param { 'volumeChange' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback volume event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
@@ -568,7 +574,7 @@ declare namespace media {
     off(type: 'volumeChange'): void;
     /**
      * Register or unregister listens for media playback events.
-     * @param { string } type - Type of the playback event to listen for.
+     * @param { 'endOfStream' } type - Type of the playback event to listen for.
      * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
@@ -577,7 +583,7 @@ declare namespace media {
     off(type: 'endOfStream'): void;
     /**
      * Register or unregister listens for media playback events.
-     * @param { string } type - Type of the playback event to listen for.
+     * @param { 'seekDone' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback seekDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
@@ -586,7 +592,7 @@ declare namespace media {
     off(type: 'seekDone'): void;
     /**
      * Register or unregister listens for media playback events.
-     * @param { string } type - Type of the playback event to listen for.
+     * @param { 'speedDone' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback speedDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
@@ -595,7 +601,7 @@ declare namespace media {
     off(type: 'speedDone'): void;
     /**
      * Register or unregister listens for media playback events.
-     * @param { string } type - Type of the playback event to listen for.
+     * @param { 'bitrateDone' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback setBitrateDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
@@ -604,7 +610,7 @@ declare namespace media {
     off(type: 'bitrateDone'): void;
     /**
      * Register or unregister listens for media playback events.
-     * @param { string } type - Type of the playback event to listen for.
+     * @param { 'timeUpdate' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback timeUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
@@ -613,7 +619,7 @@ declare namespace media {
     off(type: 'timeUpdate'): void;
     /**
      * Register or unregister listens for media playback events.
-     * @param { string } type - Type of the playback event to listen for.
+     * @param { 'durationUpdate' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback durationUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
@@ -622,8 +628,8 @@ declare namespace media {
     off(type: 'durationUpdate'): void;
     /**
      * Register or unregister listens for video playback buffering events.
-     * @param { string } type - Type of the playback buffering update event to listen for.
-     * @param { (infoType: BufferingInfoType, value: number) => void } callback - Callback used to listen for the buffering update event,
+     * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
+     * @param { function } callback - Callback used to listen for the buffering update event,
 	 * return BufferingInfoType and the value.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
@@ -632,7 +638,7 @@ declare namespace media {
     off(type: 'bufferingUpdate'): void;
     /**
      * Register or unregister listens for start render video frame events.
-     * @param { string } type - Type of the playback event to listen for.
+     * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
      * @param { Callback<void> } callback - Callback used to listen for the playback event return .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
@@ -641,8 +647,8 @@ declare namespace media {
     off(type: 'startRenderFrame'): void;
     /**
      * Register or unregister listens for video size change event.
-     * @param { string } type - Type of the playback event to listen for.
-     * @param { (width: number, height: number) => void } callback - Callback used to listen for the playback event return video size.
+     * @param { 'videoSizeChange' } type - Type of the playback event to listen for.
+     * @param { function } callback - Callback used to listen for the playback event return video size.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
@@ -650,8 +656,8 @@ declare namespace media {
     off(type: 'videoSizeChange'): void;
     /**
      * Register or unregister listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
-     * @param { string } type - Type of the playback event to listen for.
-     * @param { (info: audio.InterruptEvent) => void } callback - Callback used to listen for the playback event return audio interrupt info.
+     * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
+     * @param { function } callback - Callback used to listen for the playback event return audio interrupt info.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
@@ -660,8 +666,8 @@ declare namespace media {
     /**
      * Register or unregister listens for available bitrate list collect completed events for HLS protocol stream playback.
      * This event will be reported after the {@link #prepare} called.
-     * @param { string } type - Type of the playback event to listen for.
-     * @param { (bitrates: Array<number>) => void } callback - Callback used to listen for the playback event return available bitrate list.
+     * @param { 'availableBitrates' } type - Type of the playback event to listen for.
+     * @param { function } callback - Callback used to listen for the playback event return available bitrate list.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
@@ -669,7 +675,7 @@ declare namespace media {
     off(type: 'availableBitrates'): void;
     /**
      * Register or unregister listens for playback error events.
-     * @param { string } type - Type of the playback error event to listen for.
+     * @param { 'error' } type - Type of the playback error event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -685,23 +691,6 @@ declare namespace media {
      */
     on(type: 'error', callback: ErrorCallback): void;
     off(type: 'error'): void;
-
-    /**
-     * Register listens for audio or subtitle track change event.
-     * This event will be reported after the {@link #selectTrack} or {@link #deselectTrack} finished.
-     * @param { string } type Type of the playback event to listen for.
-     * @param { (index: number, isSelect: boolean) => void } callback Callback used to listen for the playback event return audio or subtitle track.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 10
-     */
-     on(type: 'trackChange', callback: (index: number, isSelect: boolean) => void): void;
-    /**
-     * Unregister listens for audio or subtitle track change event.
-     * @param { string } type Type of the playback event to listen for.
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 10
-     */
-     off(type: 'trackChange'): void;
   }
 
   /**
@@ -990,8 +979,8 @@ declare namespace media {
 
     /**
      * Listens for audio playback buffering events.
-     * @param { string } type - Type of the playback buffering update event to listen for.
-     * @param { (infoType: BufferingInfoType, value: number) => void } callback - Callback used to listen for the buffering update event,
+     * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
+     * @param { function } callback - Callback used to listen for the buffering update event,
 	 * return BufferingInfoType and the value.
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @since 8
@@ -1069,8 +1058,8 @@ declare namespace media {
 
     /**
      * Listens for audio playback events.
-     * @param { string } type - Type of the playback event to listen for.
-     * @param { () => void } callback - Callback used to listen for the playback event.
+     * @param { 'play' | 'pause' | 'stop' | 'reset' | 'dataLoad' | 'finish' | 'volumeChange' } type - Type of the playback event to listen for.
+     * @param { function } callback - Callback used to listen for the playback event.
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @since 6
      * @deprecated since 9
@@ -1080,7 +1069,7 @@ declare namespace media {
 
     /**
      * Listens for audio playback events.
-     * @param { string } type - Type of the playback event to listen for.
+     * @param { 'timeUpdate' } type - Type of the playback event to listen for.
      * @param { Callback<number> } callback - Callback used to listen for the playback event.
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @since 6
@@ -1091,8 +1080,8 @@ declare namespace media {
 
     /**
      * Listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
-     * @param { string } type - Type of the playback event to listen for.
-     * @param { (info: audio.InterruptEvent) => void } callback - Callback used to listen for the playback event return audio interrupt info.
+     * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
+     * @param { function } callback - Callback used to listen for the playback event return audio interrupt info.
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @since 9
      * @deprecated since 9
@@ -1102,7 +1091,7 @@ declare namespace media {
 
     /**
      * Listens for playback error events.
-     * @param { string } type - Type of the playback error event to listen for.
+     * @param { 'error' } type - Type of the playback error event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
      * @syscap SystemCapability.Multimedia.Media.AudioPlayer
      * @since 6
@@ -1313,8 +1302,8 @@ declare namespace media {
 
     /**
      * Listens for recording stateChange events.
-     * @param {string} type - Type of the recording event to listen for.
-     * @param { (state: AVRecorderState, reason: StateChangeReason) => void } callback - Callback used to listen for the recorder stateChange event.
+     * @param { 'stateChange' } type - Type of the recording event to listen for.
+     * @param { function } callback - Callback used to listen for the recorder stateChange event.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -1324,7 +1313,7 @@ declare namespace media {
 
     /**
      * Listens for recording error events.
-     * @param {string} type - Type of the recording error event to listen for.
+     * @param { 'error' } type - Type of the recording error event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the recorder error event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -1342,7 +1331,7 @@ declare namespace media {
 
     /**
      * Cancel Listens for recording stateChange events.
-     * @param {string} type - Type of the recording stateChange event to listen for.
+     * @param { 'stateChange' } type - Type of the recording stateChange event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
@@ -1350,7 +1339,7 @@ declare namespace media {
 
     /**
      * Cancel Listens for recording error events.
-     * @param {string} type - Type of the recording error event to listen for.
+     * @param { 'error' } type - Type of the recording error event to listen for.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
@@ -1651,8 +1640,8 @@ declare namespace media {
 
     /**
      * Listens for audio recording events.
-     * @param { string } type - Type of the audio recording event to listen for.
-     * @param { () => void } callback - Callback used to listen for the audio recording event.
+     * @param { 'prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset' } type - Type of the audio recording event to listen for.
+     * @param { function } callback - Callback used to listen for the audio recording event.
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
@@ -1662,7 +1651,7 @@ declare namespace media {
 
     /**
      * Listens for audio recording error events.
-     * @param {string} type - Type of the audio recording error event to listen for.
+     * @param { 'error' } type - Type of the audio recording error event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the audio recording error event.
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
@@ -1874,7 +1863,7 @@ declare namespace media {
     reset(): Promise<void>;
     /**
      * Listens for video recording error events.
-     * @param { string } type - Type of the video recording error event to listen for.
+     * @param { 'error' } type - Type of the video recording error event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the video recording error event.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -1895,7 +1884,7 @@ declare namespace media {
 
   /**
    * Describes video playback states.
-    * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+   * @syscap SystemCapability.Multimedia.Media.VideoPlayer
    * @since 8
    * @deprecated since 9
    * @useinstead ohos.multimedia.media/media.AVPlayerState
@@ -2274,7 +2263,7 @@ declare namespace media {
 
     /**
      * Listens for video playback completed events.
-     * @param { string } type - Type of the playback event to listen for.
+     * @param { 'playbackCompleted' } type - Type of the playback event to listen for.
      * @param { Callback<void> } callback - Callback used to listen for the playback event return.
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
@@ -2285,8 +2274,8 @@ declare namespace media {
 
     /**
      * Listens for video playback buffering events.
-     * @param { string } type - Type of the playback buffering update event to listen for.
-     * @param { (infoType: BufferingInfoType, value: number) => void } callback - Callback used to listen for the buffering update event,
+     * @param { 'bufferingUpdate' } type - Type of the playback buffering update event to listen for.
+     * @param { function } callback - Callback used to listen for the buffering update event,
 	 * return BufferingInfoType and the value.
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
@@ -2297,7 +2286,7 @@ declare namespace media {
 
     /**
      * Listens for start render video frame events.
-     * @param { string } type - Type of the playback event to listen for.
+     * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
      * @param { Callback<void> } callback - Callback used to listen for the playback event return.
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
@@ -2308,8 +2297,8 @@ declare namespace media {
 
     /**
      * Listens for video size changed event.
-     * @param { string } type - Type of the playback event to listen for.
-     * @param { (width: number, height: number) => void } callback - Callback used to listen for the playback event return video size.
+     * @param { 'videoSizeChanged' } type - Type of the playback event to listen for.
+     * @param { function } callback - Callback used to listen for the playback event return video size.
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
      * @deprecated since 9
@@ -2319,8 +2308,8 @@ declare namespace media {
 
     /**
      * Listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
-     * @param { string } type - Type of the playback event to listen for.
-     * @param { (info: audio.InterruptEvent) => void } callback - Callback used to listen for the playback event return audio interrupt info.
+     * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
+     * @param { function } callback - Callback used to listen for the playback event return audio interrupt info.
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 9
      * @deprecated since 9
@@ -2330,7 +2319,7 @@ declare namespace media {
 
     /**
      * Listens for playback error events.
-     * @param { string } type - Type of the playback error event to listen for.
+     * @param { 'error' } type - Type of the playback error event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
@@ -2380,14 +2369,14 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    CFT_MPEG_4 = "mp4",
+    CFT_MPEG_4 = 'mp4',
 
     /**
      * A audio container format type m4a.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    CFT_MPEG_4A = "m4a",
+    CFT_MPEG_4A = 'm4a',
   }
 
   /**
@@ -2425,77 +2414,70 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_TRACK_INDEX = "track_index",
+    MD_KEY_TRACK_INDEX = 'track_index',
 
     /**
      * key for track type, value type is number, see @MediaType.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_TRACK_TYPE = "track_type",
+    MD_KEY_TRACK_TYPE = 'track_type',
 
     /**
      * key for codec mime type, value type is string.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_CODEC_MIME = "codec_mime",
+    MD_KEY_CODEC_MIME = 'codec_mime',
 
     /**
      * key for duration, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_DURATION = "duration",
+    MD_KEY_DURATION = 'duration',
 
     /**
      * key for bitrate, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_BITRATE = "bitrate",
+    MD_KEY_BITRATE = 'bitrate',
 
     /**
      * key for video width, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_WIDTH = "width",
+    MD_KEY_WIDTH = 'width',
 
     /**
      * key for video height, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_HEIGHT = "height",
+    MD_KEY_HEIGHT = 'height',
 
     /**
      * key for video frame rate, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_FRAME_RATE = "frame_rate",
+    MD_KEY_FRAME_RATE = 'frame_rate',
 
     /**
      * key for audio channel count, value type is number
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_AUD_CHANNEL_COUNT = "channel_count",
+    MD_KEY_AUD_CHANNEL_COUNT = 'channel_count',
 
     /**
      * key for audio sample rate, value type is number
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_AUD_SAMPLE_RATE = "sample_rate",
-
-    /**
-     * key for language, value type is string
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @since 10
-     */
-     MD_KEY_LANGUAGE = "language",
+    MD_KEY_AUD_SAMPLE_RATE = 'sample_rate',
   }
 
   /**

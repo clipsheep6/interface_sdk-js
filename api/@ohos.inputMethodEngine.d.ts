@@ -16,8 +16,9 @@
 /// <reference path="../component/common_ts_ets_api.d.ts"/>
 
 import { AsyncCallback } from './@ohos.base';
+import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import LocalStorage from 'StateManagement';
+import type { LocalStorage } from 'StateManagement';
 import BaseContext from './application/BaseContext';
 
 /**
@@ -398,7 +399,7 @@ declare namespace inputMethodEngine {
      * Subscribe 'inputStart'
      *
      * @param { 'inputStart' } type - indicates the type of subscribe event.
-     * @param { (kbController: KeyboardController, textInputClient: TextInputClient) => void } callback - indicates the callback of on('inputStart').
+     * @param { function } callback - indicates the callback of on('inputStart').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -411,7 +412,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe 'inputStart'
      *
      * @param { 'inputStart' } type - indicates the type of subscribe event.
-     * @param { (kbController: KeyboardController, textInputClient: TextInputClient) => void } callback - optional, indicates the callback of off('inputStart').
+     * @param { function } callback - optional, indicates the callback of off('inputStart').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -424,7 +425,7 @@ declare namespace inputMethodEngine {
      * Subscribe 'keyboardShow'|'keyboardHide'
      *
      * @param { 'keyboardShow' | 'keyboardHide' } type - indicates the type of subscribe event.
-     * @param { () => void } callback - indicates the callback of on('keyboardShow'|'keyboardHide').
+     * @param { function } callback - indicates the callback of on('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -434,7 +435,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe 'keyboardShow'|'keyboardHide'
      *
      * @param { 'keyboardShow' | 'keyboardHide' } type - indicates the type of subscribe event.
-     * @param { () => void } [callback] - optional, indicates the callback of off('keyboardShow'|'keyboardHide').
+     * @param { function } [callback] - optional, indicates the callback of off('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -455,7 +456,7 @@ declare namespace inputMethodEngine {
      * Subscribe 'inputStart' event.
      *
      * @param { 'inputStart' } type - the type of subscribe event.
-     * @param { (kbController: KeyboardController, inputClient: InputClient) => void } callback - the callback of on('inputStart').
+     * @param { function } callback - the callback of on('inputStart').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -465,7 +466,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe 'inputStart' event.
      *
      * @param { 'inputStart' } type - the type of unsubscribe event.
-     * @param { (kbController: KeyboardController, inputClient: InputClient) => void } [callback] - optional, the callback of off('inputStart').
+     * @param { function } [callback] - optional, the callback of off('inputStart').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -475,7 +476,7 @@ declare namespace inputMethodEngine {
      * Subscribe 'inputStop'.
      *
      * @param { 'inputStop' } type - the type of subscribe event.
-     * @param { () => void } callback - the callback of on('inputStop').
+     * @param { function } callback - the callback of on('inputStop').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -485,7 +486,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe 'inputStop'.
      *
      * @param { 'inputStop' } type - the type of unsubscribe event.
-     * @param { () => void } callback - the callback of off('inputStop').
+     * @param { function } callback - the callback of off('inputStop').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -495,7 +496,7 @@ declare namespace inputMethodEngine {
      * Subscribe 'setCallingWindow'.
      *
      * @param { 'setCallingWindow' } type - the type of subscribe event.
-     * @param { (wid:number) => void } callback - the callback of on('setCallingWindow').
+     * @param { function } callback - the callback of on('setCallingWindow').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -505,7 +506,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe 'setCallingWindow'.
      *
      * @param { 'setCallingWindow' } type - the type of unsubscribe event.
-     * @param { (wid:number) => void } callback - the callback of off('setCallingWindow').
+     * @param { function } callback - the callback of off('setCallingWindow').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -515,7 +516,7 @@ declare namespace inputMethodEngine {
      * Subscribe 'keyboardShow'|'keyboardHide'.
      *
      * @param { 'keyboardShow' | 'keyboardHide' } type - the type of subscribe event.
-     * @param { () => void } callback - the callback of on('keyboardShow'|'keyboardHide').
+     * @param { function } callback - the callback of on('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -525,7 +526,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe 'keyboardShow'|'keyboardHide'.
      *
      * @param { 'keyboardShow' | 'keyboardHide' } type - the type of unsubscribe event.
-     * @param { () => void } [callback] - the callback of off('keyboardShow'|'keyboardHide').
+     * @param { function } [callback] - the callback of off('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -535,7 +536,7 @@ declare namespace inputMethodEngine {
      * Subscribe 'setSubtype'.
      *
      * @param { 'setSubtype' } type - the type of subscribe event.
-     * @param { (inputMethodSubtype: InputMethodSubtype) => void } callback - the callback of on('setSubtype').
+     * @param { function } callback - the callback of on('setSubtype').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -545,7 +546,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe 'setSubtype'.
      *
      * @param { 'setSubtype' } type - the type of subscribe event.
-     * @param { (inputMethodSubtype: InputMethodSubtype) => void } [callback] - the callback of off('setSubtype').
+     * @param { function } [callback] - the callback of off('setSubtype').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -808,6 +809,18 @@ declare namespace inputMethodEngine {
     deleteForward(length: number): Promise<boolean>;
 
     /**
+     * Delete text forward.
+     *
+     * @param { number } length - length of text which will be deleted forward.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    deleteForwardSync(length: number): void;
+
+    /**
      * Delete text backward.
      *
      * @param { number } length - length of text which will be deleted backward.
@@ -832,6 +845,18 @@ declare namespace inputMethodEngine {
      * @since 9
      */
     deleteBackward(length: number): Promise<boolean>;
+
+    /**
+     * Delete text backward.
+     *
+     * @param { number } length - length of text which will be deleted backward.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    deleteBackwardSync(length: number): void;
 
     /**
      * Insert text into Editor.
@@ -860,6 +885,18 @@ declare namespace inputMethodEngine {
     insertText(text: string): Promise<boolean>;
 
     /**
+     * Insert text into Editor.
+     *
+     * @param { string } text - text which will be inserted.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    insertTextSync(text: string): void;
+
+    /**
      * Get the text before cursor.
      *
      * @param { number } length - the length of text which will be got.
@@ -884,6 +921,19 @@ declare namespace inputMethodEngine {
      * @since 9
      */
     getForward(length: number): Promise<string>;
+
+    /**
+     * Get the text before cursor.
+     *
+     * @param { number } length - the length of text which will be got.
+     * @returns { string } the text string before cursor.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    getForwardSync(length: number): string;
 
     /**
      * Get the text after cursor.
@@ -912,6 +962,19 @@ declare namespace inputMethodEngine {
     getBackward(length: number): Promise<string>;
 
     /**
+     * Get the text after cursor.
+     *
+     * @param { number } length - the length of text which will be got.
+     * @returns { string } the text string after cursor.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    getBackwardSync(length: number): string;
+
+    /**
      * Get attribute about editor.
      *
      * @param { AsyncCallback<EditorAttribute> } callback - the callback of getEditorAttribute.
@@ -930,6 +993,16 @@ declare namespace inputMethodEngine {
      * @since 9
      */
     getEditorAttribute(): Promise<EditorAttribute>;
+
+    /**
+     * Get attribute about editor.
+     *
+     * @returns { EditorAttribute } the attribute of editor.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    getEditorAttributeSync(): EditorAttribute;
 
     /**
      * Move cursor from input method.
@@ -956,6 +1029,17 @@ declare namespace inputMethodEngine {
     moveCursor(direction: number): Promise<void>;
 
     /**
+     * Move cursor from input method.
+     *
+     * @param { number } direction - Indicates the distance of cursor to be moved.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    moveCursorSync(direction: number): void;
+
+    /**
      * Select text in editor by range.
      *
      * @param { Range } range - indicates the range of selected text in editor.
@@ -978,6 +1062,17 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     selectByRange(range: Range): Promise<void>;
+
+    /**
+     * Select text in editor by range.
+     *
+     * @param { Range } range - indicates the range of selected text in editor.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    selectByRangeSync(range: Range): void;
 
     /**
      * Select text in editor by cursor movement.
@@ -1004,6 +1099,17 @@ declare namespace inputMethodEngine {
     selectByMovement(movement: Movement): Promise<void>;
 
     /**
+     * Select text in editor by cursor movement.
+     *
+     * @param { Movement } movement - indicates the movement of cursor when selecting.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    selectByMovementSync(movement: Movement): void;
+
+    /**
      * Get the index number of text at cursor.
      *
      * @param { AsyncCallback<number> } callback - the callback of getTextIndexAtCursor, number represents the index
@@ -1026,6 +1132,17 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     getTextIndexAtCursor(): Promise<number>;
+
+    /**
+     * Get the index number of text at cursor.
+     *
+     * @returns { number } the index number of text at cursor.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    getTextIndexAtCursorSync(): number;
 
     /**
      * Send extend action code.
@@ -1064,7 +1181,7 @@ declare namespace inputMethodEngine {
      * Subscribe key up or down event
      *
      * @param { 'keyDown' | 'keyUp' } type - indicates the type of subscribe event.
-     * @param { (event: KeyEvent) => boolean } callback - indicates the callback function of on('keyDown'|'keyUp').
+     * @param { function } callback - indicates the callback function of on('keyDown'|'keyUp').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1074,17 +1191,38 @@ declare namespace inputMethodEngine {
      * Unsubscribe key up or down event
      *
      * @param { 'keyDown' | 'keyUp' } type - indicates the type of unsubscribe event.
-     * @param { (event: KeyEvent) => boolean } [callback] - optional, indicates the callback function of off('keyDown'|'keyUp').
+     * @param { function } [callback] - optional, indicates the callback function of off('keyDown'|'keyUp').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
     off(type: 'keyDown' | 'keyUp', callback?: (event: KeyEvent) => boolean): void;
 
     /**
+     * Subscribe key event.
+     *
+     * @param { 'keyEvent' } type - indicates the type of subscribe event.
+     * @param { function } callback - indicates the callback function of on('keyEvent').
+     *     If the key is processed by event subscriber, callback should be return true, else return false.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    on(type: 'keyEvent', callback: (event: InputKeyEvent) => boolean): void;
+
+    /**
+     * Unsubscribe key event.
+     *
+     * @param { 'keyEvent' } type - indicates the type of unsubscribe event.
+     * @param { function } [callback] - optional, indicates the callback function of off('keyEvent').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    off(type: 'keyEvent', callback?: (event: InputKeyEvent) => boolean): void;
+
+    /**
      * Subscribe cursor context change
      *
      * @param { 'cursorContextChange' } type - indicates the type of subscribe event.
-     * @param { (x: number, y: number, height: number) => void } callback - indicates the callback function of on('cursorContextChange').
+     * @param { function } callback - indicates the callback function of on('cursorContextChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1094,7 +1232,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe cursor context change
      *
      * @param { 'cursorContextChange' } type - indicates the type of unsubscribe event.
-     * @param { (x: number, y: number, height: number) => void } [callback] - optional, indicates the callback function of off('cursorContextChange').
+     * @param { function } [callback] - optional, indicates the callback function of off('cursorContextChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1104,7 +1242,7 @@ declare namespace inputMethodEngine {
      * Subscribe selection change
      *
      * @param { 'selectionChange' } type - indicates the type of subscribe event.
-     * @param { (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void } callback - indicates the callback function
+     * @param { function } callback - indicates the callback function
      * of on('selectionChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
@@ -1118,7 +1256,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe selection change
      *
      * @param { 'selectionChange' } type - indicates the type of unsubscribe event.
-     * @param { (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void } [callback] - optional,
+     * @param { function } [callback] - optional,
      * indicates the callback function of off('selectionChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
@@ -1132,7 +1270,7 @@ declare namespace inputMethodEngine {
      * Subscribe text change
      *
      * @param { 'textChange' } type - indicates the type of subscribe event.
-     * @param { (text: string) => void } callback - indicates the callback function of on('textChange').
+     * @param { function } callback - indicates the callback function of on('textChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
@@ -1142,11 +1280,31 @@ declare namespace inputMethodEngine {
      * Unsubscribe text change
      *
      * @param { 'textChange' } type - indicates the type of unsubscribe event.
-     * @param { (text: string) => void } [callback] - optional, indicates the callback function of off('textChange').
+     * @param { function } [callback] - optional, indicates the callback function of off('textChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
     off(type: 'textChange', callback?: (text: string) => void): void;
+
+    /**
+     * Subscribe input text attribute change
+     *
+     * @param { 'editorAttributeChanged' } type - indicates the type of subscribe event.
+     * @param { function } callback - indicates the callback function of on('editorAttributeChanged').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    on(type: 'editorAttributeChanged', callback: (attr: EditorAttribute) => void): void;
+
+    /**
+     * Unsubscribe input text attribute change
+     *
+     * @param { 'editorAttributeChanged' } type - indicates the type of subscribe event.
+     * @param { function } [callback] - indicates the callback function of off('editorAttributeChanged').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    off(type: 'editorAttributeChanged', callback?: (attr: EditorAttribute) => void): void;
   }
 
   /**
@@ -1294,26 +1452,48 @@ declare namespace inputMethodEngine {
     hide(): Promise<void>;
 
     /**
-     * Registers panel show/hide event.
-     * <p>The "show" and "hide" events are triggered when the panel is shown or hidden.</p>
+     * Registers panel show event.
+     * <p>The "show" events are triggered when the panel is shown.</p>
      *
-     * @param { 'show'|'hide' } type - events type.
-     * @param { () => void } callback - the callback will be called when events are triggered.
+     * @param { 'show' } type - events type.
+     * @param { function } callback - the callback will be called when events are triggered.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    on(type: 'show' | 'hide', callback: () => void): void;
+    on(type: 'show', callback: () => void): void;
 
     /**
-     * Unregisters panel show/hide event.
+     * Unregisters panel show event.
      *
-     * @param { 'show'|'hide' } type - events type.
-     * @param { () => void } [callback] - the callback to Unregister.
+     * @param { 'show' } type - events type.
+     * @param { function } [callback] - the callback to Unregister.
      * @throws { BusinessError } 401 -parameter error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'show' | 'hide', callback?: () => void): void;
+    off(type: 'show', callback?: () => void): void;
+
+    /**
+     * Registers panel hide event.
+     * <p>The "hide" events are triggered when the panel is hidden.</p>
+     *
+     * @param { 'hide' } type - events type.
+     * @param { function } callback - the callback will be called when events are triggered.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    on(type: 'hide', callback: () => void): void;
+
+    /**
+     * Unregisters panel hide event.
+     *
+     * @param { 'hide' } type - events type.
+     * @param { function } [callback] - the callback to Unregister.
+     * @throws { BusinessError } 401 -parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    off(type: 'hide', callback?: () => void): void;
 
     /**
      * Changes panel flag.
@@ -1470,6 +1650,7 @@ declare namespace inputMethodEngine {
      * Cursor moves up
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CURSOR_UP = 1,
 
@@ -1477,6 +1658,7 @@ declare namespace inputMethodEngine {
      * Cursor moves down
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CURSOR_DOWN,
 
@@ -1484,6 +1666,7 @@ declare namespace inputMethodEngine {
      * Cursor moves left
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CURSOR_LEFT,
 
@@ -1491,6 +1674,7 @@ declare namespace inputMethodEngine {
      * Cursor moves right
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CURSOR_RIGHT
   }
@@ -1533,7 +1717,7 @@ declare namespace inputMethodEngine {
     /**
      * Indicates the direction of cursor movement
      *
-     * @type { number }
+     * @type { Direction }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1552,6 +1736,7 @@ declare namespace inputMethodEngine {
      * Select all text.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     SELECT_ALL = 0,
 
@@ -1559,6 +1744,7 @@ declare namespace inputMethodEngine {
      * Cut selecting text.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     CUT = 3,
 
@@ -1566,6 +1752,7 @@ declare namespace inputMethodEngine {
      * Copy selecting text.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     COPY = 4,
 
@@ -1573,6 +1760,7 @@ declare namespace inputMethodEngine {
      * Paste from paste board.
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
      */
     PASTE = 5
   }

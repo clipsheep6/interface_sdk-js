@@ -41,10 +41,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
+import java.nio.charset.Charset;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Locale;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ForkJoinPool;
 
@@ -66,33 +67,29 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
 
     private static final int PERMISSION_CHANGES = 12;
 
-    private static final int PERMISSION_DELETE = 10;
-
     private static final int NEW_ERROR_CODE = 6;
 
     private static final int DEPRECATED_CHANGES = 5;
-
-    private static final int PERMISSION_NEW = 11;
 
     private static final int FUNCTION_CHANGES = 16;
 
     private static final int BEHAVIOR_CHANGE = 17;
 
-    private static final int REPORT_DEPRECATED = 2;
+    private static final String REPORT_DEPRECATED = "api已废弃";
 
-    private static final int REPORT_NEW_ERROR_CODE = 3;
+    private static final String REPORT_NEW_ERROR_CODE = "api新增(错误码)";
 
-    private static final int REPORT_PERMISSION_CHANGE = 5;
+    private static final String REPORT_PERMISSION_CHANGE = "api权限有变化";
 
-    private static final int REPORT_SYSTEM_API_CHANGES = 4;
+    private static final String REPORT_SYSTEM_API_CHANGES = "api访问级别有变化";
 
-    private static final int REPORT_MODEL_CHANGE = 6;
+    private static final String REPORT_MODEL_CHANGE = "api模型使用限制变化";
 
-    private static final int REPORT_CHANGELOG = 8;
+    private static final String REPORT_CHANGELOG = "api底层行为变更";
 
-    private static final int REPORT_FUNCTION_CHANGES = 7;
+    private static final String REPORT_FUNCTION_CHANGES = "api函数有变化";
 
-    private static final int REPORT_DELETE = 1;
+    private static final String REPORT_DELETE = "api删除";
 
     private static final int DIFF_ADD_NEW_API = 3;
 
@@ -230,18 +227,17 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
             if (!resultPath.exists()) {
                 resultPath.mkdirs();
             }
-            String orders = FileUtils.getLastDir().split(":")[0] +
-                    ": && cd updateCheck && cd api-diff && node api-diff.js --old " +
-                    this.textFieldOldSdkPath.getText() + " --new " +
+            String orders = "node api-diff.js --old " + this.textFieldOldSdkPath.getText() + " --new " +
                     this.newSdkFilePath + " --oldVersion " + this.oldSdkVersion + " --newVersion " +
                     this.newSdkVersion + " --output " + this.lastDir +
                     ConstString.get("check.format");
             LOGGER.info(LOG_TAG, "diff order:" + orders);
             ProcessBuilder builder = new ProcessBuilder();
+            builder.directory(new File(FileUtils.getLastDir().split(":")[0] + ":\\updateCheck\\api-diff"));
             builder.command("cmd.exe", "/c", orders);
             Process start = builder.start();
             BufferedReader bufferedReader = new BufferedReader(
-                    new InputStreamReader(start.getInputStream(), StandardCharsets.UTF_8));
+                    new InputStreamReader(start.getInputStream(), Charset.forName("GBK")));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
@@ -257,16 +253,17 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
             LOGGER.info(LOG_TAG, "Start run api collect tool");
             File updateCheck = new File(this.project.getBasePath(), "updateCheck");
             this.reportPath = updateCheck.toString();
-            String orders = FileUtils.getLastDir().split(":")[0] +
-                    ": && cd updateCheck && cd collect_application_api && node api-collector.js --app " +
-                    this.project.getBasePath() + " --output " + updateCheck + " --sdk " +
+            String orders = "node api-collector.js --app " + this.project.getBasePath() +
+                    " --output " + updateCheck + " --sdk " +
                     this.textFieldOldSdkPath.getText() + " --format json";
             ProcessBuilder builder = new ProcessBuilder();
+            builder.directory(new File(FileUtils.getLastDir().split(":")[0] +
+                    ":\\updateCheck\\collect_application_api"));
             LOGGER.info(LOG_TAG, "application order:" + orders);
             builder.command("cmd.exe", "/c", orders);
             Process start = builder.start();
             BufferedReader bufferedReader = new BufferedReader(
-                    new InputStreamReader(start.getInputStream(), StandardCharsets.UTF_8));
+                    new InputStreamReader(start.getInputStream(), Charset.forName("GBK")));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
@@ -344,8 +341,9 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
     private void judgeCollDiff(List<CollectApplicationApiDto> allApiResult, ApiDiffResultDto apiDto) {
         for (CollectApplicationApiDto collApiDto : allApiResult) {
             if (this.judgeApi(apiDto, collApiDto)) {
-                if (this.generateReportData(apiDto, collApiDto) != null) {
-                    this.updateCheckReportDtos.add(this.generateReportData(apiDto, collApiDto));
+                UpdateCheckReportDto reportDtoToCheck = this.generateReportData(apiDto, collApiDto);
+                if (reportDtoToCheck != null) {
+                    this.updateCheckReportDtos.add(reportDtoToCheck);
                 }
             }
         }
@@ -533,7 +531,9 @@ public class UpdateCheckWizardDialog extends DialogWrapper {
         MessageBox.showDialog(this.project,
                 ConstString.get("report.successfully"),
                 ConstString.get("check.view.report"));
-        DataUpdateNotifier.getInstance().notifyDataChange();
+        DataUpdateNotifier
+                .getInstance()
+                .notifyDataChange(new LinkedHashMap<String, Boolean>(), "executeAgain");
     }
 
     private void onCancel(@Nullable ActionEvent event) {

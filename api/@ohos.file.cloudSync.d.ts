@@ -16,7 +16,7 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * This module provides the capabilities to control cloud file synchronization.
+ * Provides the capabilities to control cloud file synchronization.
  *
  * @namespace cloudSync
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -169,7 +169,7 @@ declare namespace cloudSync {
      */
     state: SyncState;
     /**
-     * The error type of sync failed.
+     * The error type of sync.
      *
      * @type { ErrorType }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -200,7 +200,7 @@ declare namespace cloudSync {
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { 'progress' } evt - event type.
-     * @param { (pg: SyncProgress) => void } callback - callback function with a `SyncProgress` argument.
+     * @param { function } callback - callback function with a `SyncProgress` argument.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 401 - The input parameter is invalid.
@@ -212,6 +212,21 @@ declare namespace cloudSync {
     on(evt: 'progress', callback: (pg: SyncProgress) => void): void;
     /**
      * Unsubscribes from sync progress event.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { 'progress' } evt - event type.
+     * @param { function } callback - callback function with a `SyncProgress` argument.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 10
+     */
+    off(evt: 'progress', callback: (pg: SyncProgress) => void): void;
+    /**
+     * Unsubscribes all callbacks objects from sync progress event.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { 'progress' } evt - event type.
@@ -241,7 +256,7 @@ declare namespace cloudSync {
      */
     start(): Promise<void>;
     /**
-     * Start the gallery sync task.
+     * Start the gallery sync task with callback.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { AsyncCallback<void> } [callback] - Callback function.
@@ -270,7 +285,7 @@ declare namespace cloudSync {
      */
     stop(): Promise<void>;
     /**
-     * Stop the gallery sync task.
+     * Stop the gallery sync task with callback.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { AsyncCallback<void> } [callback] - Callback function.
@@ -285,7 +300,7 @@ declare namespace cloudSync {
   }
 
   /**
-   * Describes the State type in downloading.
+   * Describes the State type of download.
    *
    * @enum { number }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -395,7 +410,7 @@ declare namespace cloudSync {
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { 'progress' } evt - event type.
-     * @param { (pg: DownloadProgress) => void } callback - callback function with a `DownloadProgress` argument.
+     * @param { function } callback - callback function with a `DownloadProgress` argument.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 401 - The input parameter is invalid.
@@ -407,6 +422,21 @@ declare namespace cloudSync {
     on(evt: 'progress', callback: (pg: DownloadProgress) => void): void;
     /**
      * Unsubscribes from download progress event.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { 'progress' } evt - event type.
+     * @param { function } callback - callback function with a `DownloadProgress` argument.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 10
+     */
+    off(evt: 'progress', callback: (pg: DownloadProgress) => void): void;
+    /**
+     * Unsubscribes all callbacks objects from download progress event.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { 'progress' } evt - event type.
@@ -436,7 +466,7 @@ declare namespace cloudSync {
      */
     start(uri: string): Promise<void>;
     /**
-     * Start the download task.
+     * Start the download task with callback.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { string } uri - uri of file.
@@ -466,7 +496,7 @@ declare namespace cloudSync {
      */
     stop(uri: string): Promise<void>;
     /**
-     * Stop the download task.
+     * Stop the download task with callback.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @param { string } uri - uri of file.

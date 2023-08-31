@@ -28,6 +28,7 @@ import { Caller } from '../@ohos.app.ability.UIAbility';
 import { LocalStorage } from 'StateManagement';
 import image from '../@ohos.multimedia.image';
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
+import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 
 /**
  * The context of an ability. It allows access to ability-specific resources.
@@ -95,6 +96,7 @@ export default class UIAbilityContext extends Context {
    */
   /**
    * Indicates configuration information.
+   *
    * @type { Configuration }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
@@ -279,7 +281,8 @@ export default class UIAbilityContext extends Context {
    * If the target ability is visible, you can start the target ability; If the target ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
    * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   * @param want { Want } - Indicates the ability to start.
+   *
+   * @param { Want } want - Indicates the ability to start.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -313,6 +316,7 @@ export default class UIAbilityContext extends Context {
    * If the target ability is visible, you can start the target ability; If the target ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
    * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   *
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } options - Indicates the start options.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
@@ -346,6 +350,7 @@ export default class UIAbilityContext extends Context {
    * If the target ability is visible, you can start the target ability; If the target ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
    * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   *
    * @param { Want } want - Indicates the ability to start.
    * @param { StartOptions } options - Indicates the start options.
    * @returns { Promise<void> } The promise returned by the function.
@@ -1451,8 +1456,7 @@ export default class UIAbilityContext extends Context {
   terminateSelf(): Promise<void>;
 
   /**
-   * Sets the result code and data to be returned by this Page ability to the caller
-   * and destroys this Page ability.
+   * Destroys the Page ability while returning the specified result code and data to the caller.
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
@@ -1468,8 +1472,7 @@ export default class UIAbilityContext extends Context {
    * @since 9
    */
   /**
-   * Sets the result code and data to be returned by this Page ability to the caller
-   * and destroys this Page ability.
+   * Destroys the Page ability while returning the specified result code and data to the caller.
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
@@ -1484,8 +1487,7 @@ export default class UIAbilityContext extends Context {
   terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the result code and data to be returned by this Page ability to the caller
-   * and destroys this Page ability.
+   * Destroys the Page ability while returning the specified result code and data to the caller.
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @returns { Promise<void> } The promise returned by the function.
@@ -1501,8 +1503,7 @@ export default class UIAbilityContext extends Context {
    * @since 9
    */
   /**
-   * Sets the result code and data to be returned by this Page ability to the caller
-   * and destroys this Page ability.
+   * Destroys the Page ability while returning the specified result code and data to the caller.
    *
    * @param { AbilityResult } parameter - Indicates the result to return.
    * @returns { Promise<void> } The promise returned by the function.
@@ -1617,7 +1618,7 @@ export default class UIAbilityContext extends Context {
   connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
   /**
-   * The callback interface is connected successfully.
+   * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
    * @param { number } connection - The number code of the ability connected
    * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
@@ -1631,7 +1632,7 @@ export default class UIAbilityContext extends Context {
   disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-   * The callback interface is connected successfully.
+   * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
    * @param { number } connection - The number code of the ability connected
    * @returns { Promise<void> } The promise returned by the function.
@@ -1729,6 +1730,34 @@ export default class UIAbilityContext extends Context {
    * @since 10
    */
   setMissionIcon(icon: image.PixelMap): Promise<void>;
+
+  /**
+   * Set mission continue state of current ability.
+   *
+   * @param { AbilityConstant.ContinueState } state - The mission continue state of current ability.
+   * @param { AsyncCallback<void> } callback - The callback of setMissionContinueState.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  setMissionContinueState(state: AbilityConstant.ContinueState, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set mission continue state of current ability.
+   *
+   * @param { AbilityConstant.ContinueState } state - The mission continue state of current ability.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  setMissionContinueState(state: AbilityConstant.ContinueState): Promise<void>;
 
   /**
    * Restore window stage data in ability continuation
@@ -2045,4 +2074,16 @@ export default class UIAbilityContext extends Context {
    * @since 10
    */
   requestDialogService(want: Want): Promise<dialogRequest.RequestResult>;
+
+  /**
+   * Report to system when the ability is drawn completed.
+   *
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  reportDrawnCompleted(callback: AsyncCallback<void>): void;
 }

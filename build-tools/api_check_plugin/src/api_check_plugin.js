@@ -15,7 +15,7 @@
 
 const path = require('path');
 const fs = require('fs');
-const request = require("sync-request")
+const request = require('sync-request');
 const { checkSpelling } = require('./check_spelling');
 const { checkAPIDecorators } = require('./check_decorator');
 const { checkPermission } = require('./check_permission');
@@ -26,21 +26,32 @@ const { checkJSDoc } = require('./check_legality');
 const { checkNaming } = require('./check_naming');
 const { checkEventSubscription } = require('./check_event_subscription');
 const { checkAnyInAPI } = require('./check_any');
-const { hasAPINote, ApiCheckResult, requireTypescriptModule, commentNodeWhiteList } = require('./utils');
+const { hasAPINote, ApiCheckResult, requireTypescriptModule, commentNodeWhiteList, splitPath,
+  isWhiteListFile } = require('./utils');
 const ts = requireTypescriptModule();
-let result = require('../check_result.json');
-const rules = require('../code_style_rule.json')
+const result = require('../check_result.json');
+const rules = require('../code_style_rule.json');
+const { checkApiChanges } = require('./check_diff_changes');
+const whiteLists = require('../config/jsdocCheckWhiteList.json');
 
-function checkAPICodeStyle(url) {
+function checkAPICodeStyle(url, isTestCase) {
   if (fs.existsSync(url)) {
-    const mdApiFiles = getMdFiles(url);
+    const mdApiFiles = getMdFiles(url, isTestCase);
     tsTransform(mdApiFiles, checkAPICodeStyleCallback);
   }
 }
 
-function getMdFiles(url) {
+function getMdFiles(url, isTestCase) {
+  const mdFiles = [];
   const content = fs.readFileSync(url, 'utf-8');
-  const mdFiles = content.split(/[(\r\n)\r\n]+/);
+  const filePathArr = content.split(/[(\r\n)\r\n]+/);
+  filePathArr.forEach(filePath => {
+    const pathElements = new Set();
+    splitPath(filePath, pathElements);
+    if (!pathElements.has('build-tools') || isTestCase) {
+      mdFiles.push(filePath);
+    }
+  })
   return mdFiles;
 }
 
@@ -52,10 +63,10 @@ function tsTransform(uFiles, callback) {
       const fileName = path.basename(filePath).replace(/.d.ts/g, '.ts');
       ts.transpileModule(content, {
         compilerOptions: {
-          'target': ts.ScriptTarget.ES2017
+          target: ts.ScriptTarget.ES2017,
         },
         fileName: fileName,
-        transformers: { before: [callback(filePath)] }
+        transformers: { before: [callback(filePath)] },
       });
     }
   });
@@ -90,7 +101,8 @@ function checkAllNode(node, sourcefile, fileName) {
     // check event subscription
     checkEventSubscription(node, sourcefile, fileName);
 
-    if (commentNodeWhiteList.includes(node.kind)) {
+    const uesWhiteList = !isWhiteListFile(fileName, whiteLists.JSDocCheck);
+    if (commentNodeWhiteList.includes(node.kind) && uesWhiteList) {
       checkJSDoc(node, sourcefile, fileName, true);
     }
   }
@@ -106,47 +118,56 @@ function checkAllNode(node, sourcefile, fileName) {
   node.getChildren().forEach((item) => checkAllNode(item, sourcefile, fileName));
 }
 
-function scanEntry(url) {
-  // scan entry
-  checkAPICodeStyle(url);
-  result.scanResult.push(`api_check: ${ApiCheckResult.format_check_result}`);
+function scanEntry(url, prId, isTestCase) {
+  if (prId && prId !== 'NA') {
+    checkApiChanges(prId);
+    // scan entry
+    checkAPICodeStyle(url, isTestCase);
+  }
+  result.scanResult.push(`api_check: ${ApiCheckResult.formatCheckResult}`);
   return result.scanResult;
 }
 exports.scanEntry = scanEntry;
 
 function reqGitApi(scanResult, prId) {
   const administrators = new Set();
+  const SUCCESS_CODE = 200;
   rules.administrators.forEach((administrator) => {
     administrators.add(administrator.user);
-  })
-  if (ApiCheckResult.format_check_result || !prId || prId === 'NA') {
+  });
+  if (ApiCheckResult.formatCheckResult || !prId || prId === 'NA') {
     return scanResult;
   }
   const commentRequestPath = `https://gitee.com/api/v5/repos/openharmony/interface_sdk-js/pulls/${prId}/comments?page=1&per_page=100&direction=desc`;
-  let res = request('GET', commentRequestPath, {
+  const res = request('GET', commentRequestPath, {
     headers: {
-      'Content-Type': 'application/json;charset=UFT-8'
-    }
+      'Content-Type': 'application/json;charset=UFT-8',
+    },
   });
-  if (res.statusCode !== 200) {
+  if (res.statusCode !== SUCCESS_CODE) {
     throw `The giteeAPI access failed, StatusCode:${res.statusCode}`;
   }
-  let resBody = new TextDecoder('utf-8').decode(res.body);
-  let comments = JSON.parse(`{"resultBody": ${resBody}}`);
-  let resultBody = comments.resultBody;
+  const resBody = new TextDecoder('utf-8').decode(res.body);
+  const comments = JSON.parse(`{"resultBody": ${resBody}}`);
+  const resultBody = comments.resultBody;
   if (!resultBody || resultBody.length === 0 || !(resultBody instanceof Array)) {
-    throw "The format of data returned by giteeAPI is incorrect";
+    throw 'The format of data returned by giteeAPI is incorrect';
   }
   for (let i = 0; i < resultBody.length; i++) {
     const comment = resultBody[i];
-    if (comment && comment['user'] && comment['user']['id'] && administrators.has(String(comment['user']['id'])) &&
-      comment.body && /^approve api check$/.test(comment.body)) {
-      ApiCheckResult.format_check_result = true;
+    if (!(comment && comment.user && comment.user.id && comment.body)) {
+      continue;
+    }
+    const userId = String(comment.user.id);
+    if (userId === rules.ciId && /^代码有更新,重置PR验证状态$/.test(comment.body)) {
+      break;
+    }
+    if (administrators.has(userId) && /^approve api check$/.test(comment.body)) {
+      ApiCheckResult.formatCheckResult = true;
       scanResult = ['api_check: true'];
       break;
     }
   }
   return scanResult;
-
 }
 exports.reqGitApi = reqGitApi;

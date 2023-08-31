@@ -16,7 +16,7 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * This module provides the capabilities to use different pickers.
+ * Provide the capabilities to use different pickers.
  *
  * @namespace picker
  * @syscap SystemCapability.FileManagement.UserFileService
@@ -46,7 +46,7 @@ declare namespace picker {
     /**
      * The Type of the file in the picker window.
      *
-     * @type { PhotoViewMIMETypes }
+     * @type { ?PhotoViewMIMETypes }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
@@ -55,7 +55,7 @@ declare namespace picker {
     /**
      * Maximum number of images for a single selection.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
@@ -98,7 +98,7 @@ declare namespace picker {
     /**
      * The names of the files to be saved.
      *
-     * @type { Array<string> }
+     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
@@ -125,7 +125,7 @@ declare namespace picker {
     /**
      * Pull up the photo picker based on the selection mode.
      *
-     * @param { PhotoSelectResult } option - represents the options provided in select mode.
+     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
      * @param { AsyncCallback<PhotoSelectResult> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
@@ -133,7 +133,7 @@ declare namespace picker {
     select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
 
     /**
-     * Pull up the photo picker based on the default mode.
+     * Pull up the photo picker based on the selection mode.
      *
      * @param { AsyncCallback<PhotoSelectResult> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -162,7 +162,7 @@ declare namespace picker {
     save(option: PhotoSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Pull up the photo picker based on the default mode.
+     * Pull up the photo picker based on the save mode.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -172,12 +172,39 @@ declare namespace picker {
   }
 
   /**
-   * DocumentSelectOptions Object. Currently not supported.
+   * DocumentSelectOptions Object.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
    */
-  class DocumentSelectOptions {}
+  class DocumentSelectOptions {
+    /**
+     * The default opening uri of the picker window.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 10
+     */
+    defaultFilePathUri?: string;
+
+    /**
+     * Suffixes for file selected.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 10
+     */
+    fileSuffixFilters?: Array<string>;
+
+    /**
+     * Maximum number of files for a single selection.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 10
+     */
+    maxSelectNumber?: number;
+  }
 
   /**
    * DocumentSaveOptions Object
@@ -190,11 +217,29 @@ declare namespace picker {
      * The names of the files to be saved.
      * Currently, only single file is supported.
      *
-     * @type { Array<string> }
+     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
     newFileNames?: Array<string>;
+
+    /**
+     * The default opening uri of the picker window.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 10
+     */
+    defaultFilePathUri?: string;
+
+    /**
+     * Suffixes for file saved.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 10
+     */
+    fileSuffixChoices?: Array<string>;
   }
 
   /**
@@ -227,7 +272,7 @@ declare namespace picker {
     select(option: DocumentSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Pull up the document picker based on the default mode.
+     * Pull up the document picker based on the selection mode.
      * Currently, only single file is supported.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
@@ -259,7 +304,7 @@ declare namespace picker {
     save(option: DocumentSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Pull up the document picker based on the default mode.
+     * Pull up the document picker based on the save mode.
      * Currently, only single file is supported.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
@@ -288,7 +333,7 @@ declare namespace picker {
      * The names of the files to be saved.
      * Currently, only single file is supported.
      *
-     * @type { Array<string> }
+     * @type { ?Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileService
      * @since 9
      */
@@ -325,7 +370,7 @@ declare namespace picker {
     select(option: AudioSelectOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Pull up the audio picker based on the default mode.
+     * Pull up the audio picker based on the selection mode.
      * Currently, only single file is supported.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
@@ -357,7 +402,7 @@ declare namespace picker {
     save(option: AudioSaveOptions, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Pull up the audio picker based on the default mode.
+     * Pull up the audio picker based on the save mode.
      * Currently, only single file is supported.
      *
      * @param { AsyncCallback<Array<string>> } callback - callback
