@@ -30,34 +30,34 @@
  */
 declare enum BarMode {
   /**
-   * The actual layout width of the TabBar is used. If the width exceeds the total width, you can slide the tabbar.
+   * The width of all TabBars is evenly allocated.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The actual layout width of the TabBar is used. If the width exceeds the total width, you can slide the tabbar.
+   * The width of all TabBars is evenly allocated.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  Scrollable,
+  Fixed = 0,
 
   /**
-   * The width of all TabBars is evenly allocated.
+   * The actual layout width of the TabBar is used. If the width exceeds the total width, you can slide the tabbar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The width of all TabBars is evenly allocated.
+   * The actual layout width of the TabBar is used. If the width exceeds the total width, you can slide the tabbar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  Fixed,
+  Scrollable = 1,
 }
 
 /**
