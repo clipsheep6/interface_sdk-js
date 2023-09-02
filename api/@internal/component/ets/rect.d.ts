@@ -237,6 +237,111 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
 }
 
 /**
+ * rect attribute declaration.
+ *
+ * @extends CommonShape
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+declare class RectShape extends CommonShape<RectShape> {
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @form
+   */
+  constructor(
+    value?:
+      {
+        width?: number | string;
+        height?: number | string;
+        radius?: number | string | Array<any>;
+      }
+      | {
+        width?: number | string;
+        height?: number | string;
+        radiusWidth?: number | string;
+        radiusHeight?: number | string;
+      },
+  );
+
+  /**
+   * Sets the width of the current rect shape.
+   *
+   * @param { Length } value
+   * @returns { RectShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  width(value: Length): RectShape;
+
+  /**
+    * Sets the height of the current rect shape.
+    *
+    * @param { Length } value
+    * @returns { RectShape }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 10
+    * @form
+    */
+  height(value: Length): RectShape;
+
+  /**
+   * The size of the current rect shape.
+   *
+   * @param { SizeOptions } value
+   * @returns { RectShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  size(value: SizeOptions): RectShape;
+
+  /**
+   * Called when the fillet width is set.
+   *
+   * @param { number | string } value
+   * @returns { RectShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  radiusWidth(value: number | string): RectShape;
+
+  /**
+   * Called when the fillet height is set.
+   *
+   * @param { number | string } value
+   * @returns { RectShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  radiusHeight(value: number | string): RectShape;
+
+  /**
+   * Called when the fillet size is set.
+   *
+   * @param { number | string | Array<any> } value
+   * @returns { RectShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  radius(value: number | string | Array<any>): RectShape;
+}
+
+/**
  * Defines Rect Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

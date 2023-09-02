@@ -202,6 +202,63 @@ interface CircleInterface {
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
 
 /**
+ * Circle drawing component attribute functions.
+ *
+ * @extends CircleShape
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+declare class CircleShape extends CommonShape<CircleShape> {
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @form
+   */
+  constructor(value?: CircleOptions);
+
+  /**
+   * Sets the width of the current circle shape.
+   *
+   * @param { Length } value
+   * @returns { CircleShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  width(value: Length): CircleShape;
+
+  /**
+   * Sets the height of the current circle shape.
+   *
+   * @param { Length } value
+   * @returns { CircleShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  height(value: Length): CircleShape;
+
+  /**
+   * The size of the current circle shape.
+   *
+   * @param { SizeOptions } value
+   * @returns { CircleShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  size(value: SizeOptions): CircleShape;
+}
+
+/**
  * Defines Circle Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

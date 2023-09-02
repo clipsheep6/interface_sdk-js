@@ -118,6 +118,61 @@ interface EllipseInterface {
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 
 /**
+ * @extends CommonShape
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+declare class EllipseShape extends CommonShape<EllipseShape> {
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @form
+   */
+  constructor(value?: { width?: string | number; height?: string | number });
+
+  /**
+   * Sets the width of the current ellipse shape.
+   *
+   * @param { Length } value
+   * @returns { EllipseShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  width(value: Length): EllipseShape;
+
+  /**
+   * Sets the height of the current ellipse shape.
+   *
+   * @param { Length } value
+   * @returns { EllipseShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  height(value: Length): EllipseShape;
+
+  /**
+   * The size of the current ellipse shape.
+   *
+   * @param { SizeOptions } value
+   * @returns { EllipseShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  size(value: SizeOptions): EllipseShape;
+}
+
+/**
  * Defines Ellipse Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

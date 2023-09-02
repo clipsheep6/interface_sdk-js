@@ -153,6 +153,39 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
 }
 
 /**
+ * Provides methods for attribute path component.
+ *
+ * @extends CommonShape
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+declare class PathShape extends CommonShape<PathShape> {
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 10
+   * @form
+   */
+  constructor(value?: { width?: number | string; height?: number | string; commands?: string });  // 邮件里说是要改成必填，为啥？
+
+  /**
+   * Called when the command string drawn by the path is set.
+   *
+   * @param { string } value
+   * @returns { PathShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  commands(value: string): PathShape;
+}
+
+/**
  * Defines Path Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
