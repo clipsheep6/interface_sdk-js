@@ -363,6 +363,28 @@ declare namespace userFileManager {
      */
     setHidden(hiddenState: boolean): Promise<void>;
     /**
+     * Get asset json.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { AsyncCallback<string> } callback - Return void.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    getJson(callback: AsyncCallback<string>): void;
+    /**
+     * Get asset json.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @returns { Promise<string> } Returns the promise
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @syscap SystemCapability.FileManagement.UserFileManager.Core
+     * @systemapi
+     * @since 10
+     */
+    getJson(): Promise<string>;
+    /**
      * Set user comment info to the asset.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
