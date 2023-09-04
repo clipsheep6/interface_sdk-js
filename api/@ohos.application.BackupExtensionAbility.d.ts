@@ -51,6 +51,17 @@ export interface BundleVersion {
  * @since 10
  */
 export default class BackupExtensionAbility {
+
+  /**
+   * Indicates extension's context.
+   *
+   * @type { ExtensionContext }
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @StageModelOnly
+   * @since 11
+   */
+  context:ExtensionContext;
+
   /**
    * Callback to be called when the backup procedure is started.
    * Developer could override this method to build files to be backup.
