@@ -1731,21 +1731,6 @@ declare namespace resourceManager {
     getNumberByName(resName: string): number;
 
     /**
-     * Obtains release resourceManager.
-     *
-     * @syscap SystemCapability.Global.ResourceManager
-     * @since 7
-     */
-    /**
-     * Obtains release resourceManager.
-     *
-     * @syscap SystemCapability.Global.ResourceManager
-     * @crossplatform
-     * @since 10
-     */
-    release();
-
-    /**
      * Obtains the character string corresponding to a specified resource ID in callback mode.
      *
      * @param { number } resId - Indicates the resource ID.
