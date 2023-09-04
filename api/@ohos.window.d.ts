@@ -200,7 +200,6 @@ declare namespace window {
      * Screenshot.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
      * @StageModelOnly
      * @since 9
      */
