@@ -112,7 +112,7 @@ declare namespace omapi {
      *
      * @returns { boolean } True if the SE is present, false otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
      */
@@ -125,7 +125,7 @@ declare namespace omapi {
      *
      * @returns { Session } A Session object to be used to create channels.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
@@ -136,7 +136,7 @@ declare namespace omapi {
      * Close all the sessions opened on this reader. All the channels opened by all these sessions will be closed.
      *
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
      */
@@ -169,7 +169,7 @@ declare namespace omapi {
      *
      * @returns { number[] } The ATR as a number array or empty array.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
      */
@@ -179,7 +179,7 @@ declare namespace omapi {
      * Close the connection with the SE. This will close any channels opened by this application with this SE.
      *
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
      */
@@ -199,7 +199,7 @@ declare namespace omapi {
      * Close any channels opened on this session.
      *
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
      */
@@ -214,7 +214,7 @@ declare namespace omapi {
      * @returns { Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected.
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
@@ -232,7 +232,7 @@ declare namespace omapi {
      * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected.
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
@@ -257,7 +257,7 @@ declare namespace omapi {
      * @returns { Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected.
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
@@ -282,7 +282,7 @@ declare namespace omapi {
      * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected.
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
@@ -300,7 +300,7 @@ declare namespace omapi {
      * A new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected or
      *                                     a logical channel is already open to a non-multi-selectable applet.
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
@@ -319,7 +319,7 @@ declare namespace omapi {
      * A new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected or
      *                                     a logical channel is already open to a non-multi-selectable applet.
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
@@ -345,7 +345,7 @@ declare namespace omapi {
      * A new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected or
      *                                     a logical channel is already open to a non-multi-selectable applet.
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
@@ -370,7 +370,7 @@ declare namespace omapi {
      * @param { AsyncCallback<Channel> } callback - The callback to return the instance of channel. Null if the SE is unable to provide.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected or
      *                                     a logical channel is already open to a non-multi-selectable applet.
      * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
@@ -448,7 +448,7 @@ declare namespace omapi {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
-     * @throws { BusinessError } 3300103 - SecurityError, the command is filtered by the security policy.
+     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
@@ -463,7 +463,7 @@ declare namespace omapi {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
-     * @throws { BusinessError } 3300103 - SecurityError, the command is filtered by the security policy.
+     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10
