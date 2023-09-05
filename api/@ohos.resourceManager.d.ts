@@ -180,7 +180,15 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
-    DEVICE_TYPE_WEARABLE = 0x06
+    DEVICE_TYPE_WEARABLE = 0x06,
+
+    /**
+     * Indicates a 2in1 device.
+     *
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 11
+     */
+    DEVICE_TYPE_TWOINONE = 0x07
   }
 
   /**
@@ -2436,7 +2444,7 @@ declare namespace resourceManager {
 
     /**
      * Remove overlay resources during application runtime.
-     *
+     * 
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001010 - If loading the overlay failed.
