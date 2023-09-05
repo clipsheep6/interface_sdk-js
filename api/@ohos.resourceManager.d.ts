@@ -152,7 +152,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
-    DEVICE_TYPE_PAD = 0x03,
+    DEVICE_TYPE_PC = 0x03,
 
     /**
      * Indicates a smart TV.
@@ -180,7 +180,15 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @since 10
      */
-    DEVICE_TYPE_WEARABLE = 0x06
+    DEVICE_TYPE_WEARABLE = 0x06,
+
+    /**
+     * Indicates a 2in1 device.
+     *
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 11
+     */
+    DEVICE_TYPE_TWOINONE = 0x07
   }
 
   /**
@@ -1731,6 +1739,21 @@ declare namespace resourceManager {
     getNumberByName(resName: string): number;
 
     /**
+     * Obtains release resourceManager.
+     *
+     * @syscap SystemCapability.Global.ResourceManager
+     * @since 7
+     */
+    /**
+     * Obtains release resourceManager.
+     *
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @since 10
+     */
+    release();
+
+    /**
      * Obtains the character string corresponding to a specified resource ID in callback mode.
      *
      * @param { number } resId - Indicates the resource ID.
@@ -2421,7 +2444,7 @@ declare namespace resourceManager {
 
     /**
      * Remove overlay resources during application runtime.
-     *
+     * 
      * @param { string } path - Indicates the application overlay path.
      * @throws { BusinessError } 401 - If the input parameter invalid.
      * @throws { BusinessError } 9001010 - If loading the overlay failed.
