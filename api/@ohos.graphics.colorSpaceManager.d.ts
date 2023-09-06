@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2022 Huawei Device Co., Ltd.
+* Copyright (C) 2022-2023 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -142,21 +142,21 @@ declare namespace colorSpaceManager {
     /**
      * Get the name of color space type.
      * @since 9
-     * @throws {BusinessError} 18600001 - If param value is abnormal
+     * @throws {BusinessError} 18600001 - Parameter value is abnormal.
      */
     getColorSpaceName(): ColorSpace;
 
     /**
      * Get white point(x, y) of color space.
      * @since 9
-     * @throws {BusinessError} 18600001 - If param value is abnormal
+     * @throws {BusinessError} 18600001 - Parameter value is abnormal.
      */
     getWhitePoint(): Array<number>;
 
     /**
      * Get gamma value of color space.
      * @since 9
-     * @throws {BusinessError} 18600001 - If param value is abnormal
+     * @throws {BusinessError} 18600001 - Parameter value is abnormal.
      */
     getGamma(): number;
   }
@@ -166,7 +166,7 @@ declare namespace colorSpaceManager {
    * @param colorSpaceName Indicates the type of color space
    * @since 9
    * @throws {BusinessError} 401 - If param is invalid
-   * @throws {BusinessError} 18600001 - If param value is abnormal
+   * @throws {BusinessError} 18600001 - Parameter value is abnormal.
    */
   function create(colorSpaceName: ColorSpace): ColorSpaceManager;
 
@@ -176,7 +176,7 @@ declare namespace colorSpaceManager {
    * @param gamma Indicates display gamma value
    * @since 9
    * @throws {BusinessError} 401 - If param is invalid
-   * @throws {BusinessError} 18600001 - If param value is abnormal
+   * @throws {BusinessError} 18600001 - Parameter value is abnormal.
    */
   function create(primaries: ColorSpacePrimaries, gamma: number): ColorSpaceManager;
 }
