@@ -839,7 +839,27 @@ declare namespace fileAccess {
      * @StageModelOnly
      * @since 10
      */
-    NOTIFY_MOVE_SELF
+    NOTIFY_MOVE_SELF,
+
+    /**
+     * The monitored device online.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    NOTIFY_DEVICE_ONLINE,
+
+    /**
+     * The monitored device offline.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    NOTIFY_DEVICE_OFFLINE
   }
 
   /**
