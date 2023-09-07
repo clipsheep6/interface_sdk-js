@@ -418,6 +418,16 @@ declare namespace inputMethod {
     getInputMethods(): Promise<Array<InputMethodProperty>>;
 
     /**
+     * List all input methods
+     * @return { Array<InputMethodProperty> } the input methods returned by function.
+     * @throws { BusinessError } 12800001 - package manager error.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    getInputMethodsSync(): Array<InputMethodProperty>;
+
+    /**
      * Show input method setting extension dialog
      *
      * @param { AsyncCallback<boolean> } callback - the callback of showOptionalInputMethods.
