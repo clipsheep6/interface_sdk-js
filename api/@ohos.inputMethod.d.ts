@@ -409,7 +409,7 @@ declare namespace inputMethod {
 
     /**
      * List all input methods
-     * @return { Promise<Array<InputMethodProperty>> } the promise returned by the function.
+     * @returns { Promise<Array<InputMethodProperty>> } the promise returned by the function.
      * @throws { BusinessError } 12800001 - package manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -419,7 +419,7 @@ declare namespace inputMethod {
 
     /**
      * List all input methods
-     * @return { Array<InputMethodProperty> } the input methods returned by function.
+     * @returns { Array<InputMethodProperty> } the input methods returned by function.
      * @throws { BusinessError } 12800001 - package manager error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
