@@ -177,7 +177,7 @@ declare interface LeadingMarginPlaceholder {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  pixmap: PixelMap;
+  pixelMap: PixelMap;
 
   /**
    * Placeholder size.
