@@ -110,6 +110,11 @@ declare namespace continuationManager {
    * @param { Callback<ContinuationResult> } callback - Called when the user selects a device from the device selection
    *                                                    module, returning the device ID,device type, and device name for
    *                                                    developers to use.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360208 - The token is not registered.
+   * @throws { BusinessError } 29360209 - The callback has been registered.
+   * @throws { BusinessError } 29360214 - The type of callback is not supported.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -125,6 +130,11 @@ declare namespace continuationManager {
    * @param { Callback<ContinuationResult> } [callback] - Called when the user selects a device from the device
    *                                                      selection module, returning the device ID,device type,
    *                                                      and device name for developers to use.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360208 - The token is not registered.
+   * @throws { BusinessError } 29360210 - The callback is not registered.
+   * @throws { BusinessError } 29360214 - The type of callback is not supported.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -139,6 +149,11 @@ declare namespace continuationManager {
    * @param { 'deviceDisconnect' } type - deviceDisconnect.
    * @param { Callback<string> } callback - Called when the user disconnects the device from the device selection
    *                                        module, returning the device ID for developers to use.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360208 - The token is not registered.
+   * @throws { BusinessError } 29360209 - The callback has been registered.
+   * @throws { BusinessError } 29360214 - The type of callback is not supported.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -153,6 +168,11 @@ declare namespace continuationManager {
    * @param { 'deviceDisconnect' } type - deviceDisconnect.
    * @param { Callback<string> } [callback] - Called when the user selects a device from the device selection module,
    *                                          returning the device ID,device type, and device name for developers to use.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360208 - The token is not registered.
+   * @throws { BusinessError } 29360210 - The callback is not registered.
+   * @throws { BusinessError } 29360214 - The type of callback is not supported.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -166,6 +186,9 @@ declare namespace continuationManager {
    *
    * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after connecting to
    *                                             the flow management service.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360207 - The number of registrations has reached the upper limit.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -181,6 +204,10 @@ declare namespace continuationManager {
    *                                              parameters used to filter the list of available devices.
    * @param { AsyncCallback<number> } callback - The AsyncCallback form returns the token generated after
    *                                             connecting to the flow management service.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360207 - The number of registrations has reached the upper limit.
+   * @throws { BusinessError } 29360216 - Invalid continuation mode.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -196,6 +223,10 @@ declare namespace continuationManager {
    *                                                parameters used to filter the list of available devices.
    * @returns { Promise<number> } callback Indicates the callback to be invoked when the continuation manager service
    *                              is connected.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360207 - The number of registrations has reached the upper limit.
+   * @throws { BusinessError } 29360216 - Invalid continuation mode.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -209,6 +240,9 @@ declare namespace continuationManager {
    *
    * @param { number } token - Indicates the registration token of the ability.
    * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360208 - The token is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -223,6 +257,9 @@ declare namespace continuationManager {
    * @param { number } token - Indicates the registration token of the ability.
    * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation manager
    *                            service is connected.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360208 - The token is not registered.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -237,6 +274,12 @@ declare namespace continuationManager {
    * @param { string } deviceId - Indicates the ID of the device whose connection state is to be updated.
    * @param { DeviceConnectState } status - Indicates the connection state to update.
    * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360208 - The token is not registered.
+   * @throws { BusinessError } 29360210 - The callback is not registered.
+   * @throws { BusinessError } 29360211 - Failed to connect to the ability.
+   * @throws { BusinessError } 29360215 - Invalid connection state.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -257,6 +300,12 @@ declare namespace continuationManager {
    * @param { DeviceConnectState } status - Indicates the connection state to update.
    * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation
    *                            manager service is connected.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360208 - The token is not registered.
+   * @throws { BusinessError } 29360210 - The callback is not registered.
+   * @throws { BusinessError } 29360211 - Failed to connect to the ability.
+   * @throws { BusinessError } 29360215 - Invalid connection state.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -269,6 +318,12 @@ declare namespace continuationManager {
    *
    * @param { number } token - Indicates the registration token of the ability.
    * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360208 - The token is not registered.
+   * @throws { BusinessError } 29360210 - The callback is not registered.
+   * @throws { BusinessError } 29360211 - Failed to connect to the ability.
+   * @throws { BusinessError } 29360216 - Invalid continuation mode.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -283,6 +338,12 @@ declare namespace continuationManager {
    * @param { ContinuationExtraParams } options - Indicates the extraParams object containing the extra parameters
    *                                            used to filter the list of available devices. This parameter is null.
    * @param { AsyncCallback<void> } callback - AsyncCallback returns the interface call result.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360208 - The token is not registered.
+   * @throws { BusinessError } 29360210 - The callback is not registered.
+   * @throws { BusinessError } 29360211 - Failed to connect to the ability.
+   * @throws { BusinessError } 29360216 - Invalid continuation mode.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
@@ -298,6 +359,12 @@ declare namespace continuationManager {
    *                                                used to filter the list of available devices. This parameter is null.
    * @returns { Promise<void> } callback Indicates the callback to be invoked when the continuation manager service
    *                            is connected.
+   * @throws { BusinessError } 3 - Failed to flatten the object.
+   * @throws { BusinessError } 7 - The object is null.
+   * @throws { BusinessError } 29360208 - The token is not registered.
+   * @throws { BusinessError } 29360210 - The callback is not registered.
+   * @throws { BusinessError } 29360211 - Failed to connect to the ability.
+   * @throws { BusinessError } 29360216 - Invalid continuation mode.
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    * @deprecated since 9
