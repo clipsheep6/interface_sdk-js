@@ -15,6 +15,8 @@
 
 import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
 import audio from "./@ohos.multimedia.audio";
+import type { SoundPool as _SoundPool } from './multimedia/soundPool';
+import type { PlayParameters as _PlayParameters } from './multimedia/soundPool';
 
 /**
  * @namespace media
@@ -118,6 +120,51 @@ declare namespace media {
    * @since 9
    */
   function createVideoRecorder(): Promise<VideoRecorder>;
+
+  /**
+   * Creates a soundPool instance.
+   *
+   * @param {number} maxStreams The maximum number of simultaneous streams for this soundPool instance
+   * @param {audio.AudioRendererInfo} audioRenderInfo Audio renderer information
+   * @param {AsyncCallback<SoundPool>} callback Callback used to return soundPool instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Return by callback.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 10
+   */
+  function createSoundPool(
+    maxStreams: number,
+    audioRenderInfo: audio.AudioRendererInfo,
+    callback: AsyncCallback<SoundPool>
+  ): void;
+
+  /**
+   * Creates a soundPool instance.
+   *
+   * @param {number} maxStreams The maximum number of simultaneous streams for this soundPool instance
+   * @param {audio.AudioRendererInfo} audioRenderInfo Audio renderer information
+   * @returns {Promise<SoundPool>} A Promise instance used to return SoundPool instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 10
+   */
+  function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
+
+  /**
+   * Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
+   * to create an SoundPool instance.
+   *
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 10
+   */
+  type SoundPool = _SoundPool;
+
+  /**
+   * Describes play parameters.
+   *
+   * @syscap SystemCapability.Multimedia.Media.SoundPool
+   * @since 10
+   */
+  type PlayParameters = _PlayParameters;
 
   /**
    * Enumerates state change reason.
@@ -2322,14 +2369,14 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    CFT_MPEG_4 = "mp4",
+    CFT_MPEG_4 = 'mp4',
 
     /**
      * A audio container format type m4a.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    CFT_MPEG_4A = "m4a",
+    CFT_MPEG_4A = 'm4a',
   }
 
   /**
@@ -2367,70 +2414,70 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_TRACK_INDEX = "track_index",
+    MD_KEY_TRACK_INDEX = 'track_index',
 
     /**
      * key for track type, value type is number, see @MediaType.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_TRACK_TYPE = "track_type",
+    MD_KEY_TRACK_TYPE = 'track_type',
 
     /**
      * key for codec mime type, value type is string.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_CODEC_MIME = "codec_mime",
+    MD_KEY_CODEC_MIME = 'codec_mime',
 
     /**
      * key for duration, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_DURATION = "duration",
+    MD_KEY_DURATION = 'duration',
 
     /**
      * key for bitrate, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_BITRATE = "bitrate",
+    MD_KEY_BITRATE = 'bitrate',
 
     /**
      * key for video width, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_WIDTH = "width",
+    MD_KEY_WIDTH = 'width',
 
     /**
      * key for video height, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_HEIGHT = "height",
+    MD_KEY_HEIGHT = 'height',
 
     /**
      * key for video frame rate, value type is number.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_FRAME_RATE = "frame_rate",
+    MD_KEY_FRAME_RATE = 'frame_rate',
 
     /**
      * key for audio channel count, value type is number
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_AUD_CHANNEL_COUNT = "channel_count",
+    MD_KEY_AUD_CHANNEL_COUNT = 'channel_count',
 
     /**
      * key for audio sample rate, value type is number
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 8
      */
-    MD_KEY_AUD_SAMPLE_RATE = "sample_rate",
+    MD_KEY_AUD_SAMPLE_RATE = 'sample_rate',
   }
 
   /**
