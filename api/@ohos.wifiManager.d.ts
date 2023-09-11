@@ -1245,6 +1245,7 @@ declare namespace wifiManager {
 
   /**
    * Subscribe Wi-Fi device config change events.
+   * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'deviceConfigChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off, 0: config is added, 1: config is changed, 2: config is removed.
@@ -1342,6 +1343,7 @@ declare namespace wifiManager {
 
   /**
    * Unsubscribe Wi-Fi hotspot sta leave events.
+   * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
    * @param { 'hotspotStaLeave' } type - event name.
    * @param { Callback<StationInfo> } callback - the callback of off
