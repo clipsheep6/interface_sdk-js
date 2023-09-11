@@ -19,11 +19,10 @@ import { ResourceStr } from 'GlobalResource';
 
 /**
  * Declaration of the menu item on the right side.
- * @typedef SelectTitleBarMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type SelectTitleBarMenuItem = {
+export declare class SelectTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
@@ -48,7 +47,6 @@ export declare type SelectTitleBarMenuItem = {
 
 /**
  * Declaration of the selectable title bar.
- * @typedef SelectTitleBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
