@@ -51,10 +51,10 @@ declare namespace distributedDeviceManager {
      * Obtains the device type represented by a string,
      * which can be {@code phone}, {@code tablet}, {@code tv}, {@code smartVision}, {@code car}.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
-     * @type { string }
+     * @type { number }
      * @since 10
      */
-    deviceType: string;
+    deviceType: number;
 
     /**
      * Device network id.
@@ -340,6 +340,58 @@ declare namespace distributedDeviceManager {
      */
     replyUiAction(action: number, actionResult: string): void;
 
+    /**
+     * register a advertise target.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Object } advertisingParam - Identification of advertise target.
+     * @param { Object } characteristicValue - Parameters of advertise target, The parameter type is map,such as:
+     *    "targetID"      :  xxx  - Unique identifier of the advertise target. The parameter is not supported currently.
+     *    "serviceType"   :  xxx  - Service type identifier. The parameter is not supported currently.
+     *    "serviceKV"     :  xxx  - Feature value of a service. The parameter is not supported currently.
+     *    "discoveryMpde" :  0x55 - Passive dicovery.
+     *                       0xAA - Proactive discovery.
+     *    "exchangeFreq"  :  0    - Low frequency.
+     *                       1    - Medium frequency.
+     *                       2    - High frequency.
+     *                       3    - Super high frequency.
+     * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 201 - Permission verify failed.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi this method can be used only by system applications.
+     * @since 10
+     */
+    registerTarget(advertisingParam:{ [key: string]: Object }, characteristicValue:{ [key: string]: Object }): void;
+
+    /**
+     * Start advertise discover target.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { string } targetID Service advertise ID, identify a advertise operation, should be a unique id in package range
+     * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 201 - Permission verify failed.
+     * @throws { BusinessError } 11600105 - Advertising invalid.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi this method can be used only by system applications.
+     * @since 10
+     */
+    startAdvertising(targetID: string): void;
+
+    /**
+     * Stop advertise discover device. 
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { string } targetID Service advertise ID, identify a advertise operation, should be a unique id in package range
+     * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 201 - Permission verify failed.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi this method can be used only by system applications.
+     * @since 10
+     */
+    stopAdvertising(targetID: string): void;
+    
     /**
      * Register a device state callback so that the application can be notified upon device state changes based on
      * the application bundle name.
