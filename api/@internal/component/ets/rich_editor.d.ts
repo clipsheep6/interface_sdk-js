@@ -43,14 +43,14 @@ declare enum RichEditorDeleteDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 10
+ * @since 11
  */
 declare enum RichEditorSpanType {
   /**
    * text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 11
    */
   TEXT = 0,
 
@@ -58,7 +58,7 @@ declare enum RichEditorSpanType {
    * image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 11
    */
   IMAGE = 1,
 
@@ -66,7 +66,7 @@ declare enum RichEditorSpanType {
    * mixed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 11
    */
   MIXED = 2,
 }
@@ -717,7 +717,7 @@ declare interface RichEditorOptions {
  * @interface SelectionMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 10
+ * @since 11
  */
 declare interface SelectionMenuOptions {
   /**
@@ -726,7 +726,7 @@ declare interface SelectionMenuOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 11
    */
   onAppear?: () => void;
 
@@ -736,7 +736,7 @@ declare interface SelectionMenuOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 11
    */
   onDisappear?: () => void;
 }
@@ -815,7 +815,7 @@ declare class RichEditorController {
    * close the select menu when menu is on.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
+   * @since 11
    */
   closeSelectionMenu(): void;
 }
@@ -910,7 +910,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 11
    */
   bindSelectionMenu(spanType: RichEditorSpanType, content: CustomBuilder, responseType: ResponseType, options?: SelectionMenuOptions): RichEditorAttribute;
 
