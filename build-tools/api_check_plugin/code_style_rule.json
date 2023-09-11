@@ -125,7 +125,6 @@
       "SystemCapability.Communication.IPC.Core",
       "SystemCapability.Communication.SoftBus.Core",
       "SystemCapability.Communication.NetManager.Core",
-      "SystemCapability.Communication.NetManager.Extension",
       "SystemCapability.Communication.NetStack",
       "SystemCapability.Communication.WiFi.Core",
       "SystemCapability.Communication.WiFi.STA",
