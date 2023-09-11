@@ -34,7 +34,7 @@ declare namespace wifiext {
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.wifiManagerExt/wifiManagerExt.enableHotspot
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt#enableHotspot
    */
   function enableHotspot(): boolean;
 
@@ -45,7 +45,7 @@ declare namespace wifiext {
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.wifiManagerExt/wifiManagerExt.disableHotspot
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt#disableHotspot
    */
   function disableHotspot(): boolean;
 
@@ -56,7 +56,7 @@ declare namespace wifiext {
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.wifiManagerExt/wifiManagerExt.getSupportedPowerMode
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt#getSupportedPowerMode
    */
   function getSupportedPowerModel(): Promise<Array<PowerModel>>;
 
@@ -67,7 +67,7 @@ declare namespace wifiext {
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.wifiManagerExt/wifiManagerExt.getSupportedPowerMode
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt#getSupportedPowerMode
    */
   function getSupportedPowerModel(callback: AsyncCallback<Array<PowerModel>>): void;
 
@@ -78,7 +78,7 @@ declare namespace wifiext {
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.wifiManagerExt/wifiManagerExt.getPowerMode
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt#getPowerMode
    */
   function getPowerModel(): Promise<PowerModel>;
 
@@ -89,19 +89,19 @@ declare namespace wifiext {
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.wifiManagerExt/wifiManagerExt.getPowerMode
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt#getPowerMode
    */
   function getPowerModel(callback: AsyncCallback<PowerModel>): void;
 
   /**
    * Set the current Wi-Fi power mode.
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-   * @param { PowerModel } model - model indicates model file description to be loaded.
+   * @param { PowerModel } model - indicates model file description to be loaded.
    * @returns { boolean } Returns {@code true} if the Wi-Fi is active; returns {@code false} otherwise.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.wifiManagerExt/wifiManagerExt.setPowerMode
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt#setPowerMode
    */
   function setPowerModel(model: PowerModel): boolean;
 
@@ -112,7 +112,7 @@ declare namespace wifiext {
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.wifiManagerExt/wifiManagerExt.PowerMode
+   * @useinstead ohos.wifiManagerExt/wifiManagerExt#PowerMode
    */
   export enum PowerModel {
     /** 
@@ -120,7 +120,7 @@ declare namespace wifiext {
     * @syscap SystemCapability.Communication.WiFi.AP.Extension
     * @since 8
     * @deprecated since 9
-    * @useinstead ohos.wifiManagerExt/wifiManagerExt.PowerMode
+    * @useinstead ohos.wifiManagerExt/wifiManagerExt#PowerMode
     */
     SLEEPING = 0,
 
@@ -129,7 +129,7 @@ declare namespace wifiext {
     * @syscap SystemCapability.Communication.WiFi.AP.Extension
     * @since 8
     * @deprecated since 9
-    * @useinstead ohos.wifiManagerExt/wifiManagerExt.PowerMode
+    * @useinstead ohos.wifiManagerExt/wifiManagerExt#PowerMode
     */
     GENERAL = 1,
 
@@ -138,7 +138,7 @@ declare namespace wifiext {
     * @syscap SystemCapability.Communication.WiFi.AP.Extension
     * @since 8
     * @deprecated since 9
-    * @useinstead ohos.wifiManagerExt/wifiManagerExt.PowerMode
+    * @useinstead ohos.wifiManagerExt/wifiManagerExt#PowerMode
     */
     THROUGH_WALL = 2,
   }
