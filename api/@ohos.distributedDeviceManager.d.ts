@@ -196,13 +196,13 @@ declare namespace distributedDeviceManager {
      * Get the device type of the local device.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { number } - Returns local device type.
+     * @returns { string } - Returns local device type.
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    getLocalDeviceType(): number;
+    getLocalDeviceType(): string;
 
     /**
      * Get the device id of the local device.
