@@ -247,7 +247,7 @@ declare namespace userAuth {
      * Executes authentication.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
-     * @param { Uint8Array } challenge - Pass in challenge value.
+     * @param { Uint8Array | null } challenge - Pass in challenge value.
      * @param { UserAuthType } authType - Type of authentication.
      * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
      * @param { IUserAuthCallback } callback - Return result and acquireInfo through callback, the value of result code is related to the ResultCode enum,
@@ -259,7 +259,7 @@ declare namespace userAuth {
      * @useinstead ohos.userIAM.userAuth.AuthInstance.start
      */
     auth(
-      challenge: Uint8Array,
+      challenge: Uint8Array | null,
       authType: UserAuthType,
       authTrustLevel: AuthTrustLevel,
       callback: IUserAuthCallback
@@ -886,7 +886,7 @@ declare namespace userAuth {
   /**
    * Get Authentication instance.
    *
-   * @param { Uint8Array } challenge - Pass in challenge value.
+   * @param { Uint8Array | null } challenge - Pass in challenge value.
    * @param { UserAuthType } authType - Credential type for authentication.
    * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
    * @returns { AuthInstance } Returns an authentication instance.
@@ -899,7 +899,7 @@ declare namespace userAuth {
    * @deprecated since 10
    * @useinstead ohos.userIAM.userAuth.getUserAuthInstance
    */
-  function getAuthInstance(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel): AuthInstance;
+  function getAuthInstance(challenge: Uint8Array | null, authType: UserAuthType, authTrustLevel: AuthTrustLevel): AuthInstance;
 
   /**
    * Window mode type for user authentication widget.
@@ -940,11 +940,11 @@ declare namespace userAuth {
     /**
      * Pass in challenge value.
      *
-     * @type { Uint8Array }
+     * @type { Uint8Array | null }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
      */
-    challenge: Uint8Array;
+    challenge: Uint8Array | null;
 
     /**
      * Credential type for authentication.
