@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, BusinessError } from './@ohos.base';
 import * as _ApplicationStateObserver from './application/ApplicationStateObserver';
+import * as _PageStateObserver from './application/PageStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 import * as _AppStateData from './application/AppStateData';
 import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
@@ -258,6 +259,53 @@ declare namespace appManager {
    * @since 10
    */
   function off(type: 'applicationStateEvent', observerId: number): void;
+
+  /**
+   * Register page state observer.
+   * 
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'pageState' } type - pageState. 
+   * @param { PageStateObserver } observer - The page state observer.
+   * @returns { number } Returns the number code of the observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 4.0 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function on(type: 'pageState', observer: PageStateObserver): number;
+
+  /**
+   * Register page state observer.
+   * 
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'pageState' } type - pageState. 
+   * @param { PageStateObserver } observer - The page state observer.
+   * @param { Array<string> } bundleNameList - The list of bundleName. The max length is 128.
+   * @returns { number } Returns the number code of the observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 4.0 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function on(type: 'pageState', observer: PageStateObserver, bundleNameList: Array<string>): number;
+
+  /**
+   * Unregister page state observer.
+   * 
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'pageState' } type - pageState.
+   * @param { PageStateObserver } observerId - The page state observer.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function off(type: 'pageState', observerId: number): void;
 
   /**
    * getForegroundApplications.
@@ -621,6 +669,15 @@ declare namespace appManager {
    * @since 9
    */
   export type ApplicationStateObserver = _ApplicationStateObserver.default;
+
+  /**
+   * The page state observer.
+   * 
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  export type PageStateObserver = _PageStateObserver.default;
 
   /**
    * The class of a process information.
