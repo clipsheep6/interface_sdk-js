@@ -346,15 +346,13 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Object } advertisingParam - Identification of advertise target.
      * @param { Object } characteristicValue - Parameters of advertise target, The parameter type is map,such as:
-     *    "targetID"      :  xxx  - Unique identifier of the advertise target. The parameter is not supported currently.
-     *    "serviceType"   :  xxx  - Service type identifier. The parameter is not supported currently.
-     *    "serviceKV"     :  xxx  - Feature value of a service. The parameter is not supported currently.
      *    "discoveryMpde" :  0x55 - Passive dicovery.
      *                       0xAA - Proactive discovery.
      *    "exchangeFreq"  :  0    - Low frequency.
      *                       1    - Medium frequency.
      *                       2    - High frequency.
      *                       3    - Super high frequency.
+     *    "ranging"       :  xx   - Whether the device publish the distance.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
