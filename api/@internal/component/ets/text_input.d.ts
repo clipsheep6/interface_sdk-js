@@ -103,6 +103,15 @@ declare enum InputType {
    * @since 10
    */
   Password,
+
+  /**
+   * Numeric type password entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  Password_Number,
 }
 
 /**
