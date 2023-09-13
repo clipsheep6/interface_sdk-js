@@ -1527,6 +1527,125 @@ declare namespace photoAccessHelper {
      */
     extraUris: Array<string>;
   }
+
+  /**
+   * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
+   *
+   * @enum { string } PhotoViewMIMETypes
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  export enum PhotoViewMIMETypes {
+    IMAGE_TYPE = 'image/*',
+    VIDEO_TYPE = 'video/*',
+    IMAGE_VIDEO_TYPE = '*/*'
+  }
+
+  /**
+   * PhotoSelectOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  class PhotoSelectOptions {
+    /**
+     * The Type of the file in the picker window.
+     *
+     * @type { ?PhotoViewMIMETypes }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    MIMEType?: PhotoViewMIMETypes;
+
+    /**
+     * Maximum number of images for a single selection.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    maxSelectNumber?: number;
+  }
+
+  /**
+   * PhotoSelectResult Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  class PhotoSelectResult {
+    /**
+     * The uris for the selected files.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    photoUris: Array<string>;
+
+    /**
+     * Original option.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    isOriginalPhoto: boolean;
+  }
+
+  /**
+   * PhotoSaveOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  class PhotoSaveOptions {
+    /**
+     * The names of the files to be saved.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    newFileNames?: Array<string>;
+  }
+
+  /**
+   * PhotoViewPicker Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  class PhotoViewPicker {
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
+     * @returns { Promise<PhotoSelectResult> } Returns the uris for the selected files.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    select(option?: PhotoSelectOptions): Promise<PhotoSelectResult>;
+
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
+     * @param { AsyncCallback<PhotoSelectResult> } callback - callback
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
+
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { AsyncCallback<PhotoSelectResult> } callback - callback
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    select(callback: AsyncCallback<PhotoSelectResult>): void;
+  }
 }
 
 export default photoAccessHelper;
