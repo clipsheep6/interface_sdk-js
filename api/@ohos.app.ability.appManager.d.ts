@@ -18,6 +18,8 @@ import * as _ApplicationStateObserver from './application/ApplicationStateObserv
 import * as _AbilityStateData from './application/AbilityStateData';
 import * as _AppStateData from './application/AppStateData';
 import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
+import type PageStateObserver from './application/PageStateObserver';
+import type PageStateData from './application/PageStateData'
 
 /**
  * This module provides the function of app manager service.
@@ -258,6 +260,55 @@ declare namespace appManager {
    * @since 10
    */
   function off(type: 'applicationStateEvent', observerId: number): void;
+
+  /**
+   * Register page state observer.
+   * 
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'pageState' } type - pageState. 
+   * @param { PageStateObserver } observer - The page state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function on(type: 'pageState', observer: PageStateObserver): void;
+
+  /**
+   * Register page state observer.
+   * 
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'pageState' } type - pageState. 
+   * @param { PageStateObserver } observer - The page state observer.
+   * @param { Array<string> } bundleNameList - The list of bundleName. The max length is 128.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function on(type: 'pageState', observer: PageStateObserver, bundleNameList: Array<string>): void;
+
+  /**
+   * Unregister page state observer.
+   * 
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'pageState' } type - pageState.
+   * @param { PageStateObserver } observer - The page state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 11
+   */
+  function off(type: 'pageState', observer: PageStateObserver): void;
 
   /**
    * getForegroundApplications.
