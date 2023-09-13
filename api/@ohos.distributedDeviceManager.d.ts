@@ -341,11 +341,11 @@ declare namespace distributedDeviceManager {
     replyUiAction(action: number, actionResult: string): void;
 
     /**
-     * register a advertise target.
+     * register a advertising target.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Object } advertisingParam - Identification of advertise target.
-     * @param { Object } characteristicValue - Parameters of advertise target, The parameter type is map,such as:
+     * @param { Object } advertisingParam - Identification of advertising target.
+     * @param { Object } characteristicValue - Parameters of advertising target, The parameter type is map,such as:
      *    "discoveryMpde" :  0x55 - Passive dicovery.
      *                       0xAA - Proactive discovery.
      *    "exchangeFreq"  :  0    - Low frequency.
@@ -362,10 +362,10 @@ declare namespace distributedDeviceManager {
     registerTarget(advertisingParam:{ [key: string]: Object }, characteristicValue:{ [key: string]: Object }): void;
 
     /**
-     * Start advertise discover target.
+     * Start advertising discover target.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } targetID Service advertise ID, identify a advertise operation, should be a unique id in package range
+     * @param { string } targetID Service advertising ID, identify a advertising operation, should be a unique id in package range
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600105 - Advertising invalid.
@@ -377,10 +377,10 @@ declare namespace distributedDeviceManager {
     startAdvertising(targetID: string): void;
 
     /**
-     * Stop advertise discover device. 
+     * Stop advertising discover device. 
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } targetID Service advertise ID, identify a advertise operation, should be a unique id in package range
+     * @param { string } targetID Service advertising ID, identify a advertising operation, should be a unique id in package range
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
