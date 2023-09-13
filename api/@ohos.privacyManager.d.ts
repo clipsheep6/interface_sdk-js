@@ -679,6 +679,16 @@ declare namespace privacyManager {
     status: number;
 
     /**
+     * The status
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 11
+     */
+    lockscreenStatus: number;
+
+    /**
      * Timestamp, in milliseconds
      *
      * @type { number }
