@@ -3190,6 +3190,7 @@ declare namespace avSession {
      */
     ERR_CODE_REMOTE_CONNECTION_NOT_EXIST = 6600109,
   }
+  
 }
 
 export default avSession;
