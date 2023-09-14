@@ -365,7 +365,23 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10
      */
-    CURSOR_CIRCLE
+    CURSOR_CIRCLE,
+
+    /**
+     * Loading state with dynamic cursor
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    LOADING,
+
+    /**
+     * Running state with dynamic cursor
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    RUNNING
   }
 
   /**
