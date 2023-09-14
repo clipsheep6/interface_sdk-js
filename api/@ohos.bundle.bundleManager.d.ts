@@ -1201,6 +1201,27 @@ declare namespace bundleManager {
     extensionAbilityFlags: number, userId?: number): Array<ExtensionAbilityInfo>;
 
   /**
+   * Query the ExtensionAbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *  access.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { Want } want - Indicates the Want containing the application bundle name to be queried.
+   * @param { string } typeName - Indicates typeName.
+   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the
+   *  ExtensionAbilityInfo objects that will be returned.
+   * @param { number } userId - userId Indicates the user ID.
+   * @returns { Array<ExtensionAbilityInfo> } Returns a list of ExtensionAbilityInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 11
+   */
+  function queryExtensionAbilityInfoSync(want: Want, typeName: string, extensionAbilityFlags: number,
+    userId?: number): Array<ExtensionAbilityInfo>;
+
+  /**
    * Obtains bundle name by the given uid.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
