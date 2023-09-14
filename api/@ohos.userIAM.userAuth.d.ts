@@ -247,6 +247,28 @@ declare namespace userAuth {
      * Executes authentication.
      *
      * @permission ohos.permission.ACCESS_BIOMETRIC
+     * @param { Uint8Array | null } challenge - Pass in challenge value.
+     * @param { UserAuthType } authType - Type of authentication.
+     * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
+     * @param { IUserAuthCallback } callback - Return result and acquireInfo through callback, the value of result code is related to the ResultCode enum,
+     * **201** is check permission failed.
+     * @returns { Uint8Array } Returns ContextId for cancel.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.userIAM.userAuth.AuthInstance.start
+     */
+    auth(
+      challenge: Uint8Array | null,
+      authType: UserAuthType,
+      authTrustLevel: AuthTrustLevel,
+      callback: IUserAuthCallback
+    ): Uint8Array;
+
+    /**
+     * Executes authentication.
+     *
+     * @permission ohos.permission.ACCESS_BIOMETRIC
      * @param { Uint8Array } challenge - Pass in challenge value.
      * @param { UserAuthType } authType - Type of authentication.
      * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
@@ -886,6 +908,24 @@ declare namespace userAuth {
   /**
    * Get Authentication instance.
    *
+   * @param { Uint8Array | null } challenge - Pass in challenge value.
+   * @param { UserAuthType } authType - Credential type for authentication.
+   * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
+   * @returns { AuthInstance } Returns an authentication instance.
+   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @throws { BusinessError } 12500005 - The authentication type is not supported.
+   * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.userIAM.userAuth.getUserAuthInstance
+   */
+  function getAuthInstance(challenge: Uint8Array | null, authType: UserAuthType, authTrustLevel: AuthTrustLevel): AuthInstance;
+
+  /**
+   * Get Authentication instance.
+   *
    * @param { Uint8Array } challenge - Pass in challenge value.
    * @param { UserAuthType } authType - Credential type for authentication.
    * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
@@ -940,11 +980,11 @@ declare namespace userAuth {
     /**
      * Pass in challenge value.
      *
-     * @type { Uint8Array }
+     * @type { Uint8Array | null }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
      */
-    challenge: Uint8Array;
+    challenge: Uint8Array | null;
 
     /**
      * Credential type for authentication.
