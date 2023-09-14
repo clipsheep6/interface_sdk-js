@@ -452,6 +452,17 @@ declare namespace pointer {
   function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
 
   /**
+   * Sets the pointer moving speed through sync mode.
+   *
+   * @param { number } speed - Pointer moving speed, which is any number.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function setPointerSpeedSync(speed: number): void;
+
+  /**
    * Sets the pointer moving speed.
    *
    * @param { number } speed - Pointer moving speed, which is any number.
@@ -475,6 +486,16 @@ declare namespace pointer {
   function getPointerSpeed(callback: AsyncCallback<number>): void;
 
   /**
+   * Queries the pointer moving speed through sync mode.
+   *
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function getPointerSpeedSync(): number;
+
+  /**
    * Queries the pointer moving speed.
    *
    * @returns { Promise<number> } Returns the result through a promise.
@@ -495,6 +516,17 @@ declare namespace pointer {
    * @since 9
    */
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sets the pointer style through sync mode.
+   *
+   * @param { number } windowId - Window ID.
+   * @param { PointerStyle } pointerStyle - Pointer style.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function setPointerStyleSync(windowId: number, pointerStyle: PointerStyle): void;
 
   /**
    * Sets the pointer style.
