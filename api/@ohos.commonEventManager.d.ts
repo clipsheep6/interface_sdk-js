@@ -129,6 +129,17 @@ declare namespace commonEventManager {
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
+   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @returns { CommonEventSubscriber } Returns the CommonEventSubscriber object.
+   * @throws { BusinessError } 401 - parameter error
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
+
+  /**
    * Subscribe an ordered, sticky, or standard common event.
    *
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
