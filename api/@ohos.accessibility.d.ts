@@ -106,6 +106,7 @@ declare namespace accessibility {
    * @param { AsyncCallback<boolean> } callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
+   * @deprecated since 10
    */
   function isOpenAccessibility(callback: AsyncCallback<boolean>): void;
 
@@ -116,8 +117,18 @@ declare namespace accessibility {
    * @returns { Promise<boolean> } Returns {@code true} if the accessibility is enabled; returns {@code false} otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
+   * @deprecated since 10
    */
   function isOpenAccessibility(): Promise<boolean>;
+
+  /**
+   * Checks whether accessibility ability is enabled.
+   *
+   * @returns { boolean } Returns true if the accessibility is enabled; returns false otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 10
+   */
+  function isOpenAccessibility(): boolean;
 
   /**
    * Checks touch browser ability (which is used by talkback) is enabled.
@@ -125,6 +136,7 @@ declare namespace accessibility {
    * @param { AsyncCallback<boolean> } callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @since 7
+   * @deprecated since 10
    */
   function isOpenTouchGuide(callback: AsyncCallback<boolean>): void;
 
@@ -135,8 +147,18 @@ declare namespace accessibility {
    * @returns { Promise<boolean> } Returns {@code true} if the touch browser is enabled; returns {@code false} otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @since 7
+   * @deprecated since 10
    */
   function isOpenTouchGuide(): Promise<boolean>;
+
+  /**
+   * Checks touch browser ability (which is used by talkback) is enabled.
+   *
+   * @returns { boolean } Returns true if the touch browser is enabled; returns false otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
+   * @since 10
+   */
+  function isOpenTouchGuide(): boolean;
 
   /**
    * Queries the list of accessibility abilities.
