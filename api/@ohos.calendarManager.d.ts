@@ -27,7 +27,6 @@ declare namespace calendarManager {
    * @param { Context } context - Hap context information
    * @returns { CalendarManager } Instance of CalendarManager
    * @syscap SystemCapability.Applications.CalendarData
-   * @systemapi
    * @StageModelOnly
    * @since 10
    */
@@ -38,7 +37,6 @@ declare namespace calendarManager {
    *
    * @interface CalendarManager
    * @syscap SystemCapability.Applications.CalendarData
-   * @systemapi
    * @since 10
    */
   export interface CalendarManager {
