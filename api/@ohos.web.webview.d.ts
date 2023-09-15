@@ -20,6 +20,7 @@ import { Callback } from './@ohos.base';
 import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
+import PrintDocumentAdapter from './@ohos.print';
 
 /**
  * This module provides the capability to manage web modules.
@@ -464,6 +465,28 @@ declare namespace webview {
     static getCookie(url: string): string;
 
     /**
+     * Gets all cookies for the given URL Asynchronously.
+     * @param { string } url - The URL for which the cookies are requested.
+     * @returns { Promise<Array<string>> } the promise of the current website's certificate.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    static getCookieAsync(url: string): Promise<Array<string>>;
+
+    /**
+     * Gets all cookies for the given URL Asynchronously.
+     * @param { string } url - The URL for which the cookies are requested.
+     * @param {AsyncCallback<Array<string>>} callback - the callback of cookies.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    getCookieAsync(url: string, callback: AsyncCallback<string>): void;
+
+    /**
      * Set a single cookie (key-value pair) for the given URL.
      *
      * @param { string } url - The URL for which the cookie is to be set.
@@ -475,6 +498,34 @@ declare namespace webview {
      * @since 9
      */
     static setCookie(url: string, value: string): void;
+
+    /**
+     * Set a single cookie (key-value pair) for the given URL Asynchronously.
+     *
+     * @param { string } url - The URL for which the cookie is to be set.
+     * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @returns { Promise<void> } - A promise resolved after the cookies have been set.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static setCookieAsync(url: string, value: string): Promise<void>;
+
+    /**
+     * Set a single cookie (key-value pair) for the given URL Asynchronously.
+     *
+     * @param { string } url - The URL for which the cookie is to be set.
+     * @param { string } value - The cookie as a string, using the format of the 'Set-Cookie' HTTP response header.
+     * @param { AsyncCallback<void> } callback - Called after the cookies have been saved.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100005 - Invalid cookie value.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static setCookieAsync(url: string, value: string, callback: AsyncCallback<void>): void;
 
     /**
      * Save the cookies Asynchronously.
@@ -1785,6 +1836,53 @@ declare namespace webview {
      * @since 10
      */
     getCustomUserAgent(): string;
+
+    /**
+     * Set network timeout while page loading.
+     * @param { number } timeout - network timeout.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    static setNetworkTimeout(timeout: number): void;
+
+    /**
+     * Create print document adapter
+     * @param { string } name - The document adapter name.
+     * @returns { PrintDocumentAdapter } The print document adapter used for printing.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    createPrintDocumentAdapter(name: string): PrintDocumentAdapter;
+
+    /**
+     * Add document start javascript.
+     * @param { string } script - Javascript string.
+     * @param { string[] } allowOriginRules - Allowed origin rule list.
+
+     * @returns { number } The script id.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    addDocumentStartJavascript(script: string, allowOriginRules: string[]): number;
+
+    /**
+     * Remove document start javascript.
+     * @param { number } scriptId - Javascript id.
+     * @param { string[] } allowOriginRules - Allowed origin rule list.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    removeDocumentStartJavascript(scriptId: number): void;
   }
 }
 
