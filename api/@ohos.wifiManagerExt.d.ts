@@ -103,7 +103,7 @@ declare namespace wifiManagerExt {
   /**
    * Set the current Wi-Fi power mode.
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-   * @param { PowerMode } model --Wi-Fi power mode.
+   * @param { PowerMode } model - --Wi-Fi power mode.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
@@ -123,7 +123,7 @@ declare namespace wifiManagerExt {
   export enum PowerMode {
     /** 
      * Sleeping Mode. 
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Communication.WiFi.AP.Extension
      * @since 9
     */
     
@@ -131,14 +131,14 @@ declare namespace wifiManagerExt {
 
     /** 
      * General Mode. 
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Communication.WiFi.AP.Extension
      * @since 9
      * */
     GENERAL = 1,
 
     /** 
      * Through wall Mode. 
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Communication.WiFi.AP.Extension
      * @since 9
      * */
     THROUGH_WALL = 2,
