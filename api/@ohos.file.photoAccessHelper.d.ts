@@ -848,6 +848,14 @@ declare namespace photoAccessHelper {
      */
     CAMERA,
     /**
+     * Image album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    IMAGE,
+    /**
      * Any album
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1408,6 +1416,118 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions): Promise<number>;
+    /**
+     * Fetch system hidden album.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { AsyncCallback<Album> } callback - Returns the hidden album
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000013 - Out of memory
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    getHiddenAlbum(callback: AsyncCallback<Album>): void;
+    /**
+     * Fetch system hidden album.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @returns { Promise<Album> } Returns the hidden album.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000013 - Out of memory
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    getHiddenAlbum(): Promise<Album>;
+    /**
+     * Fetch albums containing hidden assets.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { FetchOptions } options - Fetch options.
+     * @param { AsyncCallback<FetchResult<Album>> } callback - Returns fetchResult of albums containing hidden assets.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000013 - Out of memory
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    getHiddenAlbumView(options: FetchOptions, callback: AsyncCallback<FetchResult<Album>>): void;
+    /**
+     * Fetch albums containing hidden assets.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
+     * @param { FetchOptions } options - Fetch options.
+     * @returns { Promise<FetchResult<Album>> } Returns fetchResult of albums containing hidden assets.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000013 - Out of memory
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    getHiddenAlbumView(options: FetchOptions): Promise<FetchResult<Album>>;
+    /**
+     * Set assets hidden state.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<PhotoAsset> } assets - Assets to set hidden state
+     * @param { boolean } hiddenState - true: Put assets into hidden album; false: Recover assets from hidden album.
+     * @param { AsyncCallback<void> } callback - Returns void.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000002 - Invalid uri
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000013 - Out of memory
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    setHidden(assets: Array<PhotoAsset>, hiddenState: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set assets hidden state.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Array<PhotoAsset> } assets - Assets to set hidden state
+     * @param { boolean } hiddenState - true: Put assets into hidden album; false: Recover assets from hidden album.
+     * @returns { Promise<void> } Returns void.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000002 - Invalid uri
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000013 - Out of memory
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    setHidden(assets: Array<PhotoAsset>, hiddenState: boolean): Promise<void>;
     /**
      * Release PhotoAccessHelper instance
      *
