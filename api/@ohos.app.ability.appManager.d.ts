@@ -17,6 +17,7 @@ import { AsyncCallback } from './@ohos.base';
 import * as _ApplicationStateObserver from './application/ApplicationStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 import * as _AppStateData from './application/AppStateData';
+import type * as _ProcessData from './application/ProcessData';
 import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
 
 /**
@@ -87,16 +88,14 @@ declare namespace appManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   export enum ProcessState {
     /**
      * The state that the process is in when it is being created.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_CREATE,
 
@@ -104,8 +103,7 @@ declare namespace appManager {
      * The state in which the process is in when it switches to the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_FOREGROUND,
 
@@ -113,8 +111,7 @@ declare namespace appManager {
      * The state in which the process is in focus.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_ACTIVE,
 
@@ -122,8 +119,7 @@ declare namespace appManager {
      * The state in which a process is invisible in the background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_BACKGROUND,
 
@@ -131,8 +127,7 @@ declare namespace appManager {
      * The state that the process is in when it is destroyed.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_DESTROY
   }
@@ -635,6 +630,15 @@ declare namespace appManager {
    * @since 9
    */
   export type ProcessInformation = _ProcessInformation;
+
+  /**
+   * The class of a process information.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  export type ProcessData = _ProcessData.default;
 }
 
 export default appManager;

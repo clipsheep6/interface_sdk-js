@@ -19,11 +19,10 @@ import { ResourceStr } from 'GlobalResource';
 
 /**
  * Declaration of the menu item on the right side.
- * @typedef ComposeTitleBarMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type ComposeTitleBarMenuItem = {
+export declare class ComposeTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.

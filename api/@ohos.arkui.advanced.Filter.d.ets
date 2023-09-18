@@ -30,11 +30,10 @@ export declare enum FilterType {
 
 /**
  * This parameter is used to define the input of each filtering dimension.
- * typedef FilterParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type FilterParams = {
+export declare class FilterParams {
     /**
      * filter item name.
      * type { ResourceStr }
@@ -54,11 +53,10 @@ export declare type FilterParams = {
 /**
  * This parameter specifies the selection result of a filtering dimension.
  * The index starts from 0.
- * @typedef FilterResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type FilterResult = {
+export declare class FilterResult {
     /**
      * result name.
      * @type { ResourceStr }
@@ -94,7 +92,7 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
-    @BuilderParam container!: () => void;
+    @BuilderParam container: () => void;
 
     /**
      * Multi-dimensional filtering parameters.
@@ -102,7 +100,7 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
-    @Prop multiFilters!: Array<FilterParams>;
+    @Prop multiFilters: Array<FilterParams>;
 
     /**
      * FilterParams, Additional filter item parameter. The filter item name is displayed and can be deselected.
@@ -118,7 +116,7 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
-    onFilterChanged!: (filterResults: Array<FilterResult>) => void;
+    onFilterChanged: (filterResults: Array<FilterResult>) => void;
 
     /**
      * FilterType, Filter display style type.

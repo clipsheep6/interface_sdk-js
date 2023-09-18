@@ -19,11 +19,10 @@ import { ResourceStr } from 'GlobalResource';
 
 /**
  * Declare ButtonOptions
- * @typedef ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type ButtonOptions = {
+export declare class ButtonOptions {
   /**
    * Sets the Display Content of a Button.
    * @type { ResourceStr }.

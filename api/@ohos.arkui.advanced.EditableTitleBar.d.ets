@@ -19,11 +19,10 @@ import { ResourceStr } from 'GlobalResource';
 
 /**
  * Declaration of the menu item on the right side.
- * @typedef EditableTitleBarMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type EditableTitleBarMenuItem = {
+export declare class EditableTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
@@ -68,7 +67,6 @@ export declare enum EditableLeftIconType {
 
 /**
  * Declaration of the editable title bar.
- * @typedef EditableTitleBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */

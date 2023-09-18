@@ -76,61 +76,58 @@ export declare enum IconType {
 
 /**
  * Declare type OperateIcon
- * @typedef OperationOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type OperateIcon = {
+export declare class OperateIcon {
   /**
    * The content of text or the address of icon.
    * @type { ResourceStr }.
    * @since 10
    */
-  value: ResourceStr,
+  value: ResourceStr;
 
   /**
    * Callback function when operate the icon.
    * @type { () => void }.
    * @since 10
    */
-  action?: () => void
+  action?: () => void;
 }
 
 /**
  * Declare type OperateCheck
- * @typedef OperationOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type OperateCheck = {
+export declare class OperateCheck {
   /**
    * Whether is checked on default.
-   * @type { ResourceStr }.
+   * @type { boolean }.
    * @since 10
    */
-  isCheck?: boolean,
+  isCheck?: boolean;
 
   /**
    * Callback function when operate the checkbox/switch/radio.
    * @type { () => void }.
    * @since 10
    */
-  onChange?: (value: boolean) => void
+  onChange?: (value: boolean) => void;
 }
 
 /**
  * Declare type OperateButton
- * @typedef OperationOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type OperateButton = {
+export declare class OperateButton {
   /**
    * The text on the button.
    * @type { ResourceStr }.
    * @since 10
    */
-  text?: ResourceStr
+  text?: ResourceStr;
 }
 
 /**
@@ -138,7 +135,7 @@ export declare type OperateButton = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type ContentItem  ={
+export declare class ContentItem {
   /**
    * The type of icon.
    * type { IconType }
@@ -185,7 +182,7 @@ export declare type ContentItem  ={
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-export declare type OperateItem = {
+export declare class OperateItem {
   /**
    * Sets the icon.
    * type { OperateIcon }
