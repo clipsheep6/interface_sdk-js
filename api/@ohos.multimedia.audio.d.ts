@@ -4173,7 +4173,7 @@ declare namespace audio {
      */
     on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfo>): void;
     /**
-     * Unsubscribes iaudio capturer info change event callback.
+     * Unsubscribes audio capturer info change event callback.
      * @param { 'audioCapturerChange' } type - Type of the event to listen for.
      * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used in subscribe.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
