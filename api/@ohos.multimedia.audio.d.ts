@@ -2087,6 +2087,7 @@ declare namespace audio {
      * Gets available microphones.
      * @returns { MicrophoneDescriptors } Microphone descriptors.
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
      * @since 11
      */
     getAvailableMicrophones(): MicrophoneDescriptors;
@@ -3161,12 +3162,14 @@ declare namespace audio {
    * Describes microphone information.
    * @typedef MicrophoneDescriptor
    * @syscap SystemCapability.Multimedia.Audio.Device
+   * @experimental
    * @since 11
    */
   interface MicrophoneDescriptor {
     /**
      * Microphone id.
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
      * @since 11
      */
     readonly id: number;
@@ -3174,6 +3177,7 @@ declare namespace audio {
     /**
      * Audio input device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
      * @since 11
      */
     readonly deviceType: DeviceType;
@@ -3181,6 +3185,7 @@ declare namespace audio {
     /**
      * Microphone group id.
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
      * @since 11
      */
     readonly groupId: number;
@@ -3188,6 +3193,7 @@ declare namespace audio {
     /**
      * Sensitivity level in dBFS.
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
      * @since 11
      */
     readonly sensitivity: number;
@@ -3195,6 +3201,7 @@ declare namespace audio {
     /**
      * Microphone position.
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
      * @since 11
      */
     readonly position: Vector3D;
@@ -3202,6 +3209,7 @@ declare namespace audio {
     /**
      * Microphone orientation.
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
      * @since 11
      */
     readonly orientation: Vector3D;
@@ -3211,24 +3219,28 @@ declare namespace audio {
    * Describes three-dimensional value.
    * @typedef Vector3D
    * @syscap SystemCapability.Multimedia.Audio.Core
+   * @experimental
    * @since 11
    */
   interface Vector3D {
     /**
      * X-axis value.
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @experimental
      * @since 11
      */
     x: number;
     /**
      * Y-axis value.
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @experimental
      * @since 11
      */
     y: number;
     /**
      * Z-axis value.
      * @syscap SystemCapability.Multimedia.Audio.Core
+     * @experimental
      * @since 11
      */
     z: number;
@@ -3237,6 +3249,7 @@ declare namespace audio {
   /**
    * Array of MicrophoneDescriptors, which is read-only.
    * @syscap SystemCapability.Multimedia.Audio.Device
+   * @experimental
    * @since 11
    */
   type MicrophoneDescriptors = Array<Readonly<MicrophoneDescriptor>>;
@@ -3745,25 +3758,20 @@ declare namespace audio {
     getCurrentOutputDevicesSync(): AudioDeviceDescriptors;
 
     /**
-     * Sets the volume ramp. This method uses an asynchronous callback to return the result.
+     * Sets the volume ramp.
      * @param { VolumeRampConfiguration } config - Volume ramp configuration.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
      */
-    attachVolumeRamp(config: VolumeRampConfiguration, callback: AsyncCallback<void>): void;
-    /**
-     * Sets the volume ramp. This method uses a promise to return the result.
-     * @param { VolumeRampConfiguration } config - Volume ramp configuration.
-     * @returns { Promise<void> } Promise used to return the result.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @since 11
-     */
-    attachVolumeRamp(config: VolumeRampConfiguration): Promise<void>;
+    attachVolumeRamp(config: VolumeRampConfiguration): void;
 
     /**
      * Apply volume ramp.
      * @param { VolumeRampDirection } direction - Volume ramp direction.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
      */
@@ -4173,6 +4181,7 @@ declare namespace audio {
      * Obtains microphones this capturer used currently.
      * @returns { MicrophoneDescriptors } Microphone descriptors.
      * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
      * @since 11
      */
     getCurrentMicrophones(): MicrophoneDescriptors;
