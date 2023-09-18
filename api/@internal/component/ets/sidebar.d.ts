@@ -384,7 +384,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   /**
    * Trigger callback when sidebar style of showing change finished.
    *
-   * @param { (value: boolean) => void } callback
+   * @param { function } callback
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -392,7 +392,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   /**
    * Trigger callback when sidebar style of showing change finished.
    *
-   * @param { (value: boolean) => void } callback
+   * @param { function } callback
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -577,10 +577,9 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
   
   /**
    * Sets the min length of content.
-   * @param { value: Dimension } value - min length of content.
-   * @default value is 360vp.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { Dimension } value - min length of content.
    * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */

@@ -345,6 +345,54 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     setHidden(hiddenState: boolean): Promise<void>;
+    /**
+     * Set user comment info to the asset.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } userComment - user comment info
+     * @param { AsyncCallback<void> } callback - Returns void.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 10
+     */
+    setUserComment(userComment: string, callback: AsyncCallback<void>): void;
+    /**
+     * Set user comment info to the asset.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } userComment - user comment info
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 10
+     */
+    setUserComment(userComment: string): Promise<void>;
+    /**
+     * Get exif info of the asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AsyncCallback<string> } callback - Returns exif info into a json string
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 10
+     */
+    getExif(callback: AsyncCallback<string>): void;
+    /**
+     * Get exif info of the asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<string> } Returns exif info into a json string
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 10
+     */
+    getExif(): Promise<string>;
   }
 
   /**
@@ -469,7 +517,23 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 10
      */
-    HIDDEN = 'hidden'
+    HIDDEN = 'hidden',
+    /**
+     * User comment info
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 10
+     */
+    USER_COMMENT = 'user_comment',
+    /**
+     * Camera shot key
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 10
+     */
+    CAMERA_SHOT_KEY = 'camera_shot_key'
   }
 
   /**
@@ -537,6 +601,15 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     subtype?: PhotoSubtype;
+    /**
+     * Camera shot key
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 10
+     */
+    cameraShotKey?: string;
   }
 
   /**
@@ -1308,6 +1381,34 @@ declare namespace photoAccessHelper {
      */
     createDeleteRequest(uriList: Array<string>): Promise<void>;
     /**
+     * Get the index of the asset in the album
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } photoUri - The photo asset uri.
+     * @param { string } albumUri - The album uri.
+     * @param { FetchOptions } options - fetch options
+     * @param { AsyncCallback<number> } callback - Returns the index of the asset in the album
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 10
+     */
+    getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions, callback: AsyncCallback<number>): void;
+    /**
+     * Get the index of the asset in the album
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } photoUri - The photo asset uri.
+     * @param { string } albumUri - The album uri.
+     * @param { FetchOptions } options - fetch options
+     * @returns { Promise<number> } - Returns the index of the asset in the album
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 10
+     */
+    getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions): Promise<number>;
+    /**
      * Release PhotoAccessHelper instance
      *
      * @param { AsyncCallback<void> } callback - Returns void
@@ -1425,6 +1526,132 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     extraUris: Array<string>;
+  }
+
+  /**
+   * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
+   *
+   * @enum { string } PhotoViewMIMETypes
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  export enum PhotoViewMIMETypes {
+    /**
+     * IMAGE_TYPE indicates that the selected media resources are images.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    IMAGE_TYPE = 'image/*',
+    /**
+     * VIDEO_TYPE indicates that the selected media resources are videos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    VIDEO_TYPE = 'video/*',
+    /**
+     * IMAGE_VIDEO_TYPE indicates that the selected media resources are images and videos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    IMAGE_VIDEO_TYPE = '*/*'
+  }
+
+  /**
+   * PhotoSelectOptions Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  class PhotoSelectOptions {
+    /**
+     * The Type of the file in the picker window.
+     *
+     * @type { ?PhotoViewMIMETypes }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    MIMEType?: PhotoViewMIMETypes;
+
+    /**
+     * Maximum number of images for a single selection.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    maxSelectNumber?: number;
+  }
+
+  /**
+   * PhotoSelectResult Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  class PhotoSelectResult {
+    /**
+     * The uris for the selected files.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    photoUris: Array<string>;
+
+    /**
+     * Original option.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    isOriginalPhoto: boolean;
+  }
+
+  /**
+   * PhotoViewPicker Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 10
+   */
+  class PhotoViewPicker {
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
+     * @returns { Promise<PhotoSelectResult> } Returns the uris for the selected files.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    select(option?: PhotoSelectOptions): Promise<PhotoSelectResult>;
+
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
+     * @param { AsyncCallback<PhotoSelectResult> } callback - callback
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
+
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { AsyncCallback<PhotoSelectResult> } callback - callback
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 10
+     */
+    select(callback: AsyncCallback<PhotoSelectResult>): void;
   }
 }
 

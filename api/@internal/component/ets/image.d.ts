@@ -14,6 +14,14 @@
  */
 
 /**
+ * Use the DrawableDescriptor class to get drawable image.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor;
+
+/**
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -241,18 +249,18 @@ interface ImageInterface {
 }
 
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<ImageAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<ImageAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<ImageAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -524,7 +532,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Specifies the picture decoding size.
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
    *
-   * @param { { width: number; height: number } } value
+   * @param { object } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -533,7 +541,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Specifies the picture decoding size.
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
    *
-   * @param { { width: number; height: number } } value
+   * @param { object } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -543,7 +551,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * Specifies the picture decoding size.
    * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
    *
-   * @param { { width: number; height: number } } value
+   * @param { object } value
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -634,8 +642,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
-   * @deprecated since 10
-   * @useinstead common.CommonMethod#draggable
    * @form
    */
   draggable(value: boolean): ImageAttribute;
