@@ -3762,6 +3762,7 @@ declare namespace audio {
      * @param { VolumeRampConfiguration } config - Volume ramp configuration.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 11
      */
