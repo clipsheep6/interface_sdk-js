@@ -1590,7 +1590,7 @@ declare namespace image {
    * @throws { BusinessError } 62980246 - Read pixelmap failed.
    * @returns Returns the PixelMap instance if the operation is successful; returns null otherwise.
    */
-  function CreatePixelMapFromParcel(sequence: rpc.MessageSequence): PixelMap;
+  function createPixelMapFromParcel(sequence: rpc.MessageSequence): PixelMap;
 
   /**
    * Creates an ImageSource instance based on the URI.
