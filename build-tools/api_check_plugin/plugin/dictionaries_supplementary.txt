@@ -571,6 +571,7 @@ reconfiguration
 reconfirm
 recovered
 recovering
+recovers
 recursions
 reclaimed
 redirections
@@ -616,6 +617,7 @@ s5
 sac
 sae
 sak
+sandboxes
 satellites
 scdma
 scene
@@ -774,6 +776,7 @@ uninit
 uninitialize
 uninitializes
 uninstallation
+uninstalls
 unlinked
 unlocking
 unlocks
@@ -801,6 +804,7 @@ unsupport
 unsuspended
 uplink
 useriam
+userspace
 usim
 ussd
 utilized
