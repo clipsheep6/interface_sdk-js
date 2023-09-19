@@ -146,7 +146,6 @@ declare namespace innerBundleManager {
    * @useinstead ohos.bundle.launcherBundleManager#getAllLauncherAbilityInfos
    */
   function getAllLauncherAbilityInfos(userId: number): Promise<Array<LauncherAbilityInfo>>;
-
   /**
    * Obtains based on a given bundleName.
    *
@@ -180,6 +179,7 @@ declare namespace innerBundleManager {
  * Contains basic Ability information, which uniquely identifies a launcher StatusCallback.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
+ * @systemapi Hide this for inner system use
  * @since 8
  * @deprecated since 9
  */
