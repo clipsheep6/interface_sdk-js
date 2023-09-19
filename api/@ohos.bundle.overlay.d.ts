@@ -278,5 +278,3 @@ declare namespace overlay {
    */
   export type OverlayModuleInfo = _OverlayModuleInfo.OverlayModuleInfo;
 }
-
-export default overlay;
