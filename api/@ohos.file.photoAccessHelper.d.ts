@@ -40,6 +40,44 @@ declare namespace photoAccessHelper {
   function getPhotoAccessHelper(context: Context): PhotoAccessHelper;
 
   /**
+   * Returns an instance of PhotoAccessHelper
+   * This method uses a callback to return the result, After this method is called.
+   *
+   * @permission ohos.permission.READ_IMAGEVIDEO
+   * @param { Context } context - Hap context information
+   * @param { AsyncCallback<PhotoAccessHelper> } callback - Instance of PhotoAccessHelper
+   * @throws { BusinessError } 401 - if parameter is invalid
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900012 - Permission denied
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 14000011 - System inner fail
+   * @throws { BusinessError } 14000013 - Out of memory
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  function getPhotoAccessHelperAsync(context: Context, callback: AsyncCallback<PhotoAccessHelper>): void;
+
+  /**
+   * Returns an instance of PhotoAccessHelper
+   * This method uses a promise to return the result, After this method is called.
+   *
+   * @permission ohos.permission.READ_IMAGEVIDEO
+   * @param { Context } context - Hap context information
+   * @returns { Promise<PhotoAccessHelper> } Instance of PhotoAccessHelper
+   * @throws { BusinessError } 401 - if parameter is invalid
+   * @throws { BusinessError } 13900011 - Out of memory
+   * @throws { BusinessError } 13900012 - Permission denied
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 14000011 - System inner fail
+   * @throws { BusinessError } 14000013 - Out of memory
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  function getPhotoAccessHelperAsync(context: Context): Promise<PhotoAccessHelper>;
+
+  /**
    * Enumeration of different types of photos
    *
    * @enum { number } PhotoType
@@ -628,6 +666,46 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     getExif(): Promise<string>;
+    /**
+     * Set asset pending state.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { boolean } pendingState - true: Set asset in pending status; false: Recover asset from pending status.
+     * @param { AsyncCallback<void> } callback - Returns the callback
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000013 - Out of memory
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    setPending(pendingState: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set asset pending state.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { boolean } pendingState - true: Set asset in pending status; false: Recover asset from pending status.
+     * @returns { Promise<void> } Returns the promise
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000013 - Out of memory
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    setPending(pendingState: boolean): Promise<void>;
   }
 
   /**
@@ -768,7 +846,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 10
      */
-    CAMERA_SHOT_KEY = 'camera_shot_key'
+    CAMERA_SHOT_KEY = 'camera_shot_key',
+    /**
+     * Pending state of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    PENDING = 'pending'
   }
 
   /**
