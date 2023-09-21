@@ -14,7 +14,7 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
-import type wantConstant from './@ohos.ability.wantConstant';
+import type wantConstant from './@ohos.app.ability.wantConstant';
 
 /**
  * Provides fileshare APIS
@@ -50,6 +50,29 @@ declare namespace fileShare {
   /**
    * Provides grant uri permission for app
    *
+   * @permission ohos.permission.PROXY_AUTHORIZATION_URI
+   * @param { Array<string> } uriArray uri array to be granted
+   * @param { string } bundleName bundleName
+   * @param { wantConstant.Flags } flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
+   * @param { AsyncCallback<void> } callback
+   * @throws { BusinessError } 201 - Permission verification failed
+   * @throws { BusinessError } 202 - The caller is not a system application
+   * @throws { BusinessError } 401 - The input parameter is invalid
+   * @throws { BusinessError } 143000001 - IPC error
+   * @syscap SystemCapability.FileManagement.AppFileService
+   * @systemapi
+   * @since 11
+   */
+  function grantUriPermission(
+    uriArray: Array<string>,
+    bundleName: string,
+    flag: wantConstant.Flags,
+    callback: AsyncCallback<void>
+  ): void;
+
+  /**
+   * Provides grant uri permission for app
+   *
    * @permission ohos.permission.WRITE_MEDIA
    * @param { string } uri uri
    * @param { string } bundleName bundleName
@@ -64,6 +87,24 @@ declare namespace fileShare {
    * @since 9
    */
   function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags): Promise<void>;
+
+  /**
+   * Provides grant uri permission for app
+   *
+   * @permission ohos.permission.PROXY_AUTHORIZATION_URI
+   * @param { Array<string> } uriArray uri array to be granted
+   * @param { string } bundleName bundleName
+   * @param { wantConstant.Flags } flag wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
+   * @returns { Promise<void> } no callback return Promise otherwise return void
+   * @throws { BusinessError } 201 - Permission verification failed
+   * @throws { BusinessError } 202 - The caller is not a system application
+   * @throws { BusinessError } 401 - The input parameter is invalid
+   * @throws { BusinessError } 143000001 - IPC error
+   * @syscap SystemCapability.FileManagement.AppFileService
+   * @systemapi
+   * @since 11
+   */
+  function grantUriPermission(uriArray: Array<string>, bundleName: string, flag: wantConstant.Flags): Promise<void>;
 }
 
 export default fileShare;
