@@ -2256,6 +2256,62 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     release(): Promise<void>;
+   /**
+     * store form id and form information
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { number } formId - The id of the form.
+     * @param { FormInformation } data - The information stored with the form
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000002 - Invalid uri
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    storeFormInfo(formId: string, data: FormInformation): Promise<void>;
+   /**
+     * store form id and form information
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { number } formId - The id of the form.
+     * @param { FormInformation } data - The information stored with the form
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000002 - Invalid uri
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    storeFormInfo(formId: string, data: FormInformation, callback: AsyncCallback<void>): void;
+    /**
+     * remove form information by form id
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { number } formId - The id of the form.
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+     removeFormInfoById(formId: string): Promise<void>;
+    /**
+     * remove form information by form id
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { number } formId - The id of the form.
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+     removeFormInfoById(formId: string, callback: AsyncCallback<void>): void;
   }
 
   /**
@@ -2357,6 +2413,38 @@ declare namespace photoAccessHelper {
      */
     extraUris: Array<string>;
   }
+
+    /**
+     * Information stored with the form
+     *
+     * interface FormInformation
+     * @since 11
+     * @systemapi
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     */
+    interface FormInformation {
+      /**
+       * photo uri or album uri
+       * @since 11
+       * @systemapi
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       */
+      uri: string;
+      /**
+       * height of the form
+       * @since 11
+       * @systemapi
+       * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+       */
+      height?: string;
+      /**
+      * width of the form
+      * @since 11
+      * @systemapi
+      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+      */
+      width?: string;
+    }
 
   /**
    * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
@@ -2483,7 +2571,7 @@ declare namespace photoAccessHelper {
      */
     select(callback: AsyncCallback<PhotoSelectResult>): void;
   }
-  i
+
 }
 
 export default photoAccessHelper;
