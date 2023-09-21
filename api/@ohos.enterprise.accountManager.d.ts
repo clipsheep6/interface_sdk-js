@@ -22,6 +22,7 @@ import type Want from './@ohos.app.ability.Want';
  * @namespace accountManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
+ * @stagemodelonly
  * @since 10
  */
 declare namespace accountManager {
@@ -40,7 +41,7 @@ declare namespace accountManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function disallowAddLocalAccount(admin: Want, disallow: boolean, callback: AsyncCallback<void>): void;
@@ -60,7 +61,7 @@ declare namespace accountManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function disallowAddLocalAccount(admin: Want, disallow: boolean): Promise<void>;

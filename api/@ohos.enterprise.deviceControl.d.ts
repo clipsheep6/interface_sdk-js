@@ -22,6 +22,7 @@ import type Want from './@ohos.app.ability.Want';
  * @namespace deviceControl
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
+ * @stagemodelonly
  * @since 10
  */
 declare namespace deviceControl {
@@ -39,7 +40,7 @@ declare namespace deviceControl {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function resetFactory(admin: Want, callback: AsyncCallback<void>): void;
@@ -58,7 +59,7 @@ declare namespace deviceControl {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function resetFactory(admin: Want): Promise<void>;

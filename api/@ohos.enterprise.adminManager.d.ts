@@ -22,6 +22,7 @@ import type Want from './@ohos.app.ability.Want';
  * @namespace adminManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
+ * @stagemodelonly
  * @since 9
  */
 declare namespace adminManager {
@@ -31,6 +32,7 @@ declare namespace adminManager {
    * @typedef EnterpriseInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
+   * @stagemodelonly
    * @since 9
    */
   export interface EnterpriseInfo {
@@ -40,6 +42,7 @@ declare namespace adminManager {
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+	 * @stagemodelonly
      * @since 9
      */
     name: string;
@@ -50,6 +53,7 @@ declare namespace adminManager {
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+	 * @stagemodelonly
      * @since 9
      */
     description: string;
@@ -61,6 +65,7 @@ declare namespace adminManager {
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
+   * @stagemodelonly
    * @since 9
    */
   export enum AdminType {
@@ -69,6 +74,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+	   * @stagemodelonly
      * @since 9
      */
     ADMIN_TYPE_NORMAL = 0x00,
@@ -78,6 +84,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+	   * @stagemodelonly
      * @since 9
      */
     ADMIN_TYPE_SUPER = 0x01
@@ -89,6 +96,7 @@ declare namespace adminManager {
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
+   * @stagemodelonly
    * @since 9
    */
   export enum ManagedEvent {
@@ -97,6 +105,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+	 * @stagemodelonly
      * @since 9
      */
     MANAGED_EVENT_BUNDLE_ADDED = 0,
@@ -106,6 +115,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+	   * @stagemodelonly
      * @since 9
      */
     MANAGED_EVENT_BUNDLE_REMOVED = 1,
@@ -115,6 +125,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+	   * @stagemodelonly
      * @since 10
      */
     MANAGED_EVENT_APP_START = 2,
@@ -124,6 +135,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+	   * @stagemodelonly
      * @since 10
      */
     MANAGED_EVENT_APP_STOP = 3
@@ -146,7 +158,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, callback: AsyncCallback<void>): void;
@@ -169,7 +181,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId: number, callback: AsyncCallback<void>): void;
@@ -192,7 +204,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId?: number): Promise<void>;
@@ -210,7 +222,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function disableAdmin(admin: Want, callback: AsyncCallback<void>): void;
@@ -229,7 +241,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function disableAdmin(admin: Want, userId: number, callback: AsyncCallback<void>): void;
@@ -248,7 +260,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function disableAdmin(admin: Want, userId?: number): Promise<void>;
@@ -266,7 +278,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function disableSuperAdmin(bundleName: String, callback: AsyncCallback<void>): void;
@@ -284,7 +296,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function disableSuperAdmin(bundleName: String): Promise<void>;
@@ -298,7 +310,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function isAdminEnabled(admin: Want, callback: AsyncCallback<boolean>): void;
@@ -313,7 +325,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function isAdminEnabled(admin: Want, userId: number, callback: AsyncCallback<boolean>): void;
@@ -328,7 +340,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function isAdminEnabled(admin: Want, userId?: number): Promise<boolean>;
@@ -343,7 +355,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function getEnterpriseInfo(admin: Want, callback: AsyncCallback<EnterpriseInfo>): void;
@@ -358,7 +370,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function getEnterpriseInfo(admin: Want): Promise<EnterpriseInfo>;
@@ -377,7 +389,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo, callback: AsyncCallback<void>): void;
@@ -396,7 +408,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo): Promise<void>;
@@ -410,7 +422,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function isSuperAdmin(bundleName: String, callback: AsyncCallback<boolean>): void;
@@ -424,7 +436,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function isSuperAdmin(bundleName: String): Promise<boolean>;
@@ -443,7 +455,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
@@ -462,7 +474,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
@@ -481,7 +493,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
@@ -500,7 +512,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
@@ -520,7 +532,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function authorizeAdmin(admin: Want, bundleName: string, callback: AsyncCallback<void>): void;
@@ -540,7 +552,7 @@ declare namespace adminManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function authorizeAdmin(admin: Want, bundleName: string): Promise<void>;

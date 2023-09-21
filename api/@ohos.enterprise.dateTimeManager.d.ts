@@ -22,6 +22,7 @@ import type Want from './@ohos.app.ability.Want';
  * @namespace dateTimeManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
+ * @stagemodelonly
  * @since 9
  */
 declare namespace dateTimeManager {
@@ -40,7 +41,7 @@ declare namespace dateTimeManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function setDateTime(admin: Want, time: number, callback: AsyncCallback<void>): void;
@@ -60,7 +61,7 @@ declare namespace dateTimeManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   function setDateTime(admin: Want, time: number): Promise<void>;
@@ -80,7 +81,7 @@ declare namespace dateTimeManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function disallowModifyDateTime(admin: Want, disallow: boolean, callback: AsyncCallback<void>): void;
@@ -100,7 +101,7 @@ declare namespace dateTimeManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function disallowModifyDateTime(admin: Want, disallow: boolean): Promise<void>;
@@ -119,7 +120,7 @@ declare namespace dateTimeManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function isModifyDateTimeDisallowed(admin: Want, callback: AsyncCallback<boolean>): void;
@@ -138,7 +139,7 @@ declare namespace dateTimeManager {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function isModifyDateTimeDisallowed(admin: Want): Promise<boolean>;

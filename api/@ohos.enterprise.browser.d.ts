@@ -22,6 +22,7 @@ import type Want from './@ohos.app.ability.Want';
  * @namespace browser
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
+ * @stagemodelonly
  * @since 10
  */
 declare namespace browser {
@@ -41,7 +42,7 @@ declare namespace browser {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function setPolicies(admin: Want, appId: string, policies: string, callback: AsyncCallback<void>): void;
@@ -62,7 +63,7 @@ declare namespace browser {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function setPolicies(admin: Want, appId: string, policies: string): Promise<void>;
@@ -79,7 +80,7 @@ declare namespace browser {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function getPolicies(admin: Want, appId: string, callback: AsyncCallback<string>): void;
@@ -96,7 +97,7 @@ declare namespace browser {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function getPolicies(admin: Want, appId: string): Promise<string>;

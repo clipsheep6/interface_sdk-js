@@ -22,6 +22,7 @@ import type Want from './@ohos.app.ability.Want';
  * @namespace usbManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
+ * @stagemodelonly
  * @since 10
  */
 declare namespace usbManager {

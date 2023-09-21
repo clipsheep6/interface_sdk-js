@@ -22,6 +22,7 @@ import type Want from './@ohos.app.ability.Want';
  * @namespace deviceSettings
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
+ * @stagemodelonly
  * @since 10
  */
 declare namespace deviceSettings {
@@ -72,7 +73,7 @@ declare namespace deviceSettings {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function getScreenOffTime(admin: Want, callback: AsyncCallback<number>): void;
@@ -91,7 +92,7 @@ declare namespace deviceSettings {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function getScreenOffTime(admin: Want): Promise<number>;

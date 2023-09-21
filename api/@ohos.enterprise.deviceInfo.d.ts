@@ -22,6 +22,7 @@ import type Want from './@ohos.app.ability.Want';
  * @namespace deviceInfo
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
+ * @stagemodelonly
  * @since 10
  */
 declare namespace deviceInfo {
@@ -39,7 +40,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function getDeviceSerial(admin: Want, callback: AsyncCallback<string>): void;
@@ -58,7 +59,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function getDeviceSerial(admin: Want): Promise<string>;
@@ -77,7 +78,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function getDisplayVersion(admin: Want, callback: AsyncCallback<string>): void;
@@ -96,7 +97,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function getDisplayVersion(admin: Want): Promise<string>;
@@ -115,7 +116,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function getDeviceName(admin: Want, callback: AsyncCallback<string>): void;
@@ -134,7 +135,7 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function getDeviceName(admin: Want): Promise<string>;
