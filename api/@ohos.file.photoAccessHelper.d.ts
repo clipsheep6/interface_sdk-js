@@ -2483,6 +2483,7 @@ declare namespace photoAccessHelper {
      */
     select(callback: AsyncCallback<PhotoSelectResult>): void;
   }
+  i
 }
 
 export default photoAccessHelper;
