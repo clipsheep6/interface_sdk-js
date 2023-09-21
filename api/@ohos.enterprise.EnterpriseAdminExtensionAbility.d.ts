@@ -18,7 +18,7 @@
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 export default class EnterpriseAdminExtensionAbility {
@@ -27,7 +27,7 @@ export default class EnterpriseAdminExtensionAbility {
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   onAdminEnabled(): void;
@@ -37,7 +37,7 @@ export default class EnterpriseAdminExtensionAbility {
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   onAdminDisabled(): void;
@@ -48,7 +48,7 @@ export default class EnterpriseAdminExtensionAbility {
    * @param { string } bundleName - bundleName indicates the name of the bundle installed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   onBundleAdded(bundleName: string): void;
@@ -59,7 +59,7 @@ export default class EnterpriseAdminExtensionAbility {
    * @param { string } bundleName - bundleName indicates the name of the bundle uninstalled.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   onBundleRemoved(bundleName: string): void;
@@ -70,7 +70,7 @@ export default class EnterpriseAdminExtensionAbility {
    * @param { string } bundleName - bundleName indicates the name of the app started.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   onAppStart(bundleName: string): void;
@@ -81,7 +81,7 @@ export default class EnterpriseAdminExtensionAbility {
    * @param { string } bundleName - bundleName indicates the name of the app stopped.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   onAppStop(bundleName: string): void;

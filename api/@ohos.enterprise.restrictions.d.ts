@@ -22,6 +22,7 @@ import type Want from './@ohos.app.ability.Want';
  * @namespace restrictions
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
+ * @stagemodelonly
  * @since 10
  */
 declare namespace restrictions {
@@ -40,7 +41,7 @@ declare namespace restrictions {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function setPrinterDisabled(admin: Want, disabled: boolean, callback: AsyncCallback<void>): void;
@@ -60,7 +61,7 @@ declare namespace restrictions {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function setPrinterDisabled(admin: Want, disabled: boolean): Promise<void>;
@@ -118,7 +119,7 @@ declare namespace restrictions {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function setHdcDisabled(admin: Want, disabled: boolean, callback: AsyncCallback<void>): void;
@@ -138,7 +139,7 @@ declare namespace restrictions {
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function setHdcDisabled(admin: Want, disabled: boolean): Promise<void>;
