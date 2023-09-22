@@ -2381,7 +2381,6 @@ declare namespace image {
     /**
      * Creates a PixelMap object based on MessageSequence parameter.
      *
-     * @deprecated since 11
      * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
      * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
      * @throws { BusinessError } 62980115 - If the input parameter invalid.
