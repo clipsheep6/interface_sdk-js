@@ -2270,7 +2270,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    storeFormInfo(formId: string, data: FormInformation): Promise<void>;
+    storeFormInformation(formId: string, data: FormInformation): Promise<void>;
    /**
      * store form id and form information
      *
@@ -2285,7 +2285,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    storeFormInfo(formId: string, data: FormInformation, callback: AsyncCallback<void>): void;
+    storeFormInformation(formId: string, data: FormInformation, callback: AsyncCallback<void>): void;
     /**
      * remove form information by form id
      *
@@ -2298,7 +2298,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-     removeFormInfoById(formId: string): Promise<void>;
+     removeFormInformationById(formId: string): Promise<void>;
     /**
      * remove form information by form id
      *
@@ -2311,7 +2311,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-     removeFormInfoById(formId: string, callback: AsyncCallback<void>): void;
+     removeFormInformationById(formId: string, callback: AsyncCallback<void>): void;
   }
 
   /**
@@ -2431,19 +2431,12 @@ declare namespace photoAccessHelper {
        */
       uri: string;
       /**
-       * height of the form
+       * size of the form
        * @since 11
        * @systemapi
        * @syscap SystemCapability.Multimedia.MediaLibrary.Core
        */
-      height?: string;
-      /**
-      * width of the form
-      * @since 11
-      * @systemapi
-      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
-      */
-      width?: string;
+      size?: image.Size;
     }
 
   /**
