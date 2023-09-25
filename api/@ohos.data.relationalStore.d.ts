@@ -733,6 +733,41 @@ declare namespace relationalStore {
   }
 
   /**
+   * Indicates the reference between tables.
+   *
+   * @interface DistributedConfig
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 11
+   */
+  interface Reference {
+    /**
+     * Indicates the table that references another table.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    sourceTable: string;
+
+    /**
+     * Indicates the table to be referenced.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    targetTable: string;
+
+    /**
+     * Indicates the reference options.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    refOptions: {
+      [src: string]: string;
+    };
+  }
+
+  /**
    * Manages the distributed configuration of the table.
    *
    * @interface DistributedConfig
@@ -747,6 +782,14 @@ declare namespace relationalStore {
      * @since 10
      */
     autoSync: boolean;
+
+    /**
+     * Specifies the reference relationships between tables.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    references?: Array<Reference>;
   }
 
   /**
