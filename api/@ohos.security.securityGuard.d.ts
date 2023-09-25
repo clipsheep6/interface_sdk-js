@@ -269,9 +269,9 @@ declare namespace securityGuard {
    * @since 10
    */
   function requestSecurityModelResult(
-      deviceId: string,
-      modelId: ModelIdType,
-      callback: AsyncCallback<SecurityModelResult>
+    deviceId: string,
+    modelId: ModelIdType,
+    callback: AsyncCallback<SecurityModelResult>
   ): void;
   /**
    * Request security model result from security guard.
