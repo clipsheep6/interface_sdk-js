@@ -828,6 +828,15 @@ declare namespace relationalStore {
    */
   class RdbPredicates {
     /**
+     * The CURSOR field name {#_cursor}.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 11
+     */
+    readonly CURSOR_FIELD: string;
+
+    /**
      * A parameterized constructor used to create a RdbPredicates instance.
      *
      * @param { string } name - Indicates the table name of the database.
