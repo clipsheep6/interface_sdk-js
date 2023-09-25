@@ -49,11 +49,15 @@ export default class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#on(type: 'abilityLifecycleEvent', callback: AbilityLifecycleCallback)
    */
+  on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): number;
+
   /**
    * Register ability lifecycle callback.
    *
-   * @param { 'abilityLifecycle' } type - abilityLifecycle.
+   * @param { 'abilityLifecycleEvent' } type - abilityLifecycleEvent.
    * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -62,7 +66,7 @@ export default class ApplicationContext extends Context {
    * @crossplatform
    * @since 10
    */
-  on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): number;
+  on(type: 'abilityLifecycleEvent', callback: AbilityLifecycleCallback): number;
 
   /**
    * Unregister ability lifecycle callback.
@@ -75,6 +79,7 @@ export default class ApplicationContext extends Context {
    * @StageModelOnly
    * @since 9
    */
+
   /**
    * Unregister ability lifecycle callback.
    *
@@ -84,8 +89,9 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @crossplatform
-   * @since 10
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'abilityLifecycleEvent', callbackId: number)
    */
   off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>): void;
 
@@ -99,8 +105,24 @@ export default class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'abilityLifecycleEvent', callbackId: number)
    */
   off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
+
+  /**
+   * Unregister ability lifecycle callback.
+   *
+   * @param { 'abilityLifecycleEvent' } type - abilityLifecycleEvent.
+   * @param { number } callbackId - Indicates the number code of the callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
+   */
+  off(type: 'abilityLifecycleEvent', callbackId: number): void;
 
   /**
    * Register environment callback.
@@ -112,8 +134,23 @@ export default class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'environmentEvent', callback: EnvironmentCallback)
    */
   on(type: 'environment', callback: EnvironmentCallback): number;
+
+  /**
+   * Register environment callback.
+   *
+   * @param { 'environmentEvent' } type - environmentEvent.
+   * @param { EnvironmentCallback } callback - The environment callback.
+   * @returns { number } Returns the number code of the callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  on(type: 'environmentEvent', callback: EnvironmentCallback): number;
 
   /**
    * Unregister environment callback.
@@ -125,6 +162,8 @@ export default class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'environmentEvent', callbackId: number)
    */
   off(type: 'environment', callbackId: number, callback: AsyncCallback<void>): void;
 
@@ -138,8 +177,23 @@ export default class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'environmentEvent', callbackId: number)
    */
   off(type: 'environment', callbackId: number): Promise<void>;
+
+  /**
+   * Unregister environment callback.
+   *
+   * @param { 'environmentEvent' } type - environmentEvent.
+   * @param { number } callbackId - Indicates the number code of the callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  off(type: 'environmentEvent', callbackId: number): void;
 
   /**
    * Register applicationStateChange callback.
