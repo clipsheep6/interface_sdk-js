@@ -394,6 +394,15 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   inputFilter(value: ResourceStr, error?: (value: string) => void): TextAreaAttribute;
 
   /**
+   * Called when overflowX property is set.
+   * @param { string } value - textarea component horizontal direction overflow type.
+   * @returns { TextAreaAttribute } the attribute of the textarea.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  overflowX(value: string): TextAreaAttribute;
+
+  /**
    * Called when the input changes.
    *
    * @param { function } callback
