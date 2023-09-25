@@ -17,6 +17,7 @@ import { AsyncCallback } from './@ohos.base';
 import * as _ApplicationStateObserver from './application/ApplicationStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 import * as _AppStateData from './application/AppStateData';
+import type * as _ProcessData from './application/ProcessData';
 import { ProcessInformation as _ProcessInformation } from './application/ProcessInformation';
 
 /**
@@ -87,16 +88,14 @@ declare namespace appManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   export enum ProcessState {
     /**
      * The state that the process is in when it is being created.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_CREATE,
 
@@ -104,8 +103,7 @@ declare namespace appManager {
      * The state in which the process is in when it switches to the foreground.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_FOREGROUND,
 
@@ -113,8 +111,7 @@ declare namespace appManager {
      * The state in which the process is in focus.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_ACTIVE,
 
@@ -122,8 +119,7 @@ declare namespace appManager {
      * The state in which a process is invisible in the background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_BACKGROUND,
 
@@ -131,8 +127,7 @@ declare namespace appManager {
      * The state that the process is in when it is destroyed.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @since 9
+     * @since 10
      */
     STATE_DESTROY
   }
@@ -151,6 +146,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead appManager#on(type: 'applicationStateEvent', observer: ApplicationStateObserver)
    */
   function on(type: 'applicationState', observer: ApplicationStateObserver): number;
 
@@ -169,6 +166,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead appManager#on(type: 'applicationStateEvent', observer: ApplicationStateObserver, bundleNameList: Array<string>)
    */
   function on(type: 'applicationState', observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
 
@@ -186,6 +185,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead appManager#off(type: 'applicationStateEvent', observerId: number)
    */
   function off(type: 'applicationState', observerId: number, callback: AsyncCallback<void>): void;
 
@@ -203,8 +204,61 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   * @deprecated since 10
+   * @useinstead appManager#off(type: 'applicationStateEvent', observerId: number)
    */
   function off(type: 'applicationState', observerId: number): Promise<void>;
+
+  /**
+   * Register application state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'applicationStateEvent' } type - applicationStateEvent.
+   * @param { ApplicationStateObserver } observer - The application state observer.
+   * @returns { number } Returns the number code of the observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function on(type: 'applicationStateEvent', observer: ApplicationStateObserver): number;
+
+  /**
+   * Register application state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'applicationStateEvent' } type - applicationStateEvent.
+   * @param { ApplicationStateObserver } observer - The application state observer.
+   * @param { Array<string> } bundleNameList - The list of bundleName. The max length is 128.
+   * @returns { number } Returns the number code of the observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function on(type: 'applicationStateEvent', observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
+
+  /**
+   * Unregister application state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'applicationStateEvent' } type - applicationStateEvent.
+   * @param { number } observerId - Indicates the number code of the observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function off(type: 'applicationStateEvent', observerId: number): void;
 
   /**
    * getForegroundApplications.
@@ -457,6 +511,92 @@ declare namespace appManager {
   function isSharedBundleRunning(bundleName: string, versionCode: number, callback: AsyncCallback<boolean>): void;
 
   /**
+   * Obtains memory usage of one process by its pid.
+   *
+   * @param { number } pid - Indicates the pid of the process.
+   * @returns { Promise<number> } Returns the memory usage of the process in KB.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getProcessMemoryByPid(pid: number): Promise<number>;
+
+  /**
+   * Obtains memory usage of one process by its pid.
+   *
+   * @param { number } pid - Indicates the pid of the process.
+   * @param { AsyncCallback<number> } callback - Indicates the callback of getting process memory by pid result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getProcessMemoryByPid(pid: number, callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains the process information list of running processes that belong to a specific bundle of current user.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @param { AsyncCallback<Array<ProcessInformation>> } callback - Indicates the callback of getting process information by bundleName result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getRunningProcessInfoByBundleName(bundleName: string, callback: AsyncCallback<Array<ProcessInformation>>): void;
+
+  /**
+   * Obtains the process information list of running processes that belong to a specific bundle and specific user ID.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
+   * @param { AsyncCallback<Array<ProcessInformation>> } callback - Indicates the callback of getting process information by bundleName result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getRunningProcessInfoByBundleName(bundleName: string, userId: number, callback: AsyncCallback<Array<ProcessInformation>>): void;
+
+  /**
+   * Obtains the process information list of running processes that belong to a specific bundle of current user.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @returns { Promise<Array<ProcessInformation>> } Returns a list of process information.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getRunningProcessInfoByBundleName(bundleName: string): Promise<Array<ProcessInformation>>;
+
+  /**
+   * Obtains the process information list of running processes that belong to a specific bundle and specific user ID.
+   *
+   * @param { string } bundleName - Indicates the bundle name of the application to which the processes belong to.
+   * @param { number } userId - Indicates the user ID of the application to which the processes belong to.
+   * @returns { Promise<Array<ProcessInformation>> } Returns a list of process information.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  function getRunningProcessInfoByBundleName(bundleName: string, userId: number): Promise<Array<ProcessInformation>>;
+
+  /**
    * The ability or extension state data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -490,6 +630,15 @@ declare namespace appManager {
    * @since 9
    */
   export type ProcessInformation = _ProcessInformation;
+
+  /**
+   * The class of a process information.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 10
+   */
+  export type ProcessData = _ProcessData.default;
 }
 
 export default appManager;

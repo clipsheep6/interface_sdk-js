@@ -17,7 +17,9 @@ import { AsyncCallback } from '../@ohos.base';
 import Context from './Context';
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
+import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 import { ProcessInformation } from './ProcessInformation';
+import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 
 /**
  * The context of an application. It allows access to application-specific resources.
@@ -140,6 +142,30 @@ export default class ApplicationContext extends Context {
   off(type: 'environment', callbackId: number): Promise<void>;
 
   /**
+   * Register applicationStateChange callback.
+   *
+   * @param { 'applicationStateChange' } type - applicationStateChange.
+   * @param { ApplicationStateChangeCallback } callback - The applicationStateChange callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
+
+  /**
+   * Unregister applicationStateChange callback.
+   *
+   * @param { 'applicationStateChange' } type - applicationStateChange.
+   * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 10
+   */
+  off(type: 'applicationStateChange', callback?: ApplicationStateChangeCallback): void;
+
+  /**
    * Get information about running processes
    *
    * @returns { Promise<Array<ProcessInformation>> } Returns the array of {@link ProcessInformation}.
@@ -212,4 +238,28 @@ export default class ApplicationContext extends Context {
    * @since 9
    */
   killAllProcesses(callback: AsyncCallback<void>);
+
+  /**
+   * Set colorMode of the application
+   *
+   * @param { ConfigurationConstant.ColorMode } colorMode - Color mode.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
+
+  /**
+   * Set language of the application
+   *
+   * @param { string } language - Language.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 11
+   */
+  setLanguage(language: string): void;
 }

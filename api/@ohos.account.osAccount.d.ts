@@ -717,6 +717,18 @@ declare namespace osAccount {
     getOsAccountLocalIdForUid(uid: number): Promise<number>;
 
     /**
+     * Gets the local ID of the OS account associated with the specified UID synchronously.
+     *
+     * @param { number } uid - Indicates the process UID.
+     * @returns { number } Returns the local ID of the OS account associated with the specified UID.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300002 - Invalid uid.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 10
+     */
+    getOsAccountLocalIdForUidSync(uid: number): number;
+
+    /**
      * Queries the local ID of an OS account which is bound to the specified domain account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -747,7 +759,8 @@ declare namespace osAccount {
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
-     * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the OS account associated with the specified domain account.
+     * @param { AsyncCallback<number> } callback - Indicates the callback for 
+     *   getting the local ID of the OS account associated with the specified domain account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -945,7 +958,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localName or type.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
-     * @throws { BusinessError } 12300007 - The number of account reaches the upper limit.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -967,7 +980,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localName or type.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
-     * @throws { BusinessError } 12300007 - The number of account reaches the upper limit.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
@@ -989,7 +1002,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
-     * @throws { BusinessError } 12300007 - The number of account reaches the upper limit.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -1015,7 +1028,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
      * @throws { BusinessError } 12300005 - Multi-user not supported.
      * @throws { BusinessError } 12300006 - Unsupported account type.
-     * @throws { BusinessError } 12300007 - The number of account reaches the upper limit.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -1057,6 +1070,17 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
+    /**
+     * Gets information about the current OS account.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.GET_LOCAL_ACCOUNTS
+     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the current OS account; returns {@code null} if the query fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 10
+     */
     getCurrentOsAccount(callback: AsyncCallback<OsAccountInfo>): void;
 
     /**
@@ -1069,6 +1093,17 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
+     */
+    /**
+     * Gets information about the current OS account.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.GET_LOCAL_ACCOUNTS
+     * @returns { Promise<OsAccountInfo> } Returns information about the current OS account; returns {@code null} if the query fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 10
      */
     getCurrentOsAccount(): Promise<OsAccountInfo>;
 
@@ -1482,6 +1517,20 @@ declare namespace osAccount {
     getBundleIdForUid(uid: number): Promise<number>;
 
     /**
+     * Gets the bundle ID associated with the specified UID synchronously.
+     *
+     * @param { number } uid - Indicates the target uid.
+     * @returns { number } Returns the bundle ID associated with the specified UID.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300002 - Invalid uid.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    getBundleIdForUidSync(uid: number): number;
+
+    /**
      * Check whether current process belongs to the main account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -1519,7 +1568,8 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { number } localId - Indicates the local ID of the OS account.
      * @param { string } constraint - Indicates the constraint to query the source type.
-     * @param { AsyncCallback<Array<ConstraintSourceTypeInfo>> } callback - Indicates the callback for getting a list of constraint source types for the specified os account.
+     * @param { AsyncCallback<Array<ConstraintSourceTypeInfo>> } callback - Indicates the callback for 
+     *   getting a list of constraint source types for the specified os account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -1883,8 +1933,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
      * @throws { BusinessError } 12300101 - Credential is incorrect.
+     * @throws { BusinessError } 12300102 - Credential not enrolled.
      * @throws { BusinessError } 12300105 - Unsupported authTrustLevel.
      * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300109 - Authentication is canceled.
      * @throws { BusinessError } 12300110 - Authentication is locked.
      * @throws { BusinessError } 12300111 - Authentication timeout.
      * @throws { BusinessError } 12300112 - Authentication service is busy.
@@ -1915,8 +1967,10 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid userId, challenge, authType or authTrustLevel.
      * @throws { BusinessError } 12300101 - Credential is incorrect.
+     * @throws { BusinessError } 12300102 - Credential not enrolled.
      * @throws { BusinessError } 12300105 - Unsupported authTrustLevel.
      * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300109 - Authentication is canceled.
      * @throws { BusinessError } 12300110 - Authentication is locked.
      * @throws { BusinessError } 12300111 - Authentication timeout.
      * @throws { BusinessError } 12300112 - Authentication service is busy.
@@ -2125,6 +2179,56 @@ declare namespace osAccount {
   }
 
   /**
+   * Options for getting domain account information.
+   *
+   * @typedef GetDomainAccountInfoOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  interface GetDomainAccountInfoOptions {
+    /**
+     * Indicates the account name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    accountName: string;
+
+    /**
+     * Indicates the domain to which the account belongs.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    domain?: string;
+  }
+
+  /**
+   * Options for getting domain account information in the domain plugin.
+   *
+   * @typedef GetDomainAccountInfoPluginOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  interface GetDomainAccountInfoPluginOptions extends GetDomainAccountInfoOptions {
+    /**
+     * Indicates the caller UID.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    callerUid: number;
+  }
+
+  /**
    * Provides the definition of domain plugin.
    *
    * @interface DomainPlugin
@@ -2169,16 +2273,15 @@ declare namespace osAccount {
     authWithToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array, callback: IUserAuthCallback): void;
 
     /**
-     * Gets the domain account information based on its domain and account name.
+     * Gets the domain account information with the specified options.
      *
-     * @param { string } domain - Indicates the domain to which the account belongs.
-     * @param { string } accountName - Indicates the account name.
+     * @param { GetDomainAccountInfoPluginOptions } options - Indicates the options for getting domain account information.
      * @param { AsyncCallback<DomainAccountInfo> } callback - Indicates the callback for notifying the domain account information.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    getAccountInfo(domain: string, accountName: string, callback: AsyncCallback<DomainAccountInfo>): void;
+    getAccountInfo(options: GetDomainAccountInfoPluginOptions, callback: AsyncCallback<DomainAccountInfo>): void;
 
     /**
      * Gets the domain authentication property for the specified domain account.
@@ -2289,6 +2392,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid domainAccountInfo or credential.
      * @throws { BusinessError } 12300003 - Domain account does not exist.
@@ -2314,6 +2418,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300003 - No domain account is bound.
      * @throws { BusinessError } 12300013 - Network exception.
@@ -2340,6 +2445,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - No domain account is bound.
@@ -2367,9 +2473,11 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid domainAccountInfo.
      * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300111 - Operation timeout.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2386,9 +2494,11 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid domainAccountInfo.
      * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300111 - Operation timeout.
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2443,6 +2553,48 @@ declare namespace osAccount {
      * @since 10
      */
     static updateAccountToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array): Promise<void>;
+
+    /**
+     * Gets the specified domain account information.
+     *
+     * @permission ohos.permission.GET_DOMAIN_ACCOUNTS
+     * @param { GetDomainAccountInfoOptions } options - Indicates the options for getting domain account information.
+     * @param { AsyncCallback<DomainAccountInfo> } callback - Indicates the result callback.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    static getAccountInfo(options: GetDomainAccountInfoOptions, callback: AsyncCallback<DomainAccountInfo>): void;
+
+    /**
+     * Gets the specified domain account information.
+     *
+     * @permission ohos.permission.GET_DOMAIN_ACCOUNTS
+     * @param { GetDomainAccountInfoOptions } options - Indicates the options for getting domain account information.
+     * @returns { Promise<DomainAccountInfo> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    static getAccountInfo(options: GetDomainAccountInfoOptions): Promise<DomainAccountInfo>;
   }
 
   /**
@@ -2517,6 +2669,9 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType.
      * @throws { BusinessError } 12300101 - Token is invalid.
      * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300109 - Operation is canceled.
+     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300115 - The number of credentials reaches the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -2533,9 +2688,12 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType or token.
+     * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType.
      * @throws { BusinessError } 12300101 - Token is invalid.
+     * @throws { BusinessError } 12300102 - Credential not enrolled.
      * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300109 - Operation is canceled.
+     * @throws { BusinessError } 12300111 - Operation timeout.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -2602,7 +2760,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid credentialId.
      * @throws { BusinessError } 12300101 - Token is invalid.
-     * @throws { BusinessError } 12300102 - Credential not found.
+     * @throws { BusinessError } 12300102 - Credential not enrolled.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -2619,6 +2777,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300102 - Credential not enrolled.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -2637,6 +2796,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid authType.
+     * @throws { BusinessError } 12300102 - Credential not enrolled.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -2655,6 +2815,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid authType.
+     * @throws { BusinessError } 12300102 - Credential not enrolled.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8

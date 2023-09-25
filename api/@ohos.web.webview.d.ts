@@ -15,8 +15,8 @@
 
 /// <reference path="../component/units.d.ts" />
 
-import { AsyncCallback } from "./@ohos.base";
-import { Callback } from "./@ohos.base";
+import { AsyncCallback } from './@ohos.base';
+import { Callback } from './@ohos.base';
 import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
@@ -28,6 +28,14 @@ import image from './@ohos.multimedia.image';
  * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
+/**
+ * This module provides the capability to manage web modules.
+ *
+ * @namespace webview
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 10
+ */
 declare namespace webview {
   /**
    * Defines the Web's request/response header.
@@ -36,17 +44,37 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
+  /**
+   * Defines the Web's request/response header.
+   * 
+   * @interface WebHeader
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
+   */
   interface WebHeader {
     /**
      * Gets the key of the request/response header.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      */
+    /**
+     * Gets the key of the request/response header.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 10
+     */
     headerKey: string;
 
     /**
      * Gets the value of the request/response header.
      * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
+    /**
+     * Gets the value of the request/response header.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
      * @since 9
      */
     headerValue: string;
@@ -127,43 +155,17 @@ declare namespace webview {
      * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
-     * @deprecated since 10
-     * @useinstead SecureDnsMode#OFF
-     */
-    Off = 0,
-    /**
-     * By default, the set HttpDns server is used for dns resolution, and if it fails,
-     * the system dns is used for resolution.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 10
-     * @deprecated since 10
-     * @useinstead SecureDnsMode#AUTO
-     */
-    Auto = 1,
-    /**
-     * Forcibly use the set HttpDns server for dns resolution. If it fails, it will not
-     * fall back to the system dns, which will directly cause the page to fail to load.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 10
-     * @deprecated since 10
-     * @useinstead SecureDnsMode#SECURE_ONLY
-     */
-    SecureOnly = 2,
-    /**
-     * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 10
      */
     OFF = 0,
     /**
-     * By default, the set HttpDns server is used for dns resolution, and if it fails,
+     * By default, the user-settings of HttpDns is used for dns resolution, and if it fails,
      * the system dns is used for resolution.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     AUTO = 1,
     /**
-     * Forcibly use the set HttpDns server for dns resolution. If it fails, it will not
+     * Use the user-settings of HttpDns for dns resolution. If it fails, it will not
      * fall back to the system dns, which will directly cause the page to fail to load.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
@@ -836,7 +838,7 @@ declare namespace webview {
 
     /**
      * Receive message from other port.
-     * @param { (result: WebMessage) => void } callback - Callback function for receiving messages.
+     * @param { function } callback - Callback function for receiving messages.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100006 - Can not register message event using this port.
      * @syscap SystemCapability.Web.Webview.Core
@@ -856,7 +858,7 @@ declare namespace webview {
 
     /**
      * Receive message from other port.
-     * @param { (result: WebMessageExt) => void } callback - Callback function for receiving messages.
+     * @param { function } callback - Callback function for receiving messages.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100006 - Can not register message event using this port.
      * @syscap SystemCapability.Web.Webview.Core
@@ -1049,6 +1051,12 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
+  /**
+   * Provides methods for controlling the web controller.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
+   */
   class WebviewController {
     /**
      * Initialize the web engine before loading the Web components.
@@ -1204,6 +1212,20 @@ declare namespace webview {
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
+     */
+    /**
+     * Loads the data or URL.
+     *
+     * @param { string | Resource } url - The URL to load.
+     * @param { Array<WebHeader> } [headers] - Additional HTTP request header for URL.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 17100003 - Invalid resource path or file type.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 10
      */
     loadUrl(url: string | Resource, headers?: Array<WebHeader>): void;
 
@@ -1621,7 +1643,6 @@ declare namespace webview {
     /**
      * Query if current document has image.
      *
-     * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
      * @returns { Promise<boolean> } A promise resolved after query image has finished.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
@@ -1630,6 +1651,17 @@ declare namespace webview {
      * @since 9
      */
     hasImage(): Promise<boolean>;
+
+    /**
+     * Query if current document has image.
+     *
+     * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
     hasImage(callback: AsyncCallback<boolean>): void;
 
     /**
@@ -1756,6 +1788,51 @@ declare namespace webview {
      * @since 10
      */
     setAudioMuted(mute: boolean): void;
+
+    /**
+     * Prefetch the resources required by the page, but will not execute js or render the page.
+     * @param { string } url - Which url to preresolve/preconnect.
+     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    prefetchPage(url: string, additionalHeaders?: Array<WebHeader>): void;
+
+    /**
+     * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
+     * @param { string } url - Which url to preresolve/preconnect.
+     * @param { boolean } preconnectable - Indicates whether to preconnect.
+     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    static prepareForPageLoad(url: string, preconnectable: boolean, numSockets: number): void;
+
+    /**
+     * Set custom user agent.
+     * @param { string } userAgent - User custom agent information.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    setCustomUserAgent(userAgent: string): void;
+
+    /**
+     * Get custom user agent.
+     * @returns { string } Get custom User agent information.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 10
+     */
+    getCustomUserAgent(): string;
   }
 }
 

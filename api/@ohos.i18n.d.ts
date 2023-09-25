@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { BusinessError } from './basic';
+import { BusinessError } from './@ohos.base';
 
 /**
  * Provides international settings related APIs.
@@ -358,6 +358,17 @@ declare namespace i18n {
     static getFirstPreferredLanguage(): string;
 
     /**
+     * Set the preferred language of App.
+     *
+     * @param { string } language - the language to be set.
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 890001 - param value not valid
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    static setAppPreferredLanguage(language: string): void;
+
+    /**
      * Get the preferred language of App.
      *
      * @returns { string } a string represent the preferred language of App.
@@ -465,6 +476,19 @@ declare namespace i18n {
      * @since 10
      */
     static getDateOrder(locale: string): string;
+
+    /**
+     * Get the time period name for the specified hour.
+     *
+     * @param { number } hour - the hour value.
+     * @param { string } [locale] - specified the locale. Use current app locale by default.
+     * @returns { string } the string of time period name. The return value may be empty string
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    static getTimePeriodName(hour:number, locale?: string): string;
   }
 
   /**
@@ -499,6 +523,14 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    */
+  /**
+   * Provides the options of PhoneNumberFormat.
+   *
+   * @interface PhoneNumberFormatOptions
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @since 11
+   */
   export interface PhoneNumberFormatOptions {
     /**
      * Indicates the type to format phone number.
@@ -514,6 +546,14 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 9
      */
+    /**
+     * Indicates the type to format phone number.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
+     */
     type?: string;
   }
 
@@ -523,6 +563,13 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 8
    */
+  /**
+   * Provides the API for formatting phone number strings
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @since 11
+   */
   export class PhoneNumberFormat {
     /**
      * A constructor used to create a PhoneNumberFormat object.
@@ -531,6 +578,15 @@ declare namespace i18n {
      * @param { PhoneNumberFormatOptions } [options] - format types: "E164", "RFC3966", "INTERNATIONAL", "NATIONAL".
      * @syscap SystemCapability.Global.I18n
      * @since 8
+     */
+    /**
+     * A constructor used to create a PhoneNumberFormat object.
+     *
+     * @param { string } country - Indicates a character string containing the country information for the PhoneNumberFormat object.
+     * @param { PhoneNumberFormatOptions } [options] - format types: "E164", "RFC3966", "INTERNATIONAL", "NATIONAL".
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
      */
     constructor(country: string, options?: PhoneNumberFormatOptions);
 
@@ -542,6 +598,15 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 8
      */
+    /**
+     * Judge whether phone number is valid.
+     *
+     * @param { string } number - Indicates the input phone number.
+     * @returns { boolean } a boolean indicates whether the input phone number is valid.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
+     */
     isValidNumber(number: string): boolean;
 
     /**
@@ -551,6 +616,15 @@ declare namespace i18n {
      * @returns { string } the formatted phone number.
      * @syscap SystemCapability.Global.I18n
      * @since 8
+     */
+    /**
+     * Obtains the formatted phone number strings of number.
+     *
+     * @param { string } number - Indicates the input phone number to be formatted.
+     * @returns { string } the formatted phone number.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
      */
     format(number: string): string;
 
@@ -808,6 +882,43 @@ declare namespace i18n {
      * @since 10
      */
     isWeekend(date?: Date): boolean;
+
+    /**
+     * Adds or subtract the specified amount of time to the given calendar field.
+     *
+     * @param { string } field - field values such as year, month, week_of_year, week_of_month, date, day_of_year, day_of_week
+     *  day_of_week_in_month, hour, hour_of_day, minute, second, millisecond
+     * @param { number } [amount] - the amount of date or time to be added to the field.
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
+     */
+    add(field: string, amount: number): void;
+
+    /**
+     * Get the UTC milliseconds.
+     *
+     * @returns { number }  the calendar time as UTC milliseconds.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
+     */
+    getTimeInMillis(): number;
+
+    /**
+     * Returns days comparison result.
+     *
+     * @param { Date } date - Date object to be compared.
+     * @returns { number }  value of of the comparison result. A positive value indicates that the date is later, 
+     * and a negative value indicates that the date is earlier.
+     * @throws {BusinessError} 401 - check param failed.
+     * @syscap SystemCapability.Global.I18n
+     * @crossplatform
+     * @since 11
+     */
+    compareDays(date: Date): number;
   }
 
   /**
@@ -1603,7 +1714,7 @@ declare namespace i18n {
    */
   export class Normalizer {
     /**
-     * Get a Normalizer that is specified by id name.
+     * Get a Normalizer that is specified by normalize mode.
      *
      * @param { NormalizerMode } mode - specified the mode of Normalizer.
      * @returns { Normalizer } Transliterator that is specified by id name.
@@ -1630,6 +1741,7 @@ declare namespace i18n {
    *
    * @enum { number }
    * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export enum SuggestionType {
@@ -1637,13 +1749,15 @@ declare namespace i18n {
      * No correlation between language and region.
      *
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     SUGGESTION_TYPE_NONE = 0,
     /**
-     * The language used in the region.
+     * The language related to the specified region
      *
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     SUGGESTION_TYPE_RELATED = 1,
@@ -1651,6 +1765,7 @@ declare namespace i18n {
      * The region is SIM card region.
      *
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     SUGGESTION_TYPE_SIM = 2,
@@ -1661,6 +1776,7 @@ declare namespace i18n {
    *
    * @interface SortOptions
    * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface SortOptions {
@@ -1669,6 +1785,7 @@ declare namespace i18n {
      *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     locale?: string;
@@ -1678,6 +1795,7 @@ declare namespace i18n {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     isUseLocalName?: boolean;
@@ -1687,24 +1805,27 @@ declare namespace i18n {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     isSuggestedFirst?: boolean;
   }
 
   /**
-   * Provides the informations of one language or region.
+   * Provide information for a language or region
    *
    * @interface LocaleItem
    * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface LocaleItem {
     /**
-     * language or region code.
+     * language or region id.
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     id: string;
@@ -1714,72 +1835,344 @@ declare namespace i18n {
      *
      * @type { SuggestionType }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     suggestionType: SuggestionType;
 
     /**
-     * The name of the language or region in specified language
+     * The display name of the language or region in specified language
      *
      * @type { string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     displayName: string;
 
     /**
-     * The name of the language or region in local language
+     * The display name of the language or region in local language
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
      * @since 10
      */
     localName?: string;
   }
-}
 
-/**
- * Provide some functions for settings and startup guide to select language or region.
- *
- * @syscap SystemCapability.Global.I18n
- * @systemapi Hide this for inner system use.
- * @since 10
- */
-export class SystemLocaleManager {
   /**
-   * A constructor used to create a SystemLocaleManager object.
+   * Provides the informations of one time zone city.
+   *
+   * @interface TimeZoneCityItem
+   * @syscap SystemCapability.Global.I18n
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export interface TimeZoneCityItem {
+    /**
+     * Time zone id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    zoneId: string;
+
+    /**
+     * City id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    cityId: string;
+
+    /**
+     * The display name of the city.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    cityDisplayName: string;
+
+    /**
+     * The time zone offset for the city.
+     * @type { number }
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    offset: number;
+
+    /**
+     * The display name of the time zone for the city.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    zoneDisplayName: string;
+
+    /**
+     * The time zone raw offset for the city.
+     * @type { ?number }
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    rawOffset?: number;
+  }
+
+  /**
+   * Provide some functions for settings and startup guide to select language or region.
    *
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  constructor();
+  export class SystemLocaleManager {
+    /**
+     * A constructor used to create a SystemLocaleManager object.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    constructor();
+
+    /**
+     * Obtains sorted language array for setting or startup guide app.
+     *
+     * @param { Array<string> } languages - The languages whose name will be sorted and displayed.
+     * @param { SortOptions } options - Sort options for locale item.
+     * @returns { Array<LocaleItem> } Locale Informations sorted for specified options.
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 890001 - param value not valid
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    getLanguageInfoArray(languages: Array<string>, options?: SortOptions): Array<LocaleItem>;
+
+    /**
+     * Obtains sorted region array for setting or startup guide app.
+     *
+     * @param { Array<string>  } regions - The regions whose name will be sorted and displayed.
+     * @param { SortOptions } options - Sort options for locale item.
+     * @returns { Array<LocaleItem> } Locale Informations sorted for specified options.
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 890001 - param value not valid
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    getRegionInfoArray(regions: Array<string>, options?: SortOptions): Array<LocaleItem>;
+
+    /**
+     * Obtains sorted time zone city info array for showing time zone list
+     *
+     * @returns { Array<TimeZoneCityItem> } Time zone city information sorted by city name.
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    static getTimeZoneCityItemArray(): Array<TimeZoneCityItem>;
+  }
 
   /**
-   * Obtains sorted language array to setting or startup guide app.
+   * Provides the informations of one holiday.
    *
-   * @param { Array<string> } languages - The languages whose name will be sort and displayed.
-   * @param { SortOptions } options - Specifies how to sort.
-   * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
-   * @throws { BusinessError } 401 - check param failed
-   * @throws { BusinessError } 890001 - param value not valid
+   * @interface HolidayInfoItem
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
-  getLanguageInfoArray(languages: Array<string>, options?: SortOptions): Array<LocaleItem>;
+  export interface HolidayInfoItem {
+    /**
+     * Holiday base name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    baseName: string;
+
+    /**
+     * Holiday start year.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    year: number;
+
+    /**
+     * Holiday start month.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    month: number;
+
+    /**
+     * Holiday start day.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    day: number;
+
+    /**
+     * Holiday local name array.
+     *
+     * @type { ?Array<HolidayLocalName> }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    localNames?: Array<HolidayLocalName>;
+  }
 
   /**
-   * Obtains sorted region array to setting or startup guide app.
+   * Provides the informations holiday locale name.
    *
-   * @param { Array<string>  } regions - The regions whose name will be sort and displayed.
-   * @param { SortOptions } options - Specifies how to sort.
-   * @returns { Array<LocaleItem> } Locale Informations sorted by Requirements.
-   * @throws { BusinessError } 401 - check param failed
-   * @throws { BusinessError } 890001 - param value not valid
+   * @interface HolidayLocalName
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
-  getRegionInfoArray(regions: Array<string>, options?: SortOptions): Array<LocaleItem>;
+  export interface HolidayLocalName {
+    /**
+     * Holiday locale name language id.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    language: string;
+
+    /**
+     * Holiday local name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    name: string;
+  }
+
+  /**
+   * Provide some functions to manage holidays in a country or region. Partly follows the RFC2445 standard.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 11
+   */
+  export class HolidayManager {
+    /**
+     * A constructor used to create a HolidayManager object.
+     *
+     * @param { String } icsPath - the path of the iCalendar format file to create HolidayManager object.
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    constructor(icsPath: String);
+
+    /**
+     * Returns true if the given date is a holiday. If the date is not given,
+     *  the date object of current time is used.
+     *
+     * @param { Date } [date] - Date object whose attribute is desired.
+     * @returns { boolean } whether the date is a holiday day.
+     * @throws {BusinessError} 401 - check param failed.
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    isHoliday(date?: Date): boolean;
+
+    /**
+     * Obtains holiday info array for a specified year
+     *
+     * @param { number } [year] - specified holiday year. If the year is not given,
+     *  the current year is used.
+     * @returns { Array<HolidayInfoItem> } holiday information array for one year.
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    getHolidayInfoItemArray(year?: number): Array<HolidayInfoItem>;
+  }
+
+  /**
+   * Provides the informations of one entity.
+   *
+   * @interface EntityInfoItem
+   * @syscap SystemCapability.Global.I18n
+   * @since 11
+   */
+  export interface EntityInfoItem {
+    /**
+     * Entity begin position.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    begin: number;
+
+    /**
+     * Entity end position.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    end: number;
+
+    /**
+     * Entity type. Field values such as phone_number, date
+     *
+     * @type { string }
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    type: string;
+  }
+
+  /**
+   * Provide some functions to find named entity in text.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @since 11
+   */
+  export class EntityRecognizer {
+    /**
+     * A constructor used to create a EntityRecognizer object.
+     *
+     * @param { string } [locale] - specified the locale. Use current app locale by default.
+     * @throws {BusinessError} 401 - check param failed.
+     * @throws {BusinessError} 890001 - param value not valid.
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    constructor(locale?: string);
+
+    /**
+     * Obtains holiday info array for a specified text
+     *
+     * @param { string } text - the text to find entities.
+     * @returns { Array<EntityInfoItem> } entity information array found.
+     * @throws {BusinessError} 401 - check param failed.
+     * @syscap SystemCapability.Global.I18n
+     * @since 11
+     */
+    findEntityInfo(text: string): Array<EntityInfoItem>;
+  }
 }
 export default i18n;

@@ -14,10 +14,10 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import { CommonEventData } from './commonEvent/commonEventData';
-import { CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
-import { CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo';
-import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
+import { CommonEventData as _CommonEventData } from './commonEvent/commonEventData';
+import { CommonEventSubscriber as _CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
+import { CommonEventSubscribeInfo as _CommonEventSubscribeInfo } from './commonEvent/commonEventSubscribeInfo';
+import { CommonEventPublishData as _CommonEventPublishData } from './commonEvent/commonEventPublishData';
 
 /**
  * Common event definition
@@ -129,6 +129,17 @@ declare namespace commonEventManager {
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
+   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @returns { CommonEventSubscriber } Returns the CommonEventSubscriber object.
+   * @throws { BusinessError } 401 - parameter error
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
+
+  /**
    * Subscribe an ordered, sticky, or standard common event.
    *
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
@@ -179,7 +190,7 @@ declare namespace commonEventManager {
    *
    * @permission ohos.permission.COMMONEVENT_STICKY
    * @param { string } event - name of the common event.
-   * @returns { Promise<void> }
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - The application dose not have permission to call the interface
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
@@ -212,7 +223,7 @@ declare namespace commonEventManager {
    * Set static subscriber state.
    *
    * @param { boolean } enable - static subscribe event enable/disable state.
-   * @returns { Promise<void> }
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
@@ -1142,6 +1153,14 @@ declare namespace commonEventManager {
     COMMON_EVENT_DEVICE_IDLE_MODE_CHANGED = 'usual.event.DEVICE_IDLE_MODE_CHANGED',
 
     /**
+     * Sent when device's charge idle mode changed.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 10
+     */
+    COMMON_EVENT_CHARGE_IDLE_MODE_CHANGED = 'usual.event.CHARGE_IDLE_MODE_CHANGED',
+
+    /**
      * Sent when the list of exempt applications in idle mode is updated.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1793,6 +1812,38 @@ declare namespace commonEventManager {
      */
     COMMON_EVENT_SCREEN_LOCKED = 'usual.event.SCREEN_LOCKED'
   }
+
+  /**
+   * Describes the data of the common event
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  export type CommonEventData = _CommonEventData;
+
+  /**
+   * Describes the subscriber of common event
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  export type CommonEventSubscriber = _CommonEventSubscriber;
+
+  /**
+   * Describes the information of the subscriber
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  export type CommonEventSubscribeInfo = _CommonEventSubscribeInfo;
+
+  /**
+   * Describes the information of the subscriber
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 10
+   */
+  export type CommonEventPublishData = _CommonEventPublishData;
 }
 
 export default commonEventManager;

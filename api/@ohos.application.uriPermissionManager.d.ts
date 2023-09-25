@@ -13,11 +13,12 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './basic';
-import wantConstant from './@ohos.ability.wantConstant';
+import type { AsyncCallback } from './@ohos.base';
+import type wantConstant from './@ohos.app.ability.wantConstant';
 
 /**
  * This module provides the capability to authorize URI.
+ *
  * @namespace uriPermissionManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 10
@@ -25,11 +26,13 @@ import wantConstant from './@ohos.ability.wantConstant';
 declare namespace uriPermissionManager {
   /**
    * Grant URI to another application
+   *
    * @permission ohos.permission.PROXY_AUTHORIZATION_URI
    * @param { string } uri - File URI.
-   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
+   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
+   *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
-   * @param { callback } callback - the callback of grantUriPermission.
+   * @param { AsyncCallback<number> } callback - the callback of grantUriPermission.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -41,13 +44,20 @@ declare namespace uriPermissionManager {
    * @systemapi hide this for inner system use.
    * @since 10
    */
-  function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, callback: AsyncCallback<number>): void;
+  function grantUriPermission(
+    uri: string,
+    flag: wantConstant.Flags,
+    targetBundleName: string,
+    callback: AsyncCallback<number>
+  ): void;
 
   /**
    * Grant URI to another application
+   *
    * @permission ohos.permission.PROXY_AUTHORIZATION_URI
    * @param { string } uri - File URI.
-   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION
+   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
+   *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
    * @returns { Promise<number> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -65,10 +75,11 @@ declare namespace uriPermissionManager {
 
   /**
    * Revoke URI from one application
+   *
    * @permission ohos.permission.PROXY_AUTHORIZATION_URI
    * @param { string } uri - File URI.
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
-   * @param { callback } callback - the callback of revokeUriPermission.
+   * @param { AsyncCallback<number> } callback - the callback of revokeUriPermission.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -82,6 +93,7 @@ declare namespace uriPermissionManager {
 
   /**
    * Revoke URI from one application
+   *
    * @permission ohos.permission.PROXY_AUTHORIZATION_URI
    * @param { string } uri - File URI.
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.

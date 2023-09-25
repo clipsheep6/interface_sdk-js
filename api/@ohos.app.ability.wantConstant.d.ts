@@ -113,7 +113,27 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 10
      */
-    SHARE_URL_KEY = 'ohos.extra.param.key.shareUrl'
+    SHARE_URL_KEY = 'ohos.extra.param.key.shareUrl',
+
+    /**
+     * Indicates the param of extra support continue page stack.
+     * The default value of the param is true,
+     * and the system will automatically flow the page stack information by default.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    SUPPORT_CONTINUE_PAGE_STACK_KEY = 'ohos.extra.param.key.supportContinuePageStack',
+
+    /**
+     * Indicates the param of extra stop source ability on continue.
+     * The default value of the param is true,
+     * and the system will exit the source application by default.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    SUPPORT_CONTINUE_SOURCE_EXIT_KEY = 'ohos.extra.param.key.supportContinueSourceExit'
   }
 
   /**
@@ -139,6 +159,23 @@ declare namespace wantConstant {
      * @since 9
      */
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
+
+    /**
+     * Indicates the grant for possible persisting on the URI.
+     * The flag only valid in PC scenarios.
+     * When sharing user file URI,
+     * if the application has PERMISSION_PROXY_AUTHORIZATION_URI permission or persistable permission to the URI,
+     * it can share persistable URI permission by using this flag.
+     * To grant persistable read permissions to URI,
+     * you can set flag = FLAG_AUTH_READ_URI_PERMISSION | FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
+     * To grant persistable write permissions to URI,
+     * you can set flag = FLAG_AUTH_WRITE_URI_PERMISSION | FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @systemapi
+     * @since 10
+     */
+    FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
 
     /**
      * Install the specified ability if it's not installed.
