@@ -226,43 +226,6 @@ declare class TextInputController extends TextContentControllerBase {
    * @since 10
    */
   constructor();
-
-  /**
-   * Called when the position of the insertion cursor is set.
-   *
-   * @param { number } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the position of the insertion cursor is set.
-   *
-   * @param { number } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  caretPosition(value: number): void;
-
-  /**
-   * Text selection is achieved by specifying the start and end positions of the text.
-   *
-   * @param { number } selectionStart - The start position of the selected text.
-   * @param { number } selectionEnd - The end position of the selected text.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  setTextSelection(selectionStart: number, selectionEnd: number): void;
-
-  /**
-   * Exit edit state.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  stopEditing(): void;
 }
 
 /**
