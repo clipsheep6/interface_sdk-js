@@ -156,6 +156,7 @@ interface RefreshOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * deprecated since 11
    */
   offset?: number | string;
 
@@ -181,6 +182,7 @@ interface RefreshOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @deprecated since 11
    */
   friction?: number | string;
 
