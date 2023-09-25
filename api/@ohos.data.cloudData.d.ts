@@ -62,7 +62,7 @@ declare namespace cloudData {
    */
   interface ExtraData {
     /**
-     * Event ID indicates that data in the cloud has changed.
+     * Event identity.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @since 11
