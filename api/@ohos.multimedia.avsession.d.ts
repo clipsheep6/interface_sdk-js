@@ -1717,18 +1717,18 @@ declare namespace avSession {
     STATE_CONNECTING = 0,
 
     /**
-     * A connection state indicating the device is connected.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 10
-     */
-    STATE_CONNECTED = 1,
-
-    /**
      * The default connection state indicating the device is disconnected.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    STATE_DISCONNECTED = 6,
+    STATE_DISCONNECTED = 5,
+
+    /**
+     * A connection state indicating the device is connected.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 10
+     */
+    STATE_CONNECTED = 6,
   }
 
   /*
