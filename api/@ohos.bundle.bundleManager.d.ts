@@ -429,6 +429,30 @@ declare namespace bundleManager {
     ACTION = 19,
 
     /**
+     * Indicates extension info with type of remoteNotification
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 11
+     */
+     REMOTE_NOTIFICATION = 20,
+ 
+    /**
+     * Indicates extension info with type of remoteLocation
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 11
+     */
+     REMOTE_LOCATION = 21,
+
+    /**
+     * Indicates extension info with type of voip
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 11
+     */
+     VOIP = 22,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
