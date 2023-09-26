@@ -18,7 +18,7 @@ import relationalStore from "./@ohos.data.relationalStore";
 
 declare namespace cloudData {
   /**
-   * Describes the clear action type.
+   * Enumerates the types of the clear action.
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -27,7 +27,8 @@ declare namespace cloudData {
    */
   enum ClearAction {
     /**
-     * Indicates clearing cloud-related data only, which includes cloud meta data and cloud-related local data.
+     * Clear cloud-related data only, which includes the cloud meta data and
+     * local cloud-related data.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -36,7 +37,7 @@ declare namespace cloudData {
     CLEAR_CLOUD_INFO,
 
     /**
-     * Indicates clearing all cloud-related file data,which synchronized with the cloud.
+     * Clear all cloud-related file data, which is synchronized with the cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -46,7 +47,7 @@ declare namespace cloudData {
   }
 
   /**
-   * Event ID indicates that data in the cloud has changed.
+   * ID of the event, which indicates the change of the data in the cloud.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @since 11
@@ -63,7 +64,7 @@ declare namespace cloudData {
    */
   interface ExtraData {
     /**
-     * Event identity.
+     * Event ID.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @since 11
@@ -71,7 +72,7 @@ declare namespace cloudData {
     eventId: string;
 
     /**
-     * Json string, contains the following optional fields.
+     * Extra data, which contains the following fields.
      * {
      *   "accountId": "aaa",
      *   "bundleName": "com.bbb.xxx",
@@ -84,7 +85,7 @@ declare namespace cloudData {
      *   "keyId": "",
      *   "signV3": ""
      * }
-     * The accountId and bundleName are required among these.
+     * <b>accountId</b> and <b>bundleName</b> are mandatory.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @since 11
@@ -93,7 +94,7 @@ declare namespace cloudData {
   }
 
   /**
-   * Provides methods to set CloudSync config.
+   * Provides methods to set cloud-device synchronization.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
@@ -104,13 +105,19 @@ declare namespace cloudData {
      * Enables the cloud function.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { { [bundleName:string]:boolean } } switches - Indicates switches information of all applications.
-     * switches will overwrite the saved application switch information.If the specific application switch changes,
-     * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
-     * @param { AsyncCallback<void> } callback - the callback of enableCloud.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } accountId - Indicates the account ID, which is
+     * a value obtained by hashing the cloud account ID.
+     * @param { { [bundleName:string]:boolean } } switches - Indicates switches
+     * of all applications. It overwrites the saved application switch information.
+     * If an application switch changes, the {@link changeAppCloudSwitch
+     * (accountId: string, bundleName: string, status: boolean)} method will be
+     * called to notify the data manager service.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
+     * to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -127,13 +134,18 @@ declare namespace cloudData {
      * Enables the cloud function.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { { [bundleName:string]:boolean } } switches - Indicates switches information of all applications.
-     * switches will overwrite the saved application switch information.If the specific application switch changes,
-     * the {@link changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean)} method will notify the data manager service.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } accountId - Indicates the account ID, which is
+     * a value obtained by hashing the cloud account ID.
+     * @param { { [bundleName:string]:boolean } } switches - Indicates switches
+     * of all applications. It overwrites the saved application switch information.
+     * If an application switch changes, the {@link changeAppCloudSwitch
+     * (accountId: string, bundleName: string, status: boolean)} method will be
+     * called to notify the data manager service.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -146,10 +158,14 @@ declare namespace cloudData {
      * Disables the cloud function.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { AsyncCallback<void> } callback - the callback of disableCloud.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } accountId - Indicates the account ID, which is
+     * a value obtained by hashing the cloud account ID.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
+     * to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -162,10 +178,13 @@ declare namespace cloudData {
      * Disables the cloud function.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } accountId - Indicates the account ID, which is
+     * a value obtained by hashing the cloud account ID.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -178,12 +197,18 @@ declare namespace cloudData {
      * Changes the cloud switch of a single application.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { string } accountId - Indicates the account ID, which is a value
+     * obtained by hashing the cloud account ID.
      * @param { string } bundleName -  Indicates the name of application.
-     * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
-     * @param { AsyncCallback<void> } callback - the callback of changeAppCloudSwitch.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { boolean } status - Indicates whether to enable cloud-device
+     * synchronization. The value <b>true</b> means to enable cloud-device
+     * synchronization; the value <b>false</b> means the opposite.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
+     * to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -201,12 +226,17 @@ declare namespace cloudData {
      * Changes the cloud switch of a single application.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { string } accountId - Indicates the account ID, which is a value
+     * obtained by hashing the cloud account ID.
      * @param { string } bundleName -  Indicates the name of application.
-     * @param { boolean } status - Indicates the condition of cloud sync switch.true means the switch is on,false means switch is off.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { boolean } status - Indicates whether to enable cloud-device
+     * synchronization. The value <b>true</b> means to enable cloud-device
+     * synchronization; the value <b>false</b> means the opposite.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -216,14 +246,18 @@ declare namespace cloudData {
     static changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
 
     /**
-     * Notifies changes of the cloud records
+     * Notifies changes of the cloud records.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { string } accountId - Indicates the account ID, which is a value
+     * obtained by hashing the cloud account ID.
      * @param { string } bundleName - Indicates the name of application.
-     * @param { AsyncCallback<void> } callback - the callback of notifyDataChange.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
+     * to report the data changes.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -233,14 +267,17 @@ declare namespace cloudData {
     static notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Notifies changes of the cloud records
+     * Notifies changes of the cloud records.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { string } accountId - Indicates the account ID, which is a value
+     * obtained by hashing the cloud account ID.
      * @param { string } bundleName - Indicates the name of application.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -250,13 +287,17 @@ declare namespace cloudData {
     static notifyDataChange(accountId: string, bundleName: string): Promise<void>;
 
     /**
-     * Notifies changes of the cloud records
+     * Notifies changes of the cloud records.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { ExtraData } extInfo - Extra data for notification {@link ExtraData}.
-     * @param { AsyncCallback<void> } callback - the callback of notifyDataChange.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { ExtraData } extInfo - Indicates the extra data for
+     * notification {@link ExtraData}.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
+     * to return the data changes.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -269,10 +310,13 @@ declare namespace cloudData {
      * Notifies changes of the cloud records
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { ExtraData } extInfo - Extra data for notification {@link ExtraData}.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { ExtraData } extInfo - Indicates the extra data for
+     * notification {@link ExtraData}.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -283,14 +327,19 @@ declare namespace cloudData {
     static notifyDataChange(extInfo: ExtraData): Promise<void>;
 
     /**
-     * Deletes cloud information from local data.
+     * Clears cloud information from the local device.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { { [bundleName: string]: ClearAction } } appActions - Indicates the way in which the application data is to be cleared.
-     * @param { AsyncCallback<void> } callback - the callback of clear.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } accountId - Indicates the account ID, which is a value
+     * obtained by hashing the cloud account ID.
+     * @param { { [bundleName: string]: ClearAction } } appActions - Indicates
+     * the clear operation to perform.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
+     * to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -304,14 +353,18 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * Deletes cloud information from local data.
+     * Clears cloud information from a local device.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
-     * @param { { [bundleName: string]: ClearAction } } appActions - Indicates the way in which the application data is to be cleared.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } accountId - Indicates the account ID, which is a value
+     * obtained by hashing the cloud account ID.
+     * @param { { [bundleName: string]: ClearAction } } appActions - Indicates
+     * the clear operation to perform.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -322,7 +375,7 @@ declare namespace cloudData {
   }
 
   /**
-   * Provides methods to cloud sharing.
+   * Provides methods to implement cloud sharing.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
@@ -330,7 +383,7 @@ declare namespace cloudData {
    */
   export namespace Sharing {
     /**
-     * Enumerates the role.
+     * Enumerates the roles.
      *
      * @enum { number }
      * @syscap systemCapability.DistributedDataManager.CloudSync.Config
@@ -355,7 +408,7 @@ declare namespace cloudData {
     }
 
     /**
-     * Enumerates the status of sharing invitation.
+     * Enumerates the statuses of sharing invitation.
      *
      * @enum { number }
      * @syscap systemCapability.DistributedDataManager.CloudSync.Config
@@ -387,7 +440,7 @@ declare namespace cloudData {
       STATUS_REJECTED,
 
       /**
-       * Suspends the sharing process.
+       * Suspend the sharing process.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
        * @since 11
@@ -396,7 +449,7 @@ declare namespace cloudData {
     }
 
     /**
-     * Privilege for shared record.
+     * Privilege for the shared data.
      *
      * @interface Privilege
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -405,7 +458,9 @@ declare namespace cloudData {
      */
     export interface Privilege {
       /**
-       * True means allow participants to write the shared record, otherwise not.
+       * Whether the participants can write the shared data. The value <b>true</b>
+       * means the participants can write the shared data; the value <b>false</b>
+       * means the opposite.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
        * @since 11
@@ -413,7 +468,9 @@ declare namespace cloudData {
       writeable?: boolean;
 
       /**
-       * True means allow participants to read the shared record, otherwise not.
+       * Whether the participants can read the shared data. The value <b>true</b>
+       * means the participants can read the shared data; the value <b>false</b>
+       * means the opposite.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
        * @since 11
@@ -421,7 +478,9 @@ declare namespace cloudData {
       readable?: boolean;
 
       /**
-       * True means allow participants to create new record, otherwise not.
+       * Whether the participants can create data. The value <b>true</b>
+       * means the participants can create data; the value <b>false</b>
+       * means the opposite.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
        * @since 11
@@ -429,7 +488,9 @@ declare namespace cloudData {
       creatable?: boolean;
 
       /**
-       * True means allow participants to delete the shared record, otherwise not.
+       * Whether the participants can delete the shared data. The value <b>true</b>
+       * means the participants can delete the shared data; the value <b>false</b>
+       * means the opposite.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
        * @since 11
@@ -437,7 +498,9 @@ declare namespace cloudData {
       deletable?: boolean;
 
       /**
-       * True means allow participants to share with others, otherwise not.
+       * Whether the participants can share the data. The value <b>true</b>
+       * means the participants can share the data; the value <b>false</b>
+       * means the opposite.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
        * @since 11
@@ -455,7 +518,7 @@ declare namespace cloudData {
      */
     export interface Participant {
       /**
-       * The identity of participant.
+       * Identity of participant.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
        * @since 11
@@ -463,7 +526,7 @@ declare namespace cloudData {
       identity: string;
 
       /**
-       * Inviter or Invitee.
+       * Role of the participant, which can be inviter or invitee.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
        * @since 11
@@ -471,7 +534,7 @@ declare namespace cloudData {
       role?: Role;
 
       /**
-       * The confirmation status of the sharing invitation.
+       * Status of the sharing invitation.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
        * @since 11
@@ -479,7 +542,7 @@ declare namespace cloudData {
       status?: Status;
 
       /**
-       * Permission to share records.
+       * Permissions for the shared data.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
        * @since 11
@@ -504,16 +567,20 @@ declare namespace cloudData {
     const RESOURCE_FIELD = "sharing_resource";
 
     /**
-     * Allocate resource by predicates and sharing to participants with specified privilege.
+     * Allocates shared resources based on conditions,
+     * and shares data with the specified privilege to participants.
      * all columns will take effect by default.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } storeId - Relational store name.
+     * @param { string } storeId - Indicates relational store name.
      * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
      * @param { Array<Participant> } participants - Participants to share.
-     * @param { AsyncCallback<relationalStore.ResultSet> } callback - The callback of share.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { AsyncCallback<relationalStore.ResultSet> } callback - Indicates the
+     * callback invoked to return the {@link relationalStore.ResultSet}.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -528,17 +595,20 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * Allocate resource by predicates and columns,
-     * then sharing to participants with specified privilege.
+     * Allocates shared resources based on conditions,
+     * and shares data with the specified privilege to participants.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } storeId - Relational store name.
+     * @param { string } storeId - Indicates relational store name.
      * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
      * @param { Array<string> } columns - Columns to be shared.
      * @param { Array<Participant> } participants - Participants to share.
-     * @param { AsyncCallback<relationalStore.ResultSet> } callback - The callback of share.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { AsyncCallback<relationalStore.ResultSet> } callback - Indicates the
+     * callback invoked to return the {@link relationalStore.ResultSet}.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -546,27 +616,28 @@ declare namespace cloudData {
      * @since 11
      */
     function allocResourceAndshare(
-        storeId: string,
-        predicates: relationalStore.RdbPredicates,
-        participants: Array<Participant>,
-        columns: Array<string>,
-        callback: AsyncCallback<relationalStore.ResultSet>
+      storeId: string,
+      predicates: relationalStore.RdbPredicates,
+      participants: Array<Participant>,
+      columns: Array<string>,
+      callback: AsyncCallback<relationalStore.ResultSet>
     ): void;
 
     /**
-     * Allocate resource by predicates and columns,
-     * then sharing to participants with specified privilege.
+     * Allocates shared resources based on conditions,
+     * and shares data with the specified privilege to participants.
      * all columns will take effect by default.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } storeId - Relational store name.
+     * @param { string } storeId - Indicates relational store name.
      * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
      * @param { Array<Participant> } participants - Participants to share.
      * @param { Array<string> } columns? - Columns to be shared.
-     * @param { Promise<relationalStore.ResultSet> } - the promise returned by the function.
-     * return resultSet {@link relationalStore.ResultSet} of shared record.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { Promise<relationalStore.ResultSet> } - Promise used to return {@link relationalStore.ResultSet}.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -574,21 +645,26 @@ declare namespace cloudData {
      * @since 11
      */
     function allocResourceAndshare(
-        storeId: string,
-        predicates: relationalStore.RdbPredicates,
-        participants: Array<Participant>,
-        columns?: Array<string>
+      storeId: string,
+      predicates: relationalStore.RdbPredicates,
+      participants: Array<Participant>,
+      columns?: Array<string>
     ): Promise<relationalStore.ResultSet>;
 
     /**
-     * Share record with specified privilege to participants.
+     * Shares data with the specified privilege to participants.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - The record uniform resource identifier.
-     * @param { Array<Participant> } participants - Participants to share.
-     * @param { AsyncCallback<Array<Participant>> } callback - The callback of share.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } sharingRes - Indicates the uniform resource identifier
+     * (URI) of the data to share.
+     * @param { Array<Participant> } participants - Indicates the participants
+     * involved in the data sharing.
+     * @param { AsyncCallback<Array<Participant>> } callback - Indicates the
+     * callback invoked to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -602,14 +678,17 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * Share record with specified privilege to participants.
+     * Shares data with the specified privilege to participants.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - The record uniform resource identifier.
-     * @param { Array<Participant> } participants - Participants to share.
-     * @Returns { Promise<Array<Participant>> } - the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } sharingRes - Indicates the URI of the data to share.
+     * @param { Array<Participant> } participants - Indicates the participants
+     * involved in the data sharing.
+     * @Returns { Promise<Array<Participant>> } - Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -619,47 +698,60 @@ declare namespace cloudData {
     function share(sharingRes: string, participants: Array<Participant>): Promise<Array<Participant>>;
 
     /**
-     * Unshare with participants.
+     * Unshares data.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - The record uniform resource identifier.
-     * @param { Array<Participant> } participants - Participants to unshare.
-     * @param { AsyncCallback<void> } callback - The callback of unshare.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } sharingRes - Indicates the URI of the data to unshare.
+     * @param { Array<Participant> } participants - Indicates the participants
+     * involved.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
+     * to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11
      */
-    function unshare(sharingRes: string, participants: Array<Participant>, callback: AsyncCallback<void>): void;
+    function unshare(
+      sharingRes: string,
+      participants: Array<Participant>,
+      callback: AsyncCallback<Array<Participant>>
+    ): void;
 
     /**
-     * Unshare with participants.
+     * Unshares data.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - The record uniform resource identifier.
-     * @param { Array<Participant> } participants - Participants to unshare.
-     * @Returns { Promise<void> } - the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } sharingRes - Indicates the URI of the data to unshare.
+     * @param { Array<Participant> } participants - Indicates the participants
+     * involved.
+     * @Returns { Promise<void> } - Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11
      */
-    function unshare(sharingRes: string, participants: Array<Participant>): Promise<void>;
+    function unshare(sharingRes: string, participants: Array<Participant>): Promise<Array<Participant>>;
 
     /**
      * Exit sharing.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - The record uniform resource identifier.
+     * @param { string } sharingRes - Indicates the URI of the data.
      * @param { AsyncCallback<void> } callback - The callback of exit.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -672,10 +764,12 @@ declare namespace cloudData {
      * Exit sharing.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - The record uniform resource identifier.
-     * @Returns { Promise<void> } - the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } sharingRes - Indicates the URI of the data.
+     * @Returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -685,16 +779,20 @@ declare namespace cloudData {
     function exit(sharingRes: string): Promise<void>;
 
     /**
-     * Change privilege for shared record.
+     * Changes the permissions for the shared data.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - The record uniform resource identifier.
-     * @param { Array<Participant> } participants - Participants to be changed privilege.
-     * @param { AsyncCallback<Array<Participant>> } callback - The callback of changePrivilege.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } sharingRes - Indicates the URI of the target data.
+     * @param { Array<Participant> } participants - Indicates the participants
+     * whose permissions are to be changed.
+     * @param { AsyncCallback<Array<Participant>> } callback - Indicates the
+     * callback invoked to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported..0
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11
@@ -706,14 +804,17 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * Change privilege for shared record.
+     * Changes the permissions for the shared data.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - The record uniform resource identifier.
-     * @param { Array<Participant> } participants - Participants to be unshared.
-     * @Returns { Promise<Array<Participant>> } - the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } sharingRes - Indicates the URI of the target data.
+     * @param { Array<Participant> } participants - Indicates the participants
+     * whose permissions are to be changed.
+     * @Returns { Promise<Array<Participant>> } - Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -723,13 +824,16 @@ declare namespace cloudData {
     function changePrivilege(sharingRes: string, participants: Array<Participant>): Promise<Array<Participant>>;
 
     /**
-     * Query the participants by specified shared record.
+     * Queries the participants based on the specified shared data.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - The record uniform resource identifier.
-     * @param { AsyncCallback<Array<Participant>> } callback - The callback of queryParticipants.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } sharingRes - Indicates the URI of the target data.
+     * @param { AsyncCallback<Array<Participant>> } callback - Indicates the
+     * callback invoked to return the participants obtained.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -739,13 +843,15 @@ declare namespace cloudData {
     function queryParticipants(sharingRes: string, callback: AsyncCallback<Array<Participant>>): void;
 
     /**
-     * Query the participants by specified shared record.
+     * Queries the participants based on the specified shared data..
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - The record uniform resource identifier.
-     * @Returns { Promise<Array<Participant>> } - the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } sharingRes - Indicates the URI of the target data.
+     * @Returns { Promise<Array<Participant>> } - Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -755,15 +861,17 @@ declare namespace cloudData {
     function queryParticipants(sharingRes: string): Promise<Array<Participant>>;
 
     /**
-     * Confirm the invitation of cloud sharing.
+     * Confirms the invitation of cloud sharing.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } invitationCode - Invitation code.
-     * @param { Status } status - The status of invitation.
-     * @param { AsyncCallback<string> } callback - The callback of confirmInvitation.
-     * the string value is record uniform resource identifier.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } invitationCode - Indicates the invitation code.
+     * @param { Status } status - Indicates the status of invitation.
+     * @param { AsyncCallback<string> } callback - Indicates the callback
+     * invoked to return the URI of the record.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -773,33 +881,35 @@ declare namespace cloudData {
     function confirmInvitation(invitationCode: string, status: Status, callback: AsyncCallback<string>): void;
 
     /**
-     * Confirm the invitation of cloud sharing.
+     * Confirms the invitation of cloud sharing.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } invitationCode - Invitation code.
-     * @param { Status } status - The status of invitation.
-     * @Returns { Promise<string> } - the promise returned by the function.
-     * the string value is record uniform resource identifier.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } invitationCode - Indicates the invitation code.
+     * @param { Status } status - Indicates the status of invitation.
+     * @Returns { Promise<string> } - Promise used to return the URI of the record.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability..
-     * .CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11
      */
     function confirmInvitation(invitationCode: string, status: Status): Promise<string>;
 
     /**
-     * Change confirmation of shared record.
+     * Changes confirmation of shared record.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - The record uniform resource identifier.
-     * @param { Status } status - The status of invitation.
-     * @param { AsyncCallback<void> } callback - The callback of changeConfirmation.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } sharingRes - Indicates the URI of the target data.
+     * @param { Status } status - Indicates the status of invitation.
+     * @param { AsyncCallback<void> } callback - Indicates the callback.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -809,18 +919,19 @@ declare namespace cloudData {
     function changeConfirmation(sharingRes: string, status: Status, callback: AsyncCallback<void>): void;
 
     /**
-     * Change confirmation of shared record.
+     * Changes confirmation of shared record.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - The record uniform resource identifier.
-     * @param { Status } status - The status of invitation.
-     * @Returns { Promise<void> } - the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @param { string } sharingRes - Indicates the URI of the target data.
+     * @param { Status } status - Indicates the status of invitation.
+     * @Returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability..
-     * .CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11
      */
