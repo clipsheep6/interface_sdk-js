@@ -2749,6 +2749,14 @@ declare namespace relationalStore {
     ): void;
 
     /**
+     * SHARING_RESOURCE_FIELD.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @since 11
+     */
+    readonly SHARING_RESOURCE_FIELD: string;
+
+    /**
      * Obtains sharing resource of rows corresponding to the predicates.
      * all columns would return by default.
      *
