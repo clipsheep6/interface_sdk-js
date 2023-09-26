@@ -43,32 +43,6 @@ declare class SearchController extends TextContentControllerBase {
    * @since 10
    */
   constructor();
-
-  /**
-   * Called when the position of the insertion cursor is set.
-   *
-   * @param { number } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the position of the insertion cursor is set.
-   *
-   * @param { number } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  caretPosition(value: number): void;
-
-  /**
-   * Exit edit state.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  stopEditing(): void;
 }
 
 /**
