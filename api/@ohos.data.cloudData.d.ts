@@ -14,6 +14,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import relationalStore from "./@ohos.data.relationalStore";
 
 declare namespace cloudData {
   /**
@@ -321,165 +322,6 @@ declare namespace cloudData {
   }
 
   /**
-   * Enumerates the role.
-   *
-   * @enum { number }
-   * @syscap systemCapability.DistributedDataManager.CloudSync.Config
-   * @since 11
-   */
-
-  enum Role {
-    /**
-     * Inviter of cloud sharing.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    ROLE_INVITER,
-
-    /**
-     * Invitee of cloud sharing.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    ROLE_INVITEES
-  }
-
-  /**
-   * Enumerates the status of sharing invitation.
-   *
-   * @enum { number }
-   * @syscap systemCapability.DistributedDataManager.CloudSync.Config
-   * @since 11
-   */
-  enum Status {
-    /**
-     * Unknown status.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    STATUS_UNKNOWN,
-
-    /**
-     * Accept the sharing invitation.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    STATUS_ACCEPTED,
-
-    /**
-     * Reject the sharing invitation.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    STATUS_REJECTED,
-
-    /**
-     * Suspends the sharing process.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    STATUS_SUSPENDED,
-  }
-
-  /**
-   * Privilege for shared record.
-   *
-   * @interface Privilege
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-   * @systemapi
-   * @since 11
-   */
-  export interface Privilege {
-    /**
-     * True means allow participants to write the shared record, otherwise not.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    writeable?: boolean;
-
-    /**
-     * True means allow participants to read the shared record, otherwise not.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    readable?: boolean;
-
-    /**
-     * True means allow participants to create new record, otherwise not.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    creatable?: boolean;
-
-    /**
-     * True means allow participants to delete the shared record, otherwise not.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    deletable?: boolean;
-
-    /**
-     * True means allow participants to share with others, otherwise not.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    shareable?: boolean;
-  }
-
-  /**
-   * Participants in cloud sharing.
-   *
-   * @interface Participant
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-   * @systemapi
-   * @since 11
-   */
-  export interface Participant {
-    /**
-     * The identity of participant.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    identity: string;
-
-    /**
-     * Inviter or Invitee.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    role?: Role;
-
-    /**
-     * The confirmation status of the sharing invitation.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    status?: Status;
-
-    /**
-     * Permission to share records.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    privilege?: Privilege;
-  }
-
-  /**
    * Provides methods to cloud sharing.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -488,11 +330,262 @@ declare namespace cloudData {
    */
   export namespace Sharing {
     /**
+     * Enumerates the role.
+     *
+     * @enum { number }
+     * @syscap systemCapability.DistributedDataManager.CloudSync.Config
+     * @since 11
+     */
+    enum Role {
+      /**
+       * Inviter of cloud sharing.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      ROLE_INVITER,
+
+      /**
+       * Invitee of cloud sharing.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      ROLE_INVITEE
+    }
+
+    /**
+     * Enumerates the status of sharing invitation.
+     *
+     * @enum { number }
+     * @syscap systemCapability.DistributedDataManager.CloudSync.Config
+     * @since 11
+     */
+    enum Status {
+      /**
+       * Unknown status.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      STATUS_UNKNOWN,
+
+      /**
+       * Accept the sharing invitation.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      STATUS_ACCEPTED,
+
+      /**
+       * Reject the sharing invitation.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      STATUS_REJECTED,
+
+      /**
+       * Suspends the sharing process.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      STATUS_SUSPENDED,
+    }
+
+    /**
+     * Privilege for shared record.
+     *
+     * @interface Privilege
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    export interface Privilege {
+      /**
+       * True means allow participants to write the shared record, otherwise not.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      writeable?: boolean;
+
+      /**
+       * True means allow participants to read the shared record, otherwise not.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      readable?: boolean;
+
+      /**
+       * True means allow participants to create new record, otherwise not.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      creatable?: boolean;
+
+      /**
+       * True means allow participants to delete the shared record, otherwise not.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      deletable?: boolean;
+
+      /**
+       * True means allow participants to share with others, otherwise not.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      shareable?: boolean;
+    }
+
+    /**
+     * Participants in cloud sharing.
+     *
+     * @interface Participant
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    export interface Participant {
+      /**
+       * The identity of participant.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      identity: string;
+
+      /**
+       * Inviter or Invitee.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      role?: Role;
+
+      /**
+       * The confirmation status of the sharing invitation.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      status?: Status;
+
+      /**
+       * Permission to share records.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @since 11
+       */
+      privilege?: Privilege;
+    }
+
+    /**
+     * RESULT_FIELD.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @since 11
+     */
+    const RESULT_FIELD = "sharing_result";
+
+    /**
+     * RESOURCE_FIELD.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @since 11
+     */
+    const RESOURCE_FIELD = "sharing_resource";
+
+    /**
+     * Allocate resource by predicates and sharing to participants with specified privilege.
+     * all columns will take effect by default.
+     *
+     * @permission ohos.permission.CLOUDDATA_SHARING
+     * @param { string } storeId - Relational store name.
+     * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
+     * @param { Array<Participant> } participants - Participants to share.
+     * @param { AsyncCallback<relationalStore.ResultSet> } callback - The callback of share.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    function allocResourceAndshare(
+      storeId: string,
+      predicates: relationalStore.RdbPredicates,
+      participants: Array<Participant>,
+      callback: AsyncCallback<relationalStore.ResultSet>
+    ): void;
+
+    /**
+     * Allocate resource by predicates and columns,
+     * then sharing to participants with specified privilege.
+     *
+     * @permission ohos.permission.CLOUDDATA_SHARING
+     * @param { string } storeId - Relational store name.
+     * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
+     * @param { Array<string> } columns - Columns to be shared.
+     * @param { Array<Participant> } participants - Participants to share.
+     * @param { AsyncCallback<relationalStore.ResultSet> } callback - The callback of share.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    function allocResourceAndshare(
+        storeId: string,
+        predicates: relationalStore.RdbPredicates,
+        participants: Array<Participant>,
+        columns: Array<string>,
+        callback: AsyncCallback<relationalStore.ResultSet>
+    ): void;
+
+    /**
+     * Allocate resource by predicates and columns,
+     * then sharing to participants with specified privilege.
+     * all columns will take effect by default.
+     *
+     * @permission ohos.permission.CLOUDDATA_SHARING
+     * @param { string } storeId - Relational store name.
+     * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
+     * @param { Array<Participant> } participants - Participants to share.
+     * @param { Array<string> } columns? - Columns to be shared.
+     * @param { Promise<relationalStore.ResultSet> } - the promise returned by the function.
+     * return resultSet {@link relationalStore.ResultSet} of shared record.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    function allocResourceAndshare(
+        storeId: string,
+        predicates: relationalStore.RdbPredicates,
+        participants: Array<Participant>,
+        columns?: Array<string>
+    ): Promise<relationalStore.ResultSet>;
+
+    /**
      * Share record with specified privilege to participants.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - The record uniform resource identifier.
-     * @param { Array<Participant> } participants - Participants to be shared.
+     * @param { Array<Participant> } participants - Participants to share.
      * @param { AsyncCallback<Array<Participant>> } callback - The callback of share.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -513,7 +606,7 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - The record uniform resource identifier.
-     * @param { Array<Participant> } participants - Participants to be shared.
+     * @param { Array<Participant> } participants - Participants to share.
      * @Returns { Promise<Array<Participant>> } - the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -530,7 +623,7 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - The record uniform resource identifier.
-     * @param { Array<Participant> } participants - Participants to be unshared.
+     * @param { Array<Participant> } participants - Participants to unshare.
      * @param { AsyncCallback<void> } callback - The callback of unshare.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -547,7 +640,7 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - The record uniform resource identifier.
-     * @param { Array<Participant> } participants - Participants to be unshared.
+     * @param { Array<Participant> } participants - Participants to unshare.
      * @Returns { Promise<void> } - the promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
@@ -560,6 +653,38 @@ declare namespace cloudData {
     function unshare(sharingRes: string, participants: Array<Participant>): Promise<void>;
 
     /**
+     * Exit sharing.
+     *
+     * @permission ohos.permission.CLOUDDATA_SHARING
+     * @param { string } sharingRes - The record uniform resource identifier.
+     * @param { AsyncCallback<void> } callback - The callback of exit.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    function exit(sharingRes: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Exit sharing.
+     *
+     * @permission ohos.permission.CLOUDDATA_SHARING
+     * @param { string } sharingRes - The record uniform resource identifier.
+     * @Returns { Promise<void> } - the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    function exit(sharingRes: string): Promise<void>;
+
+    /**
      * Change privilege for shared record.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
@@ -569,7 +694,7 @@ declare namespace cloudData {
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 801 - Capability not supported..0
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11
@@ -633,7 +758,7 @@ declare namespace cloudData {
      * Confirm the invitation of cloud sharing.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } invitationCode - The record uniform resource identifier. // TODO
+     * @param { string } invitationCode - Invitation code.
      * @param { Status } status - The status of invitation.
      * @param { AsyncCallback<string> } callback - The callback of confirmInvitation.
      * the string value is record uniform resource identifier.
@@ -651,10 +776,28 @@ declare namespace cloudData {
      * Confirm the invitation of cloud sharing.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } invitationCode - The record uniform resource identifier.  // TODO
+     * @param { string } invitationCode - Invitation code.
      * @param { Status } status - The status of invitation.
      * @Returns { Promise<string> } - the promise returned by the function.
      * the string value is record uniform resource identifier.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability..
+     * .CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    function confirmInvitation(invitationCode: string, status: Status): Promise<string>;
+
+    /**
+     * Change confirmation of shared record.
+     *
+     * @permission ohos.permission.CLOUDDATA_SHARING
+     * @param { string } sharingRes - The record uniform resource identifier.
+     * @param { Status } status - The status of invitation.
+     * @param { AsyncCallback<void> } callback - The callback of changeConfirmation.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error.
@@ -663,7 +806,25 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function confirmInvitation(invitationCode: string, status: Status): Promise<string>;
+    function changeConfirmation(sharingRes: string, status: Status, callback: AsyncCallback<void>): void;
+
+    /**
+     * Change confirmation of shared record.
+     *
+     * @permission ohos.permission.CLOUDDATA_SHARING
+     * @param { string } sharingRes - The record uniform resource identifier.
+     * @param { Status } status - The status of invitation.
+     * @Returns { Promise<void> } - the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability..
+     * .CloudSync.Config
+     * @systemapi
+     * @since 11
+     */
+    function changeConfirmation(sharingRes: string, status: Status): Promise<void>;
   }
 }
 
