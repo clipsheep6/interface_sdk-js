@@ -43,7 +43,7 @@ declare class TextAreaController extends TextContentControllerBase {
    */
   constructor();
 
-    /**
+  /**
    * Called when the position of the insertion cursor is set.
    *
    * @param { number } value
