@@ -1651,7 +1651,65 @@ declare class CalendarAttribute {
    * @since 10
    * @form
    */
-  onSelectChange(event: (event: { year: number; month: number; day: number }) => void): CalendarAttribute;
+  onSelectChange(
+    event: (event: { 
+      /**
+       * Click a date to return the information about the date you clicked.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 7
+       */
+      /**
+       * Click a date to return the information about the date you clicked.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 10
+       * @form
+       */
+      year: number;
+
+      /**
+       * Click a date to return the information about the date you clicked.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 7
+       */
+      /**
+       * Click a date to return the information about the date you clicked.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 10
+       * @form
+       */
+      month: number;
+
+      /**
+       * Click a date to return the information about the date you clicked.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 7
+       */
+      /**
+       * Click a date to return the information about the date you clicked.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 10
+       * @form
+       */
+      day: number;
+    }) => void): CalendarAttribute;
 
   /**
    * When you swipe to switch months, the information about the previous month and the next month is requested.
@@ -1674,10 +1732,99 @@ declare class CalendarAttribute {
    */
   onRequestData(
     event: (event: {
+      /**
+       * When you swipe to switch months, the information about the previous month and the next month is requested.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 7
+       */
+      /**
+       * When you swipe to switch months, the information about the previous month and the next month is requested.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 10
+       * @form
+       */
       year: number;
+
+      /**
+       * When you swipe to switch months, the information about the previous month and the next month is requested.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 7
+       */
+      /**
+       * When you swipe to switch months, the information about the previous month and the next month is requested.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 10
+       * @form
+       */
       month: number;
+
+      /**
+       * When you swipe to switch months, the information about the previous month and the next month is requested.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 7
+       */
+      /**
+       * When you swipe to switch months, the information about the previous month and the next month is requested.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 10
+       * @form
+       */
       currentYear: number;
+    
+      /**
+       * When you swipe to switch months, the information about the previous month and the next month is requested.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 7
+       */
+      /**
+       * When you swipe to switch months, the information about the previous month and the next month is requested.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 10
+       * @form
+       */
       currentMonth: number;
+    
+      /**
+       * When you swipe to switch months, the information about the previous month and the next month is requested.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 7
+       */
+      /**
+       * When you swipe to switch months, the information about the previous month and the next month is requested.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @systemapi
+       * @since 10
+       * @form
+       */
       monthState: number;
     }) => void,
   ): CalendarAttribute;
