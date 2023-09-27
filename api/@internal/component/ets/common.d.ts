@@ -10230,20 +10230,13 @@ declare interface RectResult {
  * @since 10
  */
 declare abstract class TextContentControllerBase {
- /**
-   * Called when the position of the insertion cursor is set.
-   *
-   * @param { number } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
   /**
    * Called when the position of the insertion cursor is set.
    *
    * @param { number } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 11
    */
   caretPosition(value: number): void;
 
@@ -10252,7 +10245,7 @@ declare abstract class TextContentControllerBase {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 10
+   * @since 11
    */
   stopEditing(): void;
 

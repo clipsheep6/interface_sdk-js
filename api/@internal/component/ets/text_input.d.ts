@@ -228,6 +228,32 @@ declare class TextInputController extends TextContentControllerBase {
   constructor();
 
   /**
+   * Called when the position of the insertion cursor is set.
+   *
+   * @param { number } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Called when the position of the insertion cursor is set.
+   *
+   * @param { number } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Called when the position of the insertion cursor is set.
+   *
+   * @param { number } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @deprecated since 11
+   * @useinstead ohos.TextContentControllerBase#caretPosition
+   * @since 11
+   */
+  caretPosition(value: number): void;
+
+  /**
    * Text selection is achieved by specifying the start and end positions of the text.
    *
    * @param { number } selectionStart - The start position of the selected text.
@@ -237,6 +263,24 @@ declare class TextInputController extends TextContentControllerBase {
    * @since 10
    */
   setTextSelection(selectionStart: number, selectionEnd: number): void;
+
+  /**
+   * Exit edit state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Exit edit state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @deprecated since 11
+   * @useinstead ohos.TextContentControllerBase#stopEditing
+   * @since 11
+   */
+  stopEditing(): void;
 }
 
 /**
