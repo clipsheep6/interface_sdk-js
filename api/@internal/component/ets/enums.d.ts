@@ -5251,7 +5251,7 @@ declare enum TitleHeight {
    * @crossplatform
    * @since 10
    */
-  MainOnly,
+  MainOnly = "mainOnly",
 
   /**
    * Title height when main title and subtitle are both available.
@@ -5266,7 +5266,7 @@ declare enum TitleHeight {
    * @crossplatform
    * @since 10
    */
-  MainWithSub,
+  MainWithSub = "mainWithSub",
 }
 
 /**
