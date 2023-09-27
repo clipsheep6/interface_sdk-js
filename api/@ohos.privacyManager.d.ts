@@ -679,14 +679,14 @@ declare namespace privacyManager {
     status: number;
 
     /**
-     * The status of lockscreen.
+     * The status of lockscreen, this is an optional field.
      *
      * @type { number }
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @since 11
      */
-    lockscreenStatus: number;
+    lockscreenStatus?: number;
 
 
     /**
