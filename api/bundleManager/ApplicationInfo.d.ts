@@ -316,6 +316,16 @@ export interface ApplicationInfo {
    * @since 10
    */
   readonly debug: boolean;
+
+  /**
+   * Indicates whether deleting application data is supported
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 11
+   */
+  readonly userDataClearable: boolean;
 }
 
 /**
