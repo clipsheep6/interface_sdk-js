@@ -1825,6 +1825,7 @@ declare namespace commonEventManager {
     /**
       * Indicates the action of a common event that audio quality change.
       * This is a protected common event that can only be sent by system.
+      * 
       * @syscap SystemCapability.Notification.CommonEvent
       * @systemapi
       * @since 10
