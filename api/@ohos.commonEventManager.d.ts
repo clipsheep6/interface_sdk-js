@@ -1812,7 +1812,7 @@ declare namespace commonEventManager {
      */
     COMMON_EVENT_SCREEN_LOCKED = 'usual.event.SCREEN_LOCKED',
     
-     /**
+    /**
      * Indicates the action of a common event that special number has been entered by dialer
      * This is a protected common event that can only be sent by system.
      *
@@ -1820,16 +1820,16 @@ declare namespace commonEventManager {
      * @systemapi
      * @since 10
      */
-     COMMON_EVENT_SPECIAL_CODE = 'common.event.SPECIAL_CODE',
+    COMMON_EVENT_SPECIAL_CODE = 'common.event.SPECIAL_CODE',
 
-     /**
+    /**
       * Indicates the action of a common event that audio quality change.
       * This is a protected common event that can only be sent by system.
       * @syscap SystemCapability.Notification.CommonEvent
       * @systemapi
       * @since 10
       */
-     COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE'
+    COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE'
   }
 
   /**
