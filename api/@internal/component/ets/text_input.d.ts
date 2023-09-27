@@ -236,7 +236,7 @@ declare class TextInputController extends TextContentControllerBase {
    * @crossplatform
    * @since 10
    */
-  setTextSelection(selectionStart: number, selectionEnd: number): void;  
+  setTextSelection(selectionStart: number, selectionEnd: number): void;
 }
 
 /**
