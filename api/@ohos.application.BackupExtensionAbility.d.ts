@@ -53,6 +53,17 @@ export interface BundleVersion {
  * @since 10
  */
 export default class BackupExtensionAbility {
+
+  /**
+   * Indicates extension's context.
+   *
+   * @type { ExtensionContext }
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @StageModelOnly
+   * @since 11
+   */
+  context:ExtensionContext;
+
   /**
    * Indicates backup extension ability context.
    * 
