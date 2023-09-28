@@ -215,16 +215,15 @@ declare namespace workScheduler {
    * Get all works of the calling application.
    *
    * @param { AsyncCallback<void> } callback - The callback of the function.
-   * @returns { Array<WorkInfo> } the work info list.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
-  function obtainAllWorks(callback: AsyncCallback<void>): Array<WorkInfo>;
+  function obtainAllWorks(callback: AsyncCallback<Array<WorkInfo>>): void;
 
   /**
    * Get all works of the calling application.
@@ -258,7 +257,6 @@ declare namespace workScheduler {
    *
    * @param { number } workId - The id of work.
    * @param { AsyncCallback<void> } callback - The callback of the function.
-   * @returns { boolean } true if last work running is timeout, otherwise false.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Parcel operation failed.
@@ -266,9 +264,9 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 10
    */
-  function isLastWorkTimeOut(workId: number, callback: AsyncCallback<void>): boolean;
+  function isLastWorkTimeOut(workId: number, callback: AsyncCallback<boolean>): void;
 
   /**
    * Check whether last work running is timeout. The interface is for repeating work.
