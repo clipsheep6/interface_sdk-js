@@ -64,4 +64,15 @@ export default class PermissionRequestResult {
    * @since 10
    */
   authResults: Array<number>;
+
+  /**
+   * The results for whether the permission dialog pops up. The value true indicates that a
+   * permission dialog pops up, and the value false indicates not.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @StageModelOnly
+   * @crossplatform
+   * @since 10
+   */
+  isDialogShown: Array<boolean>;
 }
