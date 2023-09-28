@@ -1830,7 +1830,16 @@ declare namespace commonEventManager {
      * @systemapi
      * @since 10
      */
-    COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE'
+    COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE',
+    
+    /**
+     * Indicates the action of a common event that the network connectivity changed.
+     * This is a protected common event that can only be sent by system.
+     * 
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 10
+     */
+    COMMON_EVENT_CONNECTIVITY_CHANGE = 'usual.event.CONNECTIVITY_CHANGE'
   }
 
   /**
