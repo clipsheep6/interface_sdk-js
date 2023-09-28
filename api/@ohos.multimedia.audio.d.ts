@@ -2082,6 +2082,15 @@ declare namespace audio {
      * @since 10
      */
     getPreferredInputDeviceForCapturerInfoSync(capturerInfo: AudioCapturerInfo): AudioDeviceDescriptors;
+
+    /*
+     * Gets available microphones.
+     * @returns { MicrophoneDescriptors } Microphone descriptors.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
+     * @since 11
+     */
+    getAvailableMicrophones(): MicrophoneDescriptors;
   }
 
   /**
@@ -3150,6 +3159,186 @@ declare namespace audio {
   }
 
   /**
+   * Describes microphone information.
+   * @typedef MicrophoneDescriptor
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @experimental
+   * @since 11
+   */
+  interface MicrophoneDescriptor {
+    /**
+     * Microphone id.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
+     * @since 11
+     */
+    readonly id: number;
+
+    /**
+     * Audio input device type.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
+     * @since 11
+     */
+    readonly deviceType: DeviceType;
+
+    /**
+     * Microphone group id.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
+     * @since 11
+     */
+    readonly groupId: number;
+
+    /**
+     * Sensitivity level in dBFS.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
+     * @since 11
+     */
+    readonly sensitivity: number;
+
+    /**
+     * Microphone position.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
+     * @since 11
+     */
+    readonly position: Vector3D;
+
+    /**
+     * Microphone orientation.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
+     * @since 11
+     */
+    readonly orientation: Vector3D;
+  }
+
+  /**
+   * Describes three-dimensional value.
+   * @typedef Vector3D
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @experimental
+   * @since 11
+   */
+  interface Vector3D {
+    /**
+     * X-axis value.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @experimental
+     * @since 11
+     */
+    x: number;
+    /**
+     * Y-axis value.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @experimental
+     * @since 11
+     */
+    y: number;
+    /**
+     * Z-axis value.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @experimental
+     * @since 11
+     */
+    z: number;
+  }
+
+  /**
+   * Array of MicrophoneDescriptors, which is read-only.
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @experimental
+   * @since 11
+   */
+  type MicrophoneDescriptors = Array<Readonly<MicrophoneDescriptor>>;
+
+  /**
+   * Enumerates audio volume ramp types.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @since 11
+   */
+  enum VolumeRampType {
+    /**
+     * Linear interpolator type.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    TYPE_LINEAR = 0,
+
+    /**
+     * Cubic interpolator type.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    TYPE_CUBIC = 1,
+
+    /**
+     * Cubic interpolator and sine curve type.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    TYPE_CUBIC_SINE = 2,
+  }
+
+  /**
+   * Enumerates audio volume ramp directions.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @since 11
+   */
+  enum VolumeRampDirection {
+    /**
+     * Ramp up.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    RAMP_UP = 0,
+
+    /**
+     * Ramp down.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    RAMP_DOWN = 1,
+  }
+
+  /**
+   * Describe volume ramp configuration.
+   * @typedef VolumeRampConfiguration
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @since 11
+   */
+  interface VolumeRampConfiguration {
+    /**
+     * Ramp type.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    type: VolumeRampType;
+    /**
+     * Ramp duration, in milliseconds.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    duration: number;
+    /**
+     * Low volume for ramp, default value is 0.0.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    lowVolume?: number;
+    /**
+     * High volume for ramp, default value is 1.0.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    highVolume?: number;
+  }
+
+  /**
    * Provides audio playback APIs.
    * @typedef AudioRenderer
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -3581,6 +3770,29 @@ declare namespace audio {
     getCurrentOutputDevicesSync(): AudioDeviceDescriptors;
 
     /**
+     * Sets the volume ramp.
+     * @param { VolumeRampConfiguration } config - Volume ramp configuration.
+     * @returns { number } Volume ramp instance id.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    attachVolumeRamp(config: VolumeRampConfiguration): number;
+
+    /**
+     * Apply volume ramp.
+     * @param { number } id - Volume ramp instance id.
+     * @param { VolumeRampDirection } direction - Volume ramp direction.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    applyVolumeRamp(id: number, direction: VolumeRampDirection): void;
+
+    /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
      * triggered when audio playback is interrupted.
      * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
@@ -3979,6 +4191,15 @@ declare namespace audio {
      * @since 10
      */
     getBufferSizeSync(): number;
+
+    /**
+     * Obtains microphones this capturer used currently.
+     * @returns { MicrophoneDescriptors } Microphone descriptors.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @experimental
+     * @since 11
+     */
+    getCurrentMicrophones(): MicrophoneDescriptors;
 
     /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
