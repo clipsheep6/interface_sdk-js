@@ -130,6 +130,44 @@ declare enum ScrollAlign {
   AUTO,
 }
 
+declare interface RectResult {
+  /**
+   * Width of the specified subcomponent.
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  width: Length;
+
+  /**
+   * Height of the specified subcomponent.
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  height: Length;
+
+  /**
+   * X-axis offset of the specified subcomponent.
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  xOffset: Length;
+
+  /**
+   * Y-axis offset of the specified subcomponent.
+   *
+   * @type { Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  yOffset: Length;
+}
+
 /**
  * @since 7
  */
@@ -309,6 +347,17 @@ declare class Scroller {
    * @since 10
    */
   isAtEnd(): boolean;
+
+  /**
+   * Called when obtaining the specified subcomponent size and position.
+   *
+   * @param { number } index
+   * @returns { RectResult } Returns the specified subcomponent size and position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  getItemRect(index: number): RectResult;
 }
 
 /*
