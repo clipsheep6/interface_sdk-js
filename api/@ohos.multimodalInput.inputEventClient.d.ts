@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
+import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 /**
  * Global Key Event Injection
  *
@@ -47,7 +49,14 @@ declare namespace inputEventClient {
      * @systemapi hide for inner use
      * @since 8
      */
-    keyCode: number;
+    /**
+     * A set of keyCode values for key.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @systemapi hide for inner use
+     * @since 11
+     */
+    keyCode: Array<number>;
 
     /**
      * Key hold duration.
@@ -69,6 +78,44 @@ declare namespace inputEventClient {
   }
 
   /**
+   * Defines event of mouse that user want to inject.
+   *
+   * @interface KeyEvent
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  interface MouseEventData {
+    /**
+     * Inject mouse event.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @systemapi hide for inner use
+     * @since 11
+     */
+    mouseEvent: MouseEvent;
+  }
+
+  /**
+   * Defines event of touch that user want to inject.
+   *
+   * @interface KeyEvent
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  interface TouchEventData {
+    /**
+     * Inject touch event.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @systemapi hide for inner use
+     * @since 11
+     */
+    touchEvent: TouchEvent;
+  }
+
+  /**
    * Inject system keys.
    *
    * @param { { KeyEvent } } KeyEvent - the key event to be injected.
@@ -78,6 +125,30 @@ declare namespace inputEventClient {
    * @since 8
    */
   function injectEvent({ KeyEvent: KeyEvent }): void;
+
+  /**
+   * Inject mouse event.
+   *
+   * @param { { MouseEvent } } MouseEvent - the mouse event to be injected.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  function injectMouseEvent({ mouseEvent: MouseEventData }): void;
+
+  /**
+   * Inject touch event.
+   *
+   * @param { { TouchEvent } } TouchEvent - the touch event to be injected.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @systemapi hide for inner use
+   * @since 11
+   */
+  function injectTouchEvent({ touchEvent: TouchEventData }): void;
 }
 
 export default inputEventClient;
