@@ -828,13 +828,44 @@ declare namespace relationalStore {
    */
   class RdbPredicates {
     /**
-     * The CURSOR field name {#_cursor}.
+     * The CURSOR field name {#_cursor}, including local, cloud and remote modify.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 11
      */
     readonly CURSOR_FIELD: string;
+
+    /**
+     * The CURSOR field name {#_cursor_local}, indicate local modify.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    readonly CURSOR_LOCAL_FIELD: string;
+
+    /**
+     * The CURSOR field name {#_cursor_cloud}, indicate cloud modify.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    readonly CURSOR_CLOUD_FIELD: string;
+
+    /**
+     * The CURSOR field name {#_cursor_remote}, indicate remote modify.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    readonly CURSOR_REMOTE_FIELD: string;
+
+    /**
+     * The OWNER field name {#_owner}, for sharing table.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    readonly OWNER_FIELD: string;
 
     /**
      * A parameterized constructor used to create a RdbPredicates instance.

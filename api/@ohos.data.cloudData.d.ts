@@ -49,6 +49,7 @@ declare namespace cloudData {
   /**
    * ID of the event, which indicates the change of the data in the cloud.
    *
+   * @constant
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @since 11
    */
@@ -553,6 +554,7 @@ declare namespace cloudData {
     /**
      * RESULT_FIELD.
      *
+     * @constant
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @since 11
      */
@@ -561,6 +563,7 @@ declare namespace cloudData {
     /**
      * RESOURCE_FIELD.
      *
+     * @constant
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @since 11
      */
@@ -632,7 +635,7 @@ declare namespace cloudData {
      * @param { string } storeId - Indicates relational store name.
      * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
      * @param { Array<Participant> } participants - Participants to share.
-     * @param { Array<string> } columns? - Columns to be shared.
+     * @param { Array<string> } [columns] - Columns to be shared.
      * @param { Promise<relationalStore.ResultSet> } - Promise used to return {@link relationalStore.ResultSet}.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
