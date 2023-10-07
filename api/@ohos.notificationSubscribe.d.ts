@@ -19,6 +19,7 @@ import { NotificationSubscribeInfo as _NotificationSubscribeInfo } from './notif
 import { NotificationSubscriber as _NotificationSubscriber } from './notification/notificationSubscriber';
 import { SubscribeCallbackData as _SubscribeCallbackData } from './notification/notificationSubscriber';
 import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } from './notification/notificationSubscriber';
+import type { NotificationSortingMap as _NotificationSortingMap } from './notification/notificationSortingMap';
 
 /**
  * @namespace notificationSubscribe
@@ -451,6 +452,17 @@ declare namespace notificationSubscribe {
    * @since 9
    */
   export type EnabledNotificationCallbackData = _EnabledNotificationCallbackData;
+
+  /**
+   * Provides sorting information about the active notifications among all the notifications
+   * that have been subscribed to
+   *
+   * @typedef NotificationSortingMap
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  export type NotificationSortingMap = _NotificationSortingMap;
 }
 
 export default notificationSubscribe;
