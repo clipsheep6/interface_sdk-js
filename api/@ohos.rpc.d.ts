@@ -1974,7 +1974,7 @@ declare namespace rpc {
      * @since 7
      * @deprecated since 9
      */
-    unmarshalling(dataIn: MessageParcel): boolean;
+    async unmarshalling(dataIn: MessageParcel): boolean;
   }
 
   /**
