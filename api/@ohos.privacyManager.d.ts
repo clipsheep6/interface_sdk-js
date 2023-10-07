@@ -681,7 +681,7 @@ declare namespace privacyManager {
     /**
       * Indicates the status of lockscreen.
       *
-      * @type { number }
+      * @type { ?number }
       * @syscap SystemCapability.Security.AccessToken
       * @systemapi
       * @since 11
