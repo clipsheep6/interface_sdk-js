@@ -679,7 +679,7 @@ declare namespace privacyManager {
     status: number;
 
     /**
-      * Indicates the status of lockscreen.
+      * Lock screen status.
       *
       * @type { ?number }
       * @syscap SystemCapability.Security.AccessToken
