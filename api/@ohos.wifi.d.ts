@@ -1510,7 +1510,7 @@ declare namespace wifi {
   interface IpInfo {
     /** 
      * The IP address of the Wi-Fi connection
-     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     * @syscap SystemCapability.Communication.WiFi.STA 
      * @since 7
      * @deprecated since 9
      *  */
@@ -1518,7 +1518,7 @@ declare namespace wifi {
 
     /** 
      * The gateway of the Wi-Fi connection
-     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     * @syscap SystemCapability.Communication.WiFi.STA 
      * @since 7
      * @deprecated since 9
      *  */
@@ -1526,7 +1526,7 @@ declare namespace wifi {
 
     /** 
      * The network mask of the Wi-Fi connection
-     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     * @syscap SystemCapability.Communication.WiFi.STA 
      * @since 7
      * @deprecated since 9
      *  */
@@ -1535,7 +1535,7 @@ declare namespace wifi {
     /** 
      * 
      * The primary DNS server IP address of the Wi-Fi connection
-     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     * @syscap SystemCapability.Communication.WiFi.STA 
      * @since 7
      * @deprecated since 9
      *  */
@@ -1543,7 +1543,7 @@ declare namespace wifi {
 
     /** T
      * he secondary DNS server IP address of the Wi-Fi connection
-     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     * @syscap SystemCapability.Communication.WiFi.STA 
      * @since 7
      * @deprecated since 9
      *  */
@@ -1551,7 +1551,7 @@ declare namespace wifi {
 
     /** 
      * The DHCP server IP address of the Wi-Fi connection
-     * @syscap SystemCapability.Communication.WiFi.AP.Core  
+     * @syscap SystemCapability.Communication.WiFi.STA  
      * @since 7
      * @deprecated since 9
      *  */
@@ -1559,7 +1559,7 @@ declare namespace wifi {
 
     /** 
      * The IP address lease duration of the Wi-Fi connection 
-     * @syscap SystemCapability.Communication.WiFi.AP.Core 
+     * @syscap SystemCapability.Communication.WiFi.STA
      * @since 7
      * @deprecated since 9
      * */
