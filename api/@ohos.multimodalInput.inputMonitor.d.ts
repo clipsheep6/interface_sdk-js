@@ -15,6 +15,7 @@
 
 import { Callback } from './@ohos.base';
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
+import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 import type { Pinch, ThreeFingersSwipe, FourFingersSwipe } from './@ohos.multimodalInput.gestureEvent';
 
 /**
@@ -29,32 +30,18 @@ import type { Pinch, ThreeFingersSwipe, FourFingersSwipe } from './@ohos.multimo
  */
 declare namespace inputMonitor {
   /**
-   * Callback used to receive touch input events. If **true** is returned, the touch input is consumed,
-   * and the system performs the closing operation.
-   *
-   * @interface TouchEventReceiver
-   * @permission ohos.permission.INPUT_MONITORING
-   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-   * @systemapi hide for inner use
-   * @since 7
-   */
-  interface TouchEventReceiver {
-    (touchEvent: TouchEvent): Boolean;
-  }
-
-  /**
    * Listens for touch input events.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touch' } type - Event type, which is **touch**.
-   * @param { TouchEventReceiver } receiver - Callback used to receive the reported data.
+   * @param { Callback<TouchEvent> } receiver - Callback used to receive the reported data.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 7
    */
-  function on(type: 'touch', receiver: TouchEventReceiver): void;
+  function on(type: 'touch', receiver: Callback<TouchEvent>): void;
 
   /**
    * Listens for mouse input events.
@@ -75,14 +62,14 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touch' } type - Event type, which is **touch**.
-   * @param { TouchEventReceiver } receiver - Callback used to receive the reported data.
+   * @param { Callback<TouchEvent> } receiver - Callback used to receive the reported data.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 7
    */
-  function off(type: 'touch', receiver?: TouchEventReceiver): void;
+  function off(type: 'touch', receiver?: Callback<TouchEvent>): void;
 
   /**
    * Cancel listening for mouse input events.
