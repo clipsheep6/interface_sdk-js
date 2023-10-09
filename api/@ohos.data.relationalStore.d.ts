@@ -814,6 +814,39 @@ declare namespace relationalStore {
   }
 
   /**
+   * Describes the sources to modify data.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 11
+   */
+  enum Location {
+    /**
+     * Indicates local operation modify the data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    LOCAL,
+
+    /**
+     * Indicates cloud operation modify the data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    CLOUD,
+
+    /**
+     * Indicates remote operation modify the data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    REMOTE,
+  }
+
+  /**
    * Manages relational database configurations.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -828,44 +861,26 @@ declare namespace relationalStore {
    */
   class RdbPredicates {
     /**
-     * The CURSOR field name {#_cursor}, including local, cloud and remote modify.
+     * The CURSOR field name {#_cursor}.
      *
+     * If not specify local field, cursor would acts on all {@link Location}.
+     *
+     * @readonly
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
     readonly CURSOR_FIELD: string;
 
     /**
-     * The CURSOR field name {#_cursor_local}, indicate local modify.
+     * The LOCATION field name {#_location}.
      *
+     * Location field for cursor query, value detail see {@link Location}.
+     *
+     * @readonly
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    readonly CURSOR_LOCAL_FIELD: string;
-
-    /**
-     * The CURSOR field name {#_cursor_cloud}, indicate cloud modify.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 11
-     */
-    readonly CURSOR_CLOUD_FIELD: string;
-
-    /**
-     * The CURSOR field name {#_cursor_remote}, indicate remote modify.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 11
-     */
-    readonly CURSOR_REMOTE_FIELD: string;
-
-    /**
-     * The OWNER field name {#_owner}, for sharing table.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 11
-     */
-    readonly OWNER_FIELD: string;
+    readonly LOCATION_FIELD: string;
 
     /**
      * A parameterized constructor used to create a RdbPredicates instance.
@@ -2782,14 +2797,25 @@ declare namespace relationalStore {
     /**
      * SHARING_RESOURCE_FIELD.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
      * @since 11
      */
     readonly SHARING_RESOURCE_FIELD: string;
 
     /**
+     * SHARING_RESULT_FIELD.
+     *
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 11
+     */
+    readonly SHARING_RESULT_FIELD: string;
+
+    /**
      * Obtains sharing resource of rows corresponding to the predicates.
-     * all columns would return by default.
      *
      * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
      * @param { AsyncCallback<ResultSet> } callback - The callback of querySharingResource.
@@ -2819,7 +2845,6 @@ declare namespace relationalStore {
 
     /**
      * Obtains sharing resource of rows corresponding to the predicates.
-     * all columns would return by default.
      *
      * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
      * @param { Array<string> } columns? - The specified columns to query.

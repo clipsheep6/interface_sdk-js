@@ -42,7 +42,7 @@ export default class OfficeCloud {
 
   exit(userId: number, bundleName: string, sharingRes: string): Promise<void>;
 
-  modifyPrivilege(
+  changePrivilege(
     userId: number,
     bundleName: string,
     sharingRes: string,

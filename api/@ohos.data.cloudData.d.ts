@@ -68,6 +68,7 @@ declare namespace cloudData {
      * Event ID.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
      * @since 11
      */
     eventId: string;
@@ -89,6 +90,7 @@ declare namespace cloudData {
      * <b>accountId</b> and <b>bundleName</b> are mandatory.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
      * @since 11
      */
     extraData: string;
@@ -378,7 +380,7 @@ declare namespace cloudData {
   /**
    * Provides methods to implement cloud sharing.
    *
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
    * @systemapi
    * @since 11
    */
@@ -387,14 +389,16 @@ declare namespace cloudData {
      * Enumerates the roles.
      *
      * @enum { number }
-     * @syscap systemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap systemCapability.DistributedDataManager.CloudData.Sharing
+     * @systemapi
      * @since 11
      */
     enum Role {
       /**
        * Inviter of cloud sharing.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       ROLE_INVITER,
@@ -402,7 +406,8 @@ declare namespace cloudData {
       /**
        * Invitee of cloud sharing.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       ROLE_INVITEE
@@ -412,14 +417,16 @@ declare namespace cloudData {
      * Enumerates the statuses of sharing invitation.
      *
      * @enum { number }
-     * @syscap systemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap systemCapability.DistributedDataManager.CloudData.Sharing
+     * @systemapi
      * @since 11
      */
     enum Status {
       /**
        * Unknown status.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       STATUS_UNKNOWN,
@@ -427,7 +434,8 @@ declare namespace cloudData {
       /**
        * Accept the sharing invitation.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       STATUS_ACCEPTED,
@@ -435,7 +443,8 @@ declare namespace cloudData {
       /**
        * Reject the sharing invitation.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       STATUS_REJECTED,
@@ -443,17 +452,49 @@ declare namespace cloudData {
       /**
        * Suspend the sharing process.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       STATUS_SUSPENDED,
     }
 
     /**
+     * Result interface.
+     *
+     * @interface Result
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    export interface Result<T> {
+      /**
+       * Error code.
+       *
+       * @type { number }
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      code: number;
+
+      /**
+       * The result value.
+       *
+       * @type { T }
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      value: T;
+    }
+
+    /**
      * Privilege for the shared data.
      *
      * @interface Privilege
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
@@ -463,7 +504,9 @@ declare namespace cloudData {
        * means the participants can write the shared data; the value <b>false</b>
        * means the opposite.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @type { ?boolean }
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       writeable?: boolean;
@@ -473,7 +516,9 @@ declare namespace cloudData {
        * means the participants can read the shared data; the value <b>false</b>
        * means the opposite.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @type { ?boolean }
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       readable?: boolean;
@@ -483,7 +528,9 @@ declare namespace cloudData {
        * means the participants can create data; the value <b>false</b>
        * means the opposite.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @type { ?boolean }
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       creatable?: boolean;
@@ -493,7 +540,9 @@ declare namespace cloudData {
        * means the participants can delete the shared data; the value <b>false</b>
        * means the opposite.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @type { ?boolean }
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       deletable?: boolean;
@@ -503,7 +552,9 @@ declare namespace cloudData {
        * means the participants can share the data; the value <b>false</b>
        * means the opposite.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @type { ?boolean }
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       shareable?: boolean;
@@ -513,7 +564,7 @@ declare namespace cloudData {
      * Participants in cloud sharing.
      *
      * @interface Participant
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
@@ -521,7 +572,9 @@ declare namespace cloudData {
       /**
        * Identity of participant.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @type { string }
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       identity: string;
@@ -529,7 +582,9 @@ declare namespace cloudData {
       /**
        * Role of the participant, which can be inviter or invitee.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @type { ?Role }
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       role?: Role;
@@ -537,7 +592,9 @@ declare namespace cloudData {
       /**
        * Status of the sharing invitation.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @type { ?Status }
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       status?: Status;
@@ -545,34 +602,17 @@ declare namespace cloudData {
       /**
        * Permissions for the shared data.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+       * @type { ?Privilege }
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
        * @since 11
        */
       privilege?: Privilege;
     }
 
     /**
-     * RESULT_FIELD.
-     *
-     * @constant
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    const RESULT_FIELD = "sharing_result";
-
-    /**
-     * RESOURCE_FIELD.
-     *
-     * @constant
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @since 11
-     */
-    const RESOURCE_FIELD = "sharing_resource";
-
-    /**
      * Allocates shared resources based on conditions,
      * and shares data with the specified privilege to participants.
-     * all columns will take effect by default.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } storeId - Indicates relational store name.
@@ -586,11 +626,11 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
-    function allocResourceAndshare(
+    function allocResourceAndShare(
       storeId: string,
       predicates: relationalStore.RdbPredicates,
       participants: Array<Participant>,
@@ -614,11 +654,11 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
-    function allocResourceAndshare(
+    function allocResourceAndShare(
       storeId: string,
       predicates: relationalStore.RdbPredicates,
       participants: Array<Participant>,
@@ -629,7 +669,6 @@ declare namespace cloudData {
     /**
      * Allocates shared resources based on conditions,
      * and shares data with the specified privilege to participants.
-     * all columns will take effect by default.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } storeId - Indicates relational store name.
@@ -643,11 +682,11 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
-    function allocResourceAndshare(
+    function allocResourceAndShare(
       storeId: string,
       predicates: relationalStore.RdbPredicates,
       participants: Array<Participant>,
@@ -658,11 +697,10 @@ declare namespace cloudData {
      * Shares data with the specified privilege to participants.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - Indicates the uniform resource identifier
-     * (URI) of the data to share.
+     * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved in the data sharing.
-     * @param { AsyncCallback<Array<Participant>> } callback - Indicates the
+     * @param { AsyncCallback<Array<Result<Participant>>> } callback - Indicates the
      * callback invoked to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -670,44 +708,44 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
     function share(
       sharingRes: string,
       participants: Array<Participant>,
-      callback: AsyncCallback<Array<Participant>>
+      callback: AsyncCallback<Array<Result<Participant>>>
     ): void;
 
     /**
      * Shares data with the specified privilege to participants.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - Indicates the URI of the data to share.
+     * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved in the data sharing.
-     * @Returns { Promise<Array<Participant>> } - Promise used to return the result.
+     * @Returns { Promise<Array<Result<Participant>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
-    function share(sharingRes: string, participants: Array<Participant>): Promise<Array<Participant>>;
+    function share(sharingRes: string, participants: Array<Participant>): Promise<Array<Result<Participant>>>;
 
     /**
      * Unshares data.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - Indicates the URI of the data to unshare.
+     * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved.
-     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
+     * @param { AsyncCallback<Array<Result<Participant>>> } callback - Indicates the callback invoked
      * to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -715,41 +753,41 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
     function unshare(
       sharingRes: string,
       participants: Array<Participant>,
-      callback: AsyncCallback<Array<Participant>>
+      callback: AsyncCallback<Array<Result<Participant>>>
     ): void;
 
     /**
      * Unshares data.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - Indicates the URI of the data to unshare.
+     * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved.
-     * @Returns { Promise<void> } - Promise used to return the result.
+     * @Returns { Promise<Array<Result<Participant>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
-    function unshare(sharingRes: string, participants: Array<Participant>): Promise<Array<Participant>>;
+    function unshare(sharingRes: string, participants: Array<Participant>): Promise<Array<Result<Participant>>>;
 
     /**
      * Exit sharing.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - Indicates the URI of the data.
+     * @param { string } sharingRes - Indicates the sharing resource.
      * @param { AsyncCallback<void> } callback - The callback of exit.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -757,7 +795,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
@@ -767,7 +805,7 @@ declare namespace cloudData {
      * Exit sharing.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - Indicates the URI of the data.
+     * @param { string } sharingRes - Indicates the sharing resource.
      * @Returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -775,7 +813,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
@@ -785,53 +823,56 @@ declare namespace cloudData {
      * Changes the permissions for the shared data.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - Indicates the URI of the target data.
+     * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * whose permissions are to be changed.
-     * @param { AsyncCallback<Array<Participant>> } callback - Indicates the
+     * @param { AsyncCallback<Array<Result<Participant>>> } callback - Indicates the
      * callback invoked to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 801 - Capability not supported..0
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
     function changePrivilege(
       sharingRes: string,
       participants: Array<Participant>,
-      callback: AsyncCallback<Array<Participant>>
+      callback: AsyncCallback<Array<Result<Participant>>>
     ): void;
 
     /**
      * Changes the permissions for the shared data.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - Indicates the URI of the target data.
+     * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * whose permissions are to be changed.
-     * @Returns { Promise<Array<Participant>> } - Promise used to return the result.
+     * @Returns { Promise<Array<Result<Participant>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
-    function changePrivilege(sharingRes: string, participants: Array<Participant>): Promise<Array<Participant>>;
+    function changePrivilege(
+      sharingRes: string,
+      participants: Array<Participant>
+    ): Promise<Array<Result<Participant>>>;
 
     /**
      * Queries the participants based on the specified shared data.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - Indicates the URI of the target data.
-     * @param { AsyncCallback<Array<Participant>> } callback - Indicates the
+     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { AsyncCallback<Array<Result<Participant>>> } callback - Indicates the
      * callback invoked to return the participants obtained.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -839,29 +880,29 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
-    function queryParticipants(sharingRes: string, callback: AsyncCallback<Array<Participant>>): void;
+    function queryParticipants(sharingRes: string, callback: AsyncCallback<Array<Result<Participant>>>): void;
 
     /**
      * Queries the participants based on the specified shared data..
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - Indicates the URI of the target data.
-     * @Returns { Promise<Array<Participant>> } - Promise used to return the result.
+     * @param { string } sharingRes - Indicates the sharing resource.
+     * @Returns { Promise<Array<Result<Participant>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
-    function queryParticipants(sharingRes: string): Promise<Array<Participant>>;
+    function queryParticipants(sharingRes: string): Promise<Array<Result<Participant>>>;
 
     /**
      * Confirms the invitation of cloud sharing.
@@ -869,19 +910,19 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } invitationCode - Indicates the invitation code.
      * @param { Status } status - Indicates the status of invitation.
-     * @param { AsyncCallback<string> } callback - Indicates the callback
-     * invoked to return the URI of the record.
+     * @param { AsyncCallback<Result<string>> } callback - Indicates the callback
+     * invoked to return the sharing resource.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
-    function confirmInvitation(invitationCode: string, status: Status, callback: AsyncCallback<string>): void;
+    function confirmInvitation(invitationCode: string, status: Status, callback: AsyncCallback<Result<string>>): void;
 
     /**
      * Confirms the invitation of cloud sharing.
@@ -889,24 +930,24 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } invitationCode - Indicates the invitation code.
      * @param { Status } status - Indicates the status of invitation.
-     * @Returns { Promise<string> } - Promise used to return the URI of the record.
+     * @Returns { Promise<Result<string>> } - Promise used to return the sharing resource.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
-    function confirmInvitation(invitationCode: string, status: Status): Promise<string>;
+    function confirmInvitation(invitationCode: string, status: Status): Promise<Result<string>>;
 
     /**
      * Changes confirmation of shared record.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - Indicates the URI of the target data.
+     * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Status } status - Indicates the status of invitation.
      * @param { AsyncCallback<void> } callback - Indicates the callback.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -915,7 +956,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
@@ -925,7 +966,7 @@ declare namespace cloudData {
      * Changes confirmation of shared record.
      *
      * @permission ohos.permission.CLOUDDATA_SHARING
-     * @param { string } sharingRes - Indicates the URI of the target data.
+     * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Status } status - Indicates the status of invitation.
      * @Returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -934,7 +975,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
