@@ -2824,6 +2824,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
      * @since 11
      */
     querySharingResource(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>): void;
@@ -2839,6 +2840,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
      * @since 11
      */
     querySharingResource(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
@@ -2854,6 +2856,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
      * @since 11
      */
     querySharingResource(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
