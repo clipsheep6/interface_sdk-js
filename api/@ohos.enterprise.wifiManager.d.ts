@@ -841,6 +841,42 @@ declare namespace wifiManager {
    * @since 10
    */
   function setWifiProfile(admin: Want, profile: WifiProfile): Promise<void>;
+
+  /**
+   * Disallows device Wi-Fi capability.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { boolean } isDisallowed - true if the device Wi-Fi is disallowed.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function disallowWiFi(admin: Want, isDisallowed: boolean): void;
+
+  /**
+   * Queries the capablity of device Wi-Fi is disallowed or allowed.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { boolean } true if the device Wi-Fi is disallowed.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function isWiFiDisallowed(admin: Want): boolean;
 }
 
 export default wifiManager;

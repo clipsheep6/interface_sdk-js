@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import type systemManager from './@ohos.enterprise.systemManager';
+
 /**
  * Class of the enterprise admin extension ability.
  *
@@ -85,4 +87,15 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 10
    */
   onAppStop(bundleName: string): void;
+
+  /**
+   * Called back when system update version. 
+   *
+   * @param { systemManager.SystemUpdateInfo } systemUpdateInfo - the information of the update system.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  onSystemUpdate(systemUpdateInfo: systemManager.SystemUpdateInfo): void;
 }
