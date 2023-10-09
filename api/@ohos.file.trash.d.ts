@@ -36,6 +36,7 @@ declare namespace trash {
     /**
      * Indicates the uri of the file.
      *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -48,6 +49,7 @@ declare namespace trash {
     /**
      * Indicates the source path of the file.
      *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -60,6 +62,7 @@ declare namespace trash {
     /**
      * Indicates the name of the file.
      *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { string }
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -72,6 +75,7 @@ declare namespace trash {
     /**
      * Indicates the mode of the file.
      *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { number }
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -84,6 +88,7 @@ declare namespace trash {
     /**
      * Indicates the size of the file.
      *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { number }
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -96,6 +101,7 @@ declare namespace trash {
     /**
      * Indicates the mtime of the file.
      *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { number }
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -108,6 +114,7 @@ declare namespace trash {
     /**
      * Indicates the ctime of the file.
      *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
      * @type { number }
      * @readonly
      * @syscap SystemCapability.FileManagement.UserFileService
