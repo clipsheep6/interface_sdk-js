@@ -123,7 +123,7 @@ declare namespace wifiManagerExt {
   export enum PowerMode {
     /** 
      * Sleeping Mode. 
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Communication.WiFi.AP.Extension
      * @since 9
     */
     
@@ -131,14 +131,14 @@ declare namespace wifiManagerExt {
 
     /** 
      * General Mode. 
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Communication.WiFi.AP.Extension
      * @since 9
      * */
     GENERAL = 1,
 
     /** 
      * Through wall Mode. 
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Communication.WiFi.AP.Extension
      * @since 9
      * */
     THROUGH_WALL = 2,
