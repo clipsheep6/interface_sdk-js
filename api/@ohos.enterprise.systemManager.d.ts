@@ -13,208 +13,154 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * This module provides the capability to manage the applications of the enterprise devices.
+ * This module provides the capability to manage the system of the enterprise devices.
  *
- * @namespace applicationManager
+ * @namespace systemManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @systemapi
- * @since 10
+ * @stagemodelonly
+ * @since 11
  */
-declare namespace applicationManager {
+declare namespace systemManager {
   /**
-   * Add appid list of bundles that is disallowed to run in the device.
-   * This function can be called by a super administrator.
+   * System update policy.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
-   * @param { AsyncCallback<void> } callback - the callback of addDisallowedRunningBundles.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
-   * @since 10
+   * @stagemodelonly
+   * @since 11
    */
-  function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
+  enum UpdatePolicy {
+    /**
+     * Default update policy
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    DEFAULT = 0,
+
+    /**
+     * Prohibit update policy
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    PROHIBIT = 1,
+
+    /**
+     * Update to specific version policy
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    UPDATE_TO_SPECIFIC_VERSION = 2
+  }
 
   /**
-   * Add appid list of bundles that is disallowed to run in the device.
-   * This function can be called by a super administrator.
+   * Device update time.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of addDisallowedRunningBundles.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @typedef UpdateTime
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
-   * @since 10
+   * @stagemodelonly
+   * @since 11
    */
-  function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
+  export interface UpdateTime {
+    /**
+     * Device latest update version time
+     *
+     * @type { PowerPolicyAction }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    latestUpdateTime: number;
+
+    /**
+     * The begin time of device install version.
+     *
+     * @type { PowerPolicyAction }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    installBeginTime: number;
+
+    /**
+     * The end time of device install version.
+     *
+     * @type { PowerPolicyAction }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    installEndTime: number;
+  }
 
   /**
-   * Add appid list of bundles that is disallowed to run in the device.
-   * This function can be called by a super administrator.
+   * OTA update policy.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
-   * @param { number } userId - userId indicates the user ID.
-   * @returns { Promise<void> } the promise returned by the addDisallowedRunningBundles.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
+   * @typedef OTAUpdatePolicy
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
-   * @StageModelOnly
-   * @since 10
+   * @stagemodelonly
+   * @since 11
    */
-  function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
+  export interface OTAUpdatePolicy {
+    /**
+     * Device update type.
+     *
+     * @type { PowerPolicyAction }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    updateType: UpdatePolicy;
+
+    /**
+     * Device version.
+     *
+     * @type { PowerPolicyAction }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    version: string;
+
+    /**
+     * The time of device install version.
+     *
+     * @type { PowerPolicyAction }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 11
+     */
+    installTime: UpdateTime;
+  }
 
   /**
-   * Remove appid list of bundles that is disallowed to run in the device.
+   * Adds resource suppression exemption app list.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
-   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedRunningBundles.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @StageModelOnly
-   * @since 10
-   */
-  function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
-
-  /**
-   * Remove appid list of bundles that is disallowed to run in the device.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedRunningBundles.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @StageModelOnly
-   * @since 10
-   */
-  function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
-
-  /**
-   * Remove appid list of bundles that is disallowed to run in the device.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
-   * @param { number } userId - userId indicates the user ID.
-   * @returns { Promise<void> } the promise returned by the removeDisallowedRunningBundles.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @StageModelOnly
-   * @since 10
-   */
-  function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
-
-  /**
-   * Get appid list of bundles that is disallowed to run in the device.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { AsyncCallback<Array<string>> } callback - the callback of getDisallowedRunningBundles.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @StageModelOnly
-   * @since 10
-   */
-  function getDisallowedRunningBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
-
-  /**
-   * Get appid list of bundles that is disallowed to run in the device.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<Array<string>> } callback - the callback of getDisallowedRunningBundles.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @StageModelOnly
-   * @since 10
-   */
-  function getDisallowedRunningBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
-
-  /**
-   * Get appid list of bundles that is disallowed to run in the device.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { number } userId - userId indicates the user ID.
-   * @returns { Promise<Array<string>> } the promise returned by the getDisallowedRunningBundles.
-   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
-   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 401 - invalid input parameter.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @StageModelOnly
-   * @since 10
-   */
-  function getDisallowedRunningBundles(admin: Want, userId?: number): Promise<Array<string>>;
-
-  /**
-   * Adds apps that auto start running on boot.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<string> } appIds - the ids of apps that auto start running on boot.
+   * @param { Array<string> } appIds - the appid list of Nap resource suppression exemption.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -225,15 +171,15 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 11
    */
-  function addAutoStartRunningAppsOnBoot(admin: Want, appIds: Array<string>): void;
+  function addNapExemptedApps(admin: Want, appIds: Array<string>): void;
 
   /**
-   * Removes apps that auto start running on boot.
+   * Removes resource suppression exemption app list.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION_POLICY
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<string> } appIds - appid list of bundles that auto start running on boot
+   * @param { Array<string> } appIds - the appid list of Nap resource suppression exemption.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -244,15 +190,15 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 11
    */
-  function removeAutoStartRunningAppsOnBoot(admin: Want, appIds: Array<string>): void;
+  function removeNapExemptedApps(admin: Want, appIds: Array<string>): void;
 
   /**
-   * Get appid list of bundles that auto start running on boot.
+   * Gets the appid list of Nap resource suppression exemption.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION_POLICY
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @returns { Array<string> } appIds - appid list of bundles that auto start running on boot
+   * @returns { Array<string> } the appid list of Nap resource suppression exemption.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -263,7 +209,121 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 11
    */
-  function getAutoStartRunningAppsOnBoot(admin: Want): Array<string>;
+  function getNapExemptedApps(admin: Want): Array<string>;
+
+  /**
+   * Sets NTP server.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } server - the address of NTP server.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function setNTPServer(admin: Want, server: string): void;
+
+  /**
+   * Gets NTP server.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { string } the address of NTP server.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function getNTPServer(admin: Want): string;
+
+  /**
+   * Sets app trust list of DLP.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } appIds - DLP trust appID list.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function setDLPTrustApps(admin: Want, appIds: Array<string>): void;
+
+  /**
+   * Gets appid list of DLP trust apps.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Array<string> } DLP trust appID list.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function getDLPTrustApps(admin: Want): Array<string>;
+
+  /**
+   * Sets device OTA update policy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { OTAUpdatePolicy } policy - OTA update policy.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function setOTAUpdatePolicy(admin: Want, policy: OTAUpdatePolicy): void;
+
+  /**
+   * Gets device OTA update policy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { OTAUpdatePolicy } OTA update policy.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function getOTAUpdatePolicy(admin: Want): OTAUpdatePolicy;
 }
 
-export default applicationManager;
+export default systemManager;
