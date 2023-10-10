@@ -5821,3 +5821,21 @@ declare enum DialogButtonStyle {
    */
   HIGHLIGHT = 1
 }
+
+declare enum SafeAreaAvoidMethodType {
+   /**
+   * Default Type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+   DEFAULT = 0,
+  
+   /**
+    * Compressed Type.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 11
+    */
+   COMPRESSED = 1
+}
