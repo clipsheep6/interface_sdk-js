@@ -1179,3 +1179,56 @@ declare const List: ListInterface;
  * @form
  */
 declare const ListInstance: ListAttribute;
+
+/**
+ * Defines item index in List and ListItemGroup.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+declare interface ItemIndex {
+  /**
+   * Item index in List.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  index: number
+
+  /**
+   * Item index in ListItemGroup.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  indexInGroup?: number
+}
+
+/**
+ * Defines the Scroller for List.
+ *
+ * @extends Scroller
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare class ListScroller extends Scroller {
+  /**
+   * Called when obtaining the specified subcomponent size and position.
+   *
+   * @param { number | ItemIndex } index
+   * @returns { RectResult } Returns the specified subcomponent size and position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  getItemRect(index: number | ItemIndex): RectResult
+}
+
+
+
