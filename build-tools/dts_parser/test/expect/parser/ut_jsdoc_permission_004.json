@@ -1,23 +1,23 @@
 {
-  "ut_jsdoc_throws_030.d.ts": [
+  "ut_jsdoc_permission_004.d.ts": [
     {
-      "filePath": "ut_jsdoc_throws_030.d.ts",
-      "apiType": "Class",
-      "definedText": " export class Test",
+      "filePath": "ut_jsdoc_permission_004.d.ts",
+      "apiType": "Namespace",
+      "definedText": " export namespace test",
       "pos": {
         "line": 5,
-        "character": 1
+        "character": 2
       },
       "isExport": true,
-      "apiName": "Test",
+      "apiName": "test",
       "hierarchicalRelations": [
-        "ut_jsdoc_throws_030.d.ts",
-        "Test"
+        "ut_jsdoc_permission_004.d.ts",
+        "test"
       ],
       "isStruct": false,
       "jsDocInfos": [
         {
-          "description": "the ut for jsdoc about throws",
+          "description": "the ut for jsdoc about permission",
           "syscap": "",
           "since": "-1",
           "isForm": false,
@@ -32,21 +32,20 @@
           "isConstant": false
         }
       ],
-      "parentClasses": [],
       "childApis": [
         {
-          "filePath": "ut_jsdoc_throws_030.d.ts",
+          "filePath": "ut_jsdoc_permission_004.d.ts",
           "apiType": "Method",
-          "definedText": "func(str: string): void;",
+          "definedText": "function func(str: string): void;",
           "pos": {
-            "line": 11,
+            "line": 9,
             "character": 3
           },
           "isExport": false,
           "apiName": "func",
           "hierarchicalRelations": [
-            "ut_jsdoc_throws_030.d.ts",
-            "Test",
+            "ut_jsdoc_permission_004.d.ts",
+            "test",
             "func"
           ],
           "isStruct": false,
@@ -61,12 +60,8 @@
               "modelLimitation": "",
               "deprecatedVersion": "-1",
               "useinstead": "",
-              "permissions": "",
-              "errorCodes": [
-                201,
-                202,
-                401
-              ],
+              "permissions": "(ohos.permission.GET_SENSITIVE_PERMISSIONS or ohos.permission.GRANT_SENSITIVE_PERMISSIONS) and ohos.permission.REVOKE_SENSITIVE_PERMISSIONS",
+              "errorCodes": [],
               "typeInfo": "",
               "isConstant": false
             }

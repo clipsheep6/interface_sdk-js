@@ -1,7 +1,7 @@
 {
-  "ut_jsdoc_permission_018.d.ts": [
+  "ut_jsdoc_param_002.d.ts": [
     {
-      "filePath": "ut_jsdoc_permission_018.d.ts",
+      "filePath": "ut_jsdoc_param_002.d.ts",
       "apiType": "Namespace",
       "definedText": " export namespace test",
       "pos": {
@@ -11,13 +11,13 @@
       "isExport": true,
       "apiName": "test",
       "hierarchicalRelations": [
-        "ut_jsdoc_permission_018.d.ts",
+        "ut_jsdoc_param_002.d.ts",
         "test"
       ],
       "isStruct": false,
       "jsDocInfos": [
         {
-          "description": "the ut for jsdoc about permission",
+          "description": "the ut for jsdoc about param",
           "syscap": "",
           "since": "-1",
           "isForm": false,
@@ -34,17 +34,17 @@
       ],
       "childApis": [
         {
-          "filePath": "ut_jsdoc_permission_018.d.ts",
+          "filePath": "ut_jsdoc_param_002.d.ts",
           "apiType": "Method",
-          "definedText": "function func(str: string): void;",
+          "definedText": "function func(str: string, str2: string): void;",
           "pos": {
-            "line": 9,
+            "line": 10,
             "character": 3
           },
           "isExport": false,
           "apiName": "func",
           "hierarchicalRelations": [
-            "ut_jsdoc_permission_018.d.ts",
+            "ut_jsdoc_param_002.d.ts",
             "test",
             "func"
           ],
@@ -60,13 +60,13 @@
               "modelLimitation": "",
               "deprecatedVersion": "-1",
               "useinstead": "",
-              "permissions": "ohos.permission.GET_SENSITIVE_PERMISSIONS or ohos.permission.GRANT_SENSITIVE_PERMISSIONS",
+              "permissions": "",
               "errorCodes": [],
               "typeInfo": "",
               "isConstant": false
             }
           ],
-          "callForm": "func(str: string): void",
+          "callForm": "func(str: string, str2: string): void",
           "params": [
             {
               "apiType": "Param",
@@ -76,6 +76,15 @@
               ],
               "isRequired": true,
               "definedText": "str: string"
+            },
+            {
+              "apiType": "Param",
+              "apiName": "str2",
+              "type": [
+                "string"
+              ],
+              "isRequired": true,
+              "definedText": "str2: string"
             }
           ],
           "returnValue": [],

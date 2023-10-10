@@ -1,7 +1,7 @@
 {
-  "ut_jsdoc_permission_019.d.ts": [
+  "ut_method_003.d.ts": [
     {
-      "filePath": "ut_jsdoc_permission_019.d.ts",
+      "filePath": "ut_method_003.d.ts",
       "apiType": "Namespace",
       "definedText": " export namespace test",
       "pos": {
@@ -11,13 +11,13 @@
       "isExport": true,
       "apiName": "test",
       "hierarchicalRelations": [
-        "ut_jsdoc_permission_019.d.ts",
+        "ut_method_003.d.ts",
         "test"
       ],
       "isStruct": false,
       "jsDocInfos": [
         {
-          "description": "the ut for jsdoc about permission",
+          "description": "the ut for method in class",
           "syscap": "",
           "since": "-1",
           "isForm": false,
@@ -34,48 +34,34 @@
       ],
       "childApis": [
         {
-          "filePath": "ut_jsdoc_permission_019.d.ts",
+          "filePath": "ut_method_003.d.ts",
           "apiType": "Method",
-          "definedText": "function func(str: string): void;",
+          "definedText": "function func(type: string | number | boolean): void {}",
           "pos": {
-            "line": 9,
+            "line": 6,
             "character": 3
           },
           "isExport": false,
           "apiName": "func",
           "hierarchicalRelations": [
-            "ut_jsdoc_permission_019.d.ts",
+            "ut_method_003.d.ts",
             "test",
             "func"
           ],
           "isStruct": false,
-          "jsDocInfos": [
-            {
-              "description": "",
-              "syscap": "",
-              "since": "-1",
-              "isForm": false,
-              "isCrossPlatForm": false,
-              "isSystemApi": false,
-              "modelLimitation": "",
-              "deprecatedVersion": "-1",
-              "useinstead": "",
-              "permissions": "(ohos.permission.GET_SENSITIVE_PERMISSIONS or ohos.permission.GRANT_SENSITIVE_PERMISSIONS) and ohos.permission.REVOKE_SENSITIVE_PERMISSIONS",
-              "errorCodes": [],
-              "typeInfo": "",
-              "isConstant": false
-            }
-          ],
-          "callForm": "func(str: string): void",
+          "jsDocInfos": [],
+          "callForm": "func(type: string | number | boolean): void {}",
           "params": [
             {
               "apiType": "Param",
-              "apiName": "str",
+              "apiName": "type",
               "type": [
-                "string"
+                "string",
+                "number",
+                "boolean"
               ],
               "isRequired": true,
-              "definedText": "str: string"
+              "definedText": "type: string | number | boolean"
             }
           ],
           "returnValue": [],

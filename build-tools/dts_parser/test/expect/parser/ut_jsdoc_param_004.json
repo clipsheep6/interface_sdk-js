@@ -1,0 +1,88 @@
+{
+  "ut_jsdoc_param_004.d.ts": [
+    {
+      "filePath": "ut_jsdoc_param_004.d.ts",
+      "apiType": "Namespace",
+      "definedText": " export namespace test",
+      "pos": {
+        "line": 5,
+        "character": 1
+      },
+      "isExport": true,
+      "apiName": "test",
+      "hierarchicalRelations": [
+        "ut_jsdoc_param_004.d.ts",
+        "test"
+      ],
+      "isStruct": false,
+      "jsDocInfos": [
+        {
+          "description": "the ut for jsdoc about param",
+          "syscap": "",
+          "since": "-1",
+          "isForm": false,
+          "isCrossPlatForm": false,
+          "isSystemApi": false,
+          "modelLimitation": "",
+          "deprecatedVersion": "-1",
+          "useinstead": "",
+          "permissions": "",
+          "errorCodes": [],
+          "typeInfo": "",
+          "isConstant": false
+        }
+      ],
+      "childApis": [
+        {
+          "filePath": "ut_jsdoc_param_004.d.ts",
+          "apiType": "Method",
+          "definedText": "function func(somebody?: string): void;",
+          "pos": {
+            "line": 9,
+            "character": 3
+          },
+          "isExport": false,
+          "apiName": "func",
+          "hierarchicalRelations": [
+            "ut_jsdoc_param_004.d.ts",
+            "test",
+            "func"
+          ],
+          "isStruct": false,
+          "jsDocInfos": [
+            {
+              "description": "",
+              "syscap": "",
+              "since": "-1",
+              "isForm": false,
+              "isCrossPlatForm": false,
+              "isSystemApi": false,
+              "modelLimitation": "",
+              "deprecatedVersion": "-1",
+              "useinstead": "",
+              "permissions": "",
+              "errorCodes": [],
+              "typeInfo": "",
+              "isConstant": false
+            }
+          ],
+          "callForm": "func(somebody?: string): void",
+          "params": [
+            {
+              "apiType": "Param",
+              "apiName": "somebody",
+              "type": [
+                "string"
+              ],
+              "isRequired": false,
+              "definedText": "somebody?: string"
+            }
+          ],
+          "returnValue": [],
+          "isStatic": false,
+          "sync": ""
+        }
+      ]
+    }
+  ]
+}
