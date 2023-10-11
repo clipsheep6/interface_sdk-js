@@ -747,6 +747,14 @@ declare namespace relationalStore {
      * @since 10
      */
     autoSync: boolean;
+
+    /**
+     * Specifies whether retain data deleted in cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    retainData?: boolean;
   }
 
   /**
@@ -814,6 +822,39 @@ declare namespace relationalStore {
   }
 
   /**
+   * Describes the sources to modify data.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 11
+   */
+  enum Location {
+    /**
+     * Indicates local operation modify the data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    LOCAL,
+
+    /**
+     * Indicates cloud operation modify the data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    CLOUD,
+
+    /**
+     * Indicates remote operation modify the data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    REMOTE,
+  }
+
+  /**
    * Manages relational database configurations.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -827,6 +868,39 @@ declare namespace relationalStore {
    * @since 10
    */
   class RdbPredicates {
+    /**
+     * The CURSOR field name {#_cursor}.
+     *
+     * If not specify local field, cursor would acts on all {@link Location}.
+     *
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    readonly CURSOR_FIELD: string;
+
+    /**
+     * The LOCATION field name {#_location}.
+     *
+     * Location field for cursor query, value detail see {@link Location}.
+     *
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    readonly LOCATION_FIELD: string;
+
+    /**
+     * The status field name {status}.
+     *
+     * Indicates whether data has deleted in cloud.
+     *
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    readonly STATUS_FIELD: boolean;
+
     /**
      * A parameterized constructor used to create a RdbPredicates instance.
      *
@@ -2738,6 +2812,33 @@ declare namespace relationalStore {
       primaryKeys: PRIKeyType[],
       callback: AsyncCallback<ModifyTime>
     ): void;
+
+    /**
+     * Cleans the retained data deleted in cloud.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { AsyncCallback<void> } callback - The callback of clean.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    clean(table: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Cleans the retained data deleted in cloud.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @returns { Promise<void> } -The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    clean(table: string): Promise<void>;
+
     /**
      * Executes a SQL statement that contains specified parameters but returns no value.
      *
