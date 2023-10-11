@@ -869,7 +869,7 @@ declare namespace relationalStore {
    */
   class RdbPredicates {
     /**
-     * The CURSOR field name {#_cursor}.
+     * The cursor field name {#_cursor}.
      *
      * If not specify local field, cursor would acts on all {@link Location}.
      *
@@ -877,10 +877,10 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    readonly cursor_field: string;
+    readonly cursorField: string;
 
     /**
-     * The LOCATION field name {#_location}.
+     * The location field name {#_location}.
      *
      * Location field for cursor query, value detail see {@link Location}.
      *
@@ -888,10 +888,10 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    readonly location_field: string;
+    readonly locationField: string;
 
     /**
-     * The DELETED_FLAG field name {deleted_flag}.
+     * The deleted flag field name {deleted_flag}.
      *
      * Indicates whether data has deleted in cloud.
      *
@@ -899,7 +899,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    readonly deleted_flag_field: boolean;
+    readonly deletedFlagField: boolean;
 
     /**
      * A parameterized constructor used to create a RdbPredicates instance.
