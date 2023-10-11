@@ -217,6 +217,73 @@ declare namespace http {
      * @since 10
      */
     caPath?: string;
+
+    /**
+     * Used to set to continue uploading or downloading the remaining content. The default value is 0.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    resumeFrom?: number;
+
+    /**
+     * Support the application to pass in client certificates, allowing the server to verify the client's identity.
+     * @type {?ClientCert}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    clientCert?: ClientCert;
+
+    /**
+     * If this parameter is set, incoming DNS resolution server domain name.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    dnsOverHttps?: string;
+
+    /**
+     * If this parameter is set, use the specified DNS server for DNS resolution.
+     * Multiple DNS resolution servers can be set up, with a maximum of 3 servers.
+     * Only take the first three if there are more than three.
+     * @type {?Array<string>}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    dnsServers?: Array<string>;
+  }
+
+  /**
+   * The clientCert field of the client certificate, which includes three attributes:
+   * client certificate (cert), certificate private key (key), and passphrase (keyPasswd).
+   * @interface ClientCert
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface ClientCert {
+    /**
+     * Cert: The absolute path to the client certificate file
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    cert: string;
+
+    /**
+     * Key: The absolute path of the client certificate private key file
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    key: string;
+
+    /**
+     * KeyPasswd: Client certificate password
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    keyPasswd?: string;
   }
 
   /**
@@ -609,6 +676,14 @@ declare namespace http {
     requestInStream(url: string, options?: HttpRequestOptions): Promise<number>;
 
     /**
+     * Returns the performance timing of the HTTP request.
+     * @returns {PerformanceTiming} PerformanceTiming object.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getPerformanceTiming(): PerformanceTiming;
+
+    /**
      * Destroys an HTTP request.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
@@ -747,6 +822,24 @@ declare namespace http {
      * @since 10
      */
     off(type: 'dataReceiveProgress', callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
+
+    /**
+     * Registers an observer for progress of uploadSize HTTP Response data events.
+     * @param { 'uploadSize' } type - Indicates Event name.
+     * @param { Callback<{ uploadSize: number, totalSize: number }> } callback - the callback of on.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'dataUploadProgress', callback: Callback<{ uploadSize: number, totalSize: number }>): void
+
+    /**
+     * Unregisters an observer for progress of uploadSize HTTP Response data events.
+     * @param { 'uploadSize' } type - Indicates Event name.
+     * @param { Callback<{  uploadSize: number, totalSize: number  }> } callback - the callback of off.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'dataUploadProgress', callback?: Callback<{ uploadSize: number, totalSize: number }>): void
   }
 
   /**
@@ -1380,7 +1473,14 @@ declare namespace http {
      * @crossplatform
      * @since 10
      */
-    HTTP2
+    HTTP2,
+
+    /**
+     * Protocol http3
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    HTTP3
   }
 
   /**
@@ -1531,6 +1631,95 @@ declare namespace http {
      * @since 10
      */
     cookies: string;
+
+  }
+
+  /**
+   * Counting the time taken of various stages of HTTP request.
+   * @interface PerformanceTiming
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface PerformanceTiming {
+    /**
+     * Time taken from startup to DNS resolution completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    dnsTiming: number;
+
+    /**
+     * Time taken from startup to TCP connection completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    tcpTiming: number;
+
+    /**
+     * Time taken from startup to TLS connection completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    tlsTiming: number;
+
+    /**
+     * Time taken from startup to start sending the first byte, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    firstSendTiming: number;
+
+    /**
+     * Time taken from startup to receiving the first byte, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    firstReceiveTiming: number;
+
+    /**
+     * Time taken from startup to the completion of the request, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    totalFinishTiming: number;
+
+    /**
+     * Time taken from startup to completion of all redirection steps, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    redirectTiming: number;
+
+    /**
+     * Time taken from HTTP request to header completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    responseHeaderTiming: number;
+
+    /**
+     * Time taken from HTTP Request to body completion, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    responseBodyTiming: number;
+
+    /**
+     * Time taken from HTTP Request to callback to the application, in milliseconds.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    callEndTiming: number;
   }
 
   /**
