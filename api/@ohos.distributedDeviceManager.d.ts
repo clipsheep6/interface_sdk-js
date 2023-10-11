@@ -196,13 +196,13 @@ declare namespace distributedDeviceManager {
      * Get the device type of the local device.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { number } - Returns local device type.
+     * @returns { string } - Returns local device type.
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    getLocalDeviceType(): number;
+    getLocalDeviceType(): string;
 
     /**
      * Get the device id of the local device.
@@ -235,14 +235,14 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string } networkId - Device network id.
-     * @returns { number } - Returns device type.
+     * @returns { string } - Returns device type.
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    getDeviceType(networkId: string): number;
+    getDeviceType(networkId: string): string;
 
     /**
      * Start to discover nearby devices.
@@ -340,6 +340,56 @@ declare namespace distributedDeviceManager {
      */
     replyUiAction(action: number, actionResult: string): void;
 
+    /**
+     * register a advertising target.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Object } advertisingParam - Identification of advertising target.
+     * @param { Object } characteristicValue - Parameters of advertising target, The parameter type is map,such as:
+     *    "discoveryMpde" :  0x55 - Passive dicovery.
+     *                       0xAA - Proactive discovery.
+     *    "exchangeFreq"  :  0    - Low frequency.
+     *                       1    - Medium frequency.
+     *                       2    - High frequency.
+     *                       3    - Super high frequency.
+     *    "ranging"       :  xx   - Whether the device publish the distance.
+     * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 201 - Permission verify failed.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi this method can be used only by system applications.
+     * @since 10
+     */
+    registerTarget(advertisingParam:{ [key: string]: Object }, characteristicValue:{ [key: string]: Object }): void;
+
+    /**
+     * Start advertising discover target.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { string } targetID Service advertising ID, identify a advertising operation, should be a unique id in package range
+     * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 201 - Permission verify failed.
+     * @throws { BusinessError } 11600105 - Advertising invalid.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi this method can be used only by system applications.
+     * @since 10
+     */
+    startAdvertising(targetID: string): void;
+
+    /**
+     * Stop advertising discover device. 
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { string } targetID Service advertising ID, identify a advertising operation, should be a unique id in package range
+     * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 201 - Permission verify failed.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi this method can be used only by system applications.
+     * @since 10
+     */
+    stopAdvertising(targetID: string): void;
+    
     /**
      * Register a device state callback so that the application can be notified upon device state changes based on
      * the application bundle name.
