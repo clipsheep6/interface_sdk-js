@@ -822,15 +822,15 @@ declare namespace relationalStore {
   }
 
   /**
-   * Describes the sources to modify data.
+   * Describes the data origin sources.
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 11
    */
-  enum Location {
+  enum Origin {
     /**
-     * Indicates local operation modify the data.
+     * Indicates the data source is local.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
@@ -838,7 +838,7 @@ declare namespace relationalStore {
     LOCAL,
 
     /**
-     * Indicates cloud operation modify the data.
+     * Indicates the data source is cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
@@ -846,7 +846,7 @@ declare namespace relationalStore {
     CLOUD,
 
     /**
-     * Indicates remote operation modify the data.
+     * Indicates the data source is remote.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
@@ -880,15 +880,15 @@ declare namespace relationalStore {
     readonly cursorField: string;
 
     /**
-     * The location field name {#_location}.
+     * The origin field name {#_origin}.
      *
-     * Location field for cursor query, value detail see {@link Location}.
+     * Location field for cursor query, value detail see {@link Origin}.
      *
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    readonly locationField: string;
+    readonly originField: string;
 
     /**
      * The deleted flag field name {deleted_flag}.
