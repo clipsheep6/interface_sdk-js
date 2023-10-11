@@ -289,6 +289,14 @@ declare namespace relationalStore {
      * @since 10
      */
     dataGroupId?: string;
+
+    /**
+     * Specifies whether retain data deleted in cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    retainData?: boolean;
   }
 
   /**
@@ -747,14 +755,6 @@ declare namespace relationalStore {
      * @since 10
      */
     autoSync: boolean;
-
-    /**
-     * Specifies whether retain data deleted in cloud.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 11
-     */
-    retainData?: boolean;
   }
 
   /**
@@ -891,7 +891,7 @@ declare namespace relationalStore {
     readonly LOCATION_FIELD: string;
 
     /**
-     * The status field name {status}.
+     * The DELETED_FLAG field name {deleted_flag}.
      *
      * Indicates whether data has deleted in cloud.
      *
@@ -899,7 +899,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    readonly STATUS_FIELD: boolean;
+    readonly DELETED_FLAG_FIELD: boolean;
 
     /**
      * A parameterized constructor used to create a RdbPredicates instance.
