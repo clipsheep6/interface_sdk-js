@@ -877,7 +877,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    readonly CURSOR_FIELD: string;
+    readonly cursor_field: string;
 
     /**
      * The LOCATION field name {#_location}.
@@ -888,7 +888,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    readonly LOCATION_FIELD: string;
+    readonly location_field: string;
 
     /**
      * The DELETED_FLAG field name {deleted_flag}.
@@ -899,7 +899,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    readonly DELETED_FLAG_FIELD: boolean;
+    readonly deleted_flag_field: boolean;
 
     /**
      * A parameterized constructor used to create a RdbPredicates instance.
