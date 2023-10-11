@@ -10072,6 +10072,15 @@ declare class CustomComponent extends CommonAttribute {
   onMeasureSize?(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult;
 
   /**
+   * Invalidate custom measure and layout.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  invalidateLayout(): void
+
+  /**
    * onPageShow Method
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
