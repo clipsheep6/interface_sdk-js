@@ -857,52 +857,52 @@ declare namespace relationalStore {
   /**
    * Enumerates the field.
    *
-   * @enum { number }
+   * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11
    */
   enum Field {
     /**
-     * Cursor field, name {#_cursor}.
+     * Cursor field.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    CURSOR_FIELD,
+    CURSOR_FIELD = "#_cursor",
 
     /**
-     * Origin field, name {#_origin}, detail see {@link Origin}.
+     * Origin field, detail see {@link Origin}.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    ORIGIN_FIELD,
+    ORIGIN_FIELD = "#_origin",
 
     /**
-     * Deleted flag field, name {deleted_flag}.
+     * Deleted flag field.
      * Indicates whether data has deleted in cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    DELETE_FLAG_FIELD,
+    DELETE_FLAG_FIELD = "deleted_flag",
 
     /**
-     * Owner field, name {owner}.
+     * Owner field.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    OWNER_FIELD,
+    OWNER_FIELD = "owner",
 
     /**
-     * Privilege field, name {privilege}.
+     * Privilege field.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    PRIVILEGE_FIELD
+    PRIVILEGE_FIELD = "privilege"
   }
 
   /**
