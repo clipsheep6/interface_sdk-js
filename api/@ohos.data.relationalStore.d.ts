@@ -855,6 +855,57 @@ declare namespace relationalStore {
   }
 
   /**
+   * Enumerates the field.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+   * @systemapi
+   * @since 11
+   */
+  enum Field {
+    /**
+     * Cursor field, name {#_cursor}.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    CURSOR_FIELD,
+
+    /**
+     * Origin field, name {#_origin}, detail see {@link Origin}.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    ORIGIN_FIELD,
+
+    /**
+     * Deleted flag field, name {deleted_flag}.
+     * Indicates whether data has deleted in cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    DELETE_FLAG_FIELD,
+
+    /**
+     * Owner field, name {owner}.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    OWNER_FIELD,
+
+    /**
+     * Privilege field, name {privilege}.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    PRIVILEGE_FIELD
+  }
+
+  /**
    * Manages relational database configurations.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -868,39 +919,6 @@ declare namespace relationalStore {
    * @since 10
    */
   class RdbPredicates {
-    /**
-     * The cursor field name {#_cursor}.
-     *
-     * If not specify local field, cursor would acts on all {@link Location}.
-     *
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 11
-     */
-    readonly cursorField: string;
-
-    /**
-     * The origin field name {#_origin}.
-     *
-     * Location field for cursor query, value detail see {@link Origin}.
-     *
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 11
-     */
-    readonly originField: string;
-
-    /**
-     * The deleted flag field name {deleted_flag}.
-     *
-     * Indicates whether data has deleted in cloud.
-     *
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 11
-     */
-    readonly deletedFlagField: boolean;
-
     /**
      * A parameterized constructor used to create a RdbPredicates instance.
      *
