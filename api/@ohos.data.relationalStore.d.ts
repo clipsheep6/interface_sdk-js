@@ -871,7 +871,7 @@ declare namespace relationalStore {
     CURSOR_FIELD = "#_cursor",
 
     /**
-     * Origin field, detail see {@link Origin}.
+     * Origin field. For details, see {@link Origin}.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
