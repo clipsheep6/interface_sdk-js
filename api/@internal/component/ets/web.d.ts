@@ -1947,7 +1947,7 @@ declare interface WebOptions {
  * @interface ScriptItem
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
- * @since 10
+ * @since 11
  */
 declare interface ScriptItem {
   /**
@@ -1956,7 +1956,7 @@ declare interface ScriptItem {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
-   * @since 10
+   * @since 11
    */
   script: string;
   /**
@@ -1965,7 +1965,7 @@ declare interface ScriptItem {
    * @type { string[] }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
-   * @since 10
+   * @since 11
    */
   scriptRules: string[];
 }
@@ -3005,7 +3005,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Array<ScriptItem> } scripts - The array of JavaScript to be injected.
    * @throws { BusinessError } 401 - Invalid input parameter.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
+   * @since 11
    */
   addDocumentStartJavaScript(scripts: Array<ScriptItem>): WebAttribute;
 }
