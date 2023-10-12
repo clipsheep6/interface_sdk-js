@@ -859,7 +859,6 @@ declare namespace relationalStore {
    *
    * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
-   * @systemapi
    * @since 11
    */
   enum Field {
