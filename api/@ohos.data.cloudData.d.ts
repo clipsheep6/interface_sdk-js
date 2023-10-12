@@ -65,6 +65,7 @@ declare namespace cloudData {
     /**
      * Event ID.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11
@@ -87,6 +88,7 @@ declare namespace cloudData {
      * }
      * <b>accountId</b> and <b>bundleName</b> are mandatory.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11

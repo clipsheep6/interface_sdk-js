@@ -293,6 +293,7 @@ declare namespace relationalStore {
     /**
      * Specifies whether retain data deleted in cloud.
      *
+     * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
