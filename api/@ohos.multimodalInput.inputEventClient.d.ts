@@ -71,13 +71,13 @@ declare namespace inputEventClient {
   /**
    * Inject system keys.
    *
-   * @param { { KeyEvent } } KeyEvent - the key event to be injected.
+   * @param { object } event - the key event to be injected.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 8
    */
-  function injectEvent({ KeyEvent: KeyEvent }): void;
+  function injectEvent(event: { KeyEvent: KeyEvent }): void;
 }
 
 export default inputEventClient;
