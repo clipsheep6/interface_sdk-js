@@ -47,56 +47,6 @@ declare namespace cloudData {
   }
 
   /**
-   * ID of the event, which indicates the change of the data in the cloud.
-   *
-   * @constant
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-   * @since 11
-   */
-  const DATA_CHANGE_EVENT_ID = "cloud_data_change";
-
-  /**
-   * Extra data for data change notification.
-   *
-   * @interface ExtraData
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-   * @systemapi
-   * @since 11
-   */
-  interface ExtraData {
-    /**
-     * Event ID.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 11
-     */
-    eventId: string;
-
-    /**
-     * Extra data, which contains the following fields.
-     * {
-     *   "accountId": "aaa",
-     *   "bundleName": "com.bbb.xxx",
-     *   "containerName": "alias",
-     *   "databaseScopes": ["private", "shared"],
-     *   "recordTypes": ["xxx", "yyy", "zzz"],
-     *   "properties": {
-     *     "key": "value"
-     *   },
-     *   "keyId": "",
-     *   "signV3": ""
-     * }
-     * <b>accountId</b> and <b>bundleName</b> are mandatory.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 11
-     */
-    extraData: string;
-  }
-
-  /**
    * Provides methods to set cloud-device synchronization.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -288,46 +238,6 @@ declare namespace cloudData {
      * @since 10
      */
     static notifyDataChange(accountId: string, bundleName: string): Promise<void>;
-
-    /**
-     * Notifies changes of the cloud records.
-     *
-     * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { ExtraData } extInfo - Indicates the extra data for
-     * notification {@link ExtraData}.
-     * @param { AsyncCallback<void> } callback - Indicates the callback invoked
-     * to return the data changes.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
-     * @throws { BusinessError } 202 - Permission verification failed, which is
-     * returned when the system API is not called by a system application.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 11
-     */
-    static notifyDataChange(extInfo: ExtraData, callback: AsyncCallback<void>): void;
-
-    /**
-     * Notifies changes of the cloud records
-     *
-     * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { ExtraData } extInfo - Indicates the extra data for
-     * notification {@link ExtraData}.
-     * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     * is usually returned by <b>VerifyAccessToken</b>.
-     * @throws { BusinessError } 202 - Permission verification failed, which is
-     * returned when the system API is not called by a system application.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     *
-     * @since 11
-     */
-    static notifyDataChange(extInfo: ExtraData): Promise<void>;
 
     /**
      * Clears cloud information from the local device.
