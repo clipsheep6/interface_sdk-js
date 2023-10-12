@@ -198,6 +198,97 @@ declare enum EnterKeyType {
 }
 
 /**
+ * Declare the type of format input box content
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum TextInputFormatType {
+  /**
+   * Format content using split characters.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+   NORMAL,
+
+  /**
+   * Use number formatting.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  NUMBER,
+
+  /**
+   * Use phone number formatting.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+   PHONE_NUMBER,
+}
+
+/**
+ * Format options for text input
+ *
+ * @interface TextInputFormatOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface TextInputFormatOptions {
+  /**
+   * The type of format text input box content.
+   *
+   * @type { TextInputFormatType }
+   * @default TextInputFormatType.NORMAL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  type: TextInputFormatType;
+
+  /**
+   * The split character of normal format.
+   *
+   * @type { ?string }
+   * @default ' '
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  splitCharacter?: string;
+
+  /**
+   * The split length of normal format.
+   *
+   * @type { ?number }
+   * @default 4
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  splitLength?: number;
+
+  /**
+   * The region used for phone number formatting.
+   *
+   * @type { ?string }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  phoneNumberRegion?: string;
+}
+
+/**
  * Provides the method of switching the cursor position.
  *
  * @extends TextContentControllerBase
@@ -331,6 +422,17 @@ declare interface TextInputOptions {
    * @since 10
    */
   controller?: TextInputController;
+
+  /**
+   * Sets the format options for text input
+   *
+   * @type { ?TextInputFormatOptions }
+   * @default null
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  format?: TextInputFormatOptions;
 }
 
 /**
