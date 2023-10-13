@@ -1511,7 +1511,7 @@ declare class CalendarController {
    * @since 10
    * @form
    */
-  backToToday(): void;
+  backToToday();
 
   /**
    * To the specified element.
@@ -1530,7 +1530,7 @@ declare class CalendarController {
    * @since 10
    * @form
    */
-  goTo(value: { year: number; month: number; day: number }): void;
+  goTo(value: { year: number; month: number; day: number });
 }
 
 /**

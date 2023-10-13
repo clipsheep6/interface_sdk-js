@@ -891,7 +891,7 @@ declare class PanGestureOptions {
    * @crossplatform
    * @since 10
    */
-  setDirection(value: PanDirection): void;
+  setDirection(value: PanDirection);
 
   /**
    * Sets the setDistance attribute.
@@ -908,7 +908,7 @@ declare class PanGestureOptions {
    * @crossplatform
    * @since 10
    */
-  setDistance(value: number): void;
+  setDistance(value: number);
 
   /**
    * Sets the setFingers attribute.
@@ -925,7 +925,7 @@ declare class PanGestureOptions {
    * @crossplatform
    * @since 10
    */
-  setFingers(value: number): void;
+  setFingers(value: number);
 }
 
 /**

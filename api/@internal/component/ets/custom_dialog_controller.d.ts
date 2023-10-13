@@ -264,7 +264,7 @@ declare class CustomDialogController {
    * @crossplatform
    * @since 10
    */
-  open(): void;
+  open();
 
   /**
    * Closes the custom pop-up window. If the window is closed, the window does not take effect.
@@ -279,5 +279,5 @@ declare class CustomDialogController {
    * @crossplatform
    * @since 10
    */
-  close(): void;
+  close();
 }

@@ -77,7 +77,7 @@ declare class PatternLockController {
    * @crossplatform
    * @since 10
    */
-  reset(): void;
+  reset();
 
   /**
    * Set challenge result.

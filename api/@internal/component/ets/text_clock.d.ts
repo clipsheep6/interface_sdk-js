@@ -52,7 +52,7 @@ declare class TextClockController {
    * @crossplatform
    * @since 10
    */
-  start(): void;
+  start();
   /**
    * Provides a stop event for textclock.
    *
@@ -66,7 +66,7 @@ declare class TextClockController {
    * @crossplatform
    * @since 10
    */
-  stop(): void;
+  stop();
 }
 
 /**

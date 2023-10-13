@@ -58,7 +58,7 @@ declare class SwiperController {
    * @since 10
    * @form
    */
-  showNext(): void;
+  showNext();
 
   /**
    * Called when the previous subcomponent is displayed.
@@ -74,7 +74,7 @@ declare class SwiperController {
    * @since 10
    * @form
    */
-  showPrevious(): void;
+  showPrevious();
 
   /**
    * Called when need to stop the swiper animation.
@@ -92,7 +92,7 @@ declare class SwiperController {
    * @since 10
    * @form
    */
-  finishAnimation(callback?: () => void): void;
+  finishAnimation(callback?: () => void);
 }
 
 /**
