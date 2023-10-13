@@ -309,7 +309,7 @@ declare class VideoController {
    * @crossplatform
    * @since 10
    */
-  start(): void;
+  start();
 
   /**
    * Provides a pause event for playback.
@@ -324,7 +324,7 @@ declare class VideoController {
    * @crossplatform
    * @since 10
    */
-  pause(): void;
+  pause();
 
   /**
    * Provides an event to stop playback.
@@ -339,7 +339,7 @@ declare class VideoController {
    * @crossplatform
    * @since 10
    */
-  stop(): void;
+  stop();
 
   /**
    * Provide the progress method of video playback.
@@ -356,7 +356,7 @@ declare class VideoController {
    * @crossplatform
    * @since 10
    */
-  setCurrentTime(value: number): void;
+  setCurrentTime(value: number);
 
   /**
    * Provides a full screen playback method.
@@ -373,7 +373,7 @@ declare class VideoController {
    * @crossplatform
    * @since 10
    */
-  requestFullscreen(value: boolean): void;
+  requestFullscreen(value: boolean);
 
   /**
    * Provides a method to exit full screen playback.
@@ -388,7 +388,7 @@ declare class VideoController {
    * @crossplatform
    * @since 10
    */
-  exitFullscreen(): void;
+  exitFullscreen();
 
   /**
    * Provide the progress method of video playback.
@@ -407,7 +407,7 @@ declare class VideoController {
    * @crossplatform
    * @since 10
    */
-  setCurrentTime(value: number, seekMode: SeekMode): void;
+  setCurrentTime(value: number, seekMode: SeekMode);
 }
 
 /**
