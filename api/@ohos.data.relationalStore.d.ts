@@ -886,7 +886,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    DELETE_FLAG_FIELD = "deleted_flag",
+    DELETED_FLAG_FIELD = "deleted_flag",
 
     /**
      * Owner field.
