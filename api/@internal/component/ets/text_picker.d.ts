@@ -541,7 +541,7 @@ declare class TextPickerDialog {
    * @crossplatform
    * @since 10
    */
-  static show(options?: TextPickerDialogOptions);
+  static show(options?: TextPickerDialogOptions): void;
 }
 
 /**

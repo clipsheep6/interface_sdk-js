@@ -40,5 +40,5 @@ declare class ContextMenu {
    * @crossplatform
    * @since 10
    */
-  static close();
+  static close(): void;
 }
