@@ -1967,7 +1967,7 @@ declare interface ScriptItem {
    * @crossplatform
    * @since 11
    */
-  scriptRules: string[];
+  scriptRules: Array<string>;
 }
 
 /**
@@ -3001,13 +3001,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onOverScroll(callback: (event: { xOffset: number, yOffset: number }) => void): WebAttribute;
 
   /**
-   * Inject the JavaScripts before Webview loads the DOM tree be created.
+   * Inject the JavaScripts before Webview loads the DOM tree.
    * @param { Array<ScriptItem> } scripts - The array of JavaScript to be injected.
    * @throws { BusinessError } 401 - Invalid input parameter.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 11
    */
-  addDocumentStartJavaScript(scripts: Array<ScriptItem>): WebAttribute;
+  javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 }
 
 /**
