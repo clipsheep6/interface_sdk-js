@@ -155,6 +155,73 @@ declare namespace dataShare {
   }
 
   /**
+   * Proxy data configuration structure.
+   *
+   * @interface DataConfig
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  interface DataConfig {
+    /**
+     * Specifies the uri of the data config.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    uri: string;
+    /**
+     * Permissions required to read data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    requiredReadPermission: string;
+    /**
+     * Permissions required to write data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    requiredWritePermission: string;
+    /**
+     * Database type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    type: string;
+    /**
+     * Data source path.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    dbSourcePath: string;
+    /**
+     * The scope of the database.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    scope: string;
+
+  }
+
+  /**
    * Specifies the published item structure.
    *
    * @interface PublishedItem
@@ -561,6 +628,32 @@ declare namespace dataShare {
      * @since 10
      */
     getPublishedData(bundleName: string): Promise<Array<PublishedItem>>;
+
+    /**
+     * Obtain data configuration information for configured read permissions by uri.
+     *
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { AsyncCallback<DataConfig> } callback
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    getDataConfig(uri: string, callback: AsyncCallback<DataConfig>): void;
+
+    /**
+     * Obtain data configuration information for configured read permissions by uri.
+     * 
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @returns { Promise<DataConfig> }
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    getDataConfig(uri: string): Promise<DataConfig>;
 
     /**
      * Inserts a single data record into the database.
