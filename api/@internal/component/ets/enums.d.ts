@@ -5486,12 +5486,27 @@ declare enum ImageSpanAlignment {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * ObscuredReasons.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare enum ObscuredReasons {
   /**
    * Displayed data should appear as generic placeholders.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Displayed data should appear as generic placeholders.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   PLACEHOLDER = 0,
 }
@@ -5503,12 +5518,27 @@ declare enum ObscuredReasons {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Text content style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare enum TextContentStyle {
   /**
    * Text content default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Text content default style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   DEFAULT,
 
@@ -5517,6 +5547,13 @@ declare enum TextContentStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Text content inline style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   INLINE
 }
