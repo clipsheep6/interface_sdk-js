@@ -48,6 +48,7 @@ declare interface TextPickerRangeContent {
  *
  * @interface TextCascadePickerRangeContent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface TextCascadePickerRangeContent {
@@ -56,6 +57,7 @@ declare interface TextCascadePickerRangeContent {
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   text: string | Resource;
@@ -65,6 +67,7 @@ declare interface TextCascadePickerRangeContent {
    *
    * @type { ?TextCascadePickerRangeContent[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   children?: TextCascadePickerRangeContent[];
@@ -217,6 +220,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { boolean } value
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   canLoop(value: boolean): TextPickerAttribute;
@@ -399,6 +403,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   canLoop?: boolean;

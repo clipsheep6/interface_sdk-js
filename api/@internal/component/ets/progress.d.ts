@@ -403,6 +403,7 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
  *
  * @interface CommonProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface CommonProgressStyleOptions {
@@ -412,6 +413,7 @@ declare interface CommonProgressStyleOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   enableSmoothEffect?: boolean;
@@ -422,6 +424,7 @@ declare interface CommonProgressStyleOptions {
  *
  * @interface ScanEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface ScanEffectOptions {
@@ -431,6 +434,7 @@ declare interface ScanEffectOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   enableScanEffect?: boolean;
@@ -452,6 +456,7 @@ declare interface EclipseStyleOptions extends CommonProgressStyleOptions {
  *
  * @interface ScaleRingStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
@@ -460,6 +465,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   strokeWidth?: Length;
@@ -469,6 +475,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   scaleWidth?: Length;
@@ -478,6 +485,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   scaleCount?: number;
@@ -488,6 +496,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
  *
  * @interface RingStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
@@ -496,6 +505,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   strokeWidth?: Length;
@@ -505,6 +515,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   shadow?: boolean;
@@ -524,6 +535,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
  *
  * @interface LinearStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
@@ -532,6 +544,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   strokeWidth?: Length;
@@ -541,6 +554,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
    * @type { ?(PX | VP | LPX | Resource) }
    * @default strokeWidth / 2
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   strokeRadius?: PX | VP | LPX | Resource;
@@ -551,6 +565,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
  *
  * @interface CapsuleStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
@@ -559,6 +574,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   borderColor?: ResourceColor;
@@ -568,6 +584,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   borderWidth?: Length;
@@ -577,6 +594,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   content?: string;
@@ -586,6 +604,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   font?: Font;
@@ -595,6 +614,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   fontColor?: ResourceColor;
@@ -605,6 +625,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   showDefaultPercentage?: boolean;

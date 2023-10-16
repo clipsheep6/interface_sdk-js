@@ -619,6 +619,7 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @param { NestedScrollOptions } value - options for nested scrolling.
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   nestedScroll(value: NestedScrollOptions): ScrollAttribute;

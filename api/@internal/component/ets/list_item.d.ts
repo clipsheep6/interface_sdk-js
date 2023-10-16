@@ -140,6 +140,7 @@ declare enum SwipeEdgeEffect {
  *
  * @interface SwipeActionItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface SwipeActionItem {
@@ -149,6 +150,7 @@ declare interface SwipeActionItem {
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   builder?: CustomBuilder;
@@ -159,6 +161,7 @@ declare interface SwipeActionItem {
    * @type { ?Length }
    * @default 56vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   actionAreaDistance?: Length;
@@ -168,6 +171,7 @@ declare interface SwipeActionItem {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onAction?: () => void;
@@ -177,6 +181,7 @@ declare interface SwipeActionItem {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onEnterActionArea?: () => void;
@@ -186,6 +191,7 @@ declare interface SwipeActionItem {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   onExitActionArea?: () => void;
