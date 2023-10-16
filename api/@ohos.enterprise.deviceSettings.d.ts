@@ -36,7 +36,7 @@ declare namespace deviceSettings {
    */
   export interface PowerPolicy {
     /**
-     * An action that needs to be performed after a certain delay time
+     * An action that needs to be performed after a certain delay
      *
      * @type { PowerPolicyAction }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -68,54 +68,54 @@ declare namespace deviceSettings {
    */
   enum PowerPolicyAction {
     /**
-     * Perform no action after a certain delay time
+     * Performs no action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @stagemodelonly
      * @since 11
      */
-    ACTION_NONE = 0,
+    NONE = 0,
 
     /**
-     * Perform auto suspend action after a certain delay time
+     * Performs auto suspend action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @stagemodelonly
      * @since 11
      */
-    ACTION_AUTO_SUSPEND,
+    AUTO_SUSPEND,
 
     /**
-     * Perform force suspend action after a certain delay time
+     * Performs force suspend action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @stagemodelonly
      * @since 11
      */
-    ACTION_FORCE_SUSPEND,
+    FORCE_SUSPEND,
 
     /**
-     * Perform hibernate action after a certain delay time
+     * Performs hibernate action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @stagemodelonly
      * @since 11
      */
-    ACTION_HIBERNATE,
+    HIBERNATE,
 
     /**
-     * Perform shutdown action after a certain delay time
+     * Performs shutdown action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @stagemodelonly
      * @since 11
      */
-    ACTION_SHUTDOWN
+    SHUTDOWN
   }
 
   /**
