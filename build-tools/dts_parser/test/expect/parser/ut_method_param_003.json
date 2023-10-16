@@ -1,7 +1,7 @@
 {
-  "ut_jsdoc_param_016.d.ts": [
+  "ut_method_param_003.d.ts": [
     {
-      "filePath": "ut_jsdoc_param_016.d.ts",
+      "filePath": "ut_method_param_003.d.ts",
       "apiType": "Namespace",
       "definedText": " export namespace test",
       "pos": {
@@ -11,13 +11,13 @@
       "isExport": true,
       "apiName": "test",
       "hierarchicalRelations": [
-        "ut_jsdoc_param_016.d.ts",
+        "ut_method_param_003.d.ts",
         "test"
       ],
       "isStruct": false,
       "jsDocInfos": [
         {
-          "description": "the ut for jsdoc about param",
+          "description": "the ut for method in class",
           "syscap": "",
           "since": "-1",
           "isForm": false,
@@ -34,39 +34,23 @@
       ],
       "childApis": [
         {
-          "filePath": "ut_jsdoc_param_016.d.ts",
+          "filePath": "ut_method_param_003.d.ts",
           "apiType": "Method",
-          "definedText": "function func(str: string, str2: string): void;",
+          "definedText": "function func(str: string = '123'): void {}",
           "pos": {
-            "line": 10,
+            "line": 6,
             "character": 3
           },
           "isExport": false,
           "apiName": "func",
           "hierarchicalRelations": [
-            "ut_jsdoc_param_016.d.ts",
+            "ut_method_param_003.d.ts",
             "test",
             "func"
           ],
           "isStruct": false,
-          "jsDocInfos": [
-            {
-              "description": "",
-              "syscap": "",
-              "since": "-1",
-              "isForm": false,
-              "isCrossPlatForm": false,
-              "isSystemApi": false,
-              "modelLimitation": "",
-              "deprecatedVersion": "-1",
-              "useinstead": "",
-              "permissions": "",
-              "errorCodes": [],
-              "typeInfo": "",
-              "isConstant": false
-            }
-          ],
-          "callForm": "func(str: string, str2: string): void",
+          "jsDocInfos": [],
+          "callForm": "func(str: string = '123'): void {}",
           "params": [
             {
               "apiType": "Param",
@@ -75,16 +59,7 @@
                 "string"
               ],
               "isRequired": true,
-              "definedText": "str: string"
-            },
-            {
-              "apiType": "Param",
-              "apiName": "str2",
-              "type": [
-                "string"
-              ],
-              "isRequired": true,
-              "definedText": "str2: string"
+              "definedText": "str: string = '123'"
             }
           ],
           "returnValue": [],

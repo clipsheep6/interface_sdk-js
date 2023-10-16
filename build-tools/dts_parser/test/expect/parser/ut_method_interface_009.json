@@ -1,23 +1,23 @@
 {
-  "ut_jsdoc_permission_017.d.ts": [
+  "ut_method_interface_009.d.ts": [
     {
-      "filePath": "ut_jsdoc_permission_017.d.ts",
-      "apiType": "Namespace",
-      "definedText": " export namespace test",
+      "filePath": "ut_method_interface_009.d.ts",
+      "apiType": "Interface",
+      "definedText": " export interface Test",
       "pos": {
         "line": 5,
         "character": 1
       },
       "isExport": true,
-      "apiName": "test",
+      "apiName": "Test",
       "hierarchicalRelations": [
-        "ut_jsdoc_permission_017.d.ts",
-        "test"
+        "ut_method_interface_009.d.ts",
+        "Test"
       ],
       "isStruct": false,
       "jsDocInfos": [
         {
-          "description": "the ut for jsdoc about permission",
+          "description": "the ut for method in interface",
           "syscap": "",
           "since": "-1",
           "isForm": false,
@@ -32,41 +32,26 @@
           "isConstant": false
         }
       ],
+      "parentClasses": [],
       "childApis": [
         {
-          "filePath": "ut_jsdoc_permission_017.d.ts",
+          "filePath": "ut_method_interface_009.d.ts",
           "apiType": "Method",
-          "definedText": "function func(str: string): void;",
+          "definedText": "fun(str: string);",
           "pos": {
-            "line": 9,
+            "line": 6,
             "character": 3
           },
           "isExport": false,
-          "apiName": "func",
+          "apiName": "fun",
           "hierarchicalRelations": [
-            "ut_jsdoc_permission_017.d.ts",
-            "test",
-            "func"
+            "ut_method_interface_009.d.ts",
+            "Test",
+            "fun"
           ],
           "isStruct": false,
-          "jsDocInfos": [
-            {
-              "description": "",
-              "syscap": "",
-              "since": "-1",
-              "isForm": false,
-              "isCrossPlatForm": false,
-              "isSystemApi": false,
-              "modelLimitation": "",
-              "deprecatedVersion": "-1",
-              "useinstead": "",
-              "permissions": "ohos.permission.GET_SENSITIVE_PERMISSIONS",
-              "errorCodes": [],
-              "typeInfo": "",
-              "isConstant": false
-            }
-          ],
-          "callForm": "func(str: string): void",
+          "jsDocInfos": [],
+          "callForm": "fun(str: string)",
           "params": [
             {
               "apiType": "Param",
