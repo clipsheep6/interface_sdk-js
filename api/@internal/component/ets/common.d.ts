@@ -9989,6 +9989,17 @@ declare class CustomComponent extends CommonAttribute {
   build(): void;
 
   /**
+   * Obtain Entry Component Name.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { string } 
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  getEntryName?(): string;
+
+  /**
    * aboutToAppear Method
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
