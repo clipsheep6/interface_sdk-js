@@ -1676,6 +1676,7 @@ declare interface AlignRuleOption {
    *
    * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    * @form
    */
@@ -2235,6 +2236,15 @@ interface PreviewParams {
    * @since 9
    * @form
    */
+  /**
+   * Define Preview title
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
   title?: string;
 
   /**
@@ -2245,6 +2255,15 @@ interface PreviewParams {
    * @since 9
    * @form
    */
+  /**
+   * Define Preview width
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
   width?: number;
 
   /**
@@ -2253,6 +2272,15 @@ interface PreviewParams {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
+   */
+  /**
+   * Define Preview height
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    * @form
    */
   height?: number;
@@ -2273,6 +2301,15 @@ interface PreviewParams {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
+   * @form
+   */
+  /**
+   * Define Preview colorMode
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    * @form
    */
   colorMode?: string;
@@ -3145,6 +3182,7 @@ declare interface BlurStyleOptions {
    * @type { ?ThemeColorMode }
    * @default ThemeColorMode.SYSTEM
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   colorMode?: ThemeColorMode;
@@ -3155,6 +3193,7 @@ declare interface BlurStyleOptions {
    * @type { ?AdaptiveColor }
    * @default AdaptiveColor.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   adaptiveColor?: AdaptiveColor;
@@ -3485,6 +3524,7 @@ declare interface MultiShadowOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum SafeAreaType {
@@ -3492,6 +3532,7 @@ declare enum SafeAreaType {
    * Default area of the system, including the status bar and navigation bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   SYSTEM,
@@ -3500,6 +3541,7 @@ declare enum SafeAreaType {
    * Notch or punch hole.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   CUTOUT,
@@ -3508,6 +3550,7 @@ declare enum SafeAreaType {
    * Soft keyboard area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   KEYBOARD
@@ -3518,6 +3561,7 @@ declare enum SafeAreaType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare enum SafeAreaEdge {
@@ -3525,6 +3569,7 @@ declare enum SafeAreaEdge {
    * Top edge of the safe area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   TOP,
@@ -3533,6 +3578,7 @@ declare enum SafeAreaEdge {
    * Bottom edge of the safe area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   BOTTOM,
@@ -3541,6 +3587,7 @@ declare enum SafeAreaEdge {
    * Start edge of the safe area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   START,
@@ -3549,6 +3596,7 @@ declare enum SafeAreaEdge {
    * End edge of the safe area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   END
@@ -5489,6 +5537,7 @@ declare interface PopupOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   enableArrow?: boolean;
@@ -5773,6 +5822,7 @@ declare interface ContextMenuOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   enableArrow?: boolean;
@@ -5783,6 +5833,7 @@ declare interface ContextMenuOptions {
    * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   arrowOffset?: Length;
@@ -5973,6 +6024,7 @@ declare interface ClickEffect {
  *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 10
  */
 declare interface NestedScrollOptions {
@@ -5981,6 +6033,7 @@ declare interface NestedScrollOptions {
    *
    * @type { NestedScrollMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   scrollForward: NestedScrollMode;
@@ -5990,6 +6043,7 @@ declare interface NestedScrollOptions {
    *
    * @type { NestedScrollMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   scrollBackward: NestedScrollMode;
@@ -6824,6 +6878,15 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   */
+  /**
+   * Trigger a hover event.
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
   onHover(event: (isHover?: boolean, event?: HoverEvent) => void): T;
 
@@ -8319,6 +8382,7 @@ declare class CommonMethod<T> {
    * @param { boolean } value - true means the area can be dragged, false means the area can't be dragged.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   draggable(value: boolean): T;
@@ -8676,6 +8740,16 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
+  /**
+   * Popup control
+   *
+   * @param { boolean } show
+   * @param { PopupOptions | CustomPopupOptions } popup
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
   bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T;
 
   /**
@@ -8809,6 +8883,15 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   */
+  /**
+   * id for distribute identification.
+   *
+   * @param { number } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
    */
   restoreId(value: number): T;
 
@@ -10211,6 +10294,7 @@ declare interface RectResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   x: number;
@@ -10220,6 +10304,7 @@ declare interface RectResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   y: number;
@@ -10229,6 +10314,7 @@ declare interface RectResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   width: number;
@@ -10238,6 +10324,7 @@ declare interface RectResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 10
    */
   height: number;
