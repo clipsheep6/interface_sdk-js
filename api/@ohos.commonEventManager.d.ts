@@ -90,7 +90,7 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500004 - not System services or System app
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
-   * @throws { BusinessError } 1500009 - error obtai ning system parameters
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
