@@ -291,6 +291,16 @@ declare namespace relationalStore {
     dataGroupId?: string;
 
     /**
+     * Specifies the directory relative to the database directory obtained from context
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 11
+     */
+    customDir?: string;
+
+    /**
      * Specifies whether retain data deleted in cloud.
      *
      * @type { ?boolean }
@@ -3507,6 +3517,7 @@ declare namespace relationalStore {
 
   /**
    * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the database name.
@@ -3519,6 +3530,7 @@ declare namespace relationalStore {
    */
   /**
    * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the database name.
@@ -3534,6 +3546,7 @@ declare namespace relationalStore {
 
   /**
    * Deletes the database with a specified store config.
+   * When specify custom directory, this function should be called.
    *
    * @param { Context } context - Indicates the context of an application or ability.
    * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
@@ -3551,6 +3564,7 @@ declare namespace relationalStore {
 
   /**
    * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the database name.
@@ -3563,6 +3577,7 @@ declare namespace relationalStore {
    */
   /**
    * Deletes the database with a specified name.
+   * When specify custom directory, this function should not be called.
    *
    * @param { Context } context - Indicates the context of application or capability.
    * @param { string } name - Indicates the database name.
@@ -3578,6 +3593,7 @@ declare namespace relationalStore {
 
   /**
    * Deletes the database with a specified store config.
+   * When specify custom directory, this function should be called.
    *
    * @param { Context } context - Indicates the context of an application or ability.
    * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
