@@ -51,7 +51,7 @@ declare namespace cloudData {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @since 11
    */
-  const DATA_CHANGE_EVENT_ID = "cloud_data_change";
+  const DATA_CHANGE_EVENT_ID = 'cloud_data_change';
 
   /**
    * Extra data for data change notification.
