@@ -309,6 +309,7 @@ export interface CommonEventSubscriber {
    *
    * @param { AsyncCallback<CommonEventSubscribeInfo> } callback - Indicate callback function to receive common event.
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
    * @since 7
    */
   getSubscribeInfo(callback: AsyncCallback<CommonEventSubscribeInfo>): void;
@@ -318,6 +319,7 @@ export interface CommonEventSubscriber {
    *
    * @returns { Promise<CommonEventSubscribeInfo> } Returns the commonEvent subscribe information
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
    * @since 7
    */
   getSubscribeInfo(): Promise<CommonEventSubscribeInfo>;
