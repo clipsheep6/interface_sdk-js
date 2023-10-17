@@ -879,7 +879,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    CURSOR_FIELD = "#_cursor",
+    CURSOR_FIELD = '#_cursor',
 
     /**
      * Origin field. For details, see {@link Origin}.
@@ -887,7 +887,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    ORIGIN_FIELD = "#_origin",
+    ORIGIN_FIELD = '#_origin',
 
     /**
      * Deleted flag field.
@@ -896,7 +896,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    DELETED_FLAG_FIELD = "deleted_flag",
+    DELETED_FLAG_FIELD = 'deleted_flag',
 
     /**
      * Owner field.
@@ -904,7 +904,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    OWNER_FIELD = "owner",
+    OWNER_FIELD = 'owner',
 
     /**
      * Privilege field.
@@ -912,7 +912,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    PRIVILEGE_FIELD = "privilege"
+    PRIVILEGE_FIELD = 'privilege'
   }
 
   /**
