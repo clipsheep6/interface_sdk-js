@@ -90,7 +90,7 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500004 - not System services or System app
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
-   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @throws { BusinessError } 1500009 - error obtai ning system parameters
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
@@ -110,6 +110,7 @@ declare namespace commonEventManager {
    *                                                            CommonEventSubscriber object.
    * @throws { BusinessError } 401 - parameter error
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
    * @since 9
    */
   function createSubscriber(
@@ -124,6 +125,7 @@ declare namespace commonEventManager {
    * @returns { Promise<CommonEventSubscriber> } Returns the CommonEventSubscriber object.
    * @throws { BusinessError } 401 - parameter error
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
    * @since 9
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
@@ -149,6 +151,7 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
    * @since 9
    */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
@@ -163,6 +166,7 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
    * @since 9
    */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
@@ -1815,7 +1819,7 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event that the network connectivity changed.
      * This is a protected common event that can only be sent by system.
-     * 
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10
      */
@@ -1834,7 +1838,7 @@ declare namespace commonEventManager {
     /**
       * Indicates the action of a common event that audio quality change.
       * This is a protected common event that can only be sent by system.
-      * 
+      *
       * @syscap SystemCapability.Notification.CommonEvent
       * @systemapi
       * @since 10
