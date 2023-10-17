@@ -337,6 +337,73 @@ declare enum GestureMask {
 }
 
 /**
+ * Creating an Object
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum GestureJudgeResult {
+  /**
+   * The system gesture determination is not affected.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  None,
+
+  /**
+   * The user-defined gesture determination result of the current component is fail.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  Fail,
+}
+
+/**
+ * Creating an Object
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum SystemGestureType {
+  /**
+   * Drag-and-drop types in system gestures.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  Drag,
+}
+
+/**
+ * Type of the gesture information.
+ *
+ * @interface GestureInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+interface GestureInfo {
+  /**
+   * The tag of gesture.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  tag: string;
+}
+
+/**
  * Type of the finger information.
  *
  * @interface FingerInfo
@@ -744,6 +811,17 @@ interface TapGestureInterface {
    * @since 10
    */
   onAction(event: (event?: GestureEvent) => void): TapGestureInterface;
+
+  /**
+   * Set Tap gesture's tag.
+   *
+   * @param { { tag: string | Resource } } value
+   * @returns { TapGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  gestureInfo(value: { tag: string | Resource }): TapGestureInterface;
 }
 
 /**
@@ -843,6 +921,17 @@ interface LongPressGestureInterface {
    * @since 10
    */
   onActionCancel(event: () => void): LongPressGestureInterface;
+
+  /**
+   * Set LongPress gesture's tag.
+   *
+   * @param { { tag: string | Resource } } value
+   * @returns { LongPressGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  gestureInfo(value: { tag: string | Resource }): LongPressGestureInterface;
 }
 
 /**
@@ -1038,6 +1127,17 @@ interface PanGestureInterface {
    * @since 10
    */
   onActionCancel(event: () => void): PanGestureInterface;
+
+  /**
+   * Set Pan gesture's tag.
+   *
+   * @param { { tag: string | Resource } } value
+   * @returns { PanGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  gestureInfo(value: { tag: string | Resource }): PanGestureInterface;
 }
 
 /**
@@ -1093,6 +1193,17 @@ interface SwipeGestureInterface {
    * @since 10
    */
   onAction(event: (event?: GestureEvent) => void): SwipeGestureInterface;
+
+  /**
+   * Set Swipe gesture's tag.
+   *
+   * @param { { tag: string | Resource } } value
+   * @returns { SwipeGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+    gestureInfo(value: { tag: string | Resource }): SwipeGestureInterface;
 }
 
 /**
@@ -1205,6 +1316,17 @@ interface PinchGestureInterface {
    * @since 10
    */
   onActionCancel(event: () => void): PinchGestureInterface;
+
+  /**
+   * Set Pinch gesture's tag.
+   *
+   * @param { { tag: string | Resource } } value
+   * @returns { PinchGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  gestureInfo(value: { tag: string | Resource }): PinchGestureInterface;
 }
 
 /**
@@ -1317,6 +1439,17 @@ interface RotationGestureInterface {
    * @since 10
    */
   onActionCancel(event: () => void): RotationGestureInterface;
+
+  /**
+   * Set Rotation gesture's tag.
+   *
+   * @param { { tag: string | Resource } } value
+   * @returns { RotationGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  gestureInfo(value: { tag: string | Resource }): RotationGestureInterface;
 }
 
 /**
