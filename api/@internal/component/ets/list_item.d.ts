@@ -142,6 +142,14 @@ declare enum SwipeEdgeEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Defines the swipe action item for SwipeActionOptions.
+ *
+ * @interface SwipeActionItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare interface SwipeActionItem {
   /**
    * An action item that appears when a list item slides right (when list direction is Vertical) or
@@ -150,6 +158,15 @@ declare interface SwipeActionItem {
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * An action item that appears when a list item slides right (when list direction is Vertical) or
+   * slides down (when list direction Horizontal).
+   *
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   builder?: CustomBuilder;
 
@@ -161,6 +178,15 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Defines distance for the delete area.
+   *
+   * @type { ?Length }
+   * @default 56vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   actionAreaDistance?: Length;
 
   /**
@@ -169,6 +195,14 @@ declare interface SwipeActionItem {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Called when ListItem need to be deleted.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   onAction?: () => void;
 
@@ -179,6 +213,14 @@ declare interface SwipeActionItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Called when swipe entry delete area.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
   onEnterActionArea?: () => void;
 
   /**
@@ -187,6 +229,14 @@ declare interface SwipeActionItem {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Called when swipe exit delete area.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
    */
   onExitActionArea?: () => void;
 }
