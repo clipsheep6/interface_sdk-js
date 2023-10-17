@@ -337,6 +337,45 @@ declare enum GestureMask {
 }
 
 /**
+ * Creating an Object
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+declare enum GestureJudgeResult {
+  /**
+   * The system gesture determination is not affected.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  None,
+
+  /**
+   * The user-defined gesture determination result of the current component is fail.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  Fail,
+}
+
+/**
+ * Type of the basic gesture.
+ *
+ * @interface BaseGesture
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+interface BaseGesture {
+}
+
+/**
  * Type of the finger information.
  *
  * @interface FingerInfo
@@ -702,7 +741,7 @@ interface GestureEvent extends BaseEvent {
  * @crossplatform
  * @since 10
  */
-interface TapGestureInterface {
+interface TapGestureInterface extends BaseGesture {
   /**
    * Set the value.
    * count:Number of consecutive clicks recognized. If the value is less than 1, the default value is used.
@@ -761,7 +800,7 @@ interface TapGestureInterface {
  * @crossplatform
  * @since 10
  */
-interface LongPressGestureInterface {
+interface LongPressGestureInterface extends BaseGesture {
   /**
    * Set the value.
    * fingers: Indicates the hand index that triggers the long press.
@@ -943,7 +982,7 @@ declare class PanGestureOptions {
  * @crossplatform
  * @since 10
  */
-interface PanGestureInterface {
+interface PanGestureInterface extends BaseGesture {
   /**
    * Set the value.
    *
@@ -1055,7 +1094,7 @@ interface PanGestureInterface {
  * @crossplatform
  * @since 10
  */
-interface SwipeGestureInterface {
+interface SwipeGestureInterface extends BaseGesture {
   /**
    * Set the value.
    *
@@ -1110,7 +1149,7 @@ interface SwipeGestureInterface {
  * @crossplatform
  * @since 10
  */
-interface PinchGestureInterface {
+interface PinchGestureInterface extends BaseGesture {
   /**
    * Set the value.
    *
@@ -1222,7 +1261,7 @@ interface PinchGestureInterface {
  * @crossplatform
  * @since 10
  */
-interface RotationGestureInterface {
+interface RotationGestureInterface extends BaseGesture {
   /**
    * Set the value.
    *
