@@ -1962,7 +1962,7 @@ declare interface ScriptItem {
   /**
    * Sets the rules of JavaScript.
    *
-   * @type { string[] }
+   * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @since 11
