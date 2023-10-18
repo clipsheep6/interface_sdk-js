@@ -26,10 +26,12 @@ import type Context from './application/BaseContext';
  */
 declare namespace vcard {
   /**
-   * Import contacts through vcf file.
+   * Import contacts from the specified vcf file.
    *
-   * @permission ohos.permission.WRITE_CONTACTS and ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
+   * @permission ohos.permission.WRITE_CONTACTS and
+   * ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or
+   *     capability.
    * @param { string } filePath - Vcf file path.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -45,12 +47,17 @@ declare namespace vcard {
   function importVCard(context: Context, filePath: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Import contacts through vcf file.
+   * Import contacts from the specified vcf file.
    *
-   * @permission ohos.permission.WRITE_CONTACTS and ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
+   * @permission ohos.permission.WRITE_CONTACTS and
+   * ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or
+   *     capability.
    * @param { string } filePath - Vcf file path.
-   * @param { number } accountId - Contact account ID.
+   * @param { number } accountId - Contact account ID.When the app chooses to
+   *     import the vcf file into a contact account,
+   * it needs to pass in the accountId. If the accountId is not passed, a new
+   * contact account will be added by default.
    * @param { AsyncCallback<void> } callback - The callback of the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -65,12 +72,17 @@ declare namespace vcard {
   function importVCard(context: Context, filePath: string, accountId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Import contacts through vcf file.
+   * Import contacts from the specified vcf file.
    *
-   * @permission ohos.permission.WRITE_CONTACTS and ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
+   * @permission ohos.permission.WRITE_CONTACTS and
+   * ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of application or
+   *     capability.
    * @param { string } filePath - Vcf file path.
-   * @param { number } accountId - Contact account ID.
+   * @param { number } accountId - Contact account ID.When the app chooses to
+   *     import the vcf file into a contact account,
+   * it needs to pass in the accountId. If the accountId is not passed, a new
+   * contact account will be added by default.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
