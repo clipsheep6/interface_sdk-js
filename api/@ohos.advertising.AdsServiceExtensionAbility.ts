@@ -14,7 +14,6 @@
  */
 
 import advertising from './@ohos.advertising';
-import type AdsServiceExtensionContext from './application/AdsServiceExtensionContext';
 
 /**
  * Provides the capability of integrating advertising services with vendors.
@@ -23,15 +22,6 @@ import type AdsServiceExtensionContext from './application/AdsServiceExtensionCo
  * @since 11
  */
 export default class AdsServiceExtensionAbility {
-
-  /**
-   * Indicates ads service extension ability context.
-   * @type { AdsServiceExtensionContext }
-   * @syscap SystemCapability.Advertising.Ads
-   * @systemapi
-   * @since 11
-   */
-  context: AdsServiceExtensionContext;
 
   /**
    * Called when media application starts to load ad.
