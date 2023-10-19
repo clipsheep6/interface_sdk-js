@@ -8971,6 +8971,16 @@ declare class CommonMethod<T> {
    * @since 10
    */
   renderFit(fitMode: RenderFit): T;
+
+  /**
+   * When a gesture bound to this component is accepted, a user-defined callback is triggered to get the result
+   *
+   * @param { function } callback
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  onGestureJudgeBegin(callback: (gestureInfo: GestureInfo, event: GestureEvent) => GestureJudgeResult): T;
 }
 
 /**
