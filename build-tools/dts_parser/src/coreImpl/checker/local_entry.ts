@@ -15,8 +15,10 @@
 import path from 'path';
 import { ApiResultSimpleInfo } from '../../typedef/checker/result_type';
 import { Check } from './src/api_check_plugin';
+import { TSCheck } from './src/ts_check_plugin';
 import { FileUtils } from '../../utils/FileUtils';
 import { LogUtil } from '../../utils/logUtil';
+import {ResultProcessing} from './src/compile_info'
 
 /**
  * local entrance
@@ -26,10 +28,12 @@ export class LocalEntry {
     const mdFilesPath = path.resolve(FileUtils.getBaseDirName(), '../mdFiles.txt');
     let result: ApiResultSimpleInfo[] = [];
     try {
-      result = Check.scanEntry(mdFilesPath);
+      result =TSCheck.checkAPICodeStyle(mdFilesPath);
+      result.concat(Check.scanEntry(mdFilesPath));
     } catch (error) {
       LogUtil.e('API_CHECK_ERROR', error);
     } finally {
+      ResultProcessing.writeResultFile(result, '../result.txt', {})
     }
     return result;
   }
