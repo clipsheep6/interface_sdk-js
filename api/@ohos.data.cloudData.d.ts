@@ -524,7 +524,6 @@ declare namespace cloudData {
      * Allocates shared resources based on conditions,
      * and shares data with the specified privilege to participants.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } storeId - Indicates relational store name.
      * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
      * @param { Array<Participant> } participants - Participants to share.
@@ -551,7 +550,6 @@ declare namespace cloudData {
      * Allocates shared resources based on conditions,
      * and shares data with the specified privilege to participants.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } storeId - Indicates relational store name.
      * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
      * @param { Array<string> } columns - Columns to be shared.
@@ -580,7 +578,6 @@ declare namespace cloudData {
      * Allocates shared resources based on conditions,
      * and shares data with the specified privilege to participants.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } storeId - Indicates relational store name.
      * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
      * @param { Array<Participant> } participants - Participants to share.
@@ -606,7 +603,6 @@ declare namespace cloudData {
     /**
      * Shares data with the specified privilege to participants.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved in the data sharing.
@@ -631,7 +627,6 @@ declare namespace cloudData {
     /**
      * Shares data with the specified privilege to participants.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved in the data sharing.
@@ -651,7 +646,6 @@ declare namespace cloudData {
     /**
      * Unshares data.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved.
@@ -676,7 +670,6 @@ declare namespace cloudData {
     /**
      * Unshares data.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved.
@@ -696,7 +689,6 @@ declare namespace cloudData {
     /**
      * Exit sharing.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { AsyncCallback<void> } callback - The callback of exit.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -714,7 +706,6 @@ declare namespace cloudData {
     /**
      * Exit sharing.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - Indicates the sharing resource.
      * @Returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -732,7 +723,6 @@ declare namespace cloudData {
     /**
      * Changes the permissions for the shared data.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * whose permissions are to be changed.
@@ -757,7 +747,6 @@ declare namespace cloudData {
     /**
      * Changes the permissions for the shared data.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * whose permissions are to be changed.
@@ -780,7 +769,6 @@ declare namespace cloudData {
     /**
      * Queries the participants based on the specified shared data.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { AsyncCallback<Array<Result<Participant>>> } callback - Indicates the
      * callback invoked to return the participants obtained.
@@ -799,7 +787,6 @@ declare namespace cloudData {
     /**
      * Queries the participants based on the specified shared data..
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - Indicates the sharing resource.
      * @Returns { Promise<Array<Result<Participant>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -817,7 +804,6 @@ declare namespace cloudData {
     /**
      * Confirms the invitation of cloud sharing.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } invitationCode - Indicates the invitation code.
      * @param { Status } status - Indicates the status of invitation.
      * @param { AsyncCallback<Result<string>> } callback - Indicates the callback
@@ -837,7 +823,6 @@ declare namespace cloudData {
     /**
      * Confirms the invitation of cloud sharing.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } invitationCode - Indicates the invitation code.
      * @param { Status } status - Indicates the status of invitation.
      * @Returns { Promise<Result<string>> } - Promise used to return the sharing resource.
@@ -856,7 +841,6 @@ declare namespace cloudData {
     /**
      * Changes confirmation of shared record.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Status } status - Indicates the status of invitation.
      * @param { AsyncCallback<void> } callback - Indicates the callback.
@@ -875,7 +859,6 @@ declare namespace cloudData {
     /**
      * Changes confirmation of shared record.
      *
-     * @permission ohos.permission.CLOUDDATA_SHARING
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Status } status - Indicates the status of invitation.
      * @Returns { Promise<void> } - The promise returned by the function.
