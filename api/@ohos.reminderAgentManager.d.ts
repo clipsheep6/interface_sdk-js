@@ -16,6 +16,7 @@
 import { AsyncCallback } from './@ohos.base';
 import notification from './@ohos.notificationManager';
 import { NotificationSlot } from './notification/notificationSlot';
+import { ValueType, ValuesBucket } from './@ohos.data.ValuesBucket';
 
 /**
  * Providers static methods for managing reminders, including publishing or canceling a reminder.
@@ -269,6 +270,15 @@ declare namespace reminderAgentManager {
      * @since 10
      */
     wantAgent?: WantAgent;
+
+    /**
+     * Help to update database by DatashareHelper when the button is clicked.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    dataShareUpdate?: DataShareUpdate;
   }
 
   /**
@@ -304,6 +314,53 @@ declare namespace reminderAgentManager {
      * @since 10
      */
     uri?: string;
+  }
+
+  /**
+   * Values in EqualTo are stored in key-value pairs
+   * It use to find target data from shared database.
+   *
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  export type EqualTo = {
+    [key: string]: ValueType;
+  }
+
+  /**
+   * DataShareUpdate
+   * It will update the database by EqualTo when you click the action button.
+   *
+   * @interface DataShareUpdate
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 10
+   */
+  interface DataShareUpdate {
+    /**
+     * Database path.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 10
+     */
+    uri: string;
+
+    /**
+     * Use an equals find field from database.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 10
+     */
+    equalTo: EqualTo;
+
+    /**
+     * The new fields and content that need update to database.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    value: ValuesBucket;
   }
 
   /**
