@@ -1216,6 +1216,41 @@
       ]
     },
     {
+      "name": "overflowX",
+      "version": [
+        {
+          "name": "v10.0"
+        }
+      ],
+      "required": false,
+      "description": [
+        {
+          "name": "overflow in horizontal direction"
+        }
+      ],
+      "type": "enum",
+      "options": [
+        {
+          "name": "visible"
+        },
+        {
+          "name": "hidden"
+        },
+        {
+          "name": "scroll"
+        },
+        {
+          "name": "auto"
+        },
+        {
+          "name": "no-display"
+        },
+        {
+          "name": "no-content"
+        }
+       ]
+    },
+    {
       "name": "accessibility",
       "version": [
         {
