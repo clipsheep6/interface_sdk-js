@@ -14,6 +14,57 @@
  */
 
 /**
+ * The device system update info.
+ *
+ * @typedef SystemUpdateInfo
+ * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi
+ * @stagemodelonly
+ * @since 11
+ */
+export interface SystemUpdateInfo {
+  /**
+   * The device current version name.
+   *
+   * @type { string }
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  versionName: string;
+
+  /**
+   * The device current version number.
+   *
+   * @type { string }
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  versionNumber: string;
+
+  /**
+   * The time the version received.
+   *
+   * @type { number }
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  firstReceivedTime: number;
+
+  /**
+   * The type of package to update.
+   *
+   * @type { string }
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  packageType: string;
+}
+
+/**
  * Class of the enterprise admin extension ability.
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -85,4 +136,15 @@ export default class EnterpriseAdminExtensionAbility {
    * @since 10
    */
   onAppStop(bundleName: string): void;
+
+  /**
+   * Called back when system update version. 
+   *
+   * @param { SystemUpdateInfo } systemUpdateInfo - the information of the update system.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  onSystemUpdate(systemUpdateInfo: SystemUpdateInfo): void;
 }
