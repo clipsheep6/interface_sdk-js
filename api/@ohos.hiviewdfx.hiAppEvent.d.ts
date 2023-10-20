@@ -67,6 +67,24 @@ declare namespace hiAppEvent {
   }
 
   /**
+   * Preset domain.
+   *
+   * @namespace domain
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 11
+   */
+  namespace domain {
+    /**
+     * the domain of operating system.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    const OS: string;
+  }
+
+  /**
    * Preset event.
    *
    * @namespace event
@@ -100,6 +118,24 @@ declare namespace hiAppEvent {
      * @since 9
      */
     const DISTRIBUTED_SERVICE_START: string;
+
+    /**
+     * crash event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    const APP_CRASH: string;
+
+    /**
+     * freeze event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    const APP_FREEZE: string;
   }
 
   /**
@@ -388,6 +424,15 @@ declare namespace hiAppEvent {
      * @since 9
      */
     eventTypes?: EventType[];
+
+    /**
+     * The names of the events to be monitored by the watcher.
+     *
+     * @type { ?string[] }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    names?: string[];
   }
 
   /**
@@ -429,6 +474,14 @@ declare namespace hiAppEvent {
      * @since 9
      */
     onTrigger?: (curRow: number, curSize: number, holder: AppEventPackageHolder) => void;
+
+    /**
+     * The callback function, when watcher receive the event.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    onReceive?: (domain: string, events: Map<string, AppEventInfo[]>) => void;
   }
 
   /**
@@ -468,6 +521,222 @@ declare namespace hiAppEvent {
    * @since 9
    */
   function clearData(): void;
+
+  /**
+   * Set user ID.
+   *
+   * @param { string } name The key of the user ID.
+   * @param { string } value The value of the user ID.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 11
+   */
+  function setUserId(name: string, value: string): void;
+
+  /**
+   * Get user ID.
+   *
+   * @param { string } name The key of the user ID.
+   * @returns { string } the user ID value.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 11
+   */
+  function getUserId(name: string): string;
+
+  /**
+   * Set user property.
+   *
+   * @param { string } name The key of the user property.
+   * @param { string } value The value of the user property.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 11
+   */
+  function setUserProperty(name: string, value: string): void;
+
+  /**
+   * Get user property.
+   *
+   * @param { string } name The key of the user property.
+   * @returns { string } the user property value.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 11
+   */
+  function getUserProperty(name: string): string;
+
+  /**
+   * Describe the event config to be reported by processor.
+   *
+   * @interface  AppEventReportConfig
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 11
+   */
+  interface AppEventReportConfig {
+    /**
+     * The domain of the event.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    domain?: string;
+
+    /**
+     * The name of the event.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    name?: string;
+
+    /**
+     * The realtime report event.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    isRealTime?: boolean;
+  }
+
+  /**
+   * The defination of the processor.
+   *
+   * @interface  Proccessor
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 11
+   */
+  interface Processor {
+    /**
+     * The name of the processor.
+     *
+     * @type { string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    name: string;
+
+    /**
+     * The processor enable the developer to debug.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    debugMode?: boolean;
+
+    /**
+     * The server location information.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    routeInfo?: boolean;
+
+    /**
+     * The processor report the event when start.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    onStartReport?: boolean;
+
+    /**
+     * The processor report the event when the application onBackground.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    onBackgroundReport?: boolean;
+
+    /**
+     * The processor report the event according to the period.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    periodReport?: number;
+
+    /**
+     * The processor report the event according to the batch size.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    batchReport?: number;
+
+    /**
+     * The user ID names which the processor can report.
+     *
+     * @type { ?string[] }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    userIds?: string[];
+
+    /**
+     * The user property names which the processor can report.
+     *
+     * @type { ?string[] }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    userProperties?: string[];
+
+    /**
+     * The events which the processor can report.
+     *
+     * @type { ?AppEventReportConfig[] }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    eventConfig?: AppEventReportConfig[];
+  }
+
+  /**
+   * Add the processor, who can report the event.
+   *
+   * @param { Processor } processor The instance which report the event
+   * @returns { number }  The processor unique ID.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 11105001 - Invalid processor name.
+   * @throws { BusinessError } 11105002 - Invalid processor debugMode value.
+   * @throws { BusinessError } 11105003 - Invalid processor routeInfo value.
+   * @throws { BusinessError } 11105004 - Invalid processor onStartReport value.
+   * @throws { BusinessError } 11105005 - Invalid processor onBackground value.
+   * @throws { BusinessError } 11105006 - Invalid processor periodReport value.
+   * @throws { BusinessError } 11105007 - Invalid processor batchReport value.
+   * @throws { BusinessError } 11105008 - Invalid processor userIds value.
+   * @throws { BusinessError } 11105009 - Invalid processor userProperties value.
+   * @throws { BusinessError } 11105010 - Invalid processor eventConfigs value.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 11
+   */
+  function addProcessor(processor: Processor): number;
+
+  /**
+   * Remove the processor.
+   *
+   * @param { number } id The processor unique ID.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @since 11
+   */
+  function removeProcessor(id: number): void;
 }
 
 export default hiAppEvent;
