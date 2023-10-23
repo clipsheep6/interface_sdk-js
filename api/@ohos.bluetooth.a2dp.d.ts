@@ -127,25 +127,6 @@ declare namespace a2dp {
     isAbsoluteVolumeSupported(deviceId: string, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether the device supports absolute volume.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-     * @returns { Promise<boolean> } Returns the promise object.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 401 - Invalid parameter.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi
-     * @since 11
-     */
-    isAbsoluteVolumeSupported(deviceId: string): Promise<boolean>;
-
-    /**
      * Check whether the absolute volume is enabled.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
