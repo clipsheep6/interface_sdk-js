@@ -304,7 +304,6 @@ declare namespace inputMethod {
      *
      * @returns { Array<InputWindowStatus> } the status of all types of input windows.
      * @throws { BusinessError } 202 - not system application.
-     * @throws { BusinessError } 12800002 - input method engine error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
