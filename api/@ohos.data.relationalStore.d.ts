@@ -2845,6 +2845,21 @@ declare namespace relationalStore {
      * Cleans the retained data deleted in cloud.
      *
      * @param { string } table - Indicates the name of the table to check.
+     * @param { number } cursor - Indicates the cursor.
+     * the cursor of retained data that smaller than the cursor is cleaned up.
+     * @param { AsyncCallback<void> } callback - The callback of clean.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    clean(table: string, cursor: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Cleans all the retained data deleted in cloud.
+     *
+     * @param { string } table - Indicates the name of the table to check.
      * @param { AsyncCallback<void> } callback - The callback of clean.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -2858,6 +2873,8 @@ declare namespace relationalStore {
      * Cleans the retained data deleted in cloud.
      *
      * @param { string } table - Indicates the name of the table to check.
+     * @param { number } [cursor] - Indicates the cursor.
+     * the cursor of retained data that smaller than the cursor is cleaned up.
      * @returns { Promise<void> } -The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -2865,7 +2882,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    clean(table: string): Promise<void>;
+    clean(table: string, cursor?: number,): Promise<void>;
 
     /**
      * Executes a SQL statement that contains specified parameters but returns no value.
