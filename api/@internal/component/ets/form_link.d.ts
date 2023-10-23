@@ -55,12 +55,22 @@ declare interface FormLinkOptions {
   /**
    * Name of destination UIAbility.
    *
-   * @type { string }
+   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    * @form
    */
-  abilityName: string;
+  abilityName?: string;
+
+    /**
+   * uri of destination UIAbility.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   * @form
+   */
+  uri?: string;
 
   /**
    * The additional parameters, use JSON format key value pairs for content.
