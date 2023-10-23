@@ -2882,7 +2882,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11
      */
-    clean(table: string, cursor?: number,): Promise<void>;
+    clean(table: string, cursor?: number): Promise<void>;
 
     /**
      * Executes a SQL statement that contains specified parameters but returns no value.
