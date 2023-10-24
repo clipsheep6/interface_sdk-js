@@ -3011,6 +3011,7 @@ declare namespace socket {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -3033,10 +3034,11 @@ declare namespace socket {
      * Drop the socket from the multicast group.
      * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
      * @param { AsyncCallback<void> } callback - The callback of dropMembership.
-	   * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
-	   * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -3099,7 +3101,7 @@ declare namespace socket {
      * Set the loopback mode for the socket.
      * @param { boolean } flag - Whether to enable loopback mode.
      * @param { AsyncCallback<void> } callback - The callback of setLoopbackMode.
-	   * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -3110,7 +3112,7 @@ declare namespace socket {
      * Set the loopback mode for the socket.
      * @param { boolean } flag - Whether to enable loopback mode.
      * @returns { Promise<void> } The promise returned by the function.
-	   * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
