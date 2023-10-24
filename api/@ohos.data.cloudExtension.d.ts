@@ -136,7 +136,7 @@ declare namespace cloudExtension {
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingCodeOrRes - Indicates the sharing code or sharing resource.
      * @returns { Promise<Result<Array<Participant>>> } Returns the query result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -145,7 +145,7 @@ declare namespace cloudExtension {
     queryParticipants(
         userId: number,
         bundleName: string,
-        sharingRes: string
+        sharingCodeOrRes: string
     ): Promise<Result<Array<Participant>>>;
 
     /**
@@ -197,15 +197,16 @@ declare namespace cloudExtension {
    */
   export interface CloudService {
   /**
-   * Connects to a share service.
+   * Connects to a share center.
    *
-   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { number } userId - Indicates the user ID.
+   * @param { string } bundleName - Indicates the bundle name.
    * @returns { Promise<rpc.RemoteObject> } Returns connectAssetLoader RemoteObject.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11
    */
-  connectShareService(bundleName: string): Promise<rpc.RemoteObject>;
+  connectShareCenter(userId: number, bundleName: string): Promise<rpc.RemoteObject>;
   }
 }
 
