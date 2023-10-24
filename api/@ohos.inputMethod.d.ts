@@ -1713,66 +1713,6 @@ declare namespace inputMethod {
      */
     height: number;
   }
-
-  /**
-   * Enumerates the input window types of input method editor.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
-   */
-  export enum InputWindowType {
-    /**
-     * Fixed soft keyboard window of input method editor.
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    FIXED_SOFT_KEYBOARD = 0,
-
-    /**
-     * Floating soft keyboard window of input method editor.
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    FLOATING_SOFT_KEYBOARD,
-
-    /**
-     * Candidate window of input method editor.
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    CANDIDATE
-  }
-
-  /**
-   * Status of input window.
-   *
-   * @typedef InputWindowStatus
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 11
-   */
-  export interface InputWindowStatus {
-    /**
-     * Indicates the type of input window.
-     *
-     * @type { InputWindowType }
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    type: InputWindowType;
-
-    /**
-     * Indicates the display status of input window.
-     *
-     * @type { KeyboardStatus }
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    status: KeyboardStatus;
-  }
 }
 
 export default inputMethod;
