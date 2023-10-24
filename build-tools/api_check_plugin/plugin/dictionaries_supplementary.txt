@@ -634,6 +634,7 @@ scrollup
 sdpi
 searchsetter
 secinfo
+securityguard
 seeked
 semicircles
 sensing
