@@ -1602,7 +1602,17 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    FLG_FLOATING
+    FLG_FLOATING,
+
+    /**
+     * Candidate window style.
+     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
+     * When the flag is set, the soft keyboard is a candidate window.</p>
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    FLG_CANDIDATE
   }
 
   /**

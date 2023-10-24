@@ -21,25 +21,25 @@
  * @since 11
  */
 export interface PanelInfo {
-    /**
-     * Panel type.
-     *
-     * @type { PanelType }
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    type: PanelType;
+  /**
+   * Panel type.
+   *
+   * @type { PanelType }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  type: PanelType;
 
-    /**
-     * <p>Flag of Panel.</p>
-     * <p>Currently only using for SOFT_KEYBOARD panel.</p>
-     *
-     * @type { ?PanelFlag }
-     * @default FLG_FIXED
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    flag?: PanelFlag;
+  /**
+   * <p>Flag of Panel.</p>
+   * <p>Currently only using for SOFT_KEYBOARD panel.</p>
+   *
+   * @type { ?PanelFlag }
+   * @default FLG_FIXED
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  flag?: PanelFlag;
 }
 
 /**
@@ -50,25 +50,35 @@ export interface PanelInfo {
  * @since 11
  */
 export enum PanelFlag {
-    /**
-     * Fixed style.
-     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
-     * When the flag is set, the soft keyboard is fixed at the bottom of the screen.</p>
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    FLG_FIXED = 0,
+  /**
+   * Fixed style.
+   * <p>It's provided for the panel with type of SOFT_KEYBOARD.
+   * When the flag is set, the soft keyboard is fixed at the bottom of the screen.</p>
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  FLG_FIXED = 0,
 
-    /**
-     * Floating style.
-     * <p>It's provided for the panel with type of SOFT_KEYBOARD.
-     * When the flag is set, the soft keyboard is floating.</p>
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    FLG_FLOATING
+  /**
+   * Floating style.
+   * <p>It's provided for the panel with type of SOFT_KEYBOARD.
+   * When the flag is set, the soft keyboard is floating.</p>
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  FLG_FLOATING,
+
+  /**
+   * Candidate style.
+   * <p>It's provided for the panel with type of SOFT_KEYBOARD.
+   * When the flag is set, the soft keyboard is a candidate window.</p>
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  FLG_CANDIDATE
 }
 
 /**
@@ -80,19 +90,19 @@ export enum PanelFlag {
  * @since 11
  */
 export enum PanelType {
-    /**
-     * Panel for displaying a virtual software keyboard.
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    SOFT_KEYBOARD = 0,
+  /**
+   * Panel for displaying a virtual software keyboard.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  SOFT_KEYBOARD = 0,
 
-    /**
-     * Panel for displaying status bar.
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 11
-     */
-    STATUS_BAR
+  /**
+   * Panel for displaying status bar.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  STATUS_BAR
 }
