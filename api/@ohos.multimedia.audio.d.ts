@@ -541,14 +541,74 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
-    CHANNEL_1 = 0x1 << 0,
+    CHANNEL_1 = 1,
     /**
      * Channel 2.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
-    CHANNEL_2 = 0x1 << 1
-  }
+    CHANNEL_2 = 2,
+    /**
+     * Channel 3.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_3 = 3,
+    /**
+     * Channel 4.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_4 = 4,
+    /**
+     * Channel 5.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_5 = 5,
+    /**
+     * Channel 6.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_6 = 6,
+    /**
+     * Channel 7.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_7 = 7,
+    /**
+     * Channel 8.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_8 = 8,
+    /**
+     * Channel 10.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_10 = 10,
+    /**
+     * Channel 12.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_12 = 12,
+    /**
+     * Channel 14.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_14 = 14,
+    /**
+     * Channel 16.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_16 = 16,
+}
 
   /**
    * Enumerates the audio sampling rate.
@@ -887,6 +947,12 @@ declare namespace audio {
      * @since 8
      */
     encodingType: AudioEncodingType;
+    /**
+     * Audio channel layout.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    channelLayout?: AudioChannelLayout;
   }
 
   /**
@@ -4471,6 +4537,80 @@ declare namespace audio {
      */
     EFFECT_DEFAULT = 1,
   }
+  
+/**
+ * Audio AudioChannel Layout
+ * A 64-bit integer indicates that the appearance and order of the speakers for recording or playback.
+ * @since 11
+ */
+enum AudioChannelLayout {
+  CH_LAYOUT_UNKNOWN = 0,
+  /** Channel count: 1*/
+  CH_LAYOUT_MONO = 4,
+  /** Channel count: 2*/
+  CH_LAYOUT_STEREO = 3,
+  CH_LAYOUT_STEREO_DOWNMIX = 1610612736,
+  /** Channel count: 3*/
+  CH_LAYOUT_2POINT1 = 11,
+  CH_LAYOUT_3POINT0 = 259,
+  CH_LAYOUT_SURROUND = 7,
+  /** Channel count: 4*/
+  CH_LAYOUT_3POINT1 = 15,
+  CH_LAYOUT_4POINT0 = 263,
+  CH_LAYOUT_QUAD_SIDE = 1539,
+  CH_LAYOUT_QUAD = 51,
+  CH_LAYOUT_2POINT0POINT2 = 206158430211,
+  CH_LAYOUT_AMB_ORDER1_ACN_N3D = 17592186044417,
+  CH_LAYOUT_AMB_ORDER1_ACN_SN3D = 17592186048513,
+  CH_LAYOUT_AMB_ORDER1_FUMA = 17592186044673,  
+  /** Channel count: 5*/
+  CH_LAYOUT_4POINT1 = 271,
+  CH_LAYOUT_5POINT0 = 1543,
+  CH_LAYOUT_5POINT0_BACK = 55,
+  CH_LAYOUT_2POINT1POINT2 = 206158430219,
+  CH_LAYOUT_3POINT0POINT2 = 206158430215,
+  /** Channel count: 6*/
+  /**
+   * 5POINT1 Channel Layout: FL + FR + FC + LFE + SL + SR
+   * @since 11
+   */
+  CH_LAYOUT_5POINT1 = 1551,
+  CH_LAYOUT_5POINT1_BACK = 63,
+  CH_LAYOUT_6POINT0 = 1799,
+  CH_LAYOUT_HEXAGONAL = 311,
+  CH_LAYOUT_3POINT1POINT2 = 206158430223,
+  CH_LAYOUT_6POINT0_FRONT = 1731,
+  /** Channel count: 7*/
+  CH_LAYOUT_6POINT1 = 1807,
+  CH_LAYOUT_6POINT1_BACK = 319,
+  CH_LAYOUT_6POINT1_FRONT = 1739,
+  CH_LAYOUT_7POINT0 = 1591,
+  CH_LAYOUT_7POINT0_FRONT = 1735,
+  /** Channel count: 8*/
+  CH_LAYOUT_7POINT1 = 1599,
+  CH_LAYOUT_OCTAGONAL = 1847,
+  CH_LAYOUT_5POINT1POINT2 = 206158430271,
+  CH_LAYOUT_7POINT1_WIDE = 1743,
+  CH_LAYOUT_7POINT1_WIDE_BACK = 255,
+  /** Channel count: 9*/
+  CH_LAYOUT_AMB_ORDER2_ACN_N3D = 17592186044418,
+  CH_LAYOUT_AMB_ORDER2_ACN_SN3D = 17592186048514,
+  CH_LAYOUT_AMB_ORDER2_FUMA = 17592186044674,
+  /** Channel count: 10*/
+  CH_LAYOUT_5POINT1POINT4 = 110655,
+  CH_LAYOUT_7POINT1POINT2 = 206158431807,
+  /** Channel count: 12*/
+  CH_LAYOUT_7POINT1POINT4 = 112191,
+  CH_LAYOUT_10POINT2 = 6442465079,
+  /** Channel count: 14*/
+  CH_LAYOUT_9POINT1POINT4 = 6442563135,
+  /** Channel count: 16*/
+  CH_LAYOUT_9POINT1POINT6 = 212600993343,
+  CH_LAYOUT_HEXADECAGONAL = 6442710839,
+  CH_LAYOUT_AMB_ORDER3_ACN_N3D = 17592186044419,
+  CH_LAYOUT_AMB_ORDER3_ACN_SN3D = 17592186048515,
+  CH_LAYOUT_AMB_ORDER3_FUMA = 17592186044675
+}
 }
 
 export default audio;
