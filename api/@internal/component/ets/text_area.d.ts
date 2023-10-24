@@ -393,6 +393,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   inputFilter(value: ResourceStr, error?: (value: string) => void): TextAreaAttribute;
 
+    /**
+   * Called when the errorFilter of text is set.
+   *
+   * @param { InputType } value
+   * @param { function } error
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+    errorFilter(value: InputType, error?: (value: string) => void): TextAreaAttribute;
   /**
    * Called when the input changes.
    *
