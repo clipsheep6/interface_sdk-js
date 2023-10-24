@@ -3013,7 +3013,7 @@ declare namespace image {
      *
      * @param { ImageSource } source Image to be processed.
      * @param { number } fd ID of a file descriptor.
-     * @param { PackingOption } options Option for image packing.
+     * @param { PackingOption } options Options for image packing.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
@@ -3026,7 +3026,7 @@ declare namespace image {
      *
      * @param { ImageSource } source Image to be processed.
      * @param { number } fd ID of a file descriptor.
-     * @param { PackingOption } options Option for image packing.
+     * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
@@ -3039,7 +3039,7 @@ declare namespace image {
       *
       * @param { PixelMap } source PixelMap to be processed.
       * @param { number } fd ID of a file descriptor.
-      * @param { PackingOption } options Option for image packing.
+      * @param { PackingOption } options Options for image packing.
       * @param { AsyncCallback<void> } callback Callback used to return the operation result.
       * @syscap SystemCapability.Multimedia.Image.ImagePacker
       * @crossplatform
@@ -3052,7 +3052,7 @@ declare namespace image {
       *
       * @param { PixelMap } source PixelMap to be processed.
       * @param { number } fd ID of a file descriptor.
-      * @param { PackingOption } options Option for image packing.
+      * @param { PackingOption } options Options for image packing.
       * @returns { Promise<void> } A Promise instance used to return the operation result.
       * @syscap SystemCapability.Multimedia.Image.ImagePacker
       * @crossplatform
