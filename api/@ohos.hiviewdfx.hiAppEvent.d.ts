@@ -573,7 +573,7 @@ declare namespace hiAppEvent {
   /**
    * Describe the event config to be reported by processor.
    *
-   * @interface  AppEventReportConfig
+   * @interface AppEventReportConfig
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 11
    */
@@ -609,7 +609,7 @@ declare namespace hiAppEvent {
   /**
    * The defination of the processor.
    *
-   * @interface  Proccessor
+   * @interface Processor
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 11
    */
