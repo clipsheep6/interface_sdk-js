@@ -31,6 +31,7 @@ declare namespace adminManager {
    * @typedef EnterpriseInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
+   * @stagemodelonly
    * @since 9
    */
   export interface EnterpriseInfo {
@@ -40,6 +41,7 @@ declare namespace adminManager {
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+     * @stagemodelonly
      * @since 9
      */
     name: string;
@@ -50,6 +52,7 @@ declare namespace adminManager {
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+     * @stagemodelonly
      * @since 9
      */
     description: string;
@@ -61,6 +64,7 @@ declare namespace adminManager {
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
+   * @stagemodelonly
    * @since 9
    */
   export enum AdminType {
@@ -69,6 +73,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+     * @stagemodelonly
      * @since 9
      */
     ADMIN_TYPE_NORMAL = 0x00,
@@ -78,6 +83,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+     * @stagemodelonly
      * @since 9
      */
     ADMIN_TYPE_SUPER = 0x01
@@ -89,6 +95,7 @@ declare namespace adminManager {
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
+   * @stagemodelonly
    * @since 9
    */
   export enum ManagedEvent {
@@ -97,6 +104,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+     * @stagemodelonly
      * @since 9
      */
     MANAGED_EVENT_BUNDLE_ADDED = 0,
@@ -106,6 +114,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+     * @stagemodelonly
      * @since 9
      */
     MANAGED_EVENT_BUNDLE_REMOVED = 1,
@@ -115,6 +124,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+     * @stagemodelonly
      * @since 10
      */
     MANAGED_EVENT_APP_START = 2,
@@ -124,6 +134,7 @@ declare namespace adminManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
+     * @stagemodelonly
      * @since 10
      */
     MANAGED_EVENT_APP_STOP = 3
