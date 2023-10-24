@@ -15,6 +15,7 @@
 
 import type { Callback, AsyncCallback } from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
+import { PanelInfo } from './@ohos.inputMethod.Panel';
 
 /**
  * Input method
@@ -300,16 +301,20 @@ declare namespace inputMethod {
     off(type: 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
 
     /**
-     * Get status of input window.
+     * Query whether a panel with specified infomation is shown.
      *
-     * @returns { Array<InputWindowStatus> } the status of all types of input windows.
+     * @param { PanelInfo } panelInfo - the information of panel which is queried.
+     * @returns { boolean }
+     *     If true, the panel being queried is shown.
+     *     If false, the panel being queried is hidden.
      * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800008 - input method manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 11
      */
-    getInputWindowStatus(): Array<InputWindowStatus>;
+    isPanelShown(panelInfo: PanelInfo): boolean;
 
     /**
      * List subtype of the specified input method.
