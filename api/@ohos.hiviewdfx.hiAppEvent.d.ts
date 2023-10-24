@@ -607,7 +607,7 @@ declare namespace hiAppEvent {
   }
 
   /**
-   * The defination of the processor.
+   * Definition of the processor.
    *
    * @interface Processor
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
