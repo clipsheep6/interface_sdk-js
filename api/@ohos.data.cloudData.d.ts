@@ -769,7 +769,7 @@ declare namespace cloudData {
     /**
      * Queries the participants based on the specified shared data.
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingCodeOrRes - Indicates the sharing resource or sharing code.
      * @param { AsyncCallback<Array<Result<Participant>>> } callback - Indicates the
      * callback invoked to return the participants obtained.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -782,12 +782,12 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function queryParticipants(sharingRes: string, callback: AsyncCallback<Array<Result<Participant>>>): void;
+    function queryParticipants(sharingCodeOrRes: string, callback: AsyncCallback<Array<Result<Participant>>>): void;
 
     /**
      * Queries the participants based on the specified shared data..
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingCodeOrRes - Indicates the sharing resource or sharing code.
      * @Returns { Promise<Array<Result<Participant>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -799,7 +799,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function queryParticipants(sharingRes: string): Promise<Array<Result<Participant>>>;
+    function queryParticipants(sharingCodeOrRes: string): Promise<Array<Result<Participant>>>;
 
     /**
      * Confirms the invitation of cloud sharing.
