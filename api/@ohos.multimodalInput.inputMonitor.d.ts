@@ -81,6 +81,7 @@ declare namespace inputMonitor {
    * @param { Callback<MouseEvent> } receiver - Callback used to receive the reported data.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11
