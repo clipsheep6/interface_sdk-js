@@ -15,7 +15,7 @@
 
 import type { Callback, AsyncCallback } from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import { PanelInfo } from './@ohos.inputMethod.Panel';
+import type { PanelInfo } from './@ohos.inputMethod.Panel';
 
 /**
  * Input method
@@ -301,7 +301,7 @@ declare namespace inputMethod {
     off(type: 'imeHide', callback?: (info: Array<InputWindowInfo>) => void): void;
 
     /**
-     * Query whether a panel with specified infomation is shown.
+     * Query whether a panel with specified information is shown.
      *
      * @param { PanelInfo } panelInfo - the information of panel which is queried.
      * @returns { boolean }
