@@ -10503,6 +10503,25 @@ declare interface RectResult {
  */
 declare abstract class TextContentControllerBase {
   /**
+   * Called when the position of the insertion cursor is set.
+   *
+   * @param { number } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  caretPosition(value: number): void;
+
+  /**
+   * Exit edit state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  stopEditing(): void;
+
+  /**
    * Get the start and end positions of the text content.
    *
    * @returns { RectResult } Text content rect.

@@ -57,6 +57,8 @@ declare class TextAreaController extends TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @deprecated since 11
+   * @useinstead ohos.TextContentControllerBase#caretPosition
    */
   caretPosition(value: number): void;
 
@@ -77,6 +79,8 @@ declare class TextAreaController extends TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @deprecated since 11
+   * @useinstead ohos.TextContentControllerBase#stopEditing
    */
   stopEditing(): void;
 }
