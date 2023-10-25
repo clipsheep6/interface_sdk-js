@@ -769,7 +769,7 @@ declare namespace cloudData {
     /**
      * Queries the participants based on the specified shared data.
      *
-     * @param { string } sharingCodeOrRes - Indicates the sharing resource or sharing code.
+     * @param { string } sharingRes - Indicates the sharing resource.
      * @param { AsyncCallback<Array<Result<Participant>>> } callback - Indicates the
      * callback invoked to return the participants obtained.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -782,12 +782,12 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function queryParticipants(sharingCodeOrRes: string, callback: AsyncCallback<Array<Result<Participant>>>): void;
+    function queryParticipants(sharingRes: string, callback: AsyncCallback<Array<Result<Participant>>>): void;
 
     /**
-     * Queries the participants based on the specified shared data..
+     * Queries the participants based on the specified shared data.
      *
-     * @param { string } sharingCodeOrRes - Indicates the sharing resource or sharing code.
+     * @param { string } sharingRes - Indicates the sharing resource.
      * @Returns { Promise<Array<Result<Participant>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -799,7 +799,45 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function queryParticipants(sharingCodeOrRes: string): Promise<Array<Result<Participant>>>;
+    function queryParticipants(sharingRes: string): Promise<Array<Result<Participant>>>;
+
+    /**
+     * Queries the participants based on the specified invitation code.
+     *
+     * @param { string } InvitationCode - Indicates the invitation code.
+     * @param { AsyncCallback<Array<Result<Participant>>> } callback - Indicates the
+     * callback invoked to return the participants obtained.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @systemapi
+     * @since 11
+     */
+    function queryParticipantsByInvitation(
+      InvitationCode: string,
+      callback: AsyncCallback<Array<Result<Participant>>>
+    ): void;
+
+    /**
+     * Queries the participants based on the specified invitation code.
+     *
+     * @param { string } InvitationCode - Indicates the invitation code.
+     * @Returns { Promise<Array<Result<Participant>>> } - Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, which
+     * is usually returned by <b>VerifyAccessToken</b>.
+     * @throws { BusinessError } 202 - Permission verification failed, which is
+     * returned when the system API is not called by a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @systemapi
+     * @since 11
+     */
+    function queryParticipantsByInvitation(InvitationCode: string): Promise<Array<Result<Participant>>>;
 
     /**
      * Confirms the invitation of cloud sharing.
