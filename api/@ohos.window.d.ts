@@ -1733,6 +1733,28 @@ declare namespace window {
   }
   interface Window {
     /**
+     * Judge if current scene is immersive.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi
+     * @since 10
+     */
+    isImmersiveFullScreen(callback: AsyncCallback<void>): void;
+
+    /**
+     * Judge if current scene is immersive.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi
+     * @since 10
+     */
+    isImmersiveFullScreen(): Promise<void>;
+
+    /**
      * Hide window.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
