@@ -14,6 +14,8 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
+import type common from './@ohos.app.ability.common';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * Provides the capability to access the data loss prevention (DLP) files.
@@ -519,6 +521,62 @@ declare namespace dlpPermission {
   function getDLPFileAccessRecords(callback: AsyncCallback<Array<AccessedDLPFileInfo>>): void;
 
   /**
+   * Represents function openDLPManager result.
+   *
+   * @interface OpenDLPManagerResult
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @since 11
+   */
+  export interface OpenDLPManagerResult {
+    /**
+     * result of function openDLPManager.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 11
+     */
+    result: number;
+  }
+
+  /**
+   * Open DLPManager. This method uses a promise to return the result.
+   *
+   * @param { common.UIAbilityContext } context - Indicates the UIAbility Context of caller
+   * @param { Want } want - Indicates the request to DLPManager
+   * @returns { Promise<OpenDLPManagerResult> } Returns the {@link OpenDLPManagerResult}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100016 - Uri does not exist in want.
+   * @throws { BusinessError } 19100017 - DisplayName does not exist in want (under parameters).
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @StageModelOnly
+   * @since 11
+   */
+  function openDLPManager(context: common.UIAbilityContext, want: Want): Promise<OpenDLPManagerResult>;
+
+  /**
+   * Open DLPManager. This method uses an asynchronous callback to return the result.
+   *
+   * @param { common.UIAbilityContext } context - Indicates the UIAbility Context of caller
+   * @param { Want } want - Indicates the request to DLPManager
+   * @param { AsyncCallback<OpenDLPManagerResult> } callback - Indicates the callback of openDLPManager.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 19100001 - Invalid parameter value.
+   * @throws { BusinessError } 19100011 - System service exception.
+   * @throws { BusinessError } 19100016 - Uri does not exist in want.
+   * @throws { BusinessError } 19100017 - DisplayName does not exist in want (under parameters).
+   * @syscap SystemCapability.Security.DataLossPrevention
+   * @StageModelOnly
+   * @since 11
+   */
+  function openDLPManager(
+    context: common.UIAbilityContext,
+    want: Want,
+    callback: AsyncCallback<OpenDLPManagerResult>
+  ): void;
+
+  /**
    * Enumerates the gathering policy types for DLP files.
    *
    * @enum { number }
@@ -790,7 +848,7 @@ declare namespace dlpPermission {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    DOMAIN_ACCOUNT = 2,
+    DOMAIN_ACCOUNT = 2
   }
 
   /**
