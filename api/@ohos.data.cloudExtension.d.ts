@@ -136,7 +136,7 @@ declare namespace cloudExtension {
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
-     * @param { string } sharingCodeOrRes - Indicates the sharing code or sharing resource.
+     * @param { string } sharingRes - Indicates the sharing resource.
      * @returns { Promise<Result<Array<Participant>>> } Returns the query result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -145,7 +145,24 @@ declare namespace cloudExtension {
     queryParticipants(
         userId: number,
         bundleName: string,
-        sharingCodeOrRes: string
+        sharingRes: string
+    ): Promise<Result<Array<Participant>>>;
+
+    /**
+     * Query participants based on the specified invitation code.
+     *
+     * @param { number } userId - Indicates the user ID.
+     * @param { string } bundleName - Indicates the bundle name.
+     * @param { string } invitationCode - Indicates the invitation code.
+     * @returns { Promise<Result<Array<Participant>>> } Returns the query result.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+     * @systemapi
+     * @since 11
+     */
+    queryParticipantsByInvitation(
+        userId: number,
+        bundleName: string,
+        invitationCode: string
     ): Promise<Result<Array<Participant>>>;
 
     /**
