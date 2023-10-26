@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import {dataSharePredicates} from './@ohos.data.dataSharePredicates';
-import {AsyncCallback} from './basic';
+import {AsyncCallback} from './@ohos.base';
+import dataSharePredicates from './@ohos.data.dataSharePredicates';
 
 import type Context from './application/BaseContext';
 
@@ -114,7 +114,9 @@ declare namespace vcard {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<string>): void;
+  function exportVCard(
+      context: Context, predicates: dataSharePredicates.DataSharePredicates,
+      callback: AsyncCallback<string>): void;
   /**
    * Export contact data to a vcf file.
    *
