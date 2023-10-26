@@ -43,7 +43,7 @@ export interface PanelInfo {
 }
 
 /**
- * Enumerates the flags of panel
+ * Enumerates the flags of panel.
  *
  * @enum { number }
  * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -58,7 +58,7 @@ export enum PanelFlag {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
-  FLG_FIXED = 0,
+  FLAG_FIXED = 0,
 
   /**
    * Floating style.
@@ -68,22 +68,22 @@ export enum PanelFlag {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
-  FLG_FLOATING,
+  FLAG_FLOATING,
 
   /**
    * Candidate style.
    * <p>It's provided for the panel with type of SOFT_KEYBOARD.
-   * When the flag is set, the soft keyboard is a candidate window.</p>
+   * When the flag is set, the soft keyboard is a window which will not be automatically shown or hidden by input method service.
+   * Input method application developers are supposed to control the panel on their own.</p>
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
    */
-  FLG_CANDIDATE
+  FLAG_CANDIDATE
 }
 
 /**
- * <p>Panel types provided for input method applications.</p>
- * <p>Input method application developers should select the appropriate panel type according to the user scenario.</p>
+ * Enumerates the types of panel.
  *
  * @enum { number }
  * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -91,7 +91,7 @@ export enum PanelFlag {
  */
 export enum PanelType {
   /**
-   * Panel for displaying a virtual software keyboard.
+   * Panel for displaying a virtual soft keyboard.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 11
