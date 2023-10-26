@@ -304,7 +304,7 @@ declare namespace distributedDataObject {
      *                   'restored' The object restored success.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
-     * @since 9
+     * @since 11
      */
     on(
       type: 'status',
