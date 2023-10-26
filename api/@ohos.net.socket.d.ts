@@ -3002,6 +3002,140 @@ declare namespace socket {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Add the socket to the multicast group.
+     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
+     * @param { AsyncCallback<void> } callback - The callback of addMembership.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
+
+    /**
+     * Add the socket to the multicast group.
+     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    addMembership(multicastAddress: NetAddress): Promise<void>;
+
+    /**
+     * Drop the socket from the multicast group.
+     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
+     * @param { AsyncCallback<void> } callback - The callback of dropMembership.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @throws { BusinessError } 2303505 - Error occurred in the tls system call.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    dropMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
+
+    /**
+     * Drop the socket from the multicast group.
+     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303198 - Address already in use.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    dropMembership(multicastAddress: NetAddress): Promise<void>;
+
+    /**
+     * Set the TTL value for socket multicast packets.
+     * @param { number } ttl - The TTL value to set. Valid range is typically 0 to 255.
+     * @param { AsyncCallback<void> } callback - The callback of setMulticastTTL.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setMulticastTTL(ttl: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the TTL value for socket multicast packet.
+     * @param { number } ttl - The TTL value to set. Valid range is typically 0 to 255.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setMulticastTTL(ttl: number): Promise<void>;
+
+    /**
+     * Get the TTL value of socket multicast packet.
+     * @param { AsyncCallback<number> } callback - The callback of getMulticastTTL.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getMulticastTTL(callback: AsyncCallback<number>): void;
+
+    /**
+     * Get the TTL value of socket multicast packet.
+     * @returns { Promise<number> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getMulticastTTL(): Promise<number>;
+
+    /**
+     * Set the loopback mode for the socket.
+     * @param { boolean } flag - Whether to enable loopback mode.
+     * @param { AsyncCallback<void> } callback - The callback of setLoopbackMode.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setLoopbackMode(flag: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the loopback mode for the socket.
+     * @param { boolean } flag - Whether to enable loopback mode.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setLoopbackMode(flag: boolean): Promise<void>;
+
+    /**
+     * Get the loopback mode of the socket.
+     * @param { AsyncCallback<boolean> } callback - The callback of getLoopbackMode.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getLoopbackMode(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Get the loopback mode of the socket.
+     * @returns { Promise<boolean> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getLoopbackMode(): Promise<boolean>;
   }
 }
 
