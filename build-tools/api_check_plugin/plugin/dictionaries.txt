@@ -65705,6 +65705,8 @@ vbox
 vbs
 vbscript
 vc
+vcard
+vcf
 vcl
 vcr
 vcs
