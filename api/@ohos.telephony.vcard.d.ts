@@ -115,7 +115,7 @@ declare namespace vcard {
    * @since 11
    */
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates,
-     callback: AsyncCallback<string>): void;
+    callback: AsyncCallback<string>): void;
   /**
    * Export contact data to a vcf file.
    *
@@ -135,7 +135,7 @@ declare namespace vcard {
    * @since 11
    */
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates,
-     options: VCardBuilderOptions, callback: AsyncCallback<string>): void;
+    options: VCardBuilderOptions, callback: AsyncCallback<string>): void;
 
   /**
    * Export contact data to a vcf file.
@@ -156,7 +156,7 @@ declare namespace vcard {
    * @since 11
    */
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates,
-     options?: VCardBuilderOptions): Promise<string>;
+    options?: VCardBuilderOptions): Promise<string>;
 
   /**
    * Indicates the VCard types.
