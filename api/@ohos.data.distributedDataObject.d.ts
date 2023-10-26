@@ -308,7 +308,7 @@ declare namespace distributedDataObject {
      */
     on(
       type: 'status',
-      callback: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void
+      callback: (sessionId: string, networkId: string, status: 'online' | 'offline' | 'restored' ) => void
     ): void;
 
     /**
