@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 import uri from './@ohos.uri';
+import {AsyncCallback} from "./@ohos.base";
 
 /**
  * Provides fileUri APIS
@@ -22,6 +23,23 @@ import uri from './@ohos.uri';
  * @since 9
  */
 declare namespace fileUri {
+  /**
+   * Enumerates the uri access rights types.
+   *
+   * @enum { number } ModeSetting
+   * @syscap SystemCapability.FileManagement.AppFileService
+   * @since 11
+   */
+  export enum ModeSetting{
+    /**
+     * Indicates the read and write permissions.
+     *
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    O_RDWR = 2,
+  }
+
   /**
    * FileUri represents the uri of the file.
    *
@@ -54,6 +72,167 @@ declare namespace fileUri {
      * @since 10
      */
     readonly name: string;
+
+    /**
+     * Set the selected URI temporary permissions
+     *
+     * @param { number } tokenId the tokenid of app
+     * @param { ModeSetting } mode the type of access rights
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @throws { BusinessError } 401 - The input parameter is invalid
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    setPolicy(tokenId: number, mode: ModeSetting): Promise<void>;
+
+    /**
+     * Set the selected URI temporary permissions
+     *
+     * @param { number } tokenId the tokenid of app
+     * @param { ModeSetting } mode the type of access rights
+     * @param { AsyncCallback<void> } callback - the callback of setPolicy.
+     * @throws { BusinessError } 202 - The application is not a system application.
+     * @throws { BusinessError } 401 - The input parameter is invalid
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    setPolicy(tokenId: number, mode: ModeSetting, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set persistence permissions for the URI
+     *
+     * @permission ohos.permission.FILE_ACCESS_PERSIST
+     * @param { ModeSetting } mode the type of access rights
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The input parameter is invalid
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    persistPermission(mode: ModeSetting): Promise<void>;
+
+    /**
+     * Set persistence permissions for the URI
+     *
+     * @permission ohos.permission.FILE_ACCESS_PERSIST
+     * @param { ModeSetting } mode the type of access rights
+     * @param { AsyncCallback<void> } callback - the callback of setPolicy.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The input parameter is invalid
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    persistPermission(mode: ModeSetting, callback: AsyncCallback<void>): void;
+
+    /**
+     * Remove persistence permissions for the URI
+     *
+     * @permission ohos.permission.FILE_ACCESS_PERSIST
+     * @param { ModeSetting } mode the type of access rights
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The input parameter is invalid
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    unPersistPermission(mode: ModeSetting): Promise<void>;
+
+    /**
+     * Remove persistence permissions for the URI
+     *
+     * @permission ohos.permission.FILE_ACCESS_PERSIST
+     * @param { ModeSetting } mode the type of access rights
+     * @param { AsyncCallback<void> } callback - the callback of setPolicy.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The input parameter is invalid
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    unPersistPermission(mode: ModeSetting, callback: AsyncCallback<void>): void;
+
+    /**
+     * Enable the URI that have been permanently authorized
+     *
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - The input parameter is invalid
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    startAccessingURI(): Promise<void>;
+
+    /**
+     * Enable the URI that have been permanently authorized
+     *
+     * @param { AsyncCallback<void> } callback - the callback of setPolicy.
+     * @throws { BusinessError } 401 - The input parameter is invalid
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    startAccessingURI(callback: AsyncCallback<void>): void;
+
+    /**
+     * Stop the authorized URI that has been enabled
+     *
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - The input parameter is invalid
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    stopAccessingURI(): Promise<void>;
+
+    /**
+     * Stop the authorized URI that has been enabled
+     *
+     * @param { AsyncCallback<void> } callback - the callback of setPolicy.
+     * @throws { BusinessError } 401 - The input parameter is invalid
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    stopAccessingURI(callback: AsyncCallback<void>): void;
+
+    /**
+     * Get the directory where the file URI is located
+     *
+     * @returns { string } Return the directory path
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 9
+     */
+    getFileDirectory(): string;
   }
   
   /**
