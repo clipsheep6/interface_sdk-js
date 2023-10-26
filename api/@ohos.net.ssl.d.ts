@@ -98,8 +98,8 @@ declare namespace ssl {
      * Verify certification to server.
      * @param { CertBlob } cert - Certificates to be verified.
      * @param { CertBlob } caCert - Incoming custom CA cert.
-     * @syscap SystemCapability.Communication.NetStack
      * @returns { Promise<boolean> } The promise returned by the function.
+     * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     verifyCertification(cert: CertBlob, caCert?: CertBlob): Promise<boolean>;
@@ -108,8 +108,8 @@ declare namespace ssl {
      * Verify certification to server.
      * @param { CertBlob } cert - Certificates to be verified.
      * @param { CertBlob } caCert - Incoming custom CA cert.
-     * @syscap SystemCapability.Communication.NetStack
      * @returns { boolean } Returns true if the verify certification to server succeed, else returns false.
+     * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     verifyCertificationSync(cert: CertBlob, caCert?: CertBlob): boolean;
