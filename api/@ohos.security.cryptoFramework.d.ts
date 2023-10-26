@@ -21,6 +21,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace cryptoFramework
  * @syscap SystemCapability.Security.CryptoFramework
+ * @crossplatform
  * @since 9
  */
 declare namespace cryptoFramework {
@@ -29,6 +30,7 @@ declare namespace cryptoFramework {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   enum Result {
@@ -36,6 +38,7 @@ declare namespace cryptoFramework {
      * Indicates that input parameters is invalid.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     INVALID_PARAMS = 401,
@@ -44,6 +47,7 @@ declare namespace cryptoFramework {
      * Indicates that function or algorithm is not supported.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     NOT_SUPPORT = 801,
@@ -52,6 +56,7 @@ declare namespace cryptoFramework {
      * Indicates the memory error.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     ERR_OUT_OF_MEMORY = 17620001,
@@ -60,6 +65,7 @@ declare namespace cryptoFramework {
      * Indicates that runtime error.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     ERR_RUNTIME_ERROR = 17620002,
@@ -68,6 +74,7 @@ declare namespace cryptoFramework {
      * Indicates that crypto operation error.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     ERR_CRYPTO_OPERATION = 17630001
@@ -78,6 +85,7 @@ declare namespace cryptoFramework {
    *
    * @typedef DataBlob
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface DataBlob {
@@ -86,6 +94,7 @@ declare namespace cryptoFramework {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     data: Uint8Array;
@@ -96,6 +105,7 @@ declare namespace cryptoFramework {
    *
    * @typedef ParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface ParamsSpec {
@@ -104,6 +114,7 @@ declare namespace cryptoFramework {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     algName: string;
@@ -114,6 +125,7 @@ declare namespace cryptoFramework {
    *
    * @typedef IvParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface IvParamsSpec extends ParamsSpec {
@@ -122,6 +134,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     iv: DataBlob;
@@ -132,6 +145,7 @@ declare namespace cryptoFramework {
    *
    * @typedef GcmParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface GcmParamsSpec extends ParamsSpec {
@@ -140,6 +154,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     iv: DataBlob;
@@ -149,6 +164,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     aad: DataBlob;
@@ -158,6 +174,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     authTag: DataBlob;
@@ -168,6 +185,7 @@ declare namespace cryptoFramework {
    *
    * @typedef CcmParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface CcmParamsSpec extends ParamsSpec {
@@ -176,6 +194,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     iv: DataBlob;
@@ -185,6 +204,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     aad: DataBlob;
@@ -194,6 +214,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     authTag: DataBlob;
@@ -204,6 +225,7 @@ declare namespace cryptoFramework {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   enum CryptoMode {
@@ -211,6 +233,7 @@ declare namespace cryptoFramework {
      * The value of encryption operation for AES, 3DES and RSA.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     ENCRYPT_MODE = 0,
@@ -219,6 +242,7 @@ declare namespace cryptoFramework {
      * The value of decryption operation for AES, 3DES and RSA.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     DECRYPT_MODE = 1
@@ -229,6 +253,7 @@ declare namespace cryptoFramework {
    *
    * @typedef Key
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface Key {
@@ -240,6 +265,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     getEncoded(): DataBlob;
@@ -250,6 +276,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly format: string;
@@ -260,6 +287,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly algName: string;
@@ -270,6 +298,7 @@ declare namespace cryptoFramework {
    *
    * @typedef SymKey
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface SymKey extends Key {
@@ -277,6 +306,7 @@ declare namespace cryptoFramework {
      * Reset the key data to zero in the memory.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     clearMem(): void;
