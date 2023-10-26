@@ -1608,7 +1608,7 @@ declare namespace inputMethodEngine {
      * @deprecated since 11
      * @useinstead ohos.inputMethod.Panel/PanelFlag#FLAG_FLOATING
      */
-    FLG_FLOATING,
+    FLG_FLOATING
   }
 
   /**
