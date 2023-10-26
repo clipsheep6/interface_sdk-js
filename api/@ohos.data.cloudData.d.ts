@@ -294,7 +294,7 @@ declare namespace cloudData {
    * @systemapi
    * @since 11
    */
-  export namespace Sharing {
+  export namespace sharing {
     /**
      * Enumerates the roles.
      *
