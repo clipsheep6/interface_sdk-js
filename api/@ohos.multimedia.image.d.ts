@@ -3001,7 +3001,7 @@ declare namespace image {
      * @crossplatform
      * @since 11
      */
-     packingToFile(source: ImageSource, fd:number, options: PackingOption, callback: AsyncCallback<void>): void;
+     packToFile(source: ImageSource, fd:number, options: PackingOption, callback: AsyncCallback<void>): void;
 
     /**
      * Compresses or packs an image into a file and uses a promise to return the result.
@@ -3014,7 +3014,7 @@ declare namespace image {
      * @crossplatform
      * @since 11
      */
-     packingToFile(source: ImageSource, fd:number, options: PackingOption): Promise<void>;
+     packToFile(source: ImageSource, fd:number, options: PackingOption): Promise<void>;
 
      /**
       * Compresses or packs an image into a file and uses a callback to return the result.
@@ -3027,7 +3027,7 @@ declare namespace image {
       * @crossplatform
       * @since 11
       */
-      packingToFile(source: PixelMap, fd:number, options: PackingOption, callback: AsyncCallback<void>): void;
+      packToFile(source: PixelMap, fd:number, options: PackingOption, callback: AsyncCallback<void>): void;
  
      /**
       * Compresses or packs an image into a file and uses a promise to return the result.
@@ -3040,7 +3040,7 @@ declare namespace image {
       * @crossplatform
       * @since 11
       */
-      packingToFile(source: PixelMap, fd:number, options: PackingOption): Promise<void>;
+      packToFile(source: PixelMap, fd:number, options: PackingOption): Promise<void>;
  
 
      /**
