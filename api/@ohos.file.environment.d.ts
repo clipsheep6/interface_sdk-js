@@ -31,28 +31,28 @@ declare namespace Environment {
    * @syscap SystemCapability.FileManagement.File.Environment
    * @since 11
    */
-  export enum DirectoryType{
+  export enum DirectoryType {
     /**
      * Indicates download directory.
      *
      * @syscap SystemCapability.FileManagement.File.Environment
      * @since 11
      */
-    DOWNLOAD,
+    DOWNLOAD = 0,
     /**
      * Indicates desktop directory.
      *
      * @syscap SystemCapability.FileManagement.File.Environment
      * @since 11
      */
-    DESKTOP,
+    DESKTOP = 1,
     /**
      * Indicates documents directory.
      *
      * @syscap SystemCapability.FileManagement.File.Environment
      * @since 11
      */
-    DOCUMENTS
+    DOCUMENTS = 2
   }
 
   /**
@@ -114,6 +114,9 @@ declare namespace Environment {
    * @returns { string } Return the sandbox path to the common directory.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900012 - Permitted denied
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.Environment
@@ -127,13 +130,16 @@ declare namespace Environment {
    * @returns { string } Return the sandbox directory of the current user root.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900012 - Permitted denied
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.Environment
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function getUserPublicDir(): string;
+  function getUserHomeDir(): string;
 
   /**
    * Get the sandbox directory of the wild card root.
@@ -141,6 +147,9 @@ declare namespace Environment {
    * @returns { string } Return the sandbox directory of the wild card root.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900012 - Permitted denied
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.Environment
@@ -155,6 +164,9 @@ declare namespace Environment {
    * @returns { string } Return the sandbox directory that shares the root directory.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900012 - Permitted denied
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.Environment
@@ -169,6 +181,9 @@ declare namespace Environment {
    * @returns { string } Return the sandbox path of the current user's installed app directory.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 13900001 - Operation not permitted
+   * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900012 - Permitted denied
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.Environment

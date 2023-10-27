@@ -30,14 +30,14 @@ declare namespace fileUri {
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
    */
-  export enum ModeSetting{
+  export enum ModeSetting {
     /**
      * Indicates the read and write permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
-    O_RDWR = 2,
+    O_RDWR = 0o2,
   }
 
   /**
@@ -83,6 +83,9 @@ declare namespace fileUri {
      * @throws { BusinessError } 401 - The input parameter is invalid
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permitted denied
+     * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @systemapi Hide this for inner system use.
@@ -100,6 +103,9 @@ declare namespace fileUri {
      * @throws { BusinessError } 401 - The input parameter is invalid
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permitted denied
+     * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @systemapi Hide this for inner system use.
@@ -117,6 +123,9 @@ declare namespace fileUri {
      * @throws { BusinessError } 401 - The input parameter is invalid
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permitted denied
+     * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
@@ -133,6 +142,9 @@ declare namespace fileUri {
      * @throws { BusinessError } 401 - The input parameter is invalid
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permitted denied
+     * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
@@ -149,6 +161,9 @@ declare namespace fileUri {
      * @throws { BusinessError } 401 - The input parameter is invalid
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permitted denied
+     * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
@@ -165,6 +180,9 @@ declare namespace fileUri {
      * @throws { BusinessError } 401 - The input parameter is invalid
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permitted denied
+     * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
@@ -178,6 +196,9 @@ declare namespace fileUri {
      * @throws { BusinessError } 401 - The input parameter is invalid
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permitted denied
+     * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
@@ -191,6 +212,9 @@ declare namespace fileUri {
      * @throws { BusinessError } 401 - The input parameter is invalid
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permitted denied
+     * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
@@ -204,6 +228,9 @@ declare namespace fileUri {
      * @throws { BusinessError } 401 - The input parameter is invalid
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permitted denied
+     * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
@@ -217,6 +244,9 @@ declare namespace fileUri {
      * @throws { BusinessError } 401 - The input parameter is invalid
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permitted denied
+     * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
@@ -228,6 +258,9 @@ declare namespace fileUri {
      *
      * @returns { string } Return the directory path
      * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permitted denied
+     * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 9
