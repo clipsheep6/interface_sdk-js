@@ -1582,6 +1582,8 @@ declare namespace inputMethodEngine {
    * @enum { number }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
+   * @deprecated since 11
+   * @useinstead ohos.inputMethod.Panel/PanelFlag
    */
   export enum PanelFlag {
     /**
@@ -1591,6 +1593,8 @@ declare namespace inputMethodEngine {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.inputMethod.Panel/PanelFlag#FLAG_FIXED
      */
     FLG_FIXED = 0,
 
@@ -1601,6 +1605,8 @@ declare namespace inputMethodEngine {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.inputMethod.Panel/PanelFlag#FLAG_FLOATING
      */
     FLG_FLOATING
   }
@@ -1612,6 +1618,8 @@ declare namespace inputMethodEngine {
    * @enum { number }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
+   * @deprecated since 11
+   * @useinstead ohos.inputMethod.Panel/PanelType
    */
   export enum PanelType {
     /**
@@ -1619,6 +1627,8 @@ declare namespace inputMethodEngine {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.inputMethod.Panel/PanelType#SOFT_KEYBOARD
      */
     SOFT_KEYBOARD = 0,
 
@@ -1627,6 +1637,8 @@ declare namespace inputMethodEngine {
      *
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.inputMethod.Panel/PanelType#STATUS_BAR
      */
     STATUS_BAR
   }
@@ -1637,6 +1649,8 @@ declare namespace inputMethodEngine {
    * @typedef PanelInfo
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
+   * @deprecated since 11
+   * @useinstead ohos.inputMethod.Panel/PanelInfo
    */
   export interface PanelInfo {
     /**
@@ -1645,6 +1659,8 @@ declare namespace inputMethodEngine {
      * @type { PanelType }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.inputMethod.Panel/PanelInfo#type
      */
     type: PanelType;
 
@@ -1656,6 +1672,8 @@ declare namespace inputMethodEngine {
      * @default FLG_FIXED
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.inputMethod.Panel/PanelInfo#flag
      */
     flag?: PanelFlag;
   }
