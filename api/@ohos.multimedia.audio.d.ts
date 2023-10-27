@@ -1754,13 +1754,13 @@ declare namespace audio {
     getRoutingManager(): AudioRoutingManager;
 
     /**
-     * Obtains an {@link AudioSpatializerManager} instance.
-     * @returns { AudioSpatializerManager } AudioSpatializerManager instance.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * Obtains an {@link AudioSpatializationManager} instance.
+     * @returns { AudioSpatializationManager } AudioSpatializationManager instance.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    getSpatializerManager(): AudioSpatializerManager;
+    getSpatializationManager(): AudioSpatializationManager;
   }
 
   /**
@@ -2717,191 +2717,191 @@ declare namespace audio {
   }
 
   /**
-   * Implements audio spatializer management.
-   * @typedef AudioSpatializerManager
-   * @syscap SystemCapability.Multimedia.Audio.Spatializer
+   * Implements audio spatialization management.
+   * @typedef AudioSpatializationManager
+   * @syscap SystemCapability.Multimedia.Audio.Spatialization
    * @systemapi
    * @since 11
    */
-  interface AudioSpatializerManager {
+  interface AudioSpatializationManager {
     /**
-     * Checks whether the spatializer is supported by system.
-     * @returns { boolean } Whether the spatializer is supported.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * Checks whether the spatialization is supported by system.
+     * @returns { boolean } Whether the spatialization is supported.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    isSpatializerSupported(): boolean;
+    isSpatializationSupported(): boolean;
 
     /**
-     * Checks whether the spatializer is supported by the specified device.
+     * Checks whether the spatialization is supported by the specified device.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
-     * @returns { boolean } Whether the spatializer is supported.
+     * @returns { boolean } Whether the spatialization is supported.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    isSpatializerSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
+    isSpatializationSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
 
     /**
-     * Checks whether the head tracker is supported by system.
-     * @returns { boolean } Whether the head tracker is supported.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * Checks whether the head tracking is supported by system.
+     * @returns { boolean } Whether the head tracking is supported.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    isHeadTrackerSupported(): boolean;
+    isHeadTrackingSupported(): boolean;
 
     /**
-     * Checks whether the head tracker is supported by the specified device.
+     * Checks whether the head tracking is supported by the specified device.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
-     * @returns { boolean } Whether the head tracker is supported.
+     * @returns { boolean } Whether the head tracking is supported.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    isHeadTrackerSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
+    isHeadTrackingSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
 
     /**
-     * Sets the spatializer enabled or disabled. This method uses an asynchronous callback to return the result.
-     * @param { boolean } enable - Spatializer enable state.
+     * Sets the spatialization enabled or disabled. This method uses an asynchronous callback to return the result.
+     * @param { boolean } enable - Spatialization enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    setSpatializerEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+    setSpatializationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
-     * Sets the spatializer enabled or disabled. This method uses a promise to return the result.
-     * @param { boolean } enable - Spatializer enable state.
+     * Sets the spatialization enabled or disabled. This method uses a promise to return the result.
+     * @param { boolean } enable - Spatialization enable state.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    setSpatializerEnabled(enable: boolean): Promise<void>;
+    setSpatializationEnabled(enable: boolean): Promise<void>;
     /**
-     * Sets the spatializer enabled or disabled.
-     * @param { boolean } enable - Spatializer enable state.
+     * Sets the spatialization enabled or disabled.
+     * @param { boolean } enable - Spatialization enable state.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    setSpatializerEnabledSync(enable: boolean): void;
+    setSpatializationEnabledSync(enable: boolean): void;
 
     /**
-     * Checks whether the spatializer is enabled.
-     * @returns { boolean } Whether the spatializer is enabled.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * Checks whether the spatialization is enabled.
+     * @returns { boolean } Whether the spatialization is enabled.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    isSpatializerEnabled(): boolean;
+    isSpatializationEnabled(): boolean;
 
     /**
-     * Subscribes to whether spatializer is enabled change events. When whether spatializer is enabled changes,
+     * Subscribes to whether spatialization is enabled change events. When whether spatialization is enabled changes,
      * registered clients will receive the callback.
-     * @param { 'spatializerEnabledChange' } type - Type of the event to listen for.
-     * @param { Callback<boolean> } callback - Callback used to get whether spatializer is enabled.
+     * @param { 'spatializationEnabledChange' } type - Type of the event to listen for.
+     * @param { Callback<boolean> } callback - Callback used to get whether spatialization is enabled.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    on(type: 'spatializerEnabledChange', callback: Callback<boolean>): void;
+    on(type: 'spatializationEnabledChange', callback: Callback<boolean>): void;
 
     /**
-     * Unsubscribes to whether spatializer is enabled change events.
-     * @param { 'spatializerEnabledChange' } type - Type of the event to listen for.
-     * @param { Callback<boolean> } callback - Callback used to get whether spatializer is enabled.
+     * Unsubscribes to whether spatialization is enabled change events.
+     * @param { 'spatializationEnabledChange' } type - Type of the event to listen for.
+     * @param { Callback<boolean> } callback - Callback used to get whether spatialization is enabled.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    off(type: 'spatializerEnabledChange', callback?: Callback<boolean>): void;
+    off(type: 'spatializationEnabledChange', callback?: Callback<boolean>): void;
 
     /**
-     * Sets the head tracker enabled or disabled. This method uses an asynchronous callback to return the result.
-     * @param { boolean } enable - Head tracker enable state.
+     * Sets the head tracking enabled or disabled. This method uses an asynchronous callback to return the result.
+     * @param { boolean } enable - Head tracking enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    setHeadTrackerEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+    setHeadTrackingEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
-     * Sets the head tracker enabled or disabled. This method uses a promise to return the result.
-     * @param { boolean } enable - Head tracker enable state.
+     * Sets the head tracking enabled or disabled. This method uses a promise to return the result.
+     * @param { boolean } enable - Head tracking enable state.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    setHeadTrackerEnabled(enable: boolean): Promise<void>;
+    setHeadTrackingEnabled(enable: boolean): Promise<void>;
     /**
-     * Sets the head tracker enabled or disabled.
-     * @param { boolean } enable - Head tracker enable state.
+     * Sets the head tracking enabled or disabled.
+     * @param { boolean } enable - Head tracking enable state.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    setHeadTrackerEnabledSync(enable: boolean): void;
+    setHeadTrackingEnabledSync(enable: boolean): void;
 
     /**
-     * Checks whether the head tracker is enabled.
-     * @returns { boolean } Whether the head tracker is enabled.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * Checks whether the head tracking is enabled.
+     * @returns { boolean } Whether the head tracking is enabled.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    isHeadTrackerEnabled(): boolean;
+    isHeadTrackingEnabled(): boolean;
 
     /**
-     * Subscribes to whether head tracker is enabled change events. When whether head tracker is enabled changes,
+     * Subscribes to whether head tracking is enabled change events. When whether head tracking is enabled changes,
      * registered clients will receive the callback.
-     * @param { 'headTrackerEnabledChange' } type - Type of the event to listen for.
-     * @param { Callback<boolean> } callback - Callback used to get whether head tracker is enabled.
+     * @param { 'headTrackingEnabledChange' } type - Type of the event to listen for.
+     * @param { Callback<boolean> } callback - Callback used to get whether head tracking is enabled.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    on(type: 'headTrackerEnabledChange', callback: Callback<boolean>): void;
+    on(type: 'headTrackingEnabledChange', callback: Callback<boolean>): void;
 
     /**
-     * Unsubscribes to whether head tracker is enabled change events.
-     * @param { 'headTrackerEnabledChange' } type - Type of the event to listen for.
-     * @param { Callback<boolean> } callback - Callback used to get whether head tracker is enabled.
+     * Unsubscribes to whether head tracking is enabled change events.
+     * @param { 'headTrackingEnabledChange' } type - Type of the event to listen for.
+     * @param { Callback<boolean> } callback - Callback used to get whether head tracking is enabled.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    off(type: 'headTrackerEnabledChange', callback?: Callback<boolean>): void;
+    off(type: 'headTrackingEnabledChange', callback?: Callback<boolean>): void;
 
     /**
      * Updates the spatial device state.
      * @param { AudioSpatialDeviceState } spatialDeviceState - Spatial device state.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
@@ -4676,14 +4676,14 @@ declare namespace audio {
   /**
    * Describes spatial device state.
    * @typedef AudioSpatialDeviceState
-   * @syscap SystemCapability.Multimedia.Audio.Spatializer
+   * @syscap SystemCapability.Multimedia.Audio.Spatialization
    * @systemapi
    * @since 11
    */
   interface AudioSpatialDeviceState {
     /**
      * Spatial device address.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
@@ -4691,23 +4691,23 @@ declare namespace audio {
 
     /**
      * Whether the spatial device supports spatial rendering.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    isSpatializerSupported: boolean;
+    isSpatializationSupported: boolean;
 
     /**
      * Whether the spatial device supports head tracking.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    isHeadTrackerSupported: boolean;
+    isHeadTrackingSupported: boolean;
 
     /**
      * Earphone shape type.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
@@ -4717,49 +4717,49 @@ declare namespace audio {
   /**
    * Describes an audio earphone shape type group.
    * @enum { number }
-   * @syscap SystemCapability.Multimedia.Audio.Spatializer
+   * @syscap SystemCapability.Multimedia.Audio.Spatialization
    * @systemapi
    * @since 11
    */
   enum AudioEarphoneType {
     /**
      * Audio Earphone Type none.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
     EARPHONE_TYPE_NONE = 0,
     /**
      * Audio Earphone Type inear.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
     EARPHONE_TYPE_INEAR = 1,
     /**
      * Audio Earphone Type half inear.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
     EARPHONE_TYPE_HALF_INEAR = 2,
     /**
      * Audio Earphone Type headphone.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
     EARPHONE_TYPE_HEADPHONE = 3,
     /**
      * Audio Earphone Type glasses.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
     EARPHONE_TYPE_GLASSES = 4,
     /**
      * Audio Earphone Type others.
-     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
