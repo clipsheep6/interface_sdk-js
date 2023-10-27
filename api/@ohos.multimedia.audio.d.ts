@@ -2732,6 +2732,7 @@ declare namespace audio {
      * @since 11
      */
     isSpatializerSupported(): boolean;
+
     /**
      * Checks whether the spatializer is supported by the specified device.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
@@ -2743,6 +2744,7 @@ declare namespace audio {
      * @since 11
      */
     isSpatializerSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
+
     /**
      * Checks whether the head tracker is supported by system.
      * @returns { boolean } Whether the head tracker is supported.
@@ -2751,6 +2753,7 @@ declare namespace audio {
      * @since 11
      */
     isHeadTrackerSupported(): boolean;
+
     /**
      * Checks whether the head tracker is supported by the specified device.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
@@ -2762,9 +2765,20 @@ declare namespace audio {
      * @since 11
      */
     isHeadTrackerSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
+
     /**
-     * Sets the spatializer enabled or disabled.
-     * This method uses a promise to return the result.
+     * Sets the spatializer enabled or disabled. This method uses an asynchronous callback to return the result.
+     * @param { boolean } enable - Spatializer enable state.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @systemapi
+     * @since 11
+     */
+    setSpatializerEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Sets the spatializer enabled or disabled. This method uses a promise to return the result.
      * @param { boolean } enable - Spatializer enable state.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
@@ -2782,6 +2796,7 @@ declare namespace audio {
      * @since 11
      */
     setSpatializerEnabledSync(enable: boolean): void;
+
     /**
      * Checks whether the spatializer is enabled.
      * @returns { boolean } Whether the spatializer is enabled.
@@ -2790,6 +2805,7 @@ declare namespace audio {
      * @since 11
      */
     isSpatializerEnabled(): boolean;
+
     /**
      * Subscribes to whether spatializer is enabled change events. When whether spatializer is enabled changes,
      * registered clients will receive the callback.
@@ -2802,6 +2818,7 @@ declare namespace audio {
      * @since 11
      */
     on(type: 'spatializerEnabledChange', callback: Callback<boolean>): void;
+
     /**
      * Unsubscribes to whether spatializer is enabled change events.
      * @param { 'spatializerEnabledChange' } type - Type of the event to listen for.
@@ -2813,9 +2830,20 @@ declare namespace audio {
      * @since 11
      */
     off(type: 'spatializerEnabledChange', callback?: Callback<boolean>): void;
+
     /**
-     * Sets the head tracker enabled or disabled.
-     * This method uses a promise to return the result.
+     * Sets the head tracker enabled or disabled. This method uses an asynchronous callback to return the result.
+     * @param { boolean } enable - Head tracker enable state.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Spatializer
+     * @systemapi
+     * @since 11
+     */
+    setHeadTrackerEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Sets the head tracker enabled or disabled. This method uses a promise to return the result.
      * @param { boolean } enable - Head tracker enable state.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
@@ -2833,6 +2861,7 @@ declare namespace audio {
      * @since 11
      */
     setHeadTrackerEnabledSync(enable: boolean): void;
+
     /**
      * Checks whether the head tracker is enabled.
      * @returns { boolean } Whether the head tracker is enabled.
@@ -2841,6 +2870,7 @@ declare namespace audio {
      * @since 11
      */
     isHeadTrackerEnabled(): boolean;
+
     /**
      * Subscribes to whether head tracker is enabled change events. When whether head tracker is enabled changes,
      * registered clients will receive the callback.
@@ -2853,6 +2883,7 @@ declare namespace audio {
      * @since 11
      */
     on(type: 'headTrackerEnabledChange', callback: Callback<boolean>): void;
+
     /**
      * Unsubscribes to whether head tracker is enabled change events.
      * @param { 'headTrackerEnabledChange' } type - Type of the event to listen for.
@@ -2864,6 +2895,7 @@ declare namespace audio {
      * @since 11
      */
     off(type: 'headTrackerEnabledChange', callback?: Callback<boolean>): void;
+
     /**
      * Updates the spatial device state.
      * @param { AudioSpatialDeviceState } spatialDeviceState - Spatial device state.
