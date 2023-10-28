@@ -1913,6 +1913,23 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
+  /**
+   * Update Ims call mode.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { ImsCallMode } mode - Indicates the mode of the ims call.
+   * @param { AsyncCallback<void> } callback - The callback of updateImsCallMode.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
   function updateImsCallMode(callId: number, mode: ImsCallMode, callback: AsyncCallback<void>): void;
 
   /**
@@ -1931,7 +1948,493 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
+  /**
+   * Update Ims call mode.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { ImsCallMode } mode - Indicates the mode of the ims call.
+   * @returns { Promise<void> } The promise returned by the updateImsCallMode.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
   function updateImsCallMode(callId: number, mode: ImsCallMode): Promise<void>;
+
+  /**
+   * Cancel call upgrade.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { AsyncCallback<void> } callback - The callback of updateImsCallMode.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function cancelCallUpgrade(callId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Cancel call upgrade.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { number } callId - Indicates the identifier of the call.
+   * @returns { Promise<void> } The promise returned by the updateImsCallMode.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function cancelCallUpgrade(callId: number): Promise<void>;
+
+  /**
+   * Set camera when video call.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { string } cameraId - Indicates the identifier of the camera id.
+   * @param { AsyncCallback<void> } callback - The callback of controlCamera.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function controlCamera(callId: number, cameraId: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set camera when video call.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { string } cameraId - Indicates the identifier of the camera id.
+   * @returns { Promise<void> } The promise returned by the controlCamera.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function controlCamera(callId: number, cameraId: string): Promise<void>;
+
+  /**
+   * Set preview surface when video call.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { string } surfaceId - Indicates the identifier of the preview surface id.
+   * @param { AsyncCallback<void> } callback - The callback of setPreviewWindow.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function setPreviewWindow(callId: number, surfaceId: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set preview surface when video call.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { string } surfaceId - Indicates the identifier of the preview surface id.
+   * @returns { Promise<void> } The promise returned by the setPreviewWindow.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function setPreviewWindow(callId: number, surfaceId: string): Promise<void>;
+
+  /**
+   * Set display surface when video call.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { string } surfaceId - Indicates the identifier of the preview surface id.
+   * @param { AsyncCallback<void> } callback - The callback of setDisplayWindow.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function setDisplayWindow(callId: number, surfaceId: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set display surface when video call.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { string } surfaceId - Indicates the identifier of the display surface id.
+   * @returns { Promise<void> } The promise returned by the setDisplayWindow.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function setDisplayWindow(callId: number, surfaceId: string): Promise<void>;
+
+  /**
+   * Set device direction when video call.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { DeviceDirection } deviceDirection - Indicates the identifier of the direction for the display.
+   * @param { AsyncCallback<void> } callback - The callback of setDeviceDirection.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function setDeviceDirection(callId: number, deviceDirection: DeviceDirection, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set device direction when video call.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { DeviceDirection } deviceDirection - Indicates the identifier of the direction for the display.
+   * @returns { Promise<void> } The promise returned by the setDeviceDirection.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function setDeviceDirection(callId: number, deviceDirection: DeviceDirection): Promise<void>;
+
+  /**
+   * Query camera capabilities.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { AsyncCallback<void> } callback - The callback of queryCameraCapabilities.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function queryCameraCapabilities(callId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Query camera capabilities.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @returns { Promise<void> } The promise returned by the queryCameraCapabilities.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function queryCameraCapabilities(callId: number): Promise<void>;
+
+  /**
+   * Set pause picture.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { string } picturePath - Indicates the pause picture path.
+   * @param { AsyncCallback<void> } callback - The callback of setPausePicture.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function setPausePicture(callId: number, picturePath: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set pause picture.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { number } callId - Indicates the identifier of the call.
+   * @param { string } picturePath - Indicates the pause picture path.
+   * @returns { Promise<void> } The promise returned by the setPausePicture.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function setPausePicture(callId: number, picturePath: string): Promise<void>;
+
+  /**
+   * Subscribe to the imsCallModeChange event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { 'imsCallModeChange' } type - Event type. Indicates the imsCallModeChange event to be subscribed to.
+   * @param { Callback<ImsCallModeInfo> } callback - Indicates the callback for
+   * getting the result of ImsCallModeInfo details.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'imsCallModeChange', callback: Callback<ImsCallModeInfo>): void;
+
+  /**
+   * Unsubscribe from the imsCallModeChange event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { 'imsCallModeChange' } type - Event type. Indicates the imsCallModeChange event to unsubscribe from.
+   * @param { Callback<ImsCallModeInfo> } callback - Indicates the callback to unsubscribe from
+   * the imsCallModeChange event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'imsCallModeChange', callback?: Callback<ImsCallModeInfo>): void;
+
+  /**
+   * Subscribe to the callSessionEventChange event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { 'callSessionEventChange' } type - Event type. Indicates the callSessionEventChange
+   * event to be subscribed to.
+   * @param { Callback<CallSessionEvent> } callback - Indicates the callback for
+   * getting the result of CallSessionEvent.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'callSessionEventChange', callback: Callback<CallSessionEvent>): void;
+
+  /**
+   * Unsubscribe from the callSessionEventChange event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { 'callSessionEventChange' } type - Event type. Indicates the callSessionEventChange event to
+   * unsubscribe from.
+   * @param { Callback<CallSessionEvent> } callback - Indicates the callback to unsubscribe from
+   * the CallSessionEvent event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'callSessionEventChange', callback?: Callback<CallSessionEvent>): void;
+
+  /**
+   * Subscribe to the peerDimensionsChange event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { 'peerDimensionsChange' } type - Event type. Indicates the peerDimensionsChange event
+   * to be subscribed to.
+   * @param { Callback<PeerDimensionsDetail> } callback - Indicates the callback for
+   * getting the result of PeerDimensionsDetail details.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'peerDimensionsChange', callback: Callback<PeerDimensionsDetail>): void;
+
+  /**
+   * Unsubscribe from the peerDimensionsChange event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { 'peerDimensionsChange' } type - Event type. Indicates the peerDimensionsChange event to
+   * unsubscribe from.
+   * @param { Callback<PeerDimensionsDetail> } callback - Indicates the callback to unsubscribe from
+   * peerDimensionsChange event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'peerDimensionsChange', callback?: Callback<PeerDimensionsDetail>): void;
+
+  /**
+   * Subscribe to the callDataUsageChange event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { 'callDataUsageChange' } type - Event type. Indicates the callDataUsageChange event to be subscribed to.
+   * @param { Callback<number> } callback - Indicates the callback for
+   * getting the result of callDataUsageChange details.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'callDataUsageChange', callback: Callback<number>): void;
+
+  /**
+   * Unsubscribe from the callDataUsageChange event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { 'callDataUsageChange' } type - Event type. Indicates the callDataUsageChange event to
+   * unsubscribe from.
+   * @param { Callback<number> } callback - Indicates the callback to unsubscribe from
+   * callDataUsageChange event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'callDataUsageChange', callback?: Callback<number>): void;
+
+  /**
+   * Subscribe to the cameraCapabilitiesChange event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { 'cameraCapabilitiesChange' } type - Event type. Indicates the cameraCapabilitiesChange event
+   * to be subscribed to.
+   * @param { Callback<CameraCapabilities> } callback - Indicates the callback for
+   * getting the result of CameraCapabilities details.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'cameraCapabilitiesChange', callback: Callback<CameraCapabilities>): void;
+
+  /**
+   * Unsubscribe from the cameraCapabilitiesChange event.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { 'cameraCapabilitiesChange' } type - Event type. Indicates the cameraCapabilitiesChange event
+   * to unsubscribe from.
+   * @param { Callback<CameraCapabilities> } callback - Indicates the callback to unsubscribe from
+   * cameraCapabilitiesChange event.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'cameraCapabilitiesChange', callback?: Callback<CameraCapabilities>): void;
 
   /**
    * Turn on Ims switch.
@@ -2961,7 +3464,22 @@ declare namespace call {
      * @since 7
      */
     TYPE_VOICE = 0,
-
+    /**
+     * Indicates the call is in send only video state.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_SEND_ONLY,
+    /**
+     * Indicates the call is in receive only video state.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_RECEIVE_ONLY,
     /**
      * Indicates the call is in video state.
      *
@@ -2970,6 +3488,159 @@ declare namespace call {
      * @since 7
      */
     TYPE_VIDEO,
+  }
+
+  /**
+   * Indicates the type of video request result.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export enum VideoRequestResultType {
+    /**
+     * Indicates the request was successful.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_REQUEST_SUCCESS = 0,
+    /**
+     * Indicates the request failed.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_REQUEST_FAIL,
+    /**
+     * Indicates the request ignored due to invalid parameters.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_REQUEST_INVALID,
+    /**
+     * Indicates the request timed out.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_REQUEST_TIMED_OUT,
+    /**
+     * Indicates the request rejected by remote.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_REQUEST_REJECTED_BY_REMOTE,
+    /**
+     * Indicates the ImsCall Mode downgrade RTP time out.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_MODIFY_DOWNGRADE_RTP_OR_RTCP_TIMEOUT = 100,
+    /**
+     * Indicates the ImsCall Mode downgrade RTP and RTCP time out.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_MODIFY_DOWNGRADE_RTP_AND_RTCP_TIMEOUT,
+  }
+
+  /**
+   * Indicates the type of device direction.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export enum DeviceDirection {
+    /**
+     * Indicates the device direction is 0 degree.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    DEVICE_DIRECTION_0 = 0,
+    /**
+     * Indicates the device direction is 90 degree.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    DEVICE_DIRECTION_90 = 90,
+    /**
+     * Indicates the device direction is 180 degree.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    DEVICE_DIRECTION_180 = 180,
+    /**
+     * Indicates the device direction is 270 degree.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    DEVICE_DIRECTION_270 = 270,
+  }
+
+  /**
+   * Indicates the type of video call event.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export enum CallSessionEventId {
+    /**
+     * Indicates the camera set fail.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    EVENT_CAMERA_FAILURE = 0,
+    /**
+     * Indicates the camera set successful.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    EVENT_CAMERA_READY,
+    /**
+     * Indicates the display surface has release.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    EVENT_RELEASE_DISPLAY_SURFACE = 100,
+    /**
+     * Indicates the preview surface has release.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    EVENT_RELEASE_PREVIEW_SURFACE,
   }
 
   /**
@@ -4456,6 +5127,158 @@ declare namespace call {
      * @since 9
      */
     message: string;
+  }
+
+  /**
+   * Indicates the ims call mode info of a video call.
+   *
+   * @interface ImsCallModeInfo
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export interface ImsCallModeInfo {
+    /**
+     * Indicates the id of call.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    callId: number;
+    /**
+     * Indicates the request result.
+     *
+     * @type { VideoRequestResultType }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    result: VideoRequestResultType;
+    /**
+     * Indicates if this is a request which received from remote,
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    isRequestInfo: boolean;
+    /**
+     * Indicates the ImsCallMode of call.
+     *
+     * @type { ImsCallMode }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    imsCallMode: ImsCallMode;
+  }
+
+  /**
+   * Indicates the call session event of a video call.
+   *
+   * @interface CallSessionEvent
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export interface CallSessionEvent {
+    /**
+     * Indicates the id of call.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    callId: number;
+    /**
+     * Indicates the event id of video call.
+     *
+     * @type { CallSessionEventId }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    eventId: CallSessionEventId;
+  }
+
+  /**
+   * Indicates the peer dimension.
+   *
+   * @interface PeerDimensionsDetail
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export interface PeerDimensionsDetail {
+    /**
+     * Indicates the id of call.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    callId: number;
+    /**
+     * Indicates the peer dimensions width.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    width: number;
+    /**
+     * Indicates the the peer dimensions height.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    height: number;
+  }
+
+  /**
+   * Indicates the camera capabilities.
+   *
+   * @interface CameraCapabilities
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export interface CameraCapabilities {
+    /**
+     * Indicates the id of call.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    callId: number;
+    /**
+     * Indicates the camera width.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    width: number;
+    /**
+     * Indicates the the camera height.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    height: number;
   }
 }
 
