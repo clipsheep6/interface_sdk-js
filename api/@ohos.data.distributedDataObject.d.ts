@@ -306,9 +306,25 @@ declare namespace distributedDataObject {
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
+    /**
+     * On watch of status.
+     *
+     * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
+     * @param { Function } callback
+     *          indicates the observer of object status changed.
+     *          {string} sessionId - The sessionId of the changed object.
+     *          {string} networkId - NetworkId of the changed device.
+     *          {string} status
+     *                   'online' The object became online on the device and data can be synced to the device.
+     *                   'offline' The object became offline on the device and the object can not sync any data.
+     *                   'restored' The object restored success.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
     on(
       type: 'status',
-      callback: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void
+      callback: (sessionId: string, networkId: string, status: 'online' | 'offline' | 'restored' ) => void
     ): void;
 
     /**
