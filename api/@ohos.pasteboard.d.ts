@@ -188,6 +188,7 @@ declare namespace pasteboard {
    * get SystemPasteboard
    * @returns { SystemPasteboard } The system clipboard object
    * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
    * @since 6
    */
   function getSystemPasteboard(): SystemPasteboard;
