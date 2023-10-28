@@ -3929,6 +3929,32 @@ declare namespace window {
      * @since 11
      */
     hideNonSystemFloatingWindows(shouldHide: boolean): Promise<void>;
+
+    /**
+     * Judge if current screen is immersive.
+     *
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi
+     * @since 11
+     */
+    isImmersiveFullScreenExisted(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Judge if current screen is immersive.
+     *
+     * @returns { Promise<boolean> } Wheather current screen is immersive. True means that the screen is immersive, and false means the oppsite.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi
+     * @since 11
+     */
+    isImmersiveFullScreenExisted(): Promise<boolean>;
   }
   /**
    * Window stage callback event type
