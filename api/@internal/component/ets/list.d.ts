@@ -461,6 +461,16 @@ declare class ListScroller extends Scroller {
    * @since 11
    */
   getItemRectInGroup(index: number, indexInGroup: number): RectResult;
+
+  /**
+   * Collapse all listItem.
+   *
+   * @param { function } onFinish - Called after collapse animation completed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  closeAllSwipeAction(onFinish:()=>void): void;
 }
 
 /**
