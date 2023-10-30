@@ -478,6 +478,7 @@ declare namespace hiAppEvent {
     /**
      * The callback function, when watcher receive the event.
      *
+     * @type { ?function }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 11
      */
