@@ -458,11 +458,53 @@ declare namespace geolocation {
    * @useinstead ohos.geoLocationManager/geoLocationManager.SatelliteStatusInfo
    */
   export interface SatelliteStatusInfo {
+    /**
+     * 	Number of satellites
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.SatelliteStatusInfo
+     */
     satellitesNumber: number;
+    /**
+     * Array of satellite IDs
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.SatelliteStatusInfo
+     */
     satelliteIds: Array<number>;
+    /**
+     * Carrier-to-noise density ratio, that is, cn0
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.SatelliteStatusInfo
+     */
     carrierToNoiseDensitys: Array<number>;
+    /**
+     * Satellite altitude angle information
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.SatelliteStatusInfo
+     */
     altitudes: Array<number>;
+    /**
+     * Azimuth information
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.SatelliteStatusInfo
+     */
     azimuths: Array<number>;
+    /**
+     * Carrier frequency
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.SatelliteStatusInfo
+     */
     carrierFrequencies: Array<number>;
   }
 
@@ -477,7 +519,21 @@ declare namespace geolocation {
    * @useinstead ohos.geoLocationManager/geoLocationManager.CachedGnssLocationsRequest
    */
   export interface CachedGnssLocationsRequest {
+    /**
+     * Interval for reporting the cached GNSS locations, in milliseconds
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.CachedGnssLocationsRequest
+     */
     reportingPeriodSec: number;
+    /**
+     * discard or report gnss location
+     * @syscap SystemCapability.Location.Location.Gnss
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.CachedGnssLocationsRequest
+     */
     wakeUpCacheQueueFull: boolean;
   }
 
@@ -492,8 +548,29 @@ declare namespace geolocation {
    * @useinstead ohos.geoLocationManager/geoLocationManager.GeofenceRequest
    */
   export interface GeofenceRequest {
+    /**
+     * Priority of the location information.
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.GeofenceRequest
+     */
     priority: LocationRequestPriority;
+    /**
+     * Location scenario.
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.GeofenceRequest
+     */
     scenario: LocationRequestScenario;
+    /**
+     * Geofence information.
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.GeofenceRequest
+     */
     geofence: Geofence;
   }
 
@@ -508,9 +585,37 @@ declare namespace geolocation {
    * @useinstead ohos.geoLocationManager/geoLocationManager.Geofence
    */
   export interface Geofence {
+    /**
+     * Latitude information. 
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.Geofence
+     */
     latitude: number;
+    /**
+     * Longitude information. 
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.Geofence
+     */
     longitude: number;
+    /**
+     * Radius of a circular geofence.
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.Geofence
+     */
     radius: number;
+    /**
+     * Expiration period of a geofence, in milliseconds.
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.Geofence
+     */
     expiration: number;
   }
 
@@ -525,9 +630,37 @@ declare namespace geolocation {
    * @useinstead ohos.geoLocationManager/geoLocationManager.ReverseGeoCodeRequest
    */
   export interface ReverseGeoCodeRequest {
+    /**
+     * 	Language used for the location description.
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.ReverseGeoCodeRequest
+     */
     locale?: string;
+    /**
+     * Latitude information. A positive value indicates north latitude, and a negative value indicates south latitude.
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.ReverseGeoCodeRequest
+     */
     latitude: number;
+    /**
+     * Longitude information. A positive value indicates east longitude , and a negative value indicates west longitude .
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.ReverseGeoCodeRequest
+     */
     longitude: number;
+    /**
+     * Maximum number of location records to be returned. 
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.ReverseGeoCodeRequest
+     */
     maxItems?: number;
   }
 
@@ -542,12 +675,61 @@ declare namespace geolocation {
    * @useinstead ohos.geoLocationManager/geoLocationManager.GeoCodeRequest
    */
   export interface GeoCodeRequest {
+    /**
+     * Language used for the location description
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.GeoCodeRequest
+     */
     locale?: string;
+    /**
+     * Location description
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.GeoCodeRequest
+     */
     description: string;
+    /**
+     * Maximum number of location records to be returned
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.GeoCodeRequest
+     */
     maxItems?: number;
+    /**
+     * Minimum latitude
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.GeoCodeRequest
+     */
     minLatitude?: number;
+    /**
+     * 	Minimum longitude
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.GeoCodeRequest
+     */
     minLongitude?: number;
+    /**
+     * Maximum latitude
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.GeoCodeRequest
+     */
     maxLatitude?: number;
+    /**
+     * Maximum longitude
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.GeoCodeRequest
+     */
     maxLongitude?: number;
   }
 
@@ -759,10 +941,45 @@ declare namespace geolocation {
    * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequest
    */
   export interface LocationRequest {
+    /**
+     * Priority of the location request.
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequest
+     */
     priority?: LocationRequestPriority;
+    /**
+     * Scenario of the location request.
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequest
+     */
     scenario?: LocationRequestScenario;
+    /**
+     * Time interval at which location information is reported, in seconds.
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequest
+     */
     timeInterval?: number;
+    /**
+     * Distance interval at which location information is reported.
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequest
+     */
     distanceInterval?: number;
+    /**
+     * Location accuracy.
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequest
+     */
     maxAccuracy?: number;
   }
 
@@ -777,9 +994,37 @@ declare namespace geolocation {
    * @useinstead ohos.geoLocationManager/geoLocationManager.CurrentLocationRequest
    */
   export interface CurrentLocationRequest {
+    /**
+     * Priority of the location request. 
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.CurrentLocationRequest
+     */
     priority?: LocationRequestPriority;
+    /**
+     * Scenario of the location request.
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.CurrentLocationRequest
+     */
     scenario?: LocationRequestScenario;
+    /**
+     * Location accuracy, in meters. 
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.CurrentLocationRequest
+     */
     maxAccuracy?: number;
+    /**
+     * Timeout duration, in milliseconds.
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.CurrentLocationRequest
+     */
     timeoutMs?: number;
   }
 
@@ -910,9 +1155,37 @@ declare namespace geolocation {
    * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestPriority
    */
   export enum LocationRequestPriority {
+    /**
+     * Priority unspecified
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestPriority
+     */
     UNSET = 0x200,
+    /**
+     * Location accuracy preferred
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestPriority
+     */
     ACCURACY,
+    /**
+     * Power efficiency preferred
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestPriority
+     */
     LOW_POWER,
+    /**
+     * Fast location preferred
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestPriority
+     */
     FIRST_FIX
   }
 
@@ -927,11 +1200,53 @@ declare namespace geolocation {
    * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestScenario
    */
   export enum LocationRequestScenario {
+    /**
+     * Scenario unspecified
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestScenario
+     */
     UNSET = 0x300,
+    /**
+     * Navigation scenario
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestScenario
+     */
     NAVIGATION,
+    /**
+     * Trajectory tracking scenario
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestScenario
+     */
     TRAJECTORY_TRACKING,
+    /**
+     * Ride hailing scenario
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestScenario
+     */
     CAR_HAILING,
+    /**
+     * Daily life service scenario
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestScenario
+     */
     DAILY_LIFE_SERVICE,
+    /**
+     * Power efficiency scenario
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequestScenario
+     */
     NO_POWER
   }
 
@@ -1027,8 +1342,29 @@ declare namespace geolocation {
    * @useinstead ohos.geoLocationManager/geoLocationManager.LocationPrivacyType
    */
   export enum LocationPrivacyType {
+    /**
+     * Other scenarios. Reserved field.
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationPrivacyType
+     */
     OTHERS = 0,
+    /**
+     * Privacy statement displayed in the startup wizard
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationPrivacyType
+     */
     STARTUP,
+    /**
+     * Privacy statement displayed when enabling the location service
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationPrivacyType
+     */
     CORE_LOCATION
   }
 
@@ -1043,7 +1379,21 @@ declare namespace geolocation {
    * @useinstead ohos.geoLocationManager/geoLocationManager.LocationCommand
    */
   export interface LocationCommand {
+    /**
+     * Location scenario.
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationCommand
+     */
     scenario: LocationRequestScenario;
+    /**
+     * Extended command, in the string format.
+     * @syscap SystemCapability.Location.Location.Core
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.geoLocationManager/geoLocationManager.LocationCommand
+     */
     command: string;
   }
 }

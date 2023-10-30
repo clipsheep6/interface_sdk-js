@@ -14,45 +14,59 @@
  */
 
 /**
+ * @interface GeolocationResponse
  * @syscap SystemCapability.Location.Location.Lite
+ * @since 3
  * @deprecated since 9
  * @useinstead ohos.geoLocationManager/geoLocationManager.Location
  */
 export interface GeolocationResponse {
   /**
    * Longitude.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   longitude: number;
 
   /**
    * Latitude.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   latitude: number;
 
   /**
    * Altitude.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   altitude: number;
 
   /**
    * Location accuracy.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   accuracy: number;
 
   /**
    * Time when the location is obtained.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   time: number;
 }
 
 /**
- * @syscap SystemCapability.Location.Location.Lite
+ * @interface GetLocationOption
  * @permission ohos.permission.LOCATION
+ * @syscap SystemCapability.Location.Location.Lite
+ * @since 3
  * @deprecated since 9
  * @useinstead ohos.geoLocationManager/geoLocationManager.CurrentLocationRequest
  */
@@ -64,74 +78,98 @@ export interface GetLocationOption {
    * The timeout duration is necessary in case no result is returned if the request to obtain the geographic location is rejected for the lack of the required permission, weak positioning signal, or incorrect location settings. After the timeout duration expires, the fail function will be called.
    * The value is a 32-digit positive integer.
    * If the value set is less than or equal to 0, the default value will be used.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   timeout?: number;
 
   /**
    * Coordinate system type. Available types can be obtained using getSupportedCoordTypes.
    * The default type is wgs84.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   coordType?: string;
 
   /**
    * Called when the geographic location is obtained.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   success?: (data: GeolocationResponse) => void;
 
   /**
    * Called when the location types fail to be obtained
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   complete?: () => void;
 }
 
 /**
+ * @interface GetLocationTypeResponse
  * @syscap SystemCapability.Location.Location.Lite
+ * @since 3
  * @deprecated since 9
  */
 export interface GetLocationTypeResponse {
   /**
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   types: Array<string>;
 }
 
 /**
+ * @interface GetLocationTypeOption
  * @syscap SystemCapability.Location.Location.Lite
+ * @since 3
  * @deprecated since 9
  */
 export interface GetLocationTypeOption {
   /**
    * Called when the location types are obtained.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   success?: (data: GetLocationTypeResponse) => void;
 
   /**
    * Called when the location types fail to be obtained.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   fail?: (data: string, code: number) => void;
 
   /**
    * Called when the execution is completed.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   complete?: () => void;
 }
 
 /**
- * @syscap SystemCapability.Location.Location.Lite
+ * @interface SubscribeLocationOption
  * @permission ohos.permission.LOCATION
+ * @syscap SystemCapability.Location.Location.Lite
+ * @since 3
  * @deprecated since 9
  * @useinstead ohos.geoLocationManager/geoLocationManager.LocationRequest
  */
@@ -139,25 +177,32 @@ export interface SubscribeLocationOption {
   /**
    * Coordinate system type. Available types can be obtained using getSupportedCoordTypes.
    * The default type is wgs84.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   coordType?: string;
 
   /**
    * Called whenever the geographical location changes.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   success: (data: GeolocationResponse) => void;
 
   /**
    * Called when the listening fails.
+   * @syscap SystemCapability.Location.Location.Lite
    * @since 3
+   * @deprecated since 9
    */
   fail?: (data: string, code: number) => void;
 }
 
 /**
  * @syscap SystemCapability.Location.Location.Lite
+ * @since 3
  * @deprecated since 9
  * @useinstead ohos.geoLocationManager/geoLocationManager
  */
@@ -165,7 +210,9 @@ export default class Geolocation {
   /**
    * Obtains the geographic location.
    * @permission ohos.permission.LOCATION
-   * @param options Options.
+   * @param { GetLocationOption } options Options.
+   * @syscap SystemCapability.Location.Location.Lite
+   * @since 3
    * @deprecated since 9
    * @useinstead ohos.geoLocationManager/geoLocationManager.getCurrentLocation
    */
@@ -173,7 +220,9 @@ export default class Geolocation {
 
   /**
    * Obtains the location types supported by the system.
-   * @param options Options.
+   * @param { GetLocationTypeOption } options Options.
+   * @syscap SystemCapability.Location.Location.Lite
+   * @since 3
    * @deprecated since 9
    */
   static getLocationType(options?: GetLocationTypeOption): void;
@@ -181,7 +230,9 @@ export default class Geolocation {
   /**
    * Listens to the geographical location. If this method is called multiple times, the last call takes effect.
    * @permission ohos.permission.LOCATION
-   * @param options Options.
+   * @param { SubscribeLocationOption } options Options.
+   * @syscap SystemCapability.Location.Location.Lite
+   * @since 3
    * @deprecated since 9
    * @useinstead ohos.geoLocationManager/geoLocationManager.on#event:locationChange
    */
@@ -190,6 +241,8 @@ export default class Geolocation {
   /**
    * Cancels listening to the geographical location.
    * @permission ohos.permission.LOCATION
+   * @syscap SystemCapability.Location.Location.Lite
+   * @since 3
    * @deprecated since 9
    * @useinstead ohos.geoLocationManager/geoLocationManager.off#event:locationChange
    */
@@ -197,7 +250,9 @@ export default class Geolocation {
 
   /**
    * Obtains the supported coordinate system types.
-   * @returns A string array of the supported coordinate system types, for example, ['wgs84'].
+   * @returns { Array<string> } A string array of the supported coordinate system types, for example, ['wgs84'].
+   * @syscap SystemCapability.Location.Location.Lite
+   * @since 3
    * @deprecated since 9
    */
   static getSupportedCoordTypes(): Array<string>;
