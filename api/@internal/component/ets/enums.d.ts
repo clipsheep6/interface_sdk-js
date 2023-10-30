@@ -4747,6 +4747,80 @@ declare enum TextHeightAdaptivePolicy {
 }
 
 /**
+ * Type of text detection
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum TextDataDetectType {
+  /**
+   * Detection telephone.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+
+  PHONE = 0,
+  /**
+   * Detection url.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  URL,
+
+  /**
+   * Detection email.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  EMAIL,
+
+  /**
+   * Detection all.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  ALL,
+}
+
+/**
+ * Type of enable text detection
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum TextDataDetectEnableType {
+  /**
+   * Detection function off.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  DISABLE = 0,
+
+  /**
+   * Detection function on.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  ENABLE,
+}
+
+/**
  * ResponseType for contextMenu
  *
  * @enum { number }
