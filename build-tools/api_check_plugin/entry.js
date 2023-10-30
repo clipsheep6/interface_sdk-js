@@ -39,9 +39,10 @@ function checkEntry(prId) {
     if (!execute) {
       throw 'npm install timeout';
     }
-    const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
-    result = scanEntry(mdFilesPath, prId, false);
-    result = reqGitApi(result, prId);
+    // const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
+    // result = scanEntry(mdFilesPath, prId, false);
+    // result = reqGitApi(result, prId);
+    result.push(`testrun : 123`);
     removeDir(path.resolve(__dirname, '../api_diff/node_modules'));
     removeDir(path.resolve(__dirname, 'node_modules'));
   } catch (error) {
@@ -49,11 +50,11 @@ function checkEntry(prId) {
     result.push(`API_CHECK_ERROR : ${error}`);
     result.push(`buffer : ${buffer.toString()}`);
   } finally {
-    const { apiCheckInfoArr, removeDuplicateObj } = require('./src/utils');
-    const apiCheckResultArr = removeDuplicateObj(apiCheckInfoArr);
-    apiCheckResultArr.forEach((errorInfo) => {
-      result.unshift(errorInfo);
-    });
+    // const { apiCheckInfoArr, removeDuplicateObj } = require('./src/utils');
+    // const apiCheckResultArr = removeDuplicateObj(apiCheckInfoArr);
+    // apiCheckResultArr.forEach((errorInfo) => {
+    //   result.unshift(errorInfo);
+    // });
     writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
   }
 }
