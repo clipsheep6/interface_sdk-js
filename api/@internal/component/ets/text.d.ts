@@ -639,6 +639,47 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    */
   selection(selectionStart: number, selectionEnd: number): TextAttribute;
+
+  /**
+   * Whether to enable text content detection.
+   *
+   * @param { TextDataDetectEnableType } config - The text content detection Feature was enabled.
+   * @param { TextDataDetectConfig } config - the configuration of text content detection.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  enableDataDetector(config: TextDataDetectEnableType | TextDataDetectConfig): TextAttribute;
+}
+
+/**
+ * the configuration of text content detection.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare class TextDataDetectConfig {
+  /**
+   * Sets the type of text detection.
+   * 
+   * @type { TextDataDetectType }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  types: TextDataDetectType[];
+
+  /**
+   * Called when the text detection result is obtained successfully.
+   * 
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onResult?: (result: string) => void;
 }
 
 /**
