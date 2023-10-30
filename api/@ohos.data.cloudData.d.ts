@@ -621,7 +621,7 @@ declare namespace cloudData {
     function share(
       sharingRes: string,
       participants: Array<Participant>,
-      callback: AsyncCallback<Array<Result<Participant>>>
+      callback: AsyncCallback<Result<Array<Participant>>>
     ): void;
 
     /**
@@ -641,7 +641,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function share(sharingRes: string, participants: Array<Participant>): Promise<Array<Result<Participant>>>;
+    function share(sharingRes: string, participants: Array<Participant>): Promise<Result<Array<Participant>>>;
 
     /**
      * Unshares data.
@@ -664,7 +664,7 @@ declare namespace cloudData {
     function unshare(
       sharingRes: string,
       participants: Array<Participant>,
-      callback: AsyncCallback<Array<Result<Participant>>>
+      callback: AsyncCallback<Result<Array<Participant>>>
     ): void;
 
     /**
@@ -684,7 +684,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function unshare(sharingRes: string, participants: Array<Participant>): Promise<Array<Result<Participant>>>;
+    function unshare(sharingRes: string, participants: Array<Participant>): Promise<Result<Array<Participant>>>;
 
     /**
      * Exit sharing.
@@ -701,7 +701,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function exit(sharingRes: string, callback: AsyncCallback<void>): void;
+    function exit(sharingRes: string, callback: AsyncCallback<Result<void>>): void;
 
     /**
      * Exit sharing.
@@ -718,7 +718,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function exit(sharingRes: string): Promise<void>;
+    function exit(sharingRes: string): Promise<Result<void>>;
 
     /**
      * Changes the permissions for the shared data.
@@ -741,7 +741,7 @@ declare namespace cloudData {
     function changePrivilege(
       sharingRes: string,
       participants: Array<Participant>,
-      callback: AsyncCallback<Array<Result<Participant>>>
+      callback: AsyncCallback<Result<Array<Participant>>>
     ): void;
 
     /**
@@ -764,7 +764,7 @@ declare namespace cloudData {
     function changePrivilege(
       sharingRes: string,
       participants: Array<Participant>
-    ): Promise<Array<Result<Participant>>>;
+    ): Promise<Result<Array<Participant>>>;
 
     /**
      * Queries the participants based on the specified shared data.
@@ -782,7 +782,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function queryParticipants(sharingRes: string, callback: AsyncCallback<Array<Result<Participant>>>): void;
+    function queryParticipants(sharingRes: string, callback: AsyncCallback<Result<Array<Participant>>>): void;
 
     /**
      * Queries the participants based on the specified shared data.
@@ -799,7 +799,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function queryParticipants(sharingRes: string): Promise<Array<Result<Participant>>>;
+    function queryParticipants(sharingRes: string): Promise<Result<Array<Participant>>>;
 
     /**
      * Queries the participants based on the specified invitation code.
@@ -819,7 +819,7 @@ declare namespace cloudData {
      */
     function queryParticipantsByInvitation(
       InvitationCode: string,
-      callback: AsyncCallback<Array<Result<Participant>>>
+      callback: AsyncCallback<Result<Array<Participant>>>
     ): void;
 
     /**
@@ -837,7 +837,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function queryParticipantsByInvitation(InvitationCode: string): Promise<Array<Result<Participant>>>;
+    function queryParticipantsByInvitation(InvitationCode: string): Promise<Result<Array<Participant>>>;
 
     /**
      * Confirms the invitation of cloud sharing.
@@ -892,7 +892,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function changeConfirmation(sharingRes: string, status: Status, callback: AsyncCallback<void>): void;
+    function changeConfirmation(sharingRes: string, status: Status, callback: AsyncCallback<Result<void>>): void;
 
     /**
      * Changes confirmation of shared record.
@@ -910,7 +910,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function changeConfirmation(sharingRes: string, status: Status): Promise<void>;
+    function changeConfirmation(sharingRes: string, status: Status): Promise<Result<void>>;
   }
 }
 
