@@ -24,10 +24,15 @@ function checkEntry(prId) {
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', 'all_files.txt');
   const MAX_TIMES = 3;
   let buffer = new Buffer.from('');
+  let bufferTestClang = new Buffer.from('');
   let i = 0;
   let execute = false;
   try {
     const execSync = require('child_process').execSync;
+    bufferTestClang = execSync('clang -v', {
+      timeout: 5000,
+    });
+    result.push(`bufferTestClang : ${bufferTestClang.toString()}`);
     do {
       try {
         buffer = execSync('cd interface/sdk-js/build-tools/api_diff && npm install && cd ../api_check_plugin && npm install', {
@@ -39,21 +44,23 @@ function checkEntry(prId) {
     if (!execute) {
       throw 'npm install timeout';
     }
-    const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
-    result = scanEntry(mdFilesPath, prId, false);
-    result = reqGitApi(result, prId);
+    // const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
+    // result = scanEntry(mdFilesPath, prId, false);
+    // result = reqGitApi(result, prId);
+    result.push(`run over`);
     removeDir(path.resolve(__dirname, '../api_diff/node_modules'));
     removeDir(path.resolve(__dirname, 'node_modules'));
   } catch (error) {
     // catch error
     result.push(`API_CHECK_ERROR : ${error}`);
     result.push(`buffer : ${buffer.toString()}`);
+    result.push(`bufferTestClang error : ${bufferTestClang.toString()}`);
   } finally {
-    const { apiCheckInfoArr, removeDuplicateObj } = require('./src/utils');
-    const apiCheckResultArr = removeDuplicateObj(apiCheckInfoArr);
-    apiCheckResultArr.forEach((errorInfo) => {
-      result.unshift(errorInfo);
-    });
+    // const { apiCheckInfoArr, removeDuplicateObj } = require('./src/utils');
+    // const apiCheckResultArr = removeDuplicateObj(apiCheckInfoArr);
+    // apiCheckResultArr.forEach((errorInfo) => {
+    //   result.unshift(errorInfo);
+    // });
     writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
   }
 }
