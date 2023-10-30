@@ -177,7 +177,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type Assets = Asset[];
+  type Assets = Array<Asset>;
 
   /**
    * Indicates possible value types
@@ -2717,7 +2717,7 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the name of the table to check.
      * @param { string } columnName - Indicates the name of the column to check.
-     * @param { PRIKeyType[] } primaryKeys - Indicates the primary keys of the rows to check.
+     * @param { Array<PRIKeyType> } primaryKeys - Indicates the primary keys of the rows to check.
      * @returns { Promise<ModifyTime> } -The promise returned by the function. ModifyTime indicates the modify time of current row.
      * If this table does not support cloud, the {@link ModifyTime} will be empty.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -2726,14 +2726,14 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    getModifyTime(table: string, columnName: string, primaryKeys: PRIKeyType[]): Promise<ModifyTime>;
+    getModifyTime(table: string, columnName: string, primaryKeys: Array<PRIKeyType>): Promise<ModifyTime>;
 
     /**
      * Obtains the modify time of rows corresponding to the primary keys.
      *
      * @param { string } table - Indicates the name of the table to check.
      * @param { string } columnName - Indicates the name of the column to check.
-     * @param { PRIKeyType[] } primaryKeys - Indicates the primary keys of the rows to check.
+     * @param { Array<PRIKeyType> } primaryKeys - Indicates the primary keys of the rows to check.
      * @param { AsyncCallback<ModifyTime> } callback - The callback of getModifyTime. ModifyTime indicates the modify time of current row.
      * If this table does not support cloud, the {@link ModifyTime} will be empty.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -2745,7 +2745,7 @@ declare namespace relationalStore {
     getModifyTime(
       table: string,
       columnName: string,
-      primaryKeys: PRIKeyType[],
+      primaryKeys: Array<PRIKeyType>,
       callback: AsyncCallback<ModifyTime>
     ): void;
     /**
@@ -3145,7 +3145,7 @@ declare namespace relationalStore {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
-     * @param { string[] } tables - indicates the database synchronization mode.
+     * @param { Array<string> } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @param { AsyncCallback<void> } callback - {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
@@ -3156,7 +3156,7 @@ declare namespace relationalStore {
      */
     cloudSync(
       mode: SyncMode,
-      tables: string[],
+      tables: Array<string>,
       progress: Callback<ProgressDetails>,
       callback: AsyncCallback<void>
     ): void;
@@ -3166,7 +3166,7 @@ declare namespace relationalStore {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
-     * @param { string[] } tables - indicates the database synchronization mode.
+     * @param { Array<string> } tables - indicates the database synchronization mode.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
@@ -3175,7 +3175,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetails>): Promise<void>;
+    cloudSync(mode: SyncMode, tables: Array<string>, progress: Callback<ProgressDetails>): Promise<void>;
 
     /**
      * Sync data to cloud.
