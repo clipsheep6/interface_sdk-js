@@ -242,7 +242,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
-     * @since 9
+     * @since 11
      */
     getFileDirectory(): string;
   }
