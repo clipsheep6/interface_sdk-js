@@ -621,7 +621,7 @@ declare namespace cloudData {
     function share(
       sharingRes: string,
       participants: Array<Participant>,
-      callback: AsyncCallback<Result<Array<Participant>>>
+      callback: AsyncCallback<Result<Array<Result<Participant>>>>
     ): void;
 
     /**
@@ -641,7 +641,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function share(sharingRes: string, participants: Array<Participant>): Promise<Result<Array<Participant>>>;
+    function share(sharingRes: string, participants: Array<Participant>): Promise<Result<Array<Result<Participant>>>>;
 
     /**
      * Unshares data.
@@ -664,7 +664,7 @@ declare namespace cloudData {
     function unshare(
       sharingRes: string,
       participants: Array<Participant>,
-      callback: AsyncCallback<Result<Array<Participant>>>
+      callback: AsyncCallback<Result<Array<Result<Participant>>>>
     ): void;
 
     /**
@@ -684,7 +684,10 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function unshare(sharingRes: string, participants: Array<Participant>): Promise<Result<Array<Participant>>>;
+    function unshare(
+      sharingRes: string,
+      participants: Array<Participant>
+    ): Promise<Result<Array<Result<Participant>>>>;
 
     /**
      * Exit sharing.
@@ -741,7 +744,7 @@ declare namespace cloudData {
     function changePrivilege(
       sharingRes: string,
       participants: Array<Participant>,
-      callback: AsyncCallback<Result<Array<Participant>>>
+      callback: AsyncCallback<Result<Array<Result<Participant>>>>
     ): void;
 
     /**
@@ -764,7 +767,7 @@ declare namespace cloudData {
     function changePrivilege(
       sharingRes: string,
       participants: Array<Participant>
-    ): Promise<Result<Array<Participant>>>;
+    ): Promise<Result<Array<Result<Participant>>>>;
 
     /**
      * Queries the participants based on the specified shared data.
