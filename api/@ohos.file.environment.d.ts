@@ -110,7 +110,7 @@ declare namespace Environment {
   /**
    * Get the sandbox path to the public directory.
    *
-   * @permission ohos.permission.READ_WRITE_DOWNLOAD or ohos.permission.READ_WRITE_DESKTOP or ohos.permission.READ_WRITE_DOCUMENTS
+   * @permission ohos.permission.READ_WRITE_DOWNLOAD_DIRECTORY or ohos.permission.READ_WRITE_DESKTOP_DIRECTORY or ohos.permission.READ_WRITE_DOCUMENTS_DIRECTORY
    * @returns { string } Return the sandbox path to the common directory.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The input parameter is invalid

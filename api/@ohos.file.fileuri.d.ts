@@ -189,7 +189,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
-    startAccessingURI(): Promise<void>;
+    startAccessingUri(): Promise<void>;
 
     /**
      * Enable the URI that have been permanently authorized
@@ -203,7 +203,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
-    startAccessingURI(callback: AsyncCallback<void>): void;
+    startAccessingUri(callback: AsyncCallback<void>): void;
 
     /**
      * Stop the authorized URI that has been enabled
@@ -217,7 +217,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
-    stopAccessingURI(): Promise<void>;
+    stopAccessingUri(): Promise<void>;
 
     /**
      * Stop the authorized URI that has been enabled
@@ -231,7 +231,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
-    stopAccessingURI(callback: AsyncCallback<void>): void;
+    stopAccessingUri(callback: AsyncCallback<void>): void;
 
     /**
      * Get the directory where the file URI is located
@@ -244,7 +244,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @since 11
      */
-    getFileDirectory(): string;
+    getDirectoryUri(): string;
   }
   
   /**
