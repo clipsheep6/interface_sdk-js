@@ -196,6 +196,7 @@ dpad
 drains
 dragbar
 drawbuffer
+dsds
 dsf
 dtmf
 ducked
@@ -718,6 +719,7 @@ taskmanager
 taskpool
 tbla
 tcpnodelay
+tdm
 tdscdma
 telecom
 tethering
