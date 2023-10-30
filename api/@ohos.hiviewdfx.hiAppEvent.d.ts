@@ -640,6 +640,15 @@ declare namespace hiAppEvent {
      * @since 11
      */
     routeInfo?: boolean;
+	
+    /**
+     * The app ID is provided by the processor.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @since 11
+     */
+    appId?: string;
 
     /**
      * The processor report the event when start.
