@@ -2147,7 +2147,7 @@ declare namespace cryptoFramework {
    *
    * @typedef ECCKeyUtil
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
+   * @since 11
    */
   interface ECCKeyUtil {
     /**
@@ -2158,7 +2158,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @since 11
      */
     genECCCommonParamSpec(curveName: string) : ECCCommonParamsSpec;
   }
