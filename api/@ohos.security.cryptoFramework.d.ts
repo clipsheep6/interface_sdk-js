@@ -864,13 +864,13 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
-    OAEP_MGF1_PSRC_UINT8ARR = 103,
-	
+	OAEP_MGF1_PSRC_UINT8ARR = 103,
+
     /**
      * Indicates the bash algorithm name of sm2 cipher process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @since 11
      */
     SM2_MD_NAME_STR = 104
   }
@@ -923,12 +923,12 @@ declare namespace cryptoFramework {
      * @since 10
      */
     PSS_TRAILER_FIELD_NUM = 104,
-	
+
     /**
      * Indicates the value for user id string. It is used in SM2 signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @since 11
      */
     SM2_USER_ID_UINT8ARR = 105
   }
@@ -1285,6 +1285,21 @@ declare namespace cryptoFramework {
      * @since 10
      */
     setSignSpec(itemType: SignSpecItem, itemValue: number): void;
+	    
+    /**
+     * Set the specified parameter to the sign object.
+     * Currently, only the PSS_SALT_LEN parameter in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { number | Uint8Array | string } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    setSignSpec(itemType: SignSpecItem, itemValue: number | Uint8Array | string): void;
 
     /**
      * Get the specified parameter from the sign object.
@@ -2126,26 +2141,26 @@ declare namespace cryptoFramework {
      */
     pk: Point;
   }
-  
+
   /**
    * Key utilities for ECC Algorithm.
    *
    * @typedef ECCKeyUtil
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
+   * @since 11
    */
   class ECCKeyUtil {
     /**
-    * Create the common parameter set based on the curve name.
-    *
-    * @param { string } curveName - indicates curve name according to SECG.
-    * @returns { ECCCommonParamsSpec } the ECC common Param Spec obj.
-    * @throws { BusinessError } 401 - invalid parameters.
-    * @throws { BusinessError } 801 - this operation is not supported.
-    * @syscap SystemCapability.Security.CryptoFramework
-    * @since 10
-    */
-    function genECCCommonParamSpec(curveName: string) : ECCCommonParamsSpec;
+     * Create the common parameter set based on the curve name.
+     *
+     * @param { string } curveName - indicates curve name according to SECG.
+     * @returns { ECCCommonParamsSpec } the ECC common Param Spec obj.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 11
+     */
+    genECCCommonParamSpec(curveName: string) : ECCCommonParamsSpec;
   }
 
   /**
