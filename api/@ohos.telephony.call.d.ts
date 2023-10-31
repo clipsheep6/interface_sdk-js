@@ -2416,6 +2416,15 @@ declare namespace call {
      * @since 10
      */
     DEVICE_BLUETOOTH_SCO,
+
+    /**
+     * Indicates the audio device is distributed car device.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    DEVICE_DISTRIBUTED_CAR,
   }
 
   /**
@@ -2446,6 +2455,16 @@ declare namespace call {
      * @since 10
      */
     address?: string;
+
+    /**
+     * Indicates the name of the audio device.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    deviceName?: string;
   }
 
   /**
