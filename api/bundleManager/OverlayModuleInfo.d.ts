@@ -18,6 +18,7 @@
  *
  * @typedef OverlayModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
  * @since 10
  */
 export interface OverlayModuleInfo {
@@ -26,6 +27,7 @@ export interface OverlayModuleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 10
    */
   readonly bundleName: string;
@@ -35,6 +37,7 @@ export interface OverlayModuleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 10
    */
   readonly moduleName: string;
@@ -44,6 +47,7 @@ export interface OverlayModuleInfo {
    *
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 10
    */
   readonly targetModuleName: string;
@@ -53,6 +57,7 @@ export interface OverlayModuleInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 10
    */
   readonly priority: number;
@@ -62,6 +67,7 @@ export interface OverlayModuleInfo {
    *
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 10
    */
   readonly state: number;
