@@ -864,7 +864,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
-	OAEP_MGF1_PSRC_UINT8ARR = 103,
+    OAEP_MGF1_PSRC_UINT8ARR = 103,
 
     /**
      * Indicates the bash algorithm name of sm2 cipher process.
