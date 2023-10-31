@@ -1035,14 +1035,14 @@ declare namespace webview {
         getFavicon(): image.PixelMap;
 
         /**
-         * Put network state for web. Which is used to set window.navigator.isOnline property in
+         * Put network state for web. Which is used to set window.navigator.onLine property in
          * JavaScript.
          *
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          *
-         * @param { boolean } enable - Whether enable window.navigator.isOnline.
+         * @param { boolean } enable - Whether enable window.navigator.onLine.
          * @since 9
          */
         setNetworkAvailable(enable: boolean): void;
