@@ -2725,7 +2725,7 @@ declare namespace audio {
    */
   interface AudioSpatializationManager {
     /**
-     * Checks whether the spatialization is supported by system.
+     * Checks whether spatialization is supported by system.
      * @returns { boolean } Whether the spatialization is supported.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
@@ -2734,7 +2734,7 @@ declare namespace audio {
     isSpatializationSupported(): boolean;
 
     /**
-     * Checks whether the spatialization is supported by the specified device.
+     * Checks whether spatialization is supported by the specified device.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
      * @returns { boolean } Whether the spatialization is supported.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
@@ -2746,7 +2746,7 @@ declare namespace audio {
     isSpatializationSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
 
     /**
-     * Checks whether the head tracking is supported by system.
+     * Checks whether head tracking is supported by system.
      * @returns { boolean } Whether the head tracking is supported.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
@@ -2755,7 +2755,7 @@ declare namespace audio {
     isHeadTrackingSupported(): boolean;
 
     /**
-     * Checks whether the head tracking is supported by the specified device.
+     * Checks whether head tracking is supported by the specified device.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
      * @returns { boolean } Whether the head tracking is supported.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
@@ -2787,15 +2787,6 @@ declare namespace audio {
      * @since 11
      */
     setSpatializationEnabled(enable: boolean): Promise<void>;
-    /**
-     * Sets the spatialization enabled or disabled.
-     * @param { boolean } enable - Spatialization enable state.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @systemapi
-     * @since 11
-     */
-    setSpatializationEnabledSync(enable: boolean): void;
 
     /**
      * Checks whether the spatialization is enabled.
@@ -2852,15 +2843,6 @@ declare namespace audio {
      * @since 11
      */
     setHeadTrackingEnabled(enable: boolean): Promise<void>;
-    /**
-     * Sets the head tracking enabled or disabled.
-     * @param { boolean } enable - Head tracking enable state.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
-     * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @systemapi
-     * @since 11
-     */
-    setHeadTrackingEnabledSync(enable: boolean): void;
 
     /**
      * Checks whether the head tracking is enabled.
@@ -4706,64 +4688,64 @@ declare namespace audio {
     isHeadTrackingSupported: boolean;
 
     /**
-     * Earphone shape type.
+     * Spatial device type.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    earphoneType: AudioEarphoneType;
+    spatialDeviceType: AudioSpatialDeviceType;
   }
 
   /**
-   * Describes an audio earphone shape type group.
+   * Describes an audio spatial device type group.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
    * @systemapi
    * @since 11
    */
-  enum AudioEarphoneType {
+  enum AudioSpatialDeviceType {
     /**
-     * Audio Earphone Type none.
+     * Audio Spatial Device Type none.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    EARPHONE_TYPE_NONE = 0,
+    SPATIAL_DEVICE_TYPE_NONE = 0,
     /**
-     * Audio Earphone Type inear.
+     * Audio Spatial Device Type inear.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    EARPHONE_TYPE_INEAR = 1,
+    SPATIAL_DEVICE_TYPE_INEAR = 1,
     /**
-     * Audio Earphone Type half inear.
+     * Audio Spatial Device Type half inear.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    EARPHONE_TYPE_HALF_INEAR = 2,
+    SPATIAL_DEVICE_TYPE_HALF_INEAR = 2,
     /**
-     * Audio Earphone Type headphone.
+     * Audio Spatial Device Type headphone.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    EARPHONE_TYPE_HEADPHONE = 3,
+    SPATIAL_DEVICE_TYPE_HEADPHONE = 3,
     /**
-     * Audio Earphone Type glasses.
+     * Audio Spatial Device Type glasses.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    EARPHONE_TYPE_GLASSES = 4,
+    SPATIAL_DEVICE_TYPE_GLASSES = 4,
     /**
-     * Audio Earphone Type others.
+     * Audio Spatial Device Type others.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    EARPHONE_TYPE_OTHERS = 5,
+    SPATIAL_DEVICE_TYPE_OTHERS = 5,
   }
 }
 
