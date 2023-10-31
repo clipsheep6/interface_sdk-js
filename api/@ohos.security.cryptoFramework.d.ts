@@ -864,7 +864,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
-    OAEP_MGF1_PSRC_UINT8ARR = 103
+    OAEP_MGF1_PSRC_UINT8ARR = 103,
+	
+    /**
+     * Indicates the bash algorithm name of sm2 cipher process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    SM2_MD_NAME_STR = 104
   }
 
   /**
@@ -914,7 +922,15 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
-    PSS_TRAILER_FIELD_NUM = 104
+    PSS_TRAILER_FIELD_NUM = 104,
+	
+    /**
+     * Indicates the value for user id string. It is used in SM2 signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    SM2_USER_ID_UINT8ARR = 105
   }
 
   /**
@@ -2109,6 +2125,27 @@ declare namespace cryptoFramework {
      * @since 10
      */
     pk: Point;
+  }
+  
+  /**
+   * Key utilities for ECC Algorithm.
+   *
+   * @typedef ECCKeyUtil
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @since 10
+   */
+  class ECCKeyUtil {
+    /**
+    * Create the common parameter set based on the curve name.
+    *
+    * @param { string } curveName - indicates curve name according to SECG.
+    * @returns { ECCCommonParamsSpec } the ECC common Param Spec obj.
+    * @throws { BusinessError } 401 - invalid parameters.
+    * @throws { BusinessError } 801 - this operation is not supported.
+    * @syscap SystemCapability.Security.CryptoFramework
+    * @since 10
+    */
+    function genECCCommonParamSpec(curveName: string) : ECCCommonParamsSpec;
   }
 
   /**
