@@ -1315,21 +1315,6 @@ declare namespace cryptoFramework {
      * @since 10
      */
     getSignSpec(itemType: SignSpecItem): string | number;
-    
-    /**
-     * Get the specified parameter from the sign object.
-     * Currently, only PSS parameters in RSA is supported.
-     *
-     * @param { SignSpecItem } itemType - indicates the specified parameter type.
-     * @returns { string | number | Uint8Array } the value of the specified parameter.
-     * @throws { BusinessError } 401 - invalid parameters.
-     * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
-     * @throws { BusinessError } 17630001 - crypto operation error.
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @since 11
-     */
-    getSignSpec(itemType: SignSpecItem): string | number | Uint8Array;
 
     /**
      * Indicates the algorithm name of the sign object.
