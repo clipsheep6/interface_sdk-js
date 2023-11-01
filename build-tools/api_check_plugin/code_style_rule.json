@@ -22,6 +22,7 @@
       "static",
       "syscap",
       "systemapi",
+      "threadsafe",
       "type",
       "typedef",
       "throws",
