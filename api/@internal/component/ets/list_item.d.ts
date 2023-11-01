@@ -274,16 +274,6 @@ declare interface SwipeActionItem {
    */
   onExitActionArea?: () => void;
 
-/**
-   * Called when swipe action offset changed.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  onSwipeActionOffset?: (offset: number) => void;
-
   /**
    * Called when component swipe action state changed.
    *
@@ -365,6 +355,16 @@ declare interface SwipeActionOptions {
    * @since 10
    */
   edgeEffect?: SwipeEdgeEffect;
+
+  /**
+   * Called when swipe action offset changed.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onSwipeActionOffset?: (offset: number) => void;
 }
 
 /**
