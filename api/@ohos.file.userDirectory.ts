@@ -63,7 +63,7 @@ declare namespace userDirectory {
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.UserDirectory
    * @since 11
@@ -77,7 +77,7 @@ declare namespace userDirectory {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.UserDirectory
@@ -93,7 +93,7 @@ declare namespace userDirectory {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.UserDirectory
@@ -109,7 +109,7 @@ declare namespace userDirectory {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.UserDirectory
@@ -125,7 +125,7 @@ declare namespace userDirectory {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.UserDirectory

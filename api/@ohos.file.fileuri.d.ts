@@ -61,7 +61,7 @@ declare namespace fileUri {
      *
      * @returns { string } Return the directory path
      * @throws { BusinessError } 13900002 - No such file or directory
-     * @throws { BusinessError } 13900012 - Permitted denied
+     * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService

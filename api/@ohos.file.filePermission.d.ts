@@ -50,7 +50,7 @@ declare namespace filePermission {
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi Hide this for inner system use.
@@ -69,7 +69,7 @@ declare namespace filePermission {
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi Hide this for inner system use.
@@ -88,7 +88,7 @@ declare namespace filePermission {
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
@@ -106,7 +106,7 @@ declare namespace filePermission {
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
@@ -124,7 +124,7 @@ declare namespace filePermission {
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
@@ -142,7 +142,7 @@ declare namespace filePermission {
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
@@ -157,7 +157,7 @@ declare namespace filePermission {
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
@@ -172,7 +172,7 @@ declare namespace filePermission {
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
@@ -187,7 +187,7 @@ declare namespace filePermission {
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
@@ -202,7 +202,7 @@ declare namespace filePermission {
    * @throws { BusinessError } 401 - The input parameter is invalid
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900002 - No such file or directory
-   * @throws { BusinessError } 13900012 - Permitted denied
+   * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 11
