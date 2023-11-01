@@ -148,7 +148,7 @@ declare class By {
   /**
    * Specifies the type of the target UiComponent.
    *
-   * @param { string } tp The type value.
+   * @param { string } typ The type value.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 8
@@ -156,7 +156,7 @@ declare class By {
    * @useinstead ohos.UiTest.On#type
    * @test
    */
-  type(tp: string): By;
+  type(typ: string): By;
 
   /**
    * Specifies the clickable status of the target UiComponent.
@@ -1102,7 +1102,7 @@ declare class On {
   /**
    * Specifies the type of the target Component.
    *
-   * @param { string } tp The type value.
+   * @param { string } typ The type value.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1112,7 +1112,7 @@ declare class On {
   /**
    * Specifies the type of the target Component.
    *
-   * @param { string } tp The type value.
+   * @param { string } typ The type value.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1120,7 +1120,7 @@ declare class On {
    * @since 10
    * @test
    */
-  type(tp: string): On;
+  type(typ: string): On;
 
   /**
    * Specifies the clickable status of the target Component.
