@@ -2160,7 +2160,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 11
      */
-    genECCCommonParamSpec(curveName: string) : ECCCommonParamsSpec;
+    static genECCCommonParamSpec(curveName: string) : ECCCommonParamsSpec;
   }
 
   /**
