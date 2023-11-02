@@ -442,6 +442,25 @@ declare interface ChainAnimationOptions {
 }
 
 /**
+ * Defines the close swipe action options.
+ *
+ * @interface CloseSwipeActionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare interface CloseSwipeActionOptions {
+  /**
+   * Called after collapse animation completed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onFinish?: ()=>void
+}
+
+/**
  * @extends Scroller
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -465,12 +484,12 @@ declare class ListScroller extends Scroller {
   /**
    * Collapse all listItem.
    *
-   * @param { function } onFinish - Called after collapse animation completed.
+   * @param { CloseSwipeActionOptions } options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  closeAllSwipeAction(onFinish:()=>void): void;
+  closeAllSwipeAction(options?: CloseSwipeActionOptions): void;
 }
 
 /**

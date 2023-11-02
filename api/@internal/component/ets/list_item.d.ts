@@ -153,12 +153,12 @@ declare enum SwipeActionState {
   COLLAPSED,
 
   /**
-   * Expand type.
+   * EXPANDED type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  EXPAND,
+  EXPANDED,
 
   /**
    * Action type.
@@ -364,7 +364,7 @@ declare interface SwipeActionOptions {
    * @crossplatform
    * @since 11
    */
-  onSwipeActionOffset?: (offset: number) => void;
+  onOffsetChange?: (offset: number) => void;
 }
 
 /**
