@@ -10,6 +10,7 @@
         "AbilityComponent",
         "AlphabetIndexer",
         "Animator",
+        "AodAnimate",
         "Badge",
         "Blank",
         "Button",
@@ -119,6 +120,11 @@
             "name": "Animator",
             "type": "AnimatorAttribute",
             "instance": "AnimatorInstance"
+          },
+          {
+            "name": "AodAnimate",
+            "type": "AodAnimateAttribute",
+            "instance": "AodAnimateInstance"
           },
           {
             "name": "Badge",
