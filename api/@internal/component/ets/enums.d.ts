@@ -5969,3 +5969,31 @@ declare enum EllipsisMode {
    */
   END = 2,
 }
+
+/**
+ * Enum of securityMode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum SecurityMode {
+  /**
+   * Disable the secure keyboard.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  DISABLE = 0,
+
+  /**
+   * Enable the secure keyboard.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  ENABLE = 1,
+}
