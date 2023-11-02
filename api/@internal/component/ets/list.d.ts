@@ -446,6 +446,7 @@ declare interface ChainAnimationOptions {
  *
  * @interface CloseSwipeActionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @systemapi
  * @since 11
  */
@@ -454,8 +455,8 @@ declare interface CloseSwipeActionOptions {
    * Called after collapse animation completed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @crossplatform
+   * @systemapi
    * @since 11
    */
   onFinish?: ()=>void
