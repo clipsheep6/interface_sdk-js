@@ -447,7 +447,6 @@ declare interface ChainAnimationOptions {
  * @interface CloseSwipeActionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @systemapi
  * @since 11
  */
 declare interface CloseSwipeActionOptions {
@@ -456,7 +455,6 @@ declare interface CloseSwipeActionOptions {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @systemapi
    * @since 11
    */
   onFinish?: ()=>void
