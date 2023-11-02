@@ -163,6 +163,7 @@ declare class By {
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 11
+   * @deprecated since 9
    * @test
    */
 
