@@ -454,6 +454,7 @@ declare interface CloseSwipeActionOptions {
    * Called after collapse animation completed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @crossplatform
    * @since 11
    */
