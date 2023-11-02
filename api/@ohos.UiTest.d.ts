@@ -164,7 +164,6 @@ declare class By {
    * @syscap SystemCapability.Test.UiTest
    * @deprecated since 9
    * @useinstead ohos.UiTest.On#type
-   * @crossplatform
    * @since 11
    * @test
    */
