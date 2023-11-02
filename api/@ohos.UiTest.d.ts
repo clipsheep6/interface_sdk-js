@@ -818,7 +818,7 @@ declare interface Point {
 /**
  * Represents the rectangle area on the device screen.
  *
- * @typedef Rect
+ * @typedef Rect 
  * @syscap SystemCapability.Test.UiTest
  * @since 9
  */
@@ -901,7 +901,7 @@ declare interface WindowFilter {
 
 /**
  * Represents the information of an UI element, can be a component or window.
- *
+ * 
  * @typedef UIElementInfo
  * @syscap SystemCapability.Test.UiTest
  * @since 10
@@ -936,7 +936,7 @@ declare interface UIElementInfo {
 
 /**
  * Observer to monitor UI events.
- *
+ * 
  * @typedef UIEventObserver
  * @syscap SystemCapability.Test.UiTest
  * @since 10
@@ -945,7 +945,7 @@ declare interface UIElementInfo {
 declare interface UIEventObserver {
   /**
    * Listen for toast show once
-   *
+   * 
    * @param { 'toastShow' } type 'toastShow'.
    * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -957,7 +957,7 @@ declare interface UIEventObserver {
 
   /**
    * Listen for dialog show once
-   *
+   * 
    * @param { 'dialogShow' } type 'dialogShow'.
    * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -2551,7 +2551,7 @@ declare class Driver {
    * @since 11
    * @test
    */
-  mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;
+  mouseDrag(from: Point, to: Point, speed?: number): Promise<void>;  
 
   /**
    * Inject text on the specified location.
@@ -2565,7 +2565,7 @@ declare class Driver {
    * @since 11
    * @test
    */
-  inputText(p: Point, text: string): Promise<void>;
+  inputText(p: Point, text: string): Promise<void>;  
 }
 
 /**
