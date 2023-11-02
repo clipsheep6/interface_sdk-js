@@ -469,6 +469,8 @@ declare class ListScroller extends Scroller {
    * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
    * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
    * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
