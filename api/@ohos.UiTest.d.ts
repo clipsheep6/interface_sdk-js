@@ -162,8 +162,6 @@ declare class By {
    * @param { string } typ The type value.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @deprecated since 9
-   * @useinstead ohos.UiTest.On#type
    * @since 11
    * @test
    */
