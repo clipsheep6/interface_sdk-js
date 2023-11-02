@@ -636,11 +636,11 @@ declare namespace hiAppEvent {
     /**
      * The server location information.
      *
-     * @type { ?boolean }
+     * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 11
      */
-    routeInfo?: boolean;
+    routeInfo?: string;
 	
     /**
      * The app ID is provided by the processor.
