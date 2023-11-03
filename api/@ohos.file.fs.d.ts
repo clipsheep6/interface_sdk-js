@@ -847,7 +847,7 @@ declare function copyFile(
   dest: string | number,
   options: {
     mode?: number;
-    progressListener?: (progress: Progress) => void;
+    progressListener?: ProgressListener;
   }
 ): Promise<void>;
 
@@ -885,7 +885,7 @@ declare function copyFile(
   dest: string | number,
   options: {
     mode?: number;
-    progressListener?: (progress: Progress) => void;
+    progressListener?: ProgressListener;
   },
   callback: AsyncCallback<void>
 ): void;
@@ -5456,6 +5456,24 @@ export interface WatchEventListener {
    * @since 10
    */
   (event: WatchEvent): void;
+}
+
+/**
+ * Implements watcher progress of copy file.
+ *
+ * @interface ProgressListener
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export interface ProgressListener {
+  /**
+   * Specifies the callback function to be invoked.
+   *
+   * @param { Progress } progress - progress of copy file.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  (progress: Progress): void;
 }
 
 /**
