@@ -21,6 +21,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace cryptoFramework
  * @syscap SystemCapability.Security.CryptoFramework
+ * @atomicservice
  * @since 9
  */
 declare namespace cryptoFramework {
@@ -29,6 +30,7 @@ declare namespace cryptoFramework {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework
+   * @atomicservice
    * @since 9
    */
   enum Result {
@@ -36,6 +38,7 @@ declare namespace cryptoFramework {
      * Indicates that input parameters is invalid.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
      * @since 9
      */
     INVALID_PARAMS = 401,
@@ -44,6 +47,7 @@ declare namespace cryptoFramework {
      * Indicates that function or algorithm is not supported.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
      * @since 9
      */
     NOT_SUPPORT = 801,
@@ -52,6 +56,7 @@ declare namespace cryptoFramework {
      * Indicates the memory error.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
      * @since 9
      */
     ERR_OUT_OF_MEMORY = 17620001,
@@ -68,6 +73,7 @@ declare namespace cryptoFramework {
      * Indicates that crypto operation error.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
      * @since 9
      */
     ERR_CRYPTO_OPERATION = 17630001
@@ -78,6 +84,7 @@ declare namespace cryptoFramework {
    *
    * @typedef DataBlob
    * @syscap SystemCapability.Security.CryptoFramework
+   * @atomicservice
    * @since 9
    */
   interface DataBlob {
@@ -86,6 +93,7 @@ declare namespace cryptoFramework {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
      * @since 9
      */
     data: Uint8Array;
@@ -368,6 +376,7 @@ declare namespace cryptoFramework {
    *
    * @typedef Random
    * @syscap SystemCapability.Security.CryptoFramework
+   * @atomicservice
    * @since 9
    */
   interface Random {
@@ -380,6 +389,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
      * @since 9
      */
     generateRandom(len: number, callback: AsyncCallback<DataBlob>): void;
@@ -393,6 +403,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
      * @since 9
      */
     generateRandom(len: number): Promise<DataBlob>;
@@ -406,6 +417,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
      * @since 10
      */
     generateRandomSync(len: number): DataBlob;
@@ -416,6 +428,7 @@ declare namespace cryptoFramework {
      * @param { DataBlob } seed - indicates the seed DataBlob.
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
      * @since 9
      */
     setSeed(seed: DataBlob): void;
@@ -426,6 +439,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @atomicservice
      * @since 10
      */
     readonly algName: string;
@@ -437,6 +451,7 @@ declare namespace cryptoFramework {
    * @returns { Random } returns the created rand instance.
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
+   * @atomicservice
    * @since 9
    */
   function createRandom(): Random;
