@@ -256,6 +256,7 @@ export default class ApplicationContext extends Context {
   /**
    * Set language of the application
    *
+   * @permission ohos.permission.CLEAN_BACKGROUND_PROCESSES
    * @param { string } language - Language.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.
