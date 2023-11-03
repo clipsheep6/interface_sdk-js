@@ -1467,6 +1467,21 @@ declare namespace cryptoFramework {
     setVerifySpec(itemType: SignSpecItem, itemValue: number): void;
 
     /**
+     * Set the specified parameter to the verify object.
+     * Currently, only the PSS_SALT_LEN parameter in RSA is supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { number | Uint8Array | string } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @since 10
+     */
+    setVerifySpec(itemType: SignSpecItem, itemValue: number | Uint8Array | string): void;
+
+    /**
      * Get the specified parameter from the verify object.
      * Currently, only PSS parameters in RSA is supported.
      *
