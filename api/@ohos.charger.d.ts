@@ -14,7 +14,7 @@
  */
 
 /**
- * Provides charger information includes type and protocol.
+ * Provides charger information includeing the charging type and protocol.
  *
  * @namespace charger
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -23,7 +23,7 @@
  */
 declare namespace charger {
   /**
-   * Indicates the type of the charger plugged-in.
+   * Enumerates the charging types.
    *
    * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -40,7 +40,7 @@ declare namespace charger {
      */
     NONE,
     /**
-     * Wired normal type
+     * Wired normal charging
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -48,7 +48,7 @@ declare namespace charger {
      */
     WIRED_NORMAL,
     /**
-     * Wired quick type
+     * Wired quick charging
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -56,7 +56,7 @@ declare namespace charger {
      */
     WIRED_QUICK,
     /**
-     * Wired super quick type
+     * Wired super quick charging
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -64,7 +64,7 @@ declare namespace charger {
      */
     WIRED_SUPER_QUICK,
     /**
-     * Wireless normal type
+     * Wireless normal charging
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -72,7 +72,7 @@ declare namespace charger {
      */
     WIRELESS_NORMAL,
     /**
-     * Wireless quick type
+     * Wireless quick charging
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -80,7 +80,7 @@ declare namespace charger {
      */
     WIRELESS_QUICK,
     /**
-     * Wireless super quick type
+     * Wireless super quick charging
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
