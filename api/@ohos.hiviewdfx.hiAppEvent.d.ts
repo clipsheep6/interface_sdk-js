@@ -721,7 +721,6 @@ declare namespace hiAppEvent {
    * @param { Processor } processor The instance which report the event
    * @returns { number }  The processor unique ID.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 11105001 - Processor total number out of range.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 11
