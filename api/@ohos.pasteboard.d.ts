@@ -124,8 +124,11 @@ declare namespace pasteboard {
    * @returns { PasteData } a new PasteData object which contains mimeType and value.
    * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
    * @since 9
+   */
+  /**
+   * @atomicservice
+   * @since 11
    */
   function createData(mimeType: string, value: ValueType): PasteData;
 
@@ -188,8 +191,11 @@ declare namespace pasteboard {
    * get SystemPasteboard
    * @returns { SystemPasteboard } The system clipboard object
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
    * @since 6
+   */
+  /**
+   * @atomicservice
+   * @since 11
    */
   function getSystemPasteboard(): SystemPasteboard;
 
@@ -739,8 +745,11 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<PasteData>.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
      * @since 9
+     */
+    /**
+     * @atomicservice
+     * @since 11
      */
     getData(callback: AsyncCallback<PasteData>): void;
 
@@ -749,8 +758,11 @@ declare namespace pasteboard {
      * @returns { Promise<PasteData> } the promise returned by the getData.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
      * @since 9
+     */
+    /**
+     * @atomicservice
+     * @since 11
      */
     getData(): Promise<PasteData>;
 
@@ -840,8 +852,11 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
      * @since 9
+     */
+    /**
+     * @atomicservice
+     * @since 11
      */
     setData(data: PasteData, callback: AsyncCallback<void>): void;
 
@@ -853,8 +868,11 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
      * @since 9
+     */
+    /**
+     * @atomicservice
+     * @since 11
      */
     setData(data: PasteData): Promise<void>;
 
