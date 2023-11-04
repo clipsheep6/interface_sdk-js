@@ -53,9 +53,9 @@ declare namespace cloudExtension {
   function createShareServiceStub(instance: ShareCenter): Promise<rpc.RemoteObject>;
 
   /**
-   * Provides interfaces for implementing ShareService.
+   * Provides interfaces for implementing ShareCenter.
    *
-   * @interface ShareService
+   * @interface ShareCenter
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11
