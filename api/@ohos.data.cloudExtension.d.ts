@@ -50,7 +50,7 @@ declare namespace cloudExtension {
    * @systemapi
    * @since 11
    */
-  function createShareServiceStub(instance: ShareService): Promise<rpc.RemoteObject>;
+  function createShareServiceStub(instance: ShareCenter): Promise<rpc.RemoteObject>;
 
   /**
    * Provides interfaces for implementing ShareService.
@@ -60,7 +60,7 @@ declare namespace cloudExtension {
    * @systemapi
    * @since 11
    */
-  export interface ShareService {
+  export interface ShareCenter {
     /**
      * Share data with specific participants.
      *
