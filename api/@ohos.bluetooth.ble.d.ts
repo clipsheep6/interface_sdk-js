@@ -136,6 +136,180 @@ declare namespace ble {
   function stopAdvertising(): void;
 
   /**
+   * Starts BLE advertising.
+   * The API returns a advertising ID. The ID can be used to temporarily enable or disable this advertising
+   * using the API {@link enableAdvertising} or {@link disableAdvertising}.
+   * To completely stop the advertising corresponding to the ID, invoke the API {@link stopAdvertising} with ID.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { AdvertiseParam } advertiseParam - Indicates the param for BLE advertising.
+   * @param { AsyncCallback<number> } callback - the callback of advertise ID.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  function startAdvertising(advertiseParam: AdvertiseParam, callback: AsyncCallback<number>): void;
+
+  /**
+   * Starts BLE advertising.
+   * The API returns a advertising ID. The ID can be used to temporarily enable or disable this advertising
+   * using the API {@link enableAdvertising} or {@link disableAdvertising}.
+   * To completely stop the advertising corresponding to the ID, invoke the API {@link stopAdvertising} with ID.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { AdvertiseParam } advertiseParam - Indicates the param for BLE advertising.
+   * @returns { Promise<number> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  function startAdvertising(advertiseParam: AdvertiseParam): Promise<number>;
+
+  /**
+   * Enable the advertising with a specific ID temporarily.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { EnableAdvertiseParam } enableAdvertiseParam - Indicates the param for enable advertising.
+   * @param { AsyncCallback<void> } callback - the callback result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  function enableAdvertising(enableAdvertiseParam: EnableAdvertiseParam, callback: AsyncCallback<void>): void;
+
+  /**
+   * Enable the advertising with a specific ID temporarily.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { EnableAdvertiseParam } enableAdvertiseParam - Indicates the param for enable advertising.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  function enableAdvertising(enableAdvertiseParam: EnableAdvertiseParam): Promise<void>;
+
+  /**
+   * Disable the advertising with a specific ID temporarily.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { DisableAdvertiseParam } disableAdvertiseParam - Indicates the param for disable advertising.
+   * @param { AsyncCallback<void> } callback - the callback result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  function disableAdvertising(disableAdvertiseParam: DisableAdvertiseParam, callback: AsyncCallback<void>): void;
+
+  /**
+   * Disable the advertising with a specific ID temporarily.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { DisableAdvertiseParam } disableAdvertiseParam - Indicates the param for disable advertising.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  function disableAdvertising(disableAdvertiseParam: DisableAdvertiseParam): Promise<void>;
+
+  /**
+   * Stops BLE advertising.
+   * Completely stop the advertising corresponding to the ID.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { number } advertiseId - Indicates the ID for this BLE advertising.
+   * @param { AsyncCallback<void> } callback - the callback result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  function stopAdvertising(advertiseId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Stops BLE advertising.
+   * Completely stop the advertising corresponding to the ID.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { number } advertiseId - Indicates the ID for this BLE advertising.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  function stopAdvertising(advertiseId: number): Promise<void>;
+
+  /**
+   * Subscribing to advertise state change event.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { 'advertiseStateChange' } type - Type of the scan result event to listen for.
+   * @param { Callback<AdvertiseStateChangeInfo> } callback - Callback used to listen for the advertise state.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  function on(type: 'advertiseStateChange', callback: Callback<AdvertiseStateChangeInfo>): void;
+
+  /**
+   * Unsubscribing from advertise state change event.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { 'advertiseStateChange' } type - Type of the scan result event to listen for.
+   * @param { Callback<AdvertiseStateChangeInfo> } callback - Callback used to listen for the advertise state.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  function off(type: 'advertiseStateChange', callback?: Callback<AdvertiseStateChangeInfo>): void;
+
+  /**
    * Subscribe BLE scan result.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -1495,6 +1669,113 @@ declare namespace ble {
   }
 
   /**
+   * Describes the advertising parameter.
+   *
+   * @typedef AdvertiseParam
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  interface AdvertiseParam {
+    /**
+     * Indicates the advertise settings.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    advertiseSetting: AdvertiseSetting;
+    /**
+     * Indicates the advertise data.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    advertiseData: AdvertiseData;
+    /**
+     * Indicates the advertise response.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    advResponse?: AdvertiseData;
+    /**
+     * Indicates the duration for sending advertise continuously.
+     * The duration, in 10ms unit. Valid range is from 1 (10ms) to 65535 (655,350 ms).
+     * If this parameter is not specified or is set to 0, advertise is continuously sent.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    duration?: number;
+  }
+
+  /**
+   * Parameter for dynamically enable advertising.
+   *
+   * @typedef EnableAdvertiseParam
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  interface EnableAdvertiseParam {
+    /**
+     * Indicates the ID of current advertise.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    advertiseId: number;
+    /**
+     * Indicates the duration for sending advertise continuously.
+     * The duration, in 10ms unit. Valid range is from 1 (10ms) to 65535 (655,350 ms).
+     * If this parameter is not specified or is set to 0, advertise is continuously sent.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    duration?: number;
+  }
+
+  /**
+   * Parameter for dynamically enable advertising.
+   *
+   * @typedef DisableAdvertiseParam
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  interface DisableAdvertiseParam {
+    /**
+     * Indicates the ID of current advertise.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    advertiseId: number;
+  }
+
+  /**
+   * Advertise status change information.
+   *
+   * @typedef AdvertiseStateChangeInfo
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  interface AdvertiseStateChangeInfo {
+    /**
+     * Indicates the ID of current advertise.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    advertiseId: number;
+    /**
+     * Indicates the advertise state.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    state: AdvertiseState;
+  }
+
+  /**
    * Describes the manufacturer data.
    *
    * @typedef ManufactureData
@@ -1792,6 +2073,44 @@ declare namespace ble {
      * @since 10
      */
     MATCH_MODE_STICKY = 2
+  }
+
+  /**
+   * The enum of BLE advertise state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  enum AdvertiseState {
+    /**
+     * advertise started.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    ADVERTISE_STATE_STARTED = 1,
+    /**
+     * advertise temporarily enabled.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    ADVERTISE_STATE_ENABLED = 2,
+    /**
+     * advertise temporarily disabled.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    ADVERTISE_STATE_DISABLED = 3,
+    /**
+     * advertise stopped.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    ADVERTISE_STATE_STOPPED = 4
   }
 }
 
