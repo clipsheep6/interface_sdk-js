@@ -721,16 +721,7 @@ declare namespace hiAppEvent {
    * @param { Processor } processor The instance which report the event
    * @returns { number }  The processor unique ID.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 11105001 - Invalid processor name.
-   * @throws { BusinessError } 11105002 - Invalid processor debugMode value.
-   * @throws { BusinessError } 11105003 - Invalid processor routeInfo value.
-   * @throws { BusinessError } 11105004 - Invalid processor onStartReport value.
-   * @throws { BusinessError } 11105005 - Invalid processor onBackground value.
-   * @throws { BusinessError } 11105006 - Invalid processor periodReport value.
-   * @throws { BusinessError } 11105007 - Invalid processor batchReport value.
-   * @throws { BusinessError } 11105008 - Invalid processor userIds value.
-   * @throws { BusinessError } 11105009 - Invalid processor userProperties value.
-   * @throws { BusinessError } 11105010 - Invalid processor eventConfigs value.
+   * @throws { BusinessError } 11105001 - Processor total number out of range.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @since 11
