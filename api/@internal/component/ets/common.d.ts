@@ -10646,5 +10646,5 @@ declare interface EdgeEffectOptions {
    * @crossplatform
    * @since 11
    */
-  alwaysEnable: boolean;
+  alwaysEnabled: boolean;
 }
