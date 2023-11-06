@@ -901,6 +901,7 @@ declare namespace huks {
    * @returns { string } the character string of the sdk version.
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 8
+   * @deprecated since 9
    */
   function getSdkVersion(options: HuksOptions): string;
 
@@ -1293,6 +1294,11 @@ declare namespace huks {
     HUKS_AES_KEY_SIZE_128 = 128,
     HUKS_AES_KEY_SIZE_192 = 192,
     HUKS_AES_KEY_SIZE_256 = 256,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     * @deprecated since 9
+     */
     HUKS_AES_KEY_SIZE_512 = 512,
 
     /**
