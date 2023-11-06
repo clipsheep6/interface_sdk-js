@@ -76,6 +76,7 @@ declare namespace preferences {
    * Indicates the maximum length of a key (80 characters).
    *
    * @constant
+   * @readonly
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
@@ -102,6 +103,7 @@ declare namespace preferences {
    * Indicates the maximum length of a string (8192 characters).
    *
    * @constant
+   * @readonly
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @since 10
