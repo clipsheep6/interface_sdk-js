@@ -490,7 +490,7 @@ declare class ListScroller extends Scroller {
    * @crossplatform
    * @since 11
    */
-  closeAllSwipeAction(options?: CloseSwipeActionOptions): void;
+  closeAllSwipeActions(options?: CloseSwipeActionOptions): void;
 }
 
 /**
