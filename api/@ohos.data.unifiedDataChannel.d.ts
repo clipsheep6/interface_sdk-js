@@ -71,14 +71,14 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    readonly summary: { [key: string]: number };
+    summary: { [key: string]: number };
     /**
      * Total data size of data in Bytes
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    readonly totalSize: number;
+    totalSize: number;
   }
 
   /**
