@@ -126,7 +126,17 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 11
      */
-    GET_BUNDLE_INFO_WITH_MENU = 0x00000100
+    GET_BUNDLE_INFO_WITH_MENU = 0x00000100,
+    /**
+     * Used to obtain only the bundleInfo that contains menu in hapModuleInfo.
+     * The obtained bundleInfo does not contain the information of applicationInfo, extensionAbility, ability and permission.
+     * It can only be applied to function GetAllBundleInfo.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 11
+     */
+    GET_BUNDLE_INFO_ONLY_MENU = 0x00000200
   }
 
   /**
