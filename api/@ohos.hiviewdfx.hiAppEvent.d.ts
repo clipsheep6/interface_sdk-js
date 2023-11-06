@@ -712,7 +712,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 11
      */
-    eventConfig?: AppEventReportConfig[];
+    eventConfigs?: AppEventReportConfig[];
   }
 
   /**
