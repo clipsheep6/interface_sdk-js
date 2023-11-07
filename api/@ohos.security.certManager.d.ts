@@ -108,13 +108,13 @@ declare namespace certificateManager {
     certAlias: string;
 
     /**
-     * Indicates the status of certificate.
+     * Indicates the state of certificate.
      *
      * @type { boolean }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11
      */
-    status: boolean;
+    state: boolean;
 
     /**
      * Indicates the issuer name of certificate.
@@ -207,13 +207,13 @@ declare namespace certificateManager {
     certAlias: string;
 
     /**
-     * Indicates the status of certificate.
+     * Indicates the state of certificate.
      *
      * @type { boolean }
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11
      */
-    status: boolean;
+    state: boolean;
 
     /**
      * Indicates the subject name of certificate.
@@ -617,7 +617,7 @@ declare namespace certificateManager {
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { string } keyUri - Indicates key's name.
-   * @param { AsyncCallback<boolean> } callback - the callback of uninstallPrivateCertificate.
+   * @param { AsyncCallback<void> } callback - the callback of uninstallPrivateCertificate.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
    * @throws { BusinessError } 401 - the parameter check failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
@@ -625,14 +625,14 @@ declare namespace certificateManager {
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
    */
-  function uninstallPrivateCertificate(keyUri: string, callback: AsyncCallback<boolean>): void;
+  function uninstallPrivateCertificate(keyUri: string, callback: AsyncCallback<void>): void;
 
   /**
    * Uninstall the specified normal application certificate.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { string } keyUri - Indicates key's name.
-   * @returns { Promise<boolean> } the promise returned by the function.
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
    * @throws { BusinessError } 401 - the parameter check failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
@@ -640,13 +640,13 @@ declare namespace certificateManager {
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
    */
-  function uninstallPrivateCertificate(keyUri: string): Promise<boolean>;
+  function uninstallPrivateCertificate(keyUri: string): Promise<void>;
 
   /**
-   * Get a list of private application certificates.
+   * Get a list of all applications private certificates.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
-   * @param { AsyncCallback<CMResult> } callback - the callback of getPrivateCertificateList.
+   * @param { AsyncCallback<CMResult> } callback - the callback of getAllAppPrivateCertificates.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
    * @throws { BusinessError } 202 - the application is not system app.
    * @throws { BusinessError } 401 - the parameter check failed.
@@ -655,10 +655,10 @@ declare namespace certificateManager {
    * @systemapi
    * @since 11
    */
-  function getPrivateCertificateList(callback: AsyncCallback<CMResult>): void;
+  function getAllAppPrivateCertificates(callback: AsyncCallback<CMResult>): void;
 
   /**
-   * Get a list of private application certificates.
+   * Get a list of all applications private certificates.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
    * @returns { Promise<CMResult> } the promise returned by the function.
@@ -669,7 +669,7 @@ declare namespace certificateManager {
    * @systemapi
    * @since 11
    */
-  function getPrivateCertificateList(): Promise<CMResult>;
+  function getAllAppPrivateCertificates(): Promise<CMResult>;
 
   /**
    * Get the detail of private application certificate.
@@ -739,14 +739,14 @@ declare namespace certificateManager {
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { Uint8Array } handle - Indicates the handle of the init operation.
    * @param { Uint8Array } data - Indicates the input value.
-   * @param { AsyncCallback<boolean> } callback - the callback of update.
+   * @param { AsyncCallback<void> } callback - the callback of update.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
    * @throws { BusinessError } 401 - the parameter check failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
    */
-  function update(handle: Uint8Array, data: Uint8Array, callback: AsyncCallback<boolean>): void;
+  function update(handle: Uint8Array, data: Uint8Array, callback: AsyncCallback<void>): void;
 
   /**
    * Update operation for signing and verifying etc.
@@ -754,14 +754,14 @@ declare namespace certificateManager {
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { Uint8Array } handle - Indicates the handle of the init operation.
    * @param { Uint8Array } data - Indicates the input value.
-   * @returns { Promise<boolean> } the promise returned by the function.
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
    * @throws { BusinessError } 401 - the parameter check failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
    */
-  function update(handle: Uint8Array, data: Uint8Array): Promise<boolean>;
+  function update(handle: Uint8Array, data: Uint8Array): Promise<void>;
 
   /**
    * Finish operation for signing and verifying etc.
@@ -812,28 +812,28 @@ declare namespace certificateManager {
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { Uint8Array } handle - Indicates the handle of the init operation.
-   * @param { AsyncCallback<boolean> } callback - the callback of abort.
+   * @param { AsyncCallback<void> } callback - the callback of abort.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
    * @throws { BusinessError } 401 - the parameter check failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
    */
-  function abort(handle: Uint8Array, callback: AsyncCallback<boolean>): void;
+  function abort(handle: Uint8Array, callback: AsyncCallback<void>): void;
 
   /**
    * Abort operation for signing and verifying etc.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { Uint8Array } handle - Indicates the handle of the init operation.
-   * @returns { Promise<boolean> } the promise returned by the function.
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
    * @throws { BusinessError } 401 - the parameter check failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11
    */
-  function abort(handle: Uint8Array): Promise<boolean>;
+  function abort(handle: Uint8Array): Promise<void>;
 }
 
 export default certificateManager;
