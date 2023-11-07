@@ -61,6 +61,14 @@ declare namespace socket {
   function constructUDPSocketInstance(): UDPSocket;
 
   /**
+   * Creates a MulticastSocket object.
+   * @returns { MulticastSocket } the MulticastSocket of the constructMulticastSocketInstance.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  function constructMulticastSocketInstance(): MulticastSocket;
+
+  /**
    * Creates a TCPSocket object.
    * @returns { TCPSocket } the TCPSocket of the constructTCPSocketInstance.
    * @syscap SystemCapability.Communication.NetStack
@@ -105,24 +113,7 @@ declare namespace socket {
    * @since 10
    */
   function constructTLSSocketServerInstance(): TLSSocketServer;
-  
-  /**
-   * Creates a LOCALSocket object.
-   * @returns { LOCALSocket } the LOCALSocket of the constructLOCALSocketInstance.
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  function constructLOCALSocketInstance(): LOCALSocket; 
-  
-  /**
-   * Creates a LOCALSocketServer object.
-   * @returns { LOCALSocketServer } the LOCALSocketServer of the constructLOCAlSocketServerInstance.
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  function constructLOCALSocketServerInstance(): LOCALSocketServer;
 
-  
   /**
    * Defines the parameters for sending data over the UDPSocket connection.
    * @interface UDPSendOptions
@@ -405,124 +396,7 @@ declare namespace socket {
      */
     size: number;
   }
-  
-   /**
-    * Defines a Local address.
-    * @interface LOCALAddress
-    * @syscap SystemCapability.Communication.NetManager.Core
-    * @since 11
-    */
-  export interface LOCALAddress {
-   /**
-    * LOCALAddress address.
-    * @type {string}
-    * @syscap SystemCapability.Communication.NetManager.Core
-    * @since 11
-    */
-    address: string;
 
-   /**
-    * Port number. The value ranges from 0 to 65535.
-    * @type {?number}
-    * @syscap SystemCapability.Communication.NetManager.Core
-    * @since 11
-    */
-    port?: number; 
-  }
-  
-   /**
-    * Defines LocalSocket connection parameters.
-    * @interface LocalConnectOptions
-    * @syscap SystemCapability.Communication.NetStack
-
-    * @since 11
-    */
-   /**
-    * Defines LocalSocket connection parameters.
-    * @interface LocalConnectOptions
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
-  export interface LOCALConnectOptions {
-   /**
-    * Bound IP address and port number.
-    * @type { LOCALAddress }
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
-    address: LOCALAddress;
-   /**
-    * Timeout duration of the LocalSocket connection, in milliseconds.
-    * @type { ?number }
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
-   /**
-    * Timeout duration of the LocalSocket connection, in milliseconds.
-    * @type { ?number }
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
-    timeout?: number;
-  } 
-   
-   /**
-    * Defines other properties of the LocalSocket connection.
-    * @interface LOCALExtraOptions
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
-  export interface LOCALExtraOptions extends ExtraOptionsBase {
-   /**
-    * Whether to keep the connection alive. The default value is false.
-    * @type { ?boolean }
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
-   /**
-    * Whether to keep the connection alive. The default value is false.
-    * @type { ?boolean }
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
-    keepAlive?: boolean; 
-  }   
-  
-  /**
-   * Defines the parameters for sending data over the LOCALSocket connection.
-   * @interface LOCALSendOptions
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  export interface LOCALSendOptions {
-   /**
-    * Data to send.
-    * @type { string | ArrayBuffer }
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
-   /**
-    * Data to send.
-    * @type { string | ArrayBuffer }
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
-    data: string | ArrayBuffer;
-
-   /**
-    * Character encoding format.
-    * @type { ?string }
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
-   /**
-    * Character encoding format.
-    * @type { ?string }
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
-    encoding?: string;
-  }
   /**
    * Defines a UDPSocket connection.
    * @interface UDPSocket
@@ -708,7 +582,7 @@ declare namespace socket {
     /**
      * Sets other attributes of the UDPSocket connection.
      * @permission ohos.permission.INTERNET
-     * @param { } options - Optional parameters {@link UDPExtraOptions}.
+     * @param { UDPExtraOptions } options - Optional parameters {@link UDPExtraOptions}.
      * @param { AsyncCallback<void> }callback - the callback of setExtraOptions.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -852,6 +726,157 @@ declare namespace socket {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+  }
+
+  /**
+   * Defines a UDP MulticastSocket connection.
+   * @interface MulticastSocket
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+  export interface MulticastSocket extends UDPSocket {
+    /**
+     * Add the socket to the multicast group.
+     * @permission ohos.permission.INTERNET
+     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
+     * @param { AsyncCallback<void> } callback - The callback of addMembership.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301022 - Invalid argument.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @throws { BusinessError } 2301098 - Address in use.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
+
+    /**
+     * Add the socket to the multicast group.
+     * @permission ohos.permission.INTERNET
+     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @throws { BusinessError } 2301098 - Address in use.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    addMembership(multicastAddress: NetAddress): Promise<void>;
+
+    /**
+     * Drop the socket from the multicast group.
+     * @permission ohos.permission.INTERNET
+     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
+     * @param { AsyncCallback<void> } callback - The callback of dropMembership.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @throws { BusinessError } 2301098 - Address in use.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    dropMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
+
+    /**
+     * Drop the socket from the multicast group.
+     * @permission ohos.permission.INTERNET
+     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @throws { BusinessError } 2301098 - Address in use.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    dropMembership(multicastAddress: NetAddress): Promise<void>;
+
+    /**
+     * Set the TTL value for socket multicast packets.
+     * @param { number } ttl - The TTL value to set. Valid range is typically 0 to 255.
+     * @param { AsyncCallback<void> } callback - The callback of setMulticastTTL.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301022 - Invalid argument.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setMulticastTTL(ttl: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the TTL value for socket multicast packet.
+     * @param { number } ttl - The TTL value to set. Valid range is typically 0 to 255.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301022 - Invalid argument.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setMulticastTTL(ttl: number): Promise<void>;
+
+    /**
+     * Get the TTL value of socket multicast packet.
+     * @param { AsyncCallback<number> } callback - The callback of getMulticastTTL.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getMulticastTTL(callback: AsyncCallback<number>): void;
+
+    /**
+     * Get the TTL value of socket multicast packet.
+     * @returns { Promise<number> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getMulticastTTL(): Promise<number>;
+
+    /**
+     * Set the loopback mode for the socket.
+     * @param { boolean } flag - Whether to enable loopback mode.
+     * @param { AsyncCallback<void> } callback - The callback of setLoopbackMode.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setLoopbackMode(flag: boolean, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set the loopback mode for the socket.
+     * @param { boolean } flag - Whether to enable loopback mode.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    setLoopbackMode(flag: boolean): Promise<void>;
+
+    /**
+     * Get the loopback mode of the socket.
+     * @param { AsyncCallback<boolean> } callback - The callback of getLoopbackMode.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getLoopbackMode(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Get the loopback mode of the socket.
+     * @returns { Promise<boolean> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getLoopbackMode(): Promise<boolean>;
   }
 
   /**
@@ -3136,625 +3161,7 @@ declare namespace socket {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
-
-    /**
-     * Add the socket to the multicast group.
-     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
-     * @param { AsyncCallback<void> } callback - The callback of addMembership.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    addMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
-
-    /**
-     * Add the socket to the multicast group.
-     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    addMembership(multicastAddress: NetAddress): Promise<void>;
-
-    /**
-     * Drop the socket from the multicast group.
-     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
-     * @param { AsyncCallback<void> } callback - The callback of dropMembership.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    dropMembership(multicastAddress: NetAddress, callback: AsyncCallback<void>): void;
-
-    /**
-     * Drop the socket from the multicast group.
-     * @param { NetAddress } multicastAddress - Multicast address information. {@link NetAddress}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    dropMembership(multicastAddress: NetAddress): Promise<void>;
-
-    /**
-     * Set the TTL value for socket multicast packets.
-     * @param { number } ttl - The TTL value to set. Valid range is typically 0 to 255.
-     * @param { AsyncCallback<void> } callback - The callback of setMulticastTTL.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    setMulticastTTL(ttl: number, callback: AsyncCallback<void>): void;
-
-    /**
-     * Set the TTL value for socket multicast packet.
-     * @param { number } ttl - The TTL value to set. Valid range is typically 0 to 255.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    setMulticastTTL(ttl: number): Promise<void>;
-
-    /**
-     * Get the TTL value of socket multicast packet.
-     * @param { AsyncCallback<number> } callback - The callback of getMulticastTTL.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    getMulticastTTL(callback: AsyncCallback<number>): void;
-
-    /**
-     * Get the TTL value of socket multicast packet.
-     * @returns { Promise<number> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    getMulticastTTL(): Promise<number>;
-
-    /**
-     * Set the loopback mode for the socket.
-     * @param { boolean } flag - Whether to enable loopback mode.
-     * @param { AsyncCallback<void> } callback - The callback of setLoopbackMode.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    setLoopbackMode(flag: boolean, callback: AsyncCallback<void>): void;
-
-    /**
-     * Set the loopback mode for the socket.
-     * @param { boolean } flag - Whether to enable loopback mode.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    setLoopbackMode(flag: boolean): Promise<void>;
-
-    /**
-     * Get the loopback mode of the socket.
-     * @param { AsyncCallback<boolean> } callback - The callback of getLoopbackMode.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    getLoopbackMode(callback: AsyncCallback<boolean>): void;
-
-    /**
-     * Get the loopback mode of the socket.
-     * @returns { Promise<boolean> } The promise returned by the function.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    getLoopbackMode(): Promise<boolean>;
   }
-
-  /**
-   * Defines a LOCALSocket connection.
-   * @interface LOCALSocket
-   * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
-   * @since 11
-   */  
-  export interface LOCALSocket  {
-    /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * @permission ohos.permission.INTERNET
-     * @param { LOCALAddress } address - Destination address. {@link LOCALAddress}
-     * @param { AsyncCallback<void> } callback - the callback of bind.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    bind(address: LOCALAddress, callback: AsyncCallback<void>): void;
-
-    /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * @permission ohos.permission.INTERNET
-     * @param { LOCALAddress } address - Destination address. {@link LOCALAddress}
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    bind(address: LOCALAddress): Promise<void>;
-
-    /**
-     * Sets up a connection to the specified IP address and port number.
-     * @param { LOCALConnectOptions } options - Optional parameters {@link LOCALConnectOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of connect.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    connect(options: LOCALConnectOptions, callback: AsyncCallback<void>): void;
-     
-    /**
-     * Sets up a connection to the specified IP address and port number.
-     * @param { LOCALConnectOptions } options - Optional parameters {@link LOCALConnectOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    connect(options: LOCALConnectOptions): Promise<void>;
-
-    /**
-     * Sends data over a LOCALSocket connection.
-     * @param { LOCALSendOptions } options - Optional parameters {@link LOCALSendOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of send.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    send(options: LOCALSendOptions, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sends data over a LOCALSocket connection.
-     * @param { LOCALSendOptions } options - Optional parameters {@link LOCALSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    send(options: LOCALSendOptions): Promise<void>;
-
-    /**
-     * Closes a LOCALSocket connection.
-     * @param { AsyncCallback<void> } callback - the callback of close.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    close(callback: AsyncCallback<void>): void;
-
-    /**
-     * Closes a LOCALSocket connection.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    close(): Promise<void>;
-
-    /**
-     * Obtains the status of the LOCALSocket connection.
-     * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState. {@link SocketStateBase}
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getState(callback: AsyncCallback<SocketStateBase>): void;
-
-    /**
-     * Obtains the status of the LOCALSocket connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getState(): Promise<SocketStateBase>;
-
-    /**
-     * Obtains the file descriptor of the LOCALSocket connection.
-     * @param { AsyncCallback<number> } callback - The callback returns the file descriptor of the LOCALSocket connection.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getSocketFd(callback: AsyncCallback<number>): void;
-
-    /**
-     * Obtains the file descriptor of the LOCALSocket connection.
-     * @returns { Promise<number> } The promise returns the file descriptor of the LOCALSocket connection.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getSocketFd(): Promise<number>;
-
-    /**
-     * Sets other attributes of the LOCALSocket connection.
-     * @param { LOCALExtraOptions } options - Optional parameters {@link LOCALExtraOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    setExtraOptions(options: LOCALExtraOptions, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sets other attributes of the LOCALSocket connection.
-     * @param { LOCALExtraOptions } options - Optional parameters {@link LOCALExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    setExtraOptions(options: LOCALExtraOptions): Promise<void>;
- 
-    /**
-     * Sets other attributes of the LOCALSocket connection.
-     * @param { LOCALExtraOptions } options - Optional parameters {@link LOCALExtraOptions}.
-     * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getExtraOptions(callback: AsyncCallback<LOCALExtraOptions>): void;
-
-    /**
-     * Sets other attributes of the LOCALSocket connection.
-     * @param { LOCALExtraOptions } options - Optional parameters {@link LOCALExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getExtraOptions(): Promise<LOCALExtraOptions>;    
-
-    /**
-     * Listens for message receiving events of the LOCALSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
-
-    /**
-     * Cancels listening for message receiving events of the LOCALSocket connection.
-     * @param { 'message' } type Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
-
-    /**
-     * Listens for connection or close events of the LOCALSocket connection.
-     * @param { 'connect' | 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    on(type: 'connect' | 'close', callback: Callback<void>): void;
-
-    /**
-     * Cancels listening for connection or close events of the LOCALSocket connection.
-     * @param { 'connect' | 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    off(type: 'connect' | 'close', callback?: Callback<void>): void;
-
-    /**
-     * Listens for error events of the LOCALSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    on(type: 'error', callback: ErrorCallback): void;
-
-    /**
-     * Cancels listening for error events of the LOCALSocket connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - the callback used to return the result.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    off(type: 'error', callback?: ErrorCallback): void;
-  }
-
-  /**
-   * Defines the connection of the TCPSocket client and server.
-   * @interface LOCALSocketConnection
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  export interface LOCALSocketConnection  {
-    /**
-     * The id of a client connects to the LOCALSocketServer.
-     * @type {number}
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    clientId: number;
-
-    /**
-     * Sends data over a LOCALSocketServer connection to client.
-     * @permission ohos.permission.INTERNET
-     * @param { LOCALSendOptions } options - Parameters for sending data {@link LOCALSendOptions}.
-     * @param { AsyncCallback<void> } callback - The callback of send.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    send(options: LOCALSendOptions, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sends data over a LOCALSocketServer connection to client.
-     * @permission ohos.permission.INTERNET
-     * @param { LOCALSendOptions } options - Parameters for sending data {@link LOCALSendOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    send(options: LOCALSendOptions): Promise<void>;
-
-    /**
-     * Closes a LOCALSocket client connection.
-     * @param { AsyncCallback<void> } callback - The callback of close.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    close(callback: AsyncCallback<void>): void;
-
-    /**
-     * Closes a LOCALSocket client connection.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    close(): Promise<void>;
-
-    /**
-     * Listens for message receiving events of the LOCALSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
-
-    /**
-     * Cancels listening for message receiving events of the LOCALSocketConnection.
-     * @param { 'message' } type - Indicates Event name.
-     * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
-
-    /**
-     * Listens for close events of the LOCALSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    on(type: 'close', callback: Callback<void>): void;
-
-    /**
-     * Cancels listening for close events of the LOCALSocketConnection.
-     * @param { 'close' } type - Indicates Event name.
-     * @param { Callback<void> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    off(type: 'close', callback?: Callback<void>): void;
-
-    /**
-     * Listens for error events of the LOCALSocketConnection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    on(type: 'error', callback: ErrorCallback): void;
-
-    /**
-     * Cancels listening for error events of the LOCALSocketConnection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    off(type: 'error', callback?: ErrorCallback): void;
-  }
-
-  /**
-   * Defines a LOCALSocket server connection.
-   * @interface LOCALSocketServer
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  export interface LOCALSocketServer {
-    /**
-     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
-     * <p>Listens for a LOCALSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.</p>
-     * @permission ohos.permission.INTERNET
-     * @param { LOCALAddress } address - Network address information {@link LOCALAddress}.
-     * @param { AsyncCallback<void> } callback - The callback of listen.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    listen(address: LOCALAddress, callback: AsyncCallback<void>): void;
-
-    /** 
-     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
-     * <p>Listens for a LOCALSocket connection to be made to this socket and accepts it. This interface uses multiple threads
-     * for accept processing and uses poll multiplex to process client connections.</p>
-     * @permission ohos.permission.INTERNET
-     * @param { LOCALAddress } address - Network address information {@link LOCALAddress}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303109 - Bad file number.
-     * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
-     * @throws { BusinessError } 2303198 - Address already in use.
-     * @throws { BusinessError } 2303199 - Cannot assign requested address.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    listen(address: LOCALAddress): Promise<void>;
-
-    /**
-     * Obtains the status of the LOCALSocketServer connection.
-     * @param { AsyncCallback<SocketStateBase> } callback - The callback of getState.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getState(callback: AsyncCallback<SocketStateBase>): void;
-
-    /**
-     * Obtains the status of the LOCALSocketServer connection.
-     * @returns { Promise<SocketStateBase> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    getState(): Promise<SocketStateBase>;
-
-    /**
-     * Sets other attributes of the LOCALSocketServer connection.
-     * @param { LOCALExtraOptions } options - Parameters of the attributes {@link LOCALExtraOptions}.
-     * @param { AsyncCallback<void> } callback - The callback of setExtraOptions.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    setExtraOptions(options: LOCALExtraOptions, callback: AsyncCallback<void>): void;
-
-    /**
-     * Sets other attributes of the LOCALSocketServer connection.
-     * @param { LOCALExtraOptions } options - Parameters of the attributes {@link LOCALExtraOptions}.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 2300002 - System internal error.
-     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    setExtraOptions(options: LOCALExtraOptions): Promise<void>;
-
-    /**
-     * Listens for connect events of the LOCALSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<LOCALSocketConnection> } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    on(type: 'connect', callback: Callback<LOCALSocketConnection>): void;
-
-    /**
-     * Cancels listening for connect events of the LOCALSocketServer connection.
-     * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<LOCALSocketConnection> } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    off(type: 'connect', callback?: Callback<LOCALSocketConnection>): void;
-
-    /**
-     * Listens for error events of the LOCALSocketServer connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of on.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    on(type: 'error', callback: ErrorCallback): void;
-
-    /**
-     * Cancels listening for error events of the LOCALSocketServer connection.
-     * @param { 'error' } type - Indicates Event name.
-     * @param { ErrorCallback } callback - The callback of off.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Communication.NetStack
-     * @since 11
-     */
-    off(type: 'error', callback?: ErrorCallback): void;  
-  }
-  
 }
 
 export default socket;
