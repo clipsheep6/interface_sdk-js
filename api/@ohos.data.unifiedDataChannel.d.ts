@@ -67,14 +67,14 @@ declare namespace unifiedDataChannel {
   class Summary {
     /**
      * A map for each type and data size, key is data type, value is the corresponding data size
-     *
+     * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
     summary: { [key: string]: number };
     /**
      * Total data size of data in Bytes
-     *
+     * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
