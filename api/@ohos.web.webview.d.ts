@@ -20,6 +20,7 @@ import { Callback } from './@ohos.base';
 import { Resource } from 'GlobalResource';
 import cert from './@ohos.security.cert';
 import image from './@ohos.multimedia.image';
+import print from './@ohos.print';
 
 /**
  * This module provides the capability to manage web modules.
@@ -2028,6 +2029,17 @@ declare namespace webview {
      * @since 11
      */
     postUrl(url: string, postData: ArrayBuffer): void;
+
+    /**
+     * Create the Web Print Document Adapter.
+     * @param { string } jobName - The name of the currently printed document.
+     * @returns { print.PrintDocumentAdapater } Return the Print Document Adapter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+    createWebPrintDocunmentAdapter(jobName: string): print.PrintDocumentAdapater;
   }
 
   /**
