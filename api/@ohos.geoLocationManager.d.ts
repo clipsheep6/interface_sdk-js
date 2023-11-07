@@ -40,23 +40,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
-  /**
-   * Subscribe location changed.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
-   * @param { LocationRequest } request - Indicates the location request parameters.
-   * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11
-   */
   function on(type: 'locationChange', request: LocationRequest, callback: Callback<Location>): void;
 
   /**
@@ -73,22 +56,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
-   */
-  /**
-   * Unsubscribe location changed.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
-   * @param { Callback<Location> } [callback] - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11
    */
   function off(type: 'locationChange', callback?: Callback<Location>): void;
 
@@ -329,22 +296,6 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
-  /**
-   * Obtain current location.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { CurrentLocationRequest } request - Indicates the location request parameters.
-   * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11
-   */
   function getCurrentLocation(request: CurrentLocationRequest, callback: AsyncCallback<Location>): void;
 
   /**
@@ -360,21 +311,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
-   */
-  /**
-   * Obtain current location.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11
    */
   function getCurrentLocation(callback: AsyncCallback<Location>): void;
 
@@ -392,22 +328,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
-   */
-  /**
-   * Obtain current location.
-   *
-   * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { CurrentLocationRequest } [request] - Indicates the location request parameters.
-   * @returns { Promise<Location> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
-   * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11
    */
   function getCurrentLocation(request?: CurrentLocationRequest): Promise<Location>;
 
@@ -434,16 +354,6 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - Location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
-   */
-  /**
-   * Obtain current location switch status.
-   *
-   * @returns { boolean } Returns {@code true} if the location switch on, returns {@code false} otherwise.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3301000 - Location service is unavailable.
-   * @syscap SystemCapability.Location.Location.Core
-   * @atomicservice
-   * @since 11
    */
   function isLocationEnabled(): boolean;
 
