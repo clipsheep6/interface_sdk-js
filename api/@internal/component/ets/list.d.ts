@@ -485,7 +485,7 @@ declare class ListScroller extends Scroller {
   /**
    * Collapse all listItem.
    *
-   * @param { CloseSwipeActionOptions } options.
+   * @param { CloseSwipeActionOptions } options - Options of close Swipe items.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
