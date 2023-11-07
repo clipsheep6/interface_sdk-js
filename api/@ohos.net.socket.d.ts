@@ -420,7 +420,6 @@ declare namespace socket {
     * @since 11
     */
     address: string;
-
    /**
     * Port number. The value ranges from 0 to 65535.
     * @type {?number}
@@ -429,14 +428,7 @@ declare namespace socket {
     */
     port?: number; 
   }
-  
-   /**
-    * Defines LocalSocket connection parameters.
-    * @interface LocalConnectOptions
-    * @syscap SystemCapability.Communication.NetStack
 
-    * @since 11
-    */
    /**
     * Defines LocalSocket connection parameters.
     * @interface LocalConnectOptions
@@ -445,18 +437,12 @@ declare namespace socket {
     */
   export interface LOCALConnectOptions {
    /**
-    * Bound IP address and port number.
+    * Bound LOCAL address and port number.
     * @type { LOCALAddress }
     * @syscap SystemCapability.Communication.NetStack
     * @since 11
     */
     address: LOCALAddress;
-   /**
-    * Timeout duration of the LocalSocket connection, in milliseconds.
-    * @type { ?number }
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
    /**
     * Timeout duration of the LocalSocket connection, in milliseconds.
     * @type { ?number }
@@ -479,12 +465,6 @@ declare namespace socket {
     * @syscap SystemCapability.Communication.NetStack
     * @since 11
     */
-   /**
-    * Whether to keep the connection alive. The default value is false.
-    * @type { ?boolean }
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
     keepAlive?: boolean; 
   }   
   
@@ -501,20 +481,7 @@ declare namespace socket {
     * @syscap SystemCapability.Communication.NetStack
     * @since 11
     */
-   /**
-    * Data to send.
-    * @type { string | ArrayBuffer }
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
     data: string | ArrayBuffer;
-
-   /**
-    * Character encoding format.
-    * @type { ?string }
-    * @syscap SystemCapability.Communication.NetStack
-    * @since 11
-    */
    /**
     * Character encoding format.
     * @type { ?string }
@@ -3274,51 +3241,44 @@ declare namespace socket {
    * Defines a LOCALSocket connection.
    * @interface LOCALSocket
    * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
    * @since 11
    */  
   export interface LOCALSocket  {
     /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * @permission ohos.permission.INTERNET
+     * Binds the LOCAL address and port number. The port number can be specified or randomly allocated by the system.
      * @param { LOCALAddress } address - Destination address. {@link LOCALAddress}
      * @param { AsyncCallback<void> } callback - the callback of bind.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     bind(address: LOCALAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Binds the IP address and port number. The port number can be specified or randomly allocated by the system.
-     * @permission ohos.permission.INTERNET
+     * Binds the LOCAL address and port number. The port number can be specified or randomly allocated by the system.
      * @param { LOCALAddress } address - Destination address. {@link LOCALAddress}
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     bind(address: LOCALAddress): Promise<void>;
 
     /**
-     * Sets up a connection to the specified IP address and port number.
+     * Sets up a connection to the specified LOCAL address and port number.
      * @param { LOCALConnectOptions } options - Optional parameters {@link LOCALConnectOptions}.
      * @param { AsyncCallback<void> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     connect(options: LOCALConnectOptions, callback: AsyncCallback<void>): void;
      
     /**
-     * Sets up a connection to the specified IP address and port number.
+     * Sets up a connection to the specified LOCAL address and port number.
      * @param { LOCALConnectOptions } options - Optional parameters {@link LOCALConnectOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -3329,7 +3289,6 @@ declare namespace socket {
      * @param { LOCALSendOptions } options - Optional parameters {@link LOCALSendOptions}.
      * @param { AsyncCallback<void> } callback - the callback of send.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -3340,7 +3299,6 @@ declare namespace socket {
      * @param { LOCALSendOptions } options - Optional parameters {@link LOCALSendOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -3349,7 +3307,6 @@ declare namespace socket {
     /**
      * Closes a LOCALSocket connection.
      * @param { AsyncCallback<void> } callback - the callback of close.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -3358,7 +3315,6 @@ declare namespace socket {
     /**
      * Closes a LOCALSocket connection.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -3367,7 +3323,6 @@ declare namespace socket {
     /**
      * Obtains the status of the LOCALSocket connection.
      * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState. {@link SocketStateBase}
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -3376,7 +3331,6 @@ declare namespace socket {
     /**
      * Obtains the status of the LOCALSocket connection.
      * @returns { Promise<SocketStateBase> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -3403,7 +3357,6 @@ declare namespace socket {
      * @param { LOCALExtraOptions } options - Optional parameters {@link LOCALExtraOptions}.
      * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -3414,7 +3367,6 @@ declare namespace socket {
      * @param { LOCALExtraOptions } options - Optional parameters {@link LOCALExtraOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -3425,7 +3377,6 @@ declare namespace socket {
      * @param { LOCALExtraOptions } options - Optional parameters {@link LOCALExtraOptions}.
      * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -3436,7 +3387,6 @@ declare namespace socket {
      * @param { LOCALExtraOptions } options - Optional parameters {@link LOCALExtraOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -3514,10 +3464,8 @@ declare namespace socket {
 
     /**
      * Sends data over a LOCALSocketServer connection to client.
-     * @permission ohos.permission.INTERNET
      * @param { LOCALSendOptions } options - Parameters for sending data {@link LOCALSendOptions}.
      * @param { AsyncCallback<void> } callback - The callback of send.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -3527,10 +3475,8 @@ declare namespace socket {
 
     /**
      * Sends data over a LOCALSocketServer connection to client.
-     * @permission ohos.permission.INTERNET
      * @param { LOCALSendOptions } options - Parameters for sending data {@link LOCALSendOptions}.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -3541,7 +3487,6 @@ declare namespace socket {
     /**
      * Closes a LOCALSocket client connection.
      * @param { AsyncCallback<void> } callback - The callback of close.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -3552,7 +3497,6 @@ declare namespace socket {
     /**
      * Closes a LOCALSocket client connection.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -3628,14 +3572,12 @@ declare namespace socket {
    */
   export interface LOCALSocketServer {
     /**
-     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
+     * Binds the LOCAL address and port number, the port number can be specified or randomly allocated by the system.
      * <p>Listens for a LOCALSocket connection to be made to this socket and accepts it. This interface uses multiple threads
      * for accept processing and uses poll multiplex to process client connections.</p>
-     * @permission ohos.permission.INTERNET
      * @param { LOCALAddress } address - Network address information {@link LOCALAddress}.
      * @param { AsyncCallback<void> } callback - The callback of listen.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303109 - Bad file number.
      * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
@@ -3647,14 +3589,12 @@ declare namespace socket {
     listen(address: LOCALAddress, callback: AsyncCallback<void>): void;
 
     /** 
-     * Binds the IP address and port number, the port number can be specified or randomly allocated by the system.
+     * Binds the LOCAL address and port number, the port number can be specified or randomly allocated by the system.
      * <p>Listens for a LOCALSocket connection to be made to this socket and accepts it. This interface uses multiple threads
      * for accept processing and uses poll multiplex to process client connections.</p>
-     * @permission ohos.permission.INTERNET
      * @param { LOCALAddress } address - Network address information {@link LOCALAddress}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303109 - Bad file number.
      * @throws { BusinessError } 2303111 - Resource temporarily unavailable try again.
@@ -3668,7 +3608,6 @@ declare namespace socket {
     /**
      * Obtains the status of the LOCALSocketServer connection.
      * @param { AsyncCallback<SocketStateBase> } callback - The callback of getState.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -3680,7 +3619,6 @@ declare namespace socket {
     /**
      * Obtains the status of the LOCALSocketServer connection.
      * @returns { Promise<SocketStateBase> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
      * @syscap SystemCapability.Communication.NetStack
@@ -3692,7 +3630,6 @@ declare namespace socket {
      * Sets other attributes of the LOCALSocketServer connection.
      * @param { LOCALExtraOptions } options - Parameters of the attributes {@link LOCALExtraOptions}.
      * @param { AsyncCallback<void> } callback - The callback of setExtraOptions.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -3705,7 +3642,6 @@ declare namespace socket {
      * Sets other attributes of the LOCALSocketServer connection.
      * @param { LOCALExtraOptions } options - Parameters of the attributes {@link LOCALExtraOptions}.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
