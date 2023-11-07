@@ -2305,7 +2305,7 @@ declare namespace socket {
      * @crossplatform
      * @since 10
      */
-    protocols?: Protocol | Array<Protocol>;
+    protocols?: Protocol;
 
     /**
      * default is false, use local cipher.
