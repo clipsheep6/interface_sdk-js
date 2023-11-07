@@ -634,7 +634,7 @@ declare namespace hiAppEvent {
     debugMode?: boolean;
 
     /**
-     * The server location information.
+     * The server location which used for the processor to receive the data, defined by the processor.
      *
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
