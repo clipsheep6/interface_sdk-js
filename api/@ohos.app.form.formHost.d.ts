@@ -799,7 +799,7 @@ declare namespace formHost {
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { string } formId - Indicates the form ID.
-   * @param { AsyncCallback<{ [key: string]: Object }> } callback - The callback of acquireFormData.
+   * @param { AsyncCallback<formInfo.FormWantParams> } callback - The callback of acquireFormData.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
@@ -812,14 +812,14 @@ declare namespace formHost {
    * @StageModelOnly
    * @since 10
    */
-  function acquireFormData(formId: string, callback: AsyncCallback<{ [key: string]: Object }>): void;
+  function acquireFormData(formId: string, callback: AsyncCallback<formInfo.FormWantParams>): void;
 
   /**
    * Acquire form data by formId.
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { string } formId - Indicates the form ID.
-   * @returns { Promise<{ [key: string]: Object }> } The promise returned by the function.
+   * @returns { Promise<formInfo.FormWantParams> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
@@ -832,6 +832,6 @@ declare namespace formHost {
    * @StageModelOnly
    * @since 10
    */
-  function acquireFormData(formId: string): Promise<{ [key: string]: Object }>;
+  function acquireFormData(formId: string): Promise<formInfo.FormWantParams>;
 }
 export default formHost;
