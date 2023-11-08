@@ -21,7 +21,7 @@ import type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewMode } from 'Dr
 import type { ResourceColor, TouchPoint } from 'DragControllerUnitParam';
 import { AnimateParam } from 'AnimateParam';
 
-declare enum Drarggingstatus {
+declare enum Draggingstatus {
   DRAG_STARTED = 0,
   DRAG_ENDED = 1,
 }
@@ -152,12 +152,12 @@ declare namespace dragController {
    * Execute a drag event.
    * @param { Array<DragItemInfo> } customs - Objects used for prompts displayed when the objects are dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string, status: Drarggingstatus }> } callback - Callback that contains the drag event information.
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string, status: Draggingstatus }> } callback - Callback that contains the drag event information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
      function executeDrag(customs: Array<DragItemInfo>, dragInfo: DragInfo, callback: AsyncCallback<{
-      err: BusinessError<E>, event: DragEvent, extraParams: string, status: Drarggingstatus
+      err: BusinessError<E>, event: DragEvent, extraParams: string, status: Draggingstatus
     }>): void;
   
     /**
@@ -169,7 +169,7 @@ declare namespace dragController {
      * @since 11
      */
     function executeDrag(customs: Array<DragItemInfo>, dragInfo: DragInfo): Promise<{
-      event: DragEvent, extraParams: string, status: Drarggingstatus
+      event: DragEvent, extraParams: string, status: Draggingstatus
     }>;
 
     /**
