@@ -77,7 +77,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'mouse' } type - Event type, which is **mouse**.
-   * @param { Rect } rect - A specified rectangular area that can trigger a callback, with a maximum of two.
+   * @param { display.Rect[] } rect - A specified rectangular area that can trigger a callback, with a maximum of two.
    * @param { Callback<MouseEvent> } receiver - Callback used to receive the reported data.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 201 - Permission denied.
