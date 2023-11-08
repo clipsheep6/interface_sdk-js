@@ -869,10 +869,10 @@ declare function copyFile(
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
 
 /**
- * Copy file.
+ * Copy file or directory.
  *
- * @param { string } src - src.
- * @param { string } dest - dest.
+ * @param { string } srcUri - src uri.
+ * @param { string } destUri - dest uri.
  * @returns { Promise<Progress> } The promise returned by the function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -896,13 +896,13 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-declare function copy(src: string, dest: string): Promise<Progress>;
+declare function copy(srcUri: string, destUri: string): Promise<Progress>;
 
 /**
- * Copy file.
+ * Copy file or directory.
  *
- * @param { string } src - src.
- * @param { string } dest - dest.
+ * @param { string } srcUri - src uri.
+ * @param { string } destUri - dest uri.
  * @param { AsyncCallback<Progress> } callback - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -926,7 +926,7 @@ declare function copy(src: string, dest: string): Promise<Progress>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-declare function copyFile(src: string, dest: string, callback: AsyncCallback<Progress>): void;
+declare function copyFile(srcUri: string, destUri: string, callback: AsyncCallback<Progress>): void;
 
 /**
  * Create class Stream.
