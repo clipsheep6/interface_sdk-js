@@ -1291,7 +1291,7 @@ declare namespace cryptoFramework {
      * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
-     * @param { number | Uint8Array | string } itemValue - the value of the specified parameter.
+     * @param { number | Uint8Array } itemValue - the value of the specified parameter.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory error.
@@ -1299,7 +1299,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 11
      */
-    setSignSpec(itemType: SignSpecItem, itemValue: number | Uint8Array | string): void;
+    setSignSpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void;
 
     /**
      * Get the specified parameter from the sign object.
@@ -1471,7 +1471,7 @@ declare namespace cryptoFramework {
      * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
-     * @param { number | Uint8Array | string } itemValue - the value of the specified parameter.
+     * @param { number | Uint8Array } itemValue - the value of the specified parameter.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory error.
@@ -1479,7 +1479,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 10
      */
-    setVerifySpec(itemType: SignSpecItem, itemValue: number | Uint8Array | string): void;
+    setVerifySpec(itemType: SignSpecItem, itemValue: number | Uint8Array): void;
 
     /**
      * Get the specified parameter from the verify object.
