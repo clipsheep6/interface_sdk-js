@@ -873,6 +873,7 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  *
  * @param { string } srcUri - src uri.
  * @param { string } destUri - dest uri.
+ * @param { function } progressListener - progress listener of copy.
  * @returns { Promise<Progress> } The promise returned by the function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -896,7 +897,7 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-declare function copy(srcUri: string, destUri: string): Promise<Progress>;
+declare function copy(srcUri: string, destUri: string, progressListener?: ProgressListener): Promise<void>;
 
 /**
  * Copy file or directory.
@@ -926,7 +927,38 @@ declare function copy(srcUri: string, destUri: string): Promise<Progress>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-declare function copyFile(srcUri: string, destUri: string, callback: AsyncCallback<Progress>): void;
+declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
+
+/**
+ * Copy file or directory.
+ *
+ * @param { string } srcUri - src uri.
+ * @param { string } destUri - dest uri.
+ * @param { function } progressListener - progress listener of copy.
+ * @param { AsyncCallback<Progress> } callback - Return the callback function.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900100 - File transfer is abnormal
+ * @throws { BusinessError } 13900101 - The number of files is over the limit
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function copy(srcUri: string, destUri: string, progressListener: ProgressListener, callback: AsyncCallback<void>): void;
 
 /**
  * Create class Stream.
@@ -5442,24 +5474,6 @@ export interface WatchEventListener {
 }
 
 /**
- * Implements watcher progress of copy file.
- *
- * @interface ProgressListener
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 11
- */
-export interface ProgressListener {
-  /**
-   * Specifies the callback function to be invoked.
-   *
-   * @param { Progress } progress - progress of copy file.
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 11
-   */
-  (progress: Progress): void;
-}
-
-/**
  * Event Listening.
  *
  * @interface WatchEvent
@@ -5735,4 +5749,22 @@ export interface Progress {
    * @since 11
    */
   readonly totalSize: number;
+}
+
+/**
+ * Implements watcher progress of copy file.
+ *
+ * @interface ProgressListener
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export interface ProgressListener {
+  /**
+   * Specifies the callback function to be invoked.
+   *
+   * @param { Progress } progress - progress of copy file.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  (progress: Progress): void;
 }
