@@ -70,13 +70,6 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 9
      */
-    /**
-     * Indicates that function or algorithm is not supported.
-     *
-     * @syscap SystemCapability.Security.CryptoFramework
-     * @atomicservice
-     * @since 11
-     */
     NOT_SUPPORT = 801,
 
     /**
