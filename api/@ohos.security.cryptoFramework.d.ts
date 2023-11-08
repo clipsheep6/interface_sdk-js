@@ -867,7 +867,7 @@ declare namespace cryptoFramework {
     OAEP_MGF1_PSRC_UINT8ARR = 103,
 
     /**
-     * Indicates the bash algorithm name of sm2 cipher process.
+     * Indicates the bash algorithm name of SM2 cipher process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 11
@@ -1285,10 +1285,10 @@ declare namespace cryptoFramework {
      * @since 10
      */
     setSignSpec(itemType: SignSpecItem, itemValue: number): void;
-	    
+
     /**
      * Set the specified parameter to the sign object.
-     * Currently, only the PSS_SALT_LEN parameter in RSA is supported.
+     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { number | Uint8Array | string } itemValue - the value of the specified parameter.
@@ -1468,7 +1468,7 @@ declare namespace cryptoFramework {
 
     /**
      * Set the specified parameter to the verify object.
-     * Currently, only the PSS_SALT_LEN parameter in RSA is supported.
+     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { number | Uint8Array | string } itemValue - the value of the specified parameter.
@@ -2160,7 +2160,7 @@ declare namespace cryptoFramework {
   /**
    * Key utilities for ECC Algorithm.
    *
-   * @typedef ECCKeyUtil
+   * ECCKeyUtil
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 11
    */
@@ -2168,14 +2168,15 @@ declare namespace cryptoFramework {
     /**
      * Create the common parameter set based on the curve name.
      *
-     * @param { string } curveName - indicates curve name according to SECG.
-     * @returns { ECCCommonParamsSpec } the ECC common Param Spec obj.
+     * @param { string } curveName - indicates curve name according to the ECC elliptic curve.
+     * @returns { ECCCommonParamsSpec } the ECC common params spec obj.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 11
      */
-    static genECCCommonParamSpec(curveName: string) : ECCCommonParamsSpec;
+    static genECCCommonParamsSpec(curveName: string) : ECCCommonParamsSpec;
   }
 
   /**
