@@ -10459,6 +10459,24 @@ declare class CustomComponent extends CommonAttribute {
   onPageHide?(): void;
 
   /**
+     * onPageRecycle Method, this is only for ArkTS form, page will be destroyed after calling this method
+     *
+     * @returns { string } status data of ArkTS form UI, this data will be passed in when recover form later
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+  onPageRecycle?(): string;
+
+  /**
+   * onPageRecover Method, this is only for ArkTS form
+   *
+   * @param { string } statusData - indicate status data of ArkTS form UI, it is used to recover form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  onPageRecover?(statusData: string): void;
+
+  /**
    * onBackPress Method
    *
    * @returns { void | boolean }
