@@ -814,83 +814,6 @@ declare function copyFile(
 ): void;
 
 /**
- * Copy file.
- *
- * @param { string | number } src - src.
- * @param { string | number } dest - dest.
- * @param { object } [options] - options.
- * @returns { Promise<void> } The promise returned by the function.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900010 - Try again
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900019 - Is a directory
- * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900034 - Operation would block
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @throws { BusinessError } 13900100 - File transfer is abnormal
- * @throws { BusinessError } 13900101 - The number of files is over the limit
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 11
- */
-declare function copyFile(
-  src: string | number,
-  dest: string | number,
-  options: {
-    mode?: number;
-    progressListener?: ProgressListener;
-  }
-): Promise<void>;
-
-/**
- * Copy file.
- *
- * @param { string | number } src - src.
- * @param { string | number } dest - dest.
- * @param { object } [options] - options.
- * @param { AsyncCallback<void> } callback - Return the callback function.
- * @throws { BusinessError } 13900002 - No such file or directory
- * @throws { BusinessError } 13900004 - Interrupted system call
- * @throws { BusinessError } 13900005 - I/O error
- * @throws { BusinessError } 13900008 - Bad file descriptor
- * @throws { BusinessError } 13900010 - Try again
- * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
- * @throws { BusinessError } 13900013 - Bad address
- * @throws { BusinessError } 13900018 - Not a directory
- * @throws { BusinessError } 13900019 - Is a directory
- * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900030 - File name too long
- * @throws { BusinessError } 13900031 - Function not implemented
- * @throws { BusinessError } 13900033 - Too many symbolic links encountered
- * @throws { BusinessError } 13900034 - Operation would block
- * @throws { BusinessError } 13900038 - Value too large for defined data type
- * @throws { BusinessError } 13900042 - Unknown error
- * @throws { BusinessError } 13900100 - File transfer is abnormal
- * @throws { BusinessError } 13900101 - The number of files is over the limit
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 11
- */
-declare function copyFile(
-  src: string | number,
-  dest: string | number,
-  options: {
-    mode?: number;
-    progressListener?: ProgressListener;
-  },
-  callback: AsyncCallback<void>
-): void;
-
-/**
  * Copy file with sync interface.
  *
  * @param { string | number } src - src.
@@ -944,6 +867,66 @@ declare function copyFile(
  * @since 10
  */
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
+
+/**
+ * Copy file.
+ *
+ * @param { string } src - src.
+ * @param { string } dest - dest.
+ * @returns { Promise<Progress> } The promise returned by the function.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900100 - File transfer is abnormal
+ * @throws { BusinessError } 13900101 - The number of files is over the limit
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function copy(src: string, dest: string): Promise<Progress>;
+
+/**
+ * Copy file.
+ *
+ * @param { string } src - src.
+ * @param { string } dest - dest.
+ * @param { AsyncCallback<Progress> } callback - Return the callback function.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900100 - File transfer is abnormal
+ * @throws { BusinessError } 13900101 - The number of files is over the limit
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function copyFile(src: string, dest: string, callback: AsyncCallback<Progress>): void;
 
 /**
  * Create class Stream.
