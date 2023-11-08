@@ -28,6 +28,7 @@ import type { Callback } from './@ohos.base';
  * @enum {number}
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
+ * @atomicservice
  * @since 10
  */
 declare enum MatchPattern {
@@ -43,6 +44,7 @@ declare enum MatchPattern {
    *
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -59,6 +61,7 @@ declare enum MatchPattern {
    *
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -75,6 +78,7 @@ declare enum MatchPattern {
    *
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -91,6 +95,7 @@ declare enum MatchPattern {
    *
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -612,6 +617,7 @@ declare class UiDriver {
  *
  * @enum { number }
  * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
  * @since 9
  */
 declare enum WindowMode {
@@ -619,6 +625,7 @@ declare enum WindowMode {
    * The test window is a full screen window.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -627,6 +634,7 @@ declare enum WindowMode {
    * The test window is the first window in the split screen state.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -635,6 +643,7 @@ declare enum WindowMode {
    * The test window is the second window in the split screen state.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -643,6 +652,7 @@ declare enum WindowMode {
    * The test window is a floating window.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -654,6 +664,7 @@ declare enum WindowMode {
  *
  * @enum { number }
  * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
  * @since 9
  */
 declare enum ResizeDirection {
@@ -661,6 +672,7 @@ declare enum ResizeDirection {
    * Left.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -669,6 +681,7 @@ declare enum ResizeDirection {
    * Right.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -677,6 +690,7 @@ declare enum ResizeDirection {
    * Up.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -685,6 +699,7 @@ declare enum ResizeDirection {
    * Down.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -693,6 +708,7 @@ declare enum ResizeDirection {
    * Upper left.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -701,6 +717,7 @@ declare enum ResizeDirection {
    * Lower left.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -709,6 +726,7 @@ declare enum ResizeDirection {
    * Upper right.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -717,6 +735,7 @@ declare enum ResizeDirection {
    * Lower right.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -728,6 +747,7 @@ declare enum ResizeDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
  * @since 9
  */
 declare enum DisplayRotation {
@@ -735,6 +755,7 @@ declare enum DisplayRotation {
    * Device display does not rotate to display vertically.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -743,6 +764,7 @@ declare enum DisplayRotation {
    * Device display rotates 90 degrees clockwise to display horizontally.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -751,6 +773,7 @@ declare enum DisplayRotation {
    * Device display rotates clockwise 180 degrees to display vertically in reverse.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -759,6 +782,7 @@ declare enum DisplayRotation {
    * Device display rotates 270 degrees clockwise to display horizontally in reverse.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -778,6 +802,7 @@ declare enum DisplayRotation {
  * @typedef Point
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
+ * @atomicservice
  * @since 10
  */
 declare interface Point {
@@ -794,6 +819,7 @@ declare interface Point {
    * @type { number }
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly x: number;
@@ -810,6 +836,7 @@ declare interface Point {
    * @type { number }
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   readonly y: number;
@@ -820,6 +847,7 @@ declare interface Point {
  *
  * @typedef Rect 
  * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
  * @since 9
  */
 declare interface Rect {
@@ -828,6 +856,7 @@ declare interface Rect {
    *
    * @type { number }
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    */
   readonly left: number;
@@ -836,6 +865,7 @@ declare interface Rect {
    *
    * @type { number }
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    */
   readonly top: number;
@@ -844,6 +874,7 @@ declare interface Rect {
    *
    * @type { number }
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    */
   readonly right: number;
@@ -852,6 +883,7 @@ declare interface Rect {
    *
    * @type { number }
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    */
   readonly bottom: number;
@@ -862,6 +894,7 @@ declare interface Rect {
  *
  * @typedef WindowFilter
  * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
  * @since 9
  */
 declare interface WindowFilter {
@@ -870,6 +903,7 @@ declare interface WindowFilter {
    *
    * @type { ?string }
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    */
   bundleName?: string;
@@ -878,6 +912,7 @@ declare interface WindowFilter {
    *
    * @type { ?string }
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    */
   title?: string;
@@ -886,6 +921,7 @@ declare interface WindowFilter {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    */
   focused?: boolean;
@@ -894,6 +930,7 @@ declare interface WindowFilter {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    */
   actived?: boolean;
@@ -904,6 +941,7 @@ declare interface WindowFilter {
  * 
  * @typedef UIElementInfo
  * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
  * @since 10
  * @test
  */
@@ -912,6 +950,7 @@ declare interface UIElementInfo {
    * The bundle name of the host application.
    * @type { string }
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -920,6 +959,7 @@ declare interface UIElementInfo {
    * The component type, set it as 'window' if it's a window.
    * @type { string }
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -928,6 +968,7 @@ declare interface UIElementInfo {
    * The text of component, set it as window's title if it's a window.
    * @type { string }
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -939,6 +980,7 @@ declare interface UIElementInfo {
  * 
  * @typedef UIEventObserver
  * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
  * @since 10
  * @test
  */
@@ -950,6 +992,7 @@ declare interface UIEventObserver {
    * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -962,6 +1005,7 @@ declare interface UIEventObserver {
    * @param { Callback<UIElementInfo> } callback function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -973,6 +1017,7 @@ declare interface UIEventObserver {
  *
  * @enum { number }
  * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
  * @since 10
  */
 declare enum UiDirection {
@@ -980,6 +1025,7 @@ declare enum UiDirection {
    * Left.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -988,6 +1034,7 @@ declare enum UiDirection {
    * Right.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -996,6 +1043,7 @@ declare enum UiDirection {
    * Up.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1004,6 +1052,7 @@ declare enum UiDirection {
    * Down.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1015,6 +1064,7 @@ declare enum UiDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
  * @since 10
  */
 declare enum MouseButton {
@@ -1023,6 +1073,7 @@ declare enum MouseButton {
    *
    * @syscap SystemCapability.Test.UiTest
    * @since 10
+   * @atomicservice
    * @test
    */
   MOUSE_BUTTON_LEFT = 0,
@@ -1031,6 +1082,7 @@ declare enum MouseButton {
    *
    * @syscap SystemCapability.Test.UiTest
    * @since 10
+   * @atomicservice
    * @test
    */
   MOUSE_BUTTON_RIGHT = 1,
@@ -1039,6 +1091,7 @@ declare enum MouseButton {
    *
    * @syscap SystemCapability.Test.UiTest
    * @since 10
+   * @atomicservice
    * @test
    */
   MOUSE_BUTTON_MIDDLE = 2
@@ -1048,6 +1101,7 @@ declare enum MouseButton {
  * Describes the attribute requirements for the target Components.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
  * @since 9
  */
 declare class On {
@@ -1071,6 +1125,7 @@ declare class On {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1094,6 +1149,7 @@ declare class On {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1117,6 +1173,7 @@ declare class On {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1140,6 +1197,7 @@ declare class On {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1163,6 +1221,7 @@ declare class On {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1186,6 +1245,7 @@ declare class On {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1209,6 +1269,7 @@ declare class On {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1232,6 +1293,7 @@ declare class On {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1255,6 +1317,7 @@ declare class On {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1278,6 +1341,7 @@ declare class On {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1301,6 +1365,7 @@ declare class On {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1314,6 +1379,7 @@ declare class On {
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -1327,6 +1393,7 @@ declare class On {
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -1340,6 +1407,7 @@ declare class On {
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1352,6 +1420,7 @@ declare class On {
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1362,6 +1431,7 @@ declare class On {
  * Represents an Component of the ohos application,user can perform operations or query attributes on it.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
  * @since 9
  * @test
  */
@@ -1384,6 +1454,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1407,6 +1478,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1430,6 +1502,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1453,6 +1526,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1476,6 +1550,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1499,6 +1574,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1522,6 +1598,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1545,6 +1622,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1568,6 +1646,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1591,6 +1670,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1614,6 +1694,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1637,6 +1718,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1660,6 +1742,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1683,6 +1766,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1710,6 +1794,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1733,6 +1818,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1760,6 +1846,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1787,6 +1874,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1814,6 +1902,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1826,6 +1915,7 @@ declare class Component {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -1849,6 +1939,7 @@ declare class Component {
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1863,6 +1954,7 @@ declare class Component {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -1877,6 +1969,7 @@ declare class Component {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -1891,6 +1984,7 @@ declare class Component {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -1902,6 +1996,7 @@ declare class Component {
  * coordinates-based UI actions,capture screen and so on.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
  * @since 9
  * @test
  */
@@ -1921,6 +2016,7 @@ declare class Driver {
    * @returns { Driver } the {@link Driver} object.
    * @throws { BusinessError } 17000001 - if the test framework failed to initialize.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @crossplatform
    * @since 10
    * @test
@@ -1947,6 +2043,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1972,6 +2069,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -1985,6 +2083,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -1999,6 +2098,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2023,6 +2123,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @crossplatform
    * @since 10
    * @test
@@ -2051,6 +2152,7 @@ declare class Driver {
    * @throws { BusinessError } 17000003 - if the assertion failed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2072,6 +2174,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2085,6 +2188,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2100,6 +2204,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2127,6 +2232,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2154,6 +2260,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2181,6 +2288,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2214,6 +2322,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2231,6 +2340,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2244,6 +2354,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2257,6 +2368,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2268,6 +2380,7 @@ declare class Driver {
    * @returns { Promise<DisplayRotation> } the current display rotation.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2281,6 +2394,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2292,6 +2406,7 @@ declare class Driver {
    * @returns { Promise<Point> } the size of the device display.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2303,6 +2418,7 @@ declare class Driver {
    * @returns { Promise<Point> } the density of the device display.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2314,6 +2430,7 @@ declare class Driver {
    * @returns { Promise<void> }
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2325,6 +2442,7 @@ declare class Driver {
    * @returns { Promise<void> }
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2339,6 +2457,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2370,6 +2489,7 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2384,6 +2504,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2398,6 +2519,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2414,6 +2536,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2427,6 +2550,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2444,6 +2568,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2461,6 +2586,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 11
    * @test
    */
@@ -2475,6 +2601,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2486,6 +2613,7 @@ declare class Driver {
    * @returns { UIEventObserver } the {@link UIEventObserver} object.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2502,6 +2630,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 11
    * @test
    */
@@ -2518,6 +2647,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 11
    * @test
    */
@@ -2533,6 +2663,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 11
    * @test
    */
@@ -2548,6 +2679,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 11
    * @test
    */
@@ -2562,6 +2694,7 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 11
    * @test
    */
@@ -2571,6 +2704,7 @@ declare class Driver {
 /**
  * @syscap SystemCapability.Test.UiTest
  * @since 9
+ * @atomicservice
  * @test
  */
 declare class UiWindow {
@@ -2581,6 +2715,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2593,6 +2728,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2605,6 +2741,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2617,6 +2754,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2629,6 +2767,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2641,6 +2780,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2653,6 +2793,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2669,6 +2810,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2686,6 +2828,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2699,6 +2842,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2712,6 +2856,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2725,6 +2870,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2738,6 +2884,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2751,6 +2898,7 @@ declare class UiWindow {
    * @throws { BusinessError } 17000004 - if the window is invisible or destroyed.
    * @throws { BusinessError } 17000005 - if the action is not supported on this window.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2762,6 +2910,7 @@ declare class UiWindow {
  * multi-finger trace which can be injected with UiDriver.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
  * @since 9
  * @test
  */
@@ -2774,6 +2923,7 @@ declare class PointerMatrix {
    * @returns { PointerMatrix } the {@link PointerMatrix} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
@@ -2787,6 +2937,7 @@ declare class PointerMatrix {
    * @param { Point } point The coordinate of target step to set.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
    * @since 9
    * @test
    */
