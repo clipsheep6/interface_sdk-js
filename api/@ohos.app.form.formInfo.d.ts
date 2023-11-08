@@ -833,5 +833,45 @@ declare namespace formInfo {
      */
     UNUSED = 1,
   }
+
+  /**
+   * FormStatus.
+   *
+   * @interface FormStatus
+   * @syscap SystemCapability.Ability.Form
+   * @StageModelOnly
+   * @since 10
+   */
+  interface FormStatus {
+    /**
+     * Indicates the form events occurred.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @StageModelOnly
+     * @since 10
+     */
+    [key: string]: number;
+  }
+
+  /**
+   * FormWantParams.
+   *
+   * @interface FormWantParams
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  interface FormWantParams {
+    /**
+     * Indicates the form data.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
+    [key: string]: Object;
+  }
 }
 export default formInfo;
