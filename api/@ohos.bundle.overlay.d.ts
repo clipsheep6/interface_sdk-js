@@ -21,6 +21,7 @@ import * as _OverlayModuleInfo from './bundleManager/OverlayModuleInfo';
  *
  * @namespace overlay
  * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+ * @atomicservice
  * @since 10
  */
 declare namespace overlay {
@@ -34,6 +35,7 @@ declare namespace overlay {
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @atomicservice
    * @since 10
    */
   function setOverlayEnabled(moduleName: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
@@ -48,6 +50,7 @@ declare namespace overlay {
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @atomicservice
    * @since 10
    */
   function setOverlayEnabled(moduleName: string, isEnabled: boolean): Promise<void>;
@@ -105,6 +108,7 @@ declare namespace overlay {
    * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @atomicservice
    * @since 10
    */
   function getOverlayModuleInfo(moduleName: string, callback: AsyncCallback<OverlayModuleInfo>): void;
@@ -119,6 +123,7 @@ declare namespace overlay {
    * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @atomicservice
    * @since 10
    */
   function getOverlayModuleInfo(moduleName: string): Promise<OverlayModuleInfo>;
@@ -132,6 +137,7 @@ declare namespace overlay {
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700034 - The specified module is an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @atomicservice
    * @since 10
    */
   function getTargetOverlayModuleInfos(targetModuleName: string,
@@ -146,6 +152,7 @@ declare namespace overlay {
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700034 - The specified module is an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @atomicservice
    * @since 10
    */
   function getTargetOverlayModuleInfos(targetModuleName: string): Promise<Array<OverlayModuleInfo>>;
@@ -274,6 +281,7 @@ declare namespace overlay {
    * Obtains configuration information about a overlay hap module.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @atomicservice
    * @since 10
    */
   export type OverlayModuleInfo = _OverlayModuleInfo.OverlayModuleInfo;
