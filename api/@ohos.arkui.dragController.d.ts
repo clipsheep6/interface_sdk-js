@@ -17,7 +17,7 @@
 
 import type { AsyncCallback, BusinessError } from './@ohos.base';
 import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
-import type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewMode } from 'DragControllerParam';
+import type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewMode, DragPreviewOptions } from 'DragControllerParam';
 import type { ResourceColor, TouchPoint } from 'DragControllerUnitParam';
 import { AnimateParam } from 'AnimateParam';
 
@@ -74,12 +74,12 @@ declare namespace dragController {
     touchPoint?: TouchPoint;
 
     /**
-    * Drag preview mode.
-    * @type { ?DragPreviewMode }
+    * Drag preview options.
+    * @type { ?DragPreviewOptions }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 11
      */
-    previewMode?: DragPreviewMode;
+    previewOptions?: DragPreviewOptions;
   }
 
   /**

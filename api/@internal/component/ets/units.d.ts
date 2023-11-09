@@ -1514,20 +1514,20 @@ declare interface TouchPoint {
   /**
    * Define the touch point x coordinate.
    *
-   * @type { number }
+   * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  x: number;
+  x: Length;
 
   /**
    * Define the touch point y coordinate.
    *
-   * @type { number }
+   * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  y: number;
+  y: Length;
 }
 
 declare module "DragControllerUnitParam" {
