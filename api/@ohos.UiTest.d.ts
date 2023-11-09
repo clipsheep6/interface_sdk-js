@@ -1072,8 +1072,8 @@ declare enum MouseButton {
    * Left button of the mouse.
    *
    * @syscap SystemCapability.Test.UiTest
-   * @since 10
    * @atomicservice
+   * @since 10
    * @test
    */
   MOUSE_BUTTON_LEFT = 0,
@@ -1081,8 +1081,8 @@ declare enum MouseButton {
    * Right button of the mouse..
    *
    * @syscap SystemCapability.Test.UiTest
-   * @since 10
    * @atomicservice
+   * @since 10
    * @test
    */
   MOUSE_BUTTON_RIGHT = 1,
@@ -1090,8 +1090,8 @@ declare enum MouseButton {
    * MIDDLE button of the mouse.
    *
    * @syscap SystemCapability.Test.UiTest
-   * @since 10
    * @atomicservice
+   * @since 10
    * @test
    */
   MOUSE_BUTTON_MIDDLE = 2
@@ -2016,8 +2016,8 @@ declare class Driver {
    * @returns { Driver } the {@link Driver} object.
    * @throws { BusinessError } 17000001 - if the test framework failed to initialize.
    * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2123,8 +2123,8 @@ declare class Driver {
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
    * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 10
    * @test
    */
@@ -2703,8 +2703,8 @@ declare class Driver {
 
 /**
  * @syscap SystemCapability.Test.UiTest
- * @since 9
  * @atomicservice
+ * @since 9
  * @test
  */
 declare class UiWindow {
