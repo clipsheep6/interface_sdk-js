@@ -174,7 +174,8 @@ interface ActionSheetOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   *//**
+   */
+  /**
    * Subtitle Properties
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -224,7 +225,8 @@ interface ActionSheetOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */  /**
+   */  
+  /**
    * Invoke the commit function.
    *
    * @type { ?object }
