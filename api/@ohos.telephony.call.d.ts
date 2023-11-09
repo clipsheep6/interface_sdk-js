@@ -93,6 +93,27 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
+  /**
+   * Makes a call.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { DialCallOptions } options - Indicates additional information carried in the call.
+   * @param { AsyncCallback<void> } callback - The callback of dialCall.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300005 - Airplane mode is on.
+   * @throws { BusinessError } 8300006 - Network not in service.
+   * @throws { BusinessError } 8300009 - The number of calls exceeds the limit.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
   function dialCall(phoneNumber: string, options: DialCallOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -114,6 +135,27 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
    * @since 9
+   */
+  /**
+   * Makes a call.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { DialCallOptions } options - Indicates additional information carried in the call.
+   * @returns { Promise<void> } The promise returned by the dialCall.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300005 - Airplane mode is on.
+   * @throws { BusinessError } 8300006 - Network not in service.
+   * @throws { BusinessError } 8300009 - The number of calls exceeds the limit.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
    */
   function dialCall(phoneNumber: string, options?: DialCallOptions): Promise<void>;
 
@@ -2289,6 +2331,44 @@ declare namespace call {
    */
   function removeMissedIncomingCallNotification(): Promise<void>;
 
+    /**
+   * Set Caas Call State.
+   *
+   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @param { DetailedCallState } state - Indicates the Caas Call state.
+   * @param { AsyncCallback<void> } callback - The callback of setCaasCallState.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+    function setCaasCallState(state: DetailedCallState, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set Caas Call State.
+     *
+     * @permission ohos.permission.SET_TELEPHONY_STATE
+     * @param { DetailedCallState } state - Indicates the Caas Call state.
+     * @returns { Promise<void> } The promise returned by the setCaasCallState.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 8300001 - Invalid parameter value.
+     * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 8300003 - System internal error.
+     * @throws { BusinessError } 8300999 - Unknown error code.
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    function setCaasCallState(state: DetailedCallState): Promise<void>;
+
   /**
    * Indicates the mode of the ims call.
    *
@@ -3061,6 +3141,14 @@ declare namespace call {
      * @since 7
      */
     CALL_STATUS_IDLE,
+    /**
+     * Indicates the call is answered.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    CALL_STATUS_ANSWERED,
   }
 
   /**
