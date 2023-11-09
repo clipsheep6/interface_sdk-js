@@ -149,6 +149,7 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
    * @since 7
    */
   function makeCall(phoneNumber: string, callback: AsyncCallback<void>): void;
@@ -164,6 +165,7 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
    * @since 7
    */
   function makeCall(phoneNumber: string): Promise<void>;
