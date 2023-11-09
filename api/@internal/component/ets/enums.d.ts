@@ -12,6 +12,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ 
+/**
+ * common enum of the checkbox shape
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare enum CheckBoxShape {
+  /**
+   * Circle.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  CIRCLE = 0,
+
+  /**
+   * Rounded Square.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  ROUNDED_SQUARE = 1,
+}
 
 /**
  * common enum of color
