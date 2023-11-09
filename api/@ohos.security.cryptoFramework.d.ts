@@ -21,6 +21,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace cryptoFramework
  * @syscap SystemCapability.Security.CryptoFramework
+ * @crossplatform
  * @since 9
  */
 declare namespace cryptoFramework {
@@ -29,6 +30,7 @@ declare namespace cryptoFramework {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   enum Result {
@@ -36,6 +38,7 @@ declare namespace cryptoFramework {
      * Indicates that input parameters is invalid.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     INVALID_PARAMS = 401,
@@ -44,6 +47,7 @@ declare namespace cryptoFramework {
      * Indicates that function or algorithm is not supported.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     NOT_SUPPORT = 801,
@@ -52,6 +56,7 @@ declare namespace cryptoFramework {
      * Indicates the memory error.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     ERR_OUT_OF_MEMORY = 17620001,
@@ -60,6 +65,7 @@ declare namespace cryptoFramework {
      * Indicates that runtime error.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     ERR_RUNTIME_ERROR = 17620002,
@@ -68,6 +74,7 @@ declare namespace cryptoFramework {
      * Indicates that crypto operation error.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     ERR_CRYPTO_OPERATION = 17630001
@@ -78,6 +85,7 @@ declare namespace cryptoFramework {
    *
    * @typedef DataBlob
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface DataBlob {
@@ -86,6 +94,7 @@ declare namespace cryptoFramework {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     data: Uint8Array;
@@ -96,6 +105,7 @@ declare namespace cryptoFramework {
    *
    * @typedef ParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface ParamsSpec {
@@ -104,6 +114,7 @@ declare namespace cryptoFramework {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     algName: string;
@@ -114,6 +125,7 @@ declare namespace cryptoFramework {
    *
    * @typedef IvParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface IvParamsSpec extends ParamsSpec {
@@ -122,6 +134,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     iv: DataBlob;
@@ -132,6 +145,7 @@ declare namespace cryptoFramework {
    *
    * @typedef GcmParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface GcmParamsSpec extends ParamsSpec {
@@ -140,6 +154,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     iv: DataBlob;
@@ -149,6 +164,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     aad: DataBlob;
@@ -158,6 +174,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     authTag: DataBlob;
@@ -168,6 +185,7 @@ declare namespace cryptoFramework {
    *
    * @typedef CcmParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface CcmParamsSpec extends ParamsSpec {
@@ -176,6 +194,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     iv: DataBlob;
@@ -185,6 +204,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     aad: DataBlob;
@@ -194,6 +214,7 @@ declare namespace cryptoFramework {
      *
      * @type { DataBlob }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     authTag: DataBlob;
@@ -204,6 +225,7 @@ declare namespace cryptoFramework {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   enum CryptoMode {
@@ -211,6 +233,7 @@ declare namespace cryptoFramework {
      * The value of encryption operation for AES, 3DES and RSA.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     ENCRYPT_MODE = 0,
@@ -219,6 +242,7 @@ declare namespace cryptoFramework {
      * The value of decryption operation for AES, 3DES and RSA.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     DECRYPT_MODE = 1
@@ -229,6 +253,7 @@ declare namespace cryptoFramework {
    *
    * @typedef Key
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface Key {
@@ -240,6 +265,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     getEncoded(): DataBlob;
@@ -250,6 +276,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly format: string;
@@ -260,6 +287,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly algName: string;
@@ -270,6 +298,7 @@ declare namespace cryptoFramework {
    *
    * @typedef SymKey
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface SymKey extends Key {
@@ -277,6 +306,7 @@ declare namespace cryptoFramework {
      * Reset the key data to zero in the memory.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     clearMem(): void;
@@ -287,6 +317,7 @@ declare namespace cryptoFramework {
    *
    * @typedef PriKey
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface PriKey extends Key {
@@ -294,6 +325,7 @@ declare namespace cryptoFramework {
      * Clear memory of private key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     clearMem(): void;
@@ -307,6 +339,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | number;
@@ -317,6 +350,7 @@ declare namespace cryptoFramework {
    *
    * @typedef PubKey
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface PubKey extends Key {
@@ -329,6 +363,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | number;
@@ -339,6 +374,7 @@ declare namespace cryptoFramework {
    *
    * @typedef KeyPair
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface KeyPair {
@@ -348,6 +384,7 @@ declare namespace cryptoFramework {
      * @type { PriKey }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly priKey: PriKey;
@@ -358,6 +395,7 @@ declare namespace cryptoFramework {
      * @type { PubKey }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly pubKey: PubKey;
@@ -368,6 +406,7 @@ declare namespace cryptoFramework {
    *
    * @typedef Random
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface Random {
@@ -380,6 +419,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     generateRandom(len: number, callback: AsyncCallback<DataBlob>): void;
@@ -393,6 +433,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     generateRandom(len: number): Promise<DataBlob>;
@@ -406,6 +447,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     generateRandomSync(len: number): DataBlob;
@@ -416,6 +458,7 @@ declare namespace cryptoFramework {
      * @param { DataBlob } seed - indicates the seed DataBlob.
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     setSeed(seed: DataBlob): void;
@@ -426,6 +469,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     readonly algName: string;
@@ -437,6 +481,7 @@ declare namespace cryptoFramework {
    * @returns { Random } returns the created rand instance.
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   function createRandom(): Random;
@@ -446,6 +491,7 @@ declare namespace cryptoFramework {
    *
    * @typedef AsyKeyGenerator
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface AsyKeyGenerator {
@@ -457,6 +503,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     generateKeyPair(callback: AsyncCallback<KeyPair>): void;
@@ -469,6 +516,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     generateKeyPair(): Promise<KeyPair>;
@@ -483,6 +531,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     convertKey(pubKey: DataBlob, priKey: DataBlob, callback: AsyncCallback<KeyPair>): void;
@@ -497,6 +546,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     convertKey(pubKey: DataBlob | null, priKey: DataBlob | null, callback: AsyncCallback<KeyPair>): void;
@@ -511,6 +561,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     convertKey(pubKey: DataBlob, priKey: DataBlob): Promise<KeyPair>;
@@ -525,6 +576,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     convertKey(pubKey: DataBlob | null, priKey: DataBlob | null): Promise<KeyPair>;
@@ -535,6 +587,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly algName: string;
@@ -545,6 +598,7 @@ declare namespace cryptoFramework {
    *
    * @typedef SymKeyGenerator
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface SymKeyGenerator {
@@ -554,6 +608,7 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<SymKey> } callback - the callback of generateSymKey.
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     generateSymKey(callback: AsyncCallback<SymKey>): void;
@@ -564,6 +619,7 @@ declare namespace cryptoFramework {
      * @returns { Promise<SymKey> } the promise returned by the function.
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     generateSymKey(): Promise<SymKey>;
@@ -576,6 +632,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     convertKey(key: DataBlob, callback: AsyncCallback<SymKey>): void;
@@ -588,6 +645,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     convertKey(key: DataBlob): Promise<SymKey>;
@@ -598,6 +656,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly algName: string;
@@ -612,6 +671,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   function createAsyKeyGenerator(algName: string): AsyKeyGenerator;
@@ -624,6 +684,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters.
    * @throws { BusinessError } 801 - this operation is not supported.
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   function createSymKeyGenerator(algName: string): SymKeyGenerator;
@@ -633,6 +694,7 @@ declare namespace cryptoFramework {
    *
    * @typedef Mac
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface Mac {
@@ -644,6 +706,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     init(key: SymKey, callback: AsyncCallback<void>): void;
@@ -656,6 +719,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     init(key: SymKey): Promise<void>;
@@ -668,6 +732,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     update(input: DataBlob, callback: AsyncCallback<void>): void;
@@ -680,6 +745,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     update(input: DataBlob): Promise<void>;
@@ -691,6 +757,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     doFinal(callback: AsyncCallback<DataBlob>): void;
@@ -702,6 +769,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     doFinal(): Promise<DataBlob>;
@@ -712,6 +780,7 @@ declare namespace cryptoFramework {
      * @returns { number } returns the length of the hmac result.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     getMacLength(): number;
@@ -722,6 +791,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly algName: string;
@@ -735,6 +805,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters.
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   function createMac(algName: string): Mac;
@@ -744,6 +815,7 @@ declare namespace cryptoFramework {
    *
    * @typedef Md
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface Md {
@@ -755,6 +827,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     update(input: DataBlob, callback: AsyncCallback<void>): void;
@@ -767,6 +840,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     update(input: DataBlob): Promise<void>;
@@ -778,6 +852,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     digest(callback: AsyncCallback<DataBlob>): void;
@@ -789,6 +864,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     digest(): Promise<DataBlob>;
@@ -799,6 +875,7 @@ declare namespace cryptoFramework {
      * @returns { number } returns the length of the hmac result.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     getMdLength(): number;
@@ -809,6 +886,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly algName: string;
@@ -822,6 +900,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 401 - invalid parameters.
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   function createMd(algName: string): Md;
@@ -831,6 +910,7 @@ declare namespace cryptoFramework {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   enum CipherSpecItem {
@@ -838,6 +918,7 @@ declare namespace cryptoFramework {
      * Indicates the algorithm name of the message digest function. It is used during RSA encryption.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     OAEP_MD_NAME_STR = 100,
@@ -846,6 +927,7 @@ declare namespace cryptoFramework {
      * Indicates the algorithm name for the mask generation function. It is used during RSA encryption.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     OAEP_MGF_NAME_STR = 101,
@@ -854,6 +936,7 @@ declare namespace cryptoFramework {
      * Indicates the message digest parameter for the MGF1 mask generation function. It is used during RSA encryption.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     OAEP_MGF1_MD_STR = 102,
@@ -862,6 +945,7 @@ declare namespace cryptoFramework {
      * Indicates the source of the encoding input P. It is used during RSA encryption.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     OAEP_MGF1_PSRC_UINT8ARR = 103
@@ -872,6 +956,7 @@ declare namespace cryptoFramework {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   enum SignSpecItem {
@@ -879,6 +964,7 @@ declare namespace cryptoFramework {
      * Indicates the algorithm name of the message digest function. It is used in RSA signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     PSS_MD_NAME_STR = 100,
@@ -887,6 +973,7 @@ declare namespace cryptoFramework {
      * Indicates the algorithm name of the mask generation function. It is used in RSA signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     PSS_MGF_NAME_STR = 101,
@@ -896,6 +983,7 @@ declare namespace cryptoFramework {
      * It is used in RSA signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     PSS_MGF1_MD_STR = 102,
@@ -904,6 +992,7 @@ declare namespace cryptoFramework {
      * Indicates the salt length in bits. It is used in RSA signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     PSS_SALT_LEN_NUM = 103,
@@ -912,6 +1001,7 @@ declare namespace cryptoFramework {
      * Indicates the value for the trailer field. It is used in RSA signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     PSS_TRAILER_FIELD_NUM = 104
@@ -922,6 +1012,7 @@ declare namespace cryptoFramework {
    *
    * @typedef Cipher
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface Cipher {
@@ -937,6 +1028,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     init(opMode: CryptoMode, key: Key, params: ParamsSpec, callback: AsyncCallback<void>): void;
@@ -953,6 +1045,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     init(opMode: CryptoMode, key: Key, params: ParamsSpec | null, callback: AsyncCallback<void>): void;
@@ -969,6 +1062,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     init(opMode: CryptoMode, key: Key, params: ParamsSpec): Promise<void>;
@@ -985,6 +1079,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     init(opMode: CryptoMode, key: Key, params: ParamsSpec | null): Promise<void>;
@@ -1000,6 +1095,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     update(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
@@ -1015,6 +1111,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     update(data: DataBlob): Promise<DataBlob>;
@@ -1030,6 +1127,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     doFinal(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
@@ -1045,6 +1143,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
@@ -1060,6 +1159,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     doFinal(data: DataBlob): Promise<DataBlob>;
@@ -1075,6 +1175,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     doFinal(data: DataBlob | null): Promise<DataBlob>;
@@ -1090,6 +1191,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     setCipherSpec(itemType: CipherSpecItem, itemValue: Uint8Array): void;
@@ -1105,6 +1207,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     getCipherSpec(itemType: CipherSpecItem): string | Uint8Array;
@@ -1115,6 +1218,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly algName: string;
@@ -1131,6 +1235,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   function createCipher(transformation: string): Cipher;
@@ -1140,6 +1245,7 @@ declare namespace cryptoFramework {
    *
    * @typedef Sign
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface Sign {
@@ -1153,6 +1259,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     init(priKey: PriKey, callback: AsyncCallback<void>): void;
@@ -1167,6 +1274,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     init(priKey: PriKey): Promise<void>;
@@ -1181,6 +1289,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     update(data: DataBlob, callback: AsyncCallback<void>): void;
@@ -1195,6 +1304,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     update(data: DataBlob): Promise<void>;
@@ -1209,6 +1319,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     sign(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
@@ -1223,6 +1334,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     sign(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
@@ -1237,6 +1349,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     sign(data: DataBlob): Promise<DataBlob>;
@@ -1251,6 +1364,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     sign(data: DataBlob | null): Promise<DataBlob>;
@@ -1266,6 +1380,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     setSignSpec(itemType: SignSpecItem, itemValue: number): void;
@@ -1281,6 +1396,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     getSignSpec(itemType: SignSpecItem): string | number;
@@ -1291,6 +1407,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly algName: string;
@@ -1301,6 +1418,7 @@ declare namespace cryptoFramework {
    *
    * @typedef Verify
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface Verify {
@@ -1314,6 +1432,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     init(pubKey: PubKey, callback: AsyncCallback<void>): void;
@@ -1328,6 +1447,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     init(pubKey: PubKey): Promise<void>;
@@ -1342,6 +1462,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     update(data: DataBlob, callback: AsyncCallback<void>): void;
@@ -1356,6 +1477,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     update(data: DataBlob): Promise<void>;
@@ -1371,6 +1493,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     verify(data: DataBlob, signatureData: DataBlob, callback: AsyncCallback<boolean>): void;
@@ -1386,6 +1509,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     verify(data: DataBlob | null, signatureData: DataBlob, callback: AsyncCallback<boolean>): void;
@@ -1401,6 +1525,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     verify(data: DataBlob, signatureData: DataBlob): Promise<boolean>;
@@ -1416,6 +1541,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     verify(data: DataBlob | null, signatureData: DataBlob): Promise<boolean>;
@@ -1431,6 +1557,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     setVerifySpec(itemType: SignSpecItem, itemValue: number): void;
@@ -1446,6 +1573,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     getVerifySpec(itemType: SignSpecItem): string | number;
@@ -1456,6 +1584,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly algName: string;
@@ -1470,6 +1599,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   function createSign(algName: string): Sign;
@@ -1483,6 +1613,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   function createVerify(algName: string): Verify;
@@ -1492,6 +1623,7 @@ declare namespace cryptoFramework {
    *
    * @typedef KeyAgreement
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   interface KeyAgreement {
@@ -1506,6 +1638,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     generateSecret(priKey: PriKey, pubKey: PubKey, callback: AsyncCallback<DataBlob>): void;
@@ -1521,6 +1654,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - runtime error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     generateSecret(priKey: PriKey, pubKey: PubKey): Promise<DataBlob>;
@@ -1531,6 +1665,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 9
      */
     readonly algName: string;
@@ -1545,6 +1680,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 9
    */
   function createKeyAgreement(algName: string): KeyAgreement;
@@ -1554,6 +1690,7 @@ declare namespace cryptoFramework {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   enum AsyKeySpecItem {
@@ -1561,6 +1698,7 @@ declare namespace cryptoFramework {
      * Indicates the DSA prime p.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     DSA_P_BN = 101,
@@ -1569,6 +1707,7 @@ declare namespace cryptoFramework {
      * Indicates the DSA sub-prime q.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     DSA_Q_BN = 102,
@@ -1577,6 +1716,7 @@ declare namespace cryptoFramework {
      * Indicates the DSA base g.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     DSA_G_BN = 103,
@@ -1585,6 +1725,7 @@ declare namespace cryptoFramework {
      * Indicates the DSA private key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     DSA_SK_BN = 104,
@@ -1593,6 +1734,7 @@ declare namespace cryptoFramework {
      * Indicates the DSA public key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     DSA_PK_BN = 105,
@@ -1601,6 +1743,7 @@ declare namespace cryptoFramework {
      * Indicates the prime p of an elliptic curve (EC) prime finite field.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     ECC_FP_P_BN = 201,
@@ -1609,6 +1752,7 @@ declare namespace cryptoFramework {
      * Indicates the first coefficient a of this elliptic curve.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     ECC_A_BN = 202,
@@ -1617,6 +1761,7 @@ declare namespace cryptoFramework {
      * Indicates the second coefficient b of this elliptic curve.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     ECC_B_BN = 203,
@@ -1625,6 +1770,7 @@ declare namespace cryptoFramework {
      * Indicates the affine x-coordinate of base point g.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     ECC_G_X_BN = 204,
@@ -1633,6 +1779,7 @@ declare namespace cryptoFramework {
      * Indicates the affine y-coordinate of base point g.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     ECC_G_Y_BN = 205,
@@ -1641,6 +1788,7 @@ declare namespace cryptoFramework {
      * Indicates the order of the base point g.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     ECC_N_BN = 206,
@@ -1649,6 +1797,7 @@ declare namespace cryptoFramework {
      * Indicates the cofactor of the elliptic curve.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     ECC_H_NUM = 207,
@@ -1657,6 +1806,7 @@ declare namespace cryptoFramework {
      * Indicates the private value of the ECC private key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     ECC_SK_BN = 208,
@@ -1665,6 +1815,7 @@ declare namespace cryptoFramework {
      * Indicates the affine x-coordinate of a point, which is the public point of an ECC public key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     ECC_PK_X_BN = 209,
@@ -1673,6 +1824,7 @@ declare namespace cryptoFramework {
      * Indicates the affine y-coordinate of a point, which is the public point of an ECC public key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     ECC_PK_Y_BN = 210,
@@ -1681,6 +1833,7 @@ declare namespace cryptoFramework {
      * Indicates an elliptic curve finite field type.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     ECC_FIELD_TYPE_STR = 211,
@@ -1690,6 +1843,7 @@ declare namespace cryptoFramework {
      * For Fp field (an elliptic curve prime finite field with prime p), the field size is the size of prime p.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     ECC_FIELD_SIZE_NUM = 212,
@@ -1698,6 +1852,7 @@ declare namespace cryptoFramework {
      * Indicates the curve name according to SECG (Standards for Efficient Cryptography Group).
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     ECC_CURVE_NAME_STR = 213,
@@ -1706,6 +1861,7 @@ declare namespace cryptoFramework {
      * Indicates the modulus n of RSA algorithm.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     RSA_N_BN = 301,
@@ -1714,6 +1870,7 @@ declare namespace cryptoFramework {
      * Indicates the private exponent d of RSA algorithm.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     RSA_SK_BN = 302,
@@ -1722,6 +1879,7 @@ declare namespace cryptoFramework {
      * Indicates the public exponent e of RSA algorithm.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     RSA_PK_BN = 303
@@ -1732,6 +1890,7 @@ declare namespace cryptoFramework {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   enum AsyKeySpecType {
@@ -1739,6 +1898,7 @@ declare namespace cryptoFramework {
      * Indicates the common specified parameters.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     COMMON_PARAMS_SPEC = 0,
@@ -1747,6 +1907,7 @@ declare namespace cryptoFramework {
      * Indicates the specified parameters of private key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     PRIVATE_KEY_SPEC = 1,
@@ -1755,6 +1916,7 @@ declare namespace cryptoFramework {
      * Indicates the specified parameters of public key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     PUBLIC_KEY_SPEC = 2,
@@ -1763,6 +1925,7 @@ declare namespace cryptoFramework {
      * Indicates the specified parameters of keypair.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     KEY_PAIR_SPEC = 3
@@ -1773,6 +1936,7 @@ declare namespace cryptoFramework {
    *
    * @typedef AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface AsyKeySpec {
@@ -1781,6 +1945,7 @@ declare namespace cryptoFramework {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     algName: string;
@@ -1790,6 +1955,7 @@ declare namespace cryptoFramework {
      *
      * @type { AsyKeySpecType }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     specType: AsyKeySpecType;
@@ -1800,6 +1966,7 @@ declare namespace cryptoFramework {
    *
    * @typedef DSACommonParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface DSACommonParamsSpec extends AsyKeySpec {
@@ -1808,6 +1975,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     p: bigint;
@@ -1817,6 +1985,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     q: bigint;
@@ -1826,6 +1995,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     g: bigint;
@@ -1836,6 +2006,7 @@ declare namespace cryptoFramework {
    *
    * @typedef DSAPubKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface DSAPubKeySpec extends AsyKeySpec {
@@ -1844,6 +2015,7 @@ declare namespace cryptoFramework {
      *
      * @type { DSACommonParamsSpec }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     params: DSACommonParamsSpec;
@@ -1853,6 +2025,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     pk: bigint;
@@ -1863,6 +2036,7 @@ declare namespace cryptoFramework {
    *
    * @typedef DSAKeyPairSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface DSAKeyPairSpec extends AsyKeySpec {
@@ -1871,6 +2045,7 @@ declare namespace cryptoFramework {
      *
      * @type { DSACommonParamsSpec }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     params: DSACommonParamsSpec;
@@ -1880,6 +2055,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     sk: bigint;
@@ -1889,6 +2065,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     pk: bigint;
@@ -1899,6 +2076,7 @@ declare namespace cryptoFramework {
    *
    * @typedef ECField
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface ECField {
@@ -1908,6 +2086,7 @@ declare namespace cryptoFramework {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     fieldType: string;
@@ -1918,6 +2097,7 @@ declare namespace cryptoFramework {
    *
    * @typedef ECFieldFp
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface ECFieldFp extends ECField {
@@ -1926,6 +2106,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     p: bigint;
@@ -1936,6 +2117,7 @@ declare namespace cryptoFramework {
    *
    * @typedef Point
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface Point {
@@ -1944,6 +2126,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     x: bigint;
@@ -1953,6 +2136,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     y: bigint;
@@ -1963,6 +2147,7 @@ declare namespace cryptoFramework {
    *
    * @typedef ECCCommonParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface ECCCommonParamsSpec extends AsyKeySpec {
@@ -1971,6 +2156,7 @@ declare namespace cryptoFramework {
      *
      * @type { ECField }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     field: ECField;
@@ -1980,6 +2166,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     a: bigint;
@@ -1989,6 +2176,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     b: bigint;
@@ -1998,6 +2186,7 @@ declare namespace cryptoFramework {
      *
      * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     g: Point;
@@ -2007,6 +2196,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     n: bigint;
@@ -2016,6 +2206,7 @@ declare namespace cryptoFramework {
      *
      * @type { number }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     h: number;
@@ -2026,6 +2217,7 @@ declare namespace cryptoFramework {
    *
    * @typedef ECCPriKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface ECCPriKeySpec extends AsyKeySpec {
@@ -2034,6 +2226,7 @@ declare namespace cryptoFramework {
      *
      * @type { ECCCommonParamsSpec }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     params: ECCCommonParamsSpec;
@@ -2043,6 +2236,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     sk: bigint;
@@ -2053,6 +2247,7 @@ declare namespace cryptoFramework {
    *
    * @typedef ECCPubKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface ECCPubKeySpec extends AsyKeySpec {
@@ -2061,6 +2256,7 @@ declare namespace cryptoFramework {
      *
      * @type { ECCCommonParamsSpec }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     params: ECCCommonParamsSpec;
@@ -2070,6 +2266,7 @@ declare namespace cryptoFramework {
      *
      * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     pk: Point;
@@ -2080,6 +2277,7 @@ declare namespace cryptoFramework {
    *
    * @typedef ECCKeyPairSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface ECCKeyPairSpec extends AsyKeySpec {
@@ -2088,6 +2286,7 @@ declare namespace cryptoFramework {
      *
      * @type { ECCCommonParamsSpec }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     params: ECCCommonParamsSpec;
@@ -2097,6 +2296,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     sk: bigint;
@@ -2106,6 +2306,7 @@ declare namespace cryptoFramework {
      *
      * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     pk: Point;
@@ -2116,6 +2317,7 @@ declare namespace cryptoFramework {
    *
    * @typedef RSACommonParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface RSACommonParamsSpec extends AsyKeySpec {
@@ -2124,6 +2326,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     n: bigint;
@@ -2134,6 +2337,7 @@ declare namespace cryptoFramework {
    *
    * @typedef RSAPubKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface RSAPubKeySpec extends AsyKeySpec {
@@ -2142,6 +2346,7 @@ declare namespace cryptoFramework {
      *
      * @type { RSACommonParamsSpec }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     params: RSACommonParamsSpec;
@@ -2151,6 +2356,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     pk: bigint;
@@ -2161,6 +2367,7 @@ declare namespace cryptoFramework {
    *
    * @typedef RSAKeyPairSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface RSAKeyPairSpec extends AsyKeySpec {
@@ -2169,6 +2376,7 @@ declare namespace cryptoFramework {
      *
      * @type { RSACommonParamsSpec }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     params: RSACommonParamsSpec;
@@ -2178,6 +2386,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     sk: bigint;
@@ -2187,6 +2396,7 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     pk: bigint;
@@ -2197,6 +2407,7 @@ declare namespace cryptoFramework {
    *
    * @typedef AsyKeyGeneratorBySpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   interface AsyKeyGeneratorBySpec {
@@ -2208,6 +2419,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     generateKeyPair(callback: AsyncCallback<KeyPair>): void;
@@ -2220,6 +2432,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     generateKeyPair(): Promise<KeyPair>;
@@ -2232,6 +2445,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     generatePriKey(callback: AsyncCallback<PriKey>): void;
@@ -2244,6 +2458,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     generatePriKey(): Promise<PriKey>;
@@ -2256,6 +2471,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     generatePubKey(callback: AsyncCallback<PubKey>): void;
@@ -2268,6 +2484,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     generatePubKey(): Promise<PubKey>;
@@ -2278,6 +2495,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 10
      */
     readonly algName: string;
@@ -2292,6 +2510,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 10
    */
   function createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec;
@@ -2301,6 +2520,7 @@ declare namespace cryptoFramework {
    *
    * @typedef KdfSpec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 11
    */
   interface KdfSpec {
@@ -2309,6 +2529,7 @@ declare namespace cryptoFramework {
      *
      * @type { string }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     algName: string;
@@ -2319,6 +2540,7 @@ declare namespace cryptoFramework {
    *
    * @typedef PBKDF2Spec
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 11
    */
   interface PBKDF2Spec extends KdfSpec {
@@ -2327,6 +2549,7 @@ declare namespace cryptoFramework {
      *
      * @type { string | Uint8Array }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     password: string | Uint8Array;
@@ -2336,6 +2559,7 @@ declare namespace cryptoFramework {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     salt: Uint8Array;
@@ -2345,6 +2569,7 @@ declare namespace cryptoFramework {
      *
      * @type { number }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     iterations: number;
@@ -2354,6 +2579,7 @@ declare namespace cryptoFramework {
      *
      * @type { number }
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     keySize: number;
@@ -2364,6 +2590,7 @@ declare namespace cryptoFramework {
    *
    * @typedef Kdf
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 11
    */
   interface Kdf {
@@ -2376,6 +2603,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     generateSecret(params: KdfSpec, callback: AsyncCallback<DataBlob>): void;
@@ -2389,6 +2617,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     generateSecret(params: KdfSpec): Promise<DataBlob>;
@@ -2399,6 +2628,7 @@ declare namespace cryptoFramework {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     readonly algName: string;
@@ -2413,6 +2643,7 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 17620001 - memory error.
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 11
    */
   function createKdf(algName: string): Kdf;
