@@ -68,7 +68,7 @@ export default class UIExtensionContentSession {
    * @StageModelOnly
    * @since 11
    */
-  setReceiveDataForResultCallback(callback: (data: { [key: string]: Object }) => { [key: string]: Object }): void;
+  setReceiveDataForResultCallback(callback: (data: Record<string, Object>) => Record<string, Object>): void;
 
   /**
    * Loads an UI extension content.
