@@ -2377,7 +2377,6 @@ declare namespace cryptoFramework {
      * @type { RSACommonParamsSpec }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
-     * @crossplatform
      * @since 10
      */
     params: RSACommonParamsSpec;
