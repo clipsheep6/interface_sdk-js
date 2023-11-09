@@ -2160,7 +2160,6 @@ declare namespace cryptoFramework {
   /**
    * Key utilities for ECC Algorithm.
    *
-   * ECCKeyUtil
    * @syscap SystemCapability.Security.CryptoFramework
    * @since 11
    */
