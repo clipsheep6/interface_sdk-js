@@ -28,6 +28,15 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * Creating an Object
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare enum PanDirection {
   /**
    * Default.
@@ -41,6 +50,14 @@ declare enum PanDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Default.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   None,
 
@@ -57,6 +74,14 @@ declare enum PanDirection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sliding horizontally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Horizontal,
 
   /**
@@ -71,6 +96,14 @@ declare enum PanDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sliding left.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Left,
 
@@ -87,6 +120,14 @@ declare enum PanDirection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sliding right.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Right,
 
   /**
@@ -101,6 +142,14 @@ declare enum PanDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sliding Vertical
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Vertical,
 
@@ -117,6 +166,14 @@ declare enum PanDirection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sliding up.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Up,
 
   /**
@@ -132,6 +189,14 @@ declare enum PanDirection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sliding Down.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Down,
 
   /**
@@ -146,6 +211,14 @@ declare enum PanDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sliding in all directions.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   All,
 }
@@ -165,6 +238,15 @@ declare enum PanDirection {
  * @crossplatform
  * @since 10
  */
+/**
+ * Creating an Object
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare enum SwipeDirection {
   /**
    * Default.
@@ -178,6 +260,14 @@ declare enum SwipeDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Default.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   None,
 
@@ -194,6 +284,14 @@ declare enum SwipeDirection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sliding horizontally.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Horizontal,
 
   /**
@@ -209,6 +307,14 @@ declare enum SwipeDirection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sliding Vertical
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Vertical,
 
   /**
@@ -223,6 +329,14 @@ declare enum SwipeDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sliding in all directions.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   All,
 }
@@ -242,6 +356,15 @@ declare enum SwipeDirection {
  * @crossplatform
  * @since 10
  */
+/**
+ * Creating an Object
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare enum GestureMode {
   /**
    * Sequential gesture recognition is performed in sequence according to the gesture registration sequence.
@@ -255,6 +378,14 @@ declare enum GestureMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sequential gesture recognition is performed in sequence according to the gesture registration sequence.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Sequence,
 
@@ -271,6 +402,14 @@ declare enum GestureMode {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Simultaneous recognition. Registration gestures participate in recognition. Everything can be triggered.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Parallel,
 
   /**
@@ -285,6 +424,14 @@ declare enum GestureMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Mutually exclusive recognition. Only one gesture is successfully recognized.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Exclusive,
 }
@@ -304,6 +451,15 @@ declare enum GestureMode {
  * @crossplatform
  * @since 10
  */
+/**
+ * Creating an Object
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare enum GestureMask {
   /**
    * High-priority response to the current gesture.When the current gesture fails to be recognized, other gesture responses are triggered.For gestures with the same priority, responses are performed based on the recognition sequence.
@@ -317,6 +473,14 @@ declare enum GestureMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * High-priority response to the current gesture.When the current gesture fails to be recognized, other gesture responses are triggered.For gestures with the same priority, responses are performed based on the recognition sequence.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Normal,
 
@@ -332,6 +496,14 @@ declare enum GestureMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Ignore internal gestures and recognize the current gesture first.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   IgnoreInternal,
 }
@@ -351,6 +523,15 @@ declare enum GestureMask {
  * @crossplatform
  * @since 10
  */
+/**
+ * Type of the finger information.
+ *
+ * @interface FingerInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface FingerInfo {
   /**
    * Finger unique identifier.
@@ -366,6 +547,15 @@ interface FingerInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Finger unique identifier.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   id: number;
 
@@ -384,6 +574,15 @@ interface FingerInfo {
    * @crossplatform
    * @since 10
    */
+  /**
+   * X coordinate of the touch point relative to the left edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   globalX: number;
 
   /**
@@ -400,6 +599,15 @@ interface FingerInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The Y coordinate of the touch point relative to the upper edge of the device screen.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   globalY: number;
 
@@ -418,6 +626,15 @@ interface FingerInfo {
    * @crossplatform
    * @since 10
    */
+  /**
+   * X coordinate of the touch point relative to the left edge of the touched element.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   localX: number;
 
   /**
@@ -435,6 +652,15 @@ interface FingerInfo {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Y coordinate of the touch point relative to the upper edge of the touched element.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   localY: number;
 }
 
@@ -450,6 +676,14 @@ interface FingerInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines the Gesture Type.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare type GestureType =
   TapGestureInterface
@@ -475,6 +709,15 @@ declare type GestureType =
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines event info for gesture.
+ *
+ * @interface GestureEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface GestureEvent extends BaseEvent {
   /**
    * Indicates whether an event is triggered repeatedly.
@@ -492,6 +735,16 @@ interface GestureEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Indicates whether an event is triggered repeatedly.
+   * Used in LongPressGesture.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   repeat: boolean;
 
@@ -511,6 +764,16 @@ interface GestureEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * All finger information.
+   * Used in LongPressGesture and TapGesture.
+   *
+   * @type { FingerInfo[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   fingerList: FingerInfo[];
 
@@ -533,6 +796,17 @@ interface GestureEvent extends BaseEvent {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Gesture event offset X.
+   * The unit is vp.
+   * Used in PanGesture.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   offsetX: number;
 
   /**
@@ -553,6 +827,17 @@ interface GestureEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Gesture event offset Y.
+   * The unit is vp.
+   * Used in PanGesture.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   offsetY: number;
 
@@ -575,6 +860,17 @@ interface GestureEvent extends BaseEvent {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Gesture event direction angle.
+   * The unit is deg.
+   * Used in RotationGesture and SwipeGesture.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   angle: number;
 
   /**
@@ -596,6 +892,17 @@ interface GestureEvent extends BaseEvent {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Gesture event slide speed.
+   * The unit is vp.
+   * Used in SwipeGesture.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   speed: number;
 
   /**
@@ -614,6 +921,16 @@ interface GestureEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Scaling ratio.
+   * Used in PinchGesture.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   scale: number;
 
@@ -636,6 +953,17 @@ interface GestureEvent extends BaseEvent {
    * @crossplatform
    * @since 10
    */
+  /**
+   * X-axis coordinate of the kneading center point.
+   * The unit is vp.
+   * Used in PinchGesture.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   pinchCenterX: number;
 
   /**
@@ -657,6 +985,17 @@ interface GestureEvent extends BaseEvent {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Y-axis coordinate of the kneading center point.
+   * The unit is vp.
+   * Used in PinchGesture.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   pinchCenterY: number;
 
   /**
@@ -665,6 +1004,14 @@ interface GestureEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * X-axis velocity of the gesture.
+   * @type {number}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   velocityX: number;
 
@@ -675,6 +1022,14 @@ interface GestureEvent extends BaseEvent {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Y-axis velocity of the gesture.
+   * @type {number}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   velocityY: number;
 
   /**
@@ -683,6 +1038,14 @@ interface GestureEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * velocity of the gesture.
+   * @type {number}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   velocity: number;
 }
@@ -701,6 +1064,15 @@ interface GestureEvent extends BaseEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines TapGesture interface.
+ *
+ * @interface TapGestureInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 interface TapGestureInterface {
   /**
@@ -724,6 +1096,18 @@ interface TapGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Set the value.
+   * count:Number of consecutive clicks recognized. If the value is less than 1, the default value is used.
+   * fingers:The hand index that triggers the click. If the value is less than 1, the default value is used.
+   *
+   * @param { object } value
+   * @returns { TapGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   (value?: { count?: number; fingers?: number }): TapGestureInterface;
 
   /**
@@ -743,6 +1127,16 @@ interface TapGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Tap gesture recognition success callback.
+   *
+   * @param { function } event
+   * @returns { TapGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onAction(event: (event: GestureEvent) => void): TapGestureInterface;
 }
 
@@ -760,6 +1154,15 @@ interface TapGestureInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines LongPressGesture interface.
+ *
+ * @interface LongPressGestureInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 interface LongPressGestureInterface {
   /**
@@ -785,6 +1188,19 @@ interface LongPressGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Set the value.
+   * fingers: Indicates the hand index that triggers the long press.
+   * repeat: Indicates whether to trigger event callback continuously.
+   * duration: Minimum press and hold time, in milliseconds.
+   *
+   * @param { object } value
+   * @returns { LongPressGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   (value?: { fingers?: number; repeat?: boolean; duration?: number }): LongPressGestureInterface;
 
   /**
@@ -803,6 +1219,16 @@ interface LongPressGestureInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * LongPress gesture recognition success callback.
+   *
+   * @param { function } event
+   * @returns { LongPressGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onAction(event: (event: GestureEvent) => void): LongPressGestureInterface;
 
@@ -823,6 +1249,16 @@ interface LongPressGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The LongPress gesture is successfully recognized. When the finger is lifted, the callback is triggered.
+   *
+   * @param { function } event
+   * @returns { LongPressGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onActionEnd(event: (event: GestureEvent) => void): LongPressGestureInterface;
 
   /**
@@ -842,6 +1278,16 @@ interface LongPressGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The LongPress gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { function } event
+   * @returns { LongPressGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onActionCancel(event: () => void): LongPressGestureInterface;
 }
 
@@ -858,6 +1304,14 @@ interface LongPressGestureInterface {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the PanGesture options.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class PanGestureOptions {
   /**
    * Constructor parameters.
@@ -873,6 +1327,15 @@ declare class PanGestureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Constructor parameters.
+   *
+   * @param { object } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   constructor(value?: { fingers?: number; direction?: PanDirection; distance?: number });
 
@@ -891,6 +1354,15 @@ declare class PanGestureOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the direction attribute.
+   *
+   * @param { PanDirection } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   setDirection(value: PanDirection);
 
   /**
@@ -908,6 +1380,15 @@ declare class PanGestureOptions {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the setDistance attribute.
+   *
+   * @param { number } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   setDistance(value: number);
 
   /**
@@ -924,6 +1405,15 @@ declare class PanGestureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the setFingers attribute.
+   *
+   * @param { number } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   setFingers(value: number);
 }
@@ -943,6 +1433,15 @@ declare class PanGestureOptions {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the PanGesture interface.
+ *
+ * @interface PanGestureInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface PanGestureInterface {
   /**
    * Set the value.
@@ -960,6 +1459,16 @@ interface PanGestureInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set the value.
+   *
+   * @param { { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions } value
+   * @returns { PanGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (value?: { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions): PanGestureInterface;
 
@@ -980,6 +1489,16 @@ interface PanGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Pan gesture recognition success callback.
+   *
+   * @param { function } event
+   * @returns { PanGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onActionStart(event: (event: GestureEvent) => void): PanGestureInterface;
 
   /**
@@ -998,6 +1517,16 @@ interface PanGestureInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Callback when the Pan gesture is moving.
+   *
+   * @param { function } event
+   * @returns { PanGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onActionUpdate(event: (event: GestureEvent) => void): PanGestureInterface;
 
@@ -1018,6 +1547,16 @@ interface PanGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
+   *
+   * @param { function } event
+   * @returns { PanGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onActionEnd(event: (event: GestureEvent) => void): PanGestureInterface;
 
   /**
@@ -1037,6 +1576,16 @@ interface PanGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { function } event
+   * @returns { PanGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onActionCancel(event: () => void): PanGestureInterface;
 }
 
@@ -1055,6 +1604,15 @@ interface PanGestureInterface {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the SwipeGesture interface.
+ *
+ * @interface SwipeGestureInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface SwipeGestureInterface {
   /**
    * Set the value.
@@ -1072,6 +1630,16 @@ interface SwipeGestureInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set the value.
+   *
+   * @param { object } value
+   * @returns { SwipeGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (value?: { fingers?: number; direction?: SwipeDirection; speed?: number }): SwipeGestureInterface;
 
@@ -1092,6 +1660,16 @@ interface SwipeGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Slide gesture recognition success callback.
+   *
+   * @param { function } event
+   * @returns { SwipeGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onAction(event: (event: GestureEvent) => void): SwipeGestureInterface;
 }
 
@@ -1110,6 +1688,15 @@ interface SwipeGestureInterface {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the PinchGesture interface.
+ *
+ * @interface PinchGestureInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface PinchGestureInterface {
   /**
    * Set the value.
@@ -1127,6 +1714,16 @@ interface PinchGestureInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set the value.
+   *
+   * @param { object } value
+   * @returns { PinchGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (value?: { fingers?: number; distance?: number }): PinchGestureInterface;
 
@@ -1147,6 +1744,16 @@ interface PinchGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Pan gesture recognition success callback.
+   *
+   * @param { function } event
+   * @returns { PinchGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onActionStart(event: (event: GestureEvent) => void): PinchGestureInterface;
 
   /**
@@ -1165,6 +1772,16 @@ interface PinchGestureInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Callback when the Pan gesture is moving.
+   *
+   * @param { function } event
+   * @returns { PinchGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onActionUpdate(event: (event: GestureEvent) => void): PinchGestureInterface;
 
@@ -1185,6 +1802,16 @@ interface PinchGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
+   *
+   * @param { function } event
+   * @returns { PinchGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onActionEnd(event: (event: GestureEvent) => void): PinchGestureInterface;
 
   /**
@@ -1204,6 +1831,16 @@ interface PinchGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { function } event
+   * @returns { PinchGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onActionCancel(event: () => void): PinchGestureInterface;
 }
 
@@ -1222,6 +1859,15 @@ interface PinchGestureInterface {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines the RotationGesture interface.
+ *
+ * @interface RotationGestureInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface RotationGestureInterface {
   /**
    * Set the value.
@@ -1239,6 +1885,16 @@ interface RotationGestureInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Set the value.
+   *
+   * @param { object } value
+   * @returns { RotationGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (value?: { fingers?: number; angle?: number }): RotationGestureInterface;
 
@@ -1259,6 +1915,16 @@ interface RotationGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Pan gesture recognition success callback.
+   *
+   * @param { function } event
+   * @returns { RotationGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onActionStart(event: (event: GestureEvent) => void): RotationGestureInterface;
 
   /**
@@ -1277,6 +1943,16 @@ interface RotationGestureInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Callback when the Pan gesture is moving.
+   *
+   * @param { function } event
+   * @returns { RotationGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onActionUpdate(event: (event: GestureEvent) => void): RotationGestureInterface;
 
@@ -1297,6 +1973,16 @@ interface RotationGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The Pan gesture is successfully recognized. When the finger is lifted, the callback is triggered.
+   *
+   * @param { function } event
+   * @returns { RotationGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onActionEnd(event: (event: GestureEvent) => void): RotationGestureInterface;
 
   /**
@@ -1316,6 +2002,16 @@ interface RotationGestureInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { function } event
+   * @returns { RotationGestureInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onActionCancel(event: () => void): RotationGestureInterface;
 }
 
@@ -1333,6 +2029,15 @@ interface RotationGestureInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines the GestureGroup interface.
+ *
+ * @interface GestureGroupInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 interface GestureGroupInterface {
   /**
@@ -1354,6 +2059,17 @@ interface GestureGroupInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Return to Obtain GestureGroup.
+   *
+   * @param { GestureMode } mode
+   * @param { GestureType[] } gesture
+   * @returns { GestureGroupInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   (mode: GestureMode, ...gesture: GestureType[]): GestureGroupInterface;
 
   /**
@@ -1373,6 +2089,16 @@ interface GestureGroupInterface {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The Pan gesture is successfully recognized and a callback is triggered when the touch cancel event is received.
+   *
+   * @param { function } event
+   * @returns { GestureGroupInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onCancel(event: () => void): GestureGroupInterface;
 }
 
@@ -1389,6 +2115,14 @@ interface GestureGroupInterface {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines TapGesture Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const TapGesture: TapGestureInterface;
 
 /**
@@ -1403,6 +2137,14 @@ declare const TapGesture: TapGestureInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines LongPressGesture Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const LongPressGesture: LongPressGestureInterface;
 
@@ -1419,6 +2161,14 @@ declare const LongPressGesture: LongPressGestureInterface;
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines PanGesture Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const PanGesture: PanGestureInterface;
 
 /**
@@ -1433,6 +2183,14 @@ declare const PanGesture: PanGestureInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines SwipeGesture Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const SwipeGesture: SwipeGestureInterface;
 
@@ -1449,6 +2207,14 @@ declare const SwipeGesture: SwipeGestureInterface;
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines PinchGesture Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const PinchGesture: PinchGestureInterface;
 
 /**
@@ -1464,6 +2230,14 @@ declare const PinchGesture: PinchGestureInterface;
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines RotationGesture Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const RotationGesture: RotationGestureInterface;
 
 /**
@@ -1478,6 +2252,14 @@ declare const RotationGesture: RotationGestureInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines GestureGroup Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const GestureGroup: GestureGroupInterface;
 
