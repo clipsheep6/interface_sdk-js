@@ -74,12 +74,36 @@ declare namespace webSocket {
     header?: Object;
     /**
      * File path for client cert.
-     * @type {string}
+     * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 11
      */
-    caPath: string;
+    caPath?: string;
+    /**
+     * Absolute file path for client cert.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    cert?: string;
+    /**
+     * Private key for client cert.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    key?: string;
+    /**
+     * Password for client cert.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 11
+     */
+    keyPasswd?: string;
   }
 
   /**
