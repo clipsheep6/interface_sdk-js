@@ -3346,7 +3346,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @since 11
      */
-    CALL_STATUS_ANSWERED = 3,
+    CALL_STATE_ANSWERED = 3
   }
 
   /**
