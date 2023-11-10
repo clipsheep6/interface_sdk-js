@@ -2346,7 +2346,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @since 11
    */
-  function setVoIPCallState(state: DetailedCallState, callback: AsyncCallback<void>): void;
+  function setVoIPCallState(state: CallState, callback: AsyncCallback<void>): void;
 
   /**
    * Set VoIP Call State.
@@ -2363,7 +2363,7 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @since 11
    */
-  function setVoIPCallState(state: DetailedCallState): Promise<void>;
+  function setVoIPCallState(state: CallState): Promise<void>;
 
   /**
    * Indicates the mode of the ims call.
@@ -3338,7 +3338,15 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @since 6
      */
-    CALL_STATE_OFFHOOK = 2
+    CALL_STATE_OFFHOOK = 2,
+
+    /**
+     * Indicates the call is answered.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 11
+     */
+    CALL_STATUS_ANSWERED = 3,
   }
 
   /**
