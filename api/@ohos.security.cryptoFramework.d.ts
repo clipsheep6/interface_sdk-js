@@ -2172,6 +2172,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory error.
+     * @static
      * @syscap SystemCapability.Security.CryptoFramework
      * @since 11
      */
