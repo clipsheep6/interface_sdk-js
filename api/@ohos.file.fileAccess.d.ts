@@ -881,6 +881,70 @@ declare namespace fileAccess {
   }
 
   /**
+   * Describes the return information of the move operation.
+   *
+   * @interface MoveResult
+   * @permission ohos.permission.FILE_ACCESS_MANAGER
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  interface MoveResult {
+    /**
+     * Indicates the source file uri to be moved.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    sourceUri: string;
+
+    /**
+     * Indicates the file uri in the destination folder.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    destUri: string;
+
+    /**
+     * Error code for failure to move a file.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    errCode: number;
+
+    /**
+     * Error message for failure to move a file.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    errMsg: string;
+  }
+
+  /**
    * FileAccessHelper Object
    *
    * @interface FileAccessHelper
@@ -1775,6 +1839,173 @@ declare namespace fileAccess {
      * @since 10
      */
     unregisterObserver(uri: string, callback?: Callback<NotifyMessage>): void;
+
+    /**
+     * Copy the file with the specified file name in the promise way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceUri-Indicates the file or directory to be moved.
+     * @param { string } destUri-Represents the destination folder.
+     * @param { string } fileName-Represents the name of the specified file.
+     * @returns { Promise<string> } Returns the generated new file.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900006 - No such device or address
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 11
+     */
+    copyFile(sourceUri: string, destUri: string, fileName: string): Promise<string>;
+
+    /**
+     * Copy the file with the specified file name in the asyncCallback way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceUri-Indicates the file or directory to be moved.
+     * @param { string } destUri-Represents the destination folder.
+     * @param { string } fileName-Represents the name of the specified file.
+     * @param { AsyncCallback<string> } callback - The callback is used to return the generated new file.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900006 - No such device or address
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 11
+     */
+    copyFile(sourceUri: string, destUri: string, fileName: string, callback: AsyncCallback<string>): void;
+
+    /**
+     * Move file or directory in the promise way, And return the MoveResult.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceUri - Indicates the file or directory to be copied.
+     * @param { string } destUri - Represents the destination directory.
+     * @param { boolean } force - Optional parameter that determines whether to forcibly move files.
+     * @returns { Promise<Array<MoveResult>> } Returns the file information where the error occurred.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900006 - No such device or address
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 11
+     */
+    move(sourceUri: string, destUri: string, force?: boolean): Promise<Array<MoveResult>>;
+
+    /**
+     * Move file or directory in the asyncCallback way, And return the MoveResult.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceUri - Indicates the file or directory to be copied.
+     * @param { string } destUri - Represents the destination directory.
+     * @param { AsyncCallback<Array<MoveResult>> } callback - The callback is used to return the file information where the error occurred.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900006 - No such device or address
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 11
+     */
+    move(sourceUri: string, destUri: string, callback: AsyncCallback<Array<MoveResult>>): void;
+
+    /**
+     * Move file or directory in the asyncCallback way, And return the MoveResult.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceUri - Indicates the file or directory to be copied.
+     * @param { string } destUri - Represents the destination directory.
+     * @param { boolean } force - Determines whether to forcibly move files.
+     * @param { AsyncCallback<Array<MoveResult>> } callback - The callback is used to return the file information where the error occurred.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900006 - No such device or address
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 11
+     */
+    move(sourceUri: string, destUri: string, force: boolean, callback: AsyncCallback<Array<MoveResult>>): void;
+
+    /**
+     * Move the file with the specified file name in the promise way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceUri-Indicates the file or directory to be moved.
+     * @param { string } destUri-Represents the destination folder.
+     * @param { string } fileName-Represents the name of the specified file.
+     * @returns { Promise<string> } Returns the generated new file.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900006 - No such device or address
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 11
+     */
+    moveFile(sourceUri: string, destUri: string, fileName: string): Promise<string>;
+
+    /**
+     * Move the file with the specified file name in the asyncCallback way.
+     *
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @param { string } sourceUri-Indicates the file or directory to be moved.
+     * @param { string } destUri-Represents the destination folder.
+     * @param { string } fileName-Represents the name of the specified file.
+     * @param { AsyncCallback<string> } callback - The callback is used to return the generated new file.
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900004 - Interrupted system call
+     * @throws { BusinessError } 13900006 - No such device or address
+     * @throws { BusinessError } 13900008 - Bad file descriptor
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 14300001 - IPC error
+     * @throws { BusinessError } 14300002 - Invalid uri
+     * @throws { BusinessError } 14300003 - Fail to get fileextension info
+     * @throws { BusinessError } 14300004 - Get wrong result
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @since 11
+     */
+    moveFile(sourceUri: string, destUri: string, fileName: string, callback: AsyncCallback<string>): void;
   }
 }
 
