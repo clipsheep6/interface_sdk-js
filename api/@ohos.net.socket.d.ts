@@ -107,20 +107,20 @@ declare namespace socket {
   function constructTLSSocketServerInstance(): TLSSocketServer;
   
   /**
-   * Creates a LOCALSocket object.
-   * @returns { LOCALSocket } the LOCALSocket of the constructLOCALSocketInstance.
+   * Creates a LocalSocket object.
+   * @returns { LocalSocket } the LocalSocket of the constructLocalSocketInstance.
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  function constructLOCALSocketInstance(): LOCALSocket; 
+  function constructLocalSocketInstance(): LocalSocket; 
   
   /**
-   * Creates a LOCALSocketServer object.
-   * @returns { LOCALSocketServer } the LOCALSocketServer of the constructLOCAlSocketServerInstance.
+   * Creates a LocalSocketServer object.
+   * @returns { LocalSocketServer } the LocalSocketServer of the constructLocalSocketServerInstance.
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  function constructLOCALSocketServerInstance(): LOCALSocketServer;
+  function constructLocalSocketServerInstance(): LocalSocketServer;
 
   
   /**
@@ -408,13 +408,13 @@ declare namespace socket {
   
    /**
     * Defines a Local address.
-    * @interface LOCALAddress
+    * @interface LocalAddress
     * @syscap SystemCapability.Communication.NetManager.Core
     * @since 11
     */
-  export interface LOCALAddress {
+  export interface LocalAddress {
    /**
-    * LOCALAddress address.
+    * LocalAddress address.
     * @type {string}
     * @syscap SystemCapability.Communication.NetManager.Core
     * @since 11
@@ -435,14 +435,14 @@ declare namespace socket {
     * @syscap SystemCapability.Communication.NetStack
     * @since 11
     */
-  export interface LOCALConnectOptions {
+  export interface LocalConnectOptions {
    /**
-    * Bound LOCAL address and port number.
-    * @type { LOCALAddress }
+    * Bound Local address and port number.
+    * @type { LocalAddress }
     * @syscap SystemCapability.Communication.NetStack
     * @since 11
     */
-    address: LOCALAddress;
+    address: LocalAddress;
    /**
     * Timeout duration of the LocalSocket connection, in milliseconds.
     * @type { ?number }
@@ -454,11 +454,11 @@ declare namespace socket {
    
    /**
     * Defines other properties of the LocalSocket connection.
-    * @interface LOCALExtraOptions
+    * @interface LocalExtraOptions
     * @syscap SystemCapability.Communication.NetStack
     * @since 11
     */
-  export interface LOCALExtraOptions extends ExtraOptionsBase {
+  export interface LocalExtraOptions extends ExtraOptionsBase {
    /**
     * Whether to keep the connection alive. The default value is false.
     * @type { ?boolean }
@@ -469,12 +469,12 @@ declare namespace socket {
   }   
   
   /**
-   * Defines the parameters for sending data over the LOCALSocket connection.
-   * @interface LOCALSendOptions
+   * Defines the parameters for sending data over the LocalSocket connection.
+   * @interface LocalSendOptions
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  export interface LOCALSendOptions {
+  export interface LocalSendOptions {
    /**
     * Data to send.
     * @type { string | ArrayBuffer }
@@ -3238,74 +3238,74 @@ declare namespace socket {
   }
 
   /**
-   * Defines a LOCALSocket connection.
-   * @interface LOCALSocket
+   * Defines a LocalSocket connection.
+   * @interface LocalSocket
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */  
-  export interface LOCALSocket  {
+  export interface LocalSocket  {
     /**
-     * Binds the LOCAL address and port number. The port number can be specified or randomly allocated by the system.
-     * @param { LOCALAddress } address - Destination address. {@link LOCALAddress}
+     * Binds the Local address and port number. The port number can be specified or randomly allocated by the system.
+     * @param { LocalAddress } address - Destination address. {@link LocalAddress}
      * @param { AsyncCallback<void> } callback - the callback of bind.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    bind(address: LOCALAddress, callback: AsyncCallback<void>): void;
+    bind(address: LocalAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Binds the LOCAL address and port number. The port number can be specified or randomly allocated by the system.
-     * @param { LOCALAddress } address - Destination address. {@link LOCALAddress}
+     * Binds the Local address and port number. The port number can be specified or randomly allocated by the system.
+     * @param { LocalAddress } address - Destination address. {@link LocalAddress}
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    bind(address: LOCALAddress): Promise<void>;
+    bind(address: LocalAddress): Promise<void>;
 
     /**
-     * Sets up a connection to the specified LOCAL address and port number.
-     * @param { LOCALConnectOptions } options - Optional parameters {@link LOCALConnectOptions}.
+     * Sets up a connection to the specified Local address and port number.
+     * @param { LocalConnectOptions } options - Optional parameters {@link LocalConnectOptions}.
      * @param { AsyncCallback<void> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    connect(options: LOCALConnectOptions, callback: AsyncCallback<void>): void;
+    connect(options: LocalConnectOptions, callback: AsyncCallback<void>): void;
      
     /**
-     * Sets up a connection to the specified LOCAL address and port number.
-     * @param { LOCALConnectOptions } options - Optional parameters {@link LOCALConnectOptions}.
+     * Sets up a connection to the specified Local address and port number.
+     * @param { LocalConnectOptions } options - Optional parameters {@link LocalConnectOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    connect(options: LOCALConnectOptions): Promise<void>;
+    connect(options: LocalConnectOptions): Promise<void>;
 
     /**
-     * Sends data over a LOCALSocket connection.
-     * @param { LOCALSendOptions } options - Optional parameters {@link LOCALSendOptions}.
+     * Sends data over a LocalSocket connection.
+     * @param { LocalSendOptions } options - Optional parameters {@link LocalSendOptions}.
      * @param { AsyncCallback<void> } callback - the callback of send.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    send(options: LOCALSendOptions, callback: AsyncCallback<void>): void;
+    send(options: LocalSendOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sends data over a LOCALSocket connection.
-     * @param { LOCALSendOptions } options - Optional parameters {@link LOCALSendOptions}.
+     * Sends data over a LocalSocket connection.
+     * @param { LocalSendOptions } options - Optional parameters {@link LocalSendOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    send(options: LOCALSendOptions): Promise<void>;
+    send(options: LocalSendOptions): Promise<void>;
 
     /**
-     * Closes a LOCALSocket connection.
+     * Closes a LocalSocket connection.
      * @param { AsyncCallback<void> } callback - the callback of close.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -3313,7 +3313,7 @@ declare namespace socket {
     close(callback: AsyncCallback<void>): void;
 
     /**
-     * Closes a LOCALSocket connection.
+     * Closes a LocalSocket connection.
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -3321,7 +3321,7 @@ declare namespace socket {
     close(): Promise<void>;
 
     /**
-     * Obtains the status of the LOCALSocket connection.
+     * Obtains the status of the LocalSocket connection.
      * @param { AsyncCallback<SocketStateBase> } callback - the callback of getState. {@link SocketStateBase}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -3329,7 +3329,7 @@ declare namespace socket {
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
-     * Obtains the status of the LOCALSocket connection.
+     * Obtains the status of the LocalSocket connection.
      * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -3337,63 +3337,63 @@ declare namespace socket {
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Obtains the file descriptor of the LOCALSocket connection.
-     * @param { AsyncCallback<number> } callback - The callback returns the file descriptor of the LOCALSocket connection.
+     * Obtains the file descriptor of the LocalSocket connection.
+     * @param { AsyncCallback<number> } callback - The callback returns the file descriptor of the LocalSocket connection.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     getSocketFd(callback: AsyncCallback<number>): void;
 
     /**
-     * Obtains the file descriptor of the LOCALSocket connection.
-     * @returns { Promise<number> } The promise returns the file descriptor of the LOCALSocket connection.
+     * Obtains the file descriptor of the LocalSocket connection.
+     * @returns { Promise<number> } The promise returns the file descriptor of the LocalSocket connection.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     getSocketFd(): Promise<number>;
 
     /**
-     * Sets other attributes of the LOCALSocket connection.
-     * @param { LOCALExtraOptions } options - Optional parameters {@link LOCALExtraOptions}.
+     * Sets other attributes of the LocalSocket connection.
+     * @param { LocalExtraOptions } options - Optional parameters {@link LocalExtraOptions}.
      * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    setExtraOptions(options: LOCALExtraOptions, callback: AsyncCallback<void>): void;
+    setExtraOptions(options: LocalExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets other attributes of the LOCALSocket connection.
-     * @param { LOCALExtraOptions } options - Optional parameters {@link LOCALExtraOptions}.
+     * Sets other attributes of the LocalSocket connection.
+     * @param { LocalExtraOptions } options - Optional parameters {@link LocalExtraOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    setExtraOptions(options: LOCALExtraOptions): Promise<void>;
+    setExtraOptions(options: LocalExtraOptions): Promise<void>;
  
     /**
-     * Sets other attributes of the LOCALSocket connection.
-     * @param { LOCALExtraOptions } options - Optional parameters {@link LOCALExtraOptions}.
+     * Sets other attributes of the LocalSocket connection.
+     * @param { LocalExtraOptions } options - Optional parameters {@link LocalExtraOptions}.
      * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    getExtraOptions(callback: AsyncCallback<LOCALExtraOptions>): void;
+    getExtraOptions(callback: AsyncCallback<LocalExtraOptions>): void;
 
     /**
-     * Sets other attributes of the LOCALSocket connection.
-     * @param { LOCALExtraOptions } options - Optional parameters {@link LOCALExtraOptions}.
+     * Sets other attributes of the LocalSocket connection.
+     * @param { LocalExtraOptions } options - Optional parameters {@link LocalExtraOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    getExtraOptions(): Promise<LOCALExtraOptions>;    
+    getExtraOptions(): Promise<LocalExtraOptions>;    
 
     /**
-     * Listens for message receiving events of the LOCALSocket connection.
+     * Listens for message receiving events of the LocalSocket connection.
      * @param { 'message' } type Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -3402,7 +3402,7 @@ declare namespace socket {
     on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
     /**
-     * Cancels listening for message receiving events of the LOCALSocket connection.
+     * Cancels listening for message receiving events of the LocalSocket connection.
      * @param { 'message' } type Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -3411,7 +3411,7 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
     /**
-     * Listens for connection or close events of the LOCALSocket connection.
+     * Listens for connection or close events of the LocalSocket connection.
      * @param { 'connect' | 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -3420,7 +3420,7 @@ declare namespace socket {
     on(type: 'connect' | 'close', callback: Callback<void>): void;
 
     /**
-     * Cancels listening for connection or close events of the LOCALSocket connection.
+     * Cancels listening for connection or close events of the LocalSocket connection.
      * @param { 'connect' | 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -3429,7 +3429,7 @@ declare namespace socket {
     off(type: 'connect' | 'close', callback?: Callback<void>): void;
 
     /**
-     * Listens for error events of the LOCALSocket connection.
+     * Listens for error events of the LocalSocket connection.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -3438,7 +3438,7 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the LOCALSocket connection.
+     * Cancels listening for error events of the LocalSocket connection.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
@@ -3449,13 +3449,13 @@ declare namespace socket {
 
   /**
    * Defines the connection of the TCPSocket client and server.
-   * @interface LOCALSocketConnection
+   * @interface LocalSocketConnection
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  export interface LOCALSocketConnection  {
+  export interface LocalSocketConnection  {
     /**
-     * The id of a client connects to the LOCALSocketServer.
+     * The id of a client connects to the LocalSocketServer.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -3463,29 +3463,29 @@ declare namespace socket {
     clientId: number;
 
     /**
-     * Sends data over a LOCALSocketServer connection to client.
-     * @param { LOCALSendOptions } options - Parameters for sending data {@link LOCALSendOptions}.
+     * Sends data over a LocalSocketServer connection to client.
+     * @param { LocalSendOptions } options - Parameters for sending data {@link LocalSendOptions}.
      * @param { AsyncCallback<void> } callback - The callback of send.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    send(options: LOCALSendOptions, callback: AsyncCallback<void>): void;
+    send(options: LocalSendOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sends data over a LOCALSocketServer connection to client.
-     * @param { LOCALSendOptions } options - Parameters for sending data {@link LOCALSendOptions}.
+     * Sends data over a LocalSocketServer connection to client.
+     * @param { LocalSendOptions } options - Parameters for sending data {@link LocalSendOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    send(options: LOCALSendOptions): Promise<void>;
+    send(options: LocalSendOptions): Promise<void>;
 
     /**
-     * Closes a LOCALSocket client connection.
+     * Closes a LocalSocket client connection.
      * @param { AsyncCallback<void> } callback - The callback of close.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3495,7 +3495,7 @@ declare namespace socket {
     close(callback: AsyncCallback<void>): void;
 
     /**
-     * Closes a LOCALSocket client connection.
+     * Closes a LocalSocket client connection.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 2300002 - System internal error.
      * @syscap SystemCapability.Communication.NetStack
@@ -3504,7 +3504,7 @@ declare namespace socket {
     close(): Promise<void>;
 
     /**
-     * Listens for message receiving events of the LOCALSocketConnection.
+     * Listens for message receiving events of the LocalSocketConnection.
      * @param { 'message' } type - Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3514,7 +3514,7 @@ declare namespace socket {
     on(type: 'message', callback: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
     /**
-     * Cancels listening for message receiving events of the LOCALSocketConnection.
+     * Cancels listening for message receiving events of the LocalSocketConnection.
      * @param { 'message' } type - Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3524,7 +3524,7 @@ declare namespace socket {
     off(type: 'message', callback?: Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }>): void;
 
     /**
-     * Listens for close events of the LOCALSocketConnection.
+     * Listens for close events of the LocalSocketConnection.
      * @param { 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3534,7 +3534,7 @@ declare namespace socket {
     on(type: 'close', callback: Callback<void>): void;
 
     /**
-     * Cancels listening for close events of the LOCALSocketConnection.
+     * Cancels listening for close events of the LocalSocketConnection.
      * @param { 'close' } type - Indicates Event name.
      * @param { Callback<void> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3544,7 +3544,7 @@ declare namespace socket {
     off(type: 'close', callback?: Callback<void>): void;
 
     /**
-     * Listens for error events of the LOCALSocketConnection.
+     * Listens for error events of the LocalSocketConnection.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3554,7 +3554,7 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the LOCALSocketConnection.
+     * Cancels listening for error events of the LocalSocketConnection.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3565,17 +3565,17 @@ declare namespace socket {
   }
 
   /**
-   * Defines a LOCALSocket server connection.
-   * @interface LOCALSocketServer
+   * Defines a LocalSocket server connection.
+   * @interface LocalSocketServer
    * @syscap SystemCapability.Communication.NetStack
    * @since 11
    */
-  export interface LOCALSocketServer {
+  export interface LocalSocketServer {
     /**
-     * Binds the LOCAL address and port number, the port number can be specified or randomly allocated by the system.
-     * <p>Listens for a LOCALSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * Binds the Local address and port number, the port number can be specified or randomly allocated by the system.
+     * <p>Listens for a LocalSocket connection to be made to this socket and accepts it. This interface uses multiple threads
      * for accept processing and uses poll multiplex to process client connections.</p>
-     * @param { LOCALAddress } address - Network address information {@link LOCALAddress}.
+     * @param { LocalAddress } address - Network address information {@link LocalAddress}.
      * @param { AsyncCallback<void> } callback - The callback of listen.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3586,13 +3586,13 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    listen(address: LOCALAddress, callback: AsyncCallback<void>): void;
+    listen(address: LocalAddress, callback: AsyncCallback<void>): void;
 
     /** 
-     * Binds the LOCAL address and port number, the port number can be specified or randomly allocated by the system.
-     * <p>Listens for a LOCALSocket connection to be made to this socket and accepts it. This interface uses multiple threads
+     * Binds the Local address and port number, the port number can be specified or randomly allocated by the system.
+     * <p>Listens for a LocalSocket connection to be made to this socket and accepts it. This interface uses multiple threads
      * for accept processing and uses poll multiplex to process client connections.</p>
-     * @param { LOCALAddress } address - Network address information {@link LOCALAddress}.
+     * @param { LocalAddress } address - Network address information {@link LocalAddress}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3603,10 +3603,10 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    listen(address: LOCALAddress): Promise<void>;
+    listen(address: LocalAddress): Promise<void>;
 
     /**
-     * Obtains the status of the LOCALSocketServer connection.
+     * Obtains the status of the LocalSocketServer connection.
      * @param { AsyncCallback<SocketStateBase> } callback - The callback of getState.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3617,7 +3617,7 @@ declare namespace socket {
     getState(callback: AsyncCallback<SocketStateBase>): void;
 
     /**
-     * Obtains the status of the LOCALSocketServer connection.
+     * Obtains the status of the LocalSocketServer connection.
      * @returns { Promise<SocketStateBase> } The promise returned by the function.
      * @throws { BusinessError } 2300002 - System internal error.
      * @throws { BusinessError } 2303188 - Socket operation on non-socket.
@@ -3627,8 +3627,8 @@ declare namespace socket {
     getState(): Promise<SocketStateBase>;
 
     /**
-     * Sets other attributes of the LOCALSocketServer connection.
-     * @param { LOCALExtraOptions } options - Parameters of the attributes {@link LOCALExtraOptions}.
+     * Sets other attributes of the LocalSocketServer connection.
+     * @param { LocalExtraOptions } options - Parameters of the attributes {@link LocalExtraOptions}.
      * @param { AsyncCallback<void> } callback - The callback of setExtraOptions.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3636,11 +3636,11 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    setExtraOptions(options: LOCALExtraOptions, callback: AsyncCallback<void>): void;
+    setExtraOptions(options: LocalExtraOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets other attributes of the LOCALSocketServer connection.
-     * @param { LOCALExtraOptions } options - Parameters of the attributes {@link LOCALExtraOptions}.
+     * Sets other attributes of the LocalSocketServer connection.
+     * @param { LocalExtraOptions } options - Parameters of the attributes {@link LocalExtraOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 2300002 - System internal error.
@@ -3648,30 +3648,30 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    setExtraOptions(options: LOCALExtraOptions): Promise<void>;
+    setExtraOptions(options: LocalExtraOptions): Promise<void>;
 
     /**
-     * Listens for connect events of the LOCALSocketServer connection.
+     * Listens for connect events of the LocalSocketServer connection.
      * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<LOCALSocketConnection> } callback - The callback of on.
+     * @param { Callback<LocalSocketConnection> } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    on(type: 'connect', callback: Callback<LOCALSocketConnection>): void;
+    on(type: 'connect', callback: Callback<LocalSocketConnection>): void;
 
     /**
-     * Cancels listening for connect events of the LOCALSocketServer connection.
+     * Cancels listening for connect events of the LocalSocketServer connection.
      * @param { 'connect' } type - Indicates Event name.
-     * @param { Callback<LOCALSocketConnection> } callback - The callback of off.
+     * @param { Callback<LocalSocketConnection> } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    off(type: 'connect', callback?: Callback<LOCALSocketConnection>): void;
+    off(type: 'connect', callback?: Callback<LocalSocketConnection>): void;
 
     /**
-     * Listens for error events of the LOCALSocketServer connection.
+     * Listens for error events of the LocalSocketServer connection.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - The callback of on.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3681,7 +3681,7 @@ declare namespace socket {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * Cancels listening for error events of the LOCALSocketServer connection.
+     * Cancels listening for error events of the LocalSocketServer connection.
      * @param { 'error' } type - Indicates Event name.
      * @param { ErrorCallback } callback - The callback of off.
      * @throws { BusinessError } 401 - Parameter error.
