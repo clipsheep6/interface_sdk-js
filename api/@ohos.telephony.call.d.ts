@@ -2332,42 +2332,38 @@ declare namespace call {
   function removeMissedIncomingCallNotification(): Promise<void>;
 
   /**
-   * Set Caas Call State.
+   * Set VoIP Call State.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { DetailedCallState } state - Indicates the Caas Call state.
-   * @param { AsyncCallback<void> } callback - The callback of setCaasCallState.
+   * @param { DetailedCallState } state - Indicates the VoIP Call state.
+   * @param { AsyncCallback<void> } callback - The callback of setVoIPCallState.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function setCaasCallState(state: DetailedCallState, callback: AsyncCallback<void>): void;
+  function setVoIPCallState(state: DetailedCallState, callback: AsyncCallback<void>): void;
 
   /**
-   * Set Caas Call State.
+   * Set VoIP Call State.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { DetailedCallState } state - Indicates the Caas Call state.
-   * @returns { Promise<void> } The promise returned by the setCaasCallState.
+   * @param { DetailedCallState } state - Indicates the VoIP Call state.
+   * @returns { Promise<void> } The promise returned by the setVoIPCallState.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function setCaasCallState(state: DetailedCallState): Promise<void>;
+  function setVoIPCallState(state: DetailedCallState): Promise<void>;
 
   /**
    * Indicates the mode of the ims call.

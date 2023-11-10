@@ -87,7 +87,6 @@ bundlestat
 buttonconfig
 bypassed
 bytrace
-caas
 callbackfn
 camped
 canceling
@@ -826,6 +825,7 @@ vibrates
 vibrating
 vlr
 voicemail
+voip
 volte
 volumemanager
 vorbis
