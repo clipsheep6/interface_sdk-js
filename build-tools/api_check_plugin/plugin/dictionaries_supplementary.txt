@@ -826,6 +826,7 @@ vibrates
 vibrating
 vlr
 voicemail
+voip
 volte
 volumemanager
 vorbis
