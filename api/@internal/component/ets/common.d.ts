@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import FormRenderingMode from './@ohos.app.form.formInfo.d.ts';
 
 /**
  * Defines the options of Component ClassDecorator.
@@ -10358,6 +10359,16 @@ declare class CustomComponent extends CommonAttribute {
    * @form
    */
   aboutToDisappear?(): void;
+
+  /**
+   * aboutToSwitchRenderingMode Method this is only for ArkTS form.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  aboutToSwitchRenderingMode?(mode: FormRenderingMode): void;
 
   /**
    * aboutToReuse Method
