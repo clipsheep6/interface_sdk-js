@@ -15,7 +15,6 @@
 
 import rpc from './@ohos.rpc';
 import cloudData from "./@ohos.data.cloudData";
-import Result = cloudData.Sharing.Result;
 
 /**
  * Provides interfaces to implement extended cloud capabilities.
@@ -31,7 +30,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @since 11
    */
-  type Participant = cloudData.Sharing.Participant;
+  type Participant = cloudData.sharing.Participant;
 
   /**
    * Defines participantStatus.
@@ -39,18 +38,59 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @since 11
    */
-  type ParticipantStatus = cloudData.Sharing.Status;
+  type ParticipantStatus = cloudData.sharing.Status;
+
+  /**
+   * Defines the result.
+   *
+   * @interface Result
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+   * @systemapi
+   * @since 11
+   */
+  export interface Result<T> {
+    /**
+     * Error code {@link ErrorCode}.
+     *
+     * @type { number }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+     * @systemapi
+     * @since 11
+     */
+    code: number;
+
+    /**
+     * Result value.
+     *
+     * @type { T }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+     * @systemapi
+     * @since 11
+     */
+    value: T;
+  }
 
   /**
    * Creates a share service stub with the specified instance.
    *
-   * @param { ShareService } instance - Indicates the <b>ShareService</b> instance.
+   * @param { ShareCenter } instance - Indicates the <b>ShareCenter</b> instance.
    * @returns { Promise<rpc.RemoteObject> } Returns remote object.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11
    */
   function createShareServiceStub(instance: ShareCenter): Promise<rpc.RemoteObject>;
+
+  /**
+   * Creates a cloud service stub with the specified instance.
+   *
+   * @param { CloudService } instance - Indicates the <b>CloudService</b> instance.
+   * @returns { Promise<rpc.RemoteObject> } Returns the remote object.
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+   * @systemapi
+   * @since 11
+   */
+  function createCloudServiceStub(instance: CloudService): Promise<rpc.RemoteObject>;
 
   /**
    * Provides interfaces for implementing ShareCenter.
@@ -213,17 +253,17 @@ declare namespace cloudExtension {
    * @since 11
    */
   export interface CloudService {
-  /**
-   * Connects to a share center.
-   *
-   * @param { number } userId - Indicates the user ID.
-   * @param { string } bundleName - Indicates the bundle name.
-   * @returns { Promise<rpc.RemoteObject> } Returns connectAssetLoader RemoteObject.
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
-   * @systemapi
-   * @since 11
-   */
-  connectShareCenter(userId: number, bundleName: string): Promise<rpc.RemoteObject>;
+    /**
+     * Connects to a share center.
+     *
+     * @param { number } userId - Indicates the user ID.
+     * @param { string } bundleName - Indicates the bundle name.
+     * @returns { Promise<rpc.RemoteObject> } Returns connectAssetLoader RemoteObject.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+     * @systemapi
+     * @since 11
+     */
+    connectShareCenter(userId: number, bundleName: string): Promise<rpc.RemoteObject>;
   }
 }
 
