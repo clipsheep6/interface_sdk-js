@@ -795,6 +795,71 @@ declare namespace pasteboard {
      * @since 9
      */
     setData(data: PasteData): Promise<void>;
+
+    /**
+     * Checks whether the data is remote.
+     * @returns { boolean } True is remote data, else false.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 11
+     */
+    isRemoteData(): boolean;
+
+    /**
+     * Gets source of data.
+     * @returns { string } data source.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 11
+     */
+    getDataSource(): string;
+
+    /**
+     * Checks whether there is a specified MIME type of data in Data.
+     * @param { string } mimeType - indicates to query data type.
+     * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
+     * @throws { BusinessError } 401 - if type is not string.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 11
+     */
+    hasDataType(mimeType: string): boolean;
+
+    /**
+     * Writes PasteData to the system pasteboard.
+     * @param { PasteData } data - PasteData will be written to the clipboard.
+     * @throws { BusinessError } 401 - if type of data is not PasteData.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 11
+     */
+    setDataSync(data: PasteData): void;
+
+    /**
+     * Checks whether there is content in the system pasteboard.
+     * @returns { boolean } True exists, false does not exist.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 11
+     */
+    hasDataSync(): boolean;
+
+    /**
+     * Gets pasteData from the system pasteboard.
+     * @returns { PasteData }  a new PasteData.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 11
+     */
+    getDataSync(): PasteData;
+
+    /**
+     * Clears the pasteboard.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 11
+     */
+    clearDataSync(): void;
   }
 }
 
