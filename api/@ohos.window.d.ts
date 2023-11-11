@@ -1432,6 +1432,8 @@ declare namespace window {
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
    * @param { Callback<SystemBarTintState> } callback - Callback used to return the properties of the system bar.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1444,6 +1446,8 @@ declare namespace window {
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
    * @param { Callback<SystemBarTintState> } callback - Callback used to return the properties of the system bar.
    * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -3366,6 +3370,7 @@ declare namespace window {
     /**
      * Sets whether is private mode or not.
      *
+     * @permission ohos.permission.PRIVACY_WINDOW
      * @param { boolean } isPrivacyMode in private mode if true, or not if false.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3378,6 +3383,7 @@ declare namespace window {
     /**
      * Sets whether is private mode or not.
      *
+     * @permission ohos.permission.PRIVACY_WINDOW
      * @param { boolean } isPrivacyMode in private mode if true, or not if false.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
