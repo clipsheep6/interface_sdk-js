@@ -178,6 +178,26 @@ declare namespace call {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
+  /**
+   * Makes a call.
+   *
+   * @permission ohos.permission.PLACE_CALL
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { AsyncCallback<void> } callback - The callback of dialCall.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300005 - Airplane mode is on.
+   * @throws { BusinessError } 8300006 - Network not in service.
+   * @throws { BusinessError } 8300009 - The number of calls exceeds the limit.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
   function dialCall(phoneNumber: string, callback: AsyncCallback<void>): void;
 
   /**
