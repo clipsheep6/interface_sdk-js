@@ -2335,7 +2335,7 @@ declare namespace call {
    * Set VoIP Call State.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { DetailedCallState } state - Indicates the VoIP Call state.
+   * @param { CallState } state - Indicates the VoIP Call state.
    * @param { AsyncCallback<void> } callback - The callback of setVoIPCallState.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
@@ -2352,7 +2352,7 @@ declare namespace call {
    * Set VoIP Call State.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { DetailedCallState } state - Indicates the VoIP Call state.
+   * @param { CallState } state - Indicates the VoIP Call state.
    * @returns { Promise<void> } The promise returned by the setVoIPCallState.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
