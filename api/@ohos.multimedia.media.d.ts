@@ -312,7 +312,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupport format. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 9
+     * @since 11
      */
     prepareAt(timeMs: number, callback: AsyncCallback<void>): void;
 
@@ -323,7 +323,7 @@ declare namespace media {
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupport format. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @since 9
+     * @since 11
      */
     prepareAt(timeMs: number): Promise<void>;
 
