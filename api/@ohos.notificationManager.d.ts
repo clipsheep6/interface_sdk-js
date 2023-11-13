@@ -615,12 +615,13 @@ declare namespace notificationManager {
    * Checks whether this application allows to publish notifications.
    *
    * @param { AsyncCallback<boolean> } callback - The callback of isNotificationEnabled.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -630,12 +631,12 @@ declare namespace notificationManager {
    * Checks whether this application allows to publish notifications.
    *
    * @returns { Promise<boolean> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -1584,6 +1585,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1611,6 +1613,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1631,6 +1634,7 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { SlotType } type - Type of the notification slot.
    * @param { boolean } enable - Set enable or not.
+   * @param { boolean } isForceControl - Is the slot enable affected by the main enable, false means affected.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -1638,12 +1642,13 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
    */
-  function setNotificationEnableSlot(bundle: BundleOption, type: SlotType, enable: boolean): Promise<void>;
+  function setNotificationEnableSlot(bundle: BundleOption, type: SlotType, enable: boolean, isForceControl?: boolean): Promise<void>;
 
   /**
    * Obtains whether the application slot is enabled.
@@ -1798,10 +1803,14 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - Type of the callback to listen for.
-   * @returns { Promise<NotificationCheckResult> } The promise returned by the function.
+   * @param { NotificationCheckRequest } checkRequest - Check Request for filter notification request.
+   * @param { function } callback - callback - The callback of check notifications.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 10
