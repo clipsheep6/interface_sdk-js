@@ -2157,7 +2157,7 @@ declare interface WebRenderOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 11
   */
- type : WebType;
+  type : WebType;
 }
 
 /**
