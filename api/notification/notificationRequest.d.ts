@@ -21,6 +21,7 @@ import { NotificationContent } from './notificationContent';
 import { NotificationActionButton } from './notificationActionButton';
 import { NotificationTemplate } from './notificationTemplate';
 import { NotificationFlags } from './notificationFlags';
+import { BundleOption as _BundleOption } from './NotificationCommonDef';
 
 /**
  * Defines a NotificationRequest instance.
@@ -240,6 +241,15 @@ export interface NotificationRequest {
   largeIcon?: image.PixelMap;
 
   /**
+   * Overlay notification icon.
+   *
+   * @type { ?image.PixelMap }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  overlayIcon?: image.PixelMap;
+
+  /**
    * The group information for this notification.
    *
    * @type { ?string }
@@ -430,4 +440,91 @@ export interface DistributedOptions {
    * @since 8
    */
   readonly remindType?: number;
+}
+
+export interface LiveViewFilter {
+  /**
+   * Package of application.
+   *
+   * @type { BundleOption }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  bundle: BundleOption;
+
+  /**
+   * Indicates the label and id of the notification.
+   *
+   * @type { NotificationKey }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  notificationKey: NotificationKey;
+
+  /**
+   * Indicates the extra info keys list.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  extraInfoKeys?: Array<string>;
+}
+
+export interface NotificationKey {
+  /**
+   * Indicates id of the notification.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  id: number;
+
+  /**
+   * Indicates the label of the application.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  label: string;
+}
+
+export interface NotificationCheckRequest {
+  /**
+   * The notification content type.
+   *
+   * @type { Type }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  contentType: notificationManager.ContentType;
+
+  /**
+   * Type of the notification slot..
+   *
+   * @type { SlotType }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  slotType: notificationManager.SlotType;
+
+  /**
+   * .
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  extraKeys: Array<string>;
+
+  /**
+   * The UID of the notification creator.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  creatorUid: number;
 }
