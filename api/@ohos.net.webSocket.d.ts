@@ -72,12 +72,11 @@ declare namespace webSocket {
      * @since 10
      */
     header?: Object;
-    
+
     /**
      * File path for client cert.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
      * @since 11
      */
     caPath?: string;
@@ -86,7 +85,6 @@ declare namespace webSocket {
      * Client cert.
      * @type {?ClientCert}
      * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
      * @since 11
      */
     clientCert?: ClientCert; //only support PEM format 
