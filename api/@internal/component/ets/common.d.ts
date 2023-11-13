@@ -3085,8 +3085,8 @@ declare enum BlurStyle {
    * @crossplatform
    * @since 10
    * @form
-   */  
-  NONE,    
+   */
+  NONE,
 }
 
 /**
@@ -3558,7 +3558,7 @@ declare enum ShadowStyle {
 declare interface MultiShadowOptions {
   /**
    * Current shadow radius.
-   * 
+   *
    * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3569,7 +3569,7 @@ declare interface MultiShadowOptions {
 
   /**
    * Current shadow offsetX.
-   * 
+   *
    * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3580,7 +3580,7 @@ declare interface MultiShadowOptions {
 
   /**
    * Current shadow offsetY
-   * 
+   *
    * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5241,7 +5241,7 @@ declare interface SheetOptions extends BindOptions {
 
   /**
    * Defines sheet maskColor
-   * 
+   *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -5948,7 +5948,7 @@ declare enum MenuPreviewMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   */   
+   */
   NONE = 0,
   /**
    * Defines image type preview content.
@@ -6028,10 +6028,10 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   arrowOffset?: Length;
-  
+
   /**
    * The preview content of context menu.
-   * 
+   *
    * @type { ?(MenuPreviewMode | CustomBuilder) }
    * @default MenuPreviewMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6335,7 +6335,7 @@ declare interface MenuElement {
 
 /**
  * Defines the attribute modifier.
- * 
+ *
  * @interface AttributeModifier<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -6345,7 +6345,7 @@ declare interface AttributeModifier<T> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -7315,7 +7315,7 @@ declare class CommonMethod<T> {
    */
   focusOnTouch(value: boolean): T;
 
-  /**git 
+  /**git
    * animation
    *
    * @param { AnimateParam } value
@@ -8846,7 +8846,7 @@ declare class CommonMethod<T> {
   /**
    * Add a blendMode effect to the current component
    * Nesting using blendMode is not recommended
-   * 
+   *
    * @param { BlendMode } value - Different hybrid modes
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8976,6 +8976,17 @@ declare class CommonMethod<T> {
    * @since 10
    */
   geometryTransition(id: string): T;
+  /**
+   * geometryTransition
+   *
+   * @param { string } id
+   * @param { boolean } follow
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+    geometryTransition(id: string, follow?: boolean): T;
 
   /**
    * Popup control
@@ -10266,7 +10277,7 @@ declare interface SizeResult {
  * @since 10
  */
 declare interface MeasureResult extends SizeResult {
- 
+
 }
 
 /**
@@ -10641,7 +10652,7 @@ declare interface CaretOffset {
    * @since 11
    */
   x: number;
-  
+
   /**
    * Get the y of the relative position.
    *
