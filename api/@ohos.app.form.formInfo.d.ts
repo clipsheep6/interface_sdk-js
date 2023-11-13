@@ -271,6 +271,35 @@ declare namespace formInfo {
     MODE_LIGHT = 1
   }
 
+/**
+ * Defines the FormRenderingMode enum.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+  declare enum FormRenderingMode {
+
+    /**
+     *  Full color mode, this is default value
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 11
+     */
+    FULL_COLOR,
+
+    /**
+     *  Full color mode, this is default value
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 11
+     */
+    SINGLE_COLOR,
+  }
+
   /**
    * Provides state information about a form.
    *
@@ -498,7 +527,20 @@ declare namespace formInfo {
      * @syscap SystemCapability.Ability.Form
      * @since 10
      */
-    PARAM_FORM_CUSTOMIZE_KEY = 'ohos.extra.param.key.form_customize'
+    PARAM_FORM_CUSTOMIZE_KEY = 'ohos.extra.param.key.form_customize',
+
+    /**
+     * Indicates the key specifying the form rendering mode, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_RENDERING_MODE_KEY: FormRendering.SINGLE_COLOR
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 11
+     */
+    FORM_RENDERING_MODE_KEY = 'ohos.extra.param.key.form_rendering_mode'
   }
 
   /**

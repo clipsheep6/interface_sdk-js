@@ -89,6 +89,7 @@ interface FormComponentInterface {
    * dimension?: FormDimension;
    * temporary?: boolean;
    * want?: import('../api/@ohos.app.ability.Want').default;
+   * renderingMode?: FormRenderingMode;
    * } } value
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -113,6 +114,7 @@ interface FormComponentInterface {
     dimension?: FormDimension;
     temporary?: boolean;
     want?: import('../api/@ohos.app.ability.Want').default;
+    renderingMode?: FormRenderingMode;
   }): FormComponentAttribute;
 }
 
