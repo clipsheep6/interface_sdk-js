@@ -552,6 +552,31 @@ declare enum WebLayoutMode {
 }
 
 /**
+ * Enum type supplied to {@link WebRenderOptions} for setting the web render mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare enum WebType {
+  /**
+     * SURFACE mode.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 11
+     */
+  SURFACE,
+
+  /**
+   * TEXTURE mode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  TEXTURE,
+}
+
+/**
  * Encompassed message information as parameters to {@link onFileSelectorShow} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
@@ -2102,6 +2127,40 @@ declare interface WebOptions {
 }
 
 /**
+ * Defines the Web options.
+ *
+ * @interface WebRenderOptions
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare interface WebRenderOptions {
+  /**
+   * Sets the address of the web page to be displayed.
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  src: string | Resource;
+  /**
+   * Sets the controller of the Web.
+   *
+   * @type { WebController | WebviewController }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+  */
+  controller: WebController | WebviewController;
+  /**
+   * Sets the render type of the Web.
+   *
+   * @type { WebType }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+  */
+ type : WebType;
+}
+
+/**
  * Defines the contents of the JavaScript to be injected.
  *
  * @interface ScriptItem
@@ -2161,6 +2220,16 @@ interface WebInterface {
    * @since 10
    */
   (value: WebOptions): WebAttribute;
+
+  /**
+   * Sets Value.
+   *
+   * @param { WebRenderOptions } value
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  (value: WebRenderOptions): WebAttribute;
 }
 
 /**
