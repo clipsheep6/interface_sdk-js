@@ -801,7 +801,15 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    PENDING = 'pending'
+    PENDING = 'pending',
+    /**
+     * The pakcage name of the file created, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    PACKAGE_NAME = 'package_name',
   }
 
   /**
