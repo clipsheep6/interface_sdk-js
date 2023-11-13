@@ -547,7 +547,73 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8
      */
-    CHANNEL_2 = 0x1 << 1
+    CHANNEL_2 = 0x1 << 1,
+    /**
+     * Channel 3.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_3 = 3,
+    /**
+     * Channel 4.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_4 = 4,
+    /**
+     * Channel 5.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_5 = 5,
+    /**
+     * Channel 6.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_6 = 6,
+    /**
+     * Channel 7.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_7 = 7,
+    /**
+     * Channel 8.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_8 = 8,
+     /**
+     * Channel 9.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+     CHANNEL_9 = 9,
+    /**
+     * Channel 10.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_10 = 10,
+    /**
+     * Channel 12.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_12 = 12,
+    /**
+     * Channel 14.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_14 = 14,
+    /**
+     * Channel 16.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CHANNEL_16 = 16
   }
 
   /**
@@ -887,6 +953,12 @@ declare namespace audio {
      * @since 8
      */
     encodingType: AudioEncodingType;
+    /**
+     * Audio channel layout.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    channelLayout?: AudioChannelLayout;
   }
 
   /**
@@ -2726,7 +2798,7 @@ declare namespace audio {
   interface AudioSpatializationManager {
     /**
      * Checks whether spatialization is supported by system.
-     * @returns { boolean } Whether spatialization is supported.
+     * @returns { boolean } Whether spatialization is supported by system.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -2747,7 +2819,7 @@ declare namespace audio {
 
     /**
      * Checks whether head tracking is supported by system.
-     * @returns { boolean } Whether head tracking is supported.
+     * @returns { boolean } Whether head tracking is supported by system.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -4746,6 +4818,268 @@ declare namespace audio {
      * @since 11
      */
     SPATIAL_DEVICE_TYPE_OTHERS = 5,
+  }
+
+  /**
+   * Audio AudioChannel Layout
+   * A 64-bit integer indicates that the appearance and order of the speakers for recording or playback.
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 11
+   */
+  enum AudioChannelLayout {
+    /**
+     * Unknown Channel Layout
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_UNKNOWN = 0,
+    /** Channel count: 1*/
+    /**
+     * Channel Layout For Mono
+     * Speaker layout: front center(FC)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_MONO = 4,
+    /** Channel count: 2*/
+    /**
+     * Channel Layout For Stereo
+     * Speaker layout: front left(FL), front right(FR)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_STEREO = 3,
+    /**
+     * Channel Layout For Stereo-Downmix
+     * Speaker layout: stereo left, stereo right
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_STEREO_DOWNMIX = 1610612736,
+    /** Channel count: 3*/
+    /**
+     * Channel Layout For 2.1
+     * Speaker layout: stereo plus low-frequency effects(LFE)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_2POINT1 = 11,
+    /**
+     * Channel Layout For 2.1
+     * Speaker layout: stereo plus back center(BC)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_3POINT0 = 259,
+    /**
+     * Channel Layout For Surround
+     * Speaker layout: stereo plus FC
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_SURROUND = 7,
+    /** Channel count: 4*/
+    /**
+     * Channel Layout For 3.1
+     * Speaker layout: Surround plus LFE
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_3POINT1 = 15,
+    /**
+     * Channel Layout For 4.0
+     * Speaker layout: Surround plus BC
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_4POINT0 = 263,
+    /**
+     * Channel Layout For Quad
+     * Speaker layout: Stereo plus left and right back speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_QUAD = 51,
+    /**
+     * Channel Layout For Quad-Side
+     * Speaker layout: Stereo plus left and right side speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_QUAD_SIDE = 1539,
+    /**
+     * Channel Layout For 2.0.2
+     * Speaker layout: Stereo plus left and right top side speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_2POINT0POINT2 = 206158430211,
+    /**
+     * Channel Layout For ORDER1-ACN-N3D First Order Ambisonic(FOA)
+     * First order, Ambisonic Channel Number(ACN) format, Normalization of three-D(N3D)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_AMB_ORDER1_ACN_N3D = 17592186044417,
+    /**
+     * Channel Layout For ORDER1-ACN-SN3D FOA
+     * First order, ACN format, Semi-Normalization of three-D(SN3D)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_AMB_ORDER1_ACN_SN3D = 17592186048513,
+    /**
+     * Channel Layout For ORDER1-FUMA FOA
+     * First order, Furse-Malham(FuMa) format
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_AMB_ORDER1_FUMA = 17592186044673,  
+    /** Channel count: 5*/
+    /**
+     * Channel Layout For 4.1
+     * Speaker layout: 4.0 plus LFE
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_4POINT1 = 271,
+    /**
+     * Channel Layout For 5.0
+     * Speaker layout: Surround plus two side speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_5POINT0 = 1543,
+    /**
+     * Channel Layout For 5.0-Back
+     * Speaker layout: Surround plus two back speakers
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_5POINT0_BACK = 55,
+    /**
+     * Channel Layout For 2.1.2
+     * Speaker layout: 2.0.2 plus LFE
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_2POINT1POINT2 = 206158430219,
+    /**
+     * Channel Layout For 3.0.2
+     * Speaker layout: 2.0.2 plus FC
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_3POINT0POINT2 = 206158430215,
+    /** Channel count: 6*/
+    /**
+     * Channel Layout For 5.1
+     * Speaker layout: 5.0 plus LFE
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_5POINT1 = 1551,
+    /**
+     * Channel Layout For 5.1-Back
+     * Speaker layout: 5.0-Back plus LFE
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_5POINT1_BACK = 63,
+    /**
+     * Channel Layout For 6.0
+     * Speaker layout: 5.0 plus BC
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_6POINT0 = 1799,
+    /**
+     * Channel Layout For Hexagonal
+     * Speaker layout: 5.0-Back plus BC
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_HEXAGONAL = 311,
+    /**
+     * Channel Layout For 3.1.2
+     * Speaker layout: 3.0.2 plus LFE
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_3POINT1POINT2 = 206158430223,
+      /**
+     * Channel Layout For 6.0-Front
+     * Speaker layout: Quad-Side plus left and right front center speakers(FLC)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_6POINT0_FRONT = 1731,
+    /** Channel count: 7*/
+    CH_LAYOUT_6POINT1 = 1807,
+    CH_LAYOUT_6POINT1_BACK = 319,
+    CH_LAYOUT_6POINT1_FRONT = 1739,
+    CH_LAYOUT_7POINT0 = 1591,
+    CH_LAYOUT_7POINT0_FRONT = 1735,
+    /** Channel count: 8*/
+    CH_LAYOUT_7POINT1 = 1599,
+    CH_LAYOUT_OCTAGONAL = 1847,
+    CH_LAYOUT_5POINT1POINT2 = 206158430271,
+    CH_LAYOUT_7POINT1_WIDE = 1743,
+    CH_LAYOUT_7POINT1_WIDE_BACK = 255,
+    /** Channel count: 9*/
+    /**
+     * Channel Layout For ORDER2-ACN-N3D Higher Order Ambosinics(HOA)
+     * Second order, ACN format, N3D
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_AMB_ORDER2_ACN_N3D = 17592186044418,
+    /**
+     * Channel Layout For ORDER2-ACN-SN3D HOA
+     * Second order, ACN format, SN3D
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_AMB_ORDER2_ACN_SN3D = 17592186048514,
+    /**
+     * Channel Layout For ORDER2-FUMA FOA
+     * Second order, FuMa format
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_AMB_ORDER2_FUMA = 17592186044674,
+    /** Channel count: 10*/
+    CH_LAYOUT_5POINT1POINT4 = 110655,
+    CH_LAYOUT_7POINT1POINT2 = 206158431807,
+    /** Channel count: 12*/
+    CH_LAYOUT_7POINT1POINT4 = 112191,
+    CH_LAYOUT_10POINT2 = 6442465079,
+    /** Channel count: 14*/
+    CH_LAYOUT_9POINT1POINT4 = 6442563135,
+    /** Channel count: 16*/
+    CH_LAYOUT_9POINT1POINT6 = 212600993343,
+    CH_LAYOUT_HEXADECAGONAL = 6442710839,
+    /**
+     * Channel Layout For ORDER3-ACN-N3D HOA
+     * Third order, ACN format, N3D
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_AMB_ORDER3_ACN_N3D = 17592186044419,
+    /**
+     * Channel Layout For ORDER3-ACN-SN3D HOA
+     * Third order, ACN format, N3D
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_AMB_ORDER3_ACN_SN3D = 17592186048515,
+    /**
+     * Channel Layout For ORDER3-FUMA HOA
+     * Third order, FuMa format
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    CH_LAYOUT_AMB_ORDER3_FUMA = 17592186044675,
   }
 }
 
