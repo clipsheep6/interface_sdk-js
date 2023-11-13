@@ -31,7 +31,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9
    */
-  interface DelaySuspendInfo {
+  export interface DelaySuspendInfo {
     /**
      * The unique identifier of the delay request.
      *
