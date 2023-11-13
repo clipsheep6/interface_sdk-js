@@ -67,7 +67,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    value: T;
+    value?: T;
   }
 
   /**
