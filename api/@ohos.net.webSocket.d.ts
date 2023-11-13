@@ -72,6 +72,7 @@ declare namespace webSocket {
      * @since 10
      */
     header?: Object;
+    
     /**
      * File path for client cert.
      * @type {?string}
@@ -80,31 +81,50 @@ declare namespace webSocket {
      * @since 11
      */
     caPath?: string;
+
     /**
-     * Absolute file path for client cert.
-     * @type {?string}
+     * Client cert.
+     * @type {?ClientCert}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 11
      */
-    cert?: string;
-    /**
-     * Private key for client cert.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    key?: string;
-    /**
-     * Password for client cert.
-     * @type {?string}
-     * @syscap SystemCapability.Communication.NetStack
-     * @crossplatform
-     * @since 11
-     */
-    keyPasswd?: string;
+    clientCert?: ClientCert; //only support PEM format 
   }
+
+    /**
+   * The clientCert field of the client certificate, which includes three attributes:
+   * client certificate (cert) and only support PEM format, certificate private key (key), 
+   * and passphrase (keyPasswd).
+   * @interface ClientCert
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
+    export interface ClientCert {
+      /**
+       * Cert: The path to the client certificate file.
+       * @type {string}
+       * @syscap SystemCapability.Communication.NetStack
+       * @since 11
+       */
+      certPath: string;  
+      
+      /**
+       * Key: The path of the client certificate private key file.
+       * @type {string}
+       * @syscap SystemCapability.Communication.NetStack
+       * @since 11
+       */
+      keyPath: string;
+  
+      /**
+       * KeyPasswd: Client certificate password.
+       * @type {?string}
+       * @syscap SystemCapability.Communication.NetStack
+       * @since 11
+       */
+      keyPasswd?: string;
+    }
 
   /**
    * Defines the optional parameters carried in the request for closing a WebSocket connection.
