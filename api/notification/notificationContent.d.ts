@@ -89,6 +89,46 @@ export interface NotificationLongTextContent extends NotificationBasicContent {
   expandedTitle: string;
 }
 
+export interface NotificationLiveViewContent extends NotificationBasicContent {
+  /**
+   * Status of tge live view (0: create, 1: batch update, 2: end, 3: full update).
+   *
+   * @type { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  status: number;
+
+  /**
+   * Version of the live view with the same id. (If the version number stored in the NMS database is less
+   * than 0, the version number is not verified at the current operation of update or end. Otherwise, the
+   * version number must be greater than the version number stored in the database.)
+   *
+   * @type { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  version: number;
+
+  /**
+   * Additional information of the live view notification.
+   *
+   * @type { [key: string]: any}
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  extraInfo?: {[key: string]: any};
+
+  /**
+   * Picture information of the live view notification.
+   *
+   * @type { [key: string]: Array<image.PixelMap> }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  pictureMap?: {[key: string]: Array<image.PixelMap>};
+}
+
 /**
  * Describes a multi-line text notification.
  *
