@@ -69,6 +69,35 @@ declare enum FormDimension {
 }
 
 /**
+ * Defines the FormRenderingMode enum.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare enum FormRenderingMode {
+
+  /**
+   *  Full color mode, this is default value
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  FULL_COLOR,
+
+  /**
+   *  single color mode
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  SINGLE_COLOR,
+}
+
+/**
  * Defines the FormComponent.
  *
  * @interface FormComponentInterface
@@ -89,6 +118,7 @@ interface FormComponentInterface {
    * dimension?: FormDimension;
    * temporary?: boolean;
    * want?: import('../api/@ohos.app.ability.Want').default;
+   * renderingMode?: FormRenderingMode;
    * } } value
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -113,6 +143,7 @@ interface FormComponentInterface {
     dimension?: FormDimension;
     temporary?: boolean;
     want?: import('../api/@ohos.app.ability.Want').default;
+    renderingMode?: FormRenderingMode;
   }): FormComponentAttribute;
 }
 
