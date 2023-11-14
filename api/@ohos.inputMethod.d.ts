@@ -1068,7 +1068,7 @@ declare namespace inputMethod {
      * Register a callback and when input method ability gets left text of cursor, the callback will be invoked.
      *
      * @param { 'getLeftTextOfCursor' } type - event type, fixed as 'getLeftTextOfCursor'.
-     * @param { function } callback - processes getLeftTextOfCursor command. The callback
+     * @param { GetTextCallback } callback - processes getLeftTextOfCursor command. The callback
      *     must be a synchronization method and will block the input method application.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800009 - input method client is detached.
@@ -1081,7 +1081,7 @@ declare namespace inputMethod {
      * Unregister the callback of getLeftTextOfCursor event.
      *
      * @param { 'getLeftTextOfCursor' } type - event type, fixed as 'getLeftTextOfCursor'.
-     * @param { function } [callback] - the callback of 'getLeftTextOfCursor',
+     * @param { GetTextCallback } [callback] - the callback of 'getLeftTextOfCursor',
      *     when subscriber unsubscribes all callback functions of event 'getLeftTextOfCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -1092,7 +1092,7 @@ declare namespace inputMethod {
      * Register a callback and when input method ability gets right text of cursor, the callback will be invoked.
      *
      * @param { 'getRightTextOfCursor' } type - event type, fixed as 'getRightTextOfCursor'.
-     * @param { function } callback - processes getRightTextOfCursor command. The callback
+     * @param { GetTextCallback } callback - processes getRightTextOfCursor command. The callback
      *     must be a synchronization method and will block the input method application.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800009 - input method client is detached.
@@ -1105,7 +1105,7 @@ declare namespace inputMethod {
      * Unregister the callback of getRightTextOfCursor event.
      *
      * @param { 'getRightTextOfCursor' } type - event type, fixed as 'getRightTextOfCursor'.
-     * @param { function } [callback] - the callback of 'getRightTextOfCursor',
+     * @param { GetTextCallback } [callback] - the callback of 'getRightTextOfCursor',
      *     when subscriber unsubscribes all callback functions of event 'getRightTextOfCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
@@ -1116,7 +1116,7 @@ declare namespace inputMethod {
      * Register a callback and when input method ability gets the text index at cursor, the callback will be invoked.
      *
      * @param { 'getTextIndexAtCursor' } type - event type, fixed as 'getTextIndexAtCursor'.
-     * @param { function } callback - processes getTextIndexAtCursor command. The callback
+     * @param { GetIndexCallback } callback - processes getTextIndexAtCursor command. The callback
      *     must be a synchronization method, and should return the text index at the cursor.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800009 - input method client is detached.
@@ -1129,7 +1129,7 @@ declare namespace inputMethod {
      * Unregister the callback of getTextIndexAtCursor.
      *
      * @param { 'getTextIndexAtCursor' } type - event type, fixed as 'getTextIndexAtCursor'.
-     * @param { function } [callback] - the callback of 'getTextIndexAtCursor',
+     * @param { GetIndexCallback } [callback] - the callback of 'getTextIndexAtCursor',
      *     when subscriber unsubscribes all callback functions of event 'getTextIndexAtCursor', this parameter can be left blank.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
