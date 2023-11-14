@@ -240,7 +240,7 @@ declare namespace http {
      * the email data to send/upload.
      * @type {?Map<string, Array<FormData>>}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 10
+     * @since 11
      */
     multiFormData?: Map<string, Array<MultiFormData>>;
   }
@@ -249,7 +249,6 @@ declare namespace http {
    * Represents the properties of a form object.
    * @interface MultiFormData
    * @syscap SystemCapability.Communication.NetStack
-   * @crossplatform
    * @since 11
    */
   export interface MultiFormData {
