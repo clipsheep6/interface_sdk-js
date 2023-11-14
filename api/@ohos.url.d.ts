@@ -340,7 +340,7 @@ declare namespace url {
      * Callback functions are used to traverse key-value pairs on the URLParams instance object.
      *
      * @param { (value: string, key: string, searchParams: this) => void } callbackFn - callbackFn value Current traversal key value,
-	 * key Indicates the name of the key that is traversed.
+     * key Indicates the name of the key that is traversed.
      * @param { Object } thisArg - thisArg thisArg to be used as this value for when callbackFn is called
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -350,14 +350,27 @@ declare namespace url {
      * Callback functions are used to traverse key-value pairs on the URLParams instance object.
      *
      * @param { (value: string, key: string, searchParams: this) => void } callbackFn - callbackFn value Current traversal key value,
-	 * key Indicates the name of the key that is traversed.
+     * key Indicates the name of the key that is traversed.
      * @param { Object } thisArg - thisArg thisArg to be used as this value for when callbackFn is called
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
+     * @type { (value: string, key: string, searchParams: this) => void }
      * @since 10
      */
-    forEach(callbackFn: (value: string, key: string, searchParams: this) => void, thisArg?: Object): void;
+    /**
+     * Callback functions are used to traverse key-value pairs on the URLParams instance object.
+     *
+     * @param { (value: string, key: string, searchParams: URLParams) => void } callbackFn - callbackFn value Current traversal key value,
+     * key Indicates the name of the key that is traversed.
+     * @param { Object } thisArg - thisArg thisArg to be used as this value for when callbackFn is called
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @type { (value: string, key: string, searchParams: URLParams) => void }
+     * @since 11
+     */
+    forEach(callbackFn: (value: string, key: string, searchParams: URLParams) => void, thisArg?: Object): void;
 
     /**
      * Returns the first value associated to the given search parameter.
