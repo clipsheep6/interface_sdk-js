@@ -4996,12 +4996,12 @@ declare namespace audio {
     CH_LAYOUT_HEXAGONAL = 0x137,
     /**
      * Channel Layout For 3.1.2, 6 channels in total
-     * Speaker layout: 3.0.2 plus LFE
+     * Speaker layout: 3.1 plus two top front speakers(TFL, TFR)
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
-    CH_LAYOUT_3POINT1POINT2 = 0x300000000F,
-      /**
+    CH_LAYOUT_3POINT1POINT2 = 0x500F,
+    /**
      * Channel Layout For 6.0-Front, 6 channels in total
      * Speaker layout: Quad-Side plus left and right front center speakers(FLC, FRC)
      * @syscap SystemCapability.Multimedia.Audio.Core
