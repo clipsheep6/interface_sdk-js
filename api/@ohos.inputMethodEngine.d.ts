@@ -29,21 +29,6 @@ import BaseContext from './application/BaseContext';
  * @since 8
  */
 declare namespace inputMethodEngine {
-
-  type InputStartCallback8 = (kbController: KeyboardController, textInputClient: TextInputClient) => void;
-
-  type InputStartCallback = (kbController: KeyboardController, textInputClient: InputClient) => void;
-
-  type EmptyCallback = () => void;
-
-  type KeyEventCallback = (event: KeyEvent) => boolean;
-
-  type InputKeyEventCallback = (event: KeyEvent) => boolean;
-
-  type CursorContextChangeCallback = (x: number, y: number, height: number) => void;
-
-  type SelectionChangeCallback = (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void;
-
   /**
    * When "enter" key is pressed, there is no action
    *
@@ -448,6 +433,8 @@ declare namespace inputMethodEngine {
    * @interface InputMethodEngine
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8
+   * @deprecated since 11
+   * @useinstead inputMethodEngine#InputMethodAbility
    */
   interface InputMethodEngine {
     /**
@@ -457,8 +444,10 @@ declare namespace inputMethodEngine {
      * @param { InputStartCallback8 } callback - indicates the callback of on('inputStart').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
+     * @deprecated since 11
+     * @useinstead inputMethodEngine#InputMethodAbility#on
      */
-    on(type: 'inputStart', callback: InputStartCallback8): void;
+    on(type: 'inputStart', callback: DeprecatedInputStartCallback): void;
 
     /**
      * Unsubscribe 'inputStart'
@@ -467,8 +456,10 @@ declare namespace inputMethodEngine {
      * @param { InputStartCallback8 } callback - optional, indicates the callback of off('inputStart').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
+     * @deprecated since 11
+     * @useinstead inputMethodEngine#InputMethodAbility#off
      */
-    off(type: 'inputStart', callback?: InputStartCallback8): void;
+    off(type: 'inputStart', callback?: DeprecatedInputStartCallback): void;
 
     /**
      * Subscribe 'keyboardShow'|'keyboardHide'
@@ -477,6 +468,8 @@ declare namespace inputMethodEngine {
      * @param { EmptyCallback } callback - indicates the callback of on('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
+     * @deprecated since 11
+     * @useinstead inputMethodEngine#InputMethodAbility#on
      */
     on(type: 'keyboardShow' | 'keyboardHide', callback: EmptyCallback): void;
 
@@ -487,6 +480,8 @@ declare namespace inputMethodEngine {
      * @param { EmptyCallback } [callback] - optional, indicates the callback of off('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
+     * @deprecated since 11
+     * @useinstead inputMethodEngine#InputMethodAbility#off
      */
     off(type: 'keyboardShow' | 'keyboardHide', callback?: EmptyCallback): void;
   }
@@ -1820,6 +1815,19 @@ declare namespace inputMethodEngine {
      */
     PASTE = 5
   }
+  type InputStartCallback = (kbController: KeyboardController, textInputClient: InputClient) => void;
+
+  type EmptyCallback = () => void;
+
+  type KeyEventCallback = (event: KeyEvent) => boolean;
+
+  type InputKeyEventCallback = (event: KeyEvent) => boolean;
+
+  type CursorContextChangeCallback = (x: number, y: number, height: number) => void;
+
+  type SelectionChangeCallback = (oldBegin: number, oldEnd: number, newBegin: number, newEnd: number) => void;
+
+  type DeprecatedInputStartCallback = (kbController: KeyboardController, textInputClient: TextInputClient) => void;
 }
 
 export default inputMethodEngine;

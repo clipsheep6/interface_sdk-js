@@ -240,12 +240,6 @@ declare namespace inputMethod {
     inputMethodSubtype: InputMethodSubtype
   ): Promise<boolean>;
 
-  type ImeChangeCallback = (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void;
-
-  type GetTextCallback = (len: number) => string;
-
-  type GetIndexCallback = () => number;
-
   /**
    * @interface InputMethodSetting
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1742,6 +1736,12 @@ declare namespace inputMethod {
      */
     height: number;
   }
+
+  type ImeChangeCallback = (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void;
+
+  type GetTextCallback = (len: number) => string;
+
+  type GetIndexCallback = () => number;
 }
 
 export default inputMethod;
