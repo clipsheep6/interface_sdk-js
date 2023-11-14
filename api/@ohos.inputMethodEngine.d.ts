@@ -1815,6 +1815,7 @@ declare namespace inputMethodEngine {
      */
     PASTE = 5
   }
+
   type InputStartCallback = (kbController: KeyboardController, textInputClient: InputClient) => void;
 
   type EmptyCallback = () => void;
