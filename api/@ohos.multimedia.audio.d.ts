@@ -4789,14 +4789,14 @@ declare namespace audio {
      * @systemapi
      * @since 11
      */
-    SPATIAL_DEVICE_TYPE_INEAR = 1,
+    SPATIAL_DEVICE_TYPE_INEAR_EARPHONE = 1,
     /**
      * Audio Spatial Device Type half inear.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    SPATIAL_DEVICE_TYPE_HALF_INEAR = 2,
+    SPATIAL_DEVICE_TYPE_HALF_INEAR_EARPHONE = 2,
     /**
      * Audio Spatial Device Type headphone.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
