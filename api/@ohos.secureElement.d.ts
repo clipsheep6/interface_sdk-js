@@ -19,24 +19,35 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * Provides APIs for mobile applications to access different SEs in mobile devices, such as SIMs or embedded SEs.
  * See "Open Mobile API Specification".
  *
- * @namespace omapi
+ * @namespace secureElement
  * @since 10
  */
-declare namespace omapi {
+declare namespace secureElement {
   /**
    * Establish a new connection that can be used to connect to all the SEs available in the system.
    * The connection process can be quite long, so it happens in an asynchronous way. It is usable only
    * if the specified callback is called or if isConnected() returns true.
    *
-   * @param { 'serviceState' } type nfc serviceState
-   * @param { Callback<ServiceState> } callback - The callback to return the service.
-   * @returns { SEService } The new SEService instance.
+   * @param { Callback<SEService> } callback - The callback to return the created service.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10
    */
-  function newSEService(type: 'serviceState', callback: Callback<ServiceState>): SEService;
+  function createService(callback: Callback<SEService>): void;
+
+  /**
+   * Establish a new connection that can be used to connect to all the SEs available in the system.
+   * The connection process can be quite long, so it happens in an asynchronous way. It is usable only
+   * if the specified callback is called or if isConnected() returns true.
+   *
+   * @returns { Promise<SEService> } Returns the created service.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.SecureElement
+   * @since 10
+   */
+  function createService(): Promise<SEService>;
 
   /**
    * SEService realizes the communication to available SEs on the device.
@@ -470,30 +481,5 @@ declare namespace omapi {
      */
     transmit(command: number[], callback: AsyncCallback<number[]>): void;
   }
-
-  /**
-   * Secure Element service state definition.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Communication.SecureElement
-   * @since 10
-   */
-  enum ServiceState {
-    /**
-     * Service is disconnected.
-     *
-     * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
-     */
-    DISCONNECTED = 0,
-
-    /**
-     * Service is connected.
-     *
-     * @syscap SystemCapability.Communication.SecureElement
-     * @since 10
-     */
-    CONNECTED = 1
-  }
 }
-export default omapi;
+export default secureElement;
