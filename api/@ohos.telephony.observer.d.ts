@@ -489,9 +489,9 @@ declare namespace observer {
    */
   export interface CallStateInfo {
     /**
-     * Indicates call type.
+     * Indicates call state.
      *
-     * @type { CardType }
+     * @type { CallState }
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since 11
      */
