@@ -66,6 +66,24 @@ declare enum FormDimension {
    * @since 9
    */
   Dimension_2_1,
+
+  /**
+   * circular cards
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  DIMENSION_CIRCULAR,
+
+  /**
+   * rectangular cards
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  DIMENSION_RECTANGULAR,
 }
 
 /**
