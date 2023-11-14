@@ -1309,6 +1309,28 @@ export class UIContext {
   getKeyboardAvoidMode(): KeyboardAvoidMode;
 
   /**
+   * Registers a callback with the keyboard state by using the handle.
+   * This callback is triggered when keyboard is up or down.
+   *
+   * @param { 'keyboardShow' } type - Related to changes in keyboard status
+   * @param { function } [callback] - A callback instance used when keyboard changed
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  on(type: 'keyboardShow', callback?: (value: KeyboardInfo) => void): void;
+
+  /**
+   * Deregisters a callback with the keyboard state by using the handle.
+   * This callback is triggered when keyboard is up or down.
+   *
+   * @param { 'keyboardShow' } type - Related to changes in keyboard status
+   * @param { function } [callback] - A callback instance used when keyboard changed
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  off(type: 'keyboardShow', callback?: (value: KeyboardInfo) => void): void;
+  
+  /**
    * Get AtomicServiceBar.
    * @returns { Nullable<AtomicServiceBar> } The atomic service bar.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1344,4 +1366,21 @@ export const enum KeyboardAvoidMode {
    * @since 11
    */
   RESIZE = 1
+}
+
+/**
+ * struct of KeyBoard information
+ *
+ * @typedef KeyboardInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+export interface KeyboardInfo {
+  /**
+   * Defines the keyboard size and offset relative to screen.
+   * @type { RectResult }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  rect: RectResult;
 }
