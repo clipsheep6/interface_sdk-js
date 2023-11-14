@@ -28,7 +28,7 @@ declare namespace stationary {
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
-  interface ActivityResponse {
+  export interface ActivityResponse {
     state: ActivityState;
   }
 
