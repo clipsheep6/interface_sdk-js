@@ -445,7 +445,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      * @deprecated since 11
-     * @useinstead inputMethodEngine#InputMethodAbility#on
+     * @useinstead inputMethodEngine.InputMethodAbility#on
      */
     on(type: 'inputStart', callback: DeprecatedInputStartCallback): void;
 
@@ -457,7 +457,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      * @deprecated since 11
-     * @useinstead inputMethodEngine#InputMethodAbility#off
+     * @useinstead inputMethodEngine.InputMethodAbility#off
      */
     off(type: 'inputStart', callback?: DeprecatedInputStartCallback): void;
 
@@ -469,7 +469,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      * @deprecated since 11
-     * @useinstead inputMethodEngine#InputMethodAbility#on
+     * @useinstead inputMethodEngine.InputMethodAbility#on
      */
     on(type: 'keyboardShow' | 'keyboardHide', callback: EmptyCallback): void;
 
@@ -481,7 +481,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      * @deprecated since 11
-     * @useinstead inputMethodEngine#InputMethodAbility#off
+     * @useinstead inputMethodEngine.InputMethodAbility#off
      */
     off(type: 'keyboardShow' | 'keyboardHide', callback?: EmptyCallback): void;
   }
