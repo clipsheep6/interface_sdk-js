@@ -104,6 +104,7 @@ declare namespace contact {
    * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
    * Returns the contact list which user select; returns empty contact list if user not select.
    * @throws { BusinessError } 401 - Parameter error.
+   * @atomicservice
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
@@ -128,6 +129,7 @@ declare namespace contact {
    * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
    * returns empty contact list if user not select.
    * @syscap SystemCapability.Applications.Contacts
+   * @atomicservice
    * @since 10
    */
   function selectContacts(): Promise<Array<Contact>>;
@@ -138,6 +140,7 @@ declare namespace contact {
    * @param { ContactSelectionOptions } options - Indicates the Single-select or multiple-select.
    * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
    * @throws { BusinessError } 401 - Parameter error.
+   * @atomicservice
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
@@ -150,6 +153,7 @@ declare namespace contact {
    * @returns { Promise<Array<Contact>> } Returns the contact list which user select;
    * returns empty contact list if user not select.
    * @throws { BusinessError } 401 - Parameter error.
+   * @atomicservice
    * @syscap SystemCapability.Applications.Contacts
    * @since 10
    */
