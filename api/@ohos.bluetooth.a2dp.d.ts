@@ -393,7 +393,135 @@ declare namespace a2dp {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 11
      */
-    CODEC_TYPE_L2HC = 2,
+    CODEC_TYPE_L2HC = 2
+  }
+
+  /**
+   * Describes the codec channel mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  enum CodecChannelMode {
+    /**
+     * Codec channel mode none.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_CHANNEL_MODE_NONE = 0,
+    /**
+     * Codec channel mode MONO.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_CHANNEL_MODE_MONO = 1,
+    /**
+     * Codec channel mode STEREO.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_CHANNEL_MODE_STEREO = 2
+  }
+
+  /**
+   * Describes the codec bits per sample.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  enum CodecBitsPerSample {
+    /**
+     * Codec bits per sample none.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_BITS_PER_SAMPLE_NONE = 0,
+    /**
+     * Codec 16 bits per sample.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_BITS_PER_SAMPLE_16 = 1,
+    /**
+     * Codec 24 bits per sample.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_BITS_PER_SAMPLE_24 = 2,
+    /**
+     * Codec 32 bits per sample.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_BITS_PER_SAMPLE_32 = 3
+  }
+
+  /**
+   * Describes the codec sample rate.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  enum CodecSampleRate {
+    /**
+     * Codec sample rate none.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_SAMPLE_RATE_NONE = 0,
+    /**
+     * Codec sample rate 44.1k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_SAMPLE_RATE_44100 = 1,
+    /**
+     * Codec sample rate 48k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_SAMPLE_RATE_48000 = 2,
+    /**
+     * Codec sample rate 88.2k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_SAMPLE_RATE_88200 = 3,
+    /**
+     * Codec sample rate 96k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_SAMPLE_RATE_96000 = 4,
+    /**
+     * Codec sample rate 176.4k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_SAMPLE_RATE_176400 = 5,
+    /**
+     * Codec sample rate 192k.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_SAMPLE_RATE_192000 = 6
   }
 }
 
