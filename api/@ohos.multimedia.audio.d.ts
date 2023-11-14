@@ -2991,6 +2991,72 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates audio device sub categories.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @systemapi
+   * @since 11
+   */
+  enum DeviceSubCategory {
+    /**
+     * Default device category.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    CATEGORY_DEFAULT = 0,
+    /**
+     * Bluetooth headphone category.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    BT_HEADPHONE = 1,
+    /**
+     * Bluetooth soudnbox category.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    BT_SOUNDBOX = 2,
+    /**
+     * Bluetooth car category.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    BT_CAR = 4,
+    /**
+     * Bluetooth glasses category.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    BT_GLASSES = 8,
+    /**
+     * Bluetooth watch category.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    BT_WATCH = 16,
+    /**
+     * Bluetooth hearing aid category.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    BT_HEARING_AID = 32,
+    /**
+     * Unwear bluetooth headphone category.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    BT_UNWEAR_HEADPHONE = 64,
+  }
+
+  /**
    * Describes an audio device.
    * @typedef AudioDeviceDescriptor
    * @syscap SystemCapability.Multimedia.Audio.Device
@@ -3086,6 +3152,14 @@ declare namespace audio {
      * @since 11
      */
     readonly encodingTypes?: Array<AudioEncodingType>;
+
+    /**
+     * Category used to match device icon.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 11
+     */
+    readonly deviceSubCategory?: DeviceSubCategory;
   }
 
   /**
