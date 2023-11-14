@@ -69,18 +69,18 @@ interface TextInterface {
 }
 
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<TextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<TextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<TextAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -639,6 +639,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    */
   selection(selectionStart: number, selectionEnd: number): TextAttribute;
+
+  /**
+   * Set the ellipsis mode.
+   *
+   * @param { EllipsisMode } value - The ellipsis mode.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  ellipsisMode(value: EllipsisMode): TextAttribute;
 }
 
 /**

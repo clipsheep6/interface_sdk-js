@@ -43,6 +43,7 @@ asyn
 asynchronized
 atime
 atio
+atomicservice
 atqa
 attaches
 attachment0
@@ -178,6 +179,7 @@ dirent
 dirxml
 disables
 disallowed
+disallows
 discharging
 disconnecting
 disconnection
@@ -515,6 +517,7 @@ persistable
 perso
 personalisation
 pertaining
+pgo
 photographing
 pickers
 pixelmap

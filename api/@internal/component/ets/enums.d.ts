@@ -14,6 +14,37 @@
  */
 
 /**
+ * common enum of the checkbox shape
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare enum CheckBoxShape {
+  /**
+   * Circle.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  CIRCLE = 0,
+
+  /**
+   * Rounded Square.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  ROUNDED_SQUARE = 1,
+}
+
+/**
  * common enum of color
  *
  * @enum { number }
@@ -5135,6 +5166,16 @@ declare enum CopyOptions {
    * @form
    */
   LocalDevice = 2,
+
+  /**
+   * Share in cross Device
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  CROSS_DEVICE = 3,
 }
 
 /**
@@ -5885,7 +5926,7 @@ declare enum DialogButtonStyle {
    * @since 10
    */
   DEFAULT = 0,
-  
+
   /**
    * Highlight Style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5931,4 +5972,57 @@ declare enum WordBreak {
    * @since 11
    */
   BREAK_WORD = 2,
+}
+
+/**
+ * Enum of ellipsisMode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum EllipsisMode {
+  /**
+   * The ellipsis is in the head.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  START = 0,
+
+  /**
+   * The ellipsis is in the middle.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  CENTER = 1,
+
+  /**
+   * The ellipsis is at the end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  END = 2,
+}
+
+/**
+ * A type which can be undefined
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare type Nullable<T> = T | undefined;
+
+declare module 'CommonEnums' {
+  module 'CommonEnums' {
+    // @ts-ignore
+    export type { Color, FontStyle, Nullable };
+  }
 }

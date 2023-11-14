@@ -14,6 +14,29 @@
  */
 
 /**
+ * Defines the options of Component ClassDecorator.
+ *
+ * @interface ComponentOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare interface ComponentOptions {
+  /**
+   * freeze UI state.
+   *
+   * @type { boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  freezeWhenInactive : boolean,
+}
+
+/**
  * Defining Component ClassDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -34,7 +57,16 @@
  * @since 10
  * @form
  */
-declare const Component: ClassDecorator;
+/**
+ * Defining Component ClassDecorator
+ *
+ * Component is a ClassDecorator and it supports ComponentOptions as parameters.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
  * Defines the options of Entry ClassDecorator.
@@ -2050,8 +2082,9 @@ declare class TransitionEffect<
   /**
    * Defines an identity transition effect
    *
-   * @constant
    * @type { TransitionEffect<"identity"> }
+   * @readonly
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2062,8 +2095,9 @@ declare class TransitionEffect<
   /**
    * Defines an opacity transition effect
    *
-   * @constant
    * @type { TransitionEffect<"opacity"> }
+   * @readonly
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2074,12 +2108,13 @@ declare class TransitionEffect<
   /**
    * Defines a slide transition effect
    *
-   * @constant
    * @type { TransitionEffect<
    * "asymmetric",
    * {appear: TransitionEffect<"move", TransitionEdge>;
    * disappear: TransitionEffect<"move", TransitionEdge>;
    * }> }
+   * @readonly
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2096,8 +2131,9 @@ declare class TransitionEffect<
   /**
    * Defines a slide & switch transition effect
    *
-   * @constant
    * @type { TransitionEffect<"slideSwitch"> }
+   * @readonly
+   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -4722,6 +4758,46 @@ declare enum DragResult {
    * @since 10
    */
   DROP_DISABLED = 4
+}
+
+/**
+ * Enum for BlendMode.
+ * Use background as src, child nodes as dst
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 11
+ */
+declare enum BlendMode {
+  /**
+   * Hybrid mode does not take effect
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  NORMAL = 0,
+  /**
+   * r = d * sa, blend background color with child nodes' alpha
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  DESTINATION_IN = 1,
+  /**
+   * r = s * da
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  SOURCE_IN = 2
 }
 
 /**
@@ -8768,6 +8844,19 @@ declare class CommonMethod<T> {
   shadow(value: ShadowOptions | ShadowStyle): T;
 
   /**
+   * Add a blendMode effect to the current component
+   * Nesting using blendMode is not recommended
+   * 
+   * @param { BlendMode } value - Different hybrid modes
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  blendMode(value: BlendMode): T;
+
+  /**
    * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
    * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
    *
@@ -9216,14 +9305,14 @@ declare class CommonMethod<T> {
 /**
  * CommonAttribute for ide.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * CommonAttribute for ide.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -9231,7 +9320,7 @@ declare class CommonMethod<T> {
 /**
  * CommonAttribute for ide.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -9352,14 +9441,14 @@ declare type FractionStop = [ number, number ];
 /**
  * CommonShapeMethod
  *
- * @extends CommonMethod
+ * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * CommonShapeMethod
  *
- * @extends CommonMethod
+ * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -9367,7 +9456,7 @@ declare type FractionStop = [ number, number ];
 /**
  * CommonShapeMethod
  *
- * @extends CommonMethod
+ * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -10527,6 +10616,43 @@ declare interface RectResult {
 }
 
 /**
+ * CaretOffset info.
+ *
+ * @interface CaretOffset
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface CaretOffset {
+  /**
+   * Get the index of the CaretOffset
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  index: number;
+
+  /**
+   * Get the x of the relative position.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  x: number;
+  
+  /**
+   * Get the y of the relative position.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  y: number;
+}
+
+/**
  * TextContentControllerBase
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10534,6 +10660,16 @@ declare interface RectResult {
  * @since 10
  */
 declare abstract class TextContentControllerBase {
+  /**
+   * Get the index and relative position of the CaretOffset.
+   *
+   * @returns { CaretOffset } index and relative position of the CaretOffset.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getCaretOffset() : CaretOffset;
+
   /**
    * Get the start and end positions of the text content.
    *
@@ -10574,4 +10710,24 @@ declare module 'DragControllerParam' {
     // @ts-ignore
     export type { CustomBuilder, DragItemInfo, DragEvent };
   }
+}
+
+/**
+ * Define EdgeEffect Options.
+ *
+ * @interface EdgeEffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface EdgeEffectOptions {
+  /**
+   * Enable Sliding effect when component does not full screen.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  alwaysEnabled: boolean;
 }
