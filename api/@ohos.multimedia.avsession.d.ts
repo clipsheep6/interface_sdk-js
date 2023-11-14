@@ -904,6 +904,30 @@ declare namespace avSession {
     setExtras(extras: {[key: string]: Object}): Promise<void>;
 
     /**
+     * Set loop mode scope.
+     * @param { Array<LoopMode> } scope - {@link LoopMode}
+     * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    setLoopModeScope(scope: Array<LoopMode>, callback: AsyncCallback<void>): void;
+
+    /**
+     * Set loop mode scope.
+     * @param { Array<LoopMode> } scope - {@link LoopMode}
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    setLoopModeScope(data: Array<LoopMode>): Promise<void>;
+
+    /**
      * Get the current session's own controller
      * @param { AsyncCallback<AVSessionController> } callback - async callback for the AVSessionController.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -1767,6 +1791,28 @@ declare namespace avSession {
     getValidCommands(): Promise<Array<AVCastControlCommandType>>;
 
     /**
+     * Get loop mode scope.
+     * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    getLoopModeScope(callback: AsyncCallback<Array<LoopMode>>): void;
+
+    /**
+     * Get loop mode scope.
+     * @returns { Promise<void> } void promise when executed successfully
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    getLoopModeScope(): Promise<Array<LoopMode>>;
+
+    /**
      * Destroy the controller
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -1942,6 +1988,30 @@ declare namespace avSession {
      * @since 10
      */
     off(type: 'seekDone'): void;
+
+    /**
+     * Register loopModeScopeChanged command callback
+     * @param { 'loopModeScopeChanged' } type - Registration Type 'loopModeScopeChanged'
+     * @param { function } callback - Used to handle loopModeScopeChanged command.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    on(type: 'loopModeScopeChanged', callback: Callback<Array<LoopMode>>): void;
+
+    /**
+     * Unregister loopModeScopeChanged command callback
+     * @param { 'loopModeScopeChanged' } type - Registration Type 'loopModeScopeChanged'
+     * @param { function } callback - Used to handle loopModeScopeChanged command.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 11
+     */
+    off(type: 'loopModeScopeChanged', callback?: Callback<Array<LoopMode>>): void;
 
     /**
      * Register listener for video size change event, used at remote side.
