@@ -441,7 +441,7 @@ declare namespace inputMethodEngine {
      * Subscribe 'inputStart'
      *
      * @param { 'inputStart' } type - indicates the type of subscribe event.
-     * @param { InputStartCallback8 } callback - indicates the callback of on('inputStart').
+     * @param { DeprecatedInputStartCallback } callback - indicates the callback of on('inputStart').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      * @deprecated since 11
@@ -453,7 +453,7 @@ declare namespace inputMethodEngine {
      * Unsubscribe 'inputStart'
      *
      * @param { 'inputStart' } type - indicates the type of subscribe event.
-     * @param { InputStartCallback8 } callback - optional, indicates the callback of off('inputStart').
+     * @param { DeprecatedInputStartCallback } callback - optional, indicates the callback of off('inputStart').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      * @deprecated since 11
