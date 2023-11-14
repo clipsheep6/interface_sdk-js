@@ -258,6 +258,80 @@ declare namespace a2dp {
      * @since 11
      */
     disableAbsoluteVolume(deviceId: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Get codec information.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @returns { CodecInfo } Returns the CodecInfo.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    getCurrentCodecInfo(deviceId: string): CodecInfo;
+    
+    /**
+     * Set codec information.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @param { CodecInfo } codecInfo - Indicates the CodecInfo.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth switch is off.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    setCurrentCodecInfo(deviceId: string, codecInfo: CodecInfo): void;
+  }
+
+  /**
+   * Describes the codec information.
+   *
+   * @typedef CodecInfo
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+    interface CodecInfo {
+      /**
+       * codec type
+       *
+       * @syscap SystemCapability.Communication.Bluetooth.Core
+       * @since 11
+       */
+      codecType: CodecType;
+      /**
+       * codec bits per sample.
+       *
+       * @syscap SystemCapability.Communication.Bluetooth.Core
+       * @since 11
+       */
+      codecBitsPerSample: CodecBitsPerSample;
+      /**
+       * codec channel mode.
+       *
+       * @syscap SystemCapability.Communication.Bluetooth.Core
+       * @since 11
+       */
+      codecChannelMode: CodecChannelMode;
+      /**
+       * codec sample rate.
+       *
+       * @syscap SystemCapability.Communication.Bluetooth.Core
+       * @since 11
+       */
+      codecSampleRate: CodecSampleRate;
   }
 
   /**
@@ -282,6 +356,44 @@ declare namespace a2dp {
      * @since 10
      */
     STATE_PLAYING
+  }
+
+  /**
+   * Describes the codec type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 11
+   */
+  enum CodecType {
+    /**
+     * invalid codec type.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_TYPE_INVALID = -1,
+    /**
+     * SBC - Sub-band coding.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_TYPE_SBC = 0,
+    /**
+     * AAC -Advanced Audio Coding.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_TYPE_AAC = 1,
+    /**
+     * L2HC.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    CODEC_TYPE_L2HC = 2,
   }
 }
 
