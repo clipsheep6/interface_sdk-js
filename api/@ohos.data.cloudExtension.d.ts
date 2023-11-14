@@ -30,7 +30,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @since 11
    */
-  type Participant = cloudData.sharing.Participant;
+  export type Participant = cloudData.sharing.Participant;
 
   /**
    * Defines participantStatus.
@@ -38,7 +38,7 @@ declare namespace cloudExtension {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @since 11
    */
-  type ParticipantStatus = cloudData.sharing.Status;
+  export type ParticipantStatus = cloudData.sharing.Status;
 
   /**
    * Defines the result.
