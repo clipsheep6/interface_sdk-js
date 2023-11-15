@@ -312,7 +312,7 @@ declare namespace intelligentVoice {
      * @systemapi
      * @since 11
      */
-    fileContent: ArrayBuffer
+    fileContent: ArrayBuffer;
   }
 
   /**
@@ -1225,7 +1225,7 @@ declare namespace intelligentVoice {
      * @systemapi
      * @since 11
      */
-     UNKNOWN = 0,
+    UNKNOWN = 0,
     /**
      * PASS.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
