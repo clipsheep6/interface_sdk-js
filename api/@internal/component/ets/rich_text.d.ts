@@ -33,6 +33,39 @@ interface RichTextInterface {
 }
 
 /**
+ * Enum type supplied to {@link darkMode} for setting the RichText dark mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare enum RichTextDarkMode {
+  /**
+   * Disable the RichText dark mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  OFF,
+
+  /**
+   * Enable the RichText dark mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  ON,
+
+  /**
+   * Make RichText dark mode follow the system.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  AUTO,
+}
+
+/**
  * Defines the RichText attribute functions.
  *
  * @extends CommonMethod<RichTextAttribute>
@@ -59,6 +92,46 @@ declare class RichTextAttribute extends CommonMethod<RichTextAttribute> {
    * @since 8
    */
   onComplete(callback: () => void): RichTextAttribute;
+
+  /**
+   * Sets whether the RichText access overview mode.
+   *
+   * @param { boolean } overviewModeAccess {@code true} means the RichText access overview mode; {@code false} otherwise.
+   * @returns { RichTextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  overviewModeAccess(overviewModeAccess: boolean): RichTextAttribute;
+
+  /**
+   * Sets the initial scale for the RichText.
+   *
+   * @param { number } percent the initial scale for the RichText.
+   * @returns { RichTextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  initialScale(percent: number): RichTextAttribute;
+
+  /**
+   * Sets the dark mode of RichText.
+   *
+   * @param { RichTextDarkMode } mode - The dark mode, which can be {@link RichTextDarkMode}.
+   * @returns { RichTextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  darkMode(mode: RichTextDarkMode): RichTextAttribute;
+
+  /**
+   * Sets whether to enable forced dark algorithm when the RichText is in dark mode
+   *
+   * @param { boolean } access {@code true} means enable the force dark algorithm; {@code false} otherwise.
+   * @returns { RichTextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  forceDarkAccess(access: boolean): RichTextAttribute;
 }
 
 /**
