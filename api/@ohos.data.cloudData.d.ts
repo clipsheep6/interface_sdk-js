@@ -370,6 +370,133 @@ declare namespace cloudData {
     }
 
     /**
+     * Enumerates the error code of sharing invitation.
+     *
+     * @enum { number }
+     * @syscap systemCapability.DistributedDataManager.CloudData.Sharing
+     * @systemapi
+     * @since 11
+     */
+    export enum ErrorCode {
+      /**
+       * Invalid parameter.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      INVALID_PARAMETER = 11001,
+
+      /**
+       * The number of sharing times today of current user has reached maximum.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      SHARING_TIMES_LIMIT_EXCEEDED = 14000,
+
+      /**
+       * The number of resource sharing times reaches the maximum.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      RESOURCE_SHARING_TIMES_LIMIT_EXCEEDED = 14001,
+
+      /**
+       * The sharing resource can't modify permission.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      FORBID_MODIFY_PERMISSION = 14002,
+
+      /**
+       * Invoke cloud space failed.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      INVOKE_CLOUD_SPACE_FAILURE = 14003,
+
+      /**
+       * The user has been invited.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      ALREADY_INVITED = 14004,
+
+      /**
+       * Sharing resource feed back error.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      FEED_BACK = 14005,
+
+      /**
+       * Sharing resource not exist error.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      RESOURCE_NOT_EXIST = 14006,
+
+      /**
+       * Sharing resource has feed back once.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      FEED_BACK_ONCE = 14007,
+
+      /**
+       * Current user have no permission operation resource.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      PERMISSION_DENIED = 14008,
+
+      /**
+       * Part of accounts operation failed.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      PART_OPERATION_FAILURE = 14009,
+
+      /**
+       * Parse permission failed.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      PARSE_PERMISSION_FAILURE = 14010,
+
+      /**
+       * The sharing resource mpt support the exit function.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      FORBID_EXIT = 14011,
+    }
+
+    /**
      * Result interface.
      *
      * @interface Result
