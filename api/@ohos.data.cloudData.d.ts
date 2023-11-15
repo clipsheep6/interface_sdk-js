@@ -439,7 +439,7 @@ declare namespace cloudData {
        * @systemapi
        * @since 11
        */
-      FEED_BACK = 14005,
+      FEED_BACK_ERROR = 14005,
 
       /**
        * Sharing resource not exist error.
@@ -487,7 +487,7 @@ declare namespace cloudData {
       PARSE_PERMISSION_FAILURE = 14010,
 
       /**
-       * The sharing resource mpt support the exit function.
+       * The sharing resource not support the exit function.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
