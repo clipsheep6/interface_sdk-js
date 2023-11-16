@@ -41,7 +41,7 @@ export declare enum AVCastPickerState {
  * @since 10
  */
 @Component
-declare struct AVCastPicker {
+export declare struct AVCastPicker {
   /**
    * Assigns the color of picker component at normal state .
    * @type { ? Color | number | string }
@@ -71,4 +71,3 @@ declare struct AVCastPicker {
    */
   onStateChange?: (state: AVCastPickerState) => void;
 }
-export default AVCastPicker;
