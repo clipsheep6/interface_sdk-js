@@ -377,123 +377,96 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    export enum ErrorCode {
+    export enum SharingCode {
       /**
-       * Invalid parameter.
+       * SUCCESS: means sharing success.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      INVALID_PARAMETER = 11001,
+      SUCCESS = 0,
 
       /**
-       * The number of sharing times today of current user has reached maximum.
+       * INVALID_ARGS: means invalid arguments.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      SHARING_TIMES_LIMIT_EXCEEDED = 14000,
+      INVALID_ARGS = 1,
 
       /**
-       * The number of resource sharing times reaches the maximum.
+       * OVER_QUOTA: means the number of sharing times today of current user has reached maximum.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      RESOURCE_SHARING_TIMES_LIMIT_EXCEEDED = 14001,
+      OVER_QUOTA = 2,
 
       /**
-       * The sharing resource can't modify permission.
+       * PARTICIPANTS_LIMIT_EXCEEDED: means the number of participants reaches the maximum.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      FORBID_MODIFY_PERMISSION = 14002,
+      PARTICIPANTS_LIMIT_EXCEEDED = 3,
 
       /**
-       * Invoke cloud space failed.
+       * SERVER_ERROR: means invoke cloud space failed.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      INVOKE_CLOUD_SPACE_FAILURE = 14003,
+      SERVER_ERROR = 4,
 
       /**
-       * The user has been invited.
+       * REPEATED_INVOKE: means the user has been invited.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      ALREADY_INVITED = 14004,
+      REPEATED_INVOKE = 5,
 
       /**
-       * Sharing resource feed back error.
+       * INVALID_INVITATION: means the invitation has expired or does not exist.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      FEED_BACK_ERROR = 14005,
+       INVALID_INVITATION = 6,
 
       /**
-       * Sharing resource not exist error.
+       * NOT_OWNER_OR_MEMBER: means the participant is not inviter or invitee.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      RESOURCE_NOT_EXIST = 14006,
+      NOT_OWNER_OR_MEMBER = 7,
 
       /**
-       * Sharing resource has feed back once.
+       * RATE_LIMIT: means the data transfer is rate-limited.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      FEED_BACK_ONCE = 14007,
+      RATE_LIMIT = 8,
 
       /**
-       * Current user have no permission operation resource.
+       * FORBID_DATA: means the data forbid to share.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      PERMISSION_DENIED = 14008,
-
-      /**
-       * Part of accounts operation failed.
-       *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
-       * @systemapi
-       * @since 11
-       */
-      PART_OPERATION_FAILURE = 14009,
-
-      /**
-       * Parse permission failed.
-       *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
-       * @systemapi
-       * @since 11
-       */
-      PARSE_PERMISSION_FAILURE = 14010,
-
-      /**
-       * The sharing resource not support the exit function.
-       *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
-       * @systemapi
-       * @since 11
-       */
-      FORBID_EXIT = 14011,
+      FORBID_DATA = 9
     }
 
     /**
@@ -515,6 +488,16 @@ declare namespace cloudData {
        * @since 11
        */
       code: number;
+
+      /**
+       * Error code description.
+       *
+       * @type { number }
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      description: string;
 
       /**
        * The result value.
@@ -647,14 +630,14 @@ declare namespace cloudData {
       privilege?: Privilege;
 
       /**
-       * Extended information.
+       * Attach information.
        *
        * @type { ?string }
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      extension?: string;
+      attachInfo?: string;
     }
 
     /**
