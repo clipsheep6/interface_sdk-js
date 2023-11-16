@@ -29,6 +29,19 @@ import { AnimateParam } from 'AnimateParam';
  */
 declare namespace dragController {
   /**
+   * Defines the Dragging Status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  enum DraggingStatus {
+    DRAG_STARTED = 0,
+    DRAG_ENDED = 1,
+  }
+  /**
    * DragInfo object description
    * 
    * @interface DragInfo
@@ -136,7 +149,7 @@ declare namespace dragController {
    * @since 11
    */
      function executeDrag(customs: Array<DragItemInfo>, dragInfo: DragInfo, callback: AsyncCallback<{
-      event: DragEvent, extraParams: string
+      event: DragEvent, extraParams: string, status: DraggingStatus
     }>): void;
   
     /**
@@ -150,7 +163,7 @@ declare namespace dragController {
      * @since 11
      */
     function executeDrag(customs: Array<DragItemInfo>, dragInfo: DragInfo): Promise<{
-      event: DragEvent, extraParams: string
+      event: DragEvent, extraParams: string, status: DraggingStatus
     }>;
 
     /**
