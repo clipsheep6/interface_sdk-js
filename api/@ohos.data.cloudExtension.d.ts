@@ -50,7 +50,7 @@ declare namespace cloudExtension {
    */
   export interface Result<T> {
     /**
-     * Error code {@link ErrorCode}.
+     * Error code.
      *
      * @type { number }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
@@ -58,6 +58,16 @@ declare namespace cloudExtension {
      * @since 11
      */
     code: number;
+
+    /**
+     * Error code description.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+     * @systemapi
+     * @since 11
+     */
+    description: string;
 
     /**
      * Result value.
