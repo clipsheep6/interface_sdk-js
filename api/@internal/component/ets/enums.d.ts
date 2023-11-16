@@ -6029,6 +6029,31 @@ declare enum EllipsisMode {
 }
 
 /**
+ * Enum of DynamicType
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare enum DynamicType {
+  /**
+   * The DynamicComponent show the UI in LimitedRuntime.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  LimitedRuntime = 0,
+
+  /**
+   * The DynamicComponent show the UI in UIExtensionAbility.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  UIExtension = 1,
+}
+
+/**
  * A type which can be undefined
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
