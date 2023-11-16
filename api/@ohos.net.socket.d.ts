@@ -420,13 +420,6 @@ declare namespace socket {
     * @since 11
     */
     address: string;
-   /**
-    * Port number. The value ranges from 0 to 65535.
-    * @type {?number}
-    * @syscap SystemCapability.Communication.NetManager.Core
-    * @since 11
-    */
-    port?: number; 
   }
 
    /**
@@ -437,7 +430,7 @@ declare namespace socket {
     */
   export interface LocalConnectOptions {
    /**
-    * Bound Local address and port number.
+    * Bound Local address.
     * @type { LocalAddress }
     * @syscap SystemCapability.Communication.NetStack
     * @since 11
@@ -3245,7 +3238,7 @@ declare namespace socket {
    */  
   export interface LocalSocket  {
     /**
-     * Binds the Local address and port number. The port number can be specified or randomly allocated by the system.
+     * Binds the Local address. 
      * @param { LocalAddress } address - Destination address. {@link LocalAddress}
      * @param { AsyncCallback<void> } callback - the callback of bind.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3255,7 +3248,7 @@ declare namespace socket {
     bind(address: LocalAddress, callback: AsyncCallback<void>): void;
 
     /**
-     * Binds the Local address and port number. The port number can be specified or randomly allocated by the system.
+     * Binds the Local address. 
      * @param { LocalAddress } address - Destination address. {@link LocalAddress}
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3265,7 +3258,7 @@ declare namespace socket {
     bind(address: LocalAddress): Promise<void>;
 
     /**
-     * Sets up a connection to the specified Local address and port number.
+     * Sets up a connection to the specified Local address .
      * @param { LocalConnectOptions } options - Optional parameters {@link LocalConnectOptions}.
      * @param { AsyncCallback<void> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3275,7 +3268,7 @@ declare namespace socket {
     connect(options: LocalConnectOptions, callback: AsyncCallback<void>): void;
      
     /**
-     * Sets up a connection to the specified Local address and port number.
+     * Sets up a connection to the specified Local address .
      * @param { LocalConnectOptions } options - Optional parameters {@link LocalConnectOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3572,7 +3565,7 @@ declare namespace socket {
    */
   export interface LocalSocketServer {
     /**
-     * Binds the Local address and port number, the port number can be specified or randomly allocated by the system.
+     * Binds the Local address .
      * <p>Listens for a LocalSocket connection to be made to this socket and accepts it. This interface uses multiple threads
      * for accept processing and uses poll multiplex to process client connections.</p>
      * @param { LocalAddress } address - Network address information {@link LocalAddress}.
@@ -3589,7 +3582,7 @@ declare namespace socket {
     listen(address: LocalAddress, callback: AsyncCallback<void>): void;
 
     /** 
-     * Binds the Local address and port number, the port number can be specified or randomly allocated by the system.
+     * Binds the Local address .
      * <p>Listens for a LocalSocket connection to be made to this socket and accepts it. This interface uses multiple threads
      * for accept processing and uses poll multiplex to process client connections.</p>
      * @param { LocalAddress } address - Network address information {@link LocalAddress}.
