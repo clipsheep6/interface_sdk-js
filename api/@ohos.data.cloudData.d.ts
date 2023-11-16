@@ -492,7 +492,7 @@ declare namespace cloudData {
       /**
        * Error code description.
        *
-       * @type { number }
+       * @type { string }
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
