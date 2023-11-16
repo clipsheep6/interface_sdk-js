@@ -92,6 +92,44 @@ declare namespace osAccount {
     activateOsAccount(localId: number): Promise<void>;
 
     /**
+     * Deactivates a specified OS account.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    deactivateOsAccount(localId: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Deactivates a specified OS account.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    deactivateOsAccount(localId: number): Promise<void>;
+
+    /**
      * Checks whether the function of supporting multiple OS accounts is enabled.
      *
      * @param { AsyncCallback<boolean> } callback - Returns {@code true} if this function is enabled; returns {@code false} otherwise.
@@ -1469,6 +1507,24 @@ declare namespace osAccount {
     on(type: 'activate' | 'activating', name: string, callback: Callback<number>): void;
 
     /**
+     * Subscribes the deactivate or deacvating events of accounts.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { 'deactivate' | 'deactivating' } type - Event type.
+     * @param { string } name - Indicates the name of subscriber.
+     * @param { Callback<number> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid type or name.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    on(type: 'deactivate' | 'deactivating', name: string, callback: Callback<number>): void;
+
+    /**
      * Unsubscribes from account events.
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
@@ -1485,6 +1541,24 @@ declare namespace osAccount {
      * @since 7
      */
     off(type: 'activate' | 'activating', name: string, callback?: Callback<number>): void;
+
+    /**
+     * Unsubscribes the deactivate or deacvating events of accounts.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { 'deactivate' | 'deactivating' } type - Event type.
+     * @param { string } name - Indicates the name of subscriber.
+     * @param { Callback<number> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid type or name.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    off(type: 'deactivate' | 'deactivating', name: string, callback?: Callback<number>): void;
 
     /**
      * Gets the bundle ID associated with the specified UID.
