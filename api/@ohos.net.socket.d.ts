@@ -3366,7 +3366,7 @@ declare namespace socket {
     setExtraOptions(options: LocalExtraOptions): Promise<void>;
  
     /**
-     * Sets other attributes of the LocalSocket connection.
+     * Gets other attributes of the LocalSocket connection.
      * @param { LocalExtraOptions } options - Optional parameters {@link LocalExtraOptions}.
      * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3376,7 +3376,7 @@ declare namespace socket {
     getExtraOptions(callback: AsyncCallback<LocalExtraOptions>): void;
 
     /**
-     * Sets other attributes of the LocalSocket connection.
+     * Gets other attributes of the LocalSocket connection.
      * @param { LocalExtraOptions } options - Optional parameters {@link LocalExtraOptions}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
@@ -3642,6 +3642,26 @@ declare namespace socket {
      * @since 11
      */
     setExtraOptions(options: LocalExtraOptions): Promise<void>;
+    
+    /**
+     * Gets other attributes of the LocalSocket connection.
+     * @param { LocalExtraOptions } options - Optional parameters {@link LocalExtraOptions}.
+     * @param { AsyncCallback<void> } callback - the callback of setExtraOptions.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getExtraOptions(callback: AsyncCallback<LocalExtraOptions>): void;
+
+    /**
+     * Gets other attributes of the LocalSocket connection.
+     * @param { LocalExtraOptions } options - Optional parameters {@link LocalExtraOptions}.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    getExtraOptions(): Promise<LocalExtraOptions>;        
 
     /**
      * Listens for connect events of the LocalSocketServer connection.
