@@ -459,21 +459,21 @@ declare namespace inputMethodEngine {
      * Subscribe 'keyboardShow'|'keyboardHide'
      *
      * @param { 'keyboardShow' | 'keyboardHide' } type - indicates the type of subscribe event.
-     * @param { EmptyCallback } callback - indicates the callback of on('keyboardShow'|'keyboardHide').
+     * @param { Callback<void> } callback - indicates the callback of on('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
-    on(type: 'keyboardShow' | 'keyboardHide', callback: EmptyCallback): void;
+    on(type: 'keyboardShow' | 'keyboardHide', callback: Callback<void>): void;
 
     /**
      * Unsubscribe 'keyboardShow'|'keyboardHide'
      *
      * @param { 'keyboardShow' | 'keyboardHide' } type - indicates the type of subscribe event.
-     * @param { EmptyCallback } [callback] - optional, indicates the callback of off('keyboardShow'|'keyboardHide').
+     * @param { Callback<void> } [callback] - optional, indicates the callback of off('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
-    off(type: 'keyboardShow' | 'keyboardHide', callback?: EmptyCallback): void;
+    off(type: 'keyboardShow' | 'keyboardHide', callback?: Callback<void>): void;
   }
 
   /**
@@ -510,21 +510,21 @@ declare namespace inputMethodEngine {
      * Subscribe 'inputStop'.
      *
      * @param { 'inputStop' } type - the type of subscribe event.
-     * @param { EmptyCallback } callback - the callback of on('inputStop').
+     * @param { Callback<void> } callback - the callback of on('inputStop').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    on(type: 'inputStop', callback: EmptyCallback): void;
+    on(type: 'inputStop', callback: Callback<void>): void;
 
     /**
      * Unsubscribe 'inputStop'.
      *
      * @param { 'inputStop' } type - the type of unsubscribe event.
-     * @param { EmptyCallback } callback - the callback of off('inputStop').
+     * @param { Callback<void> } callback - the callback of off('inputStop').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    off(type: 'inputStop', callback: EmptyCallback): void;
+    off(type: 'inputStop', callback: Callback<void>): void;
 
     /**
      * Subscribe 'setCallingWindow'.
@@ -550,21 +550,21 @@ declare namespace inputMethodEngine {
      * Subscribe 'keyboardShow'|'keyboardHide'.
      *
      * @param { 'keyboardShow' | 'keyboardHide' } type - the type of subscribe event.
-     * @param { EmptyCallback } callback - the callback of on('keyboardShow'|'keyboardHide').
+     * @param { Callback<void> } callback - the callback of on('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    on(type: 'keyboardShow' | 'keyboardHide', callback: EmptyCallback): void;
+    on(type: 'keyboardShow' | 'keyboardHide', callback: Callback<void>): void;
 
     /**
      * Unsubscribe 'keyboardShow'|'keyboardHide'.
      *
      * @param { 'keyboardShow' | 'keyboardHide' } type - the type of unsubscribe event.
-     * @param { EmptyCallback } [callback] - the callback of off('keyboardShow'|'keyboardHide').
+     * @param { Callback<void> } [callback] - the callback of off('keyboardShow'|'keyboardHide').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
-    off(type: 'keyboardShow' | 'keyboardHide', callback?: EmptyCallback): void;
+    off(type: 'keyboardShow' | 'keyboardHide', callback?: Callback<void>): void;
 
     /**
      * Subscribe 'setSubtype'.
@@ -1484,44 +1484,44 @@ declare namespace inputMethodEngine {
      * <p>The "show" events are triggered when the panel is shown.</p>
      *
      * @param { 'show' } type - events type.
-     * @param { EmptyCallback } callback - the callback will be called when events are triggered.
+     * @param { Callback<void> } callback - the callback will be called when events are triggered.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    on(type: 'show', callback: EmptyCallback): void;
+    on(type: 'show', callback: Callback<void>): void;
 
     /**
      * Unregisters panel show event.
      *
      * @param { 'show' } type - events type.
-     * @param { EmptyCallback } [callback] - the callback to Unregister.
+     * @param { Callback<void> } [callback] - the callback to Unregister.
      * @throws { BusinessError } 401 -parameter error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'show', callback?: EmptyCallback): void;
+    off(type: 'show', callback?: Callback<void>): void;
 
     /**
      * Registers panel hide event.
      * <p>The "hide" events are triggered when the panel is hidden.</p>
      *
      * @param { 'hide' } type - events type.
-     * @param { EmptyCallback } callback - the callback will be called when events are triggered.
+     * @param { Callback<void> } callback - the callback will be called when events are triggered.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    on(type: 'hide', callback: EmptyCallback): void;
+    on(type: 'hide', callback: Callback<void>): void;
 
     /**
      * Unregisters panel hide event.
      *
      * @param { 'hide' } type - events type.
-     * @param { EmptyCallback } [callback] - the callback to Unregister.
+     * @param { Callback<void> } [callback] - the callback to Unregister.
      * @throws { BusinessError } 401 -parameter error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
-    off(type: 'hide', callback?: EmptyCallback): void;
+    off(type: 'hide', callback?: Callback<void>): void;
 
     /**
      * Changes panel flag.
@@ -1809,8 +1809,6 @@ declare namespace inputMethodEngine {
   type IMAInputStartCallback = (kbController: KeyboardController, textInputClient: InputClient) => void;
 
   type IMEInputStartCallback = (kbController: KeyboardController, textInputClient: TextInputClient) => void;
-
-  type EmptyCallback = () => void;
 
   type KeyEventCallback = (event: KeyEvent) => boolean;
 
