@@ -645,6 +645,16 @@ declare namespace cloudData {
        * @since 11
        */
       privilege?: Privilege;
+
+      /**
+       * Extended information.
+       *
+       * @type { ?string }
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      extension?: string;
     }
 
     /**
