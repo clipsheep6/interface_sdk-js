@@ -3332,6 +3332,71 @@ declare interface BlurStyleOptions {
 }
 
 /**
+ * Defines the options of BackgroundEffect
+ *
+ * @interface BackgroundEffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface BackgroundEffectOptions {
+
+  /**
+   * Define the radius size of BackgroundEffect.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  radius: number;
+
+  /**
+   * Define the saturation of BackgroundEffect.
+   *
+   * @type { ?number }
+   * @default 1
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  saturation?: number;
+
+  /**
+   * Define the brightness of BackgroundEffect.
+   * 
+   * @type { ?number }
+   * @default 1
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  brightness?: number;
+
+  /**
+   * color the brightness of BackgroundEffect.
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  color?: ResourceColor;
+
+  /**
+   * Define the adaptiveColor of BackgroundEffect.
+   *
+   * @type { ?AdaptiveColor }
+   * @default AdaptiveColor.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+   adaptiveColor?: AdaptiveColor;
+}
+
+/**
  * Provide an interface for the text style of picker
  *
  * @interface PickerTextStyle
@@ -7185,6 +7250,18 @@ declare class CommonMethod<T> {
    * @form
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
+
+  /**
+   * Background blur style.
+   * options:Background effect options.
+   *
+   * @param { BackgroundEffectOptions } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+    backgroundEffect(options: BackgroundEffectOptions): T;
 
   /**
    * Foreground blur style.
