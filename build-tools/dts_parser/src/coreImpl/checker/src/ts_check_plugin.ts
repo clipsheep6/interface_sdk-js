@@ -21,6 +21,7 @@ import { ApiResultSimpleInfo, ErrorType, ErrorID, LogType, ErrorLevel, ApiResult
   '../../../typedef/checker/result_type';
 import { StringConstant } from '../../../utils/Constant';
 import { PosOfNode, CompolerOptions, ObtainFullPath, GenerateFile } from '../../../utils/checkUtils';
+import { hasChildApiType, compositiveResult, compositiveLocalResult } from '../../../utils/checkUtils';
 
 export class TsSyntaxCheck {
   /**
@@ -44,11 +45,10 @@ export class TsSyntaxCheck {
       const host: ts.CompilerHost = ts.createCompilerHost(CompolerOptions.getCompolerOptions());
       const diagnostics: ts.Diagnostic[] = ts.runArkTSLinter(program, host);
       files.forEach((filePath: string, index: number) => {
-        TsSyntaxCheck.checkAPISyntaxCallback(filePath, program, diagnostics, programSourceFiles, tsResult, tsLocalResult);
+        TsSyntaxCheck.checkAPISyntaxCallback(filePath, program, diagnostics, programSourceFiles, compositiveResult, compositiveLocalResult);
         console.log(`scaning file in no ${++index}!`);
       });
     }
-    GenerateFile.writeExcelFile(tsLocalResult);
     return tsResult;
   }
   /**
@@ -73,8 +73,10 @@ export class TsSyntaxCheck {
         if (programSourceFile.fileName === targetSourceFile.fileName) {
           const result: readonly ts.Diagnostic[] = program.getSemanticDiagnostics(programSourceFile);
           result.forEach(item => {
+            const filePath: string = item.file?.fileName as string;
+            const fileName: string = filePath.substring(filePath.indexOf('api'), filePath.length);
             AddErrorLogs.addAPICheckErrorLogs(ErrorID.TS_SYNTAX_ERROR_ID, ErrorLevel.MIDDLE,
-              item.file?.fileName as string, PosOfNode.getPosOfNode(node, item),
+              fileName, ts.getLineAndCharacterOfPosition(node.getSourceFile(), item.start as number),
               ErrorType.TS_SYNTAX_ERROR, LogType.LOG_API, -1, 'NA', 'NA', item.messageText as string, tsResult,
               checkErrorAllInfos);
           });
@@ -85,8 +87,10 @@ export class TsSyntaxCheck {
     if (fileSuffix === '.ets') {
       diagnostics.forEach(item => {
         if (path.normalize(item.file?.fileName as string) === path.normalize(fileName)) {
+          const filePath: string = item.file?.fileName as string;
+          const fileName: string = filePath.substring(filePath.indexOf('api'), filePath.length);
           AddErrorLogs.addAPICheckErrorLogs(ErrorID.TS_SYNTAX_ERROR_ID, ErrorLevel.MIDDLE,
-            item.file?.fileName as string, PosOfNode.getPosOfNode(node, item),
+            fileName, ts.getLineAndCharacterOfPosition(node.getSourceFile(), item.start as number),
             ErrorType.TS_SYNTAX_ERROR, LogType.LOG_API, -1, 'NA', 'NA', item.messageText as string, tsResult,
             checkErrorAllInfos);
         }
