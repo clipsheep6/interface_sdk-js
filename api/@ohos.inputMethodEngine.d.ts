@@ -1219,7 +1219,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8
      */
-    on(type: 'keyDown' | 'keyUp', KeyEventCallback): void;
+    on(type: 'keyDown' | 'keyUp', callback: KeyEventCallback): void;
 
     /**
      * Unsubscribe key up or down event
