@@ -8787,6 +8787,31 @@ declare enum EllipsisMode {
 }
 
 /**
+ * Enum of AsyncType
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare enum AsyncType {
+  /**
+   * The AsyncComponent show the UI in UIExtensionAbility.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  UIExtension = 0,
+
+  /**
+   * The AsyncComponent show the UI in LimitedRuntime.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  LimitedRuntime = 1,
+}
+
+/**
  * A type which can be undefined
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
