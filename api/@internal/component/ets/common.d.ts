@@ -2769,6 +2769,30 @@ declare namespace focusControl {
   function requestFocus(value: string): boolean;
 }
 
+declare namespace cursorControl {
+
+  /**
+   * Change the mouse cursor style by param: 'PointerStyle'.
+   *
+   * @param { number } value
+   * @returns { void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  function setCursor(value: number);
+
+  /**
+   * Restore the default mouse cursor style.
+   *
+   * @returns { void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  function restoreDefault();
+}
+
 /**
  * Defines the event target.
  *
