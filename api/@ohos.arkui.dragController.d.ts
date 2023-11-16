@@ -15,9 +15,11 @@
 
 /// <reference path="../component/common.d.ts" />
 
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback, BusinessError } from './@ohos.base';
 import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
-import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
+import type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions } from 'DragControllerParam';
+import type { ResourceColor, TouchPoint } from 'DragControllerUnitParam';
+import { AnimateParam } from 'AnimateParam';
 
 /**
  * This module allows developers to trigger a drag event.
@@ -57,6 +59,46 @@ declare namespace dragController {
     * @since 10
     */
     extraParams?: string;
+
+    /**
+     * Touch point coordinates.
+    * @type { ?TouchPoint }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 11
+     */
+    touchPoint?: TouchPoint;
+
+    /**
+    * Drag preview options.
+    * @type { ?DragPreviewOptions }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 11
+     */
+    previewOptions?: DragPreviewOptions;
+  }
+
+  /**
+   * Provides the functions of setting color or updating animation.
+   * @syscap SystemCapability.DragPreview
+   * @since 11
+   */
+  export class DragPreview {
+    /**
+     * change forground color of preview
+     * @param { ResourceColor } color - color value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    setForgroundColor(color: ResourceColor): void;
+
+    /**
+     * update preview style with animation
+     * @param { AnimateParam } value - animation parameters
+     * @param { function } event - change style functions
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    updateWithAnimation(value: AnimateParam, event: () =>void): void;
   }
 
   /**
@@ -82,6 +124,42 @@ declare namespace dragController {
   function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo): Promise<{
     event: DragEvent, extraParams: string
   }>;
+
+  /**
+   * Execute a drag event.
+   * @param { Array<DragItemInfo> } customs - Objects used for prompts displayed when the objects are dragged.
+   * @param { DragInfo } dragInfo - Information about the drag event.
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains the drag event information.
+   * @throws {BusinessError} 401 - if the parameters checking failed.
+   * @throws {BusinessError} 100001 - if some internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+     function executeDrag(customs: Array<DragItemInfo>, dragInfo: DragInfo, callback: AsyncCallback<{
+      event: DragEvent, extraParams: string
+    }>): void;
+  
+    /**
+     * Execute a drag event.
+     * @param { Array<DragItemInfo> } customs - Objects used for prompts displayed when the objects are dragged.
+     * @param { DragInfo } dragInfo - Information about the drag event.
+     * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
+     * @throws {BusinessError} 401 - if the parameters checking failed.
+     * @throws {BusinessError} 100001 - if some internal handling failed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    function executeDrag(customs: Array<DragItemInfo>, dragInfo: DragInfo): Promise<{
+      event: DragEvent, extraParams: string
+    }>;
+
+    /**
+     * Get drag preview object.
+     * @returns { DragPreview } An drag preview object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    function getDragPreview(): DragPreview;
 }
 
 export default dragController;

@@ -1509,3 +1509,30 @@ declare module "GlobalResource" {
     export type { Resource, ResourceStr };
   }
 }
+
+declare interface TouchPoint {
+  /**
+   * Define the touch point x coordinate.
+   *
+   * @type { Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  x: Dimension;
+
+  /**
+   * Define the touch point y coordinate.
+   *
+   * @type { Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  y: Dimension;
+}
+
+declare module "DragControllerUnitParam" {
+  module 'DragControllerUnitParam' {
+    // @ts-ignore
+    export type {ResourceColor, TouchPoint };
+  }
+}
