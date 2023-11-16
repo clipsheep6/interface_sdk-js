@@ -11148,3 +11148,48 @@ declare interface EdgeEffectOptions {
    */
   alwaysEnabled: boolean;
 }
+
+/**
+ * Define DynamicLightUp Options.
+ *
+ * @interface DynamicLightUpOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @crossplatform
+ * @since 11
+ */
+declare interface DynamicLightUpOptions {
+  
+  /**
+   * Rate represents the rate at which ightUpDegree
+   * decreases with increasing pixel brightness.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  rate: number;
+
+  /**
+   * LightUpDegree represents the degree of brightness
+   * improvement of the rgb value when its brightness
+   * is 0.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  lightUpDegree: number;
+}
+
+/**
+   * Adds a background dynamic light up effect to the current component.
+   *
+   * @param { DynamicLightUpOptions } params
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @crossplatform
+   * @since 11
+   */
+dynamicLightUp(params: DynamicLightUpOptions): T;
