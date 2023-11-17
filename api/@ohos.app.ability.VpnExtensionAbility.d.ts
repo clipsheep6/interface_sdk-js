@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,9 +20,7 @@ import Want from './@ohos.app.ability.Want';
  * class of vpn extension ability.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
- * @StageModelOnly
- * @since 10
+ * @since 11
  */
 export default class VpnExtensionAbility {
   /**
@@ -30,9 +28,7 @@ export default class VpnExtensionAbility {
    *
    * @type { VpnExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
-   * @since 10
+   * @since 11
    */
   context: VpnExtensionContext;
 
@@ -41,9 +37,7 @@ export default class VpnExtensionAbility {
    *
    * @param { Want } want - Indicates the want of created service extension.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
-   * @since 10
+   * @since 11
    */
   onCreate(want: Want): void;
 
@@ -51,9 +45,7 @@ export default class VpnExtensionAbility {
    * Called back before a vpn extension is destroyed.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
-   * @since 10
+   * @since 11
    */
   onDestroy(): void;
 }
