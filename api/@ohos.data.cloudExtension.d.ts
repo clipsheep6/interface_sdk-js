@@ -28,6 +28,7 @@ declare namespace cloudExtension {
    * Defines participant.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+   * @systemapi
    * @since 11
    */
   export type Participant = cloudData.sharing.Participant;
@@ -36,9 +37,19 @@ declare namespace cloudExtension {
    * Defines participantStatus.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+   * @systemapi
    * @since 11
    */
   export type ParticipantStatus = cloudData.sharing.Status;
+
+  /**
+   * Defines sharingCode.
+   *
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
+   * @systemapi
+   * @since 11
+   */
+  export type SharingCode = cloudData.sharing.SharingCode;
 
   /**
    * Defines the result.
@@ -62,17 +73,17 @@ declare namespace cloudExtension {
     /**
      * Error code description.
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    description: string;
+    description?: string;
 
     /**
      * Result value.
      *
-     * @type { T }
+     * @type { ?T }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
@@ -112,7 +123,7 @@ declare namespace cloudExtension {
    */
   export interface ShareCenter {
     /**
-     * Share data with specific participants.
+     * Shares data with specific participants.
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
@@ -131,7 +142,7 @@ declare namespace cloudExtension {
     ): Promise<Result<Array<Result<Participant>>>>;
 
     /**
-     * Unshare data with specific participants.
+     * Unshares data with specific participants.
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
@@ -150,7 +161,7 @@ declare namespace cloudExtension {
     ): Promise<Result<Array<Result<Participant>>>>;
 
     /**
-     * Exit the sharing.
+     * Exits the sharing.
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
@@ -182,7 +193,7 @@ declare namespace cloudExtension {
     ): Promise<Result<Array<Result<Participant>>>>;
 
     /**
-     * Query participants of the specific sharing resource.
+     * Queries participants of the specific sharing resource.
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
@@ -199,7 +210,7 @@ declare namespace cloudExtension {
     ): Promise<Result<Array<Participant>>>;
 
     /**
-     * Query participants based on the specified invitation code.
+     * Queries participants based on the specified invitation code.
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
@@ -268,7 +279,7 @@ declare namespace cloudExtension {
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
-     * @returns { Promise<rpc.RemoteObject> } Returns connectAssetLoader RemoteObject.
+     * @returns { Promise<rpc.RemoteObject> } Returns shareCenter RemoteObject.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
