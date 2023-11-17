@@ -291,7 +291,7 @@ declare namespace cloudData {
    * Provides methods to implement cloud sharing.
    *
    * @namespace sharing
-   * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 11
    */
   export namespace sharing {
@@ -299,7 +299,7 @@ declare namespace cloudData {
      * Enumerates the roles.
      *
      * @enum { number }
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -307,7 +307,7 @@ declare namespace cloudData {
       /**
        * ROLE_INVITER: means inviter of cloud sharing.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -316,7 +316,7 @@ declare namespace cloudData {
       /**
        * ROLE_INVITEE: means invitee of cloud sharing.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -327,7 +327,7 @@ declare namespace cloudData {
      * Enumerates the statuses of sharing invitation.
      *
      * @enum { number }
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -335,7 +335,7 @@ declare namespace cloudData {
       /**
        * STATUS_UNKNOWN: Unknown status.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -344,7 +344,7 @@ declare namespace cloudData {
       /**
        * STATUS_ACCEPTED: Accept the sharing invitation.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -353,7 +353,7 @@ declare namespace cloudData {
       /**
        * STATUS_REJECTED: Reject the sharing invitation.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -362,7 +362,7 @@ declare namespace cloudData {
       /**
        * STATUS_SUSPENDED: Suspend the sharing process.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -373,7 +373,7 @@ declare namespace cloudData {
      * Enumerates the error code of sharing invitation.
      *
      * @enum { number }
-     * @syscap systemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -381,7 +381,7 @@ declare namespace cloudData {
       /**
        * SUCCESS: means sharing success.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -390,7 +390,7 @@ declare namespace cloudData {
       /**
        * REPEATED_REQUEST: means the user has been invited.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -399,7 +399,7 @@ declare namespace cloudData {
       /**
        * NOT_INVITER: means the participant is not inviter.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -408,7 +408,7 @@ declare namespace cloudData {
       /**
        * NOT_INVITER_OR_INVITEE: means the participant is not inviter or invitee.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -417,7 +417,7 @@ declare namespace cloudData {
       /**
        * OVER_QUOTA: means the number of sharing times today of current user has reached maximum.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -426,7 +426,7 @@ declare namespace cloudData {
       /**
        * OVER_PARTICIPANTS_THRESHOLD: means the number of participants reaches the maximum.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -435,7 +435,7 @@ declare namespace cloudData {
       /**
        * INVALID_ARGS: means invalid arguments.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -444,7 +444,7 @@ declare namespace cloudData {
       /**
        * NETWORK_ERROR: means the network is unavailable.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -453,7 +453,7 @@ declare namespace cloudData {
       /**
        * CLOUD_DISABLE: means cloud is disabled.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -462,7 +462,7 @@ declare namespace cloudData {
       /**
        * SERVER_ERROR: means invoke cloud space failed.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -471,7 +471,7 @@ declare namespace cloudData {
       /**
        * INNER_ERROR: means an unknown error has occurred.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -480,7 +480,7 @@ declare namespace cloudData {
       /**
        * INVALID_INVITATION: means the invitation has expired or does not exist.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -489,7 +489,7 @@ declare namespace cloudData {
       /**
        * RATE_LIMIT: means the data transfer is rate-limited.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -498,7 +498,7 @@ declare namespace cloudData {
       /**
        * CUSTOM_ERROR: means error codes that exceed this enumerated value are custom error codes.
        *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -509,7 +509,7 @@ declare namespace cloudData {
      * Result interface.
      *
      * @interface Result
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -518,7 +518,7 @@ declare namespace cloudData {
        * Error code.
        *
        * @type { number }
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -528,7 +528,7 @@ declare namespace cloudData {
        * Error code description.
        *
        * @type { ?string }
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -538,7 +538,7 @@ declare namespace cloudData {
        * The result value.
        *
        * @type { ?T }
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -549,7 +549,7 @@ declare namespace cloudData {
      * Privilege for the shared data.
      *
      * @interface Privilege
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -560,7 +560,7 @@ declare namespace cloudData {
        * means the opposite.
        *
        * @type { ?boolean }
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -572,7 +572,7 @@ declare namespace cloudData {
        * means the opposite.
        *
        * @type { ?boolean }
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -584,7 +584,7 @@ declare namespace cloudData {
        * means the opposite.
        *
        * @type { ?boolean }
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -596,7 +596,7 @@ declare namespace cloudData {
        * means the opposite.
        *
        * @type { ?boolean }
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -608,7 +608,7 @@ declare namespace cloudData {
        * means the opposite.
        *
        * @type { ?boolean }
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -619,7 +619,7 @@ declare namespace cloudData {
      * Participants in cloud sharing.
      *
      * @interface Participant
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -628,7 +628,7 @@ declare namespace cloudData {
        * Identity of participant.
        *
        * @type { string }
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -638,7 +638,7 @@ declare namespace cloudData {
        * Role of the participant, which can be inviter or invitee.
        *
        * @type { ?Role }
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -648,7 +648,7 @@ declare namespace cloudData {
        * Status of the sharing invitation.
        *
        * @type { ?Status }
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -658,7 +658,7 @@ declare namespace cloudData {
        * Permissions for the shared data.
        *
        * @type { ?Privilege }
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -668,7 +668,7 @@ declare namespace cloudData {
        * Attach information.
        *
        * @type { ?string }
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
@@ -690,7 +690,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -717,7 +717,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -744,7 +744,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -769,7 +769,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -792,7 +792,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -812,7 +812,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -835,7 +835,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -855,7 +855,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -872,7 +872,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -892,7 +892,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -915,7 +915,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -936,7 +936,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -953,7 +953,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -971,7 +971,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -991,7 +991,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -1010,7 +1010,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -1028,7 +1028,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -1046,7 +1046,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
@@ -1064,7 +1064,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
