@@ -1814,6 +1814,117 @@ declare namespace notificationManager {
    * @since 11
    */
   function subscribeSystemLiveView(subscriber: SystemLiveViewSubscriber): Promise<void>;
+  
+  
+    /**
+   * Set slotFlags of bundle.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { number } slotFlags - The slotFlags to set.
+   * Input要求参数/(可选) bundle
+   *                   slotFlags 每个位代表当前应用的通知消息展示入口使能状态，规划如下
+   *                   bit0: 铃声
+   *		       bit1: 锁屏(含AOD)
+   *                   bit2: 横幅
+   *                   bit3: 亮屏
+   *		       bit4: 震动
+   *
+   *Output要求参数/(可选):  无
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: number, callback:  AsyncCallback<void>): void;
+
+  /**
+   * Set nslotFlags of bundle.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { number } slotFlags - The slotFlags to set.
+   * Input  要求参数/(可选) bundle 
+   *                   slotFlags 每个位代表当前应用的通知消息展示入口使能状态，规划如下
+   *                   bit0: 铃声
+   *		       bit1: 锁屏(含AOD)
+   *                   bit2: 横幅
+   *                   bit3: 亮屏
+   *		       bit4: 震动
+   *
+   * Output  要求参数/(可选):  无
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: number): Promise<void>;
+  
+  
+  /**
+   * Obtains slotFlags of bundle.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { AsyncCallback<number> } callback - The callback of getSlotNumByBundle.
+   * Input  要求参数/(可选) bundle
+   * Output 要求参数/(可选): number 每个位代表当前应用的通知消息展示入口使能状态，规划如下
+   *                   bit0: 铃声
+   *		       bit1: 锁屏(含AOD)
+   *                   bit2: 横幅
+   *                   bit3: 亮屏
+   *		       bit4: 震动
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function getSlotFlagsByBundle(bundle: BundleOption, callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains nslotFlags of bundle.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { NotificationSlot } slot - The slot spicified.
+   * @returns { Promise<number> } The promise returned by the function.
+   * Input  要求参数/(可选) bundl
+   * Output 要求参数/(可选): number 每个位代表当前应用的通知消息展示入口使能状态，规划如下
+   *                   bit0: 铃声
+   *		       bit1: 锁屏(含AOD)
+   *                   bit2: 横幅
+   *                   bit3: 亮屏
+   *		       bit4: 震动
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function getSlotFlagsByBundle(bundle: BundleOption): Promise<number>;
 
   /**
    * Describes a button option for a triggering.
