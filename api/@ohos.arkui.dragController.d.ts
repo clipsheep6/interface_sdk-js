@@ -19,7 +19,7 @@ import type { AsyncCallback, BusinessError } from './@ohos.base';
 import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 import type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions } from 'DragControllerParam';
 import type { ResourceColor, TouchPoint } from 'DragControllerUnitParam';
-import { AnimateParam } from 'AnimateParam';
+import { AnimateParam } from 'AnimateToParam';
 
 /**
  * This module allows developers to trigger a drag event.
@@ -28,19 +28,6 @@ import { AnimateParam } from 'AnimateParam';
  * @since 10
  */
 declare namespace dragController {
-  /**
-   * Defines the Dragging Status.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  enum DraggingStatus {
-    DRAG_STARTED = 0,
-    DRAG_ENDED = 1,
-  }
   /**
    * DragInfo object description
    * 
@@ -149,7 +136,7 @@ declare namespace dragController {
    * @since 11
    */
      function executeDrag(customs: Array<DragItemInfo>, dragInfo: DragInfo, callback: AsyncCallback<{
-      event: DragEvent, extraParams: string, status: DraggingStatus
+      event: DragEvent, extraParams: string
     }>): void;
   
     /**
@@ -163,7 +150,7 @@ declare namespace dragController {
      * @since 11
      */
     function executeDrag(customs: Array<DragItemInfo>, dragInfo: DragInfo): Promise<{
-      event: DragEvent, extraParams: string, status: DraggingStatus
+      event: DragEvent, extraParams: string
     }>;
 
     /**

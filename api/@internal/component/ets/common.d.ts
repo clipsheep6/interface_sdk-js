@@ -4825,7 +4825,14 @@ declare enum DragResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  DROP_DISABLED = 4
+  DROP_DISABLED = 4,
+  /**
+   * If node don't allow drop in, return DragResult.DRAG_START.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  DRAG_START = 5
 }
 
 /**
