@@ -1814,6 +1814,88 @@ declare namespace notificationManager {
    * @since 11
    */
   function subscribeSystemLiveView(subscriber: SystemLiveViewSubscriber): Promise<void>;
+  
+  
+    /**
+   * Set slotFlags of slot.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { NotificationSlot } slot - The slot spicified.
+   * @param { number } slotFlags - The slotFlags to set.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function setSlotFlagsByBundle(bundle: BundleOption, slot: NotificationSlot, number: slotFlags, callback:  AsyncCallback<void>): void;
+
+  /**
+   * Set nslotFlags of slot.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { NotificationSlot } slot - The slot spicified.
+   * @param { number } slotFlags - The slotFlags to set.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function setSlotFlagsByBundle(bundle: BundleOption, slot: NotificationSlot, number: slotFlags): Promise<void>;
+  
+  
+  /**
+   * Obtains slotFlags of slot.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { NotificationSlot } slot - The slot spicified.
+   * @param { AsyncCallback<number> } callback - The callback of getSlotNumByBundle.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function getSlotFlagsByBundle(bundle: BundleOption, slot: NotificationSlot, callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains nslotFlags of slot.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { NotificationSlot } slot - The slot spicified.
+   * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 9
+   */
+  function getSlotFlagsByBundle(bundle: BundleOption, slot: NotificationSlot): Promise<number>;
 
   /**
    * Describes a button option for a triggering.
