@@ -14,11 +14,8 @@
  */
 
 import { AsyncCallback } from '../@ohos.base';
-import { ConnectOptions } from '../ability/connectOptions';
-import { Caller } from '../@ohos.app.ability.UIAbility';
 import ExtensionContext from './ExtensionContext';
 import Want from '../@ohos.app.ability.Want';
-import StartOptions from '../@ohos.app.ability.StartOptions';
 
 /**
  * The context of vpn extension. It allows access to
