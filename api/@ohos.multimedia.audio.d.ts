@@ -584,12 +584,12 @@ declare namespace audio {
      * @since 11
      */
     CHANNEL_8 = 8,
-     /**
+    /**
      * Channel 9.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
-     CHANNEL_9 = 9,
+    CHANNEL_9 = 9,
     /**
      * Channel 10.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -4823,6 +4823,7 @@ declare namespace audio {
   /**
    * Audio AudioChannel Layout
    * A 64-bit integer indicates that the appearance and order of the speakers for recording or playback.
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 11
    */
