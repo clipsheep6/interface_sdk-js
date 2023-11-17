@@ -60,7 +60,7 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID, which is
      * a value obtained by hashing the cloud account ID.
-     * @param { { [bundleName:string]:boolean } } switches - Indicates switches
+     * @param { object} switches - Indicates switches
      * of all applications. It overwrites the saved application switch information.
      * If an application switch changes, the {@link changeAppCloudSwitch
      * (accountId: string, bundleName: string, status: boolean)} method will be
@@ -89,7 +89,7 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID, which is
      * a value obtained by hashing the cloud account ID.
-     * @param { { [bundleName:string]:boolean } } switches - Indicates switches
+     * @param { object } switches - Indicates switches
      * of all applications. It overwrites the saved application switch information.
      * If an application switch changes, the {@link changeAppCloudSwitch
      * (accountId: string, bundleName: string, status: boolean)} method will be
@@ -245,7 +245,7 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID, which is a value
      * obtained by hashing the cloud account ID.
-     * @param { { [bundleName: string]: ClearAction } } appActions - Indicates
+     * @param { object } appActions - Indicates
      * the clear operation to perform.
      * @param { AsyncCallback<void> } callback - Indicates the callback invoked
      * to return the result.
@@ -271,7 +271,7 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID, which is a value
      * obtained by hashing the cloud account ID.
-     * @param { { [bundleName: string]: ClearAction } } appActions - Indicates
+     * @param { object } appActions - Indicates
      * the clear operation to perform.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -511,7 +511,6 @@ declare namespace cloudData {
      * @interface Result
      * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
-     * @StageModelOnly
      * @since 11
      */
     export interface Result<T> {
@@ -565,7 +564,7 @@ declare namespace cloudData {
        * @systemapi
        * @since 11
        */
-      writeable?: boolean;
+      writable?: boolean;
 
       /**
        * Whether the participants can read the shared data. The value <b>true</b>
@@ -589,7 +588,7 @@ declare namespace cloudData {
        * @systemapi
        * @since 11
        */
-      creatable?: boolean;
+      createable?: boolean;
 
       /**
        * Whether the participants can delete the shared data. The value <b>true</b>
@@ -738,7 +737,7 @@ declare namespace cloudData {
      * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
      * @param { Array<Participant> } participants - Participants to share.
      * @param { Array<string> } [columns] - Columns to be shared.
-     * @param { Promise<relationalStore.ResultSet> } - Promise used to return {@link relationalStore.ResultSet}.
+     * @returns { Promise<relationalStore.ResultSet> } - Promise used to return {@link relationalStore.ResultSet}.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -786,7 +785,7 @@ declare namespace cloudData {
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved in the data sharing.
-     * @Returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
+     * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -800,7 +799,7 @@ declare namespace cloudData {
     function share(sharingRes: string, participants: Array<Participant>): Promise<Result<Array<Result<Participant>>>>;
 
     /**
-     * Unshares data.
+     * UnShares data.
      *
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
@@ -824,12 +823,12 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * Unshares data.
+     * UnShares data.
      *
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved.
-     * @Returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
+     * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -866,7 +865,7 @@ declare namespace cloudData {
      * Exit sharing.
      *
      * @param { string } sharingRes - Indicates the sharing resource.
-     * @Returns { Promise<Result<void>> } - The promise returned by the function.
+     * @returns { Promise<Result<void>> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -909,7 +908,7 @@ declare namespace cloudData {
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * whose permissions are to be changed.
-     * @Returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
+     * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -947,7 +946,7 @@ declare namespace cloudData {
      * Queries the participants based on the specified shared data.
      *
      * @param { string } sharingRes - Indicates the sharing resource.
-     * @Returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
+     * @returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -985,7 +984,7 @@ declare namespace cloudData {
      * Queries the participants based on the specified invitation code.
      *
      * @param { string } invitationCode - Indicates the invitation code.
-     * @Returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
+     * @returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -1022,7 +1021,7 @@ declare namespace cloudData {
      *
      * @param { string } invitationCode - Indicates the invitation code.
      * @param { Status } status - Indicates the status of invitation.
-     * @Returns { Promise<Result<string>> } - Promise used to return the sharing resource.
+     * @returns { Promise<Result<string>> } - Promise used to return the sharing resource.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -1058,7 +1057,7 @@ declare namespace cloudData {
      *
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Status } status - Indicates the status of invitation.
-     * @Returns { Promise<Result<void>> } - The promise returned by the function.
+     * @returns { Promise<Result<void>> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
