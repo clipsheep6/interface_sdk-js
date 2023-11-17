@@ -28,6 +28,43 @@ import formInfo from './@ohos.app.form.formInfo';
  */
 declare namespace formHost {
   /**
+   * Indicates the usage scene type of the form.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  enum FormSceneType {
+    /**
+     * Obtains all usage scene of forms
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 11
+     */
+    ALL = 0,
+
+    /**
+     * Obtains system usage scene of forms
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 11
+     */
+    SYSTEM = 1,
+
+    /**
+     * Obtains accessory usage scene of forms
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 11
+     */
+    ACCESSORY = 2,
+  }
+
+  /**
    * Deletes an obtained form by its ID.
    * <p>After this method is called, the form won't be available for use by the application and the Form Manager
    * Service no longer keeps the cache information about the form.</p>
@@ -438,6 +475,24 @@ declare namespace formHost {
    */
   function getAllFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
+/**
+ * Obtains the FormInfo objects provided by all applications on the device.
+ *
+ * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+ * @param { FormSceneType } type - Indicates the usage scene type of the form, which can use ALL, SYSTEM，ACCESSORY.
+ * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the FormInfo.
+ * @throws { BusinessError } 201 - Permissions denied.
+ * @throws { BusinessError } 202 - The application is not a system application.
+ * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+ * @throws { BusinessError } 16500050 - An IPC connection error happened.
+ * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+ * @throws { BusinessError } 16501000 - An internal functional error occurred.
+ * @syscap SystemCapability.Ability.Form
+ * @systemapi
+ * @since 11
+ */
+  function getAllFormsInfo(type: FormSceneType, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+
   /**
    * Obtains the FormInfo objects provided by all applications on the device.
    *
@@ -453,6 +508,23 @@ declare namespace formHost {
    * @since 9
    */
   function getAllFormsInfo(): Promise<Array<formInfo.FormInfo>>;
+
+  /**
+   * Obtains the FormInfo objects provided by all applications on the device.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { FormSceneType } type - Indicates the usage scene type of the form, which can use ALL, SYSTEM，ACCESSORY.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the FormInfo.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function getAllFormsInfo(type: FormSceneType): Promise<Array<formInfo.FormInfo>>;
 
   /**
    * Obtains the FormInfo objects provided by a specified application on the device.
@@ -478,6 +550,26 @@ declare namespace formHost {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { FormSceneType } type - Indicates the usage scene type of the form, which can use ALL, SYSTEM，ACCESSORY.
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the FormInfo.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function getFormsInfo(bundleName: string, type: FormSceneType, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
+
+  /**
+   * Obtains the FormInfo objects provided by a specified application on the device.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name of the application.
    * @param { string } moduleName - Indicates the module name of the application.
    * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the FormInfo.
    * @throws { BusinessError } 201 - Permissions denied.
@@ -494,6 +586,32 @@ declare namespace formHost {
   function getFormsInfo(
     bundleName: string,
     moduleName: string,
+    callback: AsyncCallback<Array<formInfo.FormInfo>>
+  ): void;
+
+/**
+ * Obtains the FormInfo objects provided by a specified application on the device.
+ *
+ * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+ * @param { string } bundleName - Indicates the bundle name of the application.
+ * @param { string } moduleName - Indicates the module name of the application.
+ * @param { FormSceneType } type - Indicates the usage scene type of the form, which can use ALL, SYSTEM，ACCESSORY.
+ * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the FormInfo.
+ * @throws { BusinessError } 201 - Permissions denied.
+ * @throws { BusinessError } 202 - The application is not a system application.
+ * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+ * @throws { BusinessError } 16500050 - An IPC connection error happened.
+ * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+ * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+ * @throws { BusinessError } 16501000 - An internal functional error occurred.
+ * @syscap SystemCapability.Ability.Form
+ * @systemapi
+ * @since 11
+ */
+  function getFormsInfo(
+    bundleName: string,
+    moduleName: string,
+    type: FormSceneType,
     callback: AsyncCallback<Array<formInfo.FormInfo>>
   ): void;
 
@@ -516,6 +634,47 @@ declare namespace formHost {
    * @since 9
    */
   function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
+
+  /**
+   * Obtains the FormInfo objects provided by a specified application on the device.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { FormSceneType } type - Indicates the usage scene type of the form, which can use ALL, SYSTEM，ACCESSORY.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the FormInfo.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function getFormsInfo(bundleName: string, type: FormSceneType): Promise<Array<formInfo.FormInfo>>;
+
+  /**
+   * Obtains the FormInfo objects provided by a specified application on the device.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { string } moduleName - Indicates the module name of the application.
+   * @param { FormSceneType } type - Indicates the usage scene type of the form, which can use ALL, SYSTEM，ACCESSORY.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the FormInfo.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11
+   */
+  function getFormsInfo(bundleName: string, moduleName: string, type: FormSceneType): Promise<Array<formInfo.FormInfo>>;
 
   /**
    * Deletes invalid forms of the application in the Form Manager Service based on the list of.
