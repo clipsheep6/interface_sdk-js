@@ -2925,7 +2925,7 @@ declare namespace relationalStore {
      * Obtains sharing resource of rows corresponding to the predicates.
      *
      * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
-     * @param { Array<string> } columns? - The specified columns to query.
+     * @param { Array<string> } [columns] - The specified columns to query.
      * @returns { Promise<ResultSet> } -The promise returned by the function.
      * {@link ResultSet} is query result.
      * @throws { BusinessError } 801 - Capability not supported.

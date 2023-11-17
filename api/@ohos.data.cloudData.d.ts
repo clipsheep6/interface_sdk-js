@@ -299,74 +299,74 @@ declare namespace cloudData {
      * Enumerates the roles.
      *
      * @enum { number }
-     * @syscap systemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
     export enum Role {
       /**
-       * Inviter of cloud sharing.
+       * ROLE_INVITER: means inviter of cloud sharing.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      ROLE_INVITER,
+      ROLE_INVITER = 0,
 
       /**
-       * Invitee of cloud sharing.
+       * ROLE_INVITEE: means invitee of cloud sharing.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      ROLE_INVITEE
+      ROLE_INVITEE = 1,
     }
 
     /**
      * Enumerates the statuses of sharing invitation.
      *
      * @enum { number }
-     * @syscap systemCapability.DistributedDataManager.CloudData.Sharing
+     * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
      * @systemapi
      * @since 11
      */
     export enum Status {
       /**
-       * Unknown status.
+       * STATUS_UNKNOWN: Unknown status.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      STATUS_UNKNOWN,
+      STATUS_UNKNOWN = 0,
 
       /**
-       * Accept the sharing invitation.
+       * STATUS_ACCEPTED: Accept the sharing invitation.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      STATUS_ACCEPTED,
+      STATUS_ACCEPTED = 1,
 
       /**
-       * Reject the sharing invitation.
+       * STATUS_REJECTED: Reject the sharing invitation.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      STATUS_REJECTED,
+      STATUS_REJECTED = 2,
 
       /**
-       * Suspend the sharing process.
+       * STATUS_SUSPENDED: Suspend the sharing process.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      STATUS_SUSPENDED,
+      STATUS_SUSPENDED = 3,
     }
 
     /**
@@ -388,13 +388,31 @@ declare namespace cloudData {
       SUCCESS = 0,
 
       /**
-       * INVALID_ARGS: means invalid arguments.
+       * REPEATED_REQUEST: means the user has been invited.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      INVALID_ARGS = 1,
+      REPEATED_REQUEST = 1,
+
+      /**
+       * NOT_INVITER: means the participant is not inviter.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      NOT_INVITER = 2,
+
+      /**
+       * NOT_INVITER_OR_INVITEE: means the participant is not inviter or invitee.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      NOT_INVITER_OR_INVITEE = 3,
 
       /**
        * OVER_QUOTA: means the number of sharing times today of current user has reached maximum.
@@ -403,16 +421,43 @@ declare namespace cloudData {
        * @systemapi
        * @since 11
        */
-      OVER_QUOTA = 2,
+      OVER_QUOTA = 4,
 
       /**
-       * PARTICIPANTS_LIMIT_EXCEEDED: means the number of participants reaches the maximum.
+       * OVER_PARTICIPANTS_THRESHOLD: means the number of participants reaches the maximum.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      PARTICIPANTS_LIMIT_EXCEEDED = 3,
+      OVER_PARTICIPANTS_THRESHOLD = 5,
+
+      /**
+       * INVALID_ARGS: means invalid arguments.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      INVALID_ARGS = 6,
+
+      /**
+       * NETWORK_ERROR: means the network is unavailable.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      NETWORK_ERROR = 7,
+
+      /**
+       * CLOUD_DISABLE: means cloud is disabled.
+       *
+       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
+       * @systemapi
+       * @since 11
+       */
+      CLOUD_DISABLE = 7,
 
       /**
        * SERVER_ERROR: means invoke cloud space failed.
@@ -421,16 +466,16 @@ declare namespace cloudData {
        * @systemapi
        * @since 11
        */
-      SERVER_ERROR = 4,
+      SERVER_ERROR = 8,
 
       /**
-       * REPEATED_INVOKE: means the user has been invited.
+       * INNER_ERROR: means an unknown error has occurred.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      REPEATED_INVOKE = 5,
+      INNER_ERROR = 9,
 
       /**
        * INVALID_INVITATION: means the invitation has expired or does not exist.
@@ -439,16 +484,7 @@ declare namespace cloudData {
        * @systemapi
        * @since 11
        */
-       INVALID_INVITATION = 6,
-
-      /**
-       * NOT_OWNER_OR_MEMBER: means the participant is not inviter or invitee.
-       *
-       * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
-       * @systemapi
-       * @since 11
-       */
-      NOT_OWNER_OR_MEMBER = 7,
+       INVALID_INVITATION = 10,
 
       /**
        * RATE_LIMIT: means the data transfer is rate-limited.
@@ -457,16 +493,16 @@ declare namespace cloudData {
        * @systemapi
        * @since 11
        */
-      RATE_LIMIT = 8,
+      RATE_LIMIT = 11,
 
       /**
-       * FORBID_DATA: means the data forbid to share.
+       * CUSTOM_ERROR: means error codes that exceed this enumerated value are custom error codes.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      FORBID_DATA = 9
+      CUSTOM_ERROR = 1000,
     }
 
     /**
@@ -492,17 +528,17 @@ declare namespace cloudData {
       /**
        * Error code description.
        *
-       * @type { string }
+       * @type { ?string }
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
        */
-      description: string;
+      description?: string;
 
       /**
        * The result value.
        *
-       * @type { T }
+       * @type { ?T }
        * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
        * @systemapi
        * @since 11
@@ -672,8 +708,8 @@ declare namespace cloudData {
      *
      * @param { string } storeId - Indicates relational store name.
      * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
-     * @param { Array<string> } columns - Columns to be shared.
      * @param { Array<Participant> } participants - Participants to share.
+     * @param { Array<string> } columns - Columns to be shared.
      * @param { AsyncCallback<relationalStore.ResultSet> } callback - Indicates the
      * callback invoked to return the {@link relationalStore.ResultSet}.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -726,7 +762,7 @@ declare namespace cloudData {
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved in the data sharing.
-     * @param { AsyncCallback<Array<Result<Participant>>> } callback - Indicates the
+     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the
      * callback invoked to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -750,7 +786,7 @@ declare namespace cloudData {
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved in the data sharing.
-     * @Returns { Promise<Array<Result<Participant>>> } - Promise used to return the result.
+     * @Returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -769,7 +805,7 @@ declare namespace cloudData {
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved.
-     * @param { AsyncCallback<Array<Result<Participant>>> } callback - Indicates the callback invoked
+     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the callback invoked
      * to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -793,7 +829,7 @@ declare namespace cloudData {
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved.
-     * @Returns { Promise<Array<Result<Participant>>> } - Promise used to return the result.
+     * @Returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -813,7 +849,7 @@ declare namespace cloudData {
      * Exit sharing.
      *
      * @param { string } sharingRes - Indicates the sharing resource.
-     * @param { AsyncCallback<void> } callback - The callback of exit.
+     * @param { AsyncCallback<Result<void>> } callback - The callback of exit.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -830,7 +866,7 @@ declare namespace cloudData {
      * Exit sharing.
      *
      * @param { string } sharingRes - Indicates the sharing resource.
-     * @Returns { Promise<void> } - The promise returned by the function.
+     * @Returns { Promise<Result<void>> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -849,7 +885,7 @@ declare namespace cloudData {
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * whose permissions are to be changed.
-     * @param { AsyncCallback<Array<Result<Participant>>> } callback - Indicates the
+     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the
      * callback invoked to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -873,7 +909,7 @@ declare namespace cloudData {
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * whose permissions are to be changed.
-     * @Returns { Promise<Array<Result<Participant>>> } - Promise used to return the result.
+     * @Returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -893,7 +929,7 @@ declare namespace cloudData {
      * Queries the participants based on the specified shared data.
      *
      * @param { string } sharingRes - Indicates the sharing resource.
-     * @param { AsyncCallback<Array<Result<Participant>>> } callback - Indicates the
+     * @param { AsyncCallback<Result<Array<Participant>>> } callback - Indicates the
      * callback invoked to return the participants obtained.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -911,7 +947,7 @@ declare namespace cloudData {
      * Queries the participants based on the specified shared data.
      *
      * @param { string } sharingRes - Indicates the sharing resource.
-     * @Returns { Promise<Array<Result<Participant>>> } - Promise used to return the result.
+     * @Returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -928,7 +964,7 @@ declare namespace cloudData {
      * Queries the participants based on the specified invitation code.
      *
      * @param { string } invitationCode - Indicates the invitation code.
-     * @param { AsyncCallback<Array<Result<Participant>>> } callback - Indicates the
+     * @param { AsyncCallback<Result<Array<Participant>>> } callback - Indicates the
      * callback invoked to return the participants obtained.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -949,7 +985,7 @@ declare namespace cloudData {
      * Queries the participants based on the specified invitation code.
      *
      * @param { string } invitationCode - Indicates the invitation code.
-     * @Returns { Promise<Array<Result<Participant>>> } - Promise used to return the result.
+     * @Returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -1004,7 +1040,7 @@ declare namespace cloudData {
      *
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Status } status - Indicates the status of invitation.
-     * @param { AsyncCallback<void> } callback - Indicates the callback.
+     * @param { AsyncCallback<Result<void>> } callback - Indicates the callback.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
@@ -1022,7 +1058,7 @@ declare namespace cloudData {
      *
      * @param { string } sharingRes - Indicates the sharing resource.
      * @param { Status } status - Indicates the status of invitation.
-     * @Returns { Promise<void> } - The promise returned by the function.
+     * @Returns { Promise<Result<void>> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
      * @throws { BusinessError } 202 - Permission verification failed, which is
