@@ -290,8 +290,8 @@ declare namespace cloudData {
   /**
    * Provides methods to implement cloud sharing.
    *
+   * @namespace sharing
    * @syscap SystemCapability.DistributedDataManager.CloudData.Sharing
-   * @systemapi
    * @since 11
    */
   export namespace sharing {
