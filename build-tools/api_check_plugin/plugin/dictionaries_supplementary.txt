@@ -129,7 +129,7 @@ cpid
 cpuprofiler
 cpx
 cpy
-createable
+creatable
 crl
 crops
 crosshair

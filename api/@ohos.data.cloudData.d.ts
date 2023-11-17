@@ -424,13 +424,13 @@ declare namespace cloudData {
       OVER_QUOTA = 4,
 
       /**
-       * OVER_PARTICIPANTS_THRESHOLD: means the number of participants reaches the maximum.
+       * TOO_MANY_PARTICIPANTS: means the number of participants reaches the maximum.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
-      OVER_PARTICIPANTS_THRESHOLD = 5,
+      TOO_MANY_PARTICIPANTS = 5,
 
       /**
        * INVALID_ARGS: means invalid arguments.
@@ -451,13 +451,13 @@ declare namespace cloudData {
       NETWORK_ERROR = 7,
 
       /**
-       * CLOUD_DISABLE: means cloud is disabled.
+       * CLOUD_DISABLED: means cloud is disabled.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
-      CLOUD_DISABLE = 7,
+      CLOUD_DISABLED = 8,
 
       /**
        * SERVER_ERROR: means invoke cloud space failed.
@@ -466,7 +466,7 @@ declare namespace cloudData {
        * @systemapi
        * @since 11
        */
-      SERVER_ERROR = 8,
+      SERVER_ERROR = 9,
 
       /**
        * INNER_ERROR: means an unknown error has occurred.
@@ -475,7 +475,7 @@ declare namespace cloudData {
        * @systemapi
        * @since 11
        */
-      INNER_ERROR = 9,
+      INNER_ERROR = 10,
 
       /**
        * INVALID_INVITATION: means the invitation has expired or does not exist.
@@ -484,7 +484,7 @@ declare namespace cloudData {
        * @systemapi
        * @since 11
        */
-       INVALID_INVITATION = 10,
+       INVALID_INVITATION = 11,
 
       /**
        * RATE_LIMIT: means the data transfer is rate-limited.
@@ -493,7 +493,7 @@ declare namespace cloudData {
        * @systemapi
        * @since 11
        */
-      RATE_LIMIT = 11,
+      RATE_LIMIT = 12,
 
       /**
        * CUSTOM_ERROR: means error codes that exceed this enumerated value are custom error codes.
@@ -588,7 +588,7 @@ declare namespace cloudData {
        * @systemapi
        * @since 11
        */
-      createable?: boolean;
+      creatable?: boolean;
 
       /**
        * Whether the participants can delete the shared data. The value <b>true</b>
