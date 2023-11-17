@@ -142,7 +142,7 @@ declare namespace cloudExtension {
     ): Promise<Result<Array<Result<Participant>>>>;
 
     /**
-     * Unshares data with specific participants.
+     * UnShares data with specific participants.
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
@@ -243,7 +243,7 @@ declare namespace cloudExtension {
         bundleName: string,
         invitationCode: string,
         status: ParticipantStatus
-    ): Promise<Result<string /*sharingRes*/>>;
+    ): Promise<Result<string>>;
 
     /**
      * Changes confirmation.
