@@ -43,13 +43,13 @@ declare namespace cloudExtension {
   export type ParticipantStatus = cloudData.sharing.Status;
 
   /**
-   * Defines sharingCode.
+   * Defines privilege.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11
    */
-  export type SharingCode = cloudData.sharing.SharingCode;
+  export type Privilege = cloudData.sharing.Privilege;
 
   /**
    * Defines the result.
