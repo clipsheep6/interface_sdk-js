@@ -2274,6 +2274,7 @@ declare namespace notificationManager {
      * NotificationSlot for live view.
      *
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 11
      */
     LIVE_VIEW = 4,

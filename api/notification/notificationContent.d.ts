@@ -524,6 +524,7 @@ export interface NotificationContent {
    *
    * @type { ?NotificationSystemLiveViewContent }
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 11
    */
   systemLiveView?: NotificationSystemLiveViewContent;
