@@ -2201,6 +2201,41 @@ declare namespace call {
   function getVoNRState(slotId: number): Promise<VoNRState>;
 
   /**
+   * Get emergency number list.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { AsyncCallback<Array<EmergencyNumberList>> } callback - Indicates the callback for
+   * getting emergency number list.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getEmergencyNumberList(callback: AsyncCallback<Array<EmergencyNumberList>>): void;
+
+  /**
+   * Get emergency number list.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @returns { Promise<Array<EmergencyNumberList>> } Returns the emergency number list.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getEmergencyNumberList(): Promise<Array<EmergencyNumberList>>;
+
+  /**
    * Checks whether can set call transfer time.
    *
    * The system checks whether IP multimedia subsystem domain (IMS) can set call transfer time.
@@ -4484,6 +4519,135 @@ declare namespace call {
      * @since 9
      */
     message: string;
+  }
+
+  /**
+   * Indicates the emergency call type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export enum EmergencyCallType {
+    /**
+     * Indicates the Default type.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_DEFAULT = 0,
+    /**
+     * Indicates the Police.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_POLICE = 1,
+    /**
+     * Indicates the Ambulance.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_AMBULANCE = 2,
+    /**
+     * Indicates the Fire alarm.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_FIRE = 4,
+    /**
+     * Indicates the Marine police.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_SEA = 8,
+    /**
+     * Indicates the Mountain rescue.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_MOUNTAIN = 16,
+  }
+
+  /**
+   * Indicates the emergency number.
+   *
+   * @interface EmergencyNumber
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export interface EmergencyNumber {
+    /**
+     * Indicates the emergency number.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    emergencyNumber: string;
+
+    /**
+     * Indicates the country code.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    mcc: string;
+
+    /**
+     * Indicates the type of emergency call.
+     *
+     * @type { EmergencyCallType }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    emergencyCallType: EmergencyCallType;
+  }
+
+  /**
+   * Indicates the emergency number list.
+   *
+   * @interface EmergencyNumberList
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export interface EmergencyNumberList {
+    /**
+     * Indicates the slotId.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    slotId: number;
+
+    /**
+     * Indicates the list of emergency number.
+     *
+     * @type { Array<EmergencyNumber> }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    emergencyNumberList: Array<EmergencyNumber>;
   }
 }
 
