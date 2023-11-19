@@ -90,39 +90,39 @@ declare namespace webSocket {
     clientCert?: ClientCert; //only support PEM format 
   }
 
+  /**
+ * The clientCert field of the client certificate, which includes three attributes:
+ * client certificate (cert) and only support PEM format, certificate private key (key), 
+ * and passphrase (keyPasswd).
+ * @interface ClientCert
+ * @syscap SystemCapability.Communication.NetStack
+ * @since 11
+ */
+  export interface ClientCert {
     /**
-   * The clientCert field of the client certificate, which includes three attributes:
-   * client certificate (cert) and only support PEM format, certificate private key (key), 
-   * and passphrase (keyPasswd).
-   * @interface ClientCert
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-    export interface ClientCert {
-      /**
-       * Cert: The path to the client certificate file.
-       * @type {string}
-       * @syscap SystemCapability.Communication.NetStack
-       * @since 11
-       */
-      certPath: string;  
-      
-      /**
-       * Key: The path of the client certificate private key file.
-       * @type {string}
-       * @syscap SystemCapability.Communication.NetStack
-       * @since 11
-       */
-      keyPath: string;
-  
-      /**
-       * KeyPasswd: Client certificate password.
-       * @type {?string}
-       * @syscap SystemCapability.Communication.NetStack
-       * @since 11
-       */
-      keyPasswd?: string;
-    }
+     * Cert: The path to the client certificate file.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    certPath: string;
+    
+    /**
+     * Key: The path of the client certificate private key file.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    keyPath: string;
+
+    /**
+     * KeyPasswd: Client certificate password.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    keyPasswd?: string;
+  }
 
   /**
    * Defines the optional parameters carried in the request for closing a WebSocket connection.
