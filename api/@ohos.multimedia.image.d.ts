@@ -2627,6 +2627,22 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
+    /**
+     * Set color space of pixel map.
+     * This method is only used to set the colorspace property of pixelmap，while all pixel data remains the same after calling this method,
+     * it's useful when you are creating an empty pixelmap object.
+     *
+     * If you want to change colorspace for all pixels, use method
+     * applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager, callback: AsyncCallback): void
+     * or
+     * applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager): Promise.
+     *
+     * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
+     * @throws { BusinessError } 62980111 - If the operation invalid.
+     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void;
 
      /**
@@ -2634,6 +2650,12 @@ declare namespace image {
      * 
      * This method is used to change color space of pixelmap. Pixel data will be changed by calling this method.
      * If you want to set the colorspace property of pixelmap only, use method {@Link #setColorSpace(colorSpaceManager.ColorSpaceManager)}.
+     *
+     * This method is used to change color space of pixelmap, while all pixel data are changed by input color space after calling this method,
+     * it's useful when you want to change the color space of pixelmap from decoding a HDR image.
+     *
+     * If you want to set the colorspace property of pixelmap only, use method
+     * setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void.
      *
      * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
      * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation fails, an error message is returned.
@@ -2652,6 +2674,12 @@ declare namespace image {
      * 
      * This method is used to change color space of pixelmap. Pixel data will be changed by calling this method.
      * If you want to set the colorspace property of pixelmap only, use method {@Link #setColorSpace(colorSpaceManager.ColorSpaceManager)}.
+     *
+     * This method is used to change color space of pixelmap, while all pixel data are changed by input color space after calling this method,
+     * it's useful when you want to change the color space of pixelmap from decoding a HDR image.
+     *
+     * If you want to set the colorspace property of pixelmap only, use method
+     * setColorSpace(colorSpace: colorSpaceManager.ColorSpaceManager): void.
      *
      * @param { colorSpaceManager.ColorSpaceManager } targetColorSpace - The color space for pixel map.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
