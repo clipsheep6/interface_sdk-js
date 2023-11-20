@@ -814,7 +814,6 @@ declare namespace sim {
    * @param { AsyncCallback<Array<IccAccountInfo>> } callback - The callback is used to
    * return the array of {@link IccAccountInfo}. The ICCID and phone number will be null
    * if has no ohos.permission.GET_TELEPHONY_STATE.
-   * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
