@@ -1660,6 +1660,55 @@ declare namespace image {
   }
 
   /**
+   * Provides color matrixes in common use for {@link #applyColorMatrix(Array<number>)} and
+   * {@link #applyColorMatrix(Array<number>, AsyncCallback<void>)}
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 11
+   */
+  class ColorMatrix {
+    /**
+     * Indicates a gray transformation matrix.
+     *
+     * @readonly
+     * @static
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    static readonly GRAY: Array<number>;
+
+    /**
+     * Indicates a color invert transformation matrix.
+     *
+     * @readonly
+     * @static
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    static readonly INVERT: Array<number>;
+
+    /**
+     * Indicates a color increase transformation matrix.
+     *
+     * @readonly
+     * @static
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    static readonly INCREASE: Array<number>;
+
+    /**
+     * Indicates a color decrease transformation matrix.
+     *
+     * @readonly
+     * @static
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    static readonly DECREASE: Array<number>;
+  }
+
+  /**
    * Create pixelmap by data buffer.
    *
    * @param { ArrayBuffer } colors The image color buffer.
