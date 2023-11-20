@@ -12,8 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import VpnExtensionContext from './application/VpnExtensionContext';
-import Want from './@ohos.app.ability.Want';
+import type VpnExtensionContext from './application/VpnExtensionContext';
+import type Want from './@ohos.app.ability.Want';
 
 
 /**

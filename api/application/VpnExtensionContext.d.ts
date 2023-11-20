@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from '../@ohos.base';
-import ExtensionContext from './ExtensionContext';
-import Want from '../@ohos.app.ability.Want';
+import type { AsyncCallback } from '../@ohos.base';
+import type ExtensionContext from './ExtensionContext';
+import type Want from '../@ohos.app.ability.Want';
 
 /**
  * The context of vpn extension. It allows access to
@@ -37,7 +37,6 @@ export default class VpnExtensionContext extends ExtensionContext {
    * @param { Want } want - Indicates the want info to start.
    * @param { AsyncCallback<void> } callback - The callback of startServiceExtensionAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -66,7 +65,6 @@ export default class VpnExtensionContext extends ExtensionContext {
    * @param { Want } want - Indicates the want info to start.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -96,7 +94,6 @@ export default class VpnExtensionContext extends ExtensionContext {
    * @param { Want } want - Indicates the want info to start.
    * @param { AsyncCallback<void> } callback - The callback of stopServiceExtensionAbility.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
@@ -123,7 +120,6 @@ export default class VpnExtensionContext extends ExtensionContext {
    * @param { Want } want - Indicates the want info to start.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
