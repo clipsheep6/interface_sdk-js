@@ -407,7 +407,18 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @since 11
    * @form
    */
-  textShadow(value: ShadowOptions): TextClockAttribute;
+  /**
+   * Called when the text shadow is set.
+   *
+   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+   * @returns { TextTimerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  textShadow(value: ShadowOptions | Array<ShadowOptions>): TextClockAttribute;
 
   /**
    * Called when the text fontFeature is set.

@@ -159,6 +159,19 @@ declare interface RichEditorTextStyle {
    * @since 10
    */
   decoration?: { type: TextDecorationType; color?: ResourceColor; };
+
+  /**
+   * Called when the text shadow is set.
+   *
+   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  textShadow(value: ShadowOptions | Array<ShadowOptions>): RichEditorAttribute;
 }
 
 
