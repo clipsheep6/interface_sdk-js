@@ -86,17 +86,35 @@ export default class Network {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 3
      */
+    /**
+     * Called when the network type is obtained.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
+     */
     success?: (data: NetworkResponse) => void;
     /**
      * Called when the network type fails to be obtained.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 3
      */
+    /**
+     * Called when the network type fails to be obtained.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
+     */
     fail?: (data: any, code: number) => void;
     /**
      * Called when the execution is completed.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 3
+     */
+    /**
+     * Called when the execution is completed.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
      */
     complete?: () => void;
   }): void;
@@ -120,11 +138,23 @@ export default class Network {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 3
      */
+    /**
+     * Called when the network connection state changes.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
+     */
     success?: (data: NetworkResponse) => void;
     /**
      * Called when the listening fails.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 3
+     */
+    /**
+     * Called when the listening fails.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
      */
     fail?: (data: any, code: number) => void;
   }): void;
