@@ -2743,7 +2743,7 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 11
      */
-    HUKS_TAG_AUTH_STORAGE_LEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 312,
+    HUKS_TAG_AUTH_STORAGE_LEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 316,
 
     /* Attestation related TAG: 501 - 600 */
     /**
