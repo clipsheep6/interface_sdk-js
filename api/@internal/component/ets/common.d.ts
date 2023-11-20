@@ -4171,7 +4171,7 @@ declare interface ClickEvent extends BaseEvent {
    * @crossplatform
    * @since 10
    */
-  displayX: number;
+  displayX?: number;
 
   /**
    * Y coordinate of the click point relative to the upper edge of the device screen.
@@ -4181,7 +4181,7 @@ declare interface ClickEvent extends BaseEvent {
    * @crossplatform
    * @since 10
    */
-  displayY: number;
+  displayY?: number;
 
   /**
    * X coordinate of the click point relative to the left edge of the current window.
@@ -4191,7 +4191,7 @@ declare interface ClickEvent extends BaseEvent {
    * @crossplatform
    * @since 10
    */
-  windowX: number;
+  windowX?: number;
 
   /**
    * Y coordinate of the click point relative to the upper edge of the current window.
@@ -4201,7 +4201,7 @@ declare interface ClickEvent extends BaseEvent {
    * @crossplatform
    * @since 10
    */
-  windowY: number;
+  windowY?: number;
 
   /**
    * X coordinate of the click point relative to the left edge of the current window.
@@ -4329,7 +4329,7 @@ declare interface MouseEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  displayX: number;
+  displayX?: number;
 
   /**
    * Y coordinate of the mouse point relative to the upper edge of the device screen.
@@ -4338,7 +4338,7 @@ declare interface MouseEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  displayY: number;
+  displayY?: number;
 
   /**
    * X coordinate of the mouse point relative to the left edge of the current window.
@@ -4347,7 +4347,7 @@ declare interface MouseEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  windowX: number;
+  windowX?: number;
 
   /**
    * Y coordinate of the mouse point relative to the upper edge of the current window.
@@ -4356,7 +4356,7 @@ declare interface MouseEvent extends BaseEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  windowY: number;
+  windowY?: number;
 
   /**
    * X coordinate of the mouse point relative to the left edge of the current window.
@@ -4466,7 +4466,7 @@ declare interface TouchObject {
    * @crossplatform
    * @since 10
    */
-  displayX: number;
+  displayX?: number;
 
   /**
    * Y coordinate of the touch point relative to the upper edge of the device screen.
@@ -4476,7 +4476,7 @@ declare interface TouchObject {
    * @crossplatform
    * @since 10
    */
-  displayY: number;
+  displayY?: number;
 
   /**
    * X coordinate of the touch point relative to the left edge of the current window.
@@ -4486,7 +4486,7 @@ declare interface TouchObject {
    * @crossplatform
    * @since 10
    */
-  windowX: number;
+  windowX?: number;
 
   /**
    * Y coordinate of the touch point relative to the upper edge of the current window.
@@ -4496,7 +4496,7 @@ declare interface TouchObject {
    * @crossplatform
    * @since 10
    */
-  windowY: number;
+  windowY?: number;
 
   /**
    * X coordinate of the touch point relative to the left edge of the current window.
@@ -5212,7 +5212,7 @@ declare interface KeyEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
-  intentionCode: IntentionCode;
+  intentionCode?: IntentionCode;
 }
 
 /**
