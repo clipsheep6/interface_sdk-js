@@ -14,7 +14,7 @@
  */
 
 import type { AsyncCallback } from '../@ohos.base';
-import type _ExtensionContext from './ExtensionContext';
+import type ExtensionContext from './ExtensionContext';
 import type Want from '../@ohos.app.ability.Want';
 
 /**
@@ -25,7 +25,7 @@ import type Want from '../@ohos.app.ability.Want';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 11
  */
-export default class VpnExtensionContext extends _ExtensionContext {
+export default class VpnExtensionContext extends ExtensionContext {
   /**
    * Starts a new vpn extension ability. If the caller application is in foreground, you can use this method to start vpn extension ability;
    * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
