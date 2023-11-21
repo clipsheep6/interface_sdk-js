@@ -1900,13 +1900,12 @@ declare namespace notificationManager {
   function getSlotFlagsByBundle(bundle: BundleOption, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains nslotFlags of bundle.
+   * Obtains slotFlags of bundle.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @param { NotificationSlot } slot - The slot spicified.
    * @returns { Promise<number> } The promise returned by the function.
-   * Input  要求参数/(可选) bundl
+   * Input  要求参数/(可选) bundle
    * Output 要求参数/(可选): number 每个位代表当前应用的通知消息展示入口使能状态，规划如下
    *                   bit0: 铃声
    *		       bit1: 锁屏(含AOD)
