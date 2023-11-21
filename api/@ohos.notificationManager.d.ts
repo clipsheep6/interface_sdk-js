@@ -1838,7 +1838,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: number, callback:  AsyncCallback<void>): void;
 
@@ -1863,7 +1863,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: number): Promise<void>;
   
@@ -1889,7 +1889,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function getSlotFlagsByBundle(bundle: BundleOption, callback: AsyncCallback<number>): void;
 
@@ -1914,7 +1914,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function getSlotFlagsByBundle(bundle: BundleOption): Promise<number>;
 
