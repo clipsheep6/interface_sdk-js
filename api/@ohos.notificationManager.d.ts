@@ -1822,15 +1822,13 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { number } slotFlags - The slotFlags to set.
-   * Input: bundle
-   *        slotFlags each bit indicate one reminder way as follow:
+   *                   each bit indicate one reminder way as follow:
    *                   bit0: Ring
    *		           bit1: LockScreen(include AOD)
    *                   bit2: HangUp
    *                   bit3: Light
    *		           bit4: Viberation
    *
-   *Output: void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1850,15 +1848,12 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { number } slotFlags - The slotFlags to set.
-   * Input bundle 
-   *       slotFlags each bit indicate one reminder way as follow:
+   *                   each bit indicate one reminder way as follow:
    *                   bit0: Ring
    *		           bit1: LockScreen(include AOD)
    *                   bit2: HangUp
    *                   bit3: Light
    *		           bit4: Viberation
-   *
-   * Output  void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1879,8 +1874,7 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { AsyncCallback<number> } callback - The callback of getSlotNumByBundle.
-   * Input  bundle
-   * Output slotFlags each bit indicate one reminder way as follow:
+   *          slotFlags:number each bit indicate one reminder way as follow:
    *                   bit0: Ring
    *		           bit1: LockScreen(include AOD)
    *                   bit2: HangUp
@@ -1905,8 +1899,7 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @returns { Promise<number> } The promise returned by the function.
-   * Input  bundle
-   * OutpUT slotFlags each bit indicate one reminder way as follow:
+   *                   slotFlags:number each bit indicate one reminder way as follow:
    *                   bit0: Ring
    *		           bit1: LockScreen(include AOD)
    *                   bit2: HangUp
