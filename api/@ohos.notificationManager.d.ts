@@ -1822,15 +1822,15 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { number } slotFlags - The slotFlags to set.
-   * Input要求参数/(可选) bundle
-   *                   slotFlags 每个位代表当前应用的通知消息展示入口使能状态，规划如下
-   *                   bit0: 铃声
-   *		       bit1: 锁屏(含AOD)
-   *                   bit2: 横幅
-   *                   bit3: 亮屏
-   *		       bit4: 震动
+   * Input: bundle
+   *        slotFlags each bit indicate one reminder way as follow:
+   *                   bit0: Ring
+   *		           bit1: LockScreen(include AOD)
+   *                   bit2: HangUp
+   *                   bit3: Light
+   *		           bit4: Viberation
    *
-   *Output要求参数/(可选):  无
+   *Output: void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1850,15 +1850,15 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { number } slotFlags - The slotFlags to set.
-   * Input  要求参数/(可选) bundle 
-   *                   slotFlags 每个位代表当前应用的通知消息展示入口使能状态，规划如下
-   *                   bit0: 铃声
-   *		       bit1: 锁屏(含AOD)
-   *                   bit2: 横幅
-   *                   bit3: 亮屏
-   *		       bit4: 震动
+   * Input bundle 
+   *       slotFlags each bit indicate one reminder way as follow:
+   *                   bit0: Ring
+   *		           bit1: LockScreen(include AOD)
+   *                   bit2: HangUp
+   *                   bit3: Light
+   *		           bit4: Viberation
    *
-   * Output  要求参数/(可选):  无
+   * Output  void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1879,13 +1879,13 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { AsyncCallback<number> } callback - The callback of getSlotNumByBundle.
-   * Input  要求参数/(可选) bundle
-   * Output 要求参数/(可选): number 每个位代表当前应用的通知消息展示入口使能状态，规划如下
-   *                   bit0: 铃声
-   *		       bit1: 锁屏(含AOD)
-   *                   bit2: 横幅
-   *                   bit3: 亮屏
-   *		       bit4: 震动
+   * Input  bundle
+   * Output slotFlags each bit indicate one reminder way as follow:
+   *                   bit0: Ring
+   *		           bit1: LockScreen(include AOD)
+   *                   bit2: HangUp
+   *                   bit3: Light
+   *		           bit4: Viberation
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1905,13 +1905,13 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @returns { Promise<number> } The promise returned by the function.
-   * Input  要求参数/(可选) bundle
-   * Output 要求参数/(可选): number 每个位代表当前应用的通知消息展示入口使能状态，规划如下
-   *                   bit0: 铃声
-   *		       bit1: 锁屏(含AOD)
-   *                   bit2: 横幅
-   *                   bit3: 亮屏
-   *		       bit4: 震动
+   * Input  bundle
+   * OutpUT slotFlags each bit indicate one reminder way as follow:
+   *                   bit0: Ring
+   *		           bit1: LockScreen(include AOD)
+   *                   bit2: HangUp
+   *                   bit3: Light
+   *		           bit4: Viberation
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
