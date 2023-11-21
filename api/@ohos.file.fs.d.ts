@@ -41,6 +41,7 @@ declare namespace fileIo {
   export { copyDirSync };
   export { copyFile };
   export { copyFileSync };
+  export { copy };
   export { createRandomAccessFile };
   export { createRandomAccessFileSync };
   export { createStream };
@@ -97,6 +98,9 @@ declare namespace fileIo {
   export { Stream };
   export { Watcher };
   export { WhenceType };
+  export type { Progress };
+  export type { CopyOptions };
+  export type { ProgressListener };
 
   /**
    * Mode Indicates the open flags.
@@ -866,6 +870,95 @@ declare function copyFile(
  * @since 10
  */
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
+
+/**
+ * Copy file or directory.
+ *
+ * @param { string } srcUri - src uri.
+ * @param { string } destUri - dest uri.
+ * @param { CopyOptions } [options] - options.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
+
+/**
+ * Copy file or directory.
+ *
+ * @param { string } srcUri - src uri.
+ * @param { string } destUri - dest uri.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
+
+/**
+ * Copy file or directory.
+ *
+ * @param { string } srcUri - src uri.
+ * @param { string } destUri - dest uri.
+ * @param { CopyOptions } options - options.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function copy(srcUri: string, destUri: string, options: CopyOptions, callback: AsyncCallback<void>): void;
 
 /**
  * Create class Stream.
@@ -5611,6 +5704,49 @@ export type Options = {
 };
 
 /**
+ * Progress data of copyFile
+ *
+ * @typedef Progress
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+interface Progress {
+  /**
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  readonly processedSize: number;
+
+  /**
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  readonly totalSize: number;
+}
+
+/**
+ * Get options of copy
+ *
+ * @typedef CopyOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+interface CopyOptions {
+  /**
+   * Listener of copy progress
+   *
+   * @type { ?ProgressListener }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  progressListener?: ProgressListener;
+}
+
+/**
  * Enumeration of different types of whence.
  *
  * @enum { number } whence type
@@ -5667,3 +5803,5 @@ declare enum LocationType {
    */
   CLOUD = 1 << 1,
 }
+
+type ProgressListener = (progress: Progress) => void;
