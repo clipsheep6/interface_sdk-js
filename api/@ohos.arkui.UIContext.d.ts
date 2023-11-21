@@ -1042,7 +1042,7 @@ export class DragController {
 
   /**
    * Execute a drag event.
-   * @param { Array<DragItemInfo> } customs - Objects used for prompts displayed when the objects are dragged.
+   * @param { Array<CustomBuilder | DragItemInfo> } customs - Objects used for prompts displayed when the objects are dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
    * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains the drag event information.
    * @throws { BusinessError } 401 - if the parameters checking failed.
@@ -1050,13 +1050,13 @@ export class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  executeDrag(customs: Array<DragItemInfo>, dragInfo: dragController.DragInfo, callback: AsyncCallback<{
+  executeDrag(customs: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo, callback: AsyncCallback<{
     event: DragEvent, extraParams: string
   }>): void;
 
   /**
    * Execute a drag event.
-   * @param { Array<DragItemInfo> } customs - Objects used for prompts displayed when the objects are dragged.
+   * @param { Array<CustomBuilder | DragItemInfo> } customs - Objects used for prompts displayed when the objects are dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
    * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
    * @throws { BusinessError } 401 - if the parameters checking failed.
@@ -1064,7 +1064,7 @@ export class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-   executeDrag(customs: Array<DragItemInfo>, dragInfo: dragController.DragInfo): Promise<{
+   executeDrag(customs: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): Promise<{
     event: DragEvent, extraParams: string
   }>;
 
