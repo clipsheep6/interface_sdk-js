@@ -482,7 +482,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @since 11
      */
-    onReceive?: (domain: string, events: Map<string, AppEventInfo[]>) => void;
+    onReceive?: (domain: string, eventArray: Array<{name:string, events:Array<AppEventInfo>}>) => void;
   }
 
   /**
