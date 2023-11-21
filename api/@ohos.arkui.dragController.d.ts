@@ -33,7 +33,6 @@ declare namespace dragController {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    * @form
    */

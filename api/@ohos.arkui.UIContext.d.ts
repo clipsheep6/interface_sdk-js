@@ -1008,7 +1008,6 @@ export interface AtomicServiceBar {
 /**
  * class DragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 11
  */
 export class DragController {
