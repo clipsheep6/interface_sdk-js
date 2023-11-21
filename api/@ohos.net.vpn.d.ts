@@ -61,7 +61,7 @@ declare namespace vpn {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-    /**
+  /**
    * Defines a VPN connection.
    * @interface VpnConnection
    * @syscap SystemCapability.Communication.NetManager.Vpn
@@ -264,7 +264,7 @@ declare namespace vpn {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-    /**
+  /**
    * Define configuration of the VPN network.
    * @interface VpnConfig
    * @syscap SystemCapability.Communication.NetManager.Vpn
