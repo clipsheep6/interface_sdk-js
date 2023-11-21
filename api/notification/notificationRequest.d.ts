@@ -16,11 +16,13 @@
 import notification from '../@ohos.notification';
 import image from '../@ohos.multimedia.image';
 import type notificationManager from '../@ohos.notificationManager';
+import type notificationSubscribe from '../@ohos.notificationSubscribe';
 import { WantAgent } from '../@ohos.wantAgent';
 import { NotificationContent } from './notificationContent';
 import { NotificationActionButton } from './notificationActionButton';
 import { NotificationTemplate } from './notificationTemplate';
 import { NotificationFlags } from './notificationFlags';
+import { BundleOption as _BundleOption } from './NotificationCommonDef';
 
 /**
  * Defines a NotificationRequest instance.
@@ -240,6 +242,15 @@ export interface NotificationRequest {
   largeIcon?: image.PixelMap;
 
   /**
+   * Overlay notification icon.
+   *
+   * @type { ?image.PixelMap }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  overlayIcon?: image.PixelMap;
+
+  /**
    * The group information for this notification.
    *
    * @type { ?string }
@@ -431,3 +442,69 @@ export interface DistributedOptions {
    */
   readonly remindType?: number;
 }
+
+export interface LiveViewFilter {
+  /**
+   * BundleOption of the notification.
+   *
+   * @type { BundleOption }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  bundle: BundleOption;
+
+  /**
+   * Indicates the label and id of the notification.
+   *
+   * @type { NotificationKey }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  notificationKey: notificationSubscribe.NotificationKey;
+
+  /**
+   * Indicates the additional information filter keys list.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  extraInfoKeys?: Array<string>;
+}
+
+export interface NotificationCheckRequest {
+  /**
+   * The notification content type.
+   *
+   * @type { Type }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  contentType: notificationManager.ContentType;
+
+  /**
+   * Type of the notification slot..
+   *
+   * @type { SlotType }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  slotType: notificationManager.SlotType;
+
+  /**
+   * .
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  extraKeys: Array<string>;
+}
+
+  /**
+   * Describes a bundleOption in a notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  export type BundleOption = _BundleOption;
