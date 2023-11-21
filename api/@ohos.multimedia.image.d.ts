@@ -2622,6 +2622,7 @@ declare namespace image {
      *
      * @param { Array<number> } targetColorMatrix - A matrix of 5x4 size for pixel map.
      * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980101 - If the image data abnormal.
      * @throws { BusinessError } 62980102 - If the image malloc abnormal
      * @throws { BusinessError } 62980104 - If the internal object initialized failed.
@@ -2636,6 +2637,7 @@ declare namespace image {
      *
      * @param { Array<number> } targetColorMatrix - A matrix of 5x4 size for pixel map.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980101 - If the image data abnormal.
      * @throws { BusinessError } 62980102 - If the image malloc abnormal
      * @throws { BusinessError } 62980104 - If the internal object initialized failed.
