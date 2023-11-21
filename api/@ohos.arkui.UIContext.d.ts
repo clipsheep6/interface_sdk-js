@@ -1395,7 +1395,6 @@ export class UIContext {
    * Get DragController.
    * @returns { DragController } the DragController
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   getDragController(): DragController
