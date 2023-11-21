@@ -290,6 +290,13 @@ declare namespace vpn {
      * The array of routes for VPN interface.
      * @type {?Array<RouteInfo>}
      * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    /**
+     * The array of routes for VPN interface.
+     * @type {?Array<RouteInfo>}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
      * @since 11
      */
     routes?: Array<RouteInfo>;
@@ -324,6 +331,13 @@ declare namespace vpn {
      */
     searchDomains?: Array<string>;
  
+    /**
+     * The maximum transmission unit (MTU) for the VPN interface.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
     /**
      * The maximum transmission unit (MTU) for the VPN interface.
      * @type {?number}
