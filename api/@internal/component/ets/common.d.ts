@@ -4845,6 +4845,27 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {}
  */
 declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
 
+
+/**
+ * Defines the options of blur
+ *
+ * @interface BlurOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface BlurOptions {
+  /**
+   * Fuzzy gray scale parameter.
+   *
+   * @type { [number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  grayscale: [number, number];
+}
+
 /**
  * Defines the options of blurStyle
  *
@@ -4915,6 +4936,16 @@ declare interface BlurStyleOptions {
    * @since 10
    */
   scale?: number;
+
+  /**
+   * Defines the options of blur
+   *
+   * @type { ?BlurOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  blurOptions?: BlurOptions;
 }
 
 /**
@@ -11313,6 +11344,7 @@ declare class CommonMethod<T> {
    * If the value is 0, the content blurring effect is not blurring.
    *
    * @param { number } value
+   * @param { ?BlurOptions } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11320,7 +11352,7 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  blur(value: number): T;
+  blur(value: number, options?: BlurOptions): T;
 
   /**
    * Adds the content linear gradient blurring effect for the current component. The input parameter is the blurring radius.
@@ -11751,6 +11783,7 @@ declare class CommonMethod<T> {
    * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
    *
    * @param { number } value
+   * @param { ?BlurOptions } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11758,7 +11791,7 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  backdropBlur(value: number): T;
+  backdropBlur(value: number, options?: BlurOptions): T;
 
   /**
    * Composite the contents of this view and its children into an offscreen cache before display in the screen.
