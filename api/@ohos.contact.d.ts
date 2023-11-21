@@ -1499,6 +1499,14 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
+    /**
+     * Indicates a phone number of the contact.
+     *
+     * @type { ?PhoneNumber[] }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 8
+     */
     phoneNumbers?: PhoneNumber[]
 
     /**
@@ -1552,6 +1560,14 @@ declare namespace contact {
      * @type { ?Name }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     */
+    /**
+     * Indicates the contact name.
+     *
+     * @type { ?Name }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 8
      */
     name?: Name
 
@@ -2111,6 +2127,14 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
+    /**
+     * Indicates the phonetic family name of the contact.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 8
+     */
     familyNamePhonetic?: string
 
     /**
@@ -2479,6 +2503,14 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     */
+    /**
+     * Indicates the phone number of the contact.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 8
      */
     phoneNumber: string
 
