@@ -3563,6 +3563,16 @@ declare namespace audio {
     setRenderRate(rate: AudioRendererRate): Promise<void>;
 
     /**
+     * Sets the playback speed.
+     * @param { number } speed -  Audio playback speed. The value type is float, form 0.25 to 4.0.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    setSpeed(speed: number): void;
+
+    /**
      * Obtains the current render rate. This method uses an asynchronous callback to return the result.
      * @param { AsyncCallback<AudioRendererRate> } callback - Callback used to return the audio render rate.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -3583,6 +3593,14 @@ declare namespace audio {
      * @since 10
      */
     getRenderRateSync(): AudioRendererRate;
+
+    /**
+     * Obtains the current playback speed.
+     * @returns { number } The playback speed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    getSpeed(): number;
 
     /**
      * Set interrupt mode.
