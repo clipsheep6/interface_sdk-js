@@ -1817,17 +1817,13 @@ declare namespace notificationManager {
   
   
     /**
-   * Set slotFlags of bundle.
+   * Set basic configurations of application-level notification channels.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @param { number } slotFlags - The slotFlags to set.
-   *                   each bit indicate one reminder way as follow:
-   *                   bit0: Ring
-   *		           bit1: LockScreen(include AOD)
-   *                   bit2: HangUp
-   *                   bit3: Light
-   *		           bit4: Viberation
+   * @param { number } slotFlags - Indicates the slotFlags. Each bit indicate one reminder way as follows:
+   *                               bit0: Ring, bit1: LockScreen(include AOD), bit2: Banner, bit3: Light, bit4: Vibration.
+   * @param { AsyncCallback<void> } callback - The callback of setSlotFlagsByBundle.
    *
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -1843,17 +1839,13 @@ declare namespace notificationManager {
   function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: number, callback:  AsyncCallback<void>): void;
 
   /**
-   * Set nslotFlags of bundle.
+   * Set basic configurations of application-level notification channels.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @param { number } slotFlags - The slotFlags to set.
-   *                   each bit indicate one reminder way as follow:
-   *                   bit0: Ring
-   *		           bit1: LockScreen(include AOD)
-   *                   bit2: HangUp
-   *                   bit3: Light
-   *		           bit4: Viberation
+   * @param { number } - Indicates the slotFlags. Each bit indicate one reminder way as follows:
+   *                               bit0: Ring, bit1: LockScreen(include AOD), bit2: Banner, bit3: Light, bit4: Vibration.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1869,17 +1861,13 @@ declare namespace notificationManager {
   
   
   /**
-   * Obtains slotFlags of bundle.
+   * Obtains basic configurations of application-level notification channels.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @param { AsyncCallback<number> } callback - The callback of getSlotNumByBundle.
+   * @param { AsyncCallback<number> } callback - The callback of getSlotFlagsByBundle.
    *          slotFlags:number each bit indicate one reminder way as follow:
-   *                   bit0: Ring
-   *		           bit1: LockScreen(include AOD)
-   *                   bit2: HangUp
-   *                   bit3: Light
-   *		           bit4: Viberation
+   *                   bit0: Ring bit1: LockScreen(include AOD) bit2: Banner bit3: Light bit4: Vibration
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -1894,17 +1882,13 @@ declare namespace notificationManager {
   function getSlotFlagsByBundle(bundle: BundleOption, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains slotFlags of bundle.
+   * Obtains basic configurations of application-level notification channels.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @returns { Promise<number> } The promise returned by the function.
    *                   slotFlags:number each bit indicate one reminder way as follow:
-   *                   bit0: Ring
-   *		           bit1: LockScreen(include AOD)
-   *                   bit2: HangUp
-   *                   bit3: Light
-   *		           bit4: Viberation
+   *                   bit0: Ring bit1: LockScreen(include AOD) bit2: Banner bit3: Light bit4: Vibration
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
