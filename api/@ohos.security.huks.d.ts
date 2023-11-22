@@ -1342,8 +1342,26 @@ declare namespace huks {
    * @useinstead ohos.security.huks.HuksSessionHandle
    */
   export interface HuksHandle {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.security.huks.HuksSessionHandle
+     */
     errorCode: number;
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.security.huks.HuksSessionHandle
+     */
     handle: number;
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     * @deprecated since 9
+     * @useinstead ohos.security.huks.HuksSessionHandle
+     */
     token?: Uint8Array;
   }
 
