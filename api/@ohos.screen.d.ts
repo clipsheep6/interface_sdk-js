@@ -586,50 +586,6 @@ declare namespace screen {
      * @since 9
      */
     setDensityDpi(densityDpi: number): Promise<void>;
-
-    /**
-     * Get all supported color space.
-     *
-     * @returns { Promise<ColorSpace> } The result of all supported color space.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
-     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    GetSupportedColorSpaces(): Promise<Array<ColorSpace>>;
-
-    /**
-     * Get all supported color space.
-     *
-     * @param { AsyncCallback<ColorSpace> } callback The callback of all supported color space.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
-     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    GetSupportedColorSpaces(callback: AsyncCallback<Array<ColorSpace>>): void;
-
-    /**
-     * Get all supported HDR formats.
-     *
-     * @returns { Promise<HDRFormat> } The result of all supported HDR formats.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
-     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    GetSupportedHDRFormats(): Promise<Array<HDRFormat>>;
-
-    /**
-     * Get all supported HDR formats.
-     *
-     * @param { AsyncCallback<HDRFormat> } callback The callback of all supported HDR formats.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
-     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    GetSupportedHDRFormats(callback: AsyncCallback<Array<HDRFormat>>): void;
   }
 
   /**
@@ -664,115 +620,159 @@ declare namespace screen {
   }
 
   /**
+     * Get all supported color space.
+     *
+     * @returns { Promise<ColorSpace> } The result of all supported color space.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+  function GetSupportedColorSpaces(): Promise<Array<ColorSpace>>;
+
+  /**
+   * Get all supported color space.
+   *
+   * @param { AsyncCallback<ColorSpace> } callback The callback of all supported color space.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 11
+   */
+  function GetSupportedColorSpaces(callback: AsyncCallback<Array<ColorSpace>>): void;
+
+  /**
+   * Get all supported HDR formats.
+   *
+   * @returns { Promise<HDRFormat> } The result of all supported HDR formats.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 11
+   */
+  function GetSupportedHDRFormats(): Promise<Array<HDRFormat>>;
+
+  /**
+   * Get all supported HDR formats.
+   *
+   * @param { AsyncCallback<HDRFormat> } callback The callback of all supported HDR formats.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @since 11
+   */
+  function GetSupportedHDRFormats(callback: AsyncCallback<Array<HDRFormat>>): void;
+
+  /**
    * Screen Color Space
    *
    * @enum { number }
-   * @syscap SystemCapability.Window.SessionManager
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 11
    */
   enum ColorSpace {
     /**
      * UNKNOWN color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     UNKNOWN = 0,
     /**
      * ADOBE_RGB color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     ADOBE_RGB = 1,
     /**
      * BT2020_HLG color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     BT2020_HLG = 2,
     /**
      * BT2020_PQ color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     BT2020_PQ= 3,
     /**
      * BT2020_SRGB color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     BT2020_SRGB= 4,
     /**
      * BT601_EBU color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     BT601_EBU = 5,
     /**
      * BT601_SMPTE_C color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     BT601_SMPTE_C = 6,
     /**
      * BT709 color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     BT709 = 7,
     /**
      * P3_HLG color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     P3_HLG = 8,
     /**
      * P3_PQ color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     P3_PQ = 9,
     /**
      * DISPLAY_P3 color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     DISPLAY_P3 = 10,
     /**
      * SRGB color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     SRGB = 11,
     /**
      * LINEAR_SRGB color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     LINEAR_SRGB = 12,
     /**
      * LINEAR_P3 color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     LINEAR_P3 = 15,
     /**
      * LINEAR_BT2020 color space.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     LINEAR_BT2020 = 14
@@ -782,63 +782,63 @@ declare namespace screen {
    * Screen HDR Format
    *
    * @enum { number }
-   * @syscap SystemCapability.Window.SessionManager
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 11
    */
   enum HDRFormat {
     /**
      * Not support HDR.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     NONE = 0,
     /**
      * HLG format supported by video.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     VIDEO_HLG = 1,
     /**
      * HDR10 format supported by video.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     VIDEO_HDR10 = 2,
     /**
      * HDR Vivid format supported by video.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     VIDEO_HDR_VIVID = 3,
     /**
      * HDR Vivid format supported by image, stored in dual JPEG format.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     IMAGE_HDR_VIVID_DUAL = 4,
     /**
      * HDR Vivid format supported by image, stored in single HEIF format.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     IMAGE_HDR_VIVID_SINGLE = 5,
     /**
      * ISO HDR format supported by image, stored in dual JPEG format.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     IMAGE_HDR_ISO_DUAL = 6,
     /**
      * ISO HDR format supported by image, stored in single HEIF format.
      *
-     * @syscap SystemCapability.Window.SessionManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 11
      */
     IMAGE_HDR_ISO_SINGLE = 7
