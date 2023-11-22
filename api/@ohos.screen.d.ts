@@ -794,26 +794,54 @@ declare namespace screen {
      */
     NONE = 0,
     /**
-     * HDR10 HDR format.
+     * HLG format supported by video.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    HDR10 = 1,
+    VIDEO_HLG = 1,
     /**
-     * HLG HDR format.
+     * HDR10 format supported by video.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    HLG = 2,
+    VIDEO_HDR10 = 2,
     /**
-     * HDR_VIVID HDR format.
+     * HDR Vivid format supported by video.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    HDR_VIVID= 3
+    VIDEO_HDR_VIVID = 3,
+    /**
+     * HDR Vivid format supported by image, stored in dual JPEG format.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    IMAGE_HDR_VIVID_DUAL = 4,
+    /**
+     * HDR Vivid format supported by image, stored in single HEIF format.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    IMAGE_HDR_VIVID_SINGLE = 5,
+    /**
+     * ISO HDR format supported by image, stored in dual JPEG format.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    IMAGE_HDR_ISO_DUAL = 6,
+    /**
+     * ISO HDR format supported by image, stored in single HEIF format.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    IMAGE_HDR_ISO_SINGLE = 7
   }
 }
 
