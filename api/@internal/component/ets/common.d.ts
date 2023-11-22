@@ -11122,6 +11122,13 @@ declare module "AnimateToParam" {
   }
 }
 
+/**
+ * Define DragController Param.
+ *
+ * @interface DragControllerParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
 declare module 'DragControllerParam' {
   module 'DragControllerParam' {
     // @ts-ignore

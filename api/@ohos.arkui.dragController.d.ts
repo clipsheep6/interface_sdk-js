@@ -108,12 +108,12 @@ declare namespace dragController {
    */
   export class DragPreview {
     /**
-     * change forground color of preview
+     * change foreground color of preview
      * @param { ResourceColor } color - color value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
-    setForgroundColor(color: ResourceColor): void;
+    setForegroundColor(color: ResourceColor): void;
 
     /**
      * update preview style with animation
@@ -151,7 +151,7 @@ declare namespace dragController {
 
   /**
    * Execute a drag event.
-   * @param { Array<CustomBuilder | DragItemInfo> } customs - Objects used for prompts displayed when the objects are dragged.
+   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @param { AsyncCallback<{ event: DragEvent, extraParams: string, status: DraggingStatus }> } callback - Callback that contains the drag event information.
    * @throws {BusinessError} 401 - if the parameters checking failed.
@@ -159,13 +159,13 @@ declare namespace dragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-     function executeDrag(customs: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo, callback: AsyncCallback<{
+     function executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo, callback: AsyncCallback<{
       event: DragEvent, extraParams: string, status: DraggingStatus
     }>): void;
   
     /**
      * Execute a drag event.
-     * @param { Array<CustomBuilder | DragItemInfo> } customs - Objects used for prompts displayed when the objects are dragged.
+     * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
      * @param { DragInfo } dragInfo - Information about the drag event.
      * @returns { Promise<{ event: DragEvent, extraParams: string, status: DraggingStatus }> } A Promise with the drag event information.
      * @throws {BusinessError} 401 - if the parameters checking failed.
@@ -173,7 +173,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
-    function executeDrag(customs: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo): Promise<{
+    function executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo): Promise<{
       event: DragEvent, extraParams: string, status: DraggingStatus
     }>;
 
