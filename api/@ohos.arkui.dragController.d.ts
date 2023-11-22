@@ -19,7 +19,7 @@ import type { AsyncCallback, BusinessError } from './@ohos.base';
 import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 import type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions } from 'DragControllerParam';
 import type { ResourceColor, TouchPoint } from 'DragControllerUnitParam';
-import { AnimateParam } from 'AnimateToParam';
+import type { AnimateParam } from 'AnimateToParam';
 
 /**
  * This module allows developers to trigger a drag event.
