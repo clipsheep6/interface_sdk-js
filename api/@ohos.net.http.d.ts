@@ -270,7 +270,7 @@ declare namespace http {
 
     /**
      * This parameter sets a mime part's body content from memory data.
-     * @type {?ArrayBuffer | string}
+     * @type {?(ArrayBuffer | string)}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
