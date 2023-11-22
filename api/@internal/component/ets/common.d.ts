@@ -15701,6 +15701,17 @@ declare class CustomComponent extends CommonAttribute {
    * @since 11
    */
   pageTransition?(): void;
+
+  /**
+   * getEntryName Method.
+   * Get Entry Component name.
+   *
+   * @returns { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  static getEntryName?(): string;
 }
 
 /**
