@@ -34,13 +34,13 @@ declare namespace cloudExtension {
   export type Participant = cloudData.sharing.Participant;
 
   /**
-   * Defines participantStatus.
+   * Defines participantState.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11
    */
-  export type ParticipantStatus = cloudData.sharing.Status;
+  export type ParticipantState = cloudData.sharing.State;
 
   /**
    * Defines privilege.
@@ -127,7 +127,7 @@ declare namespace cloudExtension {
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the {@link Participant}.
      * @returns { Promise<Result<Array<Result<Participant>>>> } Returns the sharing result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
@@ -137,7 +137,7 @@ declare namespace cloudExtension {
     share(
         userId: number,
         bundleName: string,
-        sharingRes: string,
+        sharingResource: string,
         participants: Array<Participant>
     ): Promise<Result<Array<Result<Participant>>>>;
 
@@ -146,7 +146,7 @@ declare namespace cloudExtension {
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the {@link Participant}.
      * @returns { Promise<Result<Array<Result<Participant>>>> } Returns the sharing result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
@@ -156,7 +156,7 @@ declare namespace cloudExtension {
     unshare(
         userId: number,
         bundleName: string,
-        sharingRes: string,
+        sharingResource: string,
         participants: Array<Participant>
     ): Promise<Result<Array<Result<Participant>>>>;
 
@@ -165,20 +165,20 @@ declare namespace cloudExtension {
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @returns { Promise<Result<void>> } Returns the exit result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
      */
-    exit(userId: number, bundleName: string, sharingRes: string): Promise<Result<void>>;
+    exit(userId: number, bundleName: string, sharingResource: string): Promise<Result<void>>;
 
     /**
      * Changes privilege of the specific participants.
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the {@link Participant}.
      * @returns { Promise<Result<Array<Result<Participant>>>> } Returns the changing result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
@@ -188,7 +188,7 @@ declare namespace cloudExtension {
     changePrivilege(
         userId: number,
         bundleName: string,
-        sharingRes: string,
+        sharingResource: string,
         participants: Array<Participant>
     ): Promise<Result<Array<Result<Participant>>>>;
 
@@ -197,7 +197,7 @@ declare namespace cloudExtension {
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @returns { Promise<Result<Array<Participant>>> } Returns the query result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -206,7 +206,7 @@ declare namespace cloudExtension {
     queryParticipants(
         userId: number,
         bundleName: string,
-        sharingRes: string
+        sharingResource: string
     ): Promise<Result<Array<Participant>>>;
 
     /**
@@ -232,7 +232,7 @@ declare namespace cloudExtension {
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } invitationCode - Indicates the invitation code.
-     * @param { ParticipantStatus } status - Indicates the {@link ParticipantStatus}.
+     * @param { ParticipantState } state - Indicates the {@link ParticipantState}.
      * @returns { Promise<Result<string>> } Returns the sharing resource.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -242,7 +242,7 @@ declare namespace cloudExtension {
         userId: number,
         bundleName: string,
         invitationCode: string,
-        status: ParticipantStatus
+        state: ParticipantState
     ): Promise<Result<string>>;
 
     /**
@@ -250,8 +250,8 @@ declare namespace cloudExtension {
      *
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
-     * @param { string } sharingRes - Indicates the sharing resource.
-     * @param { ParticipantStatus } status - Indicates the {@link ParticipantStatus}.
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @param { ParticipantState } state - Indicates the {@link ParticipantState}.
      * @returns { Promise<Result<void>> } Returns the change result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -260,8 +260,8 @@ declare namespace cloudExtension {
     changeConfirmation(
       userId: number,
       bundleName: string,
-      sharingRes: string,
-      status: ParticipantStatus
+      sharingResource: string,
+      state: ParticipantState
     ): Promise<Result<void>>;
   }
 
