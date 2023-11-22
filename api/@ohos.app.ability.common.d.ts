@@ -28,6 +28,7 @@ import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type { AbilityStartCallback as _AbilityStartCallback } from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
+import * as _EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityContext';
 
 /**
  * This module provides application context classes and common data structures.
@@ -234,6 +235,15 @@ declare namespace common {
    * @since 9
    */
   export type ServiceExtensionContext = _ServiceExtensionContext.default;
+
+  /**
+   * The context of an EmbeddableUIAbility. It allows access to ability-specific resources.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @crossplatform
+   * @since 11
+   */
+  export type EmbeddableUIAbilityContext = _EmbeddableUIAbilityContext.default;
 
   /**
    * The event center of a context, support the subscription and publication of events.
