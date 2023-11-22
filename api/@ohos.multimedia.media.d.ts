@@ -18,6 +18,7 @@ import audio from "./@ohos.multimedia.audio";
 import type image from './@ohos.multimedia.image';
 import type { SoundPool as _SoundPool } from './multimedia/soundPool';
 import type { PlayParameters as _PlayParameters } from './multimedia/soundPool';
+import drm from './@ohos.multimedia.drm';
 
 /**
  * @namespace media
@@ -1034,7 +1035,40 @@ declare namespace media {
      * @since 9
      */
     setBitrate(bitrate: number): void;
+    /**
+     * Set decrypt session to codec module.
+     * @param { drm.MediaKeySession } mediaKeySession - Handle of MediaKeySession to decrypt encrypted media.
+     * @param { boolean } secureVideoPath - Secure video path required or not.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 11
+     */
+    setDecryptConfig(mediaKeySession: drm.MediaKeySession, secureVideoPath: boolean): void;
 
+    /**
+     * Get drm info from media source.
+     * @returns { Array<DrmInfo> } DrmInfo with PSSH.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 11
+     */
+    getDrmInfo(): {Array<DrmInfo>};
+    /**
+     * Register listens for drmInfoUpdate events.
+     * @param { 'drmInfoUpdate' } type - Type of the event to listen for.
+     * @param { Callback< {Array<DrmInfo>} > } callback - Callback used to
+     * listen for the drmInfoUpdate event.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 11
+     */
+    on(type: 'drmInfoUpdate', callback: Callback< {Array<DrmInfo>} >): void;
+    /**
+     * Unregister listens for drmInfoUpdate events.
+     * @param { 'drmInfoUpdate' } type - Type of the event to listen for.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 11
+     */
+    off(type: 'drmInfoUpdate'): void;
     /**
      * Register listens for media playback events.
      * @param { 'stateChange' } type - Type of the playback event to listen for.
