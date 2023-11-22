@@ -324,49 +324,49 @@ declare namespace cloudData {
     }
 
     /**
-     * Enumerates the statuses of sharing invitation.
+     * Enumerates the states of sharing invitation.
      *
      * @enum { number }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11
      */
-    export enum Status {
+    export enum State {
       /**
-       * STATUS_UNKNOWN: Unknown status.
+       * STATE_UNKNOWN: Unknown state.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
-      STATUS_UNKNOWN = 0,
+      STATE_UNKNOWN = 0,
 
       /**
-       * STATUS_ACCEPTED: Accept the sharing invitation.
+       * STATE_ACCEPTED: Accept the sharing invitation.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
-      STATUS_ACCEPTED = 1,
+      STATE_ACCEPTED = 1,
 
       /**
-       * STATUS_REJECTED: Reject the sharing invitation.
+       * STATE_REJECTED: Reject the sharing invitation.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
-      STATUS_REJECTED = 2,
+      STATE_REJECTED = 2,
 
       /**
-       * STATUS_SUSPENDED: Suspend the sharing process.
+       * STATE_SUSPENDED: Suspend the sharing process.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
-      STATUS_SUSPENDED = 3,
+      STATE_SUSPENDED = 3,
     }
 
     /**
@@ -645,14 +645,14 @@ declare namespace cloudData {
       role?: Role;
 
       /**
-       * Status of the sharing invitation.
+       * State of the sharing invitation.
        *
-       * @type { ?Status }
+       * @type { ?State }
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
        * @since 11
        */
-      status?: Status;
+      state?: State;
 
       /**
        * Permissions for the shared data.
@@ -758,7 +758,7 @@ declare namespace cloudData {
     /**
      * Shares data with the specified privilege to participants.
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved in the data sharing.
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the
@@ -774,7 +774,7 @@ declare namespace cloudData {
      * @since 11
      */
     function share(
-      sharingRes: string,
+      sharingResource: string,
       participants: Array<Participant>,
       callback: AsyncCallback<Result<Array<Result<Participant>>>>
     ): void;
@@ -782,7 +782,7 @@ declare namespace cloudData {
     /**
      * Shares data with the specified privilege to participants.
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved in the data sharing.
      * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
@@ -796,12 +796,15 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function share(sharingRes: string, participants: Array<Participant>): Promise<Result<Array<Result<Participant>>>>;
+    function share(
+      sharingResource: string,
+      participants: Array<Participant>
+    ): Promise<Result<Array<Result<Participant>>>>;
 
     /**
      * UnShares data.
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved.
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the callback invoked
@@ -817,7 +820,7 @@ declare namespace cloudData {
      * @since 11
      */
     function unshare(
-      sharingRes: string,
+      sharingResource: string,
       participants: Array<Participant>,
       callback: AsyncCallback<Result<Array<Result<Participant>>>>
     ): void;
@@ -825,7 +828,7 @@ declare namespace cloudData {
     /**
      * UnShares data.
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * involved.
      * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
@@ -840,14 +843,14 @@ declare namespace cloudData {
      * @since 11
      */
     function unshare(
-      sharingRes: string,
+      sharingResource: string,
       participants: Array<Participant>
     ): Promise<Result<Array<Result<Participant>>>>;
 
     /**
      * Exit sharing.
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @param { AsyncCallback<Result<void>> } callback - The callback of exit.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -859,12 +862,12 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function exit(sharingRes: string, callback: AsyncCallback<Result<void>>): void;
+    function exit(sharingResource: string, callback: AsyncCallback<Result<void>>): void;
 
     /**
      * Exit sharing.
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @returns { Promise<Result<void>> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -876,12 +879,12 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function exit(sharingRes: string): Promise<Result<void>>;
+    function exit(sharingResource: string): Promise<Result<void>>;
 
     /**
      * Changes the permissions for the shared data.
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * whose permissions are to be changed.
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the
@@ -897,7 +900,7 @@ declare namespace cloudData {
      * @since 11
      */
     function changePrivilege(
-      sharingRes: string,
+      sharingResource: string,
       participants: Array<Participant>,
       callback: AsyncCallback<Result<Array<Result<Participant>>>>
     ): void;
@@ -905,7 +908,7 @@ declare namespace cloudData {
     /**
      * Changes the permissions for the shared data.
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @param { Array<Participant> } participants - Indicates the participants
      * whose permissions are to be changed.
      * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
@@ -920,14 +923,14 @@ declare namespace cloudData {
      * @since 11
      */
     function changePrivilege(
-      sharingRes: string,
+      sharingResource: string,
       participants: Array<Participant>
     ): Promise<Result<Array<Result<Participant>>>>;
 
     /**
      * Queries the participants based on the specified shared data.
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @param { AsyncCallback<Result<Array<Participant>>> } callback - Indicates the
      * callback invoked to return the participants obtained.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -940,12 +943,12 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function queryParticipants(sharingRes: string, callback: AsyncCallback<Result<Array<Participant>>>): void;
+    function queryParticipants(sharingResource: string, callback: AsyncCallback<Result<Array<Participant>>>): void;
 
     /**
      * Queries the participants based on the specified shared data.
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
+     * @param { string } sharingResource - Indicates the sharing resource.
      * @returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -957,7 +960,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function queryParticipants(sharingRes: string): Promise<Result<Array<Participant>>>;
+    function queryParticipants(sharingResource: string): Promise<Result<Array<Participant>>>;
 
     /**
      * Queries the participants based on the specified invitation code.
@@ -1001,7 +1004,7 @@ declare namespace cloudData {
      * Confirms the invitation of cloud sharing.
      *
      * @param { string } invitationCode - Indicates the invitation code.
-     * @param { Status } status - Indicates the status of invitation.
+     * @param { State } state - Indicates the state of invitation.
      * @param { AsyncCallback<Result<string>> } callback - Indicates the callback
      * invoked to return the sharing resource.
      * @throws { BusinessError } 201 - Permission verification failed, which
@@ -1014,13 +1017,13 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function confirmInvitation(invitationCode: string, status: Status, callback: AsyncCallback<Result<string>>): void;
+    function confirmInvitation(invitationCode: string, state: State, callback: AsyncCallback<Result<string>>): void;
 
     /**
      * Confirms the invitation of cloud sharing.
      *
      * @param { string } invitationCode - Indicates the invitation code.
-     * @param { Status } status - Indicates the status of invitation.
+     * @param { State } state - Indicates the state of invitation.
      * @returns { Promise<Result<string>> } - Promise used to return the sharing resource.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -1032,13 +1035,13 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function confirmInvitation(invitationCode: string, status: Status): Promise<Result<string>>;
+    function confirmInvitation(invitationCode: string, state: State): Promise<Result<string>>;
 
     /**
      * Changes confirmation of shared record.
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
-     * @param { Status } status - Indicates the status of invitation.
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @param { State } state - Indicates the state of invitation.
      * @param { AsyncCallback<Result<void>> } callback - Indicates the callback.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -1050,13 +1053,13 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function changeConfirmation(sharingRes: string, status: Status, callback: AsyncCallback<Result<void>>): void;
+    function changeConfirmation(sharingResource: string, state: State, callback: AsyncCallback<Result<void>>): void;
 
     /**
      * Changes confirmation of shared record.
      *
-     * @param { string } sharingRes - Indicates the sharing resource.
-     * @param { Status } status - Indicates the status of invitation.
+     * @param { string } sharingResource - Indicates the sharing resource.
+     * @param { State } state - Indicates the state of invitation.
      * @returns { Promise<Result<void>> } - The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, which
      * is usually returned by <b>VerifyAccessToken</b>.
@@ -1068,7 +1071,7 @@ declare namespace cloudData {
      * @systemapi
      * @since 11
      */
-    function changeConfirmation(sharingRes: string, status: Status): Promise<Result<void>>;
+    function changeConfirmation(sharingResource: string, state: State): Promise<Result<void>>;
   }
 }
 
