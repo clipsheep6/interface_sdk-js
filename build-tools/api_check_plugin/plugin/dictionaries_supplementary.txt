@@ -10,6 +10,7 @@ accommodates
 acmmax
 activates
 actived
+adcp
 adjusts
 adpu
 adts
@@ -284,6 +285,7 @@ hapmodule
 haps
 haptic
 hce
+hdcp
 headed
 headersreceive
 headphones
