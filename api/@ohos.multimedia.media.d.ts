@@ -1047,21 +1047,21 @@ declare namespace media {
 
     /**
      * Get drm info from media source.
-     * @returns { Array<DrmInfo> } DrmInfo with PSSH.
+     * @returns { DrmInfo[] } DrmInfo with PSSH.
      * @throws { BusinessError } 401 - Invalid parameter.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-    getDrmInfo(): {Array<DrmInfo>};
+    getDrmInfo(): {DrmInfo[]};
     /**
      * Register listens for drmInfoUpdate events.
      * @param { 'drmInfoUpdate' } type - Type of the event to listen for.
-     * @param { Callback< {Array<DrmInfo>} > } callback - Callback used to
+     * @param { Callback<{DrmInfo[]}> } callback - Callback used to
      * listen for the drmInfoUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-    on(type: 'drmInfoUpdate', callback: Callback< {Array<DrmInfo>} >): void;
+     on(type: 'drmInfoUpdate', callback: Callback<{DrmInfo[]}>): void;
     /**
      * Unregister listens for drmInfoUpdate events.
      * @param { 'drmInfoUpdate' } type - Type of the event to listen for.
