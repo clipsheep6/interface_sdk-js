@@ -51,6 +51,14 @@ declare enum BarMode {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The actual layout width of the TabBar is used. If the width exceeds the total width, you can slide the tabbar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Scrollable = 0,
 
   /**
@@ -65,6 +73,14 @@ declare enum BarMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * The width of all TabBars is evenly allocated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Fixed = 1,
 }
@@ -107,6 +123,14 @@ declare enum BarPosition {
    * @crossplatform
    * @since 10
    */
+  /**
+   * When the vertical attribute method is set to true, the tab is on the left of the container. When the vertical property method is set to false, the tab is at the top of the container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Start,
 
   /**
@@ -121,6 +145,14 @@ declare enum BarPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * When the vertical attribute method is set to true, the tab is located on the right of the container. When the vertical property method is set to false, the tab is at the bottom of the container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   End,
 }
@@ -414,6 +446,49 @@ interface DividerStyle {
    * @since 11
    */
   endMargin?: Length;
+}
+
+/**
+ * Provides an interface for tabs animation.
+ *
+ * @interface TabsAnimationEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface TabsAnimationEvent {
+  /**
+   * Offset of the current page to the start position of the tabs main axis. The unit is vp.
+   *
+   * @type { number }
+   * @default 0.0 vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  currentOffset: number;
+
+  /**
+   * Offset of the target page to the start position of the tabs main axis. The unit is vp.
+   *
+   * @type { number }
+   * @default 0.0 vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  targetOffset: number;
+
+  /**
+   * Start speed of the page-turning animation. The unit is vp/s.
+   *
+   * @type { number }
+   * @default 0.0 vp/s
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  velocity: number;
 }
 
 /**
@@ -916,6 +991,46 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 11
    */
   onTabBarClick(event: (index: number) => void): TabsAttribute;
+
+  /**
+   * Called when the tab content flip animation start.
+   *
+   * @param { function } handler -
+   * "index": the index value of the tab that when animation start.
+   * "targetIndex": the target index value of the tab that when animation start.
+   * "event": the animation event callback info.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onAnimationStart(handler: (index: number, targetIndex: number, event: TabsAnimationEvent) => void): TabsAttribute;
+
+  /**
+   * Called when the tab content flip animation end.
+   *
+   * @param { function } handler -
+   * "index": the index value of the tab that when animation start.
+   * "event": the animation event callback info.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onAnimationEnd(handler: (index: number, event: TabsAnimationEvent) => void): TabsAttribute;
+
+  /**
+   * Called when swiping the tab content with the gesture.
+   *
+   * @param { function } handler -
+   * "index": the index value of the tab that when animation start.
+   * "event": the animation event callback info.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onGestureSwipe(handler: (index: number, event: TabsAnimationEvent) => void): TabsAttribute;
 
   /**
    * Set whether the edges of tab bar are fading.

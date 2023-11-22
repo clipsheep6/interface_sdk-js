@@ -97,6 +97,7 @@ capabilitys
 capturers
 ccm
 cdma
+ce
 certsign
 cft
 channeldown
@@ -149,6 +150,7 @@ datasync
 dbm
 dci
 ddmp
+de
 deactivated
 deactivation
 decodes
@@ -199,6 +201,8 @@ dpad
 drains
 dragbar
 drawbuffer
+dsda
+dsds
 dsf
 dtmf
 ducked
@@ -206,6 +210,7 @@ ducking
 earfcn
 earphones
 earpiece
+ece
 edr
 efuse
 egid
@@ -640,6 +645,7 @@ scrolldown
 scrollup
 sdpi
 searchsetter
+sece
 secinfo
 seeked
 semicircles
@@ -725,6 +731,7 @@ taskmanager
 taskpool
 tbla
 tcpnodelay
+tdm
 tdscdma
 telecom
 tethering

@@ -69,6 +69,15 @@ declare enum ScrollState {
    * @since 10
    * @form
    */
+  /**
+   * Not activated.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Idle,
 
   /**
@@ -92,6 +101,15 @@ declare enum ScrollState {
    * @since 10
    * @form
    */
+  /**
+   * Scrolling status.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Scroll,
 
   /**
@@ -113,6 +131,15 @@ declare enum ScrollState {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Drag status.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Fling,
@@ -161,6 +188,15 @@ declare enum ListItemAlign {
    * @since 10
    * @form
    */
+  /**
+   * Start position in the direction of cross axis.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Start,
 
   /**
@@ -178,6 +214,15 @@ declare enum ListItemAlign {
    * @since 10
    * @form
    */
+  /**
+   * Center position in the direction of cross axis.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Center,
 
   /**
@@ -193,6 +238,15 @@ declare enum ListItemAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * End position in the direction of cross axis
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   End,
@@ -241,6 +295,15 @@ declare enum StickyStyle {
    * @since 10
    * @form
    */
+  /**
+   * The header and footer of each item group will not be pinned.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   None = 0,
 
   /**
@@ -258,6 +321,15 @@ declare enum StickyStyle {
    * @since 10
    * @form
    */
+  /**
+   * The header of each item group will be pinned.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Header = 1,
 
   /**
@@ -273,6 +345,15 @@ declare enum StickyStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * The footer of each item group will be pinned.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Footer = 2,
@@ -516,6 +597,21 @@ declare class ListScroller extends Scroller {
    * @since 11
    */
   getItemRectInGroup(index: number, indexInGroup: number): RectResult;
+
+  /**
+   * Called when sliding to the specified index in specified ListItemGroup.
+   *
+   * @param { number } index - Index of the ListItemGroup in List.
+   * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
+   * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
+   * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  scrollToItemInGroup(index: number, indexInGroup:number, smooth?: boolean, align?: ScrollAlign): void;
 
   /**
    * Collapse all listItem.
