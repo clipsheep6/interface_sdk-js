@@ -127,7 +127,8 @@ declare namespace dragController {
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains the drag event information.
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains 
+   * the drag event information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -151,37 +152,38 @@ declare namespace dragController {
    * Execute a drag event.
    * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string, status: DraggingStatus }> } callback - Callback that contains the drag event information.
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string, status: DraggingStatus }> } callback - 
+   * Callback that contains the drag event information.
    * @throws {BusinessError} 401 - if the parameters checking failed.
    * @throws {BusinessError} 100001 - if some internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-     function executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo, callback: AsyncCallback<{
-      event: DragEvent, extraParams: string, status: DraggingStatus
-    }>): void;
+  function executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo, callback: AsyncCallback<{
+    event: DragEvent, extraParams: string, status: DraggingStatus
+  }>): void;
   
-    /**
-     * Execute a drag event.
-     * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
-     * @param { DragInfo } dragInfo - Information about the drag event.
-     * @returns { Promise<{ event: DragEvent, extraParams: string, status: DraggingStatus }> } A Promise with the drag event information.
-     * @throws {BusinessError} 401 - if the parameters checking failed.
-     * @throws {BusinessError} 100001 - if some internal handling failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    function executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo): Promise<{
-      event: DragEvent, extraParams: string, status: DraggingStatus
-    }>;
+  /**
+   * Execute a drag event.
+   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
+   * @param { DragInfo } dragInfo - Information about the drag event.
+   * @returns { Promise<{ event: DragEvent, extraParams: string, status: DraggingStatus }> } A Promise with the drag event information.
+   * @throws {BusinessError} 401 - if the parameters checking failed.
+   * @throws {BusinessError} 100001 - if some internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  function executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo): Promise<{
+    event: DragEvent, extraParams: string, status: DraggingStatus
+  }>;
 
-    /**
-     * Get drag preview object.
-     * @returns { DragPreview } An drag preview object.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    function getDragPreview(): DragPreview;
+  /**
+   * Get drag preview object.
+   * @returns { DragPreview } An drag preview object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  function getDragPreview(): DragPreview;
 }
 
 export default dragController;

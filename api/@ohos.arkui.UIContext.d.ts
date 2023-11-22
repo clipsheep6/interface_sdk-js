@@ -37,7 +37,7 @@ import { DatePickerDialogOptions } from 'DatePickerDialogParam';
 import { TimePickerDialogOptions } from 'TimePickerDialogParam';
 import { TextPickerDialogOptions } from 'textPickerDialogParam';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
-import dragController from './@ohos.arkui.dragController';
+import type dragController from './@ohos.arkui.dragController';
 
 /**
  * class Font
@@ -1015,7 +1015,8 @@ export class DragController {
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains the drag event information.
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains 
+   * the drag event information.
    * @throws { BusinessError } 401 - if the parameters checking failed.
    * @throws { BusinessError } 100001 - if some internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1043,7 +1044,8 @@ export class DragController {
    * Execute a drag event.
    * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string, status: dragController.DraggingStatus }> } callback - Callback that contains the drag event information.
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string, status: dragController.DraggingStatus }> } callback - 
+   * Callback that contains the drag event information.
    * @throws { BusinessError } 401 - if the parameters checking failed.
    * @throws { BusinessError } 100001 - if some internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1057,13 +1059,14 @@ export class DragController {
    * Execute a drag event.
    * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<{ event: DragEvent, extraParams: string, status: dragController.DraggingStatus }> } A Promise with the drag event information.
+   * @returns { Promise<{ event: DragEvent, extraParams: string, status: dragController.DraggingStatus }> } A Promise with 
+   * the drag event information.
    * @throws { BusinessError } 401 - if the parameters checking failed.
    * @throws { BusinessError } 100001 - if some internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-   executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): Promise<{
+  executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): Promise<{
     event: DragEvent, extraParams: string, status: dragController.DraggingStatus
   }>;
 
@@ -1396,7 +1399,7 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  getDragController(): DragController
+  getDragController(): DragController;
 }
 
 /**
