@@ -1510,6 +1510,13 @@ declare module "GlobalResource" {
   }
 }
 
+/**
+ * Defines TouchPoint 
+ * 
+ * @interface TouchPoint
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
 declare interface TouchPoint {
   /**
    * Define the touch point x coordinate.

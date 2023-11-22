@@ -37,7 +37,19 @@ declare namespace dragController {
    * @form
    */
   enum DraggingStatus {
+    /**
+     * Dragging has started.
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
     DRAG_STARTED = 0,
+    /**
+     * Dragging has ended.
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
     DRAG_ENDED = 1,
   }
   /**
@@ -106,11 +118,11 @@ declare namespace dragController {
     /**
      * update preview style with animation
      * @param { AnimateParam } value - animation parameters
-     * @param { function } event - change style functions
+     * @param { function } hanlder - change style functions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
-    updateWithAnimation(value: AnimateParam, event: () =>void): void;
+    updateWithAnimation(value: AnimateParam, hanlder: () =>void): void;
   }
 
   /**
