@@ -1828,6 +1828,7 @@ declare namespace audio {
     /**
      * Obtains an {@link AudioSpatializationManager} instance.
      * @returns { AudioSpatializationManager } AudioSpatializationManager instance.
+     * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -2799,6 +2800,7 @@ declare namespace audio {
     /**
      * Checks whether spatialization is supported by system.
      * @returns { boolean } Whether spatialization is supported by system.
+     * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -2809,6 +2811,7 @@ declare namespace audio {
      * Checks whether spatialization is supported by the specified device.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
      * @returns { boolean } Whether spatialization is supported by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -2820,6 +2823,7 @@ declare namespace audio {
     /**
      * Checks whether head tracking is supported by system.
      * @returns { boolean } Whether head tracking is supported by system.
+     * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -2830,6 +2834,7 @@ declare namespace audio {
      * Checks whether head tracking is supported by the specified device.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
      * @returns { boolean } Whether head tracking is supported by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -2842,6 +2847,7 @@ declare namespace audio {
      * Sets the spatialization enabled or disabled. This method uses an asynchronous callback to return the result.
      * @param { boolean } enable - Spatialization enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -2853,6 +2859,7 @@ declare namespace audio {
      * Sets the spatialization enabled or disabled. This method uses a promise to return the result.
      * @param { boolean } enable - Spatialization enable state.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
@@ -2863,6 +2870,7 @@ declare namespace audio {
     /**
      * Checks whether the spatialization is enabled.
      * @returns { boolean } Whether the spatialization is enabled.
+     * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -2874,6 +2882,7 @@ declare namespace audio {
      * registered clients will receive the callback.
      * @param { 'spatializationEnabledChange' } type - Type of the event to listen for.
      * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -2886,6 +2895,7 @@ declare namespace audio {
      * Unsubscribes to the spatialization enable state change events.
      * @param { 'spatializationEnabledChange' } type - Type of the event to listen for.
      * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -2898,6 +2908,7 @@ declare namespace audio {
      * Sets the head tracking enabled or disabled. This method uses an asynchronous callback to return the result.
      * @param { boolean } enable - Head tracking enable state.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -2909,6 +2920,7 @@ declare namespace audio {
      * Sets the head tracking enabled or disabled. This method uses a promise to return the result.
      * @param { boolean } enable - Head tracking enable state.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
@@ -2919,6 +2931,7 @@ declare namespace audio {
     /**
      * Checks whether the head tracking is enabled.
      * @returns { boolean } Whether the head tracking is enabled.
+     * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -2930,6 +2943,7 @@ declare namespace audio {
      * registered clients will receive the callback.
      * @param { 'headTrackingEnabledChange' } type - Type of the event to listen for.
      * @param { Callback<boolean> } callback - Callback used to get the head tracking enable state.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -2942,6 +2956,7 @@ declare namespace audio {
      * Unsubscribes to the head tracking enable state change events.
      * @param { 'headTrackingEnabledChange' } type - Type of the event to listen for.
      * @param { Callback<boolean> } callback - Callback used to get the head tracking enable state.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -2953,6 +2968,7 @@ declare namespace audio {
     /**
      * Updates the spatial device state.
      * @param { AudioSpatialDeviceState } spatialDeviceState - Spatial device state.
+     * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @throws { BusinessError } 6800101 - Invalid parameter error.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -4737,6 +4753,7 @@ declare namespace audio {
   interface AudioSpatialDeviceState {
     /**
      * Spatial device address.
+     * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -4745,6 +4762,7 @@ declare namespace audio {
 
     /**
      * Whether the spatial device supports spatial rendering.
+     * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -4753,6 +4771,7 @@ declare namespace audio {
 
     /**
      * Whether the spatial device supports head tracking.
+     * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -4761,6 +4780,7 @@ declare namespace audio {
 
     /**
      * Spatial device type.
+     * @type { AudioSpatialDeviceType }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
@@ -4784,26 +4804,26 @@ declare namespace audio {
      */
     SPATIAL_DEVICE_TYPE_NONE = 0,
     /**
-     * Audio Spatial Device Type inear earphone.
+     * Audio Spatial Device Type in-ear headphone.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    SPATIAL_DEVICE_TYPE_INEAR_EARPHONE = 1,
+    SPATIAL_DEVICE_TYPE_IN_EAR_HEADPHONE = 1,
     /**
-     * Audio Spatial Device Type half inear earphone.
+     * Audio Spatial Device Type half-in-ear headphone.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    SPATIAL_DEVICE_TYPE_HALF_INEAR_EARPHONE = 2,
+    SPATIAL_DEVICE_TYPE_HALF_IN_EAR_HEADPHONE = 2,
     /**
-     * Audio Spatial Device Type headphone.
+     * Audio Spatial Device Type over-ear headphone.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 11
      */
-    SPATIAL_DEVICE_TYPE_HEADPHONE = 3,
+    SPATIAL_DEVICE_TYPE_OVER_EAR_HEADPHONE = 3,
     /**
      * Audio Spatial Device Type glasses.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
