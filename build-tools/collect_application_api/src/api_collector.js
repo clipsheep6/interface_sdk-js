@@ -19,6 +19,7 @@ const { SystemApiRecognizer } = require('./api_recognizer');
 const { ReporterFormat } = require('./configs');
 const ts = require('typescript');
 const fs = require('fs');
+const path = require('path');
 
 class ProgramFactory {
   setLibPath(libPath) {
@@ -138,6 +139,7 @@ class ApiCollector {
     }
     Logger.info(this.logTag, `scan app ${this.project.getPath()}`);
     Logger.info(this.logTag, `sdk is in ${sdkPath}`);
+    const addedGlobalTsFile = addGlobalDeclarations(sdkPath);
     const apiLibs = this.sdk.getApiLibs();
     const componentLibs = this.sdk.getComponentLibs();
     const eslibs = this.sdk.getESLibs(this.libPath);
@@ -173,6 +175,7 @@ class ApiCollector {
     // avoid oom
     systemApiRecognizer = undefined;
     program = undefined;
+    fs.unlinkSync(addedGlobalTsFile);
     await apiWriter.flush();
   }
 
@@ -228,6 +231,74 @@ class MultiProjectApiCollector {
     apiExcelWriter.open();
     await apiExcelWriter.flush();
   }
+}
+
+function processsFile(content, fileName, isGlobal) {
+  let sourceFile = ts.createSourceFile(fileName, content, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
+  const newStatements = [];
+  if (sourceFile.statements && sourceFile.statements.length) {
+    if (isGlobal) {
+      sourceFile.statements.forEach((node) => {
+        if (!ts.isImportDeclaration(node)) {
+          if (node.modifiers && node.modifiers.length && node.modifiers[0].kind === ts.SyntaxKind.ExportKeyword) {
+            node.modifiers.splice(0, 1);
+          }
+          if (isVariable(node)) {
+            const name = node.declarationList.declarations[0].name.getText();
+            const type = node.declarationList.declarations[0].type.getText();
+            if (name.indexOf(type) !== -1) {
+              const declarationNode = ts.factory.updateVariableDeclaration(node.declarationList.declarations[0],
+                ts.factory.createIdentifier(type), node.declarationList.declarations[0].exclamationToken,
+                node.declarationList.declarations[0].type, node.declarationList.declarations[0].initializer);
+              node.declarationList = ts.factory.updateVariableDeclarationList(node.declarationList, [declarationNode]);
+            }
+          }
+          newStatements.push(node);
+        }
+      });
+    }
+  }
+  sourceFile = ts.factory.updateSourceFile(sourceFile, newStatements);
+  const printer = ts.createPrinter({ removeComments: false, newLine: ts.NewLineKind.LineFeed });
+  const result = printer.printNode(ts.EmitHint.Unspecified, sourceFile, sourceFile);
+  return result;
+}
+
+function isVariable(node) {
+  if (ts.isVariableStatement(node) && node.declarationList && node.declarationList.declarations &&
+    node.declarationList.declarations.length && ts.isVariableDeclaration(node.declarationList.declarations[0]) &&
+    node.declarationList.declarations[0].name && node.declarationList.declarations[0].type) {
+    return true;
+  }
+  return false;
+}
+
+function addGlobalDeclarations(sdkPath) {
+  const license = `/*
+  * Copyright (c) 2021 Huawei Device Co., Ltd.
+  * Licensed under the Apache License, Version 2.0 (the "License");
+  * you may not use this file except in compliance with the License.
+  * You may obtain a copy of the License at
+  *
+  *     http://www.apache.org/licenses/LICENSE-2.0
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */`;
+  const globalTsFile = path.resolve(sdkPath + '\\api\\@internal\\full\\global.d.ts');
+  let content = fs.readFileSync(globalTsFile, 'utf8');
+  const fileName = sdkPath + '\\api\\@internal\\full\\global_copy.d.ts';
+  content = processsFile(content, globalTsFile, true);
+  fs.writeFileSync(fileName, license + '\n\n' + content, err => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+  });
+  return fileName;
 }
 
 exports.ApiCollector = ApiCollector;
