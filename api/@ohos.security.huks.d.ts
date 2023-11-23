@@ -2514,6 +2514,15 @@ declare namespace huks {
      * @since 11
      */
     HUKS_AES_KEY_SIZE_256 = 256,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_AES_KEY_SIZE_512 = 512,
 
     /**
