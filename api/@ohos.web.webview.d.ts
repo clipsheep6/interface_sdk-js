@@ -26,6 +26,7 @@ import image from './@ohos.multimedia.image';
  *
  * @namespace webview
  * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
  * @since 9
  */
 /**
@@ -34,6 +35,7 @@ import image from './@ohos.multimedia.image';
  * @namespace webview
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
+ * @atomicservice
  * @since 10
  */
 declare namespace webview {
@@ -42,6 +44,7 @@ declare namespace webview {
    * 
    * @interface WebHeader
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -50,18 +53,21 @@ declare namespace webview {
    * @interface WebHeader
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   interface WebHeader {
     /**
      * Gets the key of the request/response header.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
      * Gets the key of the request/response header.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 10
      */
     headerKey: string;
@@ -69,12 +75,14 @@ declare namespace webview {
     /**
      * Gets the value of the request/response header.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
      * Gets the value of the request/response header.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 9
      */
     headerValue: string;
@@ -84,12 +92,14 @@ declare namespace webview {
    * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   enum WebHitTestType {
     /**
      * The edit text.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     EditText,
@@ -97,6 +107,7 @@ declare namespace webview {
     /**
      * The email address.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     Email,
@@ -104,6 +115,7 @@ declare namespace webview {
     /**
      * The HTML::a tag with src=http.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     HttpAnchor,
@@ -111,6 +123,7 @@ declare namespace webview {
     /**
      * The HTML::a tag with src=http + HTML::img.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     HttpAnchorImg,
@@ -118,6 +131,7 @@ declare namespace webview {
     /**
      * The HTML::img tag.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     Img,
@@ -125,6 +139,7 @@ declare namespace webview {
     /**
      * The map address.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     Map,
@@ -132,6 +147,7 @@ declare namespace webview {
     /**
      * The phone number.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     Phone,
@@ -139,6 +155,7 @@ declare namespace webview {
     /**
      * Other unknown HitTest.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     Unknown
@@ -148,12 +165,14 @@ declare namespace webview {
    * Defines the mode for using HttpDns.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 10
    */
   enum SecureDnsMode {
     /**
      * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     OFF = 0,
@@ -161,6 +180,7 @@ declare namespace webview {
      * By default, the user-settings of HttpDns is used for dns resolution, and if it fails,
      * the system dns is used for resolution.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     AUTO = 1,
@@ -168,6 +188,7 @@ declare namespace webview {
      * Use the user-settings of HttpDns for dns resolution. If it fails, it will not
      * fall back to the system dns, which will directly cause the page to fail to load.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     SECURE_ONLY = 2,
@@ -178,6 +199,7 @@ declare namespace webview {
    * 
    * @interface HitTestValue
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   interface HitTestValue {
@@ -186,6 +208,7 @@ declare namespace webview {
      * Get the hit test type.
      * 
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     type: WebHitTestType;
@@ -194,6 +217,7 @@ declare namespace webview {
      * Get the hit test extra data.
      * 
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     extra: string;
@@ -204,6 +228,7 @@ declare namespace webview {
    * 
    * @interface WebCustomScheme
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   interface WebCustomScheme {
@@ -212,6 +237,7 @@ declare namespace webview {
      * Name of the custom scheme.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     schemeName: string;
@@ -220,6 +246,7 @@ declare namespace webview {
      * Whether Cross-Origin Resource Sharing is supported.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     isSupportCORS: boolean;
@@ -228,6 +255,7 @@ declare namespace webview {
      * Whether fetch request is supported.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     isSupportFetch: boolean;
@@ -238,6 +266,7 @@ declare namespace webview {
    * 
    * @interface WebStorageOrigin
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   interface WebStorageOrigin {
@@ -254,6 +283,7 @@ declare namespace webview {
    *
    * @throws { BusinessError } 401 - Invalid input parameter.
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   function once(type: string, callback: Callback<void>): void;
@@ -262,6 +292,7 @@ declare namespace webview {
    * Provides methods for managing web storage.3
    * 
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   class WebStorage {
@@ -269,6 +300,7 @@ declare namespace webview {
      * Delete all the storage data.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static deleteAllData(): void;
@@ -280,6 +312,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static deleteOrigin(origin: string): void;
@@ -290,6 +323,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100012 - Invalid web storage origin.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static getOrigins(): Promise<Array<WebStorageOrigin>>;
@@ -300,6 +334,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100012 - Invalid web storage origin.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
@@ -311,6 +346,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static getOriginQuota(origin: string): Promise<number>;
@@ -322,6 +358,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
@@ -333,6 +370,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static getOriginUsage(origin: string): Promise<number>;
@@ -344,6 +382,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
@@ -352,6 +391,7 @@ declare namespace webview {
   /**
    * Provides methods for managing web database.
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   /**
@@ -365,6 +405,7 @@ declare namespace webview {
     * Get whether instances holds any http authentication credentials.
     * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
     * @syscap SystemCapability.Web.Webview.Core
+    * @atomicservice
     * @since 9
     */
    /**
@@ -380,6 +421,7 @@ declare namespace webview {
      * Delete all http authentication credentials.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -398,6 +440,7 @@ declare namespace webview {
      * @returns { Array<string> } Return an array containing username and password.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -420,6 +463,7 @@ declare namespace webview {
      * @param { string } password - The password.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -439,6 +483,7 @@ declare namespace webview {
   /**
    * Provides a method for managing web geographic location permissions.
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   class GeolocationPermissions {
@@ -448,6 +493,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static allowGeolocation(origin: string): void;
@@ -458,6 +504,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static deleteGeolocation(origin: string): void;
@@ -466,6 +513,7 @@ declare namespace webview {
      * Delete all geolocation permissions.
      * 
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static deleteAllGeolocation(): void;
@@ -481,6 +529,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static getAccessibleGeolocation(origin: string): Promise<boolean>;
@@ -497,6 +546,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static getAccessibleGeolocation(origin: string, callback: AsyncCallback<boolean>): void;
@@ -507,6 +557,7 @@ declare namespace webview {
      *                                     the stored geolocation permission state.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static getStoredGeolocation(): Promise<Array<string>>;
@@ -517,6 +568,7 @@ declare namespace webview {
      *                                                    stored geolocation permission states.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static getStoredGeolocation(callback: AsyncCallback<Array<string>>): void;
@@ -526,6 +578,7 @@ declare namespace webview {
    * Provides methods for managing the web cookies.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   class WebCookieManager {
@@ -640,6 +693,7 @@ declare namespace webview {
      * @returns { Promise<void> } - A promise resolved after the cookies have been saved.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static saveCookieAsync(): Promise<void>;
@@ -649,6 +703,7 @@ declare namespace webview {
      * @param { AsyncCallback<void> } callback - Called after the cookies have been saved.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static saveCookieAsync(callback: AsyncCallback<void>): void;
@@ -658,6 +713,7 @@ declare namespace webview {
      *
      * @returns { boolean } True if the instance can send and accept cookies else false.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static isCookieAllowed(): boolean;
@@ -669,6 +725,7 @@ declare namespace webview {
      * @param { boolean } accept - Whether the instance should send and accept cookies.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static putAcceptCookieEnabled(accept: boolean): void;
@@ -678,6 +735,7 @@ declare namespace webview {
      *
      * @returns { boolean } True if the instance can send and accept thirdparty cookies else false.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static isThirdPartyCookieAllowed(): boolean;
@@ -689,6 +747,7 @@ declare namespace webview {
      * @param { boolean } accept - Whether the instance should send and accept thirdparty cookies.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static putAcceptThirdPartyCookieEnabled(accept: boolean): void;
@@ -698,6 +757,7 @@ declare namespace webview {
      *
      * @returns { boolean } True if exists more than one cookie else false;
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static existCookie(): boolean;
@@ -777,6 +837,7 @@ declare namespace webview {
    * 
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 10
    */
   enum WebMessageType {
@@ -784,6 +845,7 @@ declare namespace webview {
      * Unsupported data type.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     NOT_SUPPORT,
@@ -792,6 +854,7 @@ declare namespace webview {
      * The string data type.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     STRING,
@@ -800,6 +863,7 @@ declare namespace webview {
      * The number data type.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     NUMBER,
@@ -808,6 +872,7 @@ declare namespace webview {
      * The boolean data type.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     BOOLEAN,
@@ -816,6 +881,7 @@ declare namespace webview {
      * The arraybuffer data type.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     ARRAY_BUFFER,
@@ -824,6 +890,7 @@ declare namespace webview {
      * The array data type.
      * 
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     ARRAY,
@@ -832,6 +899,7 @@ declare namespace webview {
      * The error data type.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     ERROR
@@ -841,6 +909,7 @@ declare namespace webview {
    * The message received or sent from web message port.
    * 
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 10
    */
   class WebMessageExt {
@@ -848,6 +917,7 @@ declare namespace webview {
      * Get the type of the web message.
      * @returns { WebMessageType } - Returns data of WebMessageType type
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getType(): WebMessageType;
@@ -858,6 +928,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getString(): string;
@@ -868,6 +939,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getNumber(): number;
@@ -878,6 +950,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getBoolean(): boolean;
@@ -888,6 +961,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getArrayBuffer(): ArrayBuffer;
@@ -898,6 +972,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getArray(): Array<string | number | boolean>;
@@ -908,6 +983,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getError(): Error;
@@ -919,6 +995,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     setType(type: WebMessageType): void;
@@ -930,6 +1007,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     setString(message: string): void;
@@ -941,6 +1019,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     setNumber(message: number): void;
@@ -952,6 +1031,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     setBoolean(message: boolean): void;
@@ -963,6 +1043,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     setArrayBuffer(message: ArrayBuffer): void;
@@ -973,6 +1054,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     setArray(message: Array<string | number | boolean>): void;
@@ -984,6 +1066,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100014 - The type does not match with the value of the web message.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     setError(message: Error): void;
@@ -994,6 +1077,7 @@ declare namespace webview {
    * Define html web message port.
    * @interface WebMessagePort
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   interface WebMessagePort {
@@ -1001,6 +1085,7 @@ declare namespace webview {
      * The flag indicates whether more formats are supported than string and array buffers.
      *
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     isExtentionType?: boolean;
@@ -1008,6 +1093,7 @@ declare namespace webview {
     /**
      * Close port.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     close(): void;
@@ -1018,6 +1104,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100010 - Can not post message using this port.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     postMessageEvent(message: WebMessage): void;
@@ -1028,6 +1115,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100006 - Can not register message event using this port.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     onMessageEvent(callback: (result: WebMessage) => void): void;
@@ -1038,6 +1126,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100010 - Can not post message using this port. 
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     postMessageEventExt(message: WebMessageExt): void;
@@ -1048,6 +1137,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100006 - Can not register message event using this port.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     onMessageEventExt(callback: (result: WebMessageExt) => void): void;
@@ -1057,12 +1147,14 @@ declare namespace webview {
    * Provides information for history item in BackForwardList.
    * @interface HistoryItem
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   interface HistoryItem {
     /**
      * Pixelmap of icon.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     icon: image.PixelMap;
@@ -1070,6 +1162,7 @@ declare namespace webview {
     /**
      * Url of this history item.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     historyUrl: string;
@@ -1077,6 +1170,7 @@ declare namespace webview {
     /**
      * Original request url of this history item.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     historyRawUrl: string;
@@ -1084,6 +1178,7 @@ declare namespace webview {
     /**
      * Title of this history item.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     title: string;
@@ -1093,12 +1188,14 @@ declare namespace webview {
    * Provides back and forward history list information method. related to {@link HistoryItem}.
    * @interface BackForwardList
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   interface BackForwardList {
     /**
      * Current index in BackForwardList.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     currentIndex: number;
@@ -1106,6 +1203,7 @@ declare namespace webview {
     /**
      * Size of in BackForwardList.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     size: number;
@@ -1117,6 +1215,7 @@ declare namespace webview {
      * @returns { HistoryItem } HistoryItem at given index in back forward list.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     getItemAtIndex(index: number): HistoryItem;
@@ -1126,12 +1225,14 @@ declare namespace webview {
    * Enum type supplied to {@link runJavaScriptExt} for indicating the result of JavaScript code execution.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 10
    */
   enum JsMessageType {
     /**
      * Unsupported data type.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     NOT_SUPPORT,
@@ -1139,6 +1240,7 @@ declare namespace webview {
     /**
      * The string data type.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     STRING,
@@ -1146,6 +1248,7 @@ declare namespace webview {
     /**
      * The number data type.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     NUMBER,
@@ -1153,6 +1256,7 @@ declare namespace webview {
     /**
      * The boolean data type.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     BOOLEAN,
@@ -1160,6 +1264,7 @@ declare namespace webview {
     /**
      * The arraybuffer data type.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     ARRAY_BUFFER,
@@ -1167,6 +1272,7 @@ declare namespace webview {
     /**
      * The array data type.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     ARRAY
@@ -1175,6 +1281,7 @@ declare namespace webview {
   /**
    * The message for indicating the of result of JavaScript code execution.
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 10
    */
   class JsMessageExt {
@@ -1182,6 +1289,7 @@ declare namespace webview {
      * Get the type of the JavaScript code execution result.
      * @returns { JsMessageType } - Returns data of JsMessageType type
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getType(): JsMessageType;
@@ -1191,6 +1299,7 @@ declare namespace webview {
      * @returns { string } - Returns data of string type
      * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getString(): string;
@@ -1200,6 +1309,7 @@ declare namespace webview {
      * @returns { number } - Returns data of number type
      * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getNumber(): number;
@@ -1209,6 +1319,7 @@ declare namespace webview {
      * @returns { boolean } - Returns data of Boolean type
      * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getBoolean(): boolean;
@@ -1218,6 +1329,7 @@ declare namespace webview {
      * @returns { ArrayBuffer } - Returns data of ArrayBuffer
      * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getArrayBuffer(): ArrayBuffer;
@@ -1227,6 +1339,7 @@ declare namespace webview {
      * @returns { Array<string | number | boolean> } - Returns data of Array type
      * @throws { BusinessError } 17100014 - The type does not match with the value of the result.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getArray(): Array<string | number | boolean>;
@@ -1235,12 +1348,14 @@ declare namespace webview {
   /**
    * Provides methods for controlling the web controller.
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 9
    */
   /**
    * Provides methods for controlling the web controller.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
+   * @atomicservice
    * @since 10
    */
   class WebviewController {
@@ -1249,6 +1364,7 @@ declare namespace webview {
      * This is a global static API that must be called on the UI thread, and it will have no effect if any
      * Web components are loaded.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static initializeWebEngine(): void;
@@ -1260,6 +1376,7 @@ declare namespace webview {
      *                   Must be https protocol and only allow one server to be configured.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     static setHttpDns(secureDnsMode: SecureDnsMode, secureDnsConfig: string): void;
@@ -1269,6 +1386,7 @@ declare namespace webview {
      * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
@@ -1279,6 +1397,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -1298,6 +1417,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100001 - Init error.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -1320,6 +1440,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     accessStep(step: number): boolean;
@@ -1330,6 +1451,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -1349,6 +1471,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -1368,6 +1491,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     clearHistory(): void;
@@ -1378,6 +1502,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     onActive(): void;
@@ -1388,6 +1513,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     onInactive(): void;
@@ -1398,6 +1524,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -1427,6 +1554,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -1461,6 +1589,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -1475,6 +1604,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 10
      */
     loadUrl(url: string | Resource, headers?: Array<WebHeader>): void;
@@ -1485,6 +1615,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     getHitTest(): WebHitTestType;
@@ -1492,11 +1623,11 @@ declare namespace webview {
     /**
      * Stores the current page as a web archive.
      *
-     * @param { string } baseName - The path to the file storage, This value cannot be null.
-     * @param { boolean } autoName - Decide whether the file name is automatically generated. If false, 
-     *                               baseName is used as the file storage path. If true, baseName is 
-     *                               assumed to be a directory, and the file name will be automatically 
-     *                               generated based on the URL of the current page.
+     * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
+     * @param { boolean } autoName - If it is false, the filename will be automatically generated according to
+     *                               the url and the generated offline webpage will be stored in the directory
+     *                               specified by baseName. If it is true, the offline webpage will be directly
+     *                               stored in the path specified by baseName.
      * @returns { Promise<string> } a promise resolved after the web archive has been stored. The parameter
      *                              will either be the filename under which the file was stored, or empty
      *                              if storing the file failed.
@@ -1505,6 +1636,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     storeWebArchive(baseName: string, autoName: boolean): Promise<string>;
@@ -1512,11 +1644,11 @@ declare namespace webview {
     /**
      * Stores the current page as a web archive.
      *
-     * @param { string } baseName - The path to the file storage, This value cannot be null.
-     * @param { boolean } autoName - Decide whether the file name is automatically generated. If false, 
-     *                               baseName is used as the file storage path. If true, baseName is 
-     *                               assumed to be a directory, and the file name will be automatically 
-     *                               generated based on the URL of the current page.
+     * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
+     * @param { boolean } autoName - If it is false, the filename will be automatically generated according to
+     *                               the url and the generated offline webpage will be stored in the directory
+     *                               specified by baseName. If it is true, the offline webpage will be directly
+     *                               stored in the path specified by baseName.
      * @param { AsyncCallback<string> } callback - called after the web archive has been stored. The parameter
      *                                             will either be the filename under which the file was stored,
      *                                             or empty if storing the file failed.
@@ -1525,6 +1657,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     storeWebArchive(baseName: string, autoName: boolean, callback: AsyncCallback<string>): void;
@@ -1538,6 +1671,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100004 - Function not enable.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     zoom(factor: number): void;
@@ -1549,6 +1683,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100004 - Function not enable.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     zoomIn(): void;
@@ -1560,6 +1695,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100004 - Function not enable.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     zoomOut(): void;
@@ -1570,6 +1706,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     getHitTestValue(): HitTestValue;
@@ -1580,6 +1717,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     getWebId(): number;
@@ -1590,6 +1728,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     getUserAgent(): string;
@@ -1600,6 +1739,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     getTitle(): string;
@@ -1610,6 +1750,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     getPageHeight(): number;
@@ -1622,6 +1763,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     backOrForward(step: number): void;
@@ -1632,6 +1774,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     requestFocus(): void;
@@ -1643,6 +1786,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -1654,6 +1798,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     createWebMessagePorts(isExtentionType?: boolean): Array<WebMessagePort>;
@@ -1668,6 +1813,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     postMessage(name: string, ports: Array<WebMessagePort>, uri: string): void;
@@ -1678,6 +1824,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     stop(): void;
@@ -1694,6 +1841,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     registerJavaScriptProxy(object: object, name: string, methodList: Array<string>): void;
@@ -1707,6 +1855,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100008 - Cannot delete JavaScriptProxy.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     deleteJavaScriptRegister(name: string): void;
@@ -1720,6 +1869,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                         The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     searchAllAsync(searchString: string): void;
@@ -1730,6 +1880,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     clearMatches(): void;
@@ -1742,6 +1893,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     searchNext(forward: boolean): void;
@@ -1752,6 +1904,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     clearSslCache(): void;
@@ -1762,6 +1915,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     clearClientAuthenticationCache(): void;
@@ -1778,6 +1932,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -1806,6 +1961,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -1834,6 +1990,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     runJavaScriptExt(script: string): Promise<JsMessageExt>;
@@ -1847,6 +2004,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     runJavaScriptExt(script: string, callback: AsyncCallback<JsMessageExt>): void;
@@ -1857,6 +2015,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     /**
@@ -1880,6 +2039,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     pageUp(top: boolean): void;
@@ -1894,6 +2054,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     pageDown(bottom: boolean): void;
@@ -1904,6 +2065,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     getOriginalUrl(): string;
@@ -1914,6 +2076,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     getFavicon(): image.PixelMap;
@@ -1926,6 +2089,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     setNetworkAvailable(enable: boolean): void;
@@ -1938,6 +2102,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     hasImage(): Promise<boolean>;
@@ -1950,6 +2115,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     hasImage(callback: AsyncCallback<boolean>): void;
@@ -1960,6 +2126,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     getBackForwardEntries(): BackForwardList;
@@ -1974,6 +2141,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     removeCache(clearRom: boolean): void;
@@ -1987,6 +2155,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     scrollTo(x: number, y: number): void;
@@ -2000,6 +2169,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     scrollBy(deltaX: number, deltaY: number): void;
@@ -2013,6 +2183,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     slideScroll(vx: number, vy: number): void;
@@ -2023,6 +2194,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     serializeWebState(): Uint8Array;
@@ -2034,6 +2206,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     restoreWebState(state: Uint8Array): void;
@@ -2043,6 +2216,7 @@ declare namespace webview {
      * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 9
      */
     static customizeSchemes(schemes: Array<WebCustomScheme>): void;
@@ -2053,6 +2227,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getCertificate(): Promise<Array<cert.X509Cert>>;
@@ -2064,6 +2239,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
@@ -2075,6 +2251,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     setAudioMuted(mute: boolean): void;
@@ -2087,6 +2264,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 17100002 - Invalid url.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     prefetchPage(url: string, additionalHeaders?: Array<WebHeader>): void;
@@ -2099,6 +2277,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100002 - Invalid url.
      * @throws { BusinessError } 171000013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     static prepareForPageLoad(url: string, preconnectable: boolean, numSockets: number): void;
@@ -2110,6 +2289,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     setCustomUserAgent(userAgent: string): void;
@@ -2120,6 +2300,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 10
      */
     getCustomUserAgent(): string;
