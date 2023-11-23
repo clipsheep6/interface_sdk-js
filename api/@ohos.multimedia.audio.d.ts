@@ -955,6 +955,7 @@ declare namespace audio {
     encodingType: AudioEncodingType;
     /**
      * Audio channel layout.
+     * @type { ?AudioChannelLayout }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 11
      */
