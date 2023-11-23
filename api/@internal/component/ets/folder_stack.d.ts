@@ -20,19 +20,17 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 
 interface FolderStackInterface {
   /**
    * Defines the constructor of folderStack.
    *
-   * @param { object } value
+   * @param { object } value - id of children need to be show in upperItem
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   (value?: { upperItems?: Array<string> }): FolderStackAttribute;
 }
@@ -43,30 +41,27 @@ interface FolderStackInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
   /**
    * Set the alignment of folderStack.
    *
-   * @param { Alignment } value
+   * @param { Alignment } value - align of children
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   alignContent(value: Alignment): FolderStackAttribute;
 
   /**
 * Callback folderState when the folderState changes
 *
-* @param { function } callback
+* @param { function } callback - executed when folderStatus changed
 * @returns { FolderStackAttribute }
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @since 11
-* @form
 */
   onFolderStateChange(callback: (event: {
     /**
@@ -76,7 +71,6 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
-     * @form
      */
     foldStatus: FoldStatus
   }) => void): FolderStackAttribute;
@@ -84,24 +78,22 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
   /**
    * Enable the animation of folderStack.
    *
-   * @param { boolean } value
+   * @param { boolean } value - enable the animation of folderStatus changed
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   enableAnimation(value: boolean): FolderStackAttribute;
 
   /**
    * Enable auto halfFolder when orientation.
    *
-   * @param { boolean } value
+   * @param { boolean } value - enable auto halfFold
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   * @form
    */
   autoHalfFold(value: boolean): FolderStackAttribute;
 }
@@ -112,7 +104,6 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 declare const FolderStack: FolderStackInterface;
 
@@ -122,6 +113,5 @@ declare const FolderStack: FolderStackInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
- * @form
  */
 declare const FolderStackInstance: FolderStackAttribute;
