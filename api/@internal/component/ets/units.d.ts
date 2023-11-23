@@ -1537,7 +1537,7 @@ declare interface TouchPoint {
   y: Dimension;
 }
 
-declare module "DragControllerUnitParam" {
+declare module 'DragControllerUnitParam' {
   module 'DragControllerUnitParam' {
     // @ts-ignore
     export type {ResourceColor, TouchPoint };
