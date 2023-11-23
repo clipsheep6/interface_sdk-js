@@ -25,6 +25,213 @@ import type Context from './application/BaseContext';
  */
 declare namespace distributedDataObject {
   /**
+   * Describes the status of asset.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @since 11
+   */
+  enum AssetStatus {
+    /**
+     * Means the status of asset is normal.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    ASSET_NORMAL,
+
+    /**
+     * Means the asset needs to be inserted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    ASSET_INSERT,
+
+    /**
+     * Means the asset needs to be updated.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    ASSET_UPDATE,
+
+    /**
+     * Means the asset needs to be deleted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    ASSET_DELETE,
+
+    /**
+     * Means the status of asset is abnormal.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    ASSET_ABNORMAL,
+
+    /**
+     * Means the status of asset is downloading.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    ASSET_DOWNLOADING
+  }
+
+  /**
+   * Information of the asset.
+   *
+   * @interface Asset
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @since 11
+   */
+  interface Asset {
+    /**
+     * The name of asset.
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    name: string;
+
+    /**
+     * The uri of asset.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    uri: string;
+
+    /**
+     * The path of asset.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    path: string;
+
+    /**
+     * The created time of asset.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    createTime: string;
+
+    /**
+     * The modified time of asset. If this field changes, the asset is considered to have changed.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    modifyTime: string;
+
+    /**
+     * The size of asset. If this field changes, the asset is considered to have changed.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    size: string;
+
+    /**
+     * The status of asset.
+     *
+     * @type { ?AssetStatus }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    status?: AssetStatus;
+  }
+
+  /**
+   * Indicates several assets
+   *
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @since 11
+   */
+  type Assets = Array<Asset>;
+
+  /**
+   * Indicates possible value types.
+   *
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @since 11
+   */
+  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets;
+
+  /**
+   * Values in buckets are stored in key-value pairs.
+   *
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @since 11
+   */
+  type ValuesBucket = { [key: string]: ValueType; };
+
+  /**
+   * The information about the database bound to the asset.
+   *
+   * @interface BindInfo
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @since 11
+   */
+  interface BindInfo {
+    /**
+     * The name of store where the asset resides.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    storeName: string;
+
+    /**
+     * The name of table where the asset resides.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    tableName: string;
+
+    /**
+     * The Primary key of the rdb table where the asset resides.
+     *
+     * @type { ValuesBucket }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    primaryKey: ValuesBucket;
+
+    /**
+     * The field(column) name of the rdb table where the asset resides.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    field: string;
+
+    /**
+     * Name of the asset to be bound. When the column type is Assets, this field refers to the asset name of
+     * one of the assets.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    assetName: string;
+  }
+
+  /**
    * Create distributed object.
    *
    * @param { object } source - Source Init data of distributed object.
@@ -217,7 +424,7 @@ declare namespace distributedDataObject {
    * @since 9
    */
   interface DataObject {
-    /*
+    /**
      * Change object session.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
@@ -231,7 +438,7 @@ declare namespace distributedDataObject {
      */
     setSessionId(sessionId: string, callback: AsyncCallback<void>): void;
 
-    /*
+    /**
      * Leave all session.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
@@ -244,7 +451,7 @@ declare namespace distributedDataObject {
      */
     setSessionId(callback: AsyncCallback<void>): void;
 
-    /*
+    /**
      * Change object session.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
@@ -395,6 +602,32 @@ declare namespace distributedDataObject {
      * @since 9
      */
     revokeSave(): Promise<RevokeSaveSuccessResponse>;
+
+    /**
+     * Bind an Asset of a distributed object to an asset in rdb that points to the same asset file, which means that
+     * both assets have the same uri.
+     * @param { string } assetKey - Indicates the key of the asset type in Object.
+     * @param { BindInfo } bindInfo - Indicates the information of the asset in RelationalStore.
+     * @param { AsyncCallback<void> } callback - The callback of bindAssetStore.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    bindAssetStore(assetKey: string, bindInfo: BindInfo, callback: AsyncCallback<void>): void;
+
+    /**
+     * Bind an Asset of a distributed object to an asset in rdb that points to the same asset file, which means that
+     * both assets have the same uri.
+     * @param { string } assetKey - Indicates the key of the asset type in Object.
+     * @param { BindInfo } bindInfo - Indicates the information of the asset in RelationalStore.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    bindAssetStore(assetKey: string, bindInfo: BindInfo): Promise<void>;
   }
 }
 
