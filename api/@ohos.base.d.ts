@@ -221,3 +221,130 @@ export interface BusinessError<T = void> extends Error {
    */
   data?: T;
 }
+
+ /**
+  * Defines the basic size interface.
+  * @interface Size
+  * @syscap SystemCapability.Base
+  * @atomicservice
+  * @since 11
+  */
+ export interface Size {
+  /**
+  * Defines the width property.
+  * @type { number }
+  * @syscap SystemCapability.Base
+  * @atomicservice
+  * @since 11
+  */
+  width: number
+  /**
+  * Defines the height property.
+  * @type { number }
+  * @syscap SystemCapability.Base
+  * @atomicservice
+  * @since 11
+  */
+  height: number
+}
+
+ /**
+  * Defines the basic range interface.
+  * @interface Range
+  * @syscap SystemCapability.Base
+  * @atomicservice
+  * @since 11
+  */
+export interface Range {
+  /**
+   * Indicates the index of the first character of the selected text.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Base
+   * @atomicservice
+   * @since 11
+   */
+  start: number;
+  /**
+   * Indicates the index of the last character of the selected text.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Base
+   * @atomicservice
+   * @since 11
+   */
+  end: number;
+  /**
+   * A Boolean value that indicates whether the range of text represented by the receiver is zero-length.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Base
+   * @atomicservice
+   * @since 11
+   */
+  isEmpty: boolean;
+}
+
+/**
+ * Defines the basic rectangle interface.
+ *
+ * @interface Rect
+ * @syscap SystemCapability.Base
+ * @since 11
+ */
+export interface Rect {
+  /**
+   * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
+   * @type { number }
+   * @syscap SystemCapability.Base
+   * @since 11
+   */
+  left: number;
+  /**
+   * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
+   * @type { number }
+   * @syscap SystemCapability.Base
+   * @since 11
+   */
+  top: number;
+  /**
+   * Width of the rectangle, in pixels.
+   * @type { number }
+   * @syscap SystemCapability.Base
+   * @since 11
+   */
+  width: number;
+  /**
+   * Height of the rectangle, in pixels.
+   * @type { number }
+   * @syscap SystemCapability.Base
+   * @since 11
+   */
+  height: number;
+}
+
+/**
+ * Defines the basic Point interface.
+ *
+ * @interface Point
+ * @syscap SystemCapability.Base
+ * @since 11
+ */
+export interface Point {
+  /**
+   * x co-ordinate
+   *
+   * @type { number }
+   * @syscap SystemCapability.Base
+   * @since 11
+   */
+  x: number;
+  /**
+   * y co-ordinate
+   *
+   * @type { number }
+   * @syscap SystemCapability.Base
+   * @since 11
+   */
+  y: number;
+}
