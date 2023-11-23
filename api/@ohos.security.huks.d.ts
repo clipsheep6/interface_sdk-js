@@ -2311,17 +2311,45 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksKeyDigest {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_DIGEST_NONE = 0,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_DIGEST_MD5 = 1,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 9
      */
     HUKS_DIGEST_SM3 = 2,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_DIGEST_SHA1 = 10,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_DIGEST_SHA224 = 11,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_DIGEST_SHA256 = 12,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_DIGEST_SHA384 = 13,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_DIGEST_SHA512 = 14
   }
 
@@ -2371,6 +2399,10 @@ declare namespace huks {
      * @since 8
      */
     HUKS_PADDING_PKCS5 = 4,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_PADDING_PKCS7 = 5
   }
 
@@ -2390,8 +2422,20 @@ declare namespace huks {
    * @since 11
    */
   export enum HuksCipherMode {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_MODE_ECB = 1,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_MODE_CBC = 2,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_MODE_CTR = 3,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
@@ -2517,11 +2561,6 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 8
-     */
-    /**
-     * @syscap SystemCapability.Security.Huks.Core
-     * @atomicservice
-     * @since 11
      */
     HUKS_AES_KEY_SIZE_512 = 512,
 
@@ -2663,7 +2702,15 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksUnwrapSuite {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_UNWRAP_SUITE_X25519_AES_256_GCM_NOPADDING = 1,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING = 2
   }
 
@@ -2675,8 +2722,20 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksKeyGenerateType {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_KEY_GENERATE_TYPE_DEFAULT = 0,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_KEY_GENERATE_TYPE_DERIVE = 1,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_KEY_GENERATE_TYPE_AGREE = 2
   }
 
@@ -2688,9 +2747,25 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksKeyFlag {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_KEY_FLAG_IMPORT_KEY = 1,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_KEY_FLAG_GENERATE_KEY = 2,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_KEY_FLAG_AGREE_KEY = 3,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_KEY_FLAG_DERIVE_KEY = 4
   }
 
@@ -2738,8 +2813,20 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksImportKeyType {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_KEY_TYPE_PUBLIC_KEY = 0,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_KEY_TYPE_PRIVATE_KEY = 1,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_KEY_TYPE_KEY_PAIR = 2
   }
 
@@ -2776,8 +2863,20 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksUserAuthType {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_USER_AUTH_TYPE_FINGERPRINT = 1 << 0,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_USER_AUTH_TYPE_FACE = 1 << 1,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_USER_AUTH_TYPE_PIN = 1 << 2
   }
 
@@ -2789,7 +2888,15 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksAuthAccessType {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_AUTH_ACCESS_INVALID_CLEAR_PASSWORD = 1 << 0,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL = 1 << 1,
     /**
      * Auth type for always valid.
@@ -2836,8 +2943,20 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksChallengeType {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_CHALLENGE_TYPE_NORMAL = 0,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_CHALLENGE_TYPE_CUSTOM = 1,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_CHALLENGE_TYPE_NONE = 2
   }
 
@@ -2849,9 +2968,25 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksChallengePosition {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_CHALLENGE_POS_0 = 0,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_CHALLENGE_POS_1,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_CHALLENGE_POS_2,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_CHALLENGE_POS_3
   }
 
@@ -2863,6 +2998,10 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksSecureSignType {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 9
+     */
     HUKS_SECURE_SIGN_WITH_AUTHINFO = 1
   }
 
@@ -2874,7 +3013,15 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksSendType {
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_SEND_TYPE_ASYNC = 0,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_SEND_TYPE_SYNC = 1
   }
 
@@ -3038,6 +3185,10 @@ declare namespace huks {
      * @since 11
      */
     HUKS_TAG_BLOCK_MODE = HuksTagType.HUKS_TAG_TYPE_UINT | 6,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_TAG_KEY_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 7,
     /**
      * @syscap SystemCapability.Security.Huks.Core
@@ -3060,6 +3211,10 @@ declare namespace huks {
      * @since 11
      */
     HUKS_TAG_NONCE = HuksTagType.HUKS_TAG_TYPE_BYTES | 9,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_TAG_IV = HuksTagType.HUKS_TAG_TYPE_BYTES | 10,
 
     /* Key derivation TAG */
@@ -3403,6 +3558,10 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_SECURE_KEY_UUID = HuksTagType.HUKS_TAG_TYPE_BYTES | 1010,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_TAG_KEY_DOMAIN = HuksTagType.HUKS_TAG_TYPE_UINT | 1011,
 
     /**
@@ -3444,6 +3603,10 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_CRYPTO_CTX = HuksTagType.HUKS_TAG_TYPE_ULONG | 10005,
+    /**
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 8
+     */
     HUKS_TAG_KEY = HuksTagType.HUKS_TAG_TYPE_BYTES | 10006,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
