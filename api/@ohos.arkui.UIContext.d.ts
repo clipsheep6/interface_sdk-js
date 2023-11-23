@@ -1044,7 +1044,7 @@ export class DragController {
    * Execute a drag event.
    * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string, status: dragController.DraggingStatus }> } callback - 
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string, status: dragController.DragStatus }> } callback - 
    * Callback that contains the drag event information.
    * @throws { BusinessError } 401 - if the parameters checking failed.
    * @throws { BusinessError } 100001 - if some internal handling failed.
@@ -1052,14 +1052,14 @@ export class DragController {
    * @since 11
    */
   executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo, callback: AsyncCallback<{
-    event: DragEvent, extraParams: string, status: dragController.DraggingStatus
+    event: DragEvent, extraParams: string, status: dragController.DragStatus
   }>): void;
 
   /**
    * Execute a drag event.
    * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<{ event: DragEvent, extraParams: string, status: dragController.DraggingStatus }> } A Promise with 
+   * @returns { Promise<{ event: DragEvent, extraParams: string, status: dragController.DragStatus }> } A Promise with 
    * the drag event information.
    * @throws { BusinessError } 401 - if the parameters checking failed.
    * @throws { BusinessError } 100001 - if some internal handling failed.
@@ -1067,7 +1067,7 @@ export class DragController {
    * @since 11
    */
   executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): Promise<{
-    event: DragEvent, extraParams: string, status: dragController.DraggingStatus
+    event: DragEvent, extraParams: string, status: dragController.DragStatus
   }>;
 
   /**
