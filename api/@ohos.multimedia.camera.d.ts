@@ -2824,13 +2824,23 @@ declare namespace camera {
      * Enable sketch for camera.
      *
      * @param { boolean } enabled - enable sketch for camera if TRUE.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    enalbeSketch(enabled: boolean): void;
+
+    /**
+     * Attach surface to the sketch stream.
+     *
      * @param { string } surfaceId - Surface object id used in sketch stream.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    enalbeSketch(enabled: boolean, surfaceId: string): void;
+    attachSketchSurface(surfaceId: string): void;
 
     /**
      * Subscribes sketch status changed event callback.
