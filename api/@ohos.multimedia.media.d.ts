@@ -1052,7 +1052,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-    getDrmInfo(): {DrmInfo[]};
+    getDrmInfo(): DrmInfo[];
     /**
      * Register listens for drmInfoUpdate events.
      * @param { 'drmInfoUpdate' } type - Type of the event to listen for.
