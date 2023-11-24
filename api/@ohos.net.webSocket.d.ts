@@ -87,20 +87,20 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    clientCert?: ClientCert; //only support PEM format 
+    clientCert?: ClientCert;
   }
 
   /**
- * The clientCert field of the client certificate, which includes three attributes:
- * client certificate (cert) and only support PEM format, certificate private key (key), 
- * and passphrase (keyPasswd).
- * @interface ClientCert
- * @syscap SystemCapability.Communication.NetStack
- * @since 11
- */
+   * The clientCert field of the client certificate, which includes three attributes:
+   * client certificate (certPath) and only support PEM format, certificate private key (keyPath), 
+   * and passphrase (keyPassword).
+   * @interface ClientCert
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 11
+   */
   export interface ClientCert {
     /**
-     * Cert: The path to the client certificate file.
+     * The path to the client certificate file.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -108,7 +108,7 @@ declare namespace webSocket {
     certPath: string;
     
     /**
-     * Key: The path of the client certificate private key file.
+     * The path of the client certificate private key file.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
@@ -116,12 +116,12 @@ declare namespace webSocket {
     keyPath: string;
 
     /**
-     * KeyPasswd: Client certificate password.
+     * Client certificate password.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
-    keyPasswd?: string;
+    keyPassword?: string;
   }
 
   /**
