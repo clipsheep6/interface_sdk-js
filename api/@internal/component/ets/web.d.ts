@@ -552,6 +552,39 @@ declare enum WebLayoutMode {
 }
 
 /**
+ * Enum type supplied to {@link WebTouchType} when onEmbedEvent being called.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare enum WebTouchType {
+  /**
+   * touch down the screen.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  TOUCH_DOWN,
+
+  /**
+   * touch up the screen.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  TOUCH_UP,
+
+  /**
+   * touch move the screen.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  TOUCH_MOVE,
+}
+
+/**
  * Encompassed message information as parameters to {@link onFileSelectorShow} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
@@ -3386,6 +3419,36 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   nestedScroll(value: NestedScrollOptions): WebAttribute;
+
+  /**
+   * Sets the enable embed mode for web.
+   *
+   * @param { boolean } mode True if it needs to enable embed mode.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  embedMode(mode: boolean): WebAttribute;
+
+  /**
+   * Triggered when embed mode is true and in the embed tag.
+   *
+   * @param { function } callback Function Triggered when embed mode is true and in the embed tag.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  onEmbedStatus(callback: (event: { status: number, psurfaceId: number }) => void): WebAttribute;
+
+  /**
+   * Triggered when embed mode is true and in the embed tag.
+   *
+   * @param { function } callback Function Triggered when embed mode is true and in the embed tag.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  onEmbedEvent(callback: (event: { type: WebTouchType, xOffset: number, yOffset: number }) => void): WebAttribute;
 }
 
 /**
