@@ -551,6 +551,7 @@ declare enum WebLayoutMode {
   FIT_CONTENT,
 }
 
+
 /**
  * Encompassed message information as parameters to {@link onFileSelectorShow} method.
  *
@@ -1085,6 +1086,40 @@ declare enum ContextMenuInputFieldType {
    * @since 9
    */
   Other,
+}
+
+/**
+ * Defines the embed status, related to {@link EmbedDataInfo}.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare enum EmbedStatus {
+
+  /**
+   * create.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  CREATE,
+
+  /**
+   * change.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  CHANGE,
+
+  /**
+   * Destory.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  DESTROY,
 }
 
 /**
@@ -2161,6 +2196,140 @@ interface WebInterface {
    * @since 10
    */
   (value: WebOptions): WebAttribute;
+}
+
+/**
+ * Defines the embed info.
+ *
+ * @interface EmbedInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare interface EmbedInfo {
+  /**
+   * The embed id.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  id?: number;
+  /**
+   * The embed type.
+   *
+   * @type { ?string }
+   * @syscap SysemCapability.Web.Webview.Core
+   * @since 11
+   */
+  type?: string;
+  /**
+   * The embed tag value.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  src?: string;
+  /**
+   * The embed tag value.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  width?: number;
+  /**
+   * The embed tag value.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  height?: number;
+}
+
+/**
+ * Defines the Embed Data info.
+ *
+ * @interface EmbedDataInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare interface EmbedDataInfo {
+  /**
+   * The embed status.
+   *
+   * @type { ?EmbedStatus }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  status?: EmbedStatus;
+  /**
+   * The surface id.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  surfaceId?: string;
+  /**
+   * The embed id.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  embedId?: number;
+  /**
+   * The embed info.
+   *
+   * @type { ?EmbedInfo }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  info?: EmbedInfo;
+}
+
+/**
+ * Defines the user touch info.
+ *
+ * @interface TouchInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare interface TouchInfo {
+  /**
+   * The web pointer id.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  id?: number;
+  /**
+   * The user touch type.
+   *
+   * @type { ?TouchType }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  touchType?: TouchType;
+  /**
+   * The X offset of the scroll.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  xOffset?: number;
+  /**
+   * The Y offset of the scroll.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  yOffset?: number;
 }
 
 /**
@@ -3386,6 +3555,36 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   nestedScroll(value: NestedScrollOptions): WebAttribute;
+
+  /**
+   * Sets the enable embed mode for web.
+   *
+   * @param { boolean } mode True if it needs to enable embed mode.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  embedMode(mode: boolean): WebAttribute;
+
+  /**
+   * Triggered when embed lifecycle changes.
+   *
+   * @param { function } callback Function Triggered when embed lifecycle changes.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  onEmbedStatus(callback: (event: { embedDataInfo: EmbedDataInfo }) => void): WebAttribute;
+
+  /**
+   * Triggered when slide screen.
+   *
+   * @param { function } callback Function Triggered when Triggered when slide screen.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  onEmbedEvent(callback: (event: { embedId: number, touchInfo: TouchInfo }) => void): WebAttribute;
 }
 
 /**
