@@ -1442,6 +1442,15 @@ declare namespace image {
      * @since 10
      */
     fitDensity?: number;
+
+    /**
+     * fill svg color.
+     *
+     * @type { ?Color }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 10
+     */
+    fillSVGColor?: Color;
   }
 
   /**
