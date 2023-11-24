@@ -902,3 +902,4 @@ sandboxes
 sar
 adapts
 followx
+showcounter
