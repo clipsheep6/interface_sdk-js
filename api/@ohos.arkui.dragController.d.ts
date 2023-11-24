@@ -100,30 +100,6 @@ declare namespace dragController {
   }
 
   /**
-   * Provides the functions of setting color or updating animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  export class DragPreview {
-    /**
-     * change foreground color of preview
-     * @param { ResourceColor } color - color value
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    setForegroundColor(color: ResourceColor): void;
-
-    /**
-     * update preview style with animation
-     * @param { AnimateParam } value - animation parameters
-     * @param { function } handler - change style functions
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    updateWithAnimation(value: AnimateParam, handler: () =>void): void;
-  }
-
-  /**
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
@@ -176,14 +152,6 @@ declare namespace dragController {
   function executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo): Promise<{
     event: DragEvent, extraParams: string, status: DragStatus
   }>;
-
-  /**
-   * Get drag preview object.
-   * @returns { DragPreview } An drag preview object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  function getDragPreview(): DragPreview;
 }
 
 export default dragController;
