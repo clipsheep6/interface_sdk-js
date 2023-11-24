@@ -2608,7 +2608,7 @@ declare namespace image {
      * Set color space of pixel map.
      *
      * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
-     * @throws { BusinessError } 62980111 - If the operation invalid.
+     * @throws { BusinessError } 62980111 - If the image source data incomplete.
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
