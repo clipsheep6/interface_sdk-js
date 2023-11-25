@@ -394,6 +394,7 @@ declare enum CacheMode {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
  * @since 11
  */
 declare enum OverScrollMode {
@@ -401,6 +402,7 @@ declare enum OverScrollMode {
    * Disable the web over-scroll mode.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   NEVER,
@@ -408,6 +410,7 @@ declare enum OverScrollMode {
    * Enable the web over-scroll mode.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   ALWAYS
@@ -885,6 +888,7 @@ declare enum FileSelectorMode {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
  * @since 11
  */
 declare enum WebLayoutMode {
@@ -892,6 +896,7 @@ declare enum WebLayoutMode {
    * Web layout follows the system.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   NONE,
@@ -900,6 +905,7 @@ declare enum WebLayoutMode {
    * Adaptive web layout based on page size.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   FIT_CONTENT,
@@ -984,7 +990,6 @@ declare class FileSelectorParam {
    *
    * @returns { boolean } Return {@code true} if captured media; return {@code false} otherwise.
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
    * @since 9
    */
   /**
@@ -3407,6 +3412,7 @@ declare interface WebOptions {
  *
  * @interface ScriptItem
  * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
  * @since 11
  */
 declare interface ScriptItem {
@@ -3415,6 +3421,7 @@ declare interface ScriptItem {
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   script: string;
@@ -3423,6 +3430,7 @@ declare interface ScriptItem {
    *
    * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   scriptRules: Array<string>;
@@ -3843,6 +3851,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
     * @param { OverScrollMode } mode - The over-scroll mode, which can be {@link OverScrollMode}.
     * @returns { WebAttribute }
     * @syscap SystemCapability.Web.Webview.Core
+    * @atomicservice
     * @since 11
     */
   overScrollMode(mode: OverScrollMode): WebAttribute;
@@ -3962,6 +3971,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The url of page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     url: string
   }) => void): WebAttribute;
 
@@ -4000,6 +4017,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The url of page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     url: string
   }) => void): WebAttribute;
 
@@ -4027,6 +4052,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     newProgress: number
@@ -4056,6 +4082,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     title: string
@@ -4218,6 +4245,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     message: ConsoleMessage
@@ -4258,6 +4286,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The url of error event.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     request: WebResourceRequest,
     /**
      * The information of error event.
@@ -4265,6 +4301,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The information of error event.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     error: WebResourceError
   }) => void): WebAttribute;
@@ -4293,6 +4337,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     request: WebResourceRequest,
@@ -4301,6 +4346,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     response: WebResourceResponse
@@ -4513,6 +4559,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     oldScale: number,
@@ -4521,6 +4568,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     newScale: number
@@ -4688,6 +4736,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     xOffset: number,
@@ -4696,6 +4745,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     yOffset: number
@@ -5255,6 +5305,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     data: WebResourceRequest
@@ -5302,6 +5353,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
@@ -5311,6 +5363,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { WebLayoutMode } mode - The web layout mode, which can be {@link WebLayoutMode}.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   layoutMode(mode: WebLayoutMode): WebAttribute;
@@ -5321,6 +5374,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { NestedScrollOptions } value - options for nested scrolling.
    * @returns { WebAttribute } the attribute of the scroll.
    * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
    * @since 11
    */
   nestedScroll(value: NestedScrollOptions): WebAttribute;
