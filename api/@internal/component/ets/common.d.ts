@@ -16265,6 +16265,16 @@ declare abstract class TextContentControllerBase {
    * @since 11
    */
   getTextContentLineCount() : number;
+
+  /**
+   * Get caret position from controller.
+   *
+   * @returns { number } Caret position.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getCaretPosition() : number;
 }
 
 declare module "SpecialEvent" {
