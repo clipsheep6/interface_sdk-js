@@ -25,33 +25,6 @@ import cloudData from "./@ohos.data.cloudData";
  */
 declare namespace cloudExtension {
   /**
-   * Defines participant.
-   *
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
-   * @systemapi
-   * @since 11
-   */
-  export type Participant = cloudData.sharing.Participant;
-
-  /**
-   * Defines participantState.
-   *
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
-   * @systemapi
-   * @since 11
-   */
-  export type ParticipantState = cloudData.sharing.State;
-
-  /**
-   * Defines privilege.
-   *
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
-   * @systemapi
-   * @since 11
-   */
-  export type Privilege = cloudData.sharing.Privilege;
-
-  /**
    * Defines the result.
    *
    * @interface Result
@@ -128,8 +101,8 @@ declare namespace cloudExtension {
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { Array<Participant> } participants - Indicates the {@link Participant}.
-     * @returns { Promise<Result<Array<Result<Participant>>>> } Returns the sharing result.
+     * @param { Array<cloudData.sharing.Participant> } participants - Indicates the participant.
+     * @returns { Promise<Result<Array<Result<cloudData.sharing.Participant>>>> } Returns the sharing result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
@@ -138,8 +111,8 @@ declare namespace cloudExtension {
         userId: number,
         bundleName: string,
         sharingResource: string,
-        participants: Array<Participant>
-    ): Promise<Result<Array<Result<Participant>>>>;
+        participants: Array<cloudData.sharing.Participant>
+    ): Promise<Result<Array<Result<cloudData.sharing.Participant>>>>;
 
     /**
      * UnShares data with specific participants.
@@ -147,8 +120,8 @@ declare namespace cloudExtension {
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { Array<Participant> } participants - Indicates the {@link Participant}.
-     * @returns { Promise<Result<Array<Result<Participant>>>> } Returns the sharing result.
+     * @param { Array<cloudData.sharing.Participant> } participants - Indicates the participant.
+     * @returns { Promise<Result<Array<Result<cloudData.sharing.Participant>>>> } Returns the sharing result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
@@ -157,8 +130,8 @@ declare namespace cloudExtension {
         userId: number,
         bundleName: string,
         sharingResource: string,
-        participants: Array<Participant>
-    ): Promise<Result<Array<Result<Participant>>>>;
+        participants: Array<cloudData.sharing.Participant>
+    ): Promise<Result<Array<Result<cloudData.sharing.Participant>>>>;
 
     /**
      * Exits the sharing.
@@ -179,8 +152,8 @@ declare namespace cloudExtension {
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { Array<Participant> } participants - Indicates the {@link Participant}.
-     * @returns { Promise<Result<Array<Result<Participant>>>> } Returns the changing result.
+     * @param { Array<cloudData.sharing.Participant> } participants - Indicates the participant.
+     * @returns { Promise<Result<Array<Result<cloudData.sharing.Participant>>>> } Returns the changing result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
@@ -189,8 +162,8 @@ declare namespace cloudExtension {
         userId: number,
         bundleName: string,
         sharingResource: string,
-        participants: Array<Participant>
-    ): Promise<Result<Array<Result<Participant>>>>;
+        participants: Array<cloudData.sharing.Participant>
+    ): Promise<Result<Array<Result<cloudData.sharing.Participant>>>>;
 
     /**
      * Queries participants of the specific sharing resource.
@@ -198,7 +171,7 @@ declare namespace cloudExtension {
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } sharingResource - Indicates the sharing resource.
-     * @returns { Promise<Result<Array<Participant>>> } Returns the query result.
+     * @returns { Promise<Result<Array<cloudData.sharing.Participant>>> } Returns the query result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
@@ -207,7 +180,7 @@ declare namespace cloudExtension {
         userId: number,
         bundleName: string,
         sharingResource: string
-    ): Promise<Result<Array<Participant>>>;
+    ): Promise<Result<Array<cloudData.sharing.Participant>>>;
 
     /**
      * Queries participants based on the specified invitation code.
@@ -215,7 +188,7 @@ declare namespace cloudExtension {
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } invitationCode - Indicates the invitation code.
-     * @returns { Promise<Result<Array<Participant>>> } Returns the query result.
+     * @returns { Promise<Result<Array<cloudData.sharing.Participant>>> } Returns the query result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11
@@ -224,7 +197,7 @@ declare namespace cloudExtension {
         userId: number,
         bundleName: string,
         invitationCode: string
-    ): Promise<Result<Array<Participant>>>;
+    ): Promise<Result<Array<cloudData.sharing.Participant>>>;
 
     /**
      * Confirms invitation.
@@ -232,7 +205,7 @@ declare namespace cloudExtension {
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } invitationCode - Indicates the invitation code.
-     * @param { ParticipantState } state - Indicates the {@link ParticipantState}.
+     * @param { cloudData.sharing.State } state - Indicates the state.
      * @returns { Promise<Result<string>> } Returns the sharing resource.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -242,7 +215,7 @@ declare namespace cloudExtension {
         userId: number,
         bundleName: string,
         invitationCode: string,
-        state: ParticipantState
+        state: cloudData.sharing.State
     ): Promise<Result<string>>;
 
     /**
@@ -251,7 +224,7 @@ declare namespace cloudExtension {
      * @param { number } userId - Indicates the user ID.
      * @param { string } bundleName - Indicates the bundle name.
      * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { ParticipantState } state - Indicates the {@link ParticipantState}.
+     * @param { cloudData.sharing.State } state - Indicates the state.
      * @returns { Promise<Result<void>> } Returns the change result.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -261,7 +234,7 @@ declare namespace cloudExtension {
       userId: number,
       bundleName: string,
       sharingResource: string,
-      state: ParticipantState
+      state: cloudData.sharing.State
     ): Promise<Result<void>>;
   }
 
