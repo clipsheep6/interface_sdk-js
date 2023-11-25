@@ -551,7 +551,6 @@ declare enum WebLayoutMode {
   FIT_CONTENT,
 }
 
-
 /**
  * Encompassed message information as parameters to {@link onFileSelectorShow} method.
  *
@@ -1098,7 +1097,7 @@ declare enum ContextMenuInputFieldType {
 declare enum EmbedStatus {
 
   /**
-   * create.
+   * The embed tag create.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 11
@@ -1106,7 +1105,7 @@ declare enum EmbedStatus {
   CREATE,
 
   /**
-   * change.
+   * The embed tag change.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 11
@@ -1114,7 +1113,7 @@ declare enum EmbedStatus {
   CHANGE,
 
   /**
-   * Destory.
+   * The embed tag destory.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 11
@@ -2223,7 +2222,7 @@ declare interface EmbedInfo {
    */
   type?: string;
   /**
-   * The embed tag value.
+   * The embed tag src.
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -2231,7 +2230,7 @@ declare interface EmbedInfo {
    */
   src?: string;
   /**
-   * The embed tag value.
+   * The embed tag width.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -2239,7 +2238,7 @@ declare interface EmbedInfo {
    */
   width?: number;
   /**
-   * The embed tag value.
+   * The embed tag height.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -2315,21 +2314,21 @@ declare interface TouchInfo {
    */
   touchType?: TouchType;
   /**
-   * The X offset of the scroll.
+   * The X of the screen.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 11
    */
-  xOffset?: number;
+  x?: number;
   /**
-   * The Y offset of the scroll.
+   * The Y of the screen.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 11
    */
-  yOffset?: number;
+  y?: number;
 }
 
 /**
