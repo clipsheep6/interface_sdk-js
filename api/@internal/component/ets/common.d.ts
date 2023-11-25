@@ -1321,6 +1321,37 @@ declare function $r(value: string, ...params: any[]): Resource;
 declare function $rawfile(value: string): Resource;
 
 /**
+ * Enum for Control Size.
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 11
+ */
+declare enum ControlSize {
+  /**
+   * The component size is small.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  SMALL = 'small',
+
+  /**
+   * The component size is normal.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 11
+  */
+  NORMAL = 'normal',
+}
+
+/**
  * Enum for FinishCallbackType.
  *
  * @enum { number }
@@ -14177,6 +14208,19 @@ declare class CommonMethod<T> {
    * @since 11
    */
   monopolizeEvents(monopolize: boolean): T;
+
+  /** 
+   * Set the control size.
+   * 
+   * @param { ControlSize } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  controlSize(value: ControlSize): T;
 }
 
 /**

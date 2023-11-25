@@ -146,6 +146,51 @@ declare enum ButtonType {
 }
 
 /**
+ * Enum for button style type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare enum ButtonStyleMode {
+  /**
+   * Normal button (with normal background color).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  NORMAL = 0,
+
+  /**
+   * Emphasize button (with emphasize background color).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  EMPHASIZE = 1,
+
+  /**
+   * Text button (with none background color).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  TEXT = 2,
+}
+
+/**
  * Defines the button options.
  *
  * @interface ButtonOptions
@@ -251,6 +296,32 @@ declare interface ButtonOptions {
    * @form
    */
   stateEffect?: boolean;
+
+  /**
+   * Describes the button style.
+   *
+   * @type { ?ButtonStyleMode }
+   * @default ButtonStyleMode.NORMAL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  buttonStyle?: ButtonStyleMode;
+
+  /**
+   * Describes the button size.
+   *
+   * @type { ?ControlSize }
+   * @default ControlSize.NORMAL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  controlSize?: ControlSize;
 }
 
 /**
@@ -656,6 +727,19 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @form
    */
   stateEffect(value: boolean): ButtonAttribute;
+
+  /**
+   * Describes the button style.
+   *
+   * @param { ButtonStyleMode } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  buttonStyle(value: ButtonStyleMode): ButtonAttribute;
 
   /**
    * Text color.
