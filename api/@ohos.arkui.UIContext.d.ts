@@ -1069,14 +1069,6 @@ export class DragController {
   executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): Promise<{
     event: DragEvent, extraParams: string, status: dragController.DragStatus
   }>;
-
-  /**
-   * get DragPreview.
-   * @returns { dragController.DragPreview } the dragPreview.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  getDragPreview():dragController.DragPreview;
 }
 
 /**
