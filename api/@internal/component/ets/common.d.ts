@@ -232,7 +232,7 @@ declare const State: PropertyDecorator;
  * @since 11
  * @form
  */
- declare const Track: PropertyDecorator;
+declare const Track: PropertyDecorator;
 
 /**
  * Defining Prop PropertyDecorator.
