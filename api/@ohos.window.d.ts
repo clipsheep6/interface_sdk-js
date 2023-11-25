@@ -1709,11 +1709,26 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 10
    */
+  /**
+   * Enum for window callback event type
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 10
+   */
   enum WindowEventType {
     /**
      * The value of window event is window show
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
+    /**
+     * The value of window event is window show
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 10
      */
     WINDOW_SHOWN = 1,
@@ -1723,6 +1738,13 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
+    /**
+     * The value of window event is window active
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
+     */
     WINDOW_ACTIVE = 2,
     /**
      * The value of window event is window inactive
@@ -1730,11 +1752,25 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
+    /**
+     * The value of window event is window inactive
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
+     */
     WINDOW_INACTIVE = 3,
     /**
      * The value of window event is window hide
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
+    /**
+     * The value of window event is window hide
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 10
      */
     WINDOW_HIDDEN = 4
@@ -2936,7 +2972,18 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 10
      */
+    /**
+     * Register the callback of windowEvent
+     *
+     * @param { 'windowEvent' } type - The value is fixed at 'windowEvent', indicating the window lifecycle change event.
+     * @param { Callback<WindowEventType> } callback - the callback of window event
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 10
+     */
     on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
+
     /**
      * Unregister the callback of windowEvent
      *
@@ -2944,6 +2991,16 @@ declare namespace window {
      * @param { Callback<WindowEventType> } callback - the callback of window event
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 10
+     */
+    /**
+     * Unregister the callback of windowEvent
+     *
+     * @param { 'windowEvent' } type - The value is fixed at 'windowEvent', indicating the window lifecycle change event.
+     * @param { Callback<WindowEventType> } callback - the callback of window event
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
      * @since 10
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
