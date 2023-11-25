@@ -707,10 +707,10 @@ declare namespace webview {
          * Stores the current page as a web archive.
          *
          * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
-         * @param { boolean } autoName - If it is false, the filename will be automatically generated according to
-         *                               the url and the generated offline webpage will be stored in the directory
-         *                               specified by baseName. If it is true, the offline webpage will be directly
-         *                               stored in the path specified by baseName.
+         * @param { boolean } autoName - Decide whether to automatically generate the file name. If false, it is 
+         *                               stored by the file name of baseName. If true, the file name is 
+         *                               automatically generated based on the current URL and stored in the file 
+         *                               directory of baseName.
          * @param { AsyncCallback<string> } callback - called after the web archive has been stored. The parameter
          *                                             will either be the filename under which the file was stored,
          *                                             or empty if storing the file failed.
@@ -1035,14 +1035,14 @@ declare namespace webview {
         getFavicon(): image.PixelMap;
 
         /**
-         * Put network state for web. Which is used to set window.navigator.isOnline property in
+         * Put network state for web. Which is used to set window.navigator.onLine property in
          * JavaScript.
          *
          * @throws { BusinessError } 401 - Invalid input parameter.
          * @throws { BusinessError } 17100001 - Init error.
          *                           The WebviewController must be associated with a Web component.
          *
-         * @param { boolean } enable - Whether enable window.navigator.isOnline.
+         * @param { boolean } enable - Whether enable window.navigator.onLine.
          * @since 9
          */
         setNetworkAvailable(enable: boolean): void;
