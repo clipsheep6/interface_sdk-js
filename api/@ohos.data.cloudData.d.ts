@@ -213,7 +213,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 10
      */
@@ -233,7 +233,7 @@ declare namespace cloudData {
      * returned when the system API is not called by a system application.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 10
      */
