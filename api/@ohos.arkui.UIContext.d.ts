@@ -916,6 +916,39 @@ export class PromptAction {
 }
 
 /**
+ * class DispatchAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+export class DispatchAction {
+  /**
+   * start dispatching an event to targetNode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  startEventDispatching(): void;
+
+  /**
+    * stop dispatching an event to targetNode
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 11
+    */
+  stopEventDispatching(): void;
+
+  /**
+   * Dispatch touchEvent to targetNode
+   * @param { TouchEvent } event - the touchEvent which will be sent to the targetNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  dispatchEvent(event: TouchEvent): void;
+}
+
+/**
  * class ComponentUtils
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1111,6 +1144,16 @@ export class UIContext {
    * @since 11
    */
   getPromptAction(): PromptAction;
+
+  /**
+   * get object DispatchAction.
+   * @param { string } targetNode - name of the node receive event.
+   * @returns { DispatchAction }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+    getDispatchAction(targetNode: string): DispatchAction;
 
   /**
    * get object ComponentUtils.
