@@ -620,6 +620,25 @@ declare namespace window {
   }
 
   /**
+   * Window status
+   *
+   * @interface WindowStatus
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 11
+   */
+  interface WindowStatus {
+    /**
+     * The status of the window.
+     *
+     * @type { number } 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
+     */
+    status: number;
+  }
+  /**
    * Properties of window, it couldn't update automatically
    *
    * @interface WindowProperties
@@ -2939,6 +2958,28 @@ declare namespace window {
      * @since 10
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
+
+    /**
+     * Register the callback of windowStatusChange
+     *
+     * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
+     * @param { Callback<WindowStatus> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    on(type: 'windowStatusChange', callback: Callback<WindowStatus>): void;
+
+    /**
+     * Unregister the callback of windowStatusChange
+     *
+     * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
+     * @param { Callback<WindowStatus> } callback - Callback used to return the window status.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    off(type: 'windowStatusChange', callback?: Callback<WindowStatus>): void;
 
     /**
      * Bind dialog to the target window.
