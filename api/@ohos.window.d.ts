@@ -2383,7 +2383,7 @@ declare namespace window {
      * @crossplatform
      * @since 11
      */
-    setSpecificSystemBarEnable(type: SpecificSystemBar, enable: boolean, callback: AsyncCallback<void>): void;
+    setSpecificSystemBarEnable(name: SpecificSystemBar, enable: boolean, callback: AsyncCallback<void>): void;
 
     /**
      * Set specific system bar to have visible.
@@ -2398,7 +2398,7 @@ declare namespace window {
      * @crossplatform
      * @since 11
      */
-    setSpecificSystemBarEnable(type: SpecificSystemBar, enable: boolean): Promise<void>;
+    setSpecificSystemBarEnable(name: SpecificSystemBar, enable: boolean): Promise<void>;
 
     /**
      * Set the properties of system bar
