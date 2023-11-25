@@ -2373,7 +2373,7 @@ declare namespace window {
     /**
      * Set specific system bar to have visible.
      *
-     * @param {'status' | 'navigation' | 'navigationIndicator'} SpecificSystemBar - the set of system bar
+     * @param {SpecificSystemBar} name - the set of system bar
      * @param {boolean} enable - Show specific system bar if true, or hide specific system bar if false.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws {BusinessError} 401 - Parameter error.
@@ -2388,7 +2388,7 @@ declare namespace window {
     /**
      * Set specific system bar to have visible.
      *
-     * @param {'status' | 'navigation' | 'navigationIndicator'} SpecificSystemBar - the set of system bar
+     * @param {SpecificSystemBar} name - the set of system bar
      * @param {boolean} enable - Show specific system bar if true, or hide specific system bar if false.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws {BusinessError} 401 - Parameter error.
