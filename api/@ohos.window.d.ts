@@ -2379,7 +2379,7 @@ declare namespace window {
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 1300002 - This window state is abnormal.
      * @throws {BusinessError} 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @since 11
      */
@@ -2394,7 +2394,7 @@ declare namespace window {
      * @throws {BusinessError} 401 - Parameter error.
      * @throws {BusinessError} 1300002 - This window state is abnormal.
      * @throws {BusinessError} 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @since 11
      */
