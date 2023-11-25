@@ -4216,7 +4216,7 @@ declare namespace cryptoFramework {
     g: bigint;
 
     /**
-     * Indicates the cofactor h.
+     * Indicates the length of private key.
      *
      * @type { number }
      * @syscap SystemCapability.Security.CryptoFramework
@@ -4276,9 +4276,9 @@ declare namespace cryptoFramework {
     params: DHCommonParamsSpec;
 
     /**
-     * Indicates the public value of the DH public key.
+     * Indicates the public point of the DH public key.
      *
-     * @type { bigint }
+     * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
@@ -4316,9 +4316,9 @@ declare namespace cryptoFramework {
     sk: bigint;
 
     /**
-     * Indicates the public value of the DH public key.
+     * Indicates the public point of the DH public key.
      *
-     * @type { bigint }
+     * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
@@ -4337,8 +4337,7 @@ declare namespace cryptoFramework {
     /**
      * Create the common parameter set based on the curve name.
      *
-     * @param { number } pLen - indicates prime len.
-     * @param { number } skLen - indicates private key len.
+     * @param { string } curveName - indicates curve name according to the DH elliptic curve.
      * @returns { DHCommonParamsSpec } the DH common params spec obj.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 801 - this operation is not supported.
@@ -4381,9 +4380,9 @@ declare namespace cryptoFramework {
    */
   interface ED25519PubKeySpec extends AsyKeySpec {
     /**
-     * Indicates the public value of the ED25519 public key.
+     * Indicates the public point of the ED25519 public key.
      *
-     * @type { bigint }
+     * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
@@ -4411,9 +4410,9 @@ declare namespace cryptoFramework {
     sk: bigint;
 
     /**
-     * Indicates the public value of the ED25519 public key.
+     * Indicates the public point of the ED25519 public key.
      *
-     * @type { bigint }
+     * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
@@ -4451,9 +4450,9 @@ declare namespace cryptoFramework {
    */
   interface X25519PubKeySpec extends AsyKeySpec {
     /**
-     * Indicates the public value of the X25519 public key.
+     * Indicates the public point of the X25519 public key.
      *
-     * @type { bigint }
+     * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
@@ -4481,9 +4480,9 @@ declare namespace cryptoFramework {
     sk: bigint;
 
     /**
-     * Indicates the public value of the X25519 public key.
+     * Indicates the public point of the X25519 public key.
      *
-     * @type { bigint }
+     * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
      * @since 11
