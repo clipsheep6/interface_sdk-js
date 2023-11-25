@@ -58,6 +58,15 @@ export interface Configuration {
   language?: string;
 
   /**
+   * Indicates the current hour type of the application.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 11
+   */
+  time24?: string;
+
+  /**
    * Indicates the current colorMode of the application.
    *
    * @type { ?ConfigurationConstant.ColorMode }
