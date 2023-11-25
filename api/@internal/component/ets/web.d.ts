@@ -22,12 +22,27 @@ declare type WebviewController = import('../api/@ohos.web.webview').default.Webv
  * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
+/**
+ * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 11
+ */
 declare enum MessageLevel {
   /**
    * Debug level.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Debug level.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
    */
   Debug,
 
@@ -37,6 +52,13 @@ declare enum MessageLevel {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
+  /**
+   * Error level.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
   Error,
 
   /**
@@ -44,6 +66,13 @@ declare enum MessageLevel {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Info level.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
    */
   Info,
 
@@ -53,6 +82,13 @@ declare enum MessageLevel {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
+  /**
+   * Log level.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
   Log,
 
   /**
@@ -60,6 +96,13 @@ declare enum MessageLevel {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Warn level.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
    */
   Warn,
 }
@@ -212,6 +255,30 @@ declare enum CacheMode {
 }
 
 /**
+ * Enum type supplied to {@link overScrollMode} for setting the web overScroll mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare enum OverScrollMode {
+  /**
+   * Disable the web over-scroll mode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  NEVER,
+  /**
+   * Enable the web over-scroll mode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  ALWAYS
+}
+
+/**
  * Enum type supplied to {@link darkMode} for setting the web dark mode.
  *
  * @enum { number }
@@ -246,7 +313,7 @@ declare enum WebDarkMode {
 
 /**
  * Enum type supplied to {@link captureMode} for setting the web capture mode.
- * 
+ *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 10
@@ -288,7 +355,7 @@ declare interface WebMediaOptions {
 
 /**
  * Defines the screen capture configuration.
- * 
+ *
  * @interface ScreenCaptureConfig
  * @syscap SystemCapability.Web.Webview.Core
  * @since 10
@@ -457,6 +524,31 @@ declare enum FileSelectorMode {
    * @since 9
    */
   FileSaveMode,
+}
+
+/**
+ * Enum type supplied to {@link layoutMode} for setting the web layout mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare enum WebLayoutMode {
+  /**
+   * Web layout follows the system.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  NONE,
+
+  /**
+   * Adaptive web layout based on page size.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  FIT_CONTENT,
 }
 
 /**
@@ -727,7 +819,7 @@ declare enum ProtectedResourceType {
 
   /**
    * The audio capture resource, such as microphone.
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
@@ -800,7 +892,7 @@ declare class ScreenCaptureHandler {
 
   /**
    * Gets the source of the webpage that attempted to access the restricted resource.
-   * 
+   *
    * @returns { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
@@ -1136,7 +1228,7 @@ declare class WebContextMenuParam {
 
 /**
  * Defines the context menu result, related to {@link WebContextMenuResult} method.
- * 
+ *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 9
  */
@@ -1206,6 +1298,13 @@ declare class WebContextMenuResult {
  * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
+/**
+ * Encompassed message information as parameters to {@link onConsole} method.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 11
+ */
 declare class ConsoleMessage {
   /**
    * Constructor.
@@ -1227,6 +1326,13 @@ declare class ConsoleMessage {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
   constructor();
 
   /**
@@ -1235,6 +1341,14 @@ declare class ConsoleMessage {
    * @returns { string } Return the message of a console message.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Gets the message of a console message.
+   *
+   * @returns { string } Return the message of a console message.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
    */
   getMessage(): string;
 
@@ -1263,6 +1377,14 @@ declare class ConsoleMessage {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
+  /**
+   * Gets the message level of a console message.
+   *
+   * @returns { MessageLevel } Return the message level of a console message, which can be {@link MessageLevel}.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
   getMessageLevel(): MessageLevel;
 }
 
@@ -1278,12 +1400,26 @@ declare class ConsoleMessage {
  * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
+/**
+ * Defines the Web resource request.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 10
+ */
 declare class WebResourceRequest {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
    */
   constructor();
 
@@ -1302,6 +1438,14 @@ declare class WebResourceRequest {
    * @returns { string } Return the request URL.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Gets the request URL.
+   *
+   * @returns { string } Return the request URL.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
    */
   getRequestUrl(): string;
 
@@ -1348,12 +1492,26 @@ declare class WebResourceRequest {
  * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
+/**
+ * Defines the Web resource response.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 11
+ */
 declare class WebResourceResponse {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
    */
   constructor();
 
@@ -1373,6 +1531,14 @@ declare class WebResourceResponse {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
+  /**
+   * Gets the response encoding.
+   *
+   * @returns { string } Return the response encoding.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
   getResponseEncoding(): string;
 
   /**
@@ -1381,6 +1547,14 @@ declare class WebResourceResponse {
    * @returns { string } Return the response MIME type.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Gets the response MIME type.
+   *
+   * @returns { string } Return the response MIME type.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
    */
   getResponseMimeType(): string;
 
@@ -1408,6 +1582,14 @@ declare class WebResourceResponse {
    * @returns { number } Return the response code.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Gets the response code.
+   *
+   * @returns { number } Return the response code.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
    */
   getResponseCode(): number;
 
@@ -1521,12 +1703,26 @@ declare interface Header {
  * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
+/**
+ * Defines the Web resource error.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 10
+ */
 declare class WebResourceError {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
    */
   constructor();
 
@@ -1537,6 +1733,14 @@ declare class WebResourceError {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
+  /**
+   * Gets the info of the Web resource error.
+   *
+   * @returns { string } Return the info of the Web resource error.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
+   */
   getErrorInfo(): string;
 
   /**
@@ -1545,6 +1749,14 @@ declare class WebResourceError {
    * @returns { number } Return the code of the Web resource error.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Gets the code of the Web resource error.
+   *
+   * @returns { number } Return the code of the Web resource error.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
    */
   getErrorCode(): number;
 }
@@ -1839,6 +2051,14 @@ declare class WebController {
  * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
+/**
+ * Defines the Web options.
+ *
+ * @interface WebOptions
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 10
+ */
 declare interface WebOptions {
   /**
    * Sets the address of the web page to be displayed.
@@ -1846,6 +2066,14 @@ declare interface WebOptions {
    * @type { string | Resource }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Sets the address of the web page to be displayed.
+   *
+   * @type { string | Resource }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
    */
   src: string | Resource;
   /**
@@ -1862,7 +2090,41 @@ declare interface WebOptions {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
   */
+  /**
+   * Sets the controller of the Web.
+   *
+   * @type { WebController | WebviewController }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
+  */
   controller: WebController | WebviewController;
+}
+
+/**
+ * Defines the contents of the JavaScript to be injected.
+ *
+ * @interface ScriptItem
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 11
+ */
+declare interface ScriptItem {
+  /**
+   * Sets the JavaScript to be injected.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  script: string;
+  /**
+   * Sets the rules of the JavaScript.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  scriptRules: Array<string>;
 }
 
 /**
@@ -1870,6 +2132,14 @@ declare interface WebOptions {
  *
  * @interface WebInterface
  * @syscap SystemCapability.Web.Webview.Core
+ * @since 8
+ */
+/**
+ * Defines the Web interface.
+ *
+ * @interface WebInterface
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
  * @since 8
  */
 interface WebInterface {
@@ -1881,6 +2151,15 @@ interface WebInterface {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
+  /**
+   * Sets Value.
+   *
+   * @param { WebOptions } value
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
+   */
   (value: WebOptions): WebAttribute;
 }
 
@@ -1891,6 +2170,14 @@ interface WebInterface {
  * @syscap SystemCapability.Web.Webview.Core
  * @since 8
  */
+/**
+ * Defines the Web attribute functions.
+ *
+ * @extends CommonMethod<WebAttribute>
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 8
+ */
 declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets whether the Web allows JavaScript scripts to execute.
@@ -1899,6 +2186,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Sets whether the Web allows JavaScript scripts to execute.
+   *
+   * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
    */
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
@@ -1960,6 +2256,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
+   */
+  /**
+   * Sets whether the Web supports zooming using gestures.
+   *
+   * @param { boolean } zoomAccess {@code true} means the Web supports zooming using gestures; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
    */
   zoomAccess(zoomAccess: boolean): WebAttribute;
 
@@ -2074,7 +2379,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 8
    */
   overviewModeAccess(overviewModeAccess: boolean): WebAttribute;
-
+  /**
+    * Sets the over-scroll mode for web
+    *
+    * @param { OverScrollMode } mode - The over-scroll mode, which can be {@link OverScrollMode}.
+    * @returns { WebAttribute }
+    * @syscap SystemCapability.Web.Webview.Core
+    * @since 11
+    */
+  overScrollMode(mode: OverScrollMode): WebAttribute;
   /**
    * Sets the ratio of the text zoom.
    *
@@ -2137,7 +2450,25 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
-  onPageEnd(callback: (event?: { url: string }) => void): WebAttribute;
+  /**
+   * Triggered at the end of web page loading.
+   *
+   * @param { function } callback The triggered function at the end of web page loading.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
+   */
+  onPageEnd(callback: (event?: {
+    /**
+     * The url of page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 10
+     */
+    url: string
+  }) => void): WebAttribute;
 
   /**
    * Triggered at the begin of web page loading.
@@ -2147,7 +2478,25 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
-  onPageBegin(callback: (event?: { url: string }) => void): WebAttribute;
+  /**
+   * Triggered at the begin of web page loading.
+   *
+   * @param { function } callback The triggered function at the begin of web page loading.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
+   */
+  onPageBegin(callback: (event?: {
+    /**
+     * The url of page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 10
+     */
+    url: string
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the page loading progress changes.
@@ -2157,7 +2506,25 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
-  onProgressChange(callback: (event?: { newProgress: number }) => void): WebAttribute;
+  /**
+   * Triggered when the page loading progress changes.
+   *
+   * @param { function } callback The triggered function when the page loading progress changes.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
+  onProgressChange(callback: (event?: {
+    /**
+     * The new progress of the page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    newProgress: number
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the title of the main application document changes.
@@ -2167,7 +2534,25 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
-  onTitleReceive(callback: (event?: { title: string }) => void): WebAttribute;
+  /**
+   * Triggered when the title of the main application document changes.
+   *
+   * @param { function } callback The triggered function when the title of the main application document changes.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
+  onTitleReceive(callback: (event?: {
+    /**
+     * The title of the page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    title: string
+  }) => void): WebAttribute;
 
   /**
    * Triggered when requesting to hide the geolocation.
@@ -2247,7 +2632,25 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
-  onConsole(callback: (event?: { message: ConsoleMessage }) => boolean): WebAttribute;
+  /**
+   * Triggered when the web page receives a JavaScript console message.
+   *
+   * @param { function } callback The triggered function when the web page receives a JavaScript console message.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
+  onConsole(callback: (event?: {
+    /**
+     * Console message information of the event.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    message: ConsoleMessage
+  }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page receives a web resource loading error.
@@ -2257,7 +2660,33 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
-  onErrorReceive(callback: (event?: { request: WebResourceRequest, error: WebResourceError }) => void): WebAttribute;
+  /**
+   * Triggered when the web page receives a web resource loading error.
+   *
+   * @param { function } callback The triggered function when the web page receives a web resource loading error.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 10
+   */
+  onErrorReceive(callback: (event?: {
+    /**
+     * The url of error event.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 10
+     */
+    request: WebResourceRequest,
+    /**
+     * The information of error event.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 10
+     */
+    error: WebResourceError
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the web page receives a web resource loading HTTP error.
@@ -2267,8 +2696,33 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
-  onHttpErrorReceive(callback: (event?: { request: WebResourceRequest,
-    response: WebResourceResponse }) => void): WebAttribute;
+  /**
+   * Triggered when the web page receives a web resource loading HTTP error.
+   *
+   * @param { function } callback The triggered function when the web page receives a web resource loading HTTP error.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
+  onHttpErrorReceive(callback: (event?: {
+    /**
+     * The url of error event.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    request: WebResourceRequest,
+    /**
+     *  Web resource response of event.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    response: WebResourceResponse
+  }) => void): WebAttribute;
 
   /**
    * Triggered when starting to download.
@@ -2398,7 +2852,33 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
-  onScaleChange(callback: (event: { oldScale: number, newScale: number }) => void): WebAttribute;
+  /**
+   * Triggered when the scale of WebView changed.
+   *
+   * @param { function } callback The triggered when the scale of WebView changed.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
+  onScaleChange(callback: (event: {
+    /**
+     * Old scale of the page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    oldScale: number,
+    /**
+     * New scale of the page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    newScale: number
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the browser needs credentials from the user.
@@ -2459,6 +2939,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
+  /**
+   * Set whether media playback needs to be triggered by user gestures.
+   *
+   * @param { boolean } access True if it needs to be triggered manually by the user else false.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
   mediaPlayGestureAccess(access: boolean): WebAttribute;
 
   /**
@@ -2480,7 +2969,33 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
-  onScroll(callback: (event: { xOffset: number, yOffset: number }) => void): WebAttribute;
+  /**
+   * Triggered when the scroll bar slides to the specified position.
+   *
+   * @param { function } callback Function Triggered when the scroll bar slides to the specified position.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
+  onScroll(callback: (event: {
+    /**
+     * The X offset of the scroll.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    xOffset: number,
+    /**
+     * The Y offset of the scroll.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    yOffset: number
+  }) => void): WebAttribute;
 
   /**
    * Triggered when the Web page receives an ssl Error.
@@ -2632,11 +3147,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
+  /**
+  * Set the minimum value of webview font. The default value is 8, ranging from 1 to 72.
+   *
+   * @param { number } size Font size.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
   minFontSize(size: number): WebAttribute;
 
   /**
   * Set the logical minimum value of webview font. The default value is 8, ranging from 1 to 72.
-   * 
+   *
    * @param { number } size Font size.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -2662,6 +3186,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
+  /**
+   * Set whether paint horizontal scroll bar.
+   *
+   * @param { boolean } horizontalScrollBar True if it needs to paint horizontal scroll bar.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
   horizontalScrollBarAccess(horizontalScrollBar: boolean): WebAttribute;
 
   /**
@@ -2671,6 +3204,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
+   */
+  /**
+   * Set whether paint vertical scroll bar.
+   *
+   * @param { boolean } verticalScrollBar True if it needs to paint vertical scroll bar.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
    */
   verticalScrollBarAccess(verticalScrollBar: boolean): WebAttribute;
 
@@ -2769,7 +3311,25 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
-  onLoadIntercept(callback: (event: { data: WebResourceRequest }) => boolean): WebAttribute;
+  /**
+   * Triggered when the resources loading is intercepted.
+   *
+   * @param { function } callback The triggered callback when the resources loading is intercepted.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
+   */
+  onLoadIntercept(callback: (event: {
+    /**
+     * The url of the event.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @since 11
+     */
+    data: WebResourceRequest
+  }) => boolean): WebAttribute;
 
   /**
    * Triggered when The controller is bound to the web component, this controller must be a WebviewController.
@@ -2778,6 +3338,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
+   */
+  /**
+   * Triggered when The controller is bound to the web component, this controller must be a WebviewController.
+   * This callback can not use the interface about manipulating web pages.
+   * @param { function } callback The triggered callback when web controller initialization success.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @since 11
    */
   onControllerAttached(callback: () => void): WebAttribute;
 
@@ -2789,6 +3358,34 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 10
    */
   onOverScroll(callback: (event: { xOffset: number, yOffset: number }) => void): WebAttribute;
+
+  /**
+   * Injects the JavaScripts before Webview creates the DOM tree, and then the JavaScript snippet will run after the document has been created.
+   * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
+
+  /**
+   * Set web layout Mode.
+   * @param { WebLayoutMode } mode - The web layout mode, which can be {@link WebLayoutMode}.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  layoutMode(mode: WebLayoutMode): WebAttribute;
+
+  /**
+   * Called to setting the nested scroll options.
+   *
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { WebAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 11
+   */
+  nestedScroll(value: NestedScrollOptions): WebAttribute;
 }
 
 /**
@@ -2796,6 +3393,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 8
+ */
+/**
+ * Defines Web Component.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
+ * @since 10
  */
 declare const Web: WebInterface;
 

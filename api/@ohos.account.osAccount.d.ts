@@ -759,7 +759,7 @@ declare namespace osAccount {
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
-     * @param { AsyncCallback<number> } callback - Indicates the callback for 
+     * @param { AsyncCallback<number> } callback - Indicates the callback for
      *   getting the local ID of the OS account associated with the specified domain account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -1568,7 +1568,7 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { number } localId - Indicates the local ID of the OS account.
      * @param { string } constraint - Indicates the constraint to query the source type.
-     * @param { AsyncCallback<Array<ConstraintSourceTypeInfo>> } callback - Indicates the callback for 
+     * @param { AsyncCallback<Array<ConstraintSourceTypeInfo>> } callback - Indicates the callback for
      *   getting a list of constraint source types for the specified os account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
@@ -1767,6 +1767,16 @@ declare namespace osAccount {
      * @since 10
      */
     accountId?: string;
+
+    /**
+     * Indicates whether the account is authenticated.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    isAuthenticated?: boolean;
   }
 
   /**
@@ -2434,6 +2444,29 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Authenticates the domain account bound to the current OS account with a popup.
+     *
+     * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - No domain account is bound.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300101 - Authentication failed.
+     * @throws { BusinessError } 12300109 - Authentication is canceled.
+     * @throws { BusinessError } 12300110 - Authentication is locked.
+     * @throws { BusinessError } 12300111 - Authentication timeout.
+     * @throws { BusinessError } 12300112 - Authentication service is busy.
+     * @throws { BusinessError } 12300113 - Authentication service does not exist.
+     * @throws { BusinessError } 12300114 - Authentication service exception.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
     static authWithPopup(callback: IUserAuthCallback): void;
 
     /**
@@ -2461,6 +2494,31 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * Authenticates the domain account bound to the specified OS account with a popup.
+     *
+     * @param { number } localId - Indicates the local ID of the specified OS account.
+     * @param { IUserAuthCallback } callback - Indicates the callback for getting the authentication result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid localId.
+     * @throws { BusinessError } 12300003 - No domain account is bound.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300101 - Authentication failed.
+     * @throws { BusinessError } 12300109 - Authentication is canceled.
+     * @throws { BusinessError } 12300110 - Authentication is locked.
+     * @throws { BusinessError } 12300111 - Authentication timeout.
+     * @throws { BusinessError } 12300112 - Authentication service is busy.
+     * @throws { BusinessError } 12300113 - Authentication service does not exist.
+     * @throws { BusinessError } 12300114 - Authentication service exception.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
      */
     static authWithPopup(localId: number, callback: IUserAuthCallback): void;
 
@@ -2595,6 +2653,48 @@ declare namespace osAccount {
      * @since 10
      */
     static getAccountInfo(options: GetDomainAccountInfoOptions): Promise<DomainAccountInfo>;
+
+    /**
+     * Gets the business access token of the current domain account.
+     *
+     * @param { object } businessParams - Indicates the business parameters.
+     * @param { AsyncCallback<Uint8Array> } callback - Indicates the result callback.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid business parameters.
+     * @throws { BusinessError } 12300003 - Domain account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - Domain account not authenticated.
+     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    static getAccessToken(businessParams: { [key: string]: Object }, callback: AsyncCallback<Uint8Array>): void;
+
+    /**
+     * Gets the business access token for the current domain account.
+     *
+     * @param { object } businessParams - Indicates the business parameters.
+     * @returns { Promise<Uint8Array> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid business parameters.
+     * @throws { BusinessError } 12300003 - Domain account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - Domain account not authenticated.
+     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    static getAccessToken(businessParams: { [key: string]: Object }): Promise<Uint8Array>;
   }
 
   /**

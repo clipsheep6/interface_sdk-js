@@ -71,14 +71,14 @@ interface QRCodeInterface {
 /**
  * Defines the qrcode attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<QRCodeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines the qrcode attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<QRCodeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
@@ -86,7 +86,7 @@ interface QRCodeInterface {
 /**
  * Defines the qrcode attribute functions.
  *
- * @extends CommonMethod
+ * @extends CommonMethod<QRCodeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
@@ -150,6 +150,16 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @form
    */
   backgroundColor(value: ResourceColor): QRCodeAttribute;
+
+  /**
+   * Set the opacity of the QR code content color.
+   * @param { number | Resource } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
+   * @returns { QRCodeAttribute } the attribute of the QR code
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  contentOpacity(value: number | Resource): QRCodeAttribute;
 }
 
 /**

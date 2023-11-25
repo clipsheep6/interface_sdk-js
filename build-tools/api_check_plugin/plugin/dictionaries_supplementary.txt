@@ -13,6 +13,7 @@ actived
 adjusts
 adpu
 adts
+advertisements
 affinities
 agrees
 alerting
@@ -43,6 +44,7 @@ asyn
 asynchronized
 atime
 atio
+atomicservice
 atqa
 attaches
 attachment0
@@ -95,6 +97,7 @@ capabilitys
 capturers
 ccm
 cdma
+ce
 certsign
 cft
 channeldown
@@ -134,6 +137,7 @@ crosshair
 crowdtest
 crowdtested
 crowdtesting
+csh
 cug
 cyclewindows
 daltonization
@@ -146,6 +150,7 @@ datasync
 dbm
 dci
 ddmp
+de
 deactivated
 deactivation
 decodes
@@ -167,6 +172,7 @@ deregisters
 deselected
 designative
 desynchronized
+detents
 developtools
 devicemanager
 dfactor
@@ -177,6 +183,7 @@ dirent
 dirxml
 disables
 disallowed
+disallows
 discharging
 disconnecting
 disconnection
@@ -195,6 +202,8 @@ dpad
 drains
 dragbar
 drawbuffer
+dsda
+dsds
 dsf
 dtmf
 ducked
@@ -202,6 +211,8 @@ ducking
 earfcn
 earphones
 earpiece
+ebu
+ece
 edr
 efuse
 egid
@@ -295,6 +306,7 @@ hitrace
 hiview
 hiviewdfx
 hkdf
+hlg
 hogp
 hsp
 hspa
@@ -306,6 +318,7 @@ icq
 id
 idm
 ifaces
+illuminated
 ima
 imager
 imagevideo
@@ -355,6 +368,7 @@ kaihong
 kbdillum
 kbdinputassist
 kbps
+kdf
 keyof
 keyframe
 keyguard
@@ -392,6 +406,7 @@ lowercased
 lightupEffect
 lpx
 lru
+lseek
 lshort
 lsizei
 lsizeiptr
@@ -512,6 +527,7 @@ persistable
 perso
 personalisation
 pertaining
+pgo
 photographing
 pickers
 pixelmap
@@ -535,6 +551,7 @@ preconnected
 preconnectable
 preempted
 preferentially
+preinstalled
 prelaunch
 preloads
 premises
@@ -571,6 +588,7 @@ reconfiguration
 reconfirm
 recovered
 recovering
+recovers
 recursions
 reclaimed
 redirections
@@ -585,6 +603,7 @@ renderbuffer
 renderbuffertarget
 repayment
 repeates
+reposition
 resizeable
 resmgr
 resourceschedule
@@ -617,16 +636,19 @@ sac
 sae
 sak
 satellites
+sbc
 scdma
 scene
 sco
 scrambling
 screenlock
+screenoff
 screensaver
 scrolldown
 scrollup
 sdpi
 searchsetter
+sece
 secinfo
 seeked
 semicircles
@@ -650,6 +672,7 @@ stk
 str
 sm3
 smil
+smpte
 smsc
 snoozing
 snorm
@@ -669,6 +692,7 @@ spn
 spp
 spry
 spy
+srgb
 ssp
 stablization
 statfs
@@ -684,6 +708,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+substate
 subtitles
 subtypes
 subwindow
@@ -711,6 +736,7 @@ taskmanager
 taskpool
 tbla
 tcpnodelay
+tdm
 tdscdma
 telecom
 tethering
@@ -729,6 +755,7 @@ trackinfo
 tranlisterated
 transcode
 transferable
+transfunc
 transliterated
 transliterator
 transpilation
@@ -774,6 +801,7 @@ uninit
 uninitialize
 uninitializes
 uninstallation
+uninstalls
 unlinked
 unlocking
 unlocks
@@ -801,14 +829,17 @@ unsupport
 unsuspended
 uplink
 useriam
+userspace
 usim
 ussd
 utilized
+utimes
 uuids
 uwb
 uids
 v9
 varyings
+viewframe
 vibrates
 vibrating
 vlr
@@ -837,12 +868,17 @@ wideband
 wifiext
 wimax
 wireframe
+wma
+wmp
+wmv
+wmx
 wordprocessor
 workscheduler
 woy
 wrappedvalue
 writemask
 wukong
+wvx
 wwan
 x25519
 x509
@@ -867,5 +903,7 @@ clouddata
 unadjustable
 unprepare
 unchained
+sandboxes
 sar
 adapts
+followx

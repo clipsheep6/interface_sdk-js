@@ -14,6 +14,54 @@
  */
 
 /**
+ * Defines the grid item style.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum GridItemStyle {
+  /**
+   * Show none style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  NONE = 0,
+
+  /**
+   * Show plain style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  PLAIN = 1,
+}
+
+/**
+ * Defines the grid item options.
+ *
+ * @interface GridItemOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface GridItemOptions {
+  /**
+   * Describes the GridItem style.
+   *
+   * @type { ?GridItemStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  style?: GridItemStyle;
+}
+
+/**
  * Mesh container for static fixed-size layout scenarios.
  *
  * @interface GridItemInterface
@@ -27,6 +75,15 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Mesh container for static fixed-size layout scenarios.
+ *
+ * @interface GridItemInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 interface GridItemInterface {
   /**
@@ -44,19 +101,36 @@ interface GridItemInterface {
    * @crossplatform
    * @since 10
    */
-  (): GridItemAttribute;
+  /**
+   * Return to get GridItem.
+   *
+   * @param { GridItemOptions } value - Defines the grid item options.
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  (value?: GridItemOptions): GridItemAttribute;
 }
 
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<GridItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
- * @extends CommonMethod
+ * @extends CommonMethod<GridItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * @extends CommonMethod<GridItemAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**
@@ -75,6 +149,16 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * This parameter specifies the start line number of the current element.
+   *
+   * @param { number } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   rowStart(value: number): GridItemAttribute;
 
@@ -95,6 +179,16 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Specifies the end line number of the current element.
+   *
+   * @param { number } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   rowEnd(value: number): GridItemAttribute;
 
   /**
@@ -114,6 +208,16 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * This parameter specifies the start column number of the current element.
+   *
+   * @param { number } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   columnStart(value: number): GridItemAttribute;
 
   /**
@@ -132,6 +236,16 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * This parameter specifies the end column number of the current element.
+   *
+   * @param { number } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   columnEnd(value: number): GridItemAttribute;
 
@@ -163,6 +277,16 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when judging whether it is selectable.
+   *
+   * @param { boolean } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   selectable(value: boolean): GridItemAttribute;
 
   /**
@@ -174,6 +298,17 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when judging whether it is selected.
+   * This parameter supports $$ for two-way binding of variables.
+   * 
+   * @param { boolean } value - if the gridItem is selected.
+   * @returns { GridItemAttribute } the attribute of the gridItem.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   selected(value: boolean): GridItemAttribute;
 
@@ -194,6 +329,16 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the gridItem is selected.
+   *
+   * @param { function } event
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onSelect(event: (isSelected: boolean) => void): GridItemAttribute;
 }
 
@@ -210,6 +355,14 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines GridItem Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const GridItem: GridItemInterface
 
 /**
@@ -224,5 +377,13 @@ declare const GridItem: GridItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines GridItem Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const GridItemInstance: GridItemAttribute;

@@ -27,6 +27,15 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 declare namespace config {
   /**
    * @constant
+   * Indicates the configuration of daltonization state.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  const daltonizationState: Config<boolean>;
+  /**
+   * @constant
    * Indicates the configuration of audio mono.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -124,6 +133,14 @@ declare namespace config {
    */
   var shortkeyTarget: Config<string>;
   /**
+   * Indicates the configuration of short key multi targets.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  const shortkeyMultiTargets: Config<Array<string>>;
+  /**
    * Indicates the configuration of captions state.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -139,6 +156,30 @@ declare namespace config {
    * @since 9
    */
   var captionsStyle: Config<accessibility.CaptionsStyle>;
+  /**
+   * Indicates the configuration of click response time.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  const clickResponseTime: Config<ClickResponseTime>;
+  /**
+   * Indicates the configuration of ignore repeat click.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  const ignoreRepeatClick: Config<boolean>;
+  /**
+   * Indicates the configuration of ignore repeat click interval.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  const repeatClickInterval: Config<RepeatClickInterval>;
 
   /**
    * Enable the accessibility extension ability.
@@ -328,5 +369,23 @@ declare namespace config {
    * @since 9
    */
   type DaltonizationColorFilter = 'Normal' | 'Protanomaly' | 'Deuteranomaly' | 'Tritanomaly';
+
+  /**
+   * Indicates the type of click response time.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  type ClickResponseTime = 'Short' | 'Medium' | 'Long';
+
+  /**
+   * Indicates the type of ignore repeat click interval.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  type RepeatClickInterval = 'Shortest' | 'Short' | 'Medium' | 'Long' | 'Longest';
 }
 export default config;

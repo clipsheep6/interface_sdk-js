@@ -327,6 +327,58 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates audio device for usage.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @systemapi
+   * @since 11
+   */
+  enum DeviceUsage {
+    /**
+     * Media output devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    MEDIA_OUTPUT_DEVICES = 1,
+    /**
+     * Media input devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    MEDIA_INPUT_DEVICES = 2,
+    /**
+     * All media devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    ALL_MEDIA_DEVICES = 3,
+    /**
+     * Call output devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    CALL_OUTPUT_DEVICES = 4,
+    /**
+     * Call input devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    CALL_INPUT_DEVICES = 8,
+    /**
+     * All call devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    ALL_CALL_DEVICES = 12,
+  }
+
+  /**
    * Enumerates device roles.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Device
@@ -1861,6 +1913,44 @@ declare namespace audio {
     off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void;
 
     /**
+     * Obtains all the available audio devices with a specific device usage.
+     * @param { DeviceUsage } deviceUsage - Audio device usage.
+     * @returns { AudioDeviceDescriptors } The device list.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors;
+
+    /**
+     * Subscribes to available device change events. When a device is connected/disconnected, registered clients will receive
+     * the callback.
+     * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange event is supported.
+     * @param { DeviceUsage } deviceUsage - Audio device usage.
+     * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
+
+    /**
+     * UnSubscribes to available device change events.
+     * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange event is supported.
+     * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 11
+     */
+    off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void;
+
+    /**
      * Sets a device to the active state. This method uses an asynchronous callback to return the result.
      * @param { CommunicationDeviceType } deviceType - Audio device type.
      * @param { boolean } active - Active status to set. The value true means to set the device to
@@ -1971,24 +2061,24 @@ declare namespace audio {
      * Get output device for target audio renderer info.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information
      * @param { AsyncCallback<AudioDeviceDescriptors> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error. Return by callback.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error. Return by callback.
      * @throws { BusinessError } 6800301 - System error. Return by callback.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
-    getPreferredOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void;
     /**
      * Get output device for target audio renderer info.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
-     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - if input parameter value error. Return by promise.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error. Return by promise.
      * @throws { BusinessError } 6800301 - System error. Return by promise.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
-    getPreferredOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<AudioDeviceDescriptors>;
+    getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<AudioDeviceDescriptors>;
 
     /**
      * Gets preferred output device for target audio renderer info.
@@ -2002,29 +2092,29 @@ declare namespace audio {
     getPreferredOutputDeviceForRendererInfoSync(rendererInfo: AudioRendererInfo): AudioDeviceDescriptors;
 
     /**
-     * Subscribes to preferred output device change events. When preferred device for target audio renderer info changes,
+     * Subscribes to prefer output device change events. When prefer device for target audio renderer info changes,
      * registered clients will receive the callback.
-     * @param { 'preferredOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
-     * preferredOutputDeviceChangeForRendererInfo event is supported.
+     * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
+     * preferOutputDeviceChangeForRendererInfo event is supported.
      * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
-     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices information.
-     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - If input parameter value error.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
-    on(type: 'preferredOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
+    on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
     /**
-     * UnSubscribes to preferred output device change events.
-     * @param { 'preferredOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
-     * preferredOutputDeviceChangeForRendererInfo event is supported.
-     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed preferred devices in subscribe.
-     * @throws { BusinessError } 401 - If input parameter type or number mismatch.
-     * @throws { BusinessError } 6800101 - If input parameter value error.
+     * UnSubscribes to prefer output device change events.
+     * @param { 'preferOutputDeviceChangeForRendererInfo' } type - Type of the event to listen for. Only the
+     * preferOutputDeviceChangeForRendererInfo event is supported.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices in subscribe.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 10
      */
-    off(type: 'preferredOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
+    off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * Get input device for target audio capturer info.
@@ -2891,6 +2981,13 @@ declare namespace audio {
      * @since 9
      */
     readonly deviceDescriptors: AudioDeviceDescriptors;
+
+    /**
+     * Audio capturer muted status.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 11
+     */
+    readonly muted?: boolean;
   }
 
   /**
@@ -2982,6 +3079,13 @@ declare namespace audio {
      * @since 10
      */
     readonly displayName: string;
+
+    /**
+     * Supported encoding types.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    readonly encodingTypes?: Array<AudioEncodingType>;
   }
 
   /**
@@ -3147,6 +3251,39 @@ declare namespace audio {
      * @since 7
      */
     deviceDescriptors: AudioDeviceDescriptors;
+  }
+
+  /**
+   * Enumerates channel blend mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 11
+   */
+  enum ChannelBlendMode {
+    /**
+     * No channel process.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    MODE_DEFAULT = 0,
+    /**
+     * Blend left and right channel.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    MODE_BLEND_LR = 1,
+    /**
+     * Replicate left to right channel.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    MODE_ALL_LEFT = 2,
+    /**
+     * Replicate right to left channel.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 11
+     */
+    MODE_ALL_RIGHT = 3,
   }
 
   /**
@@ -3491,6 +3628,17 @@ declare namespace audio {
     setVolume(volume: number): Promise<void>;
 
     /**
+     * Changes the volume with ramp for a duration.
+     * @param { number } volume - Volume to set. The value type is float, form 0.0 to 1.0.
+     * @param { number } duration -  Duration for volume ramp, in millisecond.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    setVolumeWithRamp(volume: number, duration: number): void;
+
+    /**
      * Gets the min volume this stream can set. This method uses an asynchronous callback to return the result.
      * @param { AsyncCallback<number> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -3579,6 +3727,17 @@ declare namespace audio {
      * @since 10
      */
     getCurrentOutputDevicesSync(): AudioDeviceDescriptors;
+
+    /**
+     * Sets channel blend mode for this stream.
+     * @param { ChannelBlendMode } mode - Target channel blend mode.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @since 11
+     */
+    setChannelBlendMode(mode: ChannelBlendMode): void;
 
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
@@ -3699,6 +3858,16 @@ declare namespace audio {
      * @since 10
      */
     SOURCE_TYPE_WAKEUP = 3,
+
+    /**
+     * Voice call source type.
+     * @permission ohos.permission.RECORD_VOICE_CALL
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 11
+     */
+    SOURCE_TYPE_VOICE_CALL = 4,
+
     /**
      * Voice communication source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -3981,6 +4150,22 @@ declare namespace audio {
     getBufferSizeSync(): number;
 
     /**
+     * Gets the input device or devices for this stream.
+     * @returns { AudioDeviceDescriptors } Descriptors of input devices.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    getCurrentInputDevices(): AudioDeviceDescriptors;
+
+    /**
+     * Gets full capturer info for this stream.
+     * @returns { AudioCapturerChangeInfo } Full capture info.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    getCurrentAudioCapturerChangeInfo(): AudioCapturerChangeInfo;
+
+    /**
      * Subscribes to mark reached events. When the number of frames captured reaches the value of the frame parameter,
      * the callback is invoked.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
@@ -4046,6 +4231,50 @@ declare namespace audio {
      * @since 10
      */
     off(type: 'audioInterrupt'): void;
+
+    /**
+     * Subscribes input device change event callback.
+     * The event is triggered when input device change for this stream.
+     * @param { 'inputDeviceChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - if input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    on(type: 'inputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
+    /**
+     * Unsubscribes input device change event callback.
+     * @param { 'inputDeviceChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 11
+     */
+    off(type: 'inputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Subscribes audio capturer info change event callback.
+     * The event is triggered when input device change for this stream.
+     * @param { 'audioCapturerChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 11
+     */
+    on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfo>): void;
+    /**
+     * Unsubscribes audio capturer info change event callback.
+     * @param { 'audioCapturerChange' } type - Type of the event to listen for.
+     * @param { Callback<AudioCapturerChangeInfo> } callback - Callback used in subscribe.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 11
+     */
+    off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfo>): void;
   }
 
   /**
