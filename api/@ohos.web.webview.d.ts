@@ -1512,11 +1512,11 @@ declare namespace webview {
     /**
      * Stores the current page as a web archive.
      *
-     * @param { string } baseName - The path to the file storage, This value cannot be null.
-     * @param { boolean } autoName - Decide whether the file name is automatically generated. If false, 
-     *                               baseName is used as the file storage path. If true, baseName is 
-     *                               assumed to be a directory, and the file name will be automatically 
-     *                               generated based on the URL of the current page.
+     * @param { string } baseName - Where the generated offline webpage is stored, This value cannot be null.
+     * @param { boolean } autoName - Decide whether to automatically generate the file name. If false, it is 
+     *                               stored by the file name of baseName. If true, the file name is 
+     *                               automatically generated based on the current URL and stored in the file 
+     *                               directory of baseName.
      * @param { AsyncCallback<string> } callback - called after the web archive has been stored. The parameter
      *                                             will either be the filename under which the file was stored,
      *                                             or empty if storing the file failed.
