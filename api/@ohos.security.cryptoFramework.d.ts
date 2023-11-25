@@ -1765,9 +1765,9 @@ declare namespace cryptoFramework {
      * Indicates the value for algorithm id string. It is used in ED25519 signing and verifying process.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
-
     ED25519_ALGORITHM_ID_STR = 106
   }
 
@@ -3358,71 +3358,80 @@ declare namespace cryptoFramework {
      * Indicates the prime p of DH algorithm.
      *
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     DH_P_BN = 401,
 
     /**
-     * Indicates the generator p of DH algorithm.
+     * Indicates the generator g of DH algorithm.
      *
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     DH_G_BN = 402,
 
     /**
-     * Indicates the number of bits or bytes of the numeric value used in the DH algorithm.
+     * Indicates the number of bits of the private key length used in the DH algorithm.
      *
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     DH_L_NUM = 403,
 
     /**
-     * Indicates the private value of the DH private key..
+     * Indicates the private value of the DH private key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     DH_SK_BN = 404,
 
     /**
-     * Indicates the public value of the DH public key..
+     * Indicates the public value of the DH public key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     DH_PK_BN = 405,
 
     /**
-     * Indicates the private value of the ED25519 private key..
+     * Indicates the private value of the ED25519 private key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     ED25519_SK_BN = 501,
 
     /**
-     * Indicates the public value of the ED25519 public key..
+     * Indicates the public value of the ED25519 public key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     ED25519_PK_BN = 502,
 
     /**
-     * Indicates the private value of the X25519 private key..
+     * Indicates the private value of the X25519 private key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     X25519_SK_BN = 504,
 
     /**
-     * Indicates the public value of the X25519 public key..
+     * Indicates the public value of the X25519 public key.
      *
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     X25519_PK_BN = 505
   }
@@ -4181,7 +4190,8 @@ declare namespace cryptoFramework {
    *
    * @typedef DHCommonParamsSpec
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
+   * @crossplatform
+   * @since 11
    */
   interface DHCommonParamsSpec extends AsyKeySpec {
 
@@ -4190,7 +4200,8 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     p: bigint;
 
@@ -4199,7 +4210,8 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     g: bigint;
 
@@ -4208,7 +4220,8 @@ declare namespace cryptoFramework {
      *
      * @type { number }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     l: number;
   }
@@ -4218,7 +4231,8 @@ declare namespace cryptoFramework {
    *
    * @typedef DHPriKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
+   * @crossplatform
+   * @since 11
    */
   interface DHPriKeySpec extends AsyKeySpec {
     /**
@@ -4226,7 +4240,8 @@ declare namespace cryptoFramework {
      *
      * @type { DHCommonParamsSpec }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     params: DHCommonParamsSpec;
 
@@ -4235,7 +4250,8 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     sk: bigint;
   }
@@ -4245,7 +4261,8 @@ declare namespace cryptoFramework {
    *
    * @typedef DHPubKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
+   * @crossplatform
+   * @since 11
    */
   interface DHPubKeySpec extends AsyKeySpec {
     /**
@@ -4253,7 +4270,8 @@ declare namespace cryptoFramework {
      *
      * @type { DHCommonParamsSpec }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     params: DHCommonParamsSpec;
 
@@ -4262,7 +4280,8 @@ declare namespace cryptoFramework {
      *
      * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     pk: bigint;
   }
@@ -4272,7 +4291,8 @@ declare namespace cryptoFramework {
    *
    * @typedef DHKeyPairSpec
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
+   * @crossplatform
+   * @since 11
    */
   interface DHKeyPairSpec extends AsyKeySpec {
     /**
@@ -4280,7 +4300,8 @@ declare namespace cryptoFramework {
      *
      * @type { DHCommonParamsSpec }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     params: DHCommonParamsSpec;
 
@@ -4289,7 +4310,8 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     sk: bigint;
 
@@ -4298,7 +4320,8 @@ declare namespace cryptoFramework {
      *
      * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     pk: bigint;
   }
@@ -4307,6 +4330,7 @@ declare namespace cryptoFramework {
    * Key utilities for DH Algorithm.
    *
    * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
    * @since 11
    */
   class DHKeyUtil {
@@ -4320,6 +4344,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @static
      * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
      * @since 11
      */
     static genDHCommonParamsSpec(pLen : number, skLen? : number) : DHCommonParamsSpec;
@@ -4330,7 +4355,8 @@ declare namespace cryptoFramework {
    *
    * @typedef ED25519PriKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
+   * @crossplatform
+   * @since 11
    */
   interface ED25519PriKeySpec extends AsyKeySpec {
     /**
@@ -4338,7 +4364,8 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     sk: bigint;
   }
@@ -4348,7 +4375,8 @@ declare namespace cryptoFramework {
    *
    * @typedef ED25519PubKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
+   * @crossplatform
+   * @since 11
    */
   interface ED25519PubKeySpec extends AsyKeySpec {
     /**
@@ -4356,7 +4384,8 @@ declare namespace cryptoFramework {
      *
      * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     pk: bigint;
   }
@@ -4366,7 +4395,8 @@ declare namespace cryptoFramework {
    *
    * @typedef ED25519KeyPairSpec
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
+   * @crossplatform
+   * @since 11
    */
   interface ED25519KeyPairSpec extends AsyKeySpec {
     /**
@@ -4374,7 +4404,8 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     sk: bigint;
 
@@ -4383,7 +4414,8 @@ declare namespace cryptoFramework {
      *
      * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     pk: bigint;
   }
@@ -4393,7 +4425,8 @@ declare namespace cryptoFramework {
    *
    * @typedef X25519PriKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
+   * @crossplatform
+   * @since 11
    */
   interface X25519PriKeySpec extends AsyKeySpec {
     /**
@@ -4401,7 +4434,8 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     sk: bigint;
   }
@@ -4411,7 +4445,8 @@ declare namespace cryptoFramework {
    *
    * @typedef X25519PubKeySpec
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
+   * @crossplatform
+   * @since 11
    */
   interface X25519PubKeySpec extends AsyKeySpec {
     /**
@@ -4419,7 +4454,8 @@ declare namespace cryptoFramework {
      *
      * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     pk: bigint;
   }
@@ -4429,7 +4465,8 @@ declare namespace cryptoFramework {
    *
    * @typedef X25519KeyPairSpec
    * @syscap SystemCapability.Security.CryptoFramework
-   * @since 10
+   * @crossplatform
+   * @since 11
    */
   interface X25519KeyPairSpec extends AsyKeySpec {
     /**
@@ -4437,7 +4474,8 @@ declare namespace cryptoFramework {
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     sk: bigint;
 
@@ -4446,7 +4484,8 @@ declare namespace cryptoFramework {
      *
      * @type { Point }
      * @syscap SystemCapability.Security.CryptoFramework
-     * @since 10
+     * @crossplatform
+     * @since 11
      */
     pk: bigint;
   }
