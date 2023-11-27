@@ -4057,10 +4057,13 @@ declare namespace window {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 40ec1e26 (新增支持三方应用设置查询最大、最小尺寸接口)
 =======
 >>>>>>> 961177b8 (新增支持三方应用设置查询最大、最小尺寸接口)
+=======
+>>>>>>> 5c5ee9403fd55686d5d0d9deede48888dddbb661
 
     /**
      * Get the window limits of current window.
@@ -4102,6 +4105,7 @@ declare namespace window {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
      (windowLimits: WindowLimits, callback: AsyncCallback<WindowLimits>): void; 
 =======
     setWindowLimits(windowLimits: WindowLimits, callback: AsyncCallback<WindowLimits>): void; 
@@ -4114,6 +4118,9 @@ declare namespace window {
 =======
      (windowLimits: WindowLimits, callback: AsyncCallback<WindowLimits>): void; 
 >>>>>>> 961177b8 (新增支持三方应用设置查询最大、最小尺寸接口)
+=======
+     (windowLimits: WindowLimits, callback: AsyncCallback<WindowLimits>): void; 
+>>>>>>> 5c5ee9403fd55686d5d0d9deede48888dddbb661
   }
   
   /**
