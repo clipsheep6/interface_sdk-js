@@ -3424,7 +3424,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
-    X25519_SK_BN = 504,
+    X25519_SK_BN = 601,
 
     /**
      * Indicates the public value of the X25519 public key.
@@ -3433,7 +3433,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
-    X25519_PK_BN = 505
+    X25519_PK_BN = 602
   }
 
   /**
@@ -4196,7 +4196,7 @@ declare namespace cryptoFramework {
   interface DHCommonParamsSpec extends AsyKeySpec {
 
     /**
-     * Indicates the first coefficient a of the elliptic curve.
+     * Indicates the prime p of the dh.
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
@@ -4206,7 +4206,7 @@ declare namespace cryptoFramework {
     p: bigint;
 
     /**
-     * Indicates the second coefficient b of the elliptic curve.
+     * Indicates the generator g of the dh.
      *
      * @type { bigint }
      * @syscap SystemCapability.Security.CryptoFramework
@@ -4216,7 +4216,7 @@ declare namespace cryptoFramework {
     g: bigint;
 
     /**
-     * Indicates the length of private key.
+     * Indicates the length in bit of private key.
      *
      * @type { number }
      * @syscap SystemCapability.Security.CryptoFramework
@@ -4335,10 +4335,10 @@ declare namespace cryptoFramework {
    */
   class DHKeyUtil {
     /**
-     * Create the common parameter set based on the curve name.
+     * Create the common parameter set based on the pLen and skLen.
      *
-     * @param { number } pLen - indicates the length of prime p.
-     * @param { number } skLen - indicates the length of private key.
+     * @param { number } pLen - indicates the length in bit of prime p.
+     * @param { ?number } skLen - indicates the length in bit of private key.
      * @returns { DHCommonParamsSpec } the DH common params spec obj.
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 801 - this operation is not supported.
@@ -4348,7 +4348,7 @@ declare namespace cryptoFramework {
      * @crossplatform
      * @since 11
      */
-    static genDHCommonParamsSpec(pLen : number, skLen? : number) : DHCommonParamsSpec;
+    static genDHCommonParamsSpec(pLen : number, skLen?: number) : DHCommonParamsSpec;
   }
 
 /**
