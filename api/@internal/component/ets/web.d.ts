@@ -818,6 +818,7 @@ declare enum SslError {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
