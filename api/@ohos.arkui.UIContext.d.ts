@@ -37,6 +37,8 @@ import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignme
 import { DatePickerDialogOptions } from 'DatePickerDialogParam';
 import { TimePickerDialogOptions } from 'TimePickerDialogParam';
 import { TextPickerDialogOptions } from 'textPickerDialogParam';
+import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
+import type dragController from './@ohos.arkui.dragController';
 
 /**
  * class Font
@@ -1062,6 +1064,72 @@ export interface AtomicServiceBar {
 }
 
 /**
+ * class DragController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+export class DragController {
+  /**
+   * Execute a drag event.
+   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
+   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains 
+   * the drag event information.
+   * @throws { BusinessError } 401 - if the parameters checking failed.
+   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo, callback: AsyncCallback<{
+    event: DragEvent, extraParams: string
+  }>): void;
+
+  /**
+   * Execute a drag event.
+   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
+   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
+   * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
+   * @throws { BusinessError } 401 - if the parameters checking failed.
+   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo): Promise<{
+    event: DragEvent, extraParams: string
+  }>;
+
+  /**
+   * Execute a drag event.
+   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
+   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string, status: dragController.DragStatus }> } callback - 
+   * Callback that contains the drag event information.
+   * @throws { BusinessError } 401 - if the parameters checking failed.
+   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo, callback: AsyncCallback<{
+    event: DragEvent, extraParams: string, status: dragController.DragStatus
+  }>): void;
+
+  /**
+   * Execute a drag event.
+   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
+   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
+   * @returns { Promise<{ event: DragEvent, extraParams: string, status: dragController.DragStatus }> } A Promise with 
+   * the drag event information.
+   * @throws { BusinessError } 401 - if the parameters checking failed.
+   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): Promise<{
+    event: DragEvent, extraParams: string, status: dragController.DragStatus
+  }>;
+}
+
+/**
  * class UIContext
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1384,6 +1452,14 @@ export class UIContext {
    * @since 11
    */
   getAtomicServiceBar(): Nullable<AtomicServiceBar>;
+
+  /**
+   * Get DragController.
+   * @returns { DragController } the DragController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  getDragController(): DragController;
 }
 
 /**
