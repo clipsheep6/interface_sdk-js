@@ -4529,6 +4529,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
      * @since 11
      */
     url: string,
+    /**
+     * The userAgent of page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     userAgent: string,
     contentDisposition: string,
     /**
