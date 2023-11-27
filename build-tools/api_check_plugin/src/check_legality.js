@@ -36,7 +36,7 @@ function checkJsDocLegality(node, comments, checkInfoMap) {
   // 'enum'
   legalityCheck(node, comments, [ts.SyntaxKind.EnumDeclaration], ['enum'], true, checkInfoMap);
   // 'extends'
-  legalityCheck(node, comments, [ts.SyntaxKind.ClassDeclaration], ['extends'], true, checkInfoMap,
+  legalityCheck(node, comments, [ts.SyntaxKind.ClassDeclaration, ts.SyntaxKind.InterfaceDeclaration], ['extends'], true, checkInfoMap,
     (currentNode, checkResult) => {
       let tagCheckResult = false;
       if (ts.isClassDeclaration(currentNode) && currentNode.heritageClauses) {
