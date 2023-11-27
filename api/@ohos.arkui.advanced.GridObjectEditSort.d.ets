@@ -14,7 +14,7 @@
  */
 
 /**
- * dataListType of GridObjectEditSort.
+ * DataListType of GridObjectEditSort.
  *
  * @interface dataListType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23,7 +23,7 @@
  */
 export interface DataListType {
   /**
-   * id of data.
+   * id of DataListType.
    *
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -33,7 +33,7 @@ export interface DataListType {
   id: number | string;
 
   /**
-   * text of data.
+   * text of DataListType.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -43,7 +43,7 @@ export interface DataListType {
   text: string;
 
   /**
-   * state of data.
+   * state of DataListType.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -53,7 +53,7 @@ export interface DataListType {
   state: boolean;
 
   /**
-   * sort of data.
+   * sort of DataListType.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -63,7 +63,7 @@ export interface DataListType {
   sort: number;
 
   /**
-   * url of data.
+   * url of DataListType.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -74,7 +74,7 @@ export interface DataListType {
 }
 
 /**
- * optionType of GridObjectEditSort.
+ * OptionType of GridObjectEditSort.
  *
  * @interface optionType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -83,7 +83,7 @@ export interface DataListType {
  */
 export interface OptionType {
   /**
-   * type of options.
+   * type of OptionType.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -93,7 +93,7 @@ export interface OptionType {
   type?: string;
 
   /**
-   * imageSize of options.
+   * imageSize of OptionType.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -103,7 +103,7 @@ export interface OptionType {
   imageSize?: number;
 
   /**
-   * title of options.
+   * title of OptionType.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -113,7 +113,7 @@ export interface OptionType {
   title?: string;
 
   /**
-   * editTitle of options.
+   * editTitle of OptionType.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -123,7 +123,7 @@ export interface OptionType {
   editTitle?: string;
 
   /**
-   * backUrl of options.
+   * backUrl of OptionType.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -133,7 +133,7 @@ export interface OptionType {
   backUrl?: string;
 
   /**
-   * subTitleFirst of options.
+   * subTitleFirst of OptionType.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -143,7 +143,7 @@ export interface OptionType {
   subTitleFirst?: string;
 
   /**
-   * subTitleSecond of options.
+   * subTitleSecond of OptionType.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -164,7 +164,7 @@ export declare struct GridObjectEditSort {
    * @since 11
    */
   @Link
-  options: optionType;
+  options: OptionType;
   /**
    * DataList of GridObjectEditSort.
    *
@@ -174,7 +174,7 @@ export declare struct GridObjectEditSort {
    * @since 11
    */
   @Link
-  dataList: dataListType[];
+  dataList: DataListType[];
 
   /**
    * Build function of GridObjectEditSort.
