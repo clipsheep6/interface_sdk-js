@@ -1069,6 +1069,45 @@ declare namespace window {
     parentId?: number;
   }
 
+  interface WindowLimits {
+    
+    /**
+     * The maximum width of the window.
+     * 
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @since 11
+     */
+    maxWidth?: number;
+
+    /**
+     * The maximum height of the window.
+     * 
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @since 11
+     */
+    maxHeight?: number;
+
+    /**
+     * The minimum width of the window.
+     * 
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @since 11
+     */
+    minWidth?: number;
+
+    /**
+     * The minimum height of the window.
+     * 
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @since 11
+     */
+    minHeight?: number;
+  }
+
   /**
    * Create a window with a specific configuration
    *
@@ -4015,7 +4054,47 @@ declare namespace window {
      * @since 11
      */
     hideNonSystemFloatingWindows(shouldHide: boolean): Promise<void>;
+
+    /**
+     * Get the window limits of current window.
+     *
+     * @returns { WidnowLimits }
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    getWindowLimits(): WindowLimits;
+
+    /**
+     * Set the window limits of a window.
+     *
+     * @param { WidnowLimits } windowLimits - window limits of the window.
+     * @returns { Promise<WidnowLimits> } - Promise is used to return the window limits.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    setWindowLimits(windowLimits: WindowLimits): Promise<WindowLimits>;
+
+    /**
+     * Set the window limits of a window.
+     *
+     * @param { WidnowLimits } windowLimits - window limits of the window.
+     * @param { AsyncCallback<WidnowLimits> } callback - Callback used to return the window limits.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    setWindowLimits(windowLimits: WindowLimits, callback: AsyncCallback<WindowLimits>): void; 
   }
+  
   /**
    * Window stage callback event type
    *
