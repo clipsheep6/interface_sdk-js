@@ -1069,45 +1069,6 @@ declare namespace window {
     parentId?: number;
   }
 
-  interface WindowLimits {
-    
-    /**
-     * The maximum width of the window.
-     * 
-     * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
-     * @since 11
-     */
-    maxWidth?: number;
-
-    /**
-     * The maximum height of the window.
-     * 
-     * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
-     * @since 11
-     */
-    maxHeight?: number;
-
-    /**
-     * The minimum width of the window.
-     * 
-     * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
-     * @since 11
-     */
-    minWidth?: number;
-
-    /**
-     * The minimum height of the window.
-     * 
-     * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
-     * @since 11
-     */
-    minHeight?: number;
-  }
-
   /**
    * Create a window with a specific configuration
    *
@@ -4054,6 +4015,7 @@ declare namespace window {
      * @since 11
      */
     hideNonSystemFloatingWindows(shouldHide: boolean): Promise<void>;
+<<<<<<< HEAD
 
     /**
      * Get the window limits of current window.
@@ -4092,9 +4054,14 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
+<<<<<<< HEAD
      (windowLimits: WindowLimits, callback: AsyncCallback<WindowLimits>): void; 
+=======
+    setWindowLimits(windowLimits: WindowLimits, callback: AsyncCallback<WindowLimits>): void; 
+>>>>>>> 488b7918 (新增支持三方应用设置查询最大、最小尺寸接口)
+=======
+>>>>>>> b412c13d (Revert "新增支持三方应用设置查询最大、最小尺寸接口")
   }
-  
   /**
    * Window stage callback event type
    *
