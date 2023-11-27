@@ -15,9 +15,9 @@
 
 /// <reference path="../component/common.d.ts" />
 
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback , BusinessError, Callback } from './@ohos.base';
 import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
-import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
+import type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions } from 'DragControllerParam';
 
 /**
  * This module allows developers to trigger a drag event.
@@ -26,6 +26,102 @@ import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam
  * @since 10
  */
 declare namespace dragController {
+  /**
+   * Defines the Drag Status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  enum DragStatus {
+    /**
+     * Drag has started.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    STARTED = 0,
+    /**
+     * Drag has ended.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    ENDED = 1,
+  }
+  /**
+   * Drag and drop information
+   *
+   * @interface DragAndDropInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  interface DragAndDropInfo {
+    /**
+     * The drag status.
+     * @type { DragStatus }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    status: DragStatus;
+    /**
+     * The information containing the drag event.
+     * @type { DragEvent }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    event: DragEvent;
+    /**
+     * Additional information about the drag info.
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    extraParams?: string;
+    /**
+     * Touch point coordinates.
+     * @type { ?TouchPoint }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    touchPoint?: TouchPoint;
+
+    /**
+     * Drag preview options.
+     * @type { ?DragPreviewOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    previewOptions?: DragPreviewOptions;
+  }
+  /**
+   * One status listener object for drag process
+   *
+   * @interface DragStatusListener
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+   interface DragStatusListener {
+    /**
+     * Registers a callback for listening on drag status changes.
+     * This callback is triggered when the drag status change.
+     *
+     * @param { 'change' } type for status changing
+     * @param { Callback<DragAndDropInfo> } callback with drag event and status information
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    on(type: 'change', callback: Callback<DragAndDropInfo>): void;
+
+    /**
+     * Deregisters a callback for listening on drag status changes.
+     * This callback is not triggered when the drag status change.
+     *
+     * @param { 'change' } type for status changing
+     * @param { Callback<DragAndDropInfo> } callback with drag event and status information
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    off(type: 'change', callback?: Callback<DragAndDropInfo>): void;
+  }
   /**
    * DragInfo object description
    * 
@@ -82,6 +178,17 @@ declare namespace dragController {
   function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo): Promise<{
     event: DragEvent, extraParams: string
   }>;
+  /**
+   * Execute a drag.
+   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
+   * @param { DragInfo } dragInfo - Information about the drag event.
+   * @returns { DragStatusListener } one listener object which can be observed on drag status
+   * @throws {BusinessError} 401 - if the parameters checking failed.
+   * @throws {BusinessError} 100001 - if some internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  function executeDrag(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo): DragStatusListener;
 }
 
 export default dragController;
