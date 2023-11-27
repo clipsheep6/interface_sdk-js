@@ -832,6 +832,7 @@ declare enum FileSelectorMode {
    * Allows single file to be selected.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -847,6 +848,7 @@ declare enum FileSelectorMode {
    * Allows multiple files to be selected.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -862,6 +864,7 @@ declare enum FileSelectorMode {
    * Allows file folders to be selected.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -877,6 +880,7 @@ declare enum FileSelectorMode {
    * Allows select files to save.
    *
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
