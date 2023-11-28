@@ -16,7 +16,7 @@
 /**
  * DataListType of GridObjectEditSort.
  *
- * @interface dataListType
+ * @interface DataListType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -76,7 +76,7 @@ export interface DataListType {
 /**
  * OptionType of GridObjectEditSort.
  *
- * @interface optionType
+ * @interface OptionType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -158,7 +158,7 @@ export declare struct GridObjectEditSort {
   /**
    * Options of GridObjectEditSort.
    *
-   * @type { optionType }
+   * @type { OptionType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -168,7 +168,7 @@ export declare struct GridObjectEditSort {
   /**
    * DataList of GridObjectEditSort.
    *
-   * @type { Array<dataListType> }
+   * @type { Array<DataListType> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
