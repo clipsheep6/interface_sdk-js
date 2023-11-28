@@ -122,15 +122,6 @@ export interface OptionType {
    */
   editTitle?: string;
 
-  /**
-   * backUrl of OptionType.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  backUrl?: string;
 
   /**
    * subTitleFirst of OptionType.
