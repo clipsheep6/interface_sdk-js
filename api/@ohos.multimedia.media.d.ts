@@ -1035,6 +1035,7 @@ declare namespace media {
      * @since 9
      */
     setBitrate(bitrate: number): void;
+
     /**
      * Set decrypt session to codec module.
      * @param { drm.MediaKeySession } mediaKeySession - Handle of MediaKeySession to decrypt encrypted media.
@@ -1047,21 +1048,22 @@ declare namespace media {
 
     /**
      * Get drm info from media source.
-     * @returns { DrmInfo[] } DrmInfo with PSSH.
-     * @throws { BusinessError } 401 - Invalid parameter.
+     * @returns { Array<Object> } DrmInfo with PSSH.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-    getDrmInfo(): DrmInfo[];
+    getDrmInfo(): Array<Object>;
+
     /**
      * Register listens for drmInfoUpdate events.
      * @param { 'drmInfoUpdate' } type - Type of the event to listen for.
-     * @param { Callback<{DrmInfo[]}> } callback - Callback used to
+     * @param { Callback(drmInfo: Array<Object>) } callback - Callback used to
      * listen for the drmInfoUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-     on(type: 'drmInfoUpdate', callback: Callback<{DrmInfo[]}>): void;
+     on(type: 'drmInfoUpdate', callback: Callback (drmInfo: Array<Object>) => void): void;
+
     /**
      * Unregister listens for drmInfoUpdate events.
      * @param { 'drmInfoUpdate' } type - Type of the event to listen for.
@@ -1069,6 +1071,7 @@ declare namespace media {
      * @since 11
      */
     off(type: 'drmInfoUpdate'): void;
+
     /**
      * Register listens for media playback events.
      * @param { 'stateChange' } type - Type of the playback event to listen for.
