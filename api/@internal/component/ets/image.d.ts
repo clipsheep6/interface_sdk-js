@@ -1004,7 +1004,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    * @form
    */
-  onError(callback: (event: ImageErrorCallbackParams) => void): ImageAttribute;
+  onError(callback: ImageErrorCallback): ImageAttribute;
 
   /**
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
@@ -1114,6 +1114,39 @@ declare const Image: ImageInterface;
  * @form
  */
 declare const ImageInstance: ImageAttribute;
+
+/**
+ * @interface ImageErrorCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * @interface ImageErrorCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+/**
+ * @interface ImageErrorCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare interface ImageErrorCallback extends Error {
+  /**
+   * The callback when load image fail.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  event: (value: ImageErrorCallbackParams) => void;
+}
+
 
 /**
  * @interface ImageErrorCallbackParams
