@@ -1037,39 +1037,40 @@ declare namespace media {
     setBitrate(bitrate: number): void;
 
     /**
-     * Set decrypt session to codec module.
+     * Set decryption session to codec module.
      * @param { drm.MediaKeySession } mediaKeySession - Handle of MediaKeySession to decrypt encrypted media.
      * @param { boolean } secureVideoPath - Secure video path required or not.
      * @throws { BusinessError } 401 - Invalid parameter.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-    setDecryptConfig(mediaKeySession: drm.MediaKeySession, secureVideoPath: boolean): void;
+    setDecryptionConfig(mediaKeySession: drm.MediaKeySession, secureVideoPath: boolean): void;
 
     /**
-     * Get drm info from media source.
-     * @returns { Array<Object> } DrmInfo with PSSH.
+     * Get media key system info from media source.
+     * @returns { Array<MediaKeySystemInfo> } MediaKeySystemInfo with PSSH.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-    getDrmInfo(): Array<Object>;
+    getMediaKeySystemInfos(): Array<MediaKeySystemInfo>;
 
     /**
-     * Register listens for drmInfoUpdate events.
-     * @param { 'drmInfoUpdate' } type - Type of the event to listen for.
-     * @param { function } callback - Callback used to listen for the drmInfoUpdate event.
+     * Register listens for mediaKeySystemInfoUpdate events.
+     * @param { 'mediaKeySystemInfoUpdate' } type - Type of the event to listen for.
+     * @param { function } callback - Callback used to listen for the mediaKeySystemInfoUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-     on(type: 'drmInfoUpdate', callback: (drmInfo: Array<Object>) => void): void;
+     on(type: 'mediaKeySystemInfoUpdate', callback: (mediaKeySystemInfo: Array<MediaKeySystemInfo>) => void): void;
 
     /**
-     * Unregister listens for drmInfoUpdate events.
-     * @param { 'drmInfoUpdate' } type - Type of the event to listen for.
+     * Unregister listens for mediaKeySystemInfoUpdate events.
+     * @param { 'mediaKeySystemInfoUpdate' } type - Type of the event to listen for.
+     * @param { function } callback - Callback for event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-    off(type: 'drmInfoUpdate'): void;
+    off(type: 'mediaKeySystemInfoUpdate', callback?: (mediaKeySystemInfo: Array<MediaKeySystemInfo>) => void): void;
 
     /**
      * Register listens for media playback events.
@@ -1447,7 +1448,7 @@ declare namespace media {
   }
 
   /**
-    * DataSource descriptor. The caller needs to ensure that the fileSize and 
+    * DataSource descriptor. The caller needs to ensure that the fileSize and
     * callback is valid.
     *
     * @typedef AVDataSrcDescriptor
@@ -2277,7 +2278,7 @@ declare namespace media {
    * The maintenance of this interface has been stopped since version api 9. Please use AVRecorder.
    * Manages and record video. Before calling an VideoRecorder method, you must use createVideoRecorder()
    * to create an VideoRecorder instance.
-   * 
+   *
    * @typedef VideoRecorder
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
