@@ -67,6 +67,26 @@ declare namespace hiAppEvent {
   }
 
   /**
+   * Preset domain.
+   *
+   * @namespace domain
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
+  namespace domain {
+    /**
+     * the domain of operating system.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
+    const OS: string;
+  }
+
+  /**
    * Preset event.
    *
    * @namespace event
@@ -100,6 +120,26 @@ declare namespace hiAppEvent {
      * @since 9
      */
     const DISTRIBUTED_SERVICE_START: string;
+
+    /**
+     * crash event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
+    const APP_CRASH: string;
+
+    /**
+     * freeze event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
+    const APP_FREEZE: string;
   }
 
   /**
@@ -388,6 +428,16 @@ declare namespace hiAppEvent {
      * @since 9
      */
     eventTypes?: EventType[];
+
+    /**
+     * The names of the events to be monitored by the watcher.
+     *
+     * @type { ?string[] }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
+    names?: string[];
   }
 
   /**
@@ -429,6 +479,16 @@ declare namespace hiAppEvent {
      * @since 9
      */
     onTrigger?: (curRow: number, curSize: number, holder: AppEventPackageHolder) => void;
+
+    /**
+     * The callback function, when watcher receive the event.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
+    onReceive?: (domain: string, events: Array<{name:string, values:Array<AppEventInfo>}>) => void;
   }
 
   /**
@@ -477,6 +537,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 401 - Parameter error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   function setUserId(name: string, value: string): void;
@@ -489,6 +550,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 401 - Parameter error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   function getUserId(name: string): string;
@@ -501,6 +563,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 401 - Parameter error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   function setUserProperty(name: string, value: string): void;
@@ -513,6 +576,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 401 - Parameter error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   function getUserProperty(name: string): string;
@@ -522,6 +586,7 @@ declare namespace hiAppEvent {
    *
    * @interface AppEventReportConfig
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   interface AppEventReportConfig {
@@ -530,6 +595,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     domain?: string;
@@ -539,6 +605,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     name?: string;
@@ -548,6 +615,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     isRealTime?: boolean;
@@ -558,6 +626,7 @@ declare namespace hiAppEvent {
    *
    * @interface Processor
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   interface Processor {
@@ -566,6 +635,7 @@ declare namespace hiAppEvent {
      *
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     name: string;
@@ -575,6 +645,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     debugMode?: boolean;
@@ -584,6 +655,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     routeInfo?: string;
@@ -593,6 +665,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     appId?: string;
@@ -602,6 +675,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     onStartReport?: boolean;
@@ -611,6 +685,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     onBackgroundReport?: boolean;
@@ -620,6 +695,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     periodReport?: number;
@@ -629,6 +705,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?number }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     batchReport?: number;
@@ -638,6 +715,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?string[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     userIds?: string[];
@@ -647,6 +725,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?string[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     userProperties?: string[];
@@ -656,6 +735,7 @@ declare namespace hiAppEvent {
      *
      * @type { ?AppEventReportConfig[] }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
      * @since 11
      */
     eventConfigs?: AppEventReportConfig[];
@@ -669,6 +749,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 401 - Parameter error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   function addProcessor(processor: Processor): number;
@@ -680,6 +761,7 @@ declare namespace hiAppEvent {
    * @throws { BusinessError } 401 - Parameter error.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   function removeProcessor(id: number): void;
