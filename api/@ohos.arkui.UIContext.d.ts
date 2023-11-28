@@ -24,11 +24,12 @@
 import font from './@ohos.font';
 import mediaQuery from './@ohos.mediaquery';
 import type inspector from './@ohos.arkui.inspector';
+import type observer from './@ohos.arkui.observer';
 import promptAction from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
-import type { AsyncCallback } from './@ohos.base';
+import type { Callback, AsyncCallback } from './@ohos.base';
 import type { Color, FontStyle, Nullable } from 'CommonEnums';
 import { AnimateParam } from 'AnimateToParam';
 import { ActionSheetOptions } from 'actionSheetParam';
@@ -44,6 +45,14 @@ import { TextPickerDialogOptions } from 'textPickerDialogParam';
  * @crossplatform
  * @since 10
  */
+/**
+ * class Font
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export class Font {
   /**
    * Register a customized font in the FontManager.
@@ -53,6 +62,15 @@ export class Font {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Register a customized font in the FontManager.
+   *
+   * @param { font.FontOptions } options - FontOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   registerFont(options: font.FontOptions): void;
 
   /**
@@ -60,6 +78,13 @@ export class Font {
    * @returns { Array<string> } A list of font names
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Gets a list of fonts supported by system.
+   * @returns { Array<string> } A list of font names
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   getSystemFontList(): Array<string>;
 
@@ -69,6 +94,14 @@ export class Font {
    * @returns { font.FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Get font details according to the font name.
+   * @param { string } fontName - font name
+   * @returns { font.FontInfo } Returns the font info
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   getFontByName(fontName: string): font.FontInfo;
 }
@@ -80,6 +113,14 @@ export class Font {
  * @crossplatform
  * @since 10
  */
+/**
+ * class MediaQuery
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export class MediaQuery {
   /**
    * Sets the media query criteria and returns the corresponding listening handle
@@ -90,6 +131,16 @@ export class MediaQuery {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the media query criteria and returns the corresponding listening handle
+   *
+   * @param { string } condition - media conditions
+   * @returns { mediaQuery.MediaQueryListener } the corresponding listening handle
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   matchMediaSync(condition: string): mediaQuery.MediaQueryListener;
 }
 
@@ -98,6 +149,13 @@ export class MediaQuery {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * class UIInspector
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 export class UIInspector {
   /**
@@ -108,6 +166,15 @@ export class UIInspector {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Sets the component after layout or draw criteria and returns the corresponding listening handle
+   * @param { string } id - component id.
+   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   createComponentObserver(id: string): inspector.ComponentObserver;
 }
 
@@ -117,6 +184,14 @@ export class UIInspector {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * class Router
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 export class Router {
   /**
@@ -132,6 +207,20 @@ export class Router {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   *
+   * @param { router.RouterOptions } options - Options.
+   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100002 - if the uri is not exist.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   pushUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -146,6 +235,20 @@ export class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   *
+   * @param { router.RouterOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100002 - if the uri is not exist.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   pushUrl(options: router.RouterOptions): Promise<void>;
 
@@ -163,6 +266,21 @@ export class Router {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   *
+   * @param { router.RouterOptions } options - Options.
+   * @param { router.RouterMode } mode - RouterMode.
+   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100002 - if the uri is not exist.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
   /**
@@ -179,6 +297,21 @@ export class Router {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   *
+   * @param { router.RouterOptions } options - Options.
+   * @param { router.RouterMode } mode - RouterMode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100002 - if the uri is not exist.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   pushUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>;
 
   /**
@@ -193,6 +326,19 @@ export class Router {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
+   * @param { router.RouterOptions } options - Options.
+   * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   replaceUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -206,6 +352,19 @@ export class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
+   * @param { router.RouterOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   replaceUrl(options: router.RouterOptions): Promise<void>;
 
@@ -222,6 +381,20 @@ export class Router {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
+   * @param { router.RouterOptions } options - Options.
+   * @param { router.RouterMode } mode - RouterMode.
+   * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
   /**
@@ -237,6 +410,20 @@ export class Router {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
+   * @param { router.RouterOptions } options - Options.
+   * @param { router.RouterMode } mode - RouterMode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
+   * @throws { BusinessError } 200002 - if the uri is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   replaceUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>;
 
   /**
@@ -247,6 +434,15 @@ export class Router {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Returns to the previous page or a specified page.
+   *
+   * @param { router.RouterOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   back(options?: router.RouterOptions): void;
 
   /**
@@ -255,6 +451,14 @@ export class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Clears all historical pages and retains only the current page at the top of the stack.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   clear(): void;
 
@@ -266,6 +470,15 @@ export class Router {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Obtains the number of pages in the current stack.
+   *
+   * @returns { string } Number of pages in the stack. The maximum value is 32.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   getLength(): string;
 
   /**
@@ -275,6 +488,15 @@ export class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Obtains information about the current page state.
+   *
+   * @returns { router.RouterState } Page state.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   getState(): router.RouterState;
 
@@ -288,6 +510,17 @@ export class Router {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Pop up alert dialog to ask whether to back.
+   *
+   * @param { router.EnableAlertOptions } options - Options.
+   * @throws { BusinessError } 401 - if the type of the parameter is not object or the type of the message is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   showAlertBeforeBackPage(options: router.EnableAlertOptions): void;
 
   /**
@@ -296,6 +529,14 @@ export class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Hide alert before back page.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   hideAlertBeforeBackPage(): void;
 
@@ -306,6 +547,15 @@ export class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Obtains information about the current page params.
+   *
+   * @returns { Object } Page params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   getParams(): Object;
 
@@ -321,6 +571,19 @@ export class Router {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -334,6 +597,19 @@ export class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   pushNamedRoute(options: router.NamedRouterOptions): Promise<void>;
 
@@ -350,6 +626,20 @@ export class Router {
    * @crossplatform
    * @since 10
   */
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @param { router.RouterMode } mode - RouterMode.
+   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+  */
   pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
   /**
@@ -365,6 +655,20 @@ export class Router {
    * @crossplatform
    * @since 10
   */
+  /**
+   * Navigates to a specified page in the application based on the page URL and parameters.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @param { router.RouterMode } mode - RouterMode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @throws { BusinessError } 100003 - if the pages are pushed too much.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+  */
   pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise<void>;
 
   /**
@@ -378,6 +682,18 @@ export class Router {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -390,6 +706,18 @@ export class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   replaceNamedRoute(options: router.NamedRouterOptions): Promise<void>;
 
@@ -405,6 +733,19 @@ export class Router {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @param { router.RouterMode } mode - RouterMode.
+   * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if UI execution context not found, only throw in standard system.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
   /**
@@ -419,6 +760,19 @@ export class Router {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * @param { router.NamedRouterOptions } options - Options.
+   * @param { router.RouterMode } mode - RouterMode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - if can not get the delegate, only throw in standard system.
+   * @throws { BusinessError } 100004 - if the named route is not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise<void>;
 }
 
@@ -428,6 +782,14 @@ export class Router {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * class PromptAction
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 export class PromptAction {
   /**
@@ -439,6 +801,17 @@ export class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Displays the notification text.
+   *
+   * @param { promptAction.ShowToastOptions } options - Options.
+   * @throws { BusinessError } 401 - if the type of message is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   showToast(options: promptAction.ShowToastOptions): void;
 
@@ -453,6 +826,18 @@ export class PromptAction {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Displays the dialog box.
+   *
+   * @param { promptAction.ShowDialogOptions } options - Options.
+   * @param { AsyncCallback<promptAction.ShowDialogSuccessResponse> } callback - the callback of showDialog.
+   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   showDialog(options: promptAction.ShowDialogOptions, callback: AsyncCallback<promptAction.ShowDialogSuccessResponse>): void;
 
   /**
@@ -466,20 +851,44 @@ export class PromptAction {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Displays the dialog box.
+   *
+   * @param { promptAction.ShowDialogOptions } options - Options.
+   * @returns { Promise<promptAction.ShowDialogSuccessResponse> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>;
 
   /**
    * Displays the menu.
    *
    * @param { promptAction.ActionMenuOptions } options - Options.
-   * @param { promptAction.ActionMenuSuccessResponse } callback - the callback of showActionMenu.
+   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
    * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
    * @throws { BusinessError } 100001 - if UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
-  showActionMenu(options: promptAction.ActionMenuOptions, callback: promptAction.ActionMenuSuccessResponse): void;
+  /**
+   * Displays the menu.
+   *
+   * @param { promptAction.ActionMenuOptions } options - Options.
+   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
+   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  showActionMenu(options: promptAction.ActionMenuOptions, callback: AsyncCallback<promptAction.ActionMenuSuccessResponse>): void;
 
   /**
    * Displays the menu.
@@ -492,7 +901,76 @@ export class PromptAction {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Displays the menu.
+   *
+   * @param { promptAction.ActionMenuOptions } options - Options.
+   * @returns { Promise<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
+   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>;
+}
+
+/**
+ * Register callbacks to observe ArkUI behavior.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+export class UIObserver {
+  /**
+   * Registers a callback function to be called when the navigation destination is updated.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { object } options - The options object.
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { object } options - The options object.
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
+   *                                                             navigation ID will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the navigation destination is updated.
+   *
+   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  on(type: 'navDestinationUpdate', callback: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `on()`.
+   *
+   * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+   *                                                               will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void;
 }
 
 /**
@@ -500,6 +978,13 @@ export class PromptAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * class ComponentUtils
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 export class ComponentUtils {
   /**
@@ -509,6 +994,15 @@ export class ComponentUtils {
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Provide the ability to obtain the coordinates and size of component drawing areas.
+   *
+   * @param { string } id - ID of the component whose attributes are to be obtained.
+   * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   getRectangleById(id: string): componentUtils.ComponentInfo;
 }
@@ -574,6 +1068,14 @@ export interface AtomicServiceBar {
  * @crossplatform
  * @since 10
  */
+/**
+ * class UIContext
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export class UIContext {
   /**
    * get object font.
@@ -582,6 +1084,15 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * get object font.
+   *
+   * @returns { Font } object Font.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   getFont(): Font;
 
@@ -593,6 +1104,15 @@ export class UIContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * get object mediaQuery.
+   *
+   * @returns { MediaQuery } object MediaQuery.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   getMediaQuery(): MediaQuery;
 
   /**
@@ -601,6 +1121,14 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * get object UIInspector.
+   * @returns { UIInspector } object UIInspector.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   getUIInspector(): UIInspector;
 
@@ -612,6 +1140,15 @@ export class UIContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * get object router.
+   *
+   * @returns { Router } object Router.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   getRouter(): Router;
 
   /**
@@ -622,6 +1159,15 @@ export class UIContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * get object PromptAction.
+   *
+   * @returns { PromptAction } object PromptAction.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   getPromptAction(): PromptAction;
 
   /**
@@ -631,7 +1177,25 @@ export class UIContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * get object ComponentUtils.
+   * @returns { ComponentUtils } object ComponentUtils.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   getComponentUtils(): ComponentUtils;
+
+  /**
+   * Get the UI observer.
+   *
+   * @returns { UIObserver } The UI observer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getUIObserver(): UIObserver;
 
   /**
    * Create an animator object for custom animation.
@@ -642,6 +1206,17 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Create an animator object for custom animation.
+   *
+   * @param { AnimatorOptions } options - Options.
+   * @returns { AnimatorResult }
+   * @throws { BusinessError } 401 - if parameter error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   createAnimator(options: AnimatorOptions): AnimatorResult;
 
@@ -654,6 +1229,16 @@ export class UIContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Defining animation function
+   *
+   * @param { AnimateParam } value - animateTo parameters.
+   * @param { function } event
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   animateTo(value: AnimateParam, event: () => void): void;
 
   /**
@@ -663,6 +1248,15 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * alertDialog display.
+   *
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void;
 
@@ -674,6 +1268,15 @@ export class UIContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * actionSheet display.
+   *
+   * @param { ActionSheetOptions } value - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   showActionSheet(value: ActionSheetOptions): void;
 
   /**
@@ -683,6 +1286,15 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * datePickerDialog display.
+   *
+   * @param { DatePickerDialogOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   showDatePickerDialog(options: DatePickerDialogOptions): void;
 
@@ -694,6 +1306,15 @@ export class UIContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * timePickerDialog display.
+   *
+   * @param { TimePickerDialogOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   showTimePickerDialog(options: TimePickerDialogOptions): void;
 
   /**
@@ -703,6 +1324,15 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * textPickerDialog display.
+   *
+   * @param { TextPickerDialogOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   showTextPickerDialog(options: TextPickerDialogOptions): void;
 
@@ -714,6 +1344,15 @@ export class UIContext {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Run custom functions inside the UIContext scope.
+   *
+   * @param { function } callback - The function called through UIContext.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   runScopedTask(callback: () => void): void;
 
   /**
@@ -722,6 +1361,7 @@ export class UIContext {
    * @param { KeyboardAvoidMode } value - The mode of keyboard avoid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   setKeyboardAvoidMode(value: KeyboardAvoidMode): void;
@@ -731,6 +1371,7 @@ export class UIContext {
    * @returns { KeyboardAvoidMode } The mode of keyboard avoid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   getKeyboardAvoidMode(): KeyboardAvoidMode;
@@ -759,6 +1400,7 @@ export const enum KeyboardAvoidMode {
   * Default Type, offset the whole page when keyBoard height changed.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @atomicservice
   * @since 11
   */
   OFFSET = 0,

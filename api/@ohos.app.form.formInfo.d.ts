@@ -376,6 +376,7 @@ declare namespace formInfo {
      * @type { boolean }
      * @default false
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 11
      */
     transparencyEnabled: boolean;
@@ -914,7 +915,20 @@ declare namespace formInfo {
      * @atomicservice
      * @since 11
      */
-    PARAM_FORM_CUSTOMIZE_KEY = 'ohos.extra.param.key.form_customize'
+    PARAM_FORM_CUSTOMIZE_KEY = 'ohos.extra.param.key.form_customize',
+
+    /**
+     * Indicates the key specifying the form rendering mode, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_RENDERING_MODE_KEY: FormRenderingMode.SINGLE_COLOR
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @since 11
+     */
+    FORM_RENDERING_MODE_KEY = 'ohos.extra.param.key.form_rendering_mode'
   }
 
   /**
@@ -1044,7 +1058,16 @@ declare namespace formInfo {
      * @atomicservice
      * @since 11
      */
-    Dimension_2_1
+    Dimension_2_1,
+
+    /**
+     * 1 x 1 form
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 11
+     */
+    DIMENSION_1_1,
   }
   /**
    * The visibility of a form.

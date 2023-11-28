@@ -13,6 +13,7 @@ actived
 adjusts
 adpu
 adts
+advertisements
 affinities
 agrees
 alerting
@@ -96,6 +97,7 @@ capabilitys
 capturers
 ccm
 cdma
+ce
 certsign
 cft
 channeldown
@@ -148,6 +150,7 @@ datasync
 dbm
 dci
 ddmp
+de
 deactivated
 deactivation
 decodes
@@ -169,6 +172,7 @@ deregisters
 deselected
 designative
 desynchronized
+detents
 developtools
 devicemanager
 dfactor
@@ -198,6 +202,8 @@ dpad
 drains
 dragbar
 drawbuffer
+dsda
+dsds
 dsf
 dtmf
 ducked
@@ -205,6 +211,8 @@ ducking
 earfcn
 earphones
 earpiece
+ebu
+ece
 edr
 efuse
 egid
@@ -298,6 +306,7 @@ hitrace
 hiview
 hiviewdfx
 hkdf
+hlg
 hogp
 hsp
 hspa
@@ -309,6 +318,7 @@ icq
 id
 idm
 ifaces
+illuminated
 ima
 imager
 imagevideo
@@ -407,6 +417,7 @@ luma
 lushort
 lux
 mah
+map
 mcc
 md5
 mdns
@@ -508,6 +519,7 @@ participating
 passpoint
 pastedata
 patchlevel
+pbap
 pbo
 pda
 pdu
@@ -541,6 +553,7 @@ preconnected
 preconnectable
 preempted
 preferentially
+preinstalled
 prelaunch
 preloads
 premises
@@ -625,6 +638,7 @@ sac
 sae
 sak
 satellites
+sbc
 scdma
 scene
 sco
@@ -636,6 +650,7 @@ scrolldown
 scrollup
 sdpi
 searchsetter
+sece
 secinfo
 seeked
 semicircles
@@ -659,6 +674,7 @@ stk
 str
 sm3
 smil
+smpte
 smsc
 snoozing
 snorm
@@ -678,6 +694,7 @@ spn
 spp
 spry
 spy
+srgb
 ssp
 stablization
 statfs
@@ -693,6 +710,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+substate
 subtitles
 subtypes
 subwindow
@@ -714,12 +732,14 @@ systemapp
 systembar
 systemsize
 systemui
+showcounter
 tailoring
 talkback
 taskmanager
 taskpool
 tbla
 tcpnodelay
+tdm
 tdscdma
 telecom
 tethering
@@ -738,6 +758,7 @@ trackinfo
 tranlisterated
 transcode
 transferable
+transfunc
 transliterated
 transliterator
 transpilation

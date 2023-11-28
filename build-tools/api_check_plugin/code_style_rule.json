@@ -116,8 +116,8 @@
       "SystemCapability.Graphic.Graphic2D.WebGL",
       "SystemCapability.Graphic.Graphic2D.WebGL2",
       "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
-      "SystemCapability.Graphic.Vulkan",
       "SystemCapability.Window.SessionManager",
+      "SystemCapability.Graphic.Vulkan",
       "SystemCapability.WindowManager.WindowManager.Core",
       "SystemCapability.WindowManager.WindowManager.MutiScreen",
       "SystemCapability.Notification.CommonEvent",
@@ -247,6 +247,7 @@
       "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
       "SystemCapability.Update.UpdateService",
       "SystemCapability.DistributedHardware.DeviceManager",
+      "SystemCapability.DistributedHardware.DistributedHardwareFWK",
       "SystemCapability.Security.DeviceAuth",
       "SystemCapability.Security.DataTransitManager",
       "SystemCapability.Security.DeviceSecurityLevel",
@@ -342,6 +343,7 @@
       "SystemCapability.AI.IntelligentVoice.Core",
       "SystemCapability.Msdp.DeviceStatus.Drag",
       "SystemCapability.Multimedia.Drm.Core"
+      "SystemCapability.DistributedDataManager.CommonType"
     ]
   },
   "administrators": [

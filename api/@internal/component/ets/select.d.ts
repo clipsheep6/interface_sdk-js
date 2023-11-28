@@ -141,6 +141,7 @@ declare enum ArrowPosition {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum MenuAlignType {
@@ -155,6 +156,7 @@ declare enum MenuAlignType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   START,
@@ -169,6 +171,7 @@ declare enum MenuAlignType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   CENTER,
@@ -183,6 +186,7 @@ declare enum MenuAlignType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   END
@@ -228,6 +232,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   selected(value: number | Resource): SelectAttribute;
@@ -256,6 +261,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   value(value: ResourceStr): SelectAttribute;
@@ -473,6 +479,28 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 11
    */ 
   menuAlign(alignType: MenuAlignType, offset?: Offset): SelectAttribute;
+
+  /** 
+   * Set the width of each option and set whether the option width fit the trigger.
+   *
+   * @param { Dimension | OptionWidthMode } value - The length of option width and decide option width to fit trigger or content.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  optionWidth(value: Dimension | OptionWidthMode ): SelectAttribute;
+
+  /** 
+   * Set the height of each option.
+   * 
+   * @param { Dimension } value - The length of option height.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  optionHeight(value: Dimension): SelectAttribute;
 }
 
 /**
