@@ -886,13 +886,17 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900010 - Try again
  * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900012 - Permission denied by the file system
  * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900019 - Is a directory
  * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900021 - File table overflow
  * @throws { BusinessError } 13900024 - File too large
  * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900031 - Function not implemented
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
@@ -900,7 +904,6 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
- * @throws { BusinessError } 13900043 - Outside accessible space
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
@@ -920,13 +923,17 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900010 - Try again
  * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900012 - Permission denied by the file system
  * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900019 - Is a directory
  * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900021 - File table overflow
  * @throws { BusinessError } 13900024 - File too large
  * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900031 - Function not implemented
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
@@ -934,7 +941,6 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
- * @throws { BusinessError } 13900043 - Outside accessible space
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
@@ -955,13 +961,17 @@ declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<v
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900010 - Try again
  * @throws { BusinessError } 13900011 - Out of memory
- * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900012 - Permission denied by the file system
  * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900019 - Is a directory
  * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900021 - File table overflow
  * @throws { BusinessError } 13900024 - File too large
  * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900031 - Function not implemented
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
@@ -969,7 +979,6 @@ declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<v
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
- * @throws { BusinessError } 13900043 - Outside accessible space
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
