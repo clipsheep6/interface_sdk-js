@@ -1164,6 +1164,28 @@ declare namespace media {
     prepare(config: AVRecorderConfig): Promise<void>;
 
     /**
+     * Get AVRecorderConfig.it must be called after prepare.
+     * @param { AsyncCallback<AVRecorderConfig> } callback - Callback used to return the input config in AVRecorderConfig.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
+     * @throws { BusinessError } 5400103 - IO error. Return by callback.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig>): void;
+
+    /**
+     * Get AVRecorderConfig.it must be called after prepare.
+     * @returns { Promise<AVRecorderConfig> } A Promise instance used to return the input config in AVRecorderConfig.
+     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400103 - IO error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    getAVRecorderConfig(): Promise<AVRecorderConfig>;
+
+    /**
      * Get input surface.it must be called between prepare completed and start.
      * @param { AsyncCallback<string> } callback - Callback used to return the input surface id in string.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
@@ -1381,6 +1403,17 @@ declare namespace media {
     readonly state: AVRecorderState;
 
     /**
+     * Listens for recording audioCapturerChange events.
+     * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
+     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Input parameter value error.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo>): void;
+
+    /**
      * Listens for recording stateChange events.
      * @param {string} type - Type of the recording event to listen for.
      * @param { (state: AVRecorderState, reason: StateChangeReason) => void } callback - Callback used to listen for the recorder stateChange event.
@@ -1425,6 +1458,14 @@ declare namespace media {
      * @since 9
      */
     off(type: 'error'): void;
+
+    /**
+      * Cancel Listens for recording audioCapturerChange events.
+      * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
+      * @syscap SystemCapability.Multimedia.Media.AVRecorder
+      * @since 10
+      */
+    off(type: 'audioCapturerChange'): void;
   }
 
   /**
