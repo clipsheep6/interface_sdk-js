@@ -879,6 +879,7 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  * @param { CopyOptions } [options] - options.
  * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -890,12 +891,16 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900019 - Is a directory
  * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900031 - Function not implemented
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900034 - Operation would block
  * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900043 - Outside accessible space
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
@@ -908,6 +913,7 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
  * @param { string } destUri - dest uri.
  * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -919,12 +925,16 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900019 - Is a directory
  * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900031 - Function not implemented
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900034 - Operation would block
  * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900043 - Outside accessible space
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
@@ -938,6 +948,7 @@ declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<v
  * @param { CopyOptions } options - options.
  * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -949,12 +960,16 @@ declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<v
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900019 - Is a directory
  * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900031 - Function not implemented
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900034 - Operation would block
  * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
+ * @throws { BusinessError } 13900043 - Outside accessible space
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
