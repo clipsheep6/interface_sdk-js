@@ -931,7 +931,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 11
      */
-     SHARING_RESOURCE_FIELD = '#_sharing_resource_field'
+    SHARING_RESOURCE_FIELD = '#_sharing_resource_field'
   }
 
   /**

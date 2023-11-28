@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import rpc from './@ohos.rpc';
-import cloudData from "./@ohos.data.cloudData";
+import type rpc from './@ohos.rpc';
+import type cloudData from './@ohos.data.cloudData';
 
 /**
  * Provides interfaces to implement extended cloud capabilities.
@@ -108,10 +108,10 @@ declare namespace cloudExtension {
      * @since 11
      */
     share(
-        userId: number,
-        bundleName: string,
-        sharingResource: string,
-        participants: Array<cloudData.sharing.Participant>
+      userId: number,
+      bundleName: string,
+      sharingResource: string,
+      participants: Array<cloudData.sharing.Participant>
     ): Promise<Result<Array<Result<cloudData.sharing.Participant>>>>;
 
     /**
@@ -127,10 +127,10 @@ declare namespace cloudExtension {
      * @since 11
      */
     unshare(
-        userId: number,
-        bundleName: string,
-        sharingResource: string,
-        participants: Array<cloudData.sharing.Participant>
+      userId: number,
+      bundleName: string,
+      sharingResource: string,
+      participants: Array<cloudData.sharing.Participant>
     ): Promise<Result<Array<Result<cloudData.sharing.Participant>>>>;
 
     /**
@@ -159,10 +159,10 @@ declare namespace cloudExtension {
      * @since 11
      */
     changePrivilege(
-        userId: number,
-        bundleName: string,
-        sharingResource: string,
-        participants: Array<cloudData.sharing.Participant>
+      userId: number,
+      bundleName: string,
+      sharingResource: string,
+      participants: Array<cloudData.sharing.Participant>
     ): Promise<Result<Array<Result<cloudData.sharing.Participant>>>>;
 
     /**
@@ -177,9 +177,9 @@ declare namespace cloudExtension {
      * @since 11
      */
     queryParticipants(
-        userId: number,
-        bundleName: string,
-        sharingResource: string
+      userId: number,
+      bundleName: string,
+      sharingResource: string
     ): Promise<Result<Array<cloudData.sharing.Participant>>>;
 
     /**
@@ -194,9 +194,9 @@ declare namespace cloudExtension {
      * @since 11
      */
     queryParticipantsByInvitation(
-        userId: number,
-        bundleName: string,
-        invitationCode: string
+      userId: number,
+      bundleName: string,
+      invitationCode: string
     ): Promise<Result<Array<cloudData.sharing.Participant>>>;
 
     /**
@@ -212,10 +212,10 @@ declare namespace cloudExtension {
      * @since 11
      */
     confirmInvitation(
-        userId: number,
-        bundleName: string,
-        invitationCode: string,
-        state: cloudData.sharing.State
+      userId: number,
+      bundleName: string,
+      invitationCode: string,
+      state: cloudData.sharing.State
     ): Promise<Result<string>>;
 
     /**

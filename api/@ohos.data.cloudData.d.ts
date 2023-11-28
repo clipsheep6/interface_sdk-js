@@ -14,7 +14,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import relationalStore from "./@ohos.data.relationalStore";
+import type relationalStore from './@ohos.data.relationalStore';
 
 declare namespace cloudData {
   /**
@@ -438,7 +438,7 @@ declare namespace cloudData {
        * @systemapi
        * @since 11
        */
-       INVALID_INVITATION = 11,
+      INVALID_INVITATION = 11,
 
       /**
        * RATE_LIMIT: means the data transfer is rate-limited.
