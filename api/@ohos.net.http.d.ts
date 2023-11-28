@@ -119,7 +119,7 @@ declare namespace http {
 
     /**
      * Additional data of the request.
-     * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
+     * extraData can be a string（API6） or an Object (API 6) or an ArrayBuffer(API 8).
      * @type {?string | Object | ArrayBuffer}
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
@@ -134,7 +134,7 @@ declare namespace http {
      */
     /**
      * Additional data of the request.
-     * extraData can be a string or an Object (API 6) or an ArrayBuffer(API 8).
+     * extraData can be a string（API6） or an Object (API 6) or an ArrayBuffer(API 8).
      * @type { ?(string | Object | ArrayBuffer) }
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
@@ -900,7 +900,7 @@ declare namespace http {
      * @deprecated since 8
      * @useinstead off_headersReceive
      */
-    off(type: "headerReceive", callback?: AsyncCallback<Object>): void;
+    off(type: "headerReceive" callback?: AsyncCallback<Object>): void;
 
     /**
      * Registers an observer for HTTP Response Header events.
@@ -1014,7 +1014,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    on(type: 'dataReceiveProgress', callback: Callback<{ receiveSize: number, totalSize: number }>): void;
+    on(type: "dataReceiveProgress", callback: Callback<{ receiveSize: number, totalSize: number }>): void;
 
     /**
      * Unregisters an observer for progress of receiving HTTP Response data events.
@@ -1023,7 +1023,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
      */
-    off(type: 'dataReceiveProgress', callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
+    off(type: "dataReceiveProgress", callback?: Callback<{ receiveSize: number, totalSize: number }>): void;
   }
 
   /**
@@ -2233,14 +2233,14 @@ declare namespace http {
 
   /**
    * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
-   * @param { number } cacheSize - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
+   * @param { number } [cacheSize] - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
    * @returns { HttpResponseCache } the HttpResponseCache of the createHttpResponseCache.
    * @syscap SystemCapability.Communication.NetStack
    * @since 9
    */
   /**
    * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
-   * @param { number } cacheSize - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
+   * @param { number } [cacheSize] - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
    * @returns { HttpResponseCache } the HttpResponseCache of the createHttpResponseCache.
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
@@ -2248,7 +2248,7 @@ declare namespace http {
    */
   /**
    * Creates a default {@code HttpResponseCache} object to store the responses of HTTP access requests.
-   * @param { number } cacheSize - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
+   * @param { number } [cacheSize] - the size of cache(max value is 10MB), default is 10*1024*1024(10MB).
    * @returns { HttpResponseCache } the HttpResponseCache of the createHttpResponseCache.
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
