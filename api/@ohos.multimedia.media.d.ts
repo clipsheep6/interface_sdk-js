@@ -1057,12 +1057,12 @@ declare namespace media {
     /**
      * Register listens for drmInfoUpdate events.
      * @param { 'drmInfoUpdate' } type - Type of the event to listen for.
-     * @param { Callback(drmInfo: Array<Object>) } callback - Callback used to
+     * @param { (drmInfo: Array<Object>) } callback - Callback used to
      * listen for the drmInfoUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 11
      */
-     on(type: 'drmInfoUpdate', callback: Callback (drmInfo: Array<Object>) => void): void;
+     on(type: 'drmInfoUpdate', callback: (drmInfo: Array<Object>) => void): void;
 
     /**
      * Unregister listens for drmInfoUpdate events.
