@@ -202,7 +202,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    getLocalDeviceType(): number;
+    getLocalDeviceType(): string;
 
     /**
      * Get the device id of the local device.
@@ -242,7 +242,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    getDeviceType(networkId: string): number;
+    getDeviceType(networkId: string): string;
 
     /**
      * Start to discover nearby devices.
