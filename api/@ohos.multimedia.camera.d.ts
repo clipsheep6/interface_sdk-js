@@ -1103,22 +1103,13 @@ declare namespace camera {
     PORTRAIT_PHOTO = 3,
 
     /**
-     * Portrait video mode.
-     *
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 11
-     */
-    PORTRAIT_VIDEO = 4,
-
-    /**
      * Night photo mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    NIGHT_PHOTO = 5,
+    NIGHT_PHOTO = 4,
 
     /**
      * Super stabilizer video mode.
@@ -1127,7 +1118,7 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
-    SUPER_STABILIZER_VIDEO = 6
+    SUPER_STABILIZER_VIDEO = 5
   }
 
   /**
