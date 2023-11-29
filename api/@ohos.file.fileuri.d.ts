@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 import uri from './@ohos.uri';
+import {AsyncCallback} from "./@ohos.base";
 
 /**
  * Provides fileUri APIS
@@ -54,6 +55,19 @@ declare namespace fileUri {
      * @since 10
      */
     readonly name: string;
+
+    /**
+     * Get the directory where the file URI is located
+     *
+     * @returns { string } Return the directory path
+     * @throws { BusinessError } 13900002 - No such file or directory
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    getDirectoryUri(): string;
   }
   
   /**

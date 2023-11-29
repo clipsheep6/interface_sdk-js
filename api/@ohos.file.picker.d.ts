@@ -172,6 +172,39 @@ declare namespace picker {
   }
 
   /**
+   * Enumerates the picker's select mode types.
+   *
+   * @enum { number } SelectMode
+   * @syscap SystemCapability.FileManagement.UserFileService
+   * @since 11
+   */
+  export enum SelectMode{
+    /**
+     * Indicates select file.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 11
+     */
+    FILE,
+
+    /**
+     * Indicates select folder.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 11
+     */
+    FOLDER,
+
+    /**
+     * Indicates select file and folder.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 11
+     */
+    MIXED
+  }
+
+  /**
    * DocumentSelectOptions Object.
    *
    * @syscap SystemCapability.FileManagement.UserFileService
@@ -204,6 +237,15 @@ declare namespace picker {
      * @since 10
      */
     maxSelectNumber?: number;
+
+    /**
+     * The mode selected.
+     *
+     * @type { ?SelectMode }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @since 11
+     */
+    selectMode?: SelectMode;
   }
 
   /**
