@@ -14,14 +14,36 @@
  */
 
 /**
- * DataListType of GridObjectEditSort.
+ * Control type of GridEdit
+ * @enum { GridEditType }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+export declare enum GridEditType {
+  imageText = "object",
+  text = "text"
+}
+
+/**
+ * Control state of Item
+ * @enum { GridEditType }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+export declare enum StateType {
+  select = 1,
+  unSelect = 0
+}
+
+/**
+ * ItemType of GridObjectEditSort.
  *
  * @interface DataListType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-export interface DataListType {
+export interface ItemType {
   /**
    * id of DataListType.
    *
@@ -33,27 +55,27 @@ export interface DataListType {
   id: number | string;
 
   /**
-   * text of DataListType.
+   * text of ItemType.
    *
-   * @type { string }
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  text: string;
+  text: ResourceStr;
 
   /**
-   * state of DataListType.
+   * state of ItemType.
    *
-   * @type { boolean }
+   * @type { StateType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  state: boolean;
+  state: StateType;
 
   /**
-   * sort of DataListType.
+   * sort of ItemType.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -63,14 +85,14 @@ export interface DataListType {
   sort: number;
 
   /**
-   * url of DataListType.
+   * url of ItemType.
    *
-   * @type { string }
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  url?: string;
+  url?: ResourceStr;
 }
 
 /**
@@ -90,7 +112,7 @@ export interface OptionType {
    * @crossplatform
    * @since 11
    */
-  type?: string;
+  type?: GridEditType;
 
   /**
    * imageSize of OptionType.
@@ -105,70 +127,70 @@ export interface OptionType {
   /**
    * title of OptionType.
    *
-   * @type { string }
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  title?: string;
+  title?: ResourceStr;
 
   /**
    * editTitle of OptionType.
    *
-   * @type { string }
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  editTitle?: string;
+  editTitle?: ResourceStr;
 
 
   /**
-   * subTitleFirst of OptionType.
+   * secondaryTitleFirst of OptionType.
    *
-   * @type { string }
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  subTitleFirst?: string;
+  secondaryTitleFirst?: ResourceStr;
 
   /**
-   * subTitleSecond of OptionType.
+   * secondaryTitleSecond of OptionType.
    *
-   * @type { string }
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  subTitleSecond?: string;
+  secondaryTitleSecond?: ResourceStr;
 }
 
 @Component
-export declare struct GridObjectEditSort {
+export declare struct GridEdit {
   /**
-   * Options of GridObjectEditSort.
+   * Options of GridEdit.
    *
    * @type { OptionType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  @Link
+  @Prop
   options: OptionType;
   /**
-   * DataList of GridObjectEditSort.
+   * DataList of GridEdit.
    *
-   * @type { Array<DataListType> }
+   * @type { Array<ItemType> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  @Link
-  dataList: DataListType[];
+  @Prop
+  dataList: ItemType[];
 
   /**
-   * Build function of GridObjectEditSort.
+   * Build function of GridEdit.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
