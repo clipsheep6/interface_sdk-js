@@ -342,8 +342,9 @@
       "SystemCapability.FileManagement.PhotoAccessHelper.Core",
       "SystemCapability.AI.IntelligentVoice.Core",
       "SystemCapability.Msdp.DeviceStatus.Drag",
-      "SystemCapability.Multimedia.Drm.Core"
-      "SystemCapability.DistributedDataManager.CommonType"
+      "SystemCapability.Multimedia.Drm.Core",
+      "SystemCapability.DistributedDataManager.CommonType",
+      "SystemCapability.Multimedia.Audio.Spatialization"
     ]
   },
   "administrators": [
@@ -361,6 +362,12 @@
     },
     {
       "user": "12626261"
+    },
+    {
+      "user": "6570462"
+    },
+    {
+      "user": "10183964"
     }
   ],
   "ciId":"7387629"
