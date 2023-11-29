@@ -369,6 +369,15 @@ declare interface LabelStyle {
   font?: Font;
 }
 
+
+declare enum ButtonStyles {
+  DefaultButton,
+  Elevation,
+  Circle,
+  Empahasized,
+  TextStyle,
+}
+
 /**
  * Defines the button attribute functions.
  *
@@ -394,6 +403,7 @@ declare interface LabelStyle {
  * @form
  */
 declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
+  styleType(style: ButtonStyles)
   /**
    * Describes the button style.
    *
