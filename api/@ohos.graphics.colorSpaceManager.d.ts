@@ -22,6 +22,14 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @since 9
  */
+/**
+ * Color space manager.
+ *
+ * @namespace colorSpaceManager
+ * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+ * @crossplatform
+ * @since 10
+ */
 declare namespace colorSpaceManager {
   /**
    * Enumerates color space types.
@@ -29,11 +37,24 @@ declare namespace colorSpaceManager {
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @since 9
    */
+  /**
+   * Enumerates color space types.
+   * @enum { number } ColorSpace
+   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+   * @crossplatform
+   * @since 10
+   */
   enum ColorSpace {
     /**
      * Indicates an unknown color space.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
+     */
+    /**
+     * Indicates an unknown color space.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
      */
     UNKNOWN = 0,
 
@@ -42,12 +63,24 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
      */
+    /**
+     * Indicates the color space based on Adobe RGB (1998).
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
+     */
     ADOBE_RGB_1998 = 1,
 
     /**
      * Indicates the color space based on SMPTE RP 431-2-2007 and IEC 61966-2.1:1999.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
+     */
+    /**
+     * Indicates the color space based on SMPTE RP 431-2-2007 and IEC 61966-2.1:1999.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
      */
     DCI_P3 = 2,
 
@@ -56,12 +89,24 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
      */
+    /**
+     * Indicates the color space based on SMPTE RP 431-2-2007 and IEC 61966-2.1:1999.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
+     */
     DISPLAY_P3 = 3,
 
     /**
      * Indicates the standard red green blue (SRGB) color space based on IEC 61966-2.1:1999.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
+     */
+    /**
+     * Indicates the standard red green blue (SRGB) color space based on IEC 61966-2.1:1999.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
      */
     SRGB = 4,
 
@@ -250,6 +295,12 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
      */
+    /**
+     * Indicates a customized color space.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
+     */
     CUSTOM = 5,
   }
 
@@ -260,11 +311,25 @@ declare namespace colorSpaceManager {
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @since 9
    */
+  /**
+   * Describes the primary colors red, green, blue and white point coordinated as (x, y)
+   * in color space, in terms of real world chromaticities.
+   * @typedef ColorSpacePrimaries
+   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+   * @crossplatform
+   * @since 10
+   */
   interface ColorSpacePrimaries {
     /**
      * Coordinate value x of red color
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
+     */
+    /**
+     * Coordinate value x of red color
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
      */
     redX: number;
 
@@ -273,12 +338,24 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
      */
+    /**
+     * Coordinate value y of red color
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
+     */
     redY: number;
 
     /**
      * Coordinate value x of green color
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
+     */
+    /**
+     * Coordinate value x of green color
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
      */
     greenX: number;
 
@@ -287,12 +364,24 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
      */
+    /**
+     * Coordinate value y of green color
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
+     */
     greenY: number;
 
     /**
      * Coordinate value x of blue color
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
+     */
+    /**
+     * Coordinate value x of blue color
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
      */
     blueX: number;
 
@@ -301,6 +390,12 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
      */
+    /**
+     * Coordinate value y of blue color
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
+     */
     blueY: number;
 
     /**
@@ -308,12 +403,24 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
      */
+    /**
+     * Coordinate value x of white point
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
+     */
     whitePointX: number;
 
     /**
      * Coordinate value y of white point
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
+     */
+    /**
+     * Coordinate value y of white point
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
      */
     whitePointY: number;
   }
@@ -324,6 +431,13 @@ declare namespace colorSpaceManager {
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @since 9
    */
+  /**
+   * Defines a color space object and manages its key information
+   * @interface ColorSpaceManager
+   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+   * @crossplatform
+   * @since 10
+   */
   interface ColorSpaceManager {
     /**
      * Get the name of color space type.
@@ -331,6 +445,14 @@ declare namespace colorSpaceManager {
      * @throws { BusinessError } 18600001 - Parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
+     */
+    /**
+     * Get the name of color space type.
+     * @returns { ColorSpace } Returns the name of color space type.
+     * @throws { BusinessError } 18600001 - Parameter value is abnormal.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
      */
     getColorSpaceName(): ColorSpace;
 
@@ -341,6 +463,14 @@ declare namespace colorSpaceManager {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
      */
+    /**
+     * Get white point(x, y) of color space.
+     * @returns { Array<number> } Returns the white point value of color space.
+     * @throws { BusinessError } 18600001 - Parameter value is abnormal.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
+     */
     getWhitePoint(): Array<number>;
 
     /**
@@ -349,6 +479,14 @@ declare namespace colorSpaceManager {
      * @throws { BusinessError } 18600001 - Parameter value is abnormal.
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @since 9
+     */
+    /**
+     * Get gamma value of color space.
+     * @returns { number } Returns the gamma value of color space.
+     * @throws { BusinessError } 18600001 - Parameter value is abnormal.
+     * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+     * @crossplatform
+     * @since 10
      */
     getGamma(): number;
   }
@@ -362,6 +500,16 @@ declare namespace colorSpaceManager {
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @since 9
    */
+  /**
+   * Create a color space manager by provided color space type.
+   * @param { ColorSpace } colorSpaceName - Indicates the type of color space
+   * @returns { ColorSpaceManager } Returns a color space manager object created by provided type.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 18600001 - Parameter value is abnormal.
+   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+   * @crossplatform
+   * @since 10
+   */
   function create(colorSpaceName: ColorSpace): ColorSpaceManager;
 
   /**
@@ -373,6 +521,17 @@ declare namespace colorSpaceManager {
    * @throws { BusinessError } 18600001 - Parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @since 9
+   */
+  /**
+   * Create a customized color space manager by its color primaries and gamma value
+   * @param { ColorSpacePrimaries } primaries - Indicates the customized color primaries
+   * @param { number } gamma - Indicates display gamma value
+   * @returns { ColorSpaceManager } Returns a color space manager object created by customized parameters.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 18600001 - Parameter value is abnormal.
+   * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+   * @crossplatform
+   * @since 10
    */
   function create(primaries: ColorSpacePrimaries, gamma: number): ColorSpaceManager;
 }
