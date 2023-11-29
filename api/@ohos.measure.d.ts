@@ -148,6 +148,16 @@ export interface MeasureOptions {
    * @since 10
    */
   textCase?: number | TextCase;
+
+  /**
+   * The precision of the calculated text width.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  precision?: number
 }
 
 /**
