@@ -3358,6 +3358,7 @@ declare namespace media {
   interface EncoderInfo {
     /**
      * encoder format MIME
+     * @type { CodecMimeType }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
@@ -3365,6 +3366,7 @@ declare namespace media {
 
     /**
      * encoder type, audio or video
+     * @type { string }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
@@ -3372,6 +3374,7 @@ declare namespace media {
 
     /**
      * audio or video encoder bitRate range
+     * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
@@ -3379,6 +3382,7 @@ declare namespace media {
 
     /**
      * video encoder frame rate range
+     * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
@@ -3386,6 +3390,7 @@ declare namespace media {
 
     /**
      * video encoder width range
+     * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
@@ -3393,6 +3398,7 @@ declare namespace media {
 
     /**
      * video encoder height range
+     * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
@@ -3400,6 +3406,7 @@ declare namespace media {
 
     /**
      * audio encoder channel range
+     * @type { ?Range }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
@@ -3407,6 +3414,7 @@ declare namespace media {
 
     /**
      * audio encoder sample rate collection
+     * @type { ?Array<number> }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
@@ -3423,6 +3431,7 @@ declare namespace media {
   interface Range {
     /**
        * lower limit of the range
+       * @type { number }
        * @syscap SystemCapability.Multimedia.Media.AVRecorder
        * @since 11
        */
@@ -3430,6 +3439,7 @@ declare namespace media {
   
     /**
        * upper limit of the range
+       * @type { number }
        * @syscap SystemCapability.Multimedia.Media.AVRecorder
        * @since 11
        */
