@@ -476,7 +476,6 @@ declare namespace camera {
 
     /**
      * Gets a CaptureSession instance.
-     * Default create session by normal photo mode.
      *
      * @returns { CaptureSession } The CaptureSession instance.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -797,43 +796,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
-    CAMERA_TYPE_DEFAULT = 0,
-
-    /**
-     * Wide camera
-     *
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @deprecated since 11
-     * @since 10
-     */
-    CAMERA_TYPE_WIDE_ANGLE = 1,
-
-    /**
-     * Ultra wide camera
-     *
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @deprecated since 11
-     * @since 10
-     */
-    CAMERA_TYPE_ULTRA_WIDE = 2,
-
-    /**
-     * Telephoto camera
-     *
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @deprecated since 11
-     * @since 10
-     */
-    CAMERA_TYPE_TELEPHOTO = 3,
-
-    /**
-     * True depth camera
-     *
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @deprecated since 11
-     * @since 10
-     */
-    CAMERA_TYPE_TRUE_DEPTH = 4
+    CAMERA_TYPE_DEFAULT = 0
   }
 
   /**
@@ -1120,15 +1083,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
-    NORMAL_CAPTURE = 0,
+    NORMAL_PHOTO = 1,
 
     /**
-     * Normal photo mode.
+     * Normal video mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
-    NORMAL_VIDEO = 1,
+    NORMAL_VIDEO = 2,
 
     /**
      * Portrait photo mode.
@@ -1137,7 +1100,7 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
-    PORTRAIT_CAPTURE = 2,
+    PORTRAIT_PHOTO = 3,
 
     /**
      * Portrait video mode.
@@ -1146,25 +1109,25 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
-    PORTRAIT_VIDEO = 3,
+    PORTRAIT_VIDEO = 4,
 
     /**
-     * Night mode.
+     * Night photo mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    NIGHT = 4,
+    NIGHT_PHOTO = 5,
 
     /**
-     * Super stabilizer mode.
+     * Super stabilizer video mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    SUPER_STABILIZER = 5
+    SUPER_STABILIZER_VIDEO = 6
   }
 
   /**
@@ -1562,26 +1525,6 @@ declare namespace camera {
      * @since 10
      */
     getFocalLength(): number;
-
-    /**
-     * Subscribes focus status change event callback.
-     *
-     * @param { 'focusStateChange' } type - Event type.
-     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
-     */
-    on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
-
-    /**
-     * Unsubscribes from focus status change event callback.
-     *
-     * @param { 'focusStateChange' } type - Event type.
-     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
-     */
-    off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
   }
 
   /**
@@ -1667,26 +1610,6 @@ declare namespace camera {
      * @since 11
      */
     setSmoothZoom(targetRatio: number, mode?: SmoothZoomMode): void;
-
-    /**
-     * Subscribes zoom info event callback.
-     *
-     * @param { 'smoothZoomInfoAvailable' } type - Event type.
-     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
-     */
-    on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
-
-    /**
-     * Unsubscribes from zoom info event callback.
-     *
-     * @param { 'smoothZoomInfoAvailable' } type - Event type.
-     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
-     */
-    off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
 
     /**
      * Notify device to prepare for zoom.
@@ -1849,6 +1772,7 @@ declare namespace camera {
    *
    * @interface Beauty
    * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
    * @since 11
    */
   interface Beauty {
@@ -1992,35 +1916,35 @@ declare namespace camera {
     /**
      * Gets the specific color space type.
      *
-     * @returns { ColorSpace } Current color space.
+     * @returns { colorSpaceManager.ColorSpace } Current color space.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    getActiveColorSpace(): ColorSpace;
+    getActiveColorSpace(): colorSpaceManager.ColorSpace;
 
     /**
      * Gets the supported color space types.
      *
-     * @returns { Array<ColorSpace> } The array of the supported color space for the session.
+     * @returns { Array<colorSpaceManager.ColorSpace> } The array of the supported color space for the session.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    getSupportedColorSpaces(): Array<ColorSpace>;
+    getSupportedColorSpaces(): Array<colorSpaceManager.ColorSpace>;
 
     /**
      * Sets a color space for the session.
      *
-     * @param { ColorSpace } colorSpace - The type of color space.
+     * @param { colorSpaceManager.ColorSpace } colorSpace - The type of color space.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    setColorSpace(colorSpace: ColorSpace): void;
+    setColorSpace(colorSpace: colorSpaceManager.ColorSpace): void;
   }
 
   /**
@@ -2052,28 +1976,6 @@ declare namespace camera {
      * @since 11
      */
     enableMacro(enabled: boolean): void;
-
-    /**
-     * Subscribes camera macro status event callback.
-     *
-     * @param { 'macroStatusChanged' } type - Event type.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 11
-     */
-    on(type: 'macroStatusChanged', callback: AsyncCallback<boolean>): void;
-
-    /**
-     * Unsubscribes camera macro status event callback.
-     *
-     * @param { 'macroStatusChanged' } type - Event type.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 11
-     */
-    off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
   }
 
   /**
@@ -2264,6 +2166,68 @@ declare namespace camera {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Subscribes focus status change event callback.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from focus status change event callback.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes zoom info event callback.
+     *
+     * @param { 'smoothZoomInfoAvailable' } type - Event type.
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
+    on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Unsubscribes from zoom info event callback.
+     *
+     * @param { 'smoothZoomInfoAvailable' } type - Event type.
+     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
+    off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes camera macro status event callback.
+     *
+     * @param { 'macroStatusChanged' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    on(type: 'macroStatusChanged', callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Unsubscribes camera macro status event callback.
+     *
+     * @param { 'macroStatusChanged' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
   }
 
   /**
@@ -2271,9 +2235,20 @@ declare namespace camera {
    *
    * @interface CaptureSession
    * @syscap SystemCapability.Multimedia.Camera.Core
+   * @deprecated since 11
+   * @since 10
+   */
+  interface CaptureSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty {
+  }
+
+  /**
+   * Photo session object.
+   *
+   * @interface PhotoSession
+   * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
-  interface CaptureSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, ColorEffect, ColorManagement, Macro {
+  interface PhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, ColorEffect, ColorManagement, Macro {
   }
 
   /**
@@ -2532,25 +2507,14 @@ declare namespace camera {
   }
 
   /**
-     * Portrait Capture session object.
+     * Portrait Photo session object.
      *
-     * @interface PortraitCaptureSession
+     * @interface PortraitPhotoSession
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-  interface PortraitCaptureSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, ColorEffect, Portrait, Aperture {
-  }
-
-  /**
-     * Portrait Video session object.
-     *
-     * @interface PortraitVideoSession
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 11
-     */
-  interface PortraitVideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, ColorEffect, Portrait, Aperture, Stabilization {
+  interface PortraitPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, ColorEffect, Portrait, Aperture {
   }
 
   /**
@@ -2597,25 +2561,25 @@ declare namespace camera {
   }
 
   /**
-   * Night session object.
+   * Night photo session object.
    *
-   * @interface NightSession
+   * @interface NightPhotoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11
    */
-  interface NightSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualExposure {
+  interface NightPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualExposure {
   }
 
   /**
-   * Super Stabilization session object.
+   * Super Stabilization video session object.
    *
-   * @interface SuperStabSession
+   * @interface SuperStabVideoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11
    */
-  interface SuperStabSession extends Session, Flash, AutoExposure, Focus, ColorEffect {
+  interface SuperStabVideoSession extends Session, Flash, AutoExposure, Focus, ColorEffect {
   }
 
   /**
@@ -3317,21 +3281,43 @@ declare namespace camera {
      * Subscribes capture start event callback.
      *
      * @param { 'captureStart' } type - Event type.
-     * @param { AsyncCallback<CaptureStartInfo> } callback - Callback used to get the capture start info.
+     * @param { AsyncCallback<number> } callback - Callback used to get the capture ID.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
+     * @deprecated since 11
+     * @since 10
      */
-    on(type: 'captureStart', callback: AsyncCallback<CaptureStartInfo>): void;
+    on(type: 'captureStart', callback: AsyncCallback<number>): void;
 
     /**
      * Unsubscribes from capture start event callback.
      *
      * @param { 'captureStart' } type - Event type.
+     * @param { AsyncCallback<number> } callback - Callback used to get the capture ID.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @deprecated since 11
+     * @since 10
+     */
+    off(type: 'captureStart', callback?: AsyncCallback<number>): void;
+
+    /**
+     * Subscribes capture start event callback.
+     *
+     * @param { 'captureStartWithInfo' } type - Event type.
      * @param { AsyncCallback<CaptureStartInfo> } callback - Callback used to get the capture start info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
-    off(type: 'captureStart', callback?: AsyncCallback<CaptureStartInfo>): void;
+    on(type: 'captureStartWithInfo', callback: AsyncCallback<CaptureStartInfo>): void;
+
+    /**
+     * Unsubscribes from capture start event callback.
+     *
+     * @param { 'captureStartWithInfo' } type - Event type.
+     * @param { AsyncCallback<CaptureStartInfo> } callback - Callback used to get the capture start info.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
+    off(type: 'captureStartWithInfo', callback?: AsyncCallback<CaptureStartInfo>): void;
 
     /**
      * Subscribes frame shutter event callback.
@@ -3395,7 +3381,7 @@ declare namespace camera {
 
     /**
      * Checks whether PhotoOutput supports quick thumbnail.
-     * This method is valid after CaptureSession.addInput() and CaptureSession.addOutput(photoOutput) are called.
+     * This method is valid after Session.addInput() and Session.addOutput(photoOutput) are called.
      *
      * @returns { boolean } Whether quick thumbnail is supported.
      * @throws { BusinessError } 7400104 - session is not running.
@@ -3407,9 +3393,9 @@ declare namespace camera {
 
     /**
      * Enables or disables quick thumbnail.
-     * The method must be called after CaptureSession.addInput() and CaptureSession.addOutput(photoOutput) are called.
+     * The method must be called after Session.addInput() and Session.addOutput(photoOutput) are called.
      * To avoid stream reconfiguration and performance loss,
-     * you are advised to call the method before CaptureSession.commitConfig().
+     * you are advised to call the method before Session.commitConfig().
      * 
      * @param { boolean } enabled - The value TRUE means to enable quick thumbnail, and FALSE means the opposite.
      * @throws { BusinessError } 7400104 - session is not running.
