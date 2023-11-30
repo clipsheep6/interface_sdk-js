@@ -445,6 +445,7 @@ declare namespace hiAppEvent {
    *
    * @interface AppEventGroup
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
    * @since 11
    */
   interface AppEventGroup {
@@ -466,7 +467,7 @@ declare namespace hiAppEvent {
      * @atomicservice
      * @since 11
      */
-    appEventInfoArray: Array<AppEventInfo>;
+    appEventInfos: Array<AppEventInfo>;
   }
   
   /**
@@ -517,7 +518,7 @@ declare namespace hiAppEvent {
      * @atomicservice
      * @since 11
      */
-    onReceive?: (domain: string, appEventGroupArray: Array<AppEventGroup>) => void;
+    onReceive?: (domain: string, appEventGroups: Array<AppEventGroup>) => void;
   }
 
   /**
