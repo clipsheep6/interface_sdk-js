@@ -467,7 +467,7 @@ declare namespace hiAppEvent {
      * @atomicservice
      * @since 11
      */
-    appEventInfos: Array<AppEventInfo>;
+    appEventInfos: Array<AppEventInfo>
   }
   
   /**
@@ -518,7 +518,7 @@ declare namespace hiAppEvent {
      * @atomicservice
      * @since 11
      */
-    onReceive?: (domain: string, appEventGroups: Array<AppEventGroup>) => void;
+    onReceive?: (domain: string, appEventGroups: Array<AppEventGroup>) => void
   }
 
   /**
