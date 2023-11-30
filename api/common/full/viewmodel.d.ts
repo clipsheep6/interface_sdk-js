@@ -6422,14 +6422,14 @@ export declare class Locate {
   language: string;
 
   /**
-   * country or region, such ass 'CN'.
+   * country or region, such as 'CN'.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
   /**
-   * country or region, such ass 'CN'.
+   * country or region, such as 'CN'.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
