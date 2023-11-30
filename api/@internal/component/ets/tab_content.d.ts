@@ -789,6 +789,19 @@ declare class BottomTabBarStyle {
    * @since 11
    */
   symmetricExtensible(value: boolean): BottomTabBarStyle;
+
+  /**
+   * Set whether the default content switch animation is enabled
+   *
+   * @param { boolean } value - indicates whether the default content switch animation is enabled
+   * @default false
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  contentSwitchAnimation(value: boolean): BottomTabBarStyle;
 }
 
 /**
