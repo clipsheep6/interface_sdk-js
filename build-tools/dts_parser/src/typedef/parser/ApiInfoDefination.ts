@@ -61,6 +61,7 @@ export class BasicApiInfo {
   decorators: DecoratorInfo[] | undefined = undefined; //decorators修饰器集合
   isStruct: boolean = false; //是否为structDeclaration内部api
   syscap: string = '';
+  currentVersion = '-1';
 
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo | undefined) {
     this.node = node;
@@ -193,6 +194,14 @@ export class BasicApiInfo {
   getSyscap(): string {
     return this.syscap;
   }
+
+  setCurrentVersion(version: string): void {
+    this.currentVersion = version;
+  }
+
+  getCurrentVersion(): string {
+    return this.currentVersion;
+  }
 }
 
 export class ExportDefaultInfo extends BasicApiInfo {}
@@ -252,7 +261,7 @@ export class ApiInfo extends BasicApiInfo {
   constructor(apiType: string = '', node: ts.Node, parentApi: BasicApiInfo) {
     super(apiType, node, parentApi);
     const jsDocInfos: Comment.JsDocInfo[] = JsDocProcessorHelper.processJsDocInfos(node);
-    this.jsDocInfos = jsDocInfos;
+    this.addJsDocInfos(jsDocInfos);
   }
 
   getJsDocInfos(): Comment.JsDocInfo[] {
@@ -268,10 +277,14 @@ export class ApiInfo extends BasicApiInfo {
   }
 
   addJsDocInfos(jsDocInfos: Comment.JsDocInfo[]): void {
+    if (jsDocInfos.length > 0) {
+      this.setCurrentVersion(jsDocInfos[jsDocInfos.length - 1]?.getSince());
+    }
     this.jsDocInfos.push(...jsDocInfos);
   }
 
   addJsDocInfo(jsDocInfo: Comment.JsDocInfo): void {
+    this.setCurrentVersion(jsDocInfo.getSince());
     this.jsDocInfos.push(jsDocInfo);
   }
 }

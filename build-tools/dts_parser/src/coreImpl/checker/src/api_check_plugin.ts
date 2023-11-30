@@ -15,6 +15,8 @@
 import fs from 'fs';
 import { Parser, FilesMap } from '../../parser/parser';
 import { ApiResultSimpleInfo } from '../../../typedef/checker/result_type';
+import { EventMethodCheckPlugin } from './event_method_check_plugin';
+import { EventMethodData } from '../../../typedef/checker/event_method_check_interface';
 
 export class Check {
 
@@ -24,11 +26,14 @@ export class Check {
    * @returns { ApiResultSimpleInfo[] } error message array
    */
   static scanEntry(url: string): ApiResultSimpleInfo[] {
-    const checkErrorArr: ApiResultSimpleInfo[] = [];
+    let checkErrorArr: ApiResultSimpleInfo[] = [];
     if (fs.existsSync(url)) {
       const files: Array<string> = Check.getMdFiles(url);
       files.forEach((filePath: string) => {
-        Check.parseAPICodeStyle(filePath);
+        const filesMap: FilesMap = Check.parseAPICodeStyle(filePath);
+        const eventMethodChecker: EventMethodCheckPlugin = new EventMethodCheckPlugin(filesMap);
+        const eventMethodDataMap: Map<string, EventMethodData> = eventMethodChecker.getAllEventMethod();
+        checkErrorArr = checkErrorArr.concat(eventMethodChecker.checkEventMethod(eventMethodDataMap));
       });
     }
     return checkErrorArr;
