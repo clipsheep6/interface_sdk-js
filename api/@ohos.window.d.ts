@@ -1069,40 +1069,51 @@ declare namespace window {
     parentId?: number;
   }
 
+  /**
+   * Limits of window.
+   *
+   * @interface WindowLimits
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
   interface WindowLimits {
     
     /**
      * The maximum width of the window.
-     * 
+     *
+     * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
+     * @systemapi
      * @since 11
      */
     maxWidth?: number;
 
     /**
      * The maximum height of the window.
-     * 
+     *
+     * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
+     * @systemapi
      * @since 11
      */
     maxHeight?: number;
 
     /**
      * The minimum width of the window.
-     * 
+     *
+     * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
+     * @systemapi
      * @since 11
      */
     minWidth?: number;
 
     /**
      * The minimum height of the window.
-     * 
+     *
+     * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
+     * @systemapi
      * @since 11
      */
     minHeight?: number;
