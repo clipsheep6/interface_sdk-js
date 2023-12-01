@@ -1194,6 +1194,28 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @form
    */
   onFinish(event: () => void): ImageAttribute;
+
+  /**
+   * Enable image analyzer.
+   *
+   * @param { boolean} config
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   * @form
+   */
+  enableAnalyzer(enable: boolean): ImageAttribute;
+
+  /**
+   * Set image analyzer with config.
+   *
+   * @param { ImageAnalyzerConfig } config
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   * @form
+   */
+  analyzerConfig(config: ImageAnalyzerConfig): ImageAttribute;
 }
 
 /**
