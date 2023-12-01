@@ -662,6 +662,43 @@ declare namespace wifiManager {
   function getDisconnectedReason(): DisconnectedReason;
 
   /**
+   * Start Portal certification.
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function startPortalCertification(): void;
+
+  /**
+   * Whether the hotspot is mobile phone or not.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @returns { boolean } Returns {@code true} if the hotspot is mobile phone, returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function isPersonalHotspot(): boolean;
+
+  /**
+   * Reset all saved device configures.
+   * @permission ohos.permission.GET_WIFI_INFO
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function factoryReset(): void;
+
+  /**
    * Enable Wi-Fi hotspot function.
    * This method is asynchronous. After the Wi-Fi hotspot is enabled, Wi-Fi may be disabled.
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
