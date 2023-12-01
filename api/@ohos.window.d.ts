@@ -4132,24 +4132,11 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     setWindowLimits(windowLimits: WindowLimits): Promise<WindowLimits>;
-
-    /**
-     * Set the window limits of a window.
-     *
-     * @param { WindowLimits } windowLimits - window limits of the window.
-     * @param { AsyncCallback<WindowLimits> } callback - Callback used to return the window limits.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    setWindowLimits(windowLimits: WindowLimits, callback: AsyncCallback<WindowLimits>): void; 
   }
   /**
    * Window stage callback event type
