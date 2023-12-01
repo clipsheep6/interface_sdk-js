@@ -4126,7 +4126,7 @@ declare namespace window {
     /**
      * Get the window limits of current window.
      *
-     * @returns { WindowLimits }
+     * @returns { WindowLimits } windowLimits - window limits of the window.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
