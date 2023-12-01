@@ -37,6 +37,7 @@ import { WordsCheck } from './words_check';
 import { ForbiddenWordsCheck } from './forbidden_words_check';
 import { ApiNamingCheck } from './naming_check';
 import { CheckHump } from './check_hump';
+import { ApiChangeCheck } from './check_api_diff'
 
 export class Check {
   /**
@@ -46,6 +47,7 @@ export class Check {
   static scanEntry(url: string): void {
     if (fs.existsSync(url)) {
       const files: Array<string> = Check.getMdFiles(url);
+      ApiChangeCheck.checkApiChange();
       files.forEach((filePath: string) => {
         const fileParseResult: FilesMap = Check.parseAPICodeStyle(filePath);
         const baseInfos: BasicApiInfo[] = Parser.getAllBasicApi(fileParseResult);

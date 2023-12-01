@@ -20,7 +20,7 @@ import {
   notJsDocApiTypes,
   ImportInfo,
   ExportDeclareInfo,
-  exportImportValue,
+  ExportImportValue,
 } from '../../../typedef/parser/ApiInfoDefination';
 import { CommonFunctions } from '../../../utils/checkUtils';
 import { compositiveResult, compositiveLocalResult } from '../../../utils/checkUtils';
