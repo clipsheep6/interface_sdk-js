@@ -1153,7 +1153,7 @@ declare namespace inputMethod {
      * @deprecated since 9
      * @useinstead inputMethod.InputMethodProperty#name
      */
-    readonly packageName: string;
+    readonly packageName?: string;
 
     /**
      * The id of input method
@@ -1163,7 +1163,7 @@ declare namespace inputMethod {
      * @deprecated since 9
      * @useinstead inputMethod.InputMethodProperty#id
      */
-    readonly methodId: string;
+    readonly methodId?: string;
 
     /**
      * The name of input method
