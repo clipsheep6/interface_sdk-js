@@ -4074,6 +4074,43 @@ declare namespace focusControl {
 }
 
 /**
+ * Import the PointerStyle type object for setCursor.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare type PointerStyle = import('../api/@ohos.multimodalInput.pointer').default.PointerStyle;
+
+/**
+ * CursorControl
+ *
+ * @namespace cursorControl
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare namespace cursorControl {
+
+  /**
+   * Change the mouse cursor style by param: 'PointerStyle'.
+   *
+   * @param { PointerStyle } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  function setCursor(value: PointerStyle): void;
+
+  /**
+   * Restore the default mouse cursor style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  function restoreDefault(): void;
+}
+
+/**
  * Defines the event target.
  *
  * @interface EventTarget
@@ -4893,6 +4930,26 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {}
  */
 declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
 
+
+/**
+ * Defines the options of blur
+ *
+ * @interface BlurOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface BlurOptions {
+  /**
+   * Fuzzy gray scale parameter.
+   * @type { [number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  grayscale: [number, number];
+}
+
 /**
  * Defines the options of blurStyle
  *
@@ -4963,6 +5020,93 @@ declare interface BlurStyleOptions {
    * @since 10
    */
   scale?: number;
+
+  /**
+   * Defines the options of blur
+   *
+   * @type { ?BlurOptions }
+   * @default { grayScale: [0,0] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  blurOptions?: BlurOptions;
+}
+
+/**
+ * Defines the options of BackgroundEffect
+ *
+ * @interface BackgroundEffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface BackgroundEffectOptions {
+
+  /**
+   * Define the radius size of BackgroundEffect.The range of this value is [0, ∞)
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  radius: number;
+
+  /**
+   * Define the saturation of BackgroundEffect. Value range [0, ∞)
+   *
+   * @type { ?number }
+   * @default 1
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  saturation?: number;
+
+  /**
+   * Define the brightness of BackgroundEffect. Value range [0, ∞)
+   * The input parameter is the highlight proportion. 0 indicates no highlight effect, and 1 indicates the maximum highlight proportion.
+   * @type { ?number }
+   * @default 1
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  brightness?: number;
+
+  /**
+   * color the brightness of BackgroundEffect.
+   *
+   * @type { ?ResourceColor }
+   * @default Color.Transparent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  color?: ResourceColor;
+
+  /**
+   * Define the adaptiveColor of BackgroundEffect.
+   *
+   * @type { ?AdaptiveColor }
+   * @default AdaptiveColor.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  adaptiveColor?: AdaptiveColor;
+
+    /**
+   * Define the blurOptions of BackgroundEffect.
+   *
+   * @type { ?BlurOptions }
+   * @default { grayScale: [0,1] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  blurOptions?: BlurOptions;
 }
 
 /**
@@ -10028,6 +10172,48 @@ declare interface AttributeModifier<T> {
 }
 
 /**
+ * Defines the drag preview mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare enum DragPreviewMode {
+  /**
+   * Default preview mode, let system process preview scale.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  AUTO = 1,
+  /**
+   * Disable system scale to preview panel
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  DISABLE_SCALE = 2,
+}
+
+/**
+ * Defines the preview options.
+ *
+ * @interface DragPreviewOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface DragPreviewOptions {
+  /**
+  * Drag preview mode.
+  *
+  * @type { ?DragPreviewMode }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 11
+  */
+  mode?: DragPreviewMode;
+}
+
+/**
  * Define the options of invert
  *
  * @interface InvertOptions
@@ -10766,6 +10952,18 @@ declare class CommonMethod<T> {
    * @form
    */
   backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions): T;
+
+   /**
+   * options:background effect options.
+   *
+   * @param { BackgroundEffectOptions } options - options indicates the effect options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backgroundEffect(options: BackgroundEffectOptions): T;
+
 
   /**
    * Foreground blur style.
@@ -11683,7 +11881,8 @@ declare class CommonMethod<T> {
    * The larger the blurring radius, the more blurring the content.
    * If the value is 0, the content blurring effect is not blurring.
    *
-   * @param { number } value
+   * @param { number } value - value indicates radius of backdrop blur.
+   * @param { BlurOptions } options - options indicates blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11691,7 +11890,7 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  blur(value: number): T;
+  blur(value: number, options?: BlurOptions): T;
 
   /**
    * Adds the content linear gradient blurring effect for the current component. The input parameter is the blurring radius.
@@ -12121,7 +12320,8 @@ declare class CommonMethod<T> {
    * Adds the background blur effect for the current component. The input parameter is the blur radius.
    * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
    *
-   * @param { number } value
+   * @param { number } value - value indicates radius of backdrop blur.
+   * @param { BlurOptions } options - options indicates the backdrop blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -12129,7 +12329,7 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  backdropBlur(value: number): T;
+  backdropBlur(value: number, options?: BlurOptions): T;
 
   /**
    * Composite the contents of this view and its children into an offscreen cache before display in the screen.
@@ -13311,6 +13511,26 @@ declare class CommonMethod<T> {
    * @since 11
    */
   draggable(value: boolean): T;
+
+  /**
+   * Set preview of the component for dragging process
+   *
+   * @param { CustomBuilder | DragItemInfo } value - preview of the component for dragging process
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  dragPreview(value: CustomBuilder | DragItemInfo): T;
+
+  /**
+   * Set the selectable area drag preview options.
+   *
+   * @param { DragPreviewOptions } value - preview options value.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  dragPreviewOptions(value: DragPreviewOptions): T;
 
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
@@ -16021,6 +16241,30 @@ declare class CustomComponent extends CommonAttribute {
   onPageHide?(): void;
 
   /**
+   * onFormRecycle Method, this is only for ArkTS form, if form was marked recyclable by form user, when system memory is low,
+   * it will be recycled after calling this method, you should return a string of params that you wish to be saved, it will be
+   * passed back as params in onFormRecover, in which you can recover the form
+   *
+   * @returns { string } status data of ArkTS form UI, this data will be passed in when recover form later
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  onFormRecycle?(): string;
+
+  /**
+   * onFormRecover Method, this is only for ArkTS form
+   *
+   * @param { string } statusData - indicate status data of ArkTS form UI, which is acquired by calling onFormRecycle, it is used to recover form
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  onFormRecover?(statusData: string): void;
+
+  /**
    * onBackPress Method
    *
    * @returns { void | boolean }
@@ -16328,6 +16572,163 @@ declare abstract class TextContentControllerBase {
   getTextContentLineCount() : number;
 }
 
+/**
+ * CommonScrollableMethod
+ *
+ * @extends CommonMethod<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
+  /**
+   * Scrollbar status.
+   *
+   * @param { BarState } barState - Scrollbar status.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  scrollBar(barState: BarState): T;
+
+  /**
+   * Color of the scrollbar.
+   *
+   * @param { Color | number | string } color - Color of the scrollbar.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  scrollBarColor(color: Color | number | string): T;
+
+  /**
+   * Width of the scrollbar.
+   *
+   * @param { number | string } value  - Width of the scrollbar.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  scrollBarWidth(value: number | string): T;
+
+  /**
+   * Edge scrolling effect.
+   *
+   * @param { EdgeEffect } value - edge scrolling effect.
+   * @param { EdgeEffectOptions } options - edge scrolling effect options. 
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
+
+  /**
+   * Nested scrolling options.
+   *
+   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @returns { T } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  nestedScroll(value: NestedScrollOptions): T;
+
+  /**
+   * Whether to support scroll gestures by finger or mouse.
+   *
+   * @param { boolean } value - Whether to support scroll gestures by finger or mouse.
+   * @returns { T } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  enableScrollInteraction(value: boolean): T;
+
+  /**
+   * Friction coefficient.
+   *
+   * @param { number | Resource } value - friction coefficient.
+   * @returns { T } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  friction(value: number | Resource): T;
+
+  /**
+   * Called when the scrollable scrolls.
+   *
+   * @param { function } event - callback of scrollable,
+   * scrollOffset is offset per frame scrolling, ScrollState is current scroll state.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
+
+  /**
+   * Called when the scrollable reaches the start position.
+   *
+   * @param { function } event - Callback function, triggered when the scrollable reaches the start position.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onReachStart(event: () => void): T;
+
+  /**
+   * Called when the scrollable reaches the end position.
+   *
+   * @param { function } event - Callback function, triggered when the scrollable reaches the end position.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onReachEnd(event: () => void): T;
+
+  /**
+   * Called when the scrollable starts scrolling.
+   *
+   * @param { function } event - Callback function, triggered when the scrollable starts scrolling.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onScrollStart(event: () => void): T;
+
+  /**
+   * Called when the scrollable stops scrolling.
+   *
+   * @param { function } event - Callback function, triggered when the scrollable stops scrolling.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onScrollStop(event: () => void): T;
+}
+
 declare module "SpecialEvent" {
   module "SpecialEvent" {
     // @ts-ignore
@@ -16345,7 +16746,7 @@ declare module "AnimateToParam" {
 declare module 'DragControllerParam' {
   module 'DragControllerParam' {
     // @ts-ignore
-    export type { CustomBuilder, DragItemInfo, DragEvent };
+    export type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions };
   }
 }
 
