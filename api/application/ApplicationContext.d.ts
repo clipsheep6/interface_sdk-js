@@ -393,7 +393,7 @@ export default class ApplicationContext extends Context {
    * @atomicservice
    * @since 11
    */
-  killAllProcesses(callback: AsyncCallback<void>);
+  killAllProcesses(callback: AsyncCallback<void>): void;
 
   /**
    * Set colorMode of the application
