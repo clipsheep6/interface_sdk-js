@@ -4126,7 +4126,7 @@ declare namespace window {
     /**
      * Get the window limits of current window.
      *
-     * @returns { WindowLimits } windowLimits - window limits of the window.
+     * @returns { WindowLimits } - The limits of window.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -4138,7 +4138,7 @@ declare namespace window {
      * Set the window limits of a window.
      *
      * @param { WindowLimits } windowLimits - window limits of the window.
-     * @returns { Promise<WindowLimits> } - Promise is used to return the window limits.
+     * @returns { Promise<WindowLimits> } - Promise is used to return the limits of window.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
