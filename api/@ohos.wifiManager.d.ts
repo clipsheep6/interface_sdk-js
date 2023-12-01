@@ -687,7 +687,7 @@ declare namespace wifiManager {
 
   /**
    * Reset all saved device configures.
-   * @permission ohos.permission.GET_WIFI_INFO
+   * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
