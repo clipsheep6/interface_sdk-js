@@ -124,16 +124,3 @@ export enum PunctuationMark {
   LEFT_PARENTHESES = '(',
   RIGHT_PARENTHESES = ')',
 }
-
-/**
- * 常用符号存储
- */
-export enum PunctuationMark {
-  QUERY = '?',
-  LEFT_BRACKET = '[',
-  RIGHT_BRACKET = ']',
-  LEFT_BRACE = '{',
-  RIGHT_BRACE = '}',
-  LEFT_PARENTHESES = '(',
-  RIGHT_PARENTHESES = ')'
-}
