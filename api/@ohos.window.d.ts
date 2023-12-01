@@ -1083,7 +1083,6 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi
      * @since 11
      */
     maxWidth?: number;
@@ -1093,7 +1092,6 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi
      * @since 11
      */
     maxHeight?: number;
@@ -1103,7 +1101,6 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi
      * @since 11
      */
     minWidth?: number;
@@ -1113,7 +1110,6 @@ declare namespace window {
      *
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @systemapi
      * @since 11
      */
     minHeight?: number;
