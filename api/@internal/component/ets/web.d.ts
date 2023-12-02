@@ -176,6 +176,26 @@ declare enum MixedMode {
 }
 
 /**
+ * The callback of load committed.
+ *
+ * @param { LoadCommittedDetails } loadCommittedDetails The details of the committed load.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 11
+ */
+type onNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDetails) => void;
+
+/**
+ * The callback of safe browsing check.
+ *
+ * @param { ThreatType } threatType The threat type of website.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 11
+ */
+type onSafeBrowsingCheckResultCallback = (threatType: ThreatType) => void;
+
+/**
  * Enum type supplied to {@link getHitTest} for indicating the cursor node HitTest.
  *
  * @enum { number }
@@ -506,6 +526,171 @@ declare enum WebCaptureMode {
    * @since 11
    */
   HOME_SCREEN = 0,
+}
+
+/**
+ * Enum type supplied to {@link threatType} for the website's threat type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 11
+ */
+declare enum ThreatType {
+  /**
+   * Illegal websites.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  THREAT_ILLEGAL = 0,
+
+  /**
+   * Fraud websites.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  THREAT_FRAUD = 1,
+
+  /**
+   * Websites with security risks.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  THREAT_RISK = 2,
+}
+
+/**
+ * Enum type supplied to {@link navigationType} for the navigation's type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 11
+ */
+declare enum NavigationType {
+  /**
+   * Unknown type.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  UNKNOWN = 0,
+
+  /**
+   * A new entry was created due to a navigation happened on the main frame.
+   * Contains all situations that will generate a mainframe navigation entry,
+   * which means that navigations to a hash on the same document or history.pushState
+   * also belong to this type.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  MAIN_FRAME_NEW_ENTRY = 1,
+
+  /**
+   * Navigate to an existing entry due to a navigation on the main frame.
+   * e.g.
+   *   1. History navigations.
+   *   2. Reloads (contains loading the same url).
+   *   3. Same-document navigations(history.replaceState(), location.replace()).
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  MAIN_FRAME_EXISTING_ENTRY = 2,
+
+  /**
+   * A navigation happened on subframe which was triggered by user.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  NAVIGATION_TYPE_NEW_SUBFRAME = 4,
+
+  /** 
+   * A navigation happened on the subframe automatically.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  NAVIGATION_TYPE_AUTO_SUBFRAME = 5,
+}
+
+/**
+ * Defines the load committed details.
+ *
+ * @interface LoadCommittedDetails
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 11
+ */
+declare interface LoadCommittedDetails {
+  /**
+   * Check whether the request is for getting the main frame.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  isMainFrame: boolean;
+
+  /**
+   * Whether the navigation happened without changing document. Examples of
+   * same document navigations are:
+   *   1. reference fragment navigations.
+   *   2. pushState/replaceState.
+   *   3. same page history navigation
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  isSameDocument: boolean;
+
+  /**
+   * True if the committed entry has replaced the existing one. Note that in
+   * case of subrames, the NavigationEntry and FrameNavigationEntry objects
+   * don't actually get replaced - they're reused, but with updated attributes. 
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  didReplaceEntry: boolean;
+
+  /**
+   * The type of the navigation.
+   *
+   * @type { NavigationType }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  navigationType: NavigationType;
+
+  /**
+   * The url to navigate.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  url: string;
 }
 
 /**
@@ -5769,6 +5954,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   onOverScroll(callback: (event: { xOffset: number, yOffset: number }) => void): WebAttribute;
+
+  /**
+   * Called when the load committed.
+   *
+   * @param { function } callback Function Triggered when a load committed.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  onNavigationEntryCommitted(callback: onNavigationEntryCommittedCallback): WebAttribute;
+
+  /**
+   * Called when received website security risk check result.
+   *
+   * @param { function } callback Function Triggered when received website security risk check result.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  onSafeBrowsingCheckResult(callback: onSafeBrowsingCheckResultCallback): WebAttribute;
 
   /**
    * Injects the JavaScripts before Webview creates the DOM tree, and then the JavaScript snippet will run after the document has been created.
