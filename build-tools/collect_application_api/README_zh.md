@@ -96,11 +96,9 @@ node api-collector.js --appDir 文件夹路径 --sdkRoot sdk根目录
 
 1、[下载应用API解析工具源码](https://gitee.com/openharmony/interface_sdk-js/tree/master/build-tools/collect_application_api)
 
-2、在package.json同级目录下新建deps文件夹，将[typescript源码](https://gitee.com/openharmony/third_party_typescript/tree/master/build_package)下载并放置其中
+2、在package.json同级目录下执行npm install安装依赖
 
-3、在package.json同级目录下执行npm install安装依赖
-
-4、在package.json同级目录下运行工具，例(扫面单个应用)：
+3、在package.json同级目录下运行工具，例(扫面单个应用)：
 
 ```shell
 node .\src\entry\main.js --app 工程根目录 --sdk sdk路径  --output 报告的输出路径
