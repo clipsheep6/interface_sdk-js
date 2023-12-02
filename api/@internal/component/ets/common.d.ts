@@ -9548,23 +9548,23 @@ declare enum MenuPreviewMode {
 }
 
 /**
- * Defines the context menu options.
+ * Defines the base menu options.
  *
- * @interface ContextMenuOptions
+ * @interface BaseMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 /**
- * Defines the context menu options.
+ * Defines the base menu options.
  *
- * @interface ContextMenuOptions
+ * @interface BaseMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
  */
-declare interface ContextMenuOptions {
+declare interface BaseMenuOptions {
   /**
    * Sets the position offset of the context menu window.
    *
@@ -9608,57 +9608,6 @@ declare interface ContextMenuOptions {
   placement?: Placement;
 
   /**
-   * whether show arrow belong to the menu, default: false, not show arrow
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * whether show arrow belong to the menu, default: false, not show arrow
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  enableArrow?: boolean;
-
-  /**
-   * The horizontal offset to the left of menu or vertical offset to the top of menu
-   *
-   * @type { ?Length }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * The horizontal offset to the left of menu or vertical offset to the top of menu
-   *
-   * @type { ?Length }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  arrowOffset?: Length;
-  
-  /**
-   * The preview content of context menu.
-   * 
-   * @type { ?(MenuPreviewMode | CustomBuilder) }
-   * @default MenuPreviewMode.NONE
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  preview?: MenuPreviewMode | CustomBuilder;
-
-  /**
    * Callback function when the context menu appears.
    *
    * @type { ?function }
@@ -9698,6 +9647,78 @@ declare interface ContextMenuOptions {
 }
 
 /**
+ * Defines the context menu options.
+ *
+ * @interface ContextMenuOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Defines the context menu options.
+ *
+ * @interface ContextMenuOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare interface ContextMenuOptions extends BaseMenuOptions {
+  /**
+   * whether show arrow belong to the menu, default: false, not show arrow
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * whether show arrow belong to the menu, default: false, not show arrow
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  enableArrow?: boolean;
+
+  /**
+   * The horizontal offset to the left of menu or vertical offset to the top of menu
+   *
+   * @type { ?Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * The horizontal offset to the left of menu or vertical offset to the top of menu
+   *
+   * @type { ?Length }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  arrowOffset?: Length;
+  
+  /**
+   * The preview content of context menu.
+   * 
+   * @type { ?(MenuPreviewMode | CustomBuilder) }
+   * @default MenuPreviewMode.NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  preview?: MenuPreviewMode | CustomBuilder;
+}
+
+/**
  * Defines the menu options.
  *
  * @interface MenuOptions
@@ -9714,7 +9735,7 @@ declare interface ContextMenuOptions {
  * @atomicservice
  * @since 11
  */
-declare interface MenuOptions extends ContextMenuOptions {
+declare interface MenuOptions extends BaseMenuOptions {
   /**
    * Sets the title of the menu window.
    *
