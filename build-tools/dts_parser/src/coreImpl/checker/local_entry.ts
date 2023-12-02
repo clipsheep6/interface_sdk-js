@@ -25,7 +25,7 @@ import { GenerateFile } from '../../utils/checkUtils';
  */
 export class LocalEntry {
   static checkEntryLocal(): ApiResultSimpleInfo[] {
-    const mdFilesPath = path.resolve(FileUtils.getBaseDirName(), '../mdFiles.txt');
+    const mdFilesPath = path.resolve(FileUtils.getBaseDirName(), './mdFiles.txt');
     let result: ApiResultSimpleInfo[] = [];
     try {
       result = TsSyntaxCheck.checkAPISyntax(mdFilesPath);
