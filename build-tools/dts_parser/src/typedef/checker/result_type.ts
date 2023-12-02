@@ -14,23 +14,6 @@
  */
 
 /**
- * custom decorator array
- */
-export const customDoc = ['constant', 'crossplatform', 'default', 'deprecated', 'enum', 'example', 'extends',
-  'famodelonly', 'fires', 'form', 'interface', 'namespace', 'param', 'permission', 'readonly', 'returns', 'since',
-  'stagemodelonly', 'static', 'syscap', 'systemapi', 'type', 'typedef', 'throws', 'test', 'useinstead',
-  'FAModelOnly', 'StageModelOnly'] as const;
-
-/**
- * javascript decorator array
- */
-export const jsDoc = ['abstract', 'access', 'alias', 'async', 'augments', 'author', 'borrows', 'class', 'classdesc', 'constructs',
-  'copyright', 'event', 'exports', 'external', 'file', 'function', 'generator', 'global', 'hideconstructor', 'ignore', 'implements',
-  'inheritdoc', 'inner', 'instance', 'lends', 'license', 'listens', 'member', 'memberof', 'mixes', 'mixin', 'modifies', 'module',
-  'package', 'private', 'property', 'protected', 'public', 'requires', 'see', 'summary', 'this', 'todo', 'tutorial', 'variation',
-  'version', 'yields', 'also', 'description', 'kind', 'name', 'undocumented'] as const;
-
-/**
  * error message type 
  * @enum { string }
  */
@@ -120,7 +103,7 @@ export enum ErrorMessage {
   ERROR_LABELNAME = 'the [$$] tag does not exist. Please use a valid JSDoc tag',
   ERROR_LOST_LABEL = 'JSDoc tag validity verification failed. Please confirm if the [$$] tag is missing',
   ERROR_USE = 'JSDoc label validity verification failed. The [$$] label is not allowed. Please check the label usage method.',
-  ERROR_MORELABEL = 'JSDoc tag validity verification failed. The [$$] [$$] tag is redundant. Please check if the tag should be deleted.',
+  ERROR_MORELABEL = 'JSDoc tag validity verification failed.There are [$$] redundant [$$]. Please check if the tag should be deleted.',
   ERROR_REPEATLABEL = 'the validity verification of the JSDoc tag failed. The [$$] tag is not allowed to be reused, please delete the extra tags',
   ERROR_USE_INTERFACE = 'the validity verification of the JSDoc tag failed. The [interface] tag and [typedef] tag are not allowed to be used simultaneously. Please confirm the interface class.',
   ERROR_EVENT_NAME_STRING = 'The event name should be string.',
@@ -293,4 +276,29 @@ export class ApiResultInfo {
   getBaseName(): string {
     return this.baseName;
   }
+}
+
+export interface ErrorTagFormat {
+  /**
+   * 错误状态
+   */
+  state: boolean;
+
+  /**
+   * 标签信息, 例如 'the [$$] tag does not exist. Please use a valid JSDoc tag'
+   */
+  errorInfo: string;
+}
+
+export interface PermissionData {
+  name: string;
+  grantMode: string;
+  since: number;
+  deprecated: string;
+  availableLevel: string;
+  provisionEnable: boolean;
+  distributedSceneEnable: boolean;
+  label: string;
+  description: string;
+
 }

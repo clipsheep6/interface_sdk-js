@@ -133,3 +133,62 @@ export class ObtainFullPath {
     }
   }
 }
+export class CommonFunctions {
+  /**
+    * 判断标签是否为官方标签
+    */
+  static isOfficialTag(tagName: string): boolean {
+    return tagsArrayOfOrder.indexOf(tagName) === -1;
+  }
+
+  static createErrorInfo(errorInfo: string, params: string[]): string {
+    params.forEach((param) => {
+      errorInfo = errorInfo.replace('$$', param);
+    });
+    return errorInfo;
+  }
+}
+
+export const tagsArrayOfOrder: string[] = [
+  'namespace', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
+  'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly', 'FAModelOnly',
+  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'since', 'deprecated', 'useinstead', 'test', 'form', 'example'
+];
+
+export const officialTagArr: string[] = [
+  'abstract', 'access', 'alias', 'async', 'augments', 'author', 'borrows', 'class', 'classdesc', 'constructs',
+  'copyright', 'event', 'exports', 'external', 'file', 'function', 'generator', 'global', 'hideconstructor', 'ignore',
+  'implements', 'inheritdoc', 'inner', 'instance', 'lends', 'license', 'listens', 'member', 'memberof', 'mixes',
+  'mixin', 'modifies', 'module', 'package', 'private', 'property', 'protected', 'public', 'requires', 'see', 'summary',
+  'this', 'todo', 'tutorial', 'variation', 'version', 'yields', 'also', 'description', 'kind', 'name', 'undocumented'
+];
+
+export const inheritTagArr: string[] = ['test', 'famodelonly', 'FAModelOnly', 'stagemodelonly', 'StageModelOnly',
+  'deprecated', 'systemapi'];
+
+export const hasChildApiType: string[] = ['Interface', 'Enum', 'Class', 'Namespace'];
+
+export const optionalTags: string[] = [
+  'permission', 'throws', 'static', 'fires', 'systemapi', 'famodelonly', 'FAModelOnly', 'stagemodelonly',
+  'StageModelOnly', 'crossplatform', 'deprecated', 'test', 'form', 'example'
+];
+export const conditionaloptionalTags: string[] = ['type', 'default', 'readonly', 'permission', 'extends'];
+
+export const apiLegalityCheckTypeMap: Map<ts.SyntaxKind, string[]> = new Map([
+  [ts.SyntaxKind.CallSignature, ['param', 'returns', 'syscap', 'since']],
+  [ts.SyntaxKind.ClassDeclaration, ['extends', 'syscap', 'since']],
+  [ts.SyntaxKind.Constructor, ['param', 'syscap', 'since']],
+  [ts.SyntaxKind.EnumDeclaration, ['enum', 'syscap', 'since']],
+  [ts.SyntaxKind.FunctionDeclaration, ['param', 'returns', 'syscap', 'since']],
+  [ts.SyntaxKind.InterfaceDeclaration, ['interface', 'typedef', 'permission', 'syscap', 'since']],
+  [ts.SyntaxKind.MethodDeclaration, ['param', 'returns', 'syscap', 'since']],
+  [ts.SyntaxKind.MethodSignature, ['param', 'returns', 'syscap', 'since']],
+  [ts.SyntaxKind.ModuleDeclaration, ['namespace', 'syscap', 'since']],
+  [ts.SyntaxKind.PropertyDeclaration, ['type', 'default', 'readonly', 'syscap', 'since']],
+  [ts.SyntaxKind.PropertySignature, ['type', 'default', 'readonly', 'syscap', 'since']],
+  [ts.SyntaxKind.VariableStatement, ['constant', 'default', 'syscap', 'since']],
+]);
+
+export const compositiveResult: ApiResultSimpleInfo[] = [];
+export const compositiveLocalResult: ApiResultInfo[] = [];
+

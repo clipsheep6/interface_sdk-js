@@ -107,3 +107,13 @@ export enum NumberConstant {
    */
   SYSCAP_KEY_FIELD_INDEX = 2
 }
+
+export enum PunctuationMark {
+  QUERY = '?',
+  LEFT_BRACKET = '[',
+  RIGHT_BRACKET = ']',
+  LEFT_BRACE = '{',
+  RIGHT_BRACE = '}',
+  LEFT_PARENTHESES = '(',
+  RIGHT_PARENTHESES = ')'
+}
