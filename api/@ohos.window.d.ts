@@ -624,7 +624,6 @@ declare namespace window {
    *
    * @interface WindowStatus
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
    * @since 11
    */
   interface WindowStatus {
@@ -633,7 +632,6 @@ declare namespace window {
      *
      * @type { number } 
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
      * @since 11
      */
     status: number;
@@ -2965,7 +2963,8 @@ declare namespace window {
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
      * @param { Callback<WindowStatus> } callback - Callback used to return the window status.
      * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     on(type: 'windowStatusChange', callback: Callback<WindowStatus>): void;
@@ -2976,7 +2975,8 @@ declare namespace window {
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
      * @param { Callback<WindowStatus> } callback - Callback used to return the window status.
      * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     off(type: 'windowStatusChange', callback?: Callback<WindowStatus>): void;
