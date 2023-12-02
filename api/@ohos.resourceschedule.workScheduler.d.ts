@@ -143,7 +143,7 @@ declare namespace workScheduler {
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @since 9
      */
-    parameters?: { [key: string]: number | string | boolean };
+    parameters?: Record<string, number | string | boolean>;
   }
 
   /**

@@ -255,7 +255,7 @@ declare namespace bundleState {
    * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsMap
    */
   interface BundleActiveInfoResponse {
-    [key: string]: BundleStateInfo;
+    Record<string, BundleStateInfo>;
   }
 
   /**
