@@ -65,6 +65,11 @@ class AppApiCollectorPlugin {
   }
 
   async start(argv) {
+    const deletedFilePath = path.join(__dirname,'..','\\node_modules\\@types\\node\\ts4.8\\timers.d.ts');
+    if (fs.existsSync(deletedFilePath)) {
+      fs.unlinkSync(deletedFilePath);
+    }
+
     if (!this.checkArguments(argv)) {
       return;
     }
