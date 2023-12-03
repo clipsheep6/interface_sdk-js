@@ -218,7 +218,7 @@ export class EventMethodChecker {
         offEvents: [],
         emitEvents: [],
         onceEvents: []
-      }
+      };
       if (eventMethodDataMap.get(apiCompletePath)) {
         eventMethodData = eventMethodDataMap.get(apiCompletePath) as EventMethodData;
       }
