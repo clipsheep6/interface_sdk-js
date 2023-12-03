@@ -13,15 +13,15 @@
  * limitations under the License.
  */
 
-import ts from "typescript";
-import { EVENT_NAME_LIST, EventMethodData, EVENT_METHOD_CHECK_VERSION, CollectParamStatus, EVENT_FIRST_PARAM_NAME } from "../../../typedef/checker/event_method_check_interface";
-import { ApiResultSimpleInfo, ErrorID, ErrorLevel, ErrorMessage, ErrorType, LogType } from "../../../typedef/checker/result_type";
-import { ApiType, BasicApiInfo, MethodInfo, ParamInfo } from "../../../typedef/parser/ApiInfoDefination";
-import { CommonFunctions } from "../../../utils/checkUtils";
-import { FilesMap, Parser } from "../../parser/parser";
-import { AddErrorLogs } from "./compile_info";
+import ts from 'typescript';
+import { EVENT_NAME_LIST, EventMethodData, EVENT_METHOD_CHECK_VERSION, CollectParamStatus, EVENT_FIRST_PARAM_NAME } from '../../../typedef/checker/event_method_check_interface';
+import { ApiResultSimpleInfo, ErrorID, ErrorLevel, ErrorMessage, ErrorType, LogType } from '../../../typedef/checker/result_type';
+import { ApiType, BasicApiInfo, MethodInfo, ParamInfo } from '../../../typedef/parser/ApiInfoDefination';
+import { CommonFunctions } from '../../../utils/checkUtils';
+import { FilesMap, Parser } from '../../parser/parser';
+import { AddErrorLogs } from './compile_info';
 import { compositiveResult, compositiveLocalResult } from '../../../utils/checkUtils';
-import { CheckHump } from "./check_hump";
+import { CheckHump } from './check_hump';
 
 export class EventMethodChecker {
   private apiData: FilesMap;
@@ -193,7 +193,7 @@ export class EventMethodChecker {
     const lastParam: ParamInfo = offEvent.getParams().slice(-1)[0];
     if (lastParam.paramType) {
       const basicTypes = new Set([ts.SyntaxKind.NumberKeyword, ts.SyntaxKind.StringKeyword, ts.SyntaxKind.BooleanKeyword,
-      ts.SyntaxKind.UndefinedKeyword, ts.SyntaxKind.LiteralType]);
+        ts.SyntaxKind.UndefinedKeyword, ts.SyntaxKind.LiteralType]);
       if (!basicTypes.has(lastParam.paramType)) {
         callbackNumber++;
         if (lastParam.getIsRequired()) {
