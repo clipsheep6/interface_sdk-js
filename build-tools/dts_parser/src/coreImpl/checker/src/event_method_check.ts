@@ -204,7 +204,7 @@ export class EventMethodChecker {
     return {
       callbackNumber: callbackNumber,
       requiredCallbackNumber: requiredCallbackNumber
-    }
+    };
   }
 
   private getEventMethodDataMap(eventInfos: BasicApiInfo[]): Map<string, EventMethodData> {
