@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { BasicApiInfo } from "../parser/ApiInfoDefination";
+import { BasicApiInfo } from '../parser/ApiInfoDefination';
 
 export interface EventMethodData {
   onEvents: BasicApiInfo[];
