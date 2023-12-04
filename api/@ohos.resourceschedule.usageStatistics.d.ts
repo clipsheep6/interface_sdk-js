@@ -671,14 +671,12 @@ declare namespace usageStatistics {
   function queryAppGroupSync(bundleName: string): number;
 
   /**
-   * @interface BundleStatsMap
+   * @type BundleStatsMap
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  interface BundleStatsMap {
-    Record<string, BundleStatsInfo>;
-  }
+  type BundleStatsMap = Record<string, BundleStatsInfo>;
 
   /**
    * Queries usage information about each bundle within a specified period.
