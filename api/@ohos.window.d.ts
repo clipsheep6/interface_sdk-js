@@ -306,12 +306,54 @@ declare namespace window {
    * @since 11
    */
     enum WindowStatusType {
+    /**
+     * Undefined status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
       UNDEFINED = 0,
+    /**
+     * Fullscreen status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
       FULLSCREEN,
+    /**
+     * Maxmize status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
       MAXMIZE,
+    /**
+     * Minimize status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
       MINIMIZE,
+    /**
+     * Floating status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
       FLOATING,
+    /**
+     * Primary status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
       PRIMARY = 100,
+    /**
+     * Secnodary status of the window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
       SECONDARY
     }
 
@@ -634,24 +676,6 @@ declare namespace window {
      * @since 10
      */
     height: number;
-  }
-
-  /**
-   * Window status
-   *
-   * @interface WindowStatus
-   * @syscap SystemCapability.Window.SessionManager
-   * @since 11
-   */
-  interface WindowStatus {
-    /**
-     * The status of the window.
-     *
-     * @type { WindowStatusType } 
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    status: WindowStatusType;
   }
   
   /**
