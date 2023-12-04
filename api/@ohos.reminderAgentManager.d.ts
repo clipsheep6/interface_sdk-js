@@ -354,7 +354,7 @@ declare namespace reminderAgentManager {
      * @systemapi Hide this for inner system use.
      * @since 11
      */
-    equalTo: { [key: string]: number | string | boolean };
+    equalTo: Record<string, number | string | boolean>;
 
     /**
      * Indicates the data to update. This parameter can be null.
