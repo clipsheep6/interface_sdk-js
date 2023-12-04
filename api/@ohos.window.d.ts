@@ -299,6 +299,23 @@ declare namespace window {
   }
 
   /**
+   * Describes the window status of an application
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+    enum WindowStatusType {
+      UNDEFINED = 0,
+      FULLSCREEN,
+      MAXMIZE,
+      MINIMIZE,
+      FLOATING,
+      PRIMARY = 100,
+      SECONDARY
+    }
+
+  /**
    * Properties of status bar and navigation bar, it couldn't update automatically
    *
    * @interface SystemBarProperties
@@ -630,11 +647,11 @@ declare namespace window {
     /**
      * The status of the window.
      *
-     * @type { number } 
+     * @type { WindowStatusType } 
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    status: number;
+    status: WindowStatusType;
   }
   /**
    * Properties of window, it couldn't update automatically
