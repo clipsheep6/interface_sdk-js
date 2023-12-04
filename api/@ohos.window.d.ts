@@ -677,7 +677,7 @@ declare namespace window {
      */
     height: number;
   }
-  
+
   /**
    * Properties of window, it couldn't update automatically
    *
@@ -3003,25 +3003,25 @@ declare namespace window {
      * Register the callback of windowStatusChange
      *
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
-     * @param { Callback<WindowStatus> } callback - Callback used to return the window status.
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    on(type: 'windowStatusChange', callback: Callback<WindowStatus>): void;
+    on(type: 'windowStatusChange', callback: Callback<WindowStatusType>): void;
 
     /**
      * Unregister the callback of windowStatusChange
      *
      * @param { 'windowStatusChange' } type - The value is fixed at 'windowStatusChange', indicating the window status change event.
-     * @param { Callback<WindowStatus> } callback - Callback used to return the window status.
+     * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    off(type: 'windowStatusChange', callback?: Callback<WindowStatus>): void;
+    off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
 
     /**
      * Bind dialog to the target window.
