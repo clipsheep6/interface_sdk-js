@@ -671,7 +671,6 @@ declare namespace usageStatistics {
   function queryAppGroupSync(bundleName: string): number;
 
   /**
-   * @type BundleStatsMap
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9
