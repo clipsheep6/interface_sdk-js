@@ -14,14 +14,13 @@
  */
 import fs from 'fs';
 import { Parser, FilesMap } from '../../parser/parser';
-import { ApiInfo, BasicApiInfo, notJsDocApiTypes, ApiType } from '../../../typedef/parser/ApiInfoDefination';
+import { ApiInfo, BasicApiInfo, notJsDocApiTypes } from '../../../typedef/parser/ApiInfoDefination';
 import {
   ErrorType,
   ErrorID,
   LogType,
   ErrorLevel,
-  ErrorTagFormat,
-  ErrorMessage,
+  ErrorTagFormat
 } from '../../../typedef/checker/result_type';
 import { ClassInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { Comment } from '../../../typedef/parser/Comment';
@@ -37,6 +36,8 @@ import { WordsCheck } from './words_check';
 import { ForbiddenWordsCheck } from './forbidden_words_check';
 import { ApiNamingCheck } from './naming_check';
 import { CheckHump } from './check_hump';
+import { EventMethodChecker } from './event_method_check';
+import { EventMethodData } from '../../../typedef/checker/event_method_check_interface';
 
 export class Check {
   /**
@@ -57,6 +58,10 @@ export class Check {
         CheckHump.checkAllAPINameOfHump(baseInfos);
         //words check
         WordsCheck.wordCheckResultsProcessing(baseInfos);
+        // event check
+        const eventMethodChecker: EventMethodChecker = new EventMethodChecker(fileParseResult);
+        const eventMethodDataMap: Map<string, EventMethodData> = eventMethodChecker.getAllEventMethod();
+        eventMethodChecker.checkEventMethod(eventMethodDataMap);
       });
     }
   }
