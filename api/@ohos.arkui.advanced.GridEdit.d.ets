@@ -20,7 +20,17 @@
  * @since 11
  */
 export declare enum GridEditType {
+  /**
+   * The GridEdit image text type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
   imageText = "object",
+  /**
+   * The GridEdit text type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
   text = "text"
 }
 
@@ -31,7 +41,17 @@ export declare enum GridEditType {
  * @since 11
  */
 export declare enum StateType {
+  /**
+   * The GridEdit select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
   select = 1,
+  /**
+   * The GridEdit no select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
   unSelect = 0
 }
 
