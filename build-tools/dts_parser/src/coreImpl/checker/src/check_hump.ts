@@ -1,15 +1,12 @@
-import ts from 'typescript';
 import path from 'path';
 import { AddErrorLogs } from './compile_info';
 import { StringConstant } from '../../../utils/Constant';
 import { ApiInfosMap, FileInfoMap } from '../../parser/parser';
 import {
-  ApiResultSimpleInfo,
   ErrorType,
   ErrorID,
   LogType,
   ErrorLevel,
-  ApiResultInfo,
   ErrorMessage,
 } from '../../../typedef/checker/result_type';
 import { Comment } from '../../../typedef/parser/Comment';
@@ -17,10 +14,7 @@ import {
   ApiType,
   BasicApiInfo,
   ApiInfo,
-  notJsDocApiTypes,
-  ImportInfo,
-  ExportDeclareInfo,
-  exportImportValue,
+  notJsDocApiTypes
 } from '../../../typedef/parser/ApiInfoDefination';
 import { CommonFunctions } from '../../../utils/checkUtils';
 import { compositiveResult, compositiveLocalResult } from '../../../utils/checkUtils';
