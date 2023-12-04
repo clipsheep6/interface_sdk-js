@@ -623,7 +623,7 @@ declare namespace window {
    * Window status
    *
    * @interface WindowStatus
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
   interface WindowStatus {
@@ -631,7 +631,7 @@ declare namespace window {
      * The status of the window.
      *
      * @type { number } 
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     status: number;
