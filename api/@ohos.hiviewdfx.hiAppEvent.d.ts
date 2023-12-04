@@ -113,6 +113,26 @@ declare namespace hiAppEvent {
   }
 
   /**
+   * Preset domain.
+   *
+   * @namespace domain
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 11
+   */
+  namespace domain {
+    /**
+     * the domain of operating system.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
+    const OS: string;
+  }
+
+  /**
    * Preset event.
    *
    * @namespace event
@@ -178,6 +198,26 @@ declare namespace hiAppEvent {
      * @since 11
      */
     const DISTRIBUTED_SERVICE_START: string;
+
+    /**
+     * crash event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
+    const APP_CRASH: string;
+
+    /**
+     * freeze event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
+    const APP_FREEZE: string;
   }
 
   /**
@@ -723,6 +763,16 @@ declare namespace hiAppEvent {
      * @since 11
      */
     eventTypes?: EventType[];
+
+    /**
+     * The names of the events to be monitored by the watcher.
+     *
+     * @type { ?string[] }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
+    names?: string[];
   }
 
   /**
@@ -800,6 +850,16 @@ declare namespace hiAppEvent {
      * @since 11
      */
     onTrigger?: (curRow: number, curSize: number, holder: AppEventPackageHolder) => void;
+
+    /**
+     * The callback function, when watcher receive the event.
+     *
+     * @type { ?function }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
+    onReceive?: (domain: string, events: Array<{name:string, values:Array<AppEventInfo>}>) => void;
   }
 
   /**
