@@ -677,7 +677,7 @@ declare namespace usageStatistics {
    * @since 9
    */
   interface BundleStatsMap {
-    [key: string]: BundleStatsInfo;
+    Record<string, BundleStatsInfo>;
   }
 
   /**
