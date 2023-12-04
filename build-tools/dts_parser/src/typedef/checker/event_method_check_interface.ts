@@ -26,7 +26,3 @@ export interface CollectParamStatus {
   callbackNumber: number;
   requiredCallbackNumber: number;
 }
-
-export const EVENT_NAME_LIST: string[] = ['on', 'off', 'emit', 'once'];
-export const EVENT_METHOD_CHECK_VERSION: number = 10;
-export const EVENT_FIRST_PARAM_NAME: string = 'type';

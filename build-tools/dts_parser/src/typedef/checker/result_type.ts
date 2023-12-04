@@ -32,6 +32,7 @@ export enum ErrorType {
   FORBIDDEN_WORDS = 'forbidden word',
   API_CHANGE_ERRORS = 'api change errors',
   TS_SYNTAX_ERROR = 'TS syntax error',
+  NO_JSDOC = 'No jsdoc',
 }
 
 /**
@@ -53,6 +54,7 @@ export enum ErrorID {
   FORBIDDEN_WORDS_ID = 11,
   API_CHANGE_ERRORS_ID = 12,
   TS_SYNTAX_ERROR_ID = 13,
+  NO_JSDOC_ID = 14,
 }
 
 /**
@@ -135,6 +137,7 @@ export enum ErrorMessage {
   ERROR_SMALL_HUMP_NAME = 'This name [$$] should be named by small hump.',
   ERROR_SMALL_HUMP_NAME_FILE = 'This API file should be named by small hump.',
   ERROR_LARGE_HUMP_NAME_FILE = 'This API file should be named by large hump.',
+  ERROR_NO_JSDOC = 'Jsdoc needs to be added to the current API.'
 }
 
 /**
