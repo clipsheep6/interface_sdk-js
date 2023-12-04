@@ -997,11 +997,9 @@ declare namespace pasteboard {
      * @permission ohos.permission.SECURE_PASTE
      * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<PasteData>.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 11
      */
     getDataSystem(callback: AsyncCallback<PasteData>): void;
@@ -1011,10 +1009,8 @@ declare namespace pasteboard {
      * @permission ohos.permission.SECURE_PASTE
      * @returns { Promise<PasteData> } the promise returned by the getData.
      * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 11
      */
     getDataSystem(): Promise<PasteData>;
@@ -1024,10 +1020,8 @@ declare namespace pasteboard {
      * @permission ohos.permission.SECURE_PASTE
      * @returns { PasteData }  a new PasteData.
      * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
      * @since 11
      */
     getDataSystemSync(): PasteData;
