@@ -435,7 +435,7 @@ declare const ObjectLink: PropertyDecorator;
  * @since 11
  * @form
  */
-declare const Provide: PropertyDecorator & ((value: string) => PropertyDecorator);
+declare const Provide: PropertyDecorator & ((value: string, overridable?: boolean) => PropertyDecorator);
 
 /**
  * Defining Consume PropertyDecorator.
