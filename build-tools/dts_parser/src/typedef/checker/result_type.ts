@@ -13,8 +13,11 @@
  * limitations under the License.
  */
 
+import { ApiDiffType } from '../../typedef/diff/ApiInfoDiff';
+
+
 /**
- * error message type
+ * error message type 
  * @enum { string }
  */
 export enum ErrorType {
@@ -122,10 +125,7 @@ export enum ErrorMessage {
   ERROR_CHANGES_API_NEW_REQUIRED_PARAM = 'Forbid changes: Required parameters cannot be created.',
   ERROR_CHANGES_API_DELETE_PARAM = 'Forbid changes: Parameters cannot be deleted.',
   ERROR_CHANGES_DEPRECATED = 'Forbid changes: The api has deprecated tag.',
-  ERROR_CHANGES_JSDOC_NUMBER = 'Forbid changes: API changes must add a new section of JSDoc.',
-  ERROR_CHANGES_JSDOC_CHANGE = 'Forbid changes: Previous JSDoc cannot be changed.',
   ERROR_CHANGES_JSDOC_TRROWS = 'Forbid changes: Throws tag cannot be created.',
-  ERROR_CHANGES_JSDOC_PERMISSION = 'Forbid changes: Permission tag cannot be created or modified.',
   ERROR_WORD = 'The current word [$$] is incompatible with the regulaion, please confirm whether it needs to be corrected to a common word.',
   ERROR_NAMING = 'Prohibited word in [$$]:{$$}.The word allowed is [$$]',
   ERROR_SCENARIO = 'Prohibited word in [$$]:{$$} in the [$$] file',
@@ -134,7 +134,62 @@ export enum ErrorMessage {
   ERROR_SMALL_HUMP_NAME = 'This name [$$] should be named by small hump.',
   ERROR_SMALL_HUMP_NAME_FILE = 'This API file should be named by small hump.',
   ERROR_LARGE_HUMP_NAME_FILE = 'This API file should be named by large hump.',
+  ERROR_CHANGES_JSDOC_LEVEL = 'Forbid changes: API level change to system.',
+  ERROR_CHANGES_JSDOC_MODEL = 'Forbid changes: API mode change.',
+  ERROR_CHANGES_JSDOC_CARD = 'Forbid changes: API card delete.',
+  ERROR_CHANGES_JSDOC_CROSS_PLATFORM = 'Forbid changes: API crossplatform delete.',
+  ERROR_CHANGES_JSDOC_ERROR_CODE = 'Forbid changes: API errorcode cannot be created or modified.',
+  ERROR_CHANGES_JSDOC_PERMISSION = 'Forbid changes: Permission tag cannot be created or modified.',
+  ERROR_CHANGES_API_NAME = 'Forbid changes: API cannot be changed.',
+  ERROR_CHANGES_FUNCTION_RETURN_TYPE = 'Forbid changes: Function return type cannot be changed.',
+  ERROR_CHANGES_API_PARAM = 'Forbid changes: Parameters cannot be changed.',
+  ERROR_CHANGES_PROPERTY = 'Forbid changes: Property cannot be changed.',
+  ERROR_CHANGES_CONSTANT = 'Forbid changes: Constant value cannot be changed.',
+  ERROR_CHANGES_TYPE_ALIAS = 'Forbid changes: Type alias cannot be changed.',
+  ERROR_CHANGES_ENUM_MEMBER = 'Forbid changes: Enum number value cannot be changed.',
+  ERROR_CHANGES_API = 'Forbid changes: API cannot be deleted.',
+  ERROR_CHANGES_JSDOC_CHANGE = 'Forbid changes: Historical JSDoc cannot be changed.',
+  ERROR_CHANGES_JSDOC_NUMBER = 'Forbid changes: API changes must add a new section of JSDoc.',
 }
+
+export const incompatibleApiDiffTypes: Map<ApiDiffType, ErrorMessage> = new Map([
+  [ApiDiffType.PUBLIC_TO_SYSTEM, ErrorMessage.ERROR_CHANGES_JSDOC_LEVEL],
+  [ApiDiffType.NA_TO_STAGE, ErrorMessage.ERROR_CHANGES_JSDOC_MODEL],
+  [ApiDiffType.NA_TO_FA, ErrorMessage.ERROR_CHANGES_JSDOC_MODEL],
+  [ApiDiffType.FA_TO_STAGE, ErrorMessage.ERROR_CHANGES_JSDOC_MODEL],
+  [ApiDiffType.STAGE_TO_FA, ErrorMessage.ERROR_CHANGES_JSDOC_MODEL],
+  [ApiDiffType.CARD_TO_NA, ErrorMessage.ERROR_CHANGES_JSDOC_CARD],
+  [ApiDiffType.CROSS_PLATFORM_TO_NA, ErrorMessage.ERROR_CHANGES_JSDOC_CROSS_PLATFORM],
+  [ApiDiffType.ERROR_CODE_NA_TO_HAVE, ErrorMessage.ERROR_CHANGES_JSDOC_ERROR_CODE],
+  [ApiDiffType.ERROR_CODE_CHANGE, ErrorMessage.ERROR_CHANGES_JSDOC_ERROR_CODE],
+  [ApiDiffType.PERMISSION_NA_TO_HAVE, ErrorMessage.ERROR_CHANGES_JSDOC_PERMISSION],
+  [ApiDiffType.PERMISSION_RANGE_SMALLER, ErrorMessage.ERROR_CHANGES_JSDOC_PERMISSION],
+  [ApiDiffType.PERMISSION_RANGE_CHANGE, ErrorMessage.ERROR_CHANGES_JSDOC_PERMISSION],
+  [ApiDiffType.API_NAME_CHANGE, ErrorMessage.ERROR_CHANGES_API_NAME],
+  [ApiDiffType.FUNCTION_RETURN_TYPE_ADD, ErrorMessage.ERROR_CHANGES_FUNCTION_RETURN_TYPE],
+  [ApiDiffType.FUNCTION_RETURN_TYPE_CHANGE, ErrorMessage.ERROR_CHANGES_FUNCTION_RETURN_TYPE],
+  [ApiDiffType.FUNCTION_PARAM_POS_CHANGE, ErrorMessage.ERROR_CHANGES_API_PARAM],
+  [ApiDiffType.FUNCTION_PARAM_REQUIRED_ADD, ErrorMessage.ERROR_CHANGES_API_PARAM],
+  [ApiDiffType.FUNCTION_PARAM_REDUCE, ErrorMessage.ERROR_CHANGES_API_PARAM],
+  [ApiDiffType.FUNCTION_PARAM_TO_REQUIRED, ErrorMessage.ERROR_CHANGES_API_PARAM],
+  [ApiDiffType.FUNCTION_PARAM_TYPE_CHANGE, ErrorMessage.ERROR_CHANGES_API_PARAM],
+  [ApiDiffType.FUNCTION_PARAM_TYPE_REDUCE, ErrorMessage.ERROR_CHANGES_API_PARAM],
+  [ApiDiffType.PROPERTY_READONLY_TO_REQUIRED, ErrorMessage.ERROR_CHANGES_PROPERTY],
+  [ApiDiffType.PROPERTY_WRITABLE_TO_UNREQUIRED, ErrorMessage.ERROR_CHANGES_PROPERTY],
+  [ApiDiffType.PROPERTY_WRITABLE_TO_REQUIRED, ErrorMessage.ERROR_CHANGES_PROPERTY],
+  [ApiDiffType.PROPERTY_TYPE_CHANGE, ErrorMessage.ERROR_CHANGES_PROPERTY],
+  [ApiDiffType.PROPERTY_READONLY_ADD, ErrorMessage.ERROR_CHANGES_PROPERTY],
+  [ApiDiffType.PROPERTY_WRITABLE_ADD, ErrorMessage.ERROR_CHANGES_PROPERTY],
+  [ApiDiffType.PROPERTY_WRITABLE_REDUCE, ErrorMessage.ERROR_CHANGES_PROPERTY],
+  [ApiDiffType.CONSTANT_VALUE_CHANGE, ErrorMessage.ERROR_CHANGES_CONSTANT],
+  [ApiDiffType.TYPE_ALIAS_CHANGE, ErrorMessage.ERROR_CHANGES_TYPE_ALIAS],
+  [ApiDiffType.TYPE_ALIAS_ADD, ErrorMessage.ERROR_CHANGES_TYPE_ALIAS],
+  [ApiDiffType.TYPE_ALIAS_REDUCE, ErrorMessage.ERROR_CHANGES_TYPE_ALIAS],
+  [ApiDiffType.ENUM_MEMBER_VALUE_CHANGE, ErrorMessage.ERROR_CHANGES_ENUM_MEMBER],
+  [ApiDiffType.REDUCE, ErrorMessage.ERROR_CHANGES_API],
+  [ApiDiffType.HISTORICAL_JSDOC_CHANGE, ErrorMessage.ERROR_CHANGES_JSDOC_CHANGE],
+  [ApiDiffType.HISTORICAL_API_CHANGE, ErrorMessage.ERROR_CHANGES_JSDOC_NUMBER],
+]);
 
 /**
  * online error message format

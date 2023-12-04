@@ -110,6 +110,11 @@ export enum NumberConstant {
    * syscap分隔为数组后，index为2的字段是关键字段
    */
   SYSCAP_KEY_FIELD_INDEX = 2,
+
+  /**
+   *当前版本对应的jsdoc
+   */
+  DELETE_CURRENT_JS_DOC = -2,
 }
 
 /**
@@ -123,17 +128,4 @@ export enum PunctuationMark {
   RIGHT_BRACE = '}',
   LEFT_PARENTHESES = '(',
   RIGHT_PARENTHESES = ')',
-}
-
-/**
- * 常用符号存储
- */
-export enum PunctuationMark {
-  QUERY = '?',
-  LEFT_BRACKET = '[',
-  RIGHT_BRACKET = ']',
-  LEFT_BRACE = '{',
-  RIGHT_BRACE = '}',
-  LEFT_PARENTHESES = '(',
-  RIGHT_PARENTHESES = ')'
 }
