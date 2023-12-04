@@ -452,7 +452,7 @@ declare namespace hiAppEvent {
     /**
      * The name of the event.
      *
-     * @type { ?string }
+     * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
@@ -462,7 +462,7 @@ declare namespace hiAppEvent {
     /**
      * The event array which is group by the name.
      *
-     * @type { ?Array<AppEventInfo> }
+     * @type { Array<AppEventInfo> }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
