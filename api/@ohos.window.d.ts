@@ -653,6 +653,7 @@ declare namespace window {
      */
     status: WindowStatusType;
   }
+  
   /**
    * Properties of window, it couldn't update automatically
    *
