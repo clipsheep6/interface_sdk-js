@@ -176,7 +176,7 @@ export declare struct GridEdit {
    * @crossplatform
    * @since 11
    */
-  @Prop
+  @Link
   options: OptionType;
   /**
    * DataList of GridEdit.
@@ -186,8 +186,18 @@ export declare struct GridEdit {
    * @crossplatform
    * @since 11
    */
-  @Prop
+  @Link
   dataList: ItemType[];
+
+  /**
+   * clickBack of GridEdit.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  clickBack: () => void;
 
   /**
    * Build function of GridEdit.
