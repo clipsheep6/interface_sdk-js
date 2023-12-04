@@ -14,7 +14,8 @@
  */
 
 import ts from 'typescript';
-import { EVENT_NAME_LIST, EventMethodData, EVENT_METHOD_CHECK_VERSION, CollectParamStatus, EVENT_FIRST_PARAM_NAME } from '../../../typedef/checker/event_method_check_interface';
+import { EventConstant } from "../../../utils/Constant";
+import { EventMethodData, CollectParamStatus } from '../../../typedef/checker/event_method_check_interface';
 import { ApiResultSimpleInfo, ErrorID, ErrorLevel, ErrorMessage, ErrorType, LogType } from '../../../typedef/checker/result_type';
 import { ApiType, BasicApiInfo, MethodInfo, ParamInfo } from '../../../typedef/parser/ApiInfoDefination';
 import { CommonFunctions } from '../../../utils/checkUtils';
@@ -105,7 +106,7 @@ export class EventMethodChecker {
       for (let i = 0; i < allEvnets.length; i++) {
         const event: BasicApiInfo = allEvnets[i];
         const eventParams: ParamInfo[] = (event as MethodInfo).getParams();
-        if ((eventParams.length < 1 || eventParams[0].getApiName() !== EVENT_FIRST_PARAM_NAME) && this.checkVersionNeedCheck(event)) {
+        if ((eventParams.length < 1 || eventParams[0].getApiName() !== EventConstant.EVENT_FIRST_PARAM_NAME) && this.checkVersionNeedCheck(event)) {
           const errorMessage: string = CommonFunctions.createErrorInfo(ErrorMessage.ERROR_EVENT_WITHOUT_PARAMETER, []);
           AddErrorLogs.addAPICheckErrorLogs(
             ErrorID.PARAMETER_ERRORS_ID,
@@ -186,14 +187,14 @@ export class EventMethodChecker {
   }
 
   private checkVersionNeedCheck(eventInfo: BasicApiInfo): boolean {
-    return parseInt(eventInfo.getCurrentVersion()) >= EVENT_METHOD_CHECK_VERSION;
+    return parseInt(eventInfo.getCurrentVersion()) >= EventConstant.EVENT_METHOD_CHECK_VERSION;
   }
 
   private collectEventCallback(offEvent: MethodInfo, callbackNumber: number, requiredCallbackNumber: number): CollectParamStatus {
     const lastParam: ParamInfo = offEvent.getParams().slice(-1)[0];
     if (lastParam.paramType) {
       const basicTypes = new Set([ts.SyntaxKind.NumberKeyword, ts.SyntaxKind.StringKeyword, ts.SyntaxKind.BooleanKeyword,
-        ts.SyntaxKind.UndefinedKeyword, ts.SyntaxKind.LiteralType]);
+      ts.SyntaxKind.UndefinedKeyword, ts.SyntaxKind.LiteralType]);
       if (!basicTypes.has(lastParam.paramType)) {
         callbackNumber++;
         if (lastParam.getIsRequired()) {
@@ -255,7 +256,7 @@ export class EventMethodChecker {
   }
 
   private isEventMethod(apiName: string): boolean {
-    const eventNameReg: RegExp = new RegExp(`^(${EVENT_NAME_LIST.join('|')})\_`);
+    const eventNameReg: RegExp = new RegExp(`^(${EventConstant.EVENT_NAME_LIST.join('|')})\_`);
     return eventNameReg.test(apiName);
   }
 }

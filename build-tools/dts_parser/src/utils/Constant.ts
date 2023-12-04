@@ -124,3 +124,9 @@ export enum PunctuationMark {
   LEFT_PARENTHESES = '(',
   RIGHT_PARENTHESES = ')',
 }
+
+export class EventConstant {
+  static EVENT_NAME_LIST: string[] = ['on', 'off', 'emit', 'once'];
+  static EVENT_METHOD_CHECK_VERSION: number = 10;
+  static EVENT_FIRST_PARAM_NAME: string = 'type';
+}

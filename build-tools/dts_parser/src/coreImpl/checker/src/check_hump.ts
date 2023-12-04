@@ -1,3 +1,18 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import path from 'path';
 import { AddErrorLogs } from './compile_info';
 import { StringConstant } from '../../../utils/Constant';
@@ -14,7 +29,7 @@ import {
   ApiType,
   BasicApiInfo,
   ApiInfo,
-  notJsDocApiTypes
+  notJsDocApiTypes,
 } from '../../../typedef/parser/ApiInfoDefination';
 import { CommonFunctions } from '../../../utils/checkUtils';
 import { compositiveResult, compositiveLocalResult } from '../../../utils/checkUtils';
@@ -84,7 +99,7 @@ export class CheckHump {
    * @param {ApiInfo} apiInfo api节点
    */
   static checkAPINameOfHump(apiInfo: ApiInfo): void {
-    const jsDocInfo: Comment.JsDocInfo | undefined = apiInfo.getLatestJsDocInfo();
+    const jsDocInfo: Comment.JsDocInfo | undefined = apiInfo.getLastJsDocInfo();
     if (jsDocInfo) {
       if (jsDocInfo.getDeprecatedVersion() !== '-1') {
         return;
