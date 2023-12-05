@@ -803,6 +803,16 @@ declare namespace pasteboard {
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#getData
      */
+    /**
+     * Gets pastedata from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @param { AsyncCallback<PasteData> } callback - the callback of getData.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 11
+     * @deprecated since 9
+     * @useinstead ohos.pasteboard.pasteboard#getData
+     */
     getPasteData(callback: AsyncCallback<PasteData>): void;
 
     /**
@@ -810,6 +820,16 @@ declare namespace pasteboard {
      * @returns { Promise<PasteData> } the promise returned by the getData.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 6
+     * @deprecated since 9
+     * @useinstead ohos.pasteboard.pasteboard#getData
+     */
+    /**
+     * Gets pastedata from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @returns { Promise<PasteData> } the promise returned by the getData.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 11
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#getData
      */
