@@ -973,88 +973,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
 
   /**
    * This callback is triggered when an exception occurs during image loading.
-   *
-   * @param { function } callback
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * This callback is triggered when an exception occurs during image loading.
-   *
-   * @param { function } callback
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   * @form
-   */
-  /**
-   * This callback is triggered when an exception occurs during image loading.
-   *
-   * @param { function } callback
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * This callback is triggered when an exception occurs during image loading.
-   *
-   * @param { function } callback
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   * @form
-   */
-  onError(callback: (event: {
-    /**
-     * Component width.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     * @form
-     */
-    /**
-     * Component width.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     * @form
-     */
-    componentWidth: number;
-
-    /**
-     * Component height.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     * @form
-     */
-    /**
-     * Component height.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     * @form
-     */
-    componentHeight: number
-  }) => void): ImageAttribute;
-
-  /**
-   * This callback is triggered when an exception occurs during image loading.
    * The field of "message" carries the detailed information of failed image loading.
    *
    * @param { function } callback
@@ -1086,70 +1004,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    * @form
    */
-  onError(callback: (event: {
-    /**
-     * Component width.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     * @form
-     */
-    /**
-     * Component width.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     * @form
-     */
-    componentWidth: number;
-
-    /**
-     * Component height.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     * @form
-     */
-    /**
-     * Component height.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     * @form
-     */
-    componentHeight: number;
-
-    /**
-     * Message.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     * @form
-     */
-    /**
-     * Message.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     * @form
-     */
-    message: string
-  }) => void): ImageAttribute;
+  onError(callback: ImageErrorCallback): ImageAttribute;
 
   /**
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
@@ -1259,3 +1114,146 @@ declare const Image: ImageInterface;
  * @form
  */
 declare const ImageInstance: ImageAttribute;
+
+/**
+ * @interface ImageErrorCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * @interface ImageErrorCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+/**
+ * @interface ImageErrorCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare interface ImageErrorCallback extends Error {
+  /**
+   * The callback when load image fail.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  event: (value: ImageErrorCallbackParams) => void;
+}
+
+
+/**
+ * @interface ImageErrorCallbackParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * @interface ImageErrorCallbackParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+/**
+ * @interface ImageErrorCallbackParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare interface ImageErrorCallbackParams {
+  /**
+     * Component width.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 9
+     * @form
+     */
+  /**
+     * Component width.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     * @form
+     */
+  /**
+     * Component width.
+     *
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     * @form
+     */
+  componentWidth: number;
+
+  /**
+   * Component height.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Component height.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  /**
+   * Component height.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  componentHeight: number;
+
+  /**
+   * Message.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Message.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  /**
+   * Message.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  message: string
+}
