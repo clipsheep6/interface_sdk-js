@@ -305,56 +305,56 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @since 11
    */
-    enum WindowStatusType {
+  enum WindowStatusType {
     /**
      * Undefined status of the window
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-      UNDEFINED = 0,
+    UNDEFINED = 0,
     /**
      * Fullscreen status of the window
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-      FULLSCREEN,
+    FULLSCREEN,
     /**
      * Maxmize status of the window
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-      MAXMIZE,
+    MAXMIZE,
     /**
      * Minimize status of the window
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-      MINIMIZE,
+    MINIMIZE,
     /**
      * Floating status of the window
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-      FLOATING,
+    FLOATING,
     /**
      * Primary status of the window
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-      PRIMARY = 100,
+    PRIMARY = 100,
     /**
      * Secnodary status of the window
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-      SECONDARY
+    SECONDARY
     }
 
   /**
