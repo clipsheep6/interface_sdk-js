@@ -2433,7 +2433,6 @@ declare namespace window {
      * @throws {BusinessError} 1300002 - This window state is abnormal.
      * @throws {BusinessError} 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
      * @since 11
      */
     setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean, callback: AsyncCallback<void>): void;
@@ -2448,7 +2447,6 @@ declare namespace window {
      * @throws {BusinessError} 1300002 - This window state is abnormal.
      * @throws {BusinessError} 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform
      * @since 11
      */
     setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean): Promise<void>;
