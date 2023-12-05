@@ -1784,6 +1784,7 @@ declare namespace window {
      */
     WINDOW_HIDDEN = 4
   }
+   
   /**
    * Specific system bar type.
    *
