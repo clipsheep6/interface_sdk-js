@@ -355,7 +355,7 @@ declare namespace window {
      * @since 11
      */
     SECONDARY
-    }
+  }
 
   /**
    * Properties of status bar and navigation bar, it couldn't update automatically
