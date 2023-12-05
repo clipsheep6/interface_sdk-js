@@ -11,6 +11,7 @@ acmmax
 acn
 activates
 actived
+adcp
 adjusts
 adpu
 adts
@@ -207,6 +208,7 @@ dpad
 drains
 dragbar
 drawbuffer
+drm
 dsda
 dsds
 dsf
@@ -294,6 +296,7 @@ haps
 haptic
 haptics
 hce
+hdcp
 headed
 headersreceive
 headphones
@@ -584,6 +587,7 @@ psc
 psk
 psrc
 pss
+pssh
 puk
 pvr
 querier
