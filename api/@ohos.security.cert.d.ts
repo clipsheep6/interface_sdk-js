@@ -183,7 +183,7 @@ declare namespace cert {
     FORMAT_PEM = 1,
 
     /**
-     * The value of certchain PKCS7 format.
+     * The value of cert chain PKCS7 format.
      *
      * @syscap SystemCapability.Security.Cert
      * @since 11
@@ -1916,7 +1916,6 @@ declare namespace cert {
    * The returned object provides the data parsing or verification capability.
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
-   * @param { AsyncCallback<X509CertChain> } callback - the callback of X509CertChain.
    * @returns { Promise<X509CertChain> }
    * @throws { BusinessError } 401 - invalid parameters.
    * @throws { BusinessError } 19020001 - memory error.
@@ -1932,7 +1931,6 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - indicate the input cert data.
    * @param { AsyncCallback<X509CertChain> } callback
-   * @returns { Promise<X509CertChain> } the promise of X509 cert chain.
    * @throws { BusinessError } 401 - invalid parameters.
    * @throws { BusinessError } 19020001 - memory error.
    * @throws { BusinessError } 19030001 - crypto operation error.
@@ -1965,7 +1963,7 @@ declare namespace cert {
     /**
      * The trust CA cert.
      *
-     * @type { X509Cert }
+     * @type { ?X509Cert }
      * @syscap SystemCapability.Security.Cert
      * @since 11
      */
@@ -1974,7 +1972,7 @@ declare namespace cert {
     /**
      * The trust CA public key in DER format.
      *
-     * @type { Uint8Array }
+     * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Cert
      * @since 11
      */
@@ -1983,7 +1981,7 @@ declare namespace cert {
     /**
      * The trust CA subject in DER format.
      *
-     * @type { Uint8Array }
+     * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Cert
      * @since 11
      */
