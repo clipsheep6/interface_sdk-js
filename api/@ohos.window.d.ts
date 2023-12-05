@@ -349,7 +349,7 @@ declare namespace window {
      */
     PRIMARY = 100,
     /**
-     * Secnodary status of the window
+     * Secondary status of the window
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
