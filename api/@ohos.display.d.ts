@@ -305,7 +305,7 @@ declare namespace display {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
-  function lockFoldDisplayStatus(locked: boolean): void;
+  function lockFoldDisplayMode(locked: boolean): void;
 
   /**
    * Enumerates the fold status.
