@@ -7841,7 +7841,7 @@ declare interface DragEvent {
 
 /**
  * Enum for BackgroundColorBlendMode.
- * Use background color as src, child nodes as dst
+ * Use background color as src, background as dst
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
