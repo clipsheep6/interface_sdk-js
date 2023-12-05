@@ -314,7 +314,7 @@ declare namespace window {
      */
     UNDEFINED = 0,
     /**
-     * Fullscreen status of the window
+     * Full screen status of the window
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -342,7 +342,7 @@ declare namespace window {
      */
     FLOATING,
     /**
-     * Splitscreen status of the window
+     * Split screen status of the window
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
