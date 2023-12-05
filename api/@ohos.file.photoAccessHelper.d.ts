@@ -2362,7 +2362,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Options for recommending photos
+   * Options for recommend photos
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 11
