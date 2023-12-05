@@ -342,7 +342,7 @@ declare namespace window {
      */
     FLOATING,
     /**
-     * Splitcreen status of the window
+     * Splitscreen status of the window
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
