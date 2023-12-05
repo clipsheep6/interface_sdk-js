@@ -303,7 +303,7 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 11
    */
   function lockFoldDisplayStatus(locked: boolean): void;
 
