@@ -1784,7 +1784,12 @@ declare namespace window {
      */
     WINDOW_HIDDEN = 4
   }
-
+  /**
+   * Specific system bar type.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
   type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
 
   interface Window {
