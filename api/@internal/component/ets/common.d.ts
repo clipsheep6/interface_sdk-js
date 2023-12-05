@@ -7840,6 +7840,250 @@ declare interface DragEvent {
 }
 
 /**
+ * Enum for BackgroundColorBlendMode.
+ * Use background color as src, child nodes as dst
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare enum BackgroundColorBlendMode {
+  /**
+   * Clear destination color covered by the source to 0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  CLEAR = 0,
+  /**
+   * r = s
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  SRC = 1,
+  /**
+   * r = d
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  DST = 2,
+  /**
+   * r = s + (1-sa)*d
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  SRC_OVER = 3,
+  /**
+   * r = d + (1-da)*s
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  DST_OVER = 4,
+  /**
+   * r = s * da
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  SRC_IN = 5,
+  /**
+   * r = d * sa
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  DST_IN = 6,
+  /**
+   * r = s * (1-da)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  SRC_OUT = 7,
+  /**
+   * r = d * (1-sa)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  DST_OUT = 8,
+  /**
+   * r = s*da + d*(1-sa)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  SRC_ATOP = 9,
+  /**
+   * r = d*sa + s*(1-da)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  DST_ATOP = 10,
+  /**
+   * r = s*(1-da) + d*(1-sa)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  XOR = 11,
+  /**
+   * r = min(s + d, 1)
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  PLUS = 12,
+  /**
+   * r = s*d
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  MODULATE = 13,
+  /**
+   * r = s + d - s*d
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  SCREEN = 14,
+  /**
+   * multiply or screen, depending on destination
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  OVERLAY = 15,
+  /**
+   * rc = s + d - max(s*da, d*sa), ra = kSrcOver
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  DARKEN = 16,
+  /**
+   * rc = s + d - min(s*da, d*sa), ra = kSrcOver
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  LIGHTEN = 17,
+  /**
+   * brighten destination to reflect source
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  COLOR_DODGE = 18,
+  /**
+   * darken destination to reflect source
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  COLOR_BURN = 19,
+  /**
+   * multiply or screen, depending on source
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  HARD_LIGHT = 20,
+  /**
+   * lighten or darken, depending on source
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  SOFT_LIGHT = 21,
+  /**
+   * rc = s + d - 2*(min(s*da, d*sa)), ra = kSrcOver
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  DIFFERENCE = 22,
+  /**
+   * rc = s + d - two(s*d), ra = kSrcOver
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  EXCLUSION = 23,
+  /**
+   * r = s*(1-da) + d*(1-sa) + s*d
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  MULTIPLY = 24,
+  /**
+   * hue of source with saturation and luminosity of destination
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  HUE = 25,
+  /**
+   * saturation of source with hue and luminosity of destination
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  SATURATION = 26,
+  /**
+   * hue and saturation of source with luminosity of destination
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  COLOR = 27,
+  /**
+   * luminosity of source with hue and saturation of destination
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+  */
+  LUMINOSITY = 28
+}
+
+/**
  * Import the IntentionCode type object for IntentionCode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10963,7 +11207,7 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  backgroundColor(value: ResourceColor): T;
+  backgroundColor(value: ResourceColor, blendMode?: BackgroundColorBlendMode): T;
 
   /**
    * Background image
