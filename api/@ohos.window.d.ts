@@ -321,12 +321,12 @@ declare namespace window {
      */
     FULLSCREEN,
     /**
-     * Maxmize status of the window
+     * Maximize status of the window
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    MAXMIZE,
+    MAXIMIZE,
     /**
      * Minimize status of the window
      *
@@ -347,14 +347,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    PRIMARY = 100,
-    /**
-     * Secondary status of the window
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    SECONDARY
+    SPLITSCREEN = 100
   }
 
   /**
