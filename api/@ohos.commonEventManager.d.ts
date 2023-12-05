@@ -1800,6 +1800,16 @@ declare namespace commonEventManager {
     COMMON_EVENT_OPERATOR_CONFIG_CHANGED = 'usual.event.OPERATOR_CONFIG_CHANGED',
 
     /**
+     * Indicate the action of a common event that the satellite status has been updated.
+     * This common event can be triggered only by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 11
+     */
+    COMMON_EVENT_SATELLITE_STATUS_CHANGED = 'usual.event.SATELLITE_STATUS_CHANGED',
+
+    /**
      * Indicates the action of a common event that the default SMS subscription has been changed.
      * This is a protected common event that can only be sent by system.
      *
