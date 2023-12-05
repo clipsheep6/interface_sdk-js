@@ -2301,6 +2301,15 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     isEditSupported?: boolean;
+
+    /**
+     * The uri for the preselected files.
+     * 
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    preSelectUris?: Array<string>;
   }
 
   /**
