@@ -337,10 +337,11 @@ declare enum EnterKeyType {
  * @atomicservice
  * @since 11
  */
-declare class SubmitEvent {
+declare interface SubmitEvent {
   /**
    * Keeps TextInput editable state when submitted
    *
+   * @interface TextInputOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -351,13 +352,13 @@ declare class SubmitEvent {
   /**
    * Sets the current value of TextInput.
    *
-   * @type { ?ResourceStr }
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  text?: ResourceStr;
+  text: string;
 }
 
 /**
