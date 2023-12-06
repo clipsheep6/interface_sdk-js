@@ -330,6 +330,38 @@ declare enum EnterKeyType {
 }
 
 /**
+ * Provides the method of controlling soft keyboard when submitted.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare class SubmitEvent {
+  /**
+   * keepEditableState
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  keepEditableState(): void;
+
+  /**
+   * Sets the current value of TextInput.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  text?: ResourceStr;
+}
+
+
+/**
  * Provides the method of switching the cursor position.
  *
  * @extends TextContentControllerBase
