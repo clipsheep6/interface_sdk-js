@@ -1002,7 +1002,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 11
    */
-  onSubmit(callback: (enterKey: EnterKeyType) => void): TextInputAttribute;
+  onSubmit(callback: (enterKey: EnterKeyType, event：SubmitEvent) => void): TextInputAttribute;
 
   /**
    * Called when the input of the input box changes.
