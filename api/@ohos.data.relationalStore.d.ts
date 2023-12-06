@@ -16,6 +16,7 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/BaseContext';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
+import commonType from '@ohos.data.commonType';
 
 /**
  * Provides methods for rdbStore create and delete.
@@ -105,71 +106,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  interface Asset {
-    /**
-     * The name of asset.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    name: string;
-
-    /**
-     * The uri of asset.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    uri: string;
-
-    /**
-     * The path of asset.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    path: string;
-
-    /**
-     * The create time of asset.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    createTime: string;
-
-    /**
-     * The modify time of asset.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    modifyTime: string;
-
-    /**
-     * The size of asset.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    size: string;
-
-    /**
-     * The status of asset.
-     *
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 10
-     */
-    status?: AssetStatus;
-  }
-
+  type Asset = commonType.Asset;
   /**
    * Indicates several assets in one column
    *
@@ -177,7 +114,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type Assets = Asset[];
+  type Assets = commonType.Assets;
 
   /**
    * Indicates possible value types
@@ -192,7 +129,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets;
+  type ValueType = commonType.ValueType;
 
   /**
    * Values in buckets are stored in key-value pairs
@@ -207,7 +144,7 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type ValuesBucket = { [key: string]: ValueType; };
+  type ValuesBucket = commonType.ValuesBucket;
 
   /**
    * The type of the priority key can be number or string
