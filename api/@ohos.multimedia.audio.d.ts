@@ -2881,6 +2881,7 @@ declare namespace audio {
   }
 
   /**
+   * Connect type for device.
    * Implements audio spatialization management.
    * @typedef AudioSpatializationManager
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
