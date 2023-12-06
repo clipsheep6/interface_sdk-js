@@ -55,6 +55,7 @@ declare namespace deviceInfo {
    *
    * @constant
    * @syscap SystemCapability.Startup.SystemInfo
+   * @atomicservice
    * @crossplatform
    * @atomicservice
    * @since 11
