@@ -445,12 +445,27 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 9
    */
+  /**
+   * Preset vibration type vibration effect.
+   *
+   * @interface VibratePreset
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 11
+   */
   interface VibratePreset {
     /**
      * The value is "preset", which triggers motor vibration according to preset vibration effect.
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
+     */
+    /**
+     * The value is "preset", which triggers motor vibration according to preset vibration effect.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @atomicservice
+     * @since 11
      */
     type: 'preset';
 
@@ -460,6 +475,13 @@ declare namespace vibrator {
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
      */
+    /**
+     * Preset type vibration.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @atomicservice
+     * @since 11
+     */
     effectId: string;
 
     /**
@@ -467,6 +489,13 @@ declare namespace vibrator {
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since 9
+     */
+    /**
+     * The number of vibration repetitions.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @atomicservice
+     * @since 11
      */
     count: number;
   }
@@ -478,12 +507,27 @@ declare namespace vibrator {
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 10
    */
+  /**
+   * Custom vibration, vibrate the effect from a haptic file.
+   *
+   * @interface VibrateFromFile
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 11
+   */
   interface VibrateFromFile {
   /**
    * The value is "file", which triggers motor vibration according to the vibration profile.
    *
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 10
+   */
+  /**
+   * The value is "file", which triggers motor vibration according to the vibration profile.
+   *
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 11
    */
     type: 'file';
 
@@ -492,6 +536,13 @@ declare namespace vibrator {
    *
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since 10
+   */
+  /**
+   * Haptic file descriptor, some formats are supported.
+   *
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @atomicservice
+   * @since 11
    */
     hapticFd: HapticFileDescriptor;
   }
