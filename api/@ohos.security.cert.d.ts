@@ -2015,7 +2015,7 @@ declare namespace cert {
     trustAnchors: Array<X509TrustAnchor>;
 
     /**
-     * The CRL list to verify the certificate chain revocation state.
+     * The cert and CRL list to build cert chain and verify the certificate chain revocation state.
      *
      * @type { ?Array<CertCRLCollection> }
      * @syscap SystemCapability.Security.Cert
@@ -2043,7 +2043,7 @@ declare namespace cert {
     readonly trustAnchor: X509TrustAnchor;
 
     /**
-     * The public key of the target certificate.
+     * The target certificate.
      *
      * @type { X509Cert }
      * @readonly
