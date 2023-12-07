@@ -39,6 +39,80 @@ interface SymbolGlyphInterface {
   }
 
 /**
+ * symbol renderingstrategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
+declare enum SymbolGlyphRenderingStrategy {
+  /**
+   * single.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  SINGLE = 0,
+
+  /**
+   * multiple color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  MULTIPLE_COLOR = 1,
+
+  /**
+   * multiple opacity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  MULTIPLE_OPACITY = 2,
+}
+
+/**
+ * symbol effectstrategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
+declare enum EffectStrategy {
+  /**
+   * NONE.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  NONE = 0,
+
+  /**
+   * multiple color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  SCALE = 1,
+
+  /**
+   * multiple opacity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  HIERARCHICAL = 2,
+}
+
+/**
  * @extends CommonMethod<SymbolGlyphAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
