@@ -1525,7 +1525,7 @@ declare class On {
    * Specifies the text for the target Component.
    *
    * @param { string } txt The text value.
-   * @param { MatchPattern } pattern The {@link MatchPattern} of the text value, default to {@link MatchPattern.EQUALS}
+   * @param { MatchPattern } pattern The {@link MatchPattern} of the text value, default to {@link MatchPattern.EQUALS}. Set it default if the value is null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1630,7 +1630,7 @@ declare class On {
   /**
    * Specifies the clickable status of the target Component.
    *
-   * @param { boolean } b The clickable status,default to true.
+   * @param { boolean } b The clickable status,default to true. Set it default if the value is null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1665,7 +1665,7 @@ declare class On {
   /**
    * Specifies the longClickable status of the target Component.
    *
-   * @param { boolean } b The clickable status,default to true.
+   * @param { boolean } b The clickable status,default to true. Set it default if the value is null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1700,7 +1700,7 @@ declare class On {
   /**
    * Specifies the scrollable status of the target Component.
    *
-   * @param { boolean } b The scrollable status,default to true.
+   * @param { boolean } b The scrollable status,default to true. Set it default if the value is null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1735,7 +1735,7 @@ declare class On {
   /**
    * Specifies the enabled status of the target Component.
    *
-   * @param { boolean } b The enabled status,default to true.
+   * @param { boolean } b The enabled status,default to true. Set it default if the value is null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1770,7 +1770,7 @@ declare class On {
   /**
    * Specifies the focused status of the target Component.
    *
-   * @param { boolean } b The focused status,default to true.
+   * @param { boolean } b The focused status,default to true. Set it default if the value is null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1805,7 +1805,7 @@ declare class On {
   /**
    * Specifies the selected status of the target Component.
    *
-   * @param { boolean } b The selected status,default to true.
+   * @param { boolean } b The selected status,default to true. Set it default if the value is null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1840,7 +1840,7 @@ declare class On {
   /**
    * Specifies the checked status of the target Component.
    *
-   * @param { boolean } b The checked status,default to false.
+   * @param { boolean } b The checked status,default to false. Set it default if the value is null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -1875,7 +1875,7 @@ declare class On {
   /**
    * Specifies the checkable status of the target Component.
    *
-   * @param { boolean } b The checkable status,default to false.
+   * @param { boolean } b The checkable status,default to false. Set it default if the value is null or undefined.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
@@ -2595,7 +2595,7 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the top,applicable to scrollable one.
    *
-   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range. Set it default if the value is null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -2636,7 +2636,7 @@ declare class Component {
   /**
    * Scroll on this {@link Component} to the bottom,applicable to scrollable one.
    *
-   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range. Set it default if the value is null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3334,7 +3334,7 @@ declare class Driver {
    * @param { number } starty The y-coordinate of the starting point.
    * @param { number } endx The x-coordinate of the ending point.
    * @param { number } endy The y-coordinate of the ending point.
-   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range. Set it default if the value is null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3368,7 +3368,7 @@ declare class Driver {
    * @param { number } starty The y-coordinate of the starting point.
    * @param { number } endx The x-coordinate of the ending point.
    * @param { number } endy The y-coordinate of the ending point.
-   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range. Set it default if the value is null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3649,7 +3649,7 @@ declare class Driver {
    * Inject multi-pointer action on the device display.
    *
    * @param { PointerMatrix } pointers The two-dimensional array of pointers to inject.
-   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } speed The speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range. Set it default if the value is null or undefined.
    * @returns { Promise<boolean> } true if the operation finished, false
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3783,7 +3783,7 @@ declare class Driver {
    * @param { number } d - the number of cells that the mouse wheel scrolls, each cell will make the target point shift 120 pixels.
    * @param { number } key1 - the first keyCode.
    * @param { number } key2 - the second keyCode.
-   * @param { number } speed - the speed at which mouse wheel rolls(cells per second),default is 20,the value ranges from 1 to 500,set it 20 if out of range.
+   * @param { number } speed - the speed at which mouse wheel rolls(cells per second),default is 20,the value ranges from 1 to 500,set it 20 if out of range. Set it default if the value is null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3810,7 +3810,7 @@ declare class Driver {
    * Capture the specified area of current screen and save as picture which PNG format.
    *
    * @param { string } savePath the path where to store the picture.
-   * @param { Rect } rect The specified area of current screen, default full screen.
+   * @param { Rect } rect The specified area of current screen, default full screen. Set it default if the value is null or undefined.
    * @returns { Promise<boolean> } true if screen-capturing and file-storing are completed successfully,false otherwise.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3881,7 +3881,7 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { number } speed - the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } speed - the speed of swipe (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range. Set it default if the value is null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
@@ -3897,7 +3897,7 @@ declare class Driver {
    *
    * @param { Point } from - the starting point.
    * @param { Point } to - the ending point.
-   * @param { number } speed - the speed of drag (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { number } speed - the speed of drag (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range. Set it default if the value is null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @throws { BusinessError } 17000002 - if the async function was not called with await.
