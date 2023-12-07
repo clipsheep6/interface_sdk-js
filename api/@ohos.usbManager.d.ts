@@ -88,7 +88,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function addRight(bundleName: string, deviceName: string): boolean;
 
@@ -101,7 +101,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function usbFunctionsFromString(funcs: string): number;
 
@@ -114,7 +114,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function usbFunctionsToString(funcs: FunctionType): string;
 
@@ -128,7 +128,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 14400002 - Permission denied.The HDC is disabled by the system.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function setCurrentFunctions(funcs: FunctionType): Promise<void>;
 
@@ -139,7 +139,7 @@ declare namespace usbManager {
    * @returns { FunctionType } the numeric mask combination for the current USB function list in FunctionType.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function getCurrentFunctions(): FunctionType;
 
@@ -151,7 +151,7 @@ declare namespace usbManager {
    * @returns { Array<USBPort> } the USBPort list.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function getPorts(): Array<USBPort>;
 
@@ -164,7 +164,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function getSupportedModes(portId: number): PortModeType;
 
@@ -179,7 +179,7 @@ declare namespace usbManager {
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
-   * @since 9
+   * @since 11
    */
   function setPortRoles(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 
