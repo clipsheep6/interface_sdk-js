@@ -1242,6 +1242,25 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
 }
 
 /**
+ * Defines the custom dialog param with options.
+ *
+ * @interface CustomAlertDialogOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface CustomAlertDialogOptions extends AlertDialogParam {
+  /**
+   * Allow developer custom dialog's content. Invalid if title or subtitle or message are set
+   * @type { ?CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  builder?: CustomBuilder;
+}
+
+/**
  * Defines AlertDialog which uses show method to show alert dialog.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

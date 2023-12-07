@@ -9676,6 +9676,36 @@ declare enum MenuPreviewMode {
 }
 
 /**
+ * Defines the animator range of start and end property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare type AnimatorRange<T> = [from: T, to: T];
+
+/**
+ * Defines the ContextMenu's preview animator options.
+ *
+ * @interface ContextMenuOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+interface ContextMenuAnimationOptions {
+  /**
+   * Sets the start animator scale and end animator scale.
+   *
+   * @type { ?AnimatorRange<number> }
+   * @default -
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  scale?: AnimatorRange<number>;
+}
+
+/**
  * Defines the context menu options.
  *
  * @interface ContextMenuOptions
@@ -9823,6 +9853,36 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   onDisappear?: () => void;
+
+  /**
+   * The preview animator options.
+   *
+   * @type { ?ContextMenuAnimationOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  previewAnimationOptions?: ContextMenuAnimationOptions;
+
+  /**
+   * aboutToAppear Method
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  aboutToAppear?: () => void;
+
+  /**
+   * aboutToDisappear Method
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  aboutToDisappear?: () => void;
 }
 
 /**
@@ -14293,6 +14353,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T;
+
+  /**
+   * Alert control
+   *
+   * @param { boolean } show
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions | CustomAlertDialogOptions } alert
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  bindAlert(show: boolean, alert: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions | CustomAlertDialogOptions): T;
 
   /**
    * Menu control

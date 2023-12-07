@@ -211,6 +211,16 @@ declare namespace promptAction {
      * @since 10
      */
     index: number;
+
+    /**
+     * Defines dialog dismiss function
+     *
+     * @type { function  }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    dismiss?: () => void;
   }
 
   /**
@@ -331,7 +341,17 @@ declare namespace promptAction {
      * @crossplatform
      * @since 11
      */
-    isModal?: boolean;    
+    isModal?: boolean;
+
+    /**
+     * Allow developer custom dialog's content. Invalid if title or message or buttons are set
+     *
+     * @type { ?CustomBuilder }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 11
+     */
+    builder?: CustomBuilder;
   }
 
   /**
