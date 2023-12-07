@@ -594,7 +594,7 @@ declare interface RichEditorImageSpanStyle {
  *
  * @interface RichEditorSymbolSpanStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
+
  * @since 11
  */
 declare interface RichEditorSymbolSpanStyle {
