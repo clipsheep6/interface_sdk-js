@@ -605,7 +605,7 @@ declare interface RichEditorSymbolSpanStyle {
    * @atomicservice
    * @since 11
    */
-  fortSize?: Dimension;
+  fontSize?: Dimension;
 
   /**
    * font color.
