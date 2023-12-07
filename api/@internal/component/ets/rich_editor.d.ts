@@ -594,19 +594,18 @@ declare interface RichEditorImageSpanStyle {
  *
  * @interface RichEditorSymbolSpanStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @since 11
  */
 declare interface RichEditorSymbolSpanStyle {
   /**
    * font size.
    *
-   * @type { ?Length }
+   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
-  fortSize?: Length;
+  fortSize?: Dimension;
 
   /**
    * font color.
