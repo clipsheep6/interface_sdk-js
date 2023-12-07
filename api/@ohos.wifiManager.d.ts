@@ -665,6 +665,7 @@ declare namespace wifiManager {
    * Start Portal certification.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
@@ -674,21 +675,22 @@ declare namespace wifiManager {
   function startPortalCertification(): void;
 
   /**
-   * Whether the hotspot is mobile phone or not.
+   * Whether the hotspot is metered hotspot or not.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { boolean } Returns {@code true} if the hotspot is mobile phone, returns {@code false} otherwise.
+   * @returns { boolean } Returns {@code true} if the hotspot is metered hotspot, returns {@code false} otherwise.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 11
    */
-  function isPersonalHotspot(): boolean;
+  function isMeteredHotspot(): boolean;
 
   /**
    * Reset all saved device configures.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
    * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
