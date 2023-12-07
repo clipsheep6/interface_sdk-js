@@ -642,6 +642,7 @@ declare interface RichEditorSymbolSpanStyle {
    *
    * @type { ?EffectStrategy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @default
    * @atomicservice
    * @since 11
    */
