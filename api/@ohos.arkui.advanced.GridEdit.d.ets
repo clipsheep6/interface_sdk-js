@@ -201,7 +201,6 @@ export declare struct GridEdit {
    * @crossplatform
    * @since 11
    */
-  @Link
   options: OptionType;
   /**
    * DataList of GridEdit.
@@ -211,7 +210,6 @@ export declare struct GridEdit {
    * @crossplatform
    * @since 11
    */
-  @Link
   dataList: Array<ItemType>;
 
   /**
@@ -223,6 +221,16 @@ export declare struct GridEdit {
    * @since 11
    */
   onClickBack: () => void;
+
+  /**
+   * getDataList of GridEdit, Obtain edited data.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getDataList: () => Array<ItemType>;
 
   /**
    * Build function of GridEdit.
