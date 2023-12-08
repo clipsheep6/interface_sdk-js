@@ -27,7 +27,7 @@ export declare enum GridEditType {
    * @crossplatform
    * @since 11
    */
-  IMAGETEXT = "object",
+  IMAGE_TEXT = "object",
   /**
    * The GridEdit text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -39,25 +39,25 @@ export declare enum GridEditType {
 
 /**
  * Control state of Item
- * @enum { GridEditType }
+ * @enum { IsSelectedStateType }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
-export declare enum StateType {
+export declare enum IsSelectedStateType {
   /**
    * The GridEdit no select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  UNSELECT = 0,
+  UNSELECTED = 0,
   /**
    * The GridEdit select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  SELECT = 1
+  SELECTED = 1
 }
 
 /**
@@ -92,15 +92,15 @@ export interface ItemType {
   /**
    * state of ItemType.
    *
-   * @type { StateType }
+   * @type { IsSelectedStateType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  state: StateType;
+  state: IsSelectedStateType;
 
   /**
-   * sort of ItemType.
+   * sort of ItemType, Used for sorting dataList.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -121,7 +121,7 @@ export interface ItemType {
 }
 
 /**
- * OptionType of GridObjectEditSort.
+ * OptionType of GridEdit.
  *
  * @interface OptionType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -171,24 +171,24 @@ export interface OptionType {
 
 
   /**
-   * secondaryTitleFirst of OptionType.
+   * firstSubTitle of OptionType.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  secondaryTitleFirst?: ResourceStr;
+  firstSubTitle?: ResourceStr;
 
   /**
-   * secondaryTitleSecond of OptionType.
+   * secondSubTitle of OptionType.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  secondaryTitleSecond?: ResourceStr;
+  secondSubTitle?: ResourceStr;
 }
 
 @Component
@@ -215,14 +215,14 @@ export declare struct GridEdit {
   dataList: Array<ItemType>;
 
   /**
-   * clickBack of GridEdit.
+   * onClickBack of GridEdit.
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  clickBack: () => void;
+  onClickBack: () => void;
 
   /**
    * Build function of GridEdit.
