@@ -9720,6 +9720,23 @@ declare enum MenuPreviewMode {
   IMAGE = 1
 }
 
+type AnimationRange<T> = [from: T, to: T];
+
+/**
+ * Defines the start/stop animation scale option for preview image in ContextMenu.
+ * Values store in array of 2 float elements.
+ * First element is "start" animation value
+ * Second element is "stop" animation value
+ *
+ * @interface ContextMenuAnimationOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface ContextMenuAnimationOptions {
+  scale?: AnimationRange<number>;
+}
+
 /**
  * Defines the context menu options.
  *
@@ -9830,6 +9847,18 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   preview?: MenuPreviewMode | CustomBuilder;
+
+  /**
+   * The preview start/stop animation scale if preview property set to MenuPreviewMode.IMAGE.
+   *
+   * @type { ?ContextMenuAnimationOptions }
+   * @default if star/stop scale value less than 0.0 then corresponded scale value takes from Theme.
+   *          Set to 1.0 if PreviewAnimationBeforeScale or PreviewAnimationAfterScale not defined in Theme
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  previewAnimationOptions?: ContextMenuAnimationOptions;
 
   /**
    * Callback function when the context menu appears.
