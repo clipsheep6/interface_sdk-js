@@ -121,16 +121,16 @@ export interface ItemType {
 }
 
 /**
- * OptionType of GridEdit.
+ * GridEditOptions of GridEdit.
  *
- * @interface OptionType
+ * @interface GridEditOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-export interface OptionType {
+export interface GridEditOptions {
   /**
-   * type of OptionType.
+   * type of GridEditOptions.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -140,7 +140,7 @@ export interface OptionType {
   type?: GridEditType;
 
   /**
-   * imageSize of OptionType.
+   * imageSize of GridEditOptions.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -150,7 +150,7 @@ export interface OptionType {
   imageSize?: number;
 
   /**
-   * title of OptionType.
+   * title of GridEditOptions.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -160,7 +160,7 @@ export interface OptionType {
   title?: ResourceStr;
 
   /**
-   * editTitle of OptionType.
+   * editTitle of GridEditOptions.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -171,7 +171,7 @@ export interface OptionType {
 
 
   /**
-   * firstSubTitle of OptionType.
+   * firstSubTitle of GridEditOptions.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -181,7 +181,7 @@ export interface OptionType {
   firstSubTitle?: ResourceStr;
 
   /**
-   * secondSubTitle of OptionType.
+   * secondSubTitle of GridEditOptions.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -196,12 +196,12 @@ export declare struct GridEdit {
   /**
    * Options of GridEdit.
    *
-   * @type { OptionType }
+   * @type { GridEditOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  options: OptionType;
+  options: GridEditOptions;
   /**
    * DataList of GridEdit.
    *
