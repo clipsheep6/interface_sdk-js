@@ -602,7 +602,7 @@ declare interface RichEditorSymbolSpanStyle {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @crossplatform
    * @since 11
    */
   fontSize?: Dimension;
@@ -612,7 +612,7 @@ declare interface RichEditorSymbolSpanStyle {
    *
    * @type { ?Array<ResourceColor> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @crossplatform
    * @since 11
    */
   fontColor?: Array<ResourceColor>;
@@ -622,7 +622,7 @@ declare interface RichEditorSymbolSpanStyle {
    *
    * @type { ?(number | FontWeight) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @crossplatform
    * @since 11
    */
   fontWeight?: number | FontWeight;
@@ -632,7 +632,7 @@ declare interface RichEditorSymbolSpanStyle {
    *
    * @type { ?SymbolSpanAlignment }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @crossplatform
    * @since 11
    */
   verticalAlign?: SymbolSpanAlignment;
@@ -643,7 +643,7 @@ declare interface RichEditorSymbolSpanStyle {
    * @type { ?EffectStrategy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @default
-   * @atomicservice
+   * @crossplatform
    * @since 11
    */
   effect?: EffectStrategy;
