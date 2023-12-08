@@ -17,21 +17,24 @@
  * Control type of GridEdit
  * @enum { GridEditType }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 11
  */
 export declare enum GridEditType {
   /**
    * The GridEdit image text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
-  imageText = "object",
+  IMAGETEXT = "object",
   /**
    * The GridEdit text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
-  text = "text"
+  TEXT = "text"
 }
 
 /**
@@ -42,17 +45,19 @@ export declare enum GridEditType {
  */
 export declare enum StateType {
   /**
-   * The GridEdit select.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  select = 1,
-  /**
    * The GridEdit no select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
-  unSelect = 0
+  UNSELECT = 0,
+  /**
+   * The GridEdit select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  SELECT = 1
 }
 
 /**
@@ -207,7 +212,7 @@ export declare struct GridEdit {
    * @since 11
    */
   @Link
-  dataList: ItemType[];
+  dataList: Array<ItemType>;
 
   /**
    * clickBack of GridEdit.
