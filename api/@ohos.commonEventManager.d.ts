@@ -1978,8 +1978,8 @@ declare namespace commonEventManager {
     COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE',
 
     /**
-      * Indicates the action of a common event that privacy result for application.
-      * This is a protected common event that can only be sent by system.
+      * Indicates that the privacy status is changed.
+      * This is a protected common event that can be sent only by the system.
       *
       * @syscap SystemCapability.Notification.CommonEvent
       * @systemapi
