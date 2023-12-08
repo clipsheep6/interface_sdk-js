@@ -161,7 +161,7 @@ export declare struct ExceptionPrompt {
      * @crossplatform
      * @since 11
      */
-    @Link
+    @Prop
     Type: PromptTypeEnum;
     /**
      * Options of ExceptionPrompt.
@@ -171,7 +171,6 @@ export declare struct ExceptionPrompt {
      * @crossplatform
      * @since 11
      */
-    @Link
     Options: PromptOptions;
     /**
      * ReconnectionFunction of ExceptionPrompt.
