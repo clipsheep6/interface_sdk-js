@@ -14,7 +14,7 @@
  */
 
 /**
- * Control type of GridEdit
+ * Control type of EditableGrid
  * @enum { GridEditType }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -22,53 +22,29 @@
  */
 export declare enum GridEditType {
   /**
-   * The GridEdit image text type.
+   * The EditableGrid image text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   IMAGE_TEXT = "object",
   /**
-   * The GridEdit text type.
+   * The EditableGrid text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   TEXT = "text"
 }
-
 /**
- * Control state of Item
- * @enum { IsSelectedStateType }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 11
- */
-export declare enum IsSelectedStateType {
-  /**
-   * The GridEdit no select.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  UNSELECTED = 0,
-  /**
-   * The GridEdit select.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  SELECTED = 1
-}
-
-/**
- * ItemType of GridObjectEditSort.
+ * gridEditItemType of GridObjectEditSort.
  *
  * @interface DataListType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-export interface ItemType {
+export interface gridEditItemType {
   /**
    * id of DataListType.
    *
@@ -80,7 +56,7 @@ export interface ItemType {
   id: number | string;
 
   /**
-   * text of ItemType.
+   * text of gridEditItemType.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -90,17 +66,17 @@ export interface ItemType {
   text: ResourceStr;
 
   /**
-   * state of ItemType.
+   * state of gridEditItemType.
    *
-   * @type { IsSelectedStateType }
+   * @type { IsSelectedType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  state: IsSelectedStateType;
+  state: IsSelectedType;
 
   /**
-   * sort of ItemType, Used for sorting dataList.
+   * sort of gridEditItemType, Used for sorting dataList.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -110,7 +86,7 @@ export interface ItemType {
   sort: number;
 
   /**
-   * url of ItemType.
+   * url of gridEditItemType.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -121,7 +97,7 @@ export interface ItemType {
 }
 
 /**
- * GridEditOptions of GridEdit.
+ * GridEditOptions of EditableGrid.
  *
  * @interface GridEditOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -192,38 +168,40 @@ export interface GridEditOptions {
 }
 
 @Component
-export declare struct GridEdit {
+export declare struct EditableGrid {
   /**
-   * Options of GridEdit.
+   * Options of EditableGrid.
    *
    * @type { GridEditOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
+  @Prop
   options: GridEditOptions;
   /**
-   * DataList of GridEdit.
+   * DataList of EditableGrid.
    *
-   * @type { Array<ItemType> }
+   * @type { Array<gridEditItemType> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  dataList: Array<ItemType>;
+  @Prop
+  dataList: Array<gridEditItemType>;
 
   /**
-   * getDataList of GridEdit, Obtain edited data.
+   * getDataList of EditableGrid, Obtain edited data.
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  onSaveList: (result:Array<ItemType>) => void;
+  onSaveList: (result:Array<gridEditItemType>) => void;
 
   /**
-   * Build function of GridEdit.
+   * Build function of EditableGrid.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
