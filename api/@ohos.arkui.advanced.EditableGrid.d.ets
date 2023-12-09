@@ -15,12 +15,12 @@
 
 /**
  * Control type of EditableGrid
- * @enum { GridEditType }
+ * @enum { EditableGridType }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-export declare enum GridEditType {
+export declare enum EditableGridType {
   /**
    * The EditableGrid image text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -36,17 +36,43 @@ export declare enum GridEditType {
    */
   TEXT = "text"
 }
+
 /**
- * gridEditItemType of GridObjectEditSort.
+ * Control type of EditableGrid
+ * @enum { EditableGridState }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+* @since 11
+ */
+export declare enum EditableGridState {
+  /**
+   * The EditableGrid select state.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+  * @since 11
+   */
+  SELECTED = true,
+  /**
+   * The EditableGrid unselect state.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+  * @since 11
+   */
+  UNSELECTED = false
+}
+
+
+/**
+ * EditableGridItemType of GridObjectEditSort.
  *
  * @interface DataListType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-export interface gridEditItemType {
+export interface EditableGridItem {
   /**
-   * id of DataListType.
+   * id of EditableGridItemType.
    *
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -56,7 +82,7 @@ export interface gridEditItemType {
   id: number | string;
 
   /**
-   * text of gridEditItemType.
+   * text of EditableGridItemType.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -66,17 +92,17 @@ export interface gridEditItemType {
   text: ResourceStr;
 
   /**
-   * state of gridEditItemType.
+   * state of EditableGridItemType.
    *
-   * @type { IsSelectedType }
+   * @type { selectedState }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  state: IsSelectedType;
+  state: EditableGridState;
 
   /**
-   * sort of gridEditItemType, Used for sorting dataList.
+   * sort of EditableGridItemType, Used for sorting dataList.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -86,7 +112,7 @@ export interface gridEditItemType {
   sort: number;
 
   /**
-   * url of gridEditItemType.
+   * url of EditableGridItemType.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -97,16 +123,16 @@ export interface gridEditItemType {
 }
 
 /**
- * GridEditOptions of EditableGrid.
+ *  EditableGridOptions of  EditableGrid.
  *
  * @interface GridEditOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
-export interface GridEditOptions {
+export interface EditableGridOptions {
   /**
-   * type of GridEditOptions.
+   * type of EditableGridOptions.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -116,7 +142,7 @@ export interface GridEditOptions {
   type?: GridEditType;
 
   /**
-   * imageSize of GridEditOptions.
+   * imageSize of EditableGridOptions.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -126,7 +152,7 @@ export interface GridEditOptions {
   imageSize?: number;
 
   /**
-   * title of GridEditOptions.
+   * title of EditableGridOptions.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -136,7 +162,7 @@ export interface GridEditOptions {
   title?: ResourceStr;
 
   /**
-   * editTitle of GridEditOptions.
+   * editTitle of EditableGridOptions.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -147,30 +173,30 @@ export interface GridEditOptions {
 
 
   /**
-   * firstSubTitle of GridEditOptions.
+   * firstSubtitle of EditableGridOptions.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  firstSubTitle?: ResourceStr;
+  firstSubtitle?: ResourceStr;
 
   /**
-   * secondSubTitle of GridEditOptions.
+   * secondSubtitle of EditableGridOptions.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  secondSubTitle?: ResourceStr;
+  secondSubtitle?: ResourceStr;
 }
 
 @Component
 export declare struct EditableGrid {
   /**
-   * Options of EditableGrid.
+   * options of EditableGrid.
    *
    * @type { GridEditOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -178,27 +204,27 @@ export declare struct EditableGrid {
    * @since 11
    */
   @Prop
-  options: GridEditOptions;
+  options: EditableGridOptions;
   /**
-   * DataList of EditableGrid.
+   * dataList of EditableGrid.
    *
-   * @type { Array<gridEditItemType> }
+   * @type { Array<EditableGridItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   @Prop
-  dataList: Array<gridEditItemType>;
+  dataList: Array<EditableGridItem>;
 
   /**
-   * getDataList of EditableGrid, Obtain edited data.
+   * onSave of EditableGrid, Obtain edited data.
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  onSaveList: (result:Array<gridEditItemType>) => void;
+  onSave: (result: Array<EditableGridItem>) => void;
 
   /**
    * Build function of EditableGrid.
