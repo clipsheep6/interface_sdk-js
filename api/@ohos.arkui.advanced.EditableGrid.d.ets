@@ -139,7 +139,7 @@ export interface EditableGridOptions {
    * @crossplatform
    * @since 11
    */
-  type?: GridEditType;
+  type?: EditableGridType;
 
   /**
    * imageSize of EditableGridOptions.
@@ -198,7 +198,7 @@ export declare struct EditableGrid {
   /**
    * options of EditableGrid.
    *
-   * @type { GridEditOptions }
+   * @type { EditableGridOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
