@@ -171,6 +171,7 @@ export declare struct ExceptionPrompt {
      * @crossplatform
      * @since 11
      */
+    @Prop
     Options: PromptOptions;
     /**
      * ReconnectionFunction of ExceptionPrompt.
