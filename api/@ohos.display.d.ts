@@ -296,7 +296,7 @@ declare namespace display {
   /**
    * set fold status locked or not.
    *
-   * @param { boolean } locked fold status is locked or not.
+   * @param { boolean } locked - fold status is locked or not.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported on this device.
