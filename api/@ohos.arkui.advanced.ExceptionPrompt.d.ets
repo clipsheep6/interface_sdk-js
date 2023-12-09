@@ -39,15 +39,41 @@ export declare enum HardwareStatusType {
   OFF = 1
 }
  /**
-  * Control status of  ExceptionPrompt
-  * @enum { PromptTypeEnum }
+  * Control margin status of  ExceptionPrompt
+  * @enum { MarginStateType }
+  *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @since 11
   */
-export declare enum PromptTypeEnum {
+export declare enum MarginStateType {
+  /**
+   * DEFAULT_MARGIN of MarginStateType.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  DEFAULT_MARGIN = 0,
+  /**
+   * FIT_MARGIN of MarginStateType.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  FIT_MARGIN = 1,
+}
+  /**
+   * Control status of  ExceptionPrompt
+   * @enum { PromptType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+export declare enum PromptType {
    /**
-    * DEFAULT_HIDE of PromptTypeEnum.
+    * Default hiding state of PromptType.
     *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
@@ -55,7 +81,7 @@ export declare enum PromptTypeEnum {
     */
     DEFAULT_HIDE = 0,
     /**
-     * NETWORK_NOT_CONNECTED of PromptTypeEnum.
+     * The network is disconnected of PromptType.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -63,7 +89,7 @@ export declare enum PromptTypeEnum {
      */
     NETWORK_NOT_CONNECTED = 1,
     /**
-     * NETWORK_CONNECTED_UNSTABLE of PromptTypeEnum.
+     * Poor network state of PromptType.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -71,7 +97,7 @@ export declare enum PromptTypeEnum {
      */
     NETWORK_CONNECTED_UNSTABLE = 2,
     /**
-     * UNSTABLE_CONNECT_SERVER of PromptTypeEnum.
+     * The server status cannot be connected of PromptType.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -79,7 +105,7 @@ export declare enum PromptTypeEnum {
      */
     UNSTABLE_CONNECT_SERVER = 3,
     /**
-     * CUSTOM_NETWORK_TIPS of PromptTypeEnum.
+     * There is a network but the content status cannot be obtained of PromptType.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -87,7 +113,7 @@ export declare enum PromptTypeEnum {
      */
     CUSTOM_NETWORK_TIPS = 4,
     /**
-     * CUSTOM_TIPS of PromptTypeEnum.
+     * Customize the prompt content status of PromptType.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -96,7 +122,7 @@ export declare enum PromptTypeEnum {
     CUSTOM_TIPS = 5
 }
  /**
-  * PromptOptions of ExceptionPrompt.
+  * Configuration parameter of ExceptionPrompt.
   *
   * @interface Options
   * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -105,64 +131,63 @@ export declare enum PromptTypeEnum {
   */
 export interface PromptOptions {
     /**
-     * HardwareStatus of PromptOptions.
+     * hardwareStatus of PromptOptions.
      *
      * @type {HardwareStatusType}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    HardwareStatus: HardwareStatusType;
+    hardwareStatus: HardwareStatusType;
     /**
-     * Icon of PromptOptions.
+     * icon of PromptOptions.
      *
      * @type {?ResourceStr}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    Icon?: ResourceStr;
+    icon?: ResourceStr;
     /**
-     * TipContent of PromptOptions.
+     * tip of PromptOptions.
      *
      * @type {?ResourceStr}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    TipContent?: ResourceStr;
+    tip?: ResourceStr;
     /**
-     * ContentText of PromptOptions.
+     * Unavailable resource of PromptOptions.
      *
      * @type {?ResourceStr}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    ContentText?: ResourceStr;
+    networkTip?: ResourceStr;
     /**
-     * IsPaddingStatus of PromptOptions.
+     * Margin status of PromptOptions.
      *
-     * @type {boolean}
+     * @type {MarginStateType}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    IsPaddingStatus: boolean;
+    marginState: MarginStateType;
 }
 
 @Component
 export declare struct ExceptionPrompt {
     /**
-     * Type of ExceptionPrompt.
+     * type of ExceptionPrompt.
      *
-     * @type { PromptTypeEnum }
+     * @type { PromptType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    @Prop
-    Type: PromptTypeEnum;
+    @Prop type: PromptType;
     /**
      * Options of ExceptionPrompt.
      *
@@ -171,26 +196,25 @@ export declare struct ExceptionPrompt {
      * @crossplatform
      * @since 11
      */
-    @Prop
-    Options: PromptOptions;
+    @Prop options: PromptOptions;
     /**
-     * ReconnectionFunction of ExceptionPrompt.
+     * Callback when clicking the text on the left.
      *
      * @type {?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    ReconnectionFunction?: () => void;
+    onReconnectionFunction?: () => void;
     /**
-     * ConfigureNetworkFunction of ExceptionPrompt.
+     * Callback when click Set network.
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 11
      */
-    ConfigureNetworkFunction?: () => void;
+    onConfigureNetworkFunction?: () => void;
     /**
      * Build function of ExceptionPrompt.
      *
