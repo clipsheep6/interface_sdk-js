@@ -108,6 +108,35 @@ declare enum FormRenderingMode {
 }
 
 /**
+ * Defines the FormRenderingMode enum.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare enum FormRenderingMode {
+
+  /**
+   *  Full color mode, this is default value
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  FULL_COLOR,
+
+  /**
+   *  single color mode
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  SINGLE_COLOR,
+}
+
+/**
  * Defines the FormComponent.
  *
  * @interface FormComponentInterface
