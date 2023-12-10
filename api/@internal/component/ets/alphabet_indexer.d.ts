@@ -743,6 +743,17 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @since 11
    */
   popupPosition(value: Position): AlphabetIndexerAttribute;
+  
+  /**
+   * Whether to use auto-collapse mode.
+   *
+   * @param { boolean } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  autoCollapse(value: boolean): AlphabetIndexerAttribute;
 }
 
 /**
