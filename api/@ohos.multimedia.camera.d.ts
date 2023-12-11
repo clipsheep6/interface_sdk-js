@@ -293,6 +293,83 @@ declare namespace camera {
   }
 
   /**
+   * Enum for restore parameter.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 11
+   */
+  enum RestoreParamType {
+    /**
+     * No need set restore Stream Parameter, only prelaunch camera device.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    NO_NEED_RESTORE_PARAM = 0,
+
+    /**
+     * Presistent default parameter, long-lasting effect after T minutes.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    PRESISTENT_DEFAULT_PARAM = 1,
+
+    /**
+     * Transistent active parameter, which has a higher priority than PRESISTENT_DEFAULT_PARAM when both exist.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    TRANSISTENT_ACTIVE_PARAM = 2
+  }
+
+  /**
+   * Setting parameter for stream.
+   *
+   * @typedef SettingParam
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 11
+   */
+  interface SettingParam {
+    /**
+     * Skin smooth level value for restore.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    skinSmoothLevel: number;
+
+    /**
+     * Face slender value for restore.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    faceSlender: number;
+
+    /**
+     * Skin tone value for restore.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    skinTone: number;
+  }
+
+  /**
    * Prelaunch config object.
    *
    * @typedef PrelaunchConfig
@@ -310,6 +387,36 @@ declare namespace camera {
      * @since 10
      */
     cameraDevice: CameraDevice;
+
+    /**
+     * Restore parameter type.
+     *
+     * @type { RestoreParamType }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    restoreParamType: RestoreParamType;
+
+    /**
+     * Begin activiting time.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    activeTime: number;
+
+    /**
+     * Setting parameter.
+     *
+     * @type { SettingParam }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    settingParam: SettingParam;
   }
 
   /**
