@@ -13,132 +13,132 @@
  * limitations under the License.
  */
 
- /**
-  * Control type of  Network hardware  of ExceptionPrompt.
-  * @enum { number }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 11
-  */
-export declare enum HardwareStatusType {
+/**
+ * Control type of  Network hardware  of ExceptionPrompt.
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+export declare enum HardwareStatus {
   /**
-   * ON of HardwareStatusType.
+   * ON of HardwareStatus.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   ON = 0,
   /**
-   * OFF of HardwareStatusType.
+   * OFF of HardwareStatus.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   OFF = 1
 }
- /**
-  * Control margin status of  ExceptionPrompt
-  * @enum { number }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 11
-  */
-export declare enum MarginState {
+/**
+ * Control margin status of  ExceptionPrompt
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+export declare enum MarginType {
   /**
-   * DEFAULT_MARGIN of MarginState.
+   * DEFAULT_MARGIN of MarginType.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   DEFAULT_MARGIN = 0,
   /**
-   * FIT_MARGIN of MarginState.
+   * FIT_MARGIN of MarginType.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   FIT_MARGIN = 1,
 }
+/**
+ * Control status of  ExceptionPrompt
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+export declare enum PromptType {
   /**
-   * Control status of  ExceptionPrompt
-   * @enum { number }
+   * Default hiding state of PromptType.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-export declare enum PromptType {
-   /**
-    * Default hiding state of PromptType.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 11
-    */
-    DEFAULT_HIDE = 0,
-    /**
-     * The network is disconnected of PromptType.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    NETWORK_NOT_CONNECTED = 1,
-    /**
-     * Poor network state of PromptType.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    NETWORK_CONNECTED_UNSTABLE = 2,
-    /**
-     * The server status cannot be connected of PromptType.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    UNSTABLE_CONNECT_SERVER = 3,
-    /**
-     * There is a network but the content status cannot be obtained of PromptType.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    CUSTOM_NETWORK_TIPS = 4,
-    /**
-     * Customize the prompt content status of PromptType.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    CUSTOM_TIPS = 5
+  DEFAULT_HIDE = 0,
+  /**
+   * The network is disconnected of PromptType.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  NETWORK_NOT_CONNECTED = 1,
+  /**
+   * Poor network state of PromptType.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  NETWORK_CONNECTED_UNSTABLE = 2,
+  /**
+   * The server status cannot be connected of PromptType.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  UNSTABLE_CONNECT_SERVER = 3,
+  /**
+   * There is a network but the content status cannot be obtained of PromptType.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  CUSTOM_NETWORK_TIPS = 4,
+  /**
+   * Customize the prompt content status of PromptType.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  CUSTOM_TIPS = 5
 }
- /**
-  * Configuration parameter of ExceptionPrompt.
-  * @interface PromptOptions
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 11
-  */
+/**
+ * Configuration parameter of ExceptionPrompt.
+ * @interface PromptOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
 export interface PromptOptions {
-    /**
-     * hardwareStatus of PromptOptions.
-     * @type {HardwareStatusType}
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    hardwareStatus: HardwareStatusType;
-    /**
-     * icon of PromptOptions.
-     * @type {?ResourceStr}
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    icon?: ResourceStr;
-    /**
-     * tip of PromptOptions.
-     * @type {?ResourceStr}
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    tip?: ResourceStr;
-    /**
-     * Unavailable resource of PromptOptions.
-     * @type {?ResourceStr}
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    networkTip?: ResourceStr;
-    /**
-     * Margin status of PromptOptions.
-     * @type {MarginState}
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    marginState: MarginState;
+  /**
+   * hardwareStatus of PromptOptions.
+   * @type {HardwareStatus}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  hardwareStatus: HardwareStatus;
+  /**
+   * icon of PromptOptions.
+   * @type {?ResourceStr}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  icon?: ResourceStr;
+  /**
+   * tip of PromptOptions.
+   * @type {?ResourceStr}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  tip?: ResourceStr;
+  /**
+   * Unavailable resource of PromptOptions.
+   * @type {?ResourceStr}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  networkTip?: ResourceStr;
+  /**
+   * Margin status of PromptOptions.
+   * @type {MarginType}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  marginState: MarginType;
 }
 /**
  * Declare struct ExceptionPrompt
@@ -147,38 +147,38 @@ export interface PromptOptions {
  */
 @Component
 export declare struct ExceptionPrompt {
-    /**
-     * type of ExceptionPrompt.
-     * @type { PromptType }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    @Prop type: PromptType;
-    /**
-     * Options of ExceptionPrompt.
-     * @type { PromptOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    @Prop options: PromptOptions;
-    /**
-     * Callback when clicking the text on the left.
-     * @type {?function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    onReconnection?: () => void;
-    /**
-     * Callback when click Set network.
-     * @type { ?function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    onConfigureNetwork?: () => void;
-    /**
-     * Build function of ExceptionPrompt.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
-     */
-    build(): void;
+  /**
+   * type of ExceptionPrompt.
+   * @type { PromptType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  @Prop type: PromptType;
+  /**
+   * Options of ExceptionPrompt.
+   * @type { PromptOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  @Prop options: PromptOptions;
+  /**
+   * Callback when clicking the text on the left.
+   * @type {?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  onReconnectionCallback?: () => void;
+  /**
+   * Callback when click Set network.
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  onConfigureCallback?: () => void;
+  /**
+   * Build function of ExceptionPrompt.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  build(): void;
 }
