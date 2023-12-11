@@ -332,7 +332,7 @@ declare enum EnterKeyType {
 /**
  * Provides the method of keeping TextInput editable state when submitted.
  *
- * @interface TextInputOptions -> SubmitEvent
+ * @interface SubmitEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
