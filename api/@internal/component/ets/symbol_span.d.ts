@@ -43,7 +43,7 @@ interface SymbolSpanInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
-declare enum SymbolGlyphRenderingStrategy {
+declare enum SymbolSpanRenderingStrategy {
   /**
    * single.
    *
@@ -80,7 +80,7 @@ declare enum SymbolGlyphRenderingStrategy {
  * @crossplatform
  * @since 11
  */
-declare enum EffectStrategy {
+declare enum SymbolSpanEffectStrategy {
   /**
    * NONE.
    *
@@ -153,7 +153,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   fontWeight(value: number | FontWeight | string): SymbolSpanAttribute;
 
   /**
-   * Called when the font is set.
+   * Called when the symbol span effect is set.
    *
    * @param { EffectStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolSpan.
@@ -161,18 +161,18 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @crossplatform
    * @since 11
    */
-  symbolGlyphEffect(value: EffectStrategy): SymbolSpanAttribute;
+  symbolSpanEffect(value: SymbolSpanEffectStrategy): SymbolSpanAttribute;
 
   /**
-   * Called when the font is set.
+   * Called when the symbol span renderingstrategy is set.
    *
-   * @param { SymbolRenderingStrategy } value
+   * @param { SymbolSpanRenderingStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolSpan.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  symbolGlyphRenderinStrategy(value: SymbolRenderingStrategy): SymbolSpanAttribute;
+  symbolSpanRenderingStrategy(value: SymbolSpanRenderingStrategy): SymbolSpanAttribute;
 }
 
 /**

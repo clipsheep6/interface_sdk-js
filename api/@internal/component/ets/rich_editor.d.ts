@@ -620,33 +620,12 @@ declare interface RichEditorSymbolSpanStyle {
   /**
    * font weight.
    *
-   * @type { ?(number | FontWeight) }
+   * @type { ?(number | FontWeight | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  fontWeight?: number | FontWeight;
-
-  /**
-   * image vertical align.
-   *
-   * @type { ?SymbolSpanAlignment }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  verticalAlign?: SymbolSpanAlignment;
-
-  /**
-   * effect.
-   *
-   * @type { ?EffectStrategy }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @default
-   * @crossplatform
-   * @since 11
-   */
-  effect?: EffectStrategy;
+  fontWeight?: number | FontWeight | string;
 }
 
 /**

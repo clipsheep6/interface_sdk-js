@@ -81,7 +81,7 @@ declare enum SymbolGlyphRenderingStrategy {
  * @crossplatform
  * @since 11
  */
-declare enum EffectStrategy {
+declare enum SymbolGlyphEffectStrategy {
   /**
    * NONE.
    *
@@ -131,7 +131,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontSize(value: number | string | Resource): SymbolGlyphAttribute;
 
   /**
-   * Called when the font is set.
+   * Called when the symbolGlyph color is set.
    *
    * @param { Array<ResourceColor> } value
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
@@ -142,7 +142,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontColor(value: Array<ResourceColor>): SymbolGlyphAttribute;
 
   /**
-   * Called when the font weight is set.
+   * Called when the font symbolGlyph weight is set.
    *
    * @param { number | FontWeight | string } value
    * @returns { SymbolGlyphAttribute }
@@ -154,7 +154,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontWeight(value: number | FontWeight | string): SymbolGlyphAttribute;
 
   /**
-   * Called when the font is set.
+   * Called when the symbolGlyph effect is set.
    *
    * @param { EffectStrategy } value
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
@@ -162,10 +162,10 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @crossplatform
    * @since 11
    */
-  symbolGlyphEffect(value: EffectStrategy): SymbolGlyphAttribute;
+  symbolGlyphEffect(value: SymbolGlyphEffectStrategy): SymbolGlyphAttribute;
 
   /**
-   * Called when the font is set.
+   * Called when the symbolGlyph renderingstrategy is set.
    *
    * @param { SymbolGlyphRenderingStrategy } value
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
@@ -173,7 +173,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @crossplatform
    * @since 11
    */
-  symbolGlyphRenderinStrategy(value: SymbolGlyphRenderingStrategy): SymbolGlyphAttribute;
+  symbolGlyphRenderingStrategy(value: SymbolGlyphRenderingStrategy): SymbolGlyphAttribute;
 }
 
 /**
