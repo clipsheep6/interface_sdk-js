@@ -397,6 +397,19 @@ declare namespace process {
      * @since 11
      */
     kill(signal: number, pid: number): boolean;
+    /**
+     * Returns whether setting environment variables was successful
+     *
+     * @param { name } name - Set the name of the environment variable.
+     * @param { envValue } envValue - Set the value of the environment variable.
+     * @returns { boolean } Return the result of setting environment variables.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang.
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    setEnvironmentVar(name: string, envValue: string): boolean;
   }
 
   /**
