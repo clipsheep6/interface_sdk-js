@@ -14,33 +14,65 @@
  */
 
 /**
- * LabelInfo of Breadcrumb.
+ * The class for BreadcrumbLabel array.
  *
- * @interface LabelInfo
+ * @extends Array<BreadcrumbLabel>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since 12
  */
-export interface LabelInfo {
+@Observed
+declare class BreadcrumbLabels extends Array<BreadcrumbLabel> {
   /**
-   * Text of label.
+   * The constructor used to create a BreadcrumbLabels object.
    *
-   * @type { string }
+   * @param { Array<BreadcrumbLabel> } [labels] - The BreadcrumbLabel items.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
-  text: string;
+  constructor(labels?: Array<BreadcrumbLabel>);
+}
+
+/**
+ * Defines the label info.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+@Observed
+declare class BreadcrumbLabel {
+  /**
+   * Label text.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  text: ResourceStr;
 
   /**
-   * Icon of label.
+   * Label icon.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
   icon?: ResourceStr;
+
+  /**
+   * The constructor used to create a BreadcrumbLabel object.
+   *
+   * @param { ResourceStr } text - Label text.
+   * @param { ResourceStr } [icon] - Label icon.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  constructor(text: ResourceStr, icon?: ResourceStr);
 }
 
 /**
@@ -48,87 +80,80 @@ export interface LabelInfo {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 11
+ * @since 12
  */
 @Component
-export declare struct Breadcrumb {
+declare struct Breadcrumb {
   /**
    * Labels of Breadcrumb.
    *
-   * @type { Array<LabelInfo> }
+   * @type { BreadcrumbLabels }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
-  @Link
-  labelInfo: Array<LabelInfo>;
+  @ObjectLink
+  labels: BreadcrumbLabels;
 
   /**
    * Called when the label is clicked.
    *
-   * @type { function }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
-  onLabelClick: (index: number, event: ClickEvent) => void;
+  onLabelClick?: (index: number, event: ClickEvent) => void;
 
   /**
    * Called when the label begins to be dragged.
    *
-   * @type { function }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11 
+   * @since 12
    */
-  onLabelDragStart: (index: number, event: DragEvent) => CustomBuilder | DragItemInfo;
+  onLabelDragStart?: (index: number, event: DragEvent) => DragItemInfo;
 
   /**
    * Called when a component is dragged to the range of the label.
    *
-   * @type { function }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
-  onLabelDragEnter: (index: number, event: DragEvent) => void;
+  onLabelDragEnter?: (index: number, event: DragEvent) => void;
 
   /**
    * Called when a component is dragged out of the label range.
    *
-   * @type { function }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
-  onLabelDragLeave: (index: number, event: DragEvent) => void;
+  onLabelDragLeave?: (index: number, event: DragEvent) => void;
 
   /**
    * Called when the drag behavior is stopped within the scope of the label.
    *
-   * @type { function }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
-  onLabelDrop: (index: number, event: DragEvent) => void;
+  onLabelDrop?: (index: number, event: DragEvent) => void;
 
   /**
    * Called when the drag behavior is canceled.
    *
-   * @type { function }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
-  onLabelDragCancel: (event: DragEvent) => void;
-
-  /**
-   * Build function of Breadcrumb.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  build(): void;
+  onLabelDragCancel?: (event: DragEvent) => void;
 }
+
+export { BreadcrumbLabels, BreadcrumbLabel, Breadcrumb };
