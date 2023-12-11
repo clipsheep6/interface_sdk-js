@@ -338,7 +338,7 @@ declare enum EnterKeyType {
  * @atomicservice
  * @since 11
  */
-declare interface SubmitEvent {
+interface SubmitEvent {
   /**
    * Keeps TextInput editable state when submitted
    *
