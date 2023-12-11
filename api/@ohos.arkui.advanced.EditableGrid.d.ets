@@ -14,223 +14,169 @@
  */
 
 /**
- * Control type of EditableGrid
- * @enum { EditableGridType }
+ * Controls the style types of EditableGrid
+ * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 11
  */
 export declare enum EditableGridType {
   /**
    * The EditableGrid image text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   IMAGE_TEXT = "object",
+
   /**
    * The EditableGrid text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   TEXT = "text"
 }
 
-/**
- * Control type of EditableGrid
- * @enum { EditableGridState }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
-* @since 11
- */
-export declare enum EditableGridState {
-  /**
-   * The EditableGrid select state.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-  * @since 11
-   */
-  SELECTED = true,
-  /**
-   * The EditableGrid unselect state.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-  * @since 11
-   */
-  UNSELECTED = false
-}
-
 
 /**
- * EditableGridItemType of GridObjectEditSort.
- *
- * @interface DataListType
+ * Declaration of the EditableGrid item.
+ * @interface EditableGridIteml
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 11
  */
 export interface EditableGridItem {
   /**
-   * id of EditableGridItemType.
-   *
+   * id of EditableGrid item.
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   id: number | string;
 
   /**
-   * text of EditableGridItemType.
-   *
+   * EditableGrid item id.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   text: ResourceStr;
 
   /**
-   * state of EditableGridItemType.
-   *
-   * @type { selectedState }
+   * state of EditableGrid item.
+   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
-  state: EditableGridState;
+  state: boolean;
 
   /**
-   * sort of EditableGridItemType, Used for sorting dataList.
-   *
+   * sort of EditableGridItem, Used for sorting dataList.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   sort: number;
 
   /**
-   * url of EditableGridItemType.
+   * image resource path of the EditableGrid item.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   url?: ResourceStr;
 }
 
 /**
- *  EditableGridOptions of  EditableGrid.
- *
+ * EditableGridOptions of EditableGrid.
  * @interface GridEditOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 11
  */
 export interface EditableGridOptions {
   /**
-   * type of EditableGridOptions.
-   *
-   * @type { string }
+   * Configuration EditableGrid type.
+   * @type { EditableGridType }
+   * @default EditableGridType.TEXT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   type?: EditableGridType;
 
   /**
-   * imageSize of EditableGridOptions.
-   *
+   * The size of the EditableGrid image.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   imageSize?: number;
 
   /**
-   * title of EditableGridOptions.
-   *
+   * The title displayed in the unedited state of the  EditableGrid.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   title?: ResourceStr;
 
   /**
-   * editTitle of EditableGridOptions.
-   *
+   * The title displayed in the EditableGrid edit state.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   editTitle?: ResourceStr;
 
-
   /**
-   * firstSubtitle of EditableGridOptions.
-   *
+   * First subtitle of the EditableGrid.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   firstSubtitle?: ResourceStr;
 
   /**
-   * secondSubtitle of EditableGridOptions.
-   *
+   * second subtitle of the EditableGrid.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   secondSubtitle?: ResourceStr;
 }
 
+
+  /**
+   * Declare struct EditableGrid.
+   * @struct { EditableGrid }
+   * @since 11
+   */
 @Component
 export declare struct EditableGrid {
   /**
-   * options of EditableGrid.
-   *
+   * Component types and parameters of the EditableGrid.
    * @type { EditableGridOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   @Prop
   options: EditableGridOptions;
   /**
-   * dataList of EditableGrid.
-   *
+   * data list of EditableGrid.
    * @type { Array<EditableGridItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
-  @Prop
   dataList: Array<EditableGridItem>;
 
   /**
-   * onSave of EditableGrid, Obtain edited data.
-   *
-   * @type { function }
+   * Callback when Obtain edited data.
+   * @type { (result: Array<EditableGridItem>) => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   onSave: (result: Array<EditableGridItem>) => void;
 
   /**
    * Build function of EditableGrid.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 11
    */
   build(): void;
