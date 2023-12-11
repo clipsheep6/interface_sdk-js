@@ -117,6 +117,50 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Analysis type
+   *
+   * @enum { number } AnalysisType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 11
+   */
+  enum AnalysisType {
+    /**
+     * Analysis of aesthetics score
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_AESTHETICS_SCORE = 0,
+    /**
+
+     * Analysis of label
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_LABEL,
+    /**
+     * Analysis of ocr
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_OCR,
+    /**
+     * Analysis of saliency
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    ANALYSIS_SALIENCY
+  }
+
+  /**
    * Indicates the type of photo asset member.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
