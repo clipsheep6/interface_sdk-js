@@ -14,21 +14,21 @@
  */
 
 /**
- * Controls the style types of EditableGrid
+ * Controls the style types of ImageTextEditableSort
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
-export declare enum EditableGridType {
+export declare enum ImageTextEditableSortType {
   /**
-   * The EditableGrid image text type.
+   * The ImageTextEditableSort image text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  IMAGE_TEXT = "object",
+  IMAGE_TEXT = "image_text",
 
   /**
-   * The EditableGrid text type.
+   * The ImageTextEditableSort text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -37,14 +37,14 @@ export declare enum EditableGridType {
 
 
 /**
- * Declaration of the EditableGrid item.
- * @interface EditableGridIteml
+ * Declaration of the ImageTextEditableSort item.
+ * @interface ImageTextEditableSortIteml
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
-export interface EditableGridItem {
+export interface ImageTextEditableSortItem {
   /**
-   * id of EditableGrid item.
+   * id of ImageTextEditableSort item.
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -52,7 +52,7 @@ export interface EditableGridItem {
   id: number | string;
 
   /**
-   * EditableGrid item id.
+   * ImageTextEditableSort item id.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -60,7 +60,7 @@ export interface EditableGridItem {
   text: ResourceStr;
 
   /**
-   * state of EditableGrid item.
+   * state of ImageTextEditableSort item.
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -68,15 +68,15 @@ export interface EditableGridItem {
   state: boolean;
 
   /**
-   * sort of EditableGridItem, Used for sorting dataList.
+   * order of ImageTextEditableSortItem, Used for sorting dataList.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  sort: number;
+  order: number;
 
   /**
-   * image resource path of the EditableGrid item.
+   * image resource path of the ImageTextEditableSort item.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -86,23 +86,23 @@ export interface EditableGridItem {
 }
 
 /**
- * EditableGridOptions of EditableGrid.
+ * ImageTextEditableSortOptions of ImageTextEditableSort.
  * @interface GridEditOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
-export interface EditableGridOptions {
+export interface ImageTextEditableSortOptions {
   /**
-   * Configuration EditableGrid type.
-   * @type { EditableGridType }
-   * @default EditableGridType.TEXT
+   * Configuration ImageTextEditableSort type.
+   * @type { ImageTextEditableSortType }
+   * @default ImageTextEditableSortType.TEXT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  type?: EditableGridType;
+  type?: ImageTextEditableSortType;
 
   /**
-   * The size of the EditableGrid image.
+   * The size of the ImageTextEditableSort image.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -110,7 +110,7 @@ export interface EditableGridOptions {
   imageSize?: number;
 
   /**
-   * The title displayed in the unedited state of the  EditableGrid.
+   * The title displayed in the unedited state of the  ImageTextEditableSort.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -118,7 +118,7 @@ export interface EditableGridOptions {
   title?: ResourceStr;
 
   /**
-   * The title displayed in the EditableGrid edit state.
+   * The title displayed in the ImageTextEditableSort edit state.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -126,7 +126,7 @@ export interface EditableGridOptions {
   editTitle?: ResourceStr;
 
   /**
-   * First subtitle of the EditableGrid.
+   * First subtitle of the ImageTextEditableSort.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -134,7 +134,7 @@ export interface EditableGridOptions {
   firstSubtitle?: ResourceStr;
 
   /**
-   * second subtitle of the EditableGrid.
+   * second subtitle of the ImageTextEditableSort.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -144,38 +144,38 @@ export interface EditableGridOptions {
 
 
   /**
-   * Declare struct EditableGrid.
-   * @struct { EditableGrid }
+   * Declare struct ImageTextEditableSort.
+   * @struct { ImageTextEditableSort }
    * @since 11
    */
 @Component
-export declare struct EditableGrid {
+export declare struct ImageTextEditableSort {
   /**
-   * Component types and parameters of the EditableGrid.
-   * @type { EditableGridOptions }
+   * Component types and parameters of the ImageTextEditableSort.
+   * @type { ImageTextEditableSortOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   @Prop
-  options: EditableGridOptions;
+  options: ImageTextEditableSortOptions;
   /**
-   * data list of EditableGrid.
-   * @type { Array<EditableGridItem> }
+   * data list of ImageTextEditableSort.
+   * @type { Array<ImageTextEditableSortItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  dataList: Array<EditableGridItem>;
+  dataList: Array<ImageTextEditableSortItem>;
 
   /**
    * Callback when Obtain edited data.
-   * @type { (result: Array<EditableGridItem>) => void }
+   * @type { (result: Array<ImageTextEditableSortItem>) => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  onSave: (result: Array<EditableGridItem>) => void;
+  onSave: (result: Array<ImageTextEditableSortItem>) => void;
 
   /**
-   * Build function of EditableGrid.
+   * Build function of ImageTextEditableSort.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
