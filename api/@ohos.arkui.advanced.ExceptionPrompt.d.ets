@@ -99,7 +99,7 @@ export declare enum PromptType {
 }
  /**
   * Configuration parameter of ExceptionPrompt.
-  * @interface Options
+  * @interface PromptOptions
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @since 11
   */
