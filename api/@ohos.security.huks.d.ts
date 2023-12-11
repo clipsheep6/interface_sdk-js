@@ -2913,6 +2913,7 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
+     * @deprecated since 11
      */
     HUKS_TAG_ATTESTATION_ID_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 511,
     /**
@@ -2930,11 +2931,13 @@ declare namespace huks {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
+     * @deprecated since 11
      */
     HUKS_TAG_ATTESTATION_ID_SEC_LEVEL_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 514,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
+     * @deprecated since 11
      */
     HUKS_TAG_ATTESTATION_ID_VERSION_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 515,
 
