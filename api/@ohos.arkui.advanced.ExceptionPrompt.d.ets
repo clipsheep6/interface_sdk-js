@@ -91,7 +91,7 @@ export interface PromptOptions {
   marginState: MarginType;
   /**
    * Right icon button text of PromptOptions.
-   * @type {ResourceStr}
+   * @type {?ResourceStr}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
