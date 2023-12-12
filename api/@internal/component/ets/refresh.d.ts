@@ -224,6 +224,7 @@ interface RefreshOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @deprecated since 11
    */
   /**
    * Distance to the top of the parent component from the component that
@@ -259,6 +260,7 @@ interface RefreshOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @deprecated since 11
    */
   /**
    * Coefficient of friction, which indicates the component's sensitivity to the pull-down gesture.
