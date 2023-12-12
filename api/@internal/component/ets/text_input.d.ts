@@ -354,7 +354,6 @@ declare interface SubmitEvent {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   text: string;
