@@ -456,7 +456,6 @@ declare namespace notificationSubscribe {
   /**
    * Describes the badge number of the application has changed.
    *
-   * @typedef BadgeNumberCallbackData
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
