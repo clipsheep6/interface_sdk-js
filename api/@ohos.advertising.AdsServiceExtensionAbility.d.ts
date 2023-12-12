@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AdsKit
+ */
+
 import type advertising from './@ohos.advertising';
 
 /**
