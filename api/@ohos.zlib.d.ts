@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Basic Services Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 
 /**
@@ -36,7 +41,17 @@ declare namespace zlib {
    * @deprecated since 9
    */
   export enum ErrorCode {
+    /**
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @since 7
+     * @deprecated since 9
+     */
     ERROR_CODE_OK = 0,
+    /**
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @since 7
+     * @deprecated since 9
+     */
     ERROR_CODE_ERRNO = -1
   }
 

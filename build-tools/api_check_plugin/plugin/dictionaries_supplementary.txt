@@ -8,6 +8,7 @@ accelerates
 accents
 accommodates
 acmmax
+acn
 activates
 actived
 adjusts
@@ -24,6 +25,9 @@ alpnprotocols
 alterase
 alternating
 altitudes
+amb
+ambisonic
+ambisonics
 amr
 animatable
 annually
@@ -97,6 +101,7 @@ capabilitys
 capturers
 ccm
 cdma
+ce
 certsign
 cft
 channeldown
@@ -130,6 +135,7 @@ cpid
 cpuprofiler
 cpx
 cpy
+creatable
 crl
 crops
 crosshair
@@ -149,6 +155,7 @@ datasync
 dbm
 dci
 ddmp
+de
 deactivated
 deactivation
 decodes
@@ -170,6 +177,7 @@ deregisters
 deselected
 designative
 desynchronized
+detents
 developtools
 devicemanager
 dfactor
@@ -195,10 +203,13 @@ dnd
 dnses
 donot
 downlink
+downmix
 dpad
 drains
 dragbar
 drawbuffer
+dsda
+dsds
 dsf
 dtmf
 ducked
@@ -206,12 +217,15 @@ ducking
 earfcn
 earphones
 earpiece
+ebu
+ece
 edr
 efuse
 egid
 ehrpd
 ejectclosecd
 emption
+emphasized
 encapsulates
 encompassed
 encrypts
@@ -257,6 +271,8 @@ fstat
 fsync
 ftruncate
 fulfills
+fuma
+furse
 gamepad
 gba
 geofence
@@ -278,6 +294,7 @@ hankaku
 hapmodule
 haps
 haptic
+haptics
 hce
 headed
 headersreceive
@@ -286,6 +303,7 @@ heapsnapshot
 heating
 heavier
 henkan
+hexadecagonal
 hfp
 hibernates
 hibernating
@@ -299,6 +317,7 @@ hitrace
 hiview
 hiviewdfx
 hkdf
+hlg
 hogp
 hsp
 hspa
@@ -409,6 +428,8 @@ luma
 lushort
 lux
 mah
+malham
+map
 mcc
 md5
 mdns
@@ -510,6 +531,7 @@ participating
 passpoint
 pastedata
 patchlevel
+pbap
 pbo
 pda
 pdu
@@ -543,6 +565,7 @@ preconnected
 preconnectable
 preempted
 preferentially
+preinstalled
 prelaunch
 preloads
 premises
@@ -627,6 +650,7 @@ sac
 sae
 sak
 satellites
+sbc
 scdma
 scene
 sco
@@ -638,6 +662,7 @@ scrolldown
 scrollup
 sdpi
 searchsetter
+sece
 secinfo
 seeked
 semicircles
@@ -661,6 +686,7 @@ stk
 str
 sm3
 smil
+smpte
 smsc
 snoozing
 snorm
@@ -669,6 +695,7 @@ socid
 softer
 sonification
 sortings
+spatialization
 spawns
 spay
 spdy
@@ -677,9 +704,11 @@ specificed
 speedratings
 spellcheck
 spn
+spooler
 spp
 spry
 spy
+srgb
 ssp
 stablization
 statfs
@@ -695,6 +724,7 @@ subpixel
 subscrbers
 subscribale
 subscribes
+substate
 subtitles
 subtypes
 subwindow
@@ -716,12 +746,14 @@ systemapp
 systembar
 systemsize
 systemui
+showcounter
 tailoring
 talkback
 taskmanager
 taskpool
 tbla
 tcpnodelay
+tdm
 tdscdma
 telecom
 tethering
@@ -740,6 +772,7 @@ trackinfo
 tranlisterated
 transcode
 transferable
+transfunc
 transliterated
 transliterator
 transpilation
@@ -803,10 +836,12 @@ unregistered
 unregistering
 unregisters
 unremovable
+unrendered
 unrestricted
 unsecure
 unsent
 unspec
+unshare
 unsubscribes
 unsuccessfully
 unsupport

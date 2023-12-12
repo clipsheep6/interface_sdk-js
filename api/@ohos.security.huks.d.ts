@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Universal Keystore Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 
 /**
@@ -21,6 +26,14 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace huks
  * @syscap SystemCapability.Security.Huks.Core
  * @since 8
+ */
+/**
+ * OpenHarmony Universal KeyStore
+ *
+ * @namespace huks
+ * @syscap SystemCapability.Security.Huks.Core
+ * @atomicservice
+ * @since 11
  */
 declare namespace huks {
   /**
@@ -70,6 +83,28 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
+  /**
+   * Generate Key.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { AsyncCallback<void> } callback - the callback of generateKeyItem.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - call service failed
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   function generateKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -92,6 +127,28 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
+   */
+  /**
+   * Generate Key.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - call service failed
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 11
    */
   function generateKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -137,6 +194,23 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
+  /**
+   * Delete Key.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { AsyncCallback<void> } callback - the callback of deleteKeyItem.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   function deleteKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -154,6 +228,23 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
+   */
+  /**
+   * Delete Key.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 11
    */
   function deleteKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -205,6 +296,29 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
+  /**
+   * Import Key.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { AsyncCallback<void> } callback - the callback of importKeyItem.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - call service failed
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 11
+   */
   function importKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -228,6 +342,29 @@ declare namespace huks {
    * @throws { BusinessError } 12000015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
+   */
+  /**
+   * Import Key.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - call service failed
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 11
    */
   function importKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -474,6 +611,25 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
+  /**
+   * Check whether the key exists.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { AsyncCallback<boolean> } callback - the callback of isKeyItemExist.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   function isKeyItemExist(keyAlias: string, options: HuksOptions, callback: AsyncCallback<boolean>): void;
 
   /**
@@ -494,7 +650,68 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
+  /**
+   * Check whether the key exists.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 11
+   */
   function isKeyItemExist(keyAlias: string, options: HuksOptions): Promise<boolean>;
+
+  /**
+   * Check whether the key exists.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { AsyncCallback<boolean> } callback - the callback of isKeyItemExist.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
+  function hasKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Check whether the key exists.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 11
+   */
+  function hasKeyItem(keyAlias: string, options: HuksOptions): Promise<boolean>;
 
   /**
    * Init Operation.
@@ -543,6 +760,28 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
+  /**
+   * Init Operation.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { AsyncCallback<HuksSessionHandle> } callback - the callback of initSession.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000010 - the number of sessions has reached limit
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   function initSession(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksSessionHandle>): void;
 
   /**
@@ -565,6 +804,28 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
+   */
+  /**
+   * Init Operation.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @returns { Promise<HuksSessionHandle> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000010 - the number of sessions has reached limit
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 11
    */
   function initSession(keyAlias: string, options: HuksOptions): Promise<HuksSessionHandle>;
 
@@ -618,6 +879,30 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
+   */
+  /**
+   * Update Operation.
+   *
+   * @param { number } handle - indicates the handle of the init operation.
+   * @param { HuksOptions } options - options indicates the properties of the update operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify authtoken failed
+   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
    */
   function updateSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
@@ -676,6 +961,31 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
+  /**
+   * Update Operation.
+   *
+   * @param { number } handle - indicates the handle of the init operation.
+   * @param { HuksOptions } options - options indicates the properties of the update operation.
+   * @param { Uint8Array } token - token indicates the value of AuthToken from USER IAM service.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify authtoken failed
+   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 11
+   */
   function updateSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
   /**
@@ -726,6 +1036,30 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
+   */
+  /**
+   * Finish Operation.
+   *
+   * @param { number } handle - indicates the handle of the init operation.
+   * @param { HuksOptions } options - options indicates the properties of the finish operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify authtoken failed
+   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
    */
   function finishSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
@@ -784,6 +1118,31 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
+  /**
+   * Finish Operation.
+   *
+   * @param { number } handle - indicates the handle of the init operation.
+   * @param { HuksOptions } options - options indicates the properties of the finish operation.
+   * @param { Uint8Array } token - token indicates the value of AuthToken from USER IAM service.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify authtoken failed
+   * @throws { BusinessError } 12000009 - authtoken is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 11
+   */
   function finishSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
   /**
@@ -828,6 +1187,23 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
+  /**
+   * Abort Operation.
+   *
+   * @param { number } handle - indicates the handle of the init operation.
+   * @param { HuksOptions } options - options indicates the properties of the abort operation.
+   * @param { AsyncCallback<void> } callback - the callback of abortSession.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   function abortSession(handle: number, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -845,6 +1221,23 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
+   */
+  /**
+   * Abort Operation.
+   *
+   * @param { number } handle - indicates the handle of the init operation.
+   * @param { HuksOptions } options - options indicates the properties of the abort operation.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 11
    */
   function abortSession(handle: number, options: HuksOptions): Promise<void>;
 
@@ -895,6 +1288,50 @@ declare namespace huks {
   function attestKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
   /**
+   * Key Attestation with anonymous certificate.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - the callback of attestKeyItem.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @since 11
+   */
+  function anonAttestKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
+
+  /**
+   * Key Attestation with anonymous certificate.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - options indicates the properties of the key attestation operation.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 401 - argument is invalid
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occured in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - external error
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @since 11
+   */
+  function anonAttestKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
+
+  /**
    * Get the sdk version.
    *
    * @param { HuksOptions } options - options indicates the properties of the key.
@@ -911,8 +1348,34 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
+  /**
+   * Interface of huks param.
+   *
+   * @typedef HuksParam
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   export interface HuksParam {
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     tag: HuksTag;
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     value: boolean | number | bigint | Uint8Array;
   }
 
@@ -938,8 +1401,34 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
+  /**
+   * Interface of huks handle.
+   *
+   * @typedef HuksSessionHandle
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   export interface HuksSessionHandle {
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     handle: number;
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     challenge?: Uint8Array;
   }
 
@@ -950,8 +1439,34 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
+  /**
+   * Interface of huks option.
+   *
+   * @typedef HuksOptions
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   export interface HuksOptions {
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     properties?: Array<HuksParam>;
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     inData?: Uint8Array;
   }
 
@@ -978,8 +1493,34 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
+  /**
+   * Interface of huks result.
+   *
+   * @typedef HuksReturnResult
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   export interface HuksReturnResult {
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     outData?: Uint8Array;
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     properties?: Array<HuksParam>;
     certChains?: Array<string>;
   }
@@ -1072,26 +1613,202 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
+  /**
+   * Enum for huks exception error code.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum HuksExceptionErrCode {
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_PERMISSION_FAIL = 201,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_ILLEGAL_ARGUMENT = 401,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_NOT_SUPPORTED_API = 801,
-
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED = 12000001,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT = 12000002,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT = 12000003,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_FILE_OPERATION_FAIL = 12000004,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_COMMUNICATION_FAIL = 12000005,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_CRYPTO_FAIL = 12000006,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED = 12000007,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED = 12000008,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_KEY_AUTH_TIME_OUT = 12000009,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_SESSION_LIMIT = 12000010,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_ITEM_NOT_EXIST = 12000011,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_EXTERNAL_ERROR = 12000012,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST = 12000013,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ERR_CODE_INSUFFICIENT_MEMORY = 12000014,
-    HUKS_ERR_CODE_CALL_SERVICE_FAILED = 12000015
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 9
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
+    HUKS_ERR_CODE_CALL_SERVICE_FAILED = 12000015,
+    /**
+     * Device password is required but not set.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 11
+     */
+    HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET = 12000016
   }
 
   /**
@@ -1101,10 +1818,42 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
+  /**
+   * Enum for huks key purpose.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum HuksKeyPurpose {
-    /* Usable with RSA, EC and AES keys. */
+    /**
+     * Usable with RSA, EC and AES keys.
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * Usable with RSA, EC and AES keys.
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_KEY_PURPOSE_ENCRYPT = 1,
-    /* Usable with RSA, EC and AES keys. */
+    /**
+     * Usable with RSA, EC and AES keys.
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * Usable with RSA, EC and AES keys.
+     * 
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_KEY_PURPOSE_DECRYPT = 2,
     /**
      * Usable with RSA, EC keys.
@@ -1179,7 +1928,24 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
+  /**
+   * Enum for huks key padding.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum HuksKeyPadding {
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_PADDING_NONE = 0,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
@@ -1201,7 +1967,6 @@ declare namespace huks {
      * @since 8
      */
     HUKS_PADDING_PKCS5 = 4,
-
     HUKS_PADDING_PKCS7 = 5
   }
 
@@ -1211,6 +1976,14 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
+   */
+  /**
+   * Enum for huks cipher mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
    */
   export enum HuksCipherMode {
     HUKS_MODE_ECB = 1,
@@ -1227,6 +2000,15 @@ declare namespace huks {
      */
     HUKS_MODE_CCM = 31,
 
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_MODE_GCM = 32
   }
 
@@ -1236,6 +2018,14 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
+   */
+  /**
+   * Enum for huks key size.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
    */
   export enum HuksKeySize {
     /**
@@ -1290,8 +2080,35 @@ declare namespace huks {
      */
     HUKS_ECC_KEY_SIZE_521 = 521,
 
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_AES_KEY_SIZE_128 = 128,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_AES_KEY_SIZE_192 = 192,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_AES_KEY_SIZE_256 = 256,
     HUKS_AES_KEY_SIZE_512 = 512,
 
@@ -1336,6 +2153,14 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
+    /**
+   * Enum for huks key algorithm.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum HuksKeyAlg {
     /**
      * @syscap SystemCapability.Security.Huks.Extension
@@ -1353,6 +2178,15 @@ declare namespace huks {
      */
     HUKS_ALG_DSA = 3,
 
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_ALG_AES = 20,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
@@ -1554,6 +2388,34 @@ declare namespace huks {
   }
 
   /**
+   * Enum for huks key file storage authentication level. 
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @since 11
+   */
+  export enum HuksAuthStorageLevel {
+    /**
+     * Key file storage security level for device encryption standard.
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 11
+     */
+    HUKS_AUTH_STORAGE_LEVEL_DE = 0,
+    /**
+     * Key file storage security level for credential encryption standard.
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 11
+     */
+    HUKS_AUTH_STORAGE_LEVEL_CE = 1,
+    /**
+     * Key file storage security level for enhanced credential encryption standard.
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 11
+     */
+    HUKS_AUTH_STORAGE_LEVEL_ECE = 2,
+  }
+
+  /**
    * Enum for huks auth access challenge type.
    *
    * @enum { number }
@@ -1610,12 +2472,74 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
+  /**
+   * Enum for huks base tag type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum HuksTagType {
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_TYPE_INVALID = 0 << 28,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_TYPE_INT = 1 << 28,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_TYPE_UINT = 2 << 28,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_TYPE_ULONG = 3 << 28,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_TYPE_BOOL = 4 << 28,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_TYPE_BYTES = 5 << 28
   }
 
@@ -1625,6 +2549,14 @@ declare namespace huks {
    * @enum { number }
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
+   */
+  /**
+   * Enum for huks tag.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 11
    */
   export enum HuksTag {
     /**
@@ -1637,8 +2569,35 @@ declare namespace huks {
     HUKS_TAG_INVALID = HuksTagType.HUKS_TAG_TYPE_INVALID | 0,
 
     /* Base algrithom TAG: 1 - 200 */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_ALGORITHM = HuksTagType.HUKS_TAG_TYPE_UINT | 1,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_PURPOSE = HuksTagType.HUKS_TAG_TYPE_UINT | 2,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_KEY_SIZE = HuksTagType.HUKS_TAG_TYPE_UINT | 3,
 
     /**
@@ -1646,13 +2605,48 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_DIGEST = HuksTagType.HUKS_TAG_TYPE_UINT | 4,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_PADDING = HuksTagType.HUKS_TAG_TYPE_UINT | 5,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_BLOCK_MODE = HuksTagType.HUKS_TAG_TYPE_UINT | 6,
     HUKS_TAG_KEY_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 7,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_ASSOCIATED_DATA = HuksTagType.HUKS_TAG_TYPE_BYTES | 8,
 
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_NONCE = HuksTagType.HUKS_TAG_TYPE_BYTES | 9,
-
     HUKS_TAG_IV = HuksTagType.HUKS_TAG_TYPE_BYTES | 10,
 
     /* Key derivation TAG */
@@ -1715,6 +2709,15 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_AGREE_PUBLIC_KEY = HuksTagType.HUKS_TAG_TYPE_BYTES | 22,
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 23,
     /**
      * @syscap SystemCapability.Security.Huks.Extension
@@ -1989,6 +2992,14 @@ declare namespace huks {
     HUKS_TAG_SECURE_KEY_UUID = HuksTagType.HUKS_TAG_TYPE_BYTES | 1010,
     HUKS_TAG_KEY_DOMAIN = HuksTagType.HUKS_TAG_TYPE_UINT | 1011,
 
+    /**
+     * Key access control based on device password setting status. True means the key can only be generated and used when the password is set.
+     * 
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @since 11
+     */
+    HUKS_TAG_IS_DEVICE_PASSWORD_SET = HuksTagType.HUKS_TAG_TYPE_BOOL | 1012,
+    
     /* Inner-use TAG: 10001 - 10999 */
     /**
      * @syscap SystemCapability.Security.Huks.Core
@@ -2034,6 +3045,15 @@ declare namespace huks {
      */
     HUKS_TAG_PAYLOAD_LEN = HuksTagType.HUKS_TAG_TYPE_UINT | 10008,
 
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 8
+     */
+    /**
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice
+     * @since 11
+     */
     HUKS_TAG_AE_TAG = HuksTagType.HUKS_TAG_TYPE_BYTES | 10009,
   
     /**

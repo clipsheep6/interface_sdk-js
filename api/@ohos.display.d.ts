@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
@@ -69,6 +74,16 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Obtain the default display.
+   *
+   * @returns { Display } the result of display
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function getDefaultDisplaySync(): Display;
 
@@ -620,6 +635,15 @@ declare namespace display {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Define properties of the display. They cannot be updated automatically.
+   *
+   * @interface Display
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Display {
     /**
      * Display ID.
@@ -674,6 +698,13 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
+    /**
+     * Rotation degrees of the display.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
+     */
     rotation: number;
 
     /**
@@ -688,6 +719,14 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Display width, in pixels.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     width: number;
 
@@ -704,6 +743,14 @@ declare namespace display {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Display height, in pixels.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     height: number;
 
     /**
@@ -711,6 +758,13 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * Display resolution.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     densityDPI: number;
 
@@ -729,6 +783,13 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
+    /**
+     * Display density, in pixels. The value for a low-resolution display is 1.0.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
+     */
     densityPixels: number;
 
     /**
@@ -736,6 +797,13 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * Text scale density of the display.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     scaledDensity: number;
 

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Basic Services Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 
 /**
@@ -36,7 +41,6 @@ declare namespace distributedAccount {
    * Defines distributed account functions and interfaces.
    *
    * @interface DistributedAccountAbility
-   * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
    * @syscap SystemCapability.Account.OsAccount
    * @since 7
    */

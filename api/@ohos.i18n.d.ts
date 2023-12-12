@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Localization Kit
+ */
+
 import { BusinessError } from './@ohos.base';
 
 /**
@@ -96,6 +101,14 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Provides system functions.
+   *
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   export class System {
     /**

@@ -14,17 +14,15 @@
  */
 
 /**
- * This module provides the Network Response.
- * @interface NetworkResponse
- * @syscap SystemCapability.Communication.NetManager.Core
- * @since 3
+ * @file
+ * @kit Network Kit
  */
+
 /**
  * This module provides the Network Response.
  * @interface NetworkResponse
  * @syscap SystemCapability.Communication.NetManager.Core
- * @atomicservice
- * @since 11
+ * @since 3
  */
 export interface NetworkResponse {
   /**
@@ -33,26 +31,12 @@ export interface NetworkResponse {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
    */
-  /**
-   * Network type. The values can be 2G, 3G, 4G, WiFi, or none.
-   * @type {string}
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @atomicservice
-   * @since 11
-   */
   type: string;
   /**
    * Whether the billing is based on the data volume.
    * @type {boolean}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
-   */
-  /**
-   * Whether the billing is based on the data volume.
-   * @type {boolean}
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @atomicservice
-   * @since 11
    */
   metered: boolean;
 }
@@ -61,24 +45,12 @@ export interface NetworkResponse {
  * @syscap SystemCapability.Communication.NetManager.Core
  * @since 3
  */
-/**
- * @syscap SystemCapability.Communication.NetManager.Core
- * @atomicservice
- * @since 11
- */
 export default class Network {
   /**
    * Obtains the network type.
    * @param { object } options - Options.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
-   */
-  /**
-   * Obtains the network type.
-   * @param { object } options - Options.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @atomicservice
-   * @since 11
    */
   static getType(options?: {
     /**
@@ -107,13 +79,6 @@ export default class Network {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
    */
-  /**
-   * Listens to the network connection state. If this method is called multiple times, the last call takes effect.
-   * @param { object } options - Options.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @atomicservice
-   * @since 11
-   */
   static subscribe(options?: {
     /**
      * Called when the network connection state changes.
@@ -133,12 +98,6 @@ export default class Network {
    * Cancels listening to the network connection state.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
-   */
-  /**
-   * Cancels listening to the network connection state.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @atomicservice
-   * @since 11
    */
   static unsubscribe(): void;
 }

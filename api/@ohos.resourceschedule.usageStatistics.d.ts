@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Background Tasks Kit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
@@ -410,7 +415,7 @@ declare namespace usageStatistics {
    * @since 9
    */
   interface AppGroupCallbackInfo {
-    /*
+    /**
      * The usage old group of the application
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -419,7 +424,7 @@ declare namespace usageStatistics {
      */
     appOldGroup: number;
 
-    /*
+    /**
      * The usage new group of the application
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -428,7 +433,7 @@ declare namespace usageStatistics {
      */
     appNewGroup: number;
 
-    /*
+    /**
      * The use id
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -437,7 +442,7 @@ declare namespace usageStatistics {
      */
     userId: number;
 
-    /*
+    /**
      * The change reason
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -446,7 +451,7 @@ declare namespace usageStatistics {
      */
     changeReason: number;
 
-    /*
+    /**
      * The bundle name
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup

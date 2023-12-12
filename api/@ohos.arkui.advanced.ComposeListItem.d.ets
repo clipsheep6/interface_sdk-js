@@ -13,6 +13,11 @@
 * limitations under the License.
 */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
@@ -23,11 +28,26 @@ import { ResourceStr } from 'GlobalResource';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+
+
+/**
+ * Declare enum IconType
+ * @enum { IconType }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare enum IconType {
   /**
    * Badge type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Badge type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   BADGE = 1,
   /**
@@ -35,11 +55,23 @@ export declare enum IconType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Normal icon type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   NORMAL_ICON = 2,
   /**
    * System icon type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * System icon type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   SYSTEM_ICON = 3,
   /**
@@ -47,11 +79,23 @@ export declare enum IconType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * HeadSculpture type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   HEAD_SCULPTURE = 4,
   /**
    * App icon type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * App icon type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   APP_ICON = 5,
   /**
@@ -59,17 +103,35 @@ export declare enum IconType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Preview type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   PREVIEW = 6,
   /**
    * Longitudinal type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Longitudinal type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   LONGITUDINAL = 7,
   /**
    * Vertical type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Vertical type.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   VERTICAL = 8
 }
@@ -79,11 +141,23 @@ export declare enum IconType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare type OperateIcon
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare class OperateIcon {
   /**
    * The content of text or the address of icon.
    * @type { ResourceStr }.
    * @since 10
+   */
+  /**
+   * The content of text or the address of icon.
+   * @type { ResourceStr }.
+   * @atomicservice
+   * @since 11
    */
   value: ResourceStr;
 
@@ -91,6 +165,12 @@ export declare class OperateIcon {
    * Callback function when operate the icon.
    * @type { () => void }.
    * @since 10
+   */
+  /**
+   * Callback function when operate the icon.
+   * @type { () => void }.
+   * @atomicservice
+   * @since 11
    */
   action?: () => void;
 }
@@ -100,11 +180,23 @@ export declare class OperateIcon {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare type OperateCheck
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare class OperateCheck {
   /**
    * Whether is checked on default.
    * @type { boolean }.
    * @since 10
+   */
+  /**
+   * Whether is checked on default.
+   * @type { boolean }.
+   * @atomicservice
+   * @since 11
    */
   isCheck?: boolean;
 
@@ -112,6 +204,12 @@ export declare class OperateCheck {
    * Callback function when operate the checkbox/switch/radio.
    * @type { () => void }.
    * @since 10
+   */
+  /**
+   * Callback function when operate the checkbox/switch/radio.
+   * @type { () => void }.
+   * @atomicservice
+   * @since 11
    */
   onChange?: (value: boolean) => void;
 }
@@ -121,11 +219,23 @@ export declare class OperateCheck {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare type OperateButton
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare class OperateButton {
   /**
    * The text on the button.
    * @type { ResourceStr }.
    * @since 10
+   */
+  /**
+   * The text on the button.
+   * @type { ResourceStr }.
+   * @atomicservice
+   * @since 11
    */
   text?: ResourceStr;
 }
@@ -135,12 +245,25 @@ export declare class OperateButton {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare ContentItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare class ContentItem {
   /**
    * The type of icon.
    * type { IconType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The type of icon.
+   * type { IconType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   iconStyle?: IconType;
 
@@ -150,6 +273,13 @@ export declare class ContentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Sets the icon.
+   * type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   icon?: ResourceStr;
 
   /**
@@ -157,6 +287,13 @@ export declare class ContentItem {
    * type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Sets the primaryText.
+   * type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   primaryText?: ResourceStr;
 
@@ -166,6 +303,13 @@ export declare class ContentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Sets the secondaryText.
+   * type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   secondaryText?: ResourceStr;
 
   /**
@@ -173,6 +317,13 @@ export declare class ContentItem {
    * type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Sets the description.
+   * type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   description?: ResourceStr;
 }
@@ -182,12 +333,25 @@ export declare class ContentItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare OperateItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 export declare class OperateItem {
   /**
    * Sets the icon.
    * type { OperateIcon }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Sets the icon.
+   * type { OperateIcon }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   icon?: OperateIcon;
 
@@ -197,6 +361,13 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Sets the subIcon.
+   * type { OperateIcon }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   subIcon?: OperateIcon;
 
   /**
@@ -204,6 +375,13 @@ export declare class OperateItem {
    * type { OperateButton }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Sets the button.
+   * type { OperateButton }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   button?: OperateButton;
 
@@ -213,6 +391,13 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Sets the switch.
+   * type { OperateCheck }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   switch?: OperateCheck;
 
   /**
@@ -220,6 +405,13 @@ export declare class OperateItem {
    * type { OperateCheck }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Sets the checkBox.
+   * type { OperateCheck }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   checkbox?: OperateCheck;
 
@@ -229,6 +421,13 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Sets the radio.
+   * type { OperateCheck }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   radio?: OperateCheck;
 
   /**
@@ -236,6 +435,13 @@ export declare class OperateItem {
    * type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Sets the image.
+   * type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   image?: ResourceStr;
 
@@ -245,6 +451,13 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * Sets the text.
+   * type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   text?: ResourceStr;
 
   /**
@@ -252,6 +465,13 @@ export declare class OperateItem {
    * type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * Sets the arrow.
+   * type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   arrow?: OperateIcon;
 }
@@ -261,6 +481,12 @@ export declare class OperateItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+/**
+ * Declare ComposeListItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
+ */
 @Component
 export declare struct ComposeListItem {
   /**
@@ -269,6 +495,13 @@ export declare struct ComposeListItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
+  /**
+   * The ContentItem.
+   * type { ContentItem }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   @Prop contentItem?: ContentItem;
 
   /**
@@ -276,6 +509,13 @@ export declare struct ComposeListItem {
    * type { OperateItem }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * The OperateItem.
+   * type { OperateItem }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
    */
   @Prop operateItem?: OperateItem;
 }

@@ -13,12 +13,18 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata } from './bundleManager/ApplicationInfo';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
 import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
 import { ElementName as _ElementName } from './bundleManager/ElementName';
 import { SharedBundleInfo as _SharedBundleInfo } from './bundleManager/SharedBundleInfo';
+import type { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
 import Want from './@ohos.app.ability.Want';
 import * as _AbilityInfo from './bundleManager/AbilityInfo';
 import * as _AppProvisionInfo from './bundleManager/AppProvisionInfo';
@@ -1670,6 +1676,27 @@ declare namespace bundleManager {
     extensionAbilityFlags: number, userId?: number): Array<ExtensionAbilityInfo>;
 
   /**
+   * Query the ExtensionAbilityInfo by extension ability type. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } extensionAbilityType - Indicates ExtensionAbilityType.
+   * @param { number } extensionAbilityFlags - Indicates the flag used to specify information contained in the
+   *  ExtensionAbilityInfo objects that will be returned.
+   * @param { number } userId - Indicates the user ID.
+   * @returns { Array<ExtensionAbilityInfo> } Returns a list of ExtensionAbilityInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700003 - The specified extensionAbility is not found.
+   * @throws { BusinessError } 17700004 - The specified userId is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 11
+   */
+  function queryExtensionAbilityInfoSync(extensionAbilityType: string, extensionAbilityFlags: number,
+    userId?: number): Array<ExtensionAbilityInfo>;
+
+  /**
    * Obtains bundle name by the given uid.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -2690,6 +2717,49 @@ declare namespace bundleManager {
   function verifyAbc(abcPaths: Array<string>, deleteOriginalFiles: boolean): Promise<void>;
 
   /**
+   * Obtains recoverable preinstalled applications.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { AsyncCallback<Array<RecoverableApplicationInfo>> } callback - The callback of getting a list of RecoverableApplicationInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 11
+   */
+  function getRecoverableApplicationInfo(callback: AsyncCallback<Array<RecoverableApplicationInfo>>): void;
+
+  /**
+   * Obtains recoverable preinstalled applications.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @returns { Promise<Array<RecoverableApplicationInfo>> } Returns a list of RecoverableApplicationInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 11
+   */
+  function getRecoverableApplicationInfo(): Promise<Array<RecoverableApplicationInfo>>;
+
+  /**
+   * Set additional information to the specified application.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { string } additionalInfo - The additional information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700053 - Not app gallery call.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 11
+   */
+  function setAdditionalInfo(bundleName: string, additionalInfo: string): void;
+
+  /**
    * Obtains configuration information about an application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2934,6 +3004,15 @@ declare namespace bundleManager {
    * @since 10
    */
   export type Validity = _AppProvisionInfo.Validity;
+
+  /**
+   * Obtains information about a recoverable preinstalled application.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 11
+   */
+  export type RecoverableApplicationInfo = _RecoverableApplicationInfo;
 }
 
 export default bundleManager;
