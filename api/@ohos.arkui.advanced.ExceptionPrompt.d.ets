@@ -138,14 +138,14 @@ export declare struct ExceptionPrompt {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  onClickTextCallback?: () => void;
+  onTextClick?: () => void;
   /**
    * Callback when click the icon button.
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  onConfigureCallback?: () => void;
+  onConfigure?: () => void;
   /**
    * Build function of ExceptionPrompt.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
