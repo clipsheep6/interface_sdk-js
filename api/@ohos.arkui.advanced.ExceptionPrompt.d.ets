@@ -109,7 +109,14 @@ export interface PromptOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  PositionTop:number
+  positionTop:number
+  /**
+   * Control concealment of PromptOptions.
+   * @type {boolean}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  isShow:boolean
 }
 /**
  * Declare struct ExceptionPrompt
