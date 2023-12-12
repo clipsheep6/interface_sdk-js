@@ -320,6 +320,15 @@ export interface NotificationRequest {
    */
   readonly hashCode?: string;
 
+    /**
+   * Whether the notification can be remove.
+   *
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 8
+   */
   /**
    * Whether the notification can be remove.
    *
@@ -328,7 +337,7 @@ export interface NotificationRequest {
    * @default true
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 8
+   * @since 11
    */
   isRemoveAllowed?: boolean;
 
