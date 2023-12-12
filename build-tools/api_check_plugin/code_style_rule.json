@@ -342,6 +342,8 @@
       "SystemCapability.FileManagement.PhotoAccessHelper.Core",
       "SystemCapability.AI.IntelligentVoice.Core",
       "SystemCapability.Msdp.DeviceStatus.Drag",
+      "SystemCapability.Multimedia.Drm.Core"
+      "SystemCapability.DistributedDataManager.CommonType"
       "SystemCapability.DistributedDataManager.CommonType",
       "SystemCapability.Multimedia.Audio.Spatialization",
       "SystemCapability.Multimedia.AudioHaptic.Core"
