@@ -1025,7 +1025,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Called when submitted.
    *
-   * @param { function } callback
+   * @param { function } callback - callback of the listened event.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
