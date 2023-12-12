@@ -102,7 +102,7 @@ export interface PromptOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  isTouchShow: boolean;
+  isTouchShow?: boolean;
   /**
    * Distance from the top of PromptOptions.
    * @type {number}
@@ -116,7 +116,7 @@ export interface PromptOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  isShow:boolean
+  isShow?:boolean
 }
 /**
  * Declare struct ExceptionPrompt
