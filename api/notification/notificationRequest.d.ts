@@ -320,7 +320,7 @@ export interface NotificationRequest {
    */
   readonly hashCode?: string;
 
-    /**
+  /**
    * Whether the notification can be remove.
    *
    * @type { ?boolean }
