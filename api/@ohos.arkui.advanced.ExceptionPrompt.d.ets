@@ -138,9 +138,9 @@ export declare struct ExceptionPrompt {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  onReconnectionCallback?: () => void;
+  onClickTextCallback?: () => void;
   /**
-   * Callback when click Set network.
+   * Callback when click the icon button.
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
