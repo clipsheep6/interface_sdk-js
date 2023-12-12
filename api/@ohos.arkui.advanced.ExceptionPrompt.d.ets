@@ -12,27 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/**
- * Control type of  Network hardware  of ExceptionPrompt.
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 11
- */
-export declare enum HardwareStatus {
-  /**
-   * ON of HardwareStatus.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  ON = 0,
-  /**
-   * OFF of HardwareStatus.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  OFF = 1
-}
 /**
  * Control margin status of  ExceptionPrompt
  * @enum { number }
@@ -53,7 +32,6 @@ export declare enum MarginType {
    */
   FIT_MARGIN = 1,
 }
-
 /**
  * Configuration parameter of ExceptionPrompt.
  * @interface PromptOptions
@@ -61,13 +39,6 @@ export declare enum MarginType {
  * @since 11
  */
 export interface PromptOptions {
-  /**
-   * hardwareStatus of PromptOptions.
-   * @type {HardwareStatus}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
-   */
-  hardwareStatus: HardwareStatus;
   /**
    * icon of PromptOptions.
    * @type {?ResourceStr}
