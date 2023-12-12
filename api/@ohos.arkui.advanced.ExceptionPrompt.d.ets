@@ -84,25 +84,32 @@ export interface PromptOptions {
   tip?: ResourceStr;
   /**
    * Unavailable resource of PromptOptions.
-   * @type {?ResourceStr}
+   * @type {MarginType}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   marginState: MarginType;
   /**
    * Right icon button text of PromptOptions.
-   * @type {MarginType}
+   * @type {ResourceStr}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   touchText?: ResourceStr;
   /**
    * The icon button on the right is hidden of PromptOptions.
-   * @type {MarginType}
+   * @type {boolean}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   isTouchShow: boolean;
+  /**
+   * Distance from the top of PromptOptions.
+   * @type {number}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  PositionTop:number
 }
 /**
  * Declare struct ExceptionPrompt
