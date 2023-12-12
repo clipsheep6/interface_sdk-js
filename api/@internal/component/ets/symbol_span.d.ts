@@ -41,7 +41,9 @@ interface SymbolSpanInterface {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 11
+ * @form
  */
 declare enum SymbolSpanRenderingStrategy {
   /**
@@ -79,6 +81,7 @@ declare enum SymbolSpanRenderingStrategy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
  */
 declare enum SymbolSpanEffectStrategy {
   /**

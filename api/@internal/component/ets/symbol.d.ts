@@ -43,6 +43,7 @@ interface SymbolGlyphInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
  */
 declare enum SymbolGlyphRenderingStrategy {
   /**
@@ -80,6 +81,7 @@ declare enum SymbolGlyphRenderingStrategy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
  */
 declare enum SymbolGlyphEffectStrategy {
   /**

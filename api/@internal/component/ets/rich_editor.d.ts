@@ -594,6 +594,7 @@ declare interface RichEditorImageSpanStyle {
  *
  * @interface RichEditorSymbolSpanStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 11
  */
 declare interface RichEditorSymbolSpanStyle {
@@ -1458,7 +1459,7 @@ declare interface RichEditorSymbolSpanOptions {
   /**
    * symbol style
    *
-   * @type { ?number }
+   * @type { ?RichEditorSymbolSpanStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
