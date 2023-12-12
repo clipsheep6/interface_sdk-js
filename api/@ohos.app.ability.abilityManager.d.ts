@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AbilityResult } from './ability/abilityResult';
+import type { AbilityResult } from './ability/abilityResult';
 import { AsyncCallback } from './@ohos.base';
 import { Configuration } from './@ohos.app.ability.Configuration';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
