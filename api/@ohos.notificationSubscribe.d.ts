@@ -19,6 +19,7 @@ import { NotificationSubscribeInfo as _NotificationSubscribeInfo } from './notif
 import { NotificationSubscriber as _NotificationSubscriber } from './notification/notificationSubscriber';
 import { SubscribeCallbackData as _SubscribeCallbackData } from './notification/notificationSubscriber';
 import { EnabledNotificationCallbackData as _EnabledNotificationCallbackData } from './notification/notificationSubscriber';
+import { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
 
 /**
  * @namespace notificationSubscribe
@@ -451,6 +452,16 @@ declare namespace notificationSubscribe {
    * @since 9
    */
   export type EnabledNotificationCallbackData = _EnabledNotificationCallbackData;
+
+  /**
+   * Describes the badge number of the application has changed.
+   *
+   * @typedef BadgeNumberCallbackData
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  export type BadgeNumberCallbackData = _BadgeNumberCallbackData;
 }
 
 export default notificationSubscribe;
