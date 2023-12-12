@@ -335,6 +335,7 @@ declare enum EnterKeyType {
  * @interface SubmitEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare interface SubmitEvent {
@@ -343,7 +344,6 @@ declare interface SubmitEvent {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 11
    */
   keepEditableState(): void;
