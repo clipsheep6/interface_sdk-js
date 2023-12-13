@@ -158,7 +158,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   /**
    * Called when the symbolGlyph effect is set.
    *
-   * @param { EffectStrategy } value
+   * @param { SymbolGlyphEffectStrategy } value
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

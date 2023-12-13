@@ -158,7 +158,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   /**
    * Called when the symbol span effect is set.
    *
-   * @param { EffectStrategy } value
+   * @param { SymbolSpanEffectStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolSpan.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
