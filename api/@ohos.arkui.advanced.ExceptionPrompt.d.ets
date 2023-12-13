@@ -16,18 +16,21 @@
  * Control margin status of  ExceptionPrompt
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 11
  */
 export declare enum MarginType {
   /**
    * DEFAULT_MARGIN of MarginType.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   DEFAULT_MARGIN = 0,
   /**
    * FIT_MARGIN of MarginType.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   FIT_MARGIN = 1,
@@ -36,6 +39,7 @@ export declare enum MarginType {
  * Configuration parameter of ExceptionPrompt.
  * @interface PromptOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 11
  */
 export interface PromptOptions {
@@ -43,6 +47,7 @@ export interface PromptOptions {
    * icon of PromptOptions.
    * @type {?ResourceStr}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   icon?: ResourceStr;
@@ -50,6 +55,7 @@ export interface PromptOptions {
    * tip of PromptOptions.
    * @type {?ResourceStr}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   tip?: ResourceStr;
@@ -57,6 +63,7 @@ export interface PromptOptions {
    * Unavailable resource of PromptOptions.
    * @type {MarginType}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   marginState: MarginType;
@@ -64,6 +71,7 @@ export interface PromptOptions {
    * Right icon button text of PromptOptions.
    * @type {?ResourceStr}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   touchText?: ResourceStr;
@@ -71,6 +79,7 @@ export interface PromptOptions {
    * The icon button on the right is hidden of PromptOptions.
    * @type {boolean}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   isTouchShow?: boolean;
@@ -78,6 +87,7 @@ export interface PromptOptions {
    * Distance from the top of PromptOptions.
    * @type {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   positionTop:number
@@ -85,6 +95,7 @@ export interface PromptOptions {
    * Control concealment of PromptOptions.
    * @type {boolean}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   isShow?:boolean
@@ -92,6 +103,7 @@ export interface PromptOptions {
 /**
  * Declare struct ExceptionPrompt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
  * @since 11
  */
 @Component
@@ -100,6 +112,7 @@ export declare struct ExceptionPrompt {
    * Options of ExceptionPrompt.
    * @type { PromptOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   @Prop options: PromptOptions;
@@ -107,6 +120,7 @@ export declare struct ExceptionPrompt {
    * Callback when clicking the text on the left.
    * @type {?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   onTextClick?: () => void;
@@ -114,12 +128,14 @@ export declare struct ExceptionPrompt {
    * Callback when click the icon button.
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   onConfigure?: () => void;
   /**
    * Build function of ExceptionPrompt.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @since 11
    */
   build(): void;
