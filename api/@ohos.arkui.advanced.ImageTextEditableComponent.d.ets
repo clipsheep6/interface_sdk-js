@@ -14,21 +14,21 @@
  */
 
 /**
- * Controls the style types of ImageTextEditableSort
+ * Controls the style types of ImageTextEditableComponent
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
-export declare enum ImageTextEditableSortType {
+export declare enum ImageTextEditableComponentType {
   /**
-   * The ImageTextEditableSort image text type.
+   * The ImageTextEditableComponent image text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   IMAGE_TEXT = "image_text",
 
   /**
-   * The ImageTextEditableSort text type.
+   * The ImageTextEditableComponent text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -37,14 +37,14 @@ export declare enum ImageTextEditableSortType {
 
 
 /**
- * Declaration of the ImageTextEditableSort item.
- * @interface ImageTextEditableSortIteml
+ * Declaration of the ImageTextEditableComponent item.
+ * @interface ImageTextEditableComponentIteml
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
-export interface ImageTextEditableSortItem {
+export interface ImageTextEditableComponentItem {
   /**
-   * id of ImageTextEditableSort item.
+   * id of ImageTextEditableComponent item.
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -52,7 +52,7 @@ export interface ImageTextEditableSortItem {
   id: number | string;
 
   /**
-   * ImageTextEditableSort item id.
+   * ImageTextEditableComponent item id.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -60,7 +60,7 @@ export interface ImageTextEditableSortItem {
   text: ResourceStr;
 
   /**
-   * state of ImageTextEditableSort item.
+   * state of ImageTextEditableComponent item.
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -68,7 +68,7 @@ export interface ImageTextEditableSortItem {
   state: boolean;
 
   /**
-   * order of ImageTextEditableSortItem, Used for sorting dataList.
+   * order of ImageTextEditableComponentItem, Used for sorting dataList.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -76,9 +76,9 @@ export interface ImageTextEditableSortItem {
   order: number;
 
   /**
-   * image resource path of the ImageTextEditableSort item.
+   * image resource path of the ImageTextEditableComponent item.
    *
-   * @type { ResourceStr }
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -86,56 +86,56 @@ export interface ImageTextEditableSortItem {
 }
 
 /**
- * ImageTextEditableSortOptions of ImageTextEditableSort.
+ * ImageTextEditableComponentOptions of ImageTextEditableComponent.
  * @interface GridEditOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
-export interface ImageTextEditableSortOptions {
+export interface ImageTextEditableComponentOptions {
   /**
-   * Configuration ImageTextEditableSort type.
-   * @type { ImageTextEditableSortType }
-   * @default ImageTextEditableSortType.TEXT
+   * Configuration ImageTextEditableComponent type.
+   * @type { ImageTextEditableComponentType }
+   * @default ImageTextEditableComponentType.TEXT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  type?: ImageTextEditableSortType;
+  type?: ImageTextEditableComponentType;
 
   /**
-   * The size of the ImageTextEditableSort image.
-   * @type { number }
+   * The size of the ImageTextEditableComponent image.
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   imageSize?: number;
 
   /**
-   * The title displayed in the unedited state of the  ImageTextEditableSort.
-   * @type { ResourceStr }
+   * The title displayed in the unedited state of the  ImageTextEditableComponent.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   title?: ResourceStr;
 
   /**
-   * The title displayed in the ImageTextEditableSort edit state.
-   * @type { ResourceStr }
+   * The title displayed in the ImageTextEditableComponent edit state.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   editTitle?: ResourceStr;
 
   /**
-   * First subtitle of the ImageTextEditableSort.
-   * @type { ResourceStr }
+   * First subtitle of the ImageTextEditableComponent.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   firstSubtitle?: ResourceStr;
 
   /**
-   * second subtitle of the ImageTextEditableSort.
-   * @type { ResourceStr }
+   * second subtitle of the ImageTextEditableComponent.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -143,39 +143,47 @@ export interface ImageTextEditableSortOptions {
 }
 
 
-  /**
-   * Declare struct ImageTextEditableSort.
-   * @struct { ImageTextEditableSort }
-   * @since 11
-   */
+/**
+ * Declare struct ImageTextEditableComponent.
+ * @struct { ImageTextEditableComponent }
+ * @since 11
+ */
 @Component
-export declare struct ImageTextEditableSort {
+export declare struct ImageTextEditableComponent {
   /**
-   * Component types and parameters of the ImageTextEditableSort.
-   * @type { ImageTextEditableSortOptions }
+   * Component types and parameters of the ImageTextEditableComponent.
+   * @type { ImageTextEditableComponentOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
   @Prop
-  options: ImageTextEditableSortOptions;
+  options: ImageTextEditableComponentOptions;
   /**
-   * data list of ImageTextEditableSort.
-   * @type { Array<ImageTextEditableSortItem> }
+   * data list of ImageTextEditableComponent.
+   * @type { Array<ImageTextEditableComponentItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  dataList: Array<ImageTextEditableSortItem>;
+  dataList: Array<ImageTextEditableComponentItem>;
 
   /**
    * Callback when Obtain edited data.
-   * @type { (result: Array<ImageTextEditableSortItem>) => void }
+   * @type { (select: Array<ImageTextEditableComponentItem>, unselect: Array<ImageTextEditableComponentItem>) => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  onSave: (result: Array<ImageTextEditableSortItem>) => void;
+  onSave: (select: Array<ImageTextEditableComponentItem>, unselect: Array<ImageTextEditableComponentItem>) => void;
 
   /**
-   * Build function of ImageTextEditableSort.
+   * Cancel callback for saving data.
+   * @type { () => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  onCancel: () => void;
+
+  /**
+   * Build function of ImageTextEditableComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
