@@ -3321,6 +3321,13 @@ declare namespace media {
      * @since 9
      */
     videoFrameRate?: number;
+
+    /**
+     * Whether to record HDR video.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 11
+     */
+    isHdr?: boolean;
   }
 
   /**
@@ -3469,6 +3476,13 @@ declare namespace media {
      * @since 8
      */
     AUDIO_FLAC = 'audio/flac',
+
+    /**
+     * H.265 codec MIME type.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 11
+     */
+    VIDEO_HEVC = 'video/hevc',
   }
 }
 export default media;
