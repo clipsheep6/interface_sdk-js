@@ -636,7 +636,7 @@ declare interface RichEditorSymbolSpanStyle {
    * @crossplatform
    * @since 11
    */
-  symbolSpanEffect?: SymbolEffectStrategy;
+  symbolEffect?: SymbolEffectStrategy;
 
   /**
    * symbol span renderingstrategy.
@@ -646,7 +646,7 @@ declare interface RichEditorSymbolSpanStyle {
    * @crossplatform
    * @since 11
    */
-  symbolSpanRenderingStrategy?: SymbolRenderingStrategy;
+  symbolRenderingStrategy?: SymbolRenderingStrategy;
 }
 
 /**
