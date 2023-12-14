@@ -285,7 +285,7 @@ declare namespace distributedDataObject {
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
-    setSessionId(sessionId: string, callback: AsyncCallback<void>): void;
+    setSessionId(sessionId: string | null, callback: AsyncCallback<void>): void;
 
     /*
      * Leave all session.
