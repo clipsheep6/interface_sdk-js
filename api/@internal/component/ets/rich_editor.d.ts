@@ -1458,6 +1458,26 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
 }
 
 /**
+ * Defines symbol span style option of RichEditor.
+ *
+ * @interface RichEditorUpdateSymbolSpanStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEditorSpanStyleOptions {
+  /**
+   * symbol span style.
+   *
+   * @type { RichEditorSymbolSpanStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  symbolStyle: RichEditorSymbolSpanStyle;
+}
+
+/**
  * Defines the symbol span options of RichEditor.
  *
  * @interface RichEditorSymbolSpanOptions
@@ -1877,12 +1897,12 @@ declare class RichEditorController {
   /**
    * Modify span style.
    *
-   * @param { RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions } value
+   * @param { RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions | RichEditorUpdateSymbolSpanStyleOptions } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
-  updateSpanStyle(value: RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions): void;
+  updateSpanStyle(value: RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions | RichEditorUpdateSymbolSpanStyleOptions): void;
 
   /**
    * Modify span style.
