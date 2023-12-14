@@ -249,6 +249,36 @@ declare interface NavDestinationInterface {
   (): NavDestinationAttribute;
 }
 
+declare class NavDestinationContext {
+  /**
+   * Creates an instance of NavDestinationContext.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  constructor();
+
+  /**
+   * Get path info.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  pathInfo: NavPathInfo;
+
+  /**
+   * Get stack of the Navigation where the NavDestination is located.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  pathStack: NavPathStack;
+}
+
 /**
  * The attribute function of NavDestination
  *
@@ -331,6 +361,17 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 11
    */
   hideTitleBar(value: boolean): NavDestinationAttribute;
+
+  /**
+   * Invoked after the component is created.
+   *
+   * @param { function } callback - Indicates callback after the component is created.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onReady(callback: (context: NavDestinationContext) => void): NavDestinationAttribute;
 
   /**
    * Invoked when the navDestination page is displayed.
