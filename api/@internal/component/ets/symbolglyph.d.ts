@@ -164,7 +164,7 @@ declare class SymbolAttribute extends CommonMethod<SymbolAttribute> {
    * @crossplatform
    * @since 11
    */
-  symbolEffect(value: SymbolEffectStrategy): SymbolAttribute;
+  effect(value: SymbolEffectStrategy): SymbolAttribute;
 
   /**
    * Called when the symbolGlyph renderingstrategy is set.
@@ -175,7 +175,7 @@ declare class SymbolAttribute extends CommonMethod<SymbolAttribute> {
    * @crossplatform
    * @since 11
    */
-  symbolRenderingStrategy(value: SymbolRenderingStrategy): SymbolAttribute;
+  renderingStrategy(value: SymbolRenderingStrategy): SymbolAttribute;
 }
 
 /**
