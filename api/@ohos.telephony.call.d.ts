@@ -2883,6 +2883,79 @@ declare namespace call {
      * @since 7
      */
     conferenceState: ConferenceState;
+
+    /**
+     * Indicates the detail information of voip call.
+     *
+     * @type { VoipCallAttribute }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    voipCallAttribute: VoipCallAttribute;
+  }
+
+  /**
+   * Indicates the voip call detail information.
+   *
+   * @interface VoipCallAttribute
+   * @syscap SystemCapability.Telephony.CallManager
+   * @since 11
+   */
+  export interface VoipCallAttribute {
+    /**
+     * Indicates the identifier of the voip call.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 11
+     */
+    voipCallId: string;
+
+    /**
+     * Indicates the user name of the VoIP call.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 11
+     */
+    userName: string;
+
+    /**
+     * Indicates the user profile path of the VoIP call.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 11
+     */
+    userProfilePath: string;
+
+    /**
+     * Indicates the third-party application process specific identifier.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 11
+     */
+    extensionId: string;
+
+    /**
+     * Indicates the third-party application UI extension ability name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 11
+     */
+    abilityName: string;
+
+    /**
+     * Indicates the third-party application bundle name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 11
+     */
+    voipBundleName: string;
   }
 
   /**
@@ -2975,6 +3048,15 @@ declare namespace call {
      * @since 7
      */
     TYPE_ERR_CALL = 3,
+
+    /**
+     * Indicates the call type is VoIP.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    TYPE_VOIP = 4,
   }
 
   /**
