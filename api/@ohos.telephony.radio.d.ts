@@ -37,8 +37,9 @@ declare namespace radio {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}> } callback - Returns
-   * an integer indicating the RAT in use. The values are as follows:
+   * @param { AsyncCallback<NetworkRadioTech> } callback - Returns
+   * the RAT of PS domain and CS domain of registered network.
+   * The values of RAT are as follows:
    * <ul>
    * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_UNKNOWN}
    * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_GSM}
@@ -63,8 +64,7 @@ declare namespace radio {
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6
    */
-  function getRadioTech(slotId: number,
-    callback: AsyncCallback<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}>): void;
+  function getRadioTech(slotId: number, callback: AsyncCallback<NetworkRadioTech>): void;
 
   /**
    * Obtains radio access technology (RAT) of the registered network. The system
@@ -73,8 +73,8 @@ declare namespace radio {
    * @permission ohos.permission.GET_NETWORK_INFO
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}> } Returns
-   * the enumeration of RadioTechnology. The values are as follows:
+   * @returns { Promise<NetworkRadioTech> } Returns the RAT of PS domain and CS domain of registered network.
+   * The values of RAT are as follows:
    * <ul>
    * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_UNKNOWN}
    * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_GSM}
@@ -99,7 +99,7 @@ declare namespace radio {
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6
    */
-  function getRadioTech(slotId: number): Promise<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}>;
+  function getRadioTech(slotId: number): Promise<NetworkRadioTech>;
 
   /**
    * Obtains the network state of the registered network.
@@ -1778,6 +1778,31 @@ declare namespace radio {
      * @since 8
      */
     PREFERRED_NETWORK_MODE_MAX_VALUE = 99,
+  }
+
+  /**
+   * Describes the radio access technology (RAT) of registered network.
+   *
+   * @interface NetworkRadioTech
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 11
+   */
+  export interface NetworkRadioTech {
+    /**
+     * Indicates radio access technology (RAT) of packet service (PS) domain.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 11
+     */
+    psRadioTech: RadioTechnology;
+
+    /**
+     * Indicates radio access technology (RAT) of circuit service (PS) domain.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @since 11
+     */
+    csRadioTech: RadioTechnology;
   }
 
   /**
