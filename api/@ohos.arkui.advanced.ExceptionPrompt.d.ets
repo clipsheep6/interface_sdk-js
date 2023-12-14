@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 /**
- * Control margin status of  ExceptionPrompt
+ * Control margin status of  ExceptionPrompt.
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -21,20 +21,22 @@
  */
 export declare enum MarginType {
   /**
-   * Default margin of MarginType，Margin 1: references ohos_id_card_margin_start, margin 2: references ohos_id_card_margin_end
+   * Default margin of MarginType，Margin 1: references ohos_id_card_margin_start, margin 2: references ohos_id_card_margin_end.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   DEFAULT_MARGIN = 0,
+
   /**
-   * Margins can be adapted of MarginType，Margin 1: references ohos_id_max_padding_start, margin 2: references ohos_id_max_padding_end
+   * Margins can be adapted of MarginType，Margin 1: references ohos_id_max_padding_start, margin 2: references ohos_id_max_padding_end.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   FIT_MARGIN = 1,
 }
+
 /**
  * Configuration parameter of ExceptionPrompt.
  * @interface PromptOptions
@@ -51,6 +53,7 @@ export interface PromptOptions {
    * @since 11
    */
   icon?: ResourceStr;
+
   /**
    * Tip text of PromptOptions.
    * @type {?ResourceStr}
@@ -59,6 +62,7 @@ export interface PromptOptions {
    * @since 11
    */
   tip?: ResourceStr;
+
   /**
    * Unavailable resource of PromptOptions.
    * @type {MarginType}
@@ -67,6 +71,7 @@ export interface PromptOptions {
    * @since 11
    */
   marginState: MarginType;
+
   /**
    * Right icon button text of PromptOptions.
    * @type {?ResourceStr}
@@ -75,6 +80,7 @@ export interface PromptOptions {
    * @since 11
    */
   touchText?: ResourceStr;
+
   /**
    * The icon button on the right is hidden of PromptOptions.
    * @type {boolean}
@@ -83,6 +89,7 @@ export interface PromptOptions {
    * @since 11
    */
   isTouchShown?: boolean;
+
   /**
    * Distance from the top of PromptOptions.
    * @type {number}
@@ -91,6 +98,7 @@ export interface PromptOptions {
    * @since 11
    */
   marginTop:number
+
   /**
    * Control concealment of PromptOptions.
    * @type {boolean}
@@ -100,14 +108,16 @@ export interface PromptOptions {
    */
   isShown?:boolean
 }
+
 /**
- * Declare struct ExceptionPrompt higher-order component
+ * Declare struct ExceptionPrompt higher-order component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
 @Component
 export declare struct ExceptionPrompt {
+
   /**
    * Configuration information of ExceptionPrompt.
    * @type { PromptOptions }
@@ -116,6 +126,7 @@ export declare struct ExceptionPrompt {
    * @since 11
    */
   @Prop options: PromptOptions;
+
   /**
    * Callback when clicking the text on the left.
    * @type {?function }
@@ -124,6 +135,7 @@ export declare struct ExceptionPrompt {
    * @since 11
    */
   onTextClick?: () => void;
+
   /**
    * Callback when click the icon button.
    * @type { ?function }
@@ -132,6 +144,7 @@ export declare struct ExceptionPrompt {
    * @since 11
    */
   onIconButtonClick?: () => void;
+
   /**
    * The build function is a member function that must return an ArkTS component type (Element) to represent the component to be rendered as a user interface.
    * @type { function }
