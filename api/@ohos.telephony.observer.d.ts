@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Telephony Kit
+ */
+
 import type { Callback } from './@ohos.base';
 import type radio from './@ohos.telephony.radio';
 import type data from './@ohos.telephony.data';
@@ -347,7 +352,8 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6
    */
-  function on(type: 'callStateChange', options: { slotId: number }, callback: Callback<{ state: CallState, number: string }>): void;
+  function on(type: 'callStateChange', options: { slotId: number }, 
+    callback: Callback<{ state: CallState, number: string }>): void;
 
   /**
    * Cancel callback when the call state is updated.

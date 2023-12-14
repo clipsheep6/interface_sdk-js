@@ -472,6 +472,7 @@ declare enum Color {
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum ColoringStrategy {
@@ -493,13 +494,22 @@ declare enum ColoringStrategy {
   INVERT = 'invert',
 
   /**
-   * Use the average color strategy. Get the average color of the background. Not applies to the color in textShadow.
+   * Use the average color strategy. Get the average color of the background. Only applies to shadow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   AVERAGE = 'average',
+
+  /**
+   * Use the primary color strategy. Get the color that dominate the background color. Only applies to shadow.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  PRIMARY = 'primary',
 }
 
 /**
@@ -7276,6 +7286,43 @@ declare enum Placement {
 }
 
 /**
+ * ArrowPointPosition enumeration description
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum ArrowPointPosition {
+  /**
+   * Target start position
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  START = 'Start',
+
+  /**
+   * Target center position
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  CENTER = 'Center',
+
+  /**
+   * Target end position
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  END = 'End',
+}
+
+/**
  * Indicates the share option.
  *
  * @enum { number }
@@ -8004,6 +8051,7 @@ declare enum ImageSpanAlignment {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum ObscuredReasons {
@@ -8018,6 +8066,7 @@ declare enum ObscuredReasons {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   PLACEHOLDER = 0,
@@ -8036,6 +8085,7 @@ declare enum ObscuredReasons {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum TextContentStyle {
@@ -8050,6 +8100,7 @@ declare enum TextContentStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   DEFAULT,
@@ -8065,6 +8116,7 @@ declare enum TextContentStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   INLINE
@@ -8227,6 +8279,7 @@ declare enum XComponentType {
  * @enum { number } NestedScrollMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare enum NestedScrollMode {
@@ -8241,6 +8294,7 @@ declare enum NestedScrollMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   SELF_ONLY,
@@ -8256,6 +8310,7 @@ declare enum NestedScrollMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   SELF_FIRST,
@@ -8271,6 +8326,7 @@ declare enum NestedScrollMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   PARENT_FIRST,
@@ -8286,6 +8342,7 @@ declare enum NestedScrollMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   PARALLEL,
@@ -8830,4 +8887,47 @@ declare enum IlluminatedType {
    * @since 11
    */
   BLOOM_BORDER_CONTENT = 5
+}
+
+/**
+ * Enumerates the fold status.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare enum FoldStatus {
+  /**
+   * Fold Status Unknown.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  FOLD_STATUS_UNKNOWN = 0,
+  /**
+   * Fold Status Expanded.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  FOLD_STATUS_EXPANDED = 1,
+  /**
+   * Fold Status Folded.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  FOLD_STATUS_FOLDED = 2,
+  /**
+   * Fold Status Half Folded.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  FOLD_STATUS_HALF_FOLDED = 3,
 }

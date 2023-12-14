@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Input Kit
+ */
+
 import { Callback } from './@ohos.base';
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
 import type { display } from './@ohos.display';
@@ -42,6 +47,15 @@ declare namespace inputMonitor {
    * @since 7
    */
   interface TouchEventReceiver {
+    /**
+     * Callback used to receive touch input events.
+     *
+     * @param { TouchEvent } touchEvent - the reported touch event.
+     * @returns { Boolean } Returns true indicates the touch input is consumed, the value false indicates opposite.
+     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+     * @systemapi hide for inner use
+     * @since 7
+     */
     (touchEvent: TouchEvent): Boolean;
   }
 

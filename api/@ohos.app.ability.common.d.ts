@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import * as _UIAbilityContext from './application/UIAbilityContext';
 import type * as _UIExtensionContext from './application/UIExtensionContext';
 import type * as _AutoFillExtensionContext from './application/AutoFillExtensionContext';
@@ -263,6 +268,7 @@ declare namespace common {
    * Defines a PacMap object for storing a series of values.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
    * @since 11
    */
   export type PacMap = _PacMap;

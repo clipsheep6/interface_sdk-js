@@ -599,6 +599,21 @@ declare class ListScroller extends Scroller {
   getItemRectInGroup(index: number, indexInGroup: number): RectResult;
 
   /**
+   * Called when sliding to the specified index in specified ListItemGroup.
+   *
+   * @param { number } index - Index of the ListItemGroup in List.
+   * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
+   * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
+   * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 100004 - Controller not bound to component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  scrollToItemInGroup(index: number, indexInGroup:number, smooth?: boolean, align?: ScrollAlign): void;
+
+  /**
    * Collapse all listItem.
    *
    * @param { CloseSwipeActionOptions } options - Options of close Swipe items.
@@ -704,14 +719,14 @@ interface ListInterface {
  * @form
  */
 /**
- * @extends CommonMethod<ListAttribute>
+ * @extends ScrollableCommonMethod<ListAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
  * @form
  */
-declare class ListAttribute extends CommonMethod<ListAttribute> {
+declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
    * Called when need to decide how much lanes the list will show.
    *

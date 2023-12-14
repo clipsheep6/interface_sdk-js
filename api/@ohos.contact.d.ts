@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Contacts Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
 
@@ -1499,6 +1504,14 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
+    /**
+     * Indicates a phone number of the contact.
+     *
+     * @type { ?PhoneNumber[] }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
+     */
     phoneNumbers?: PhoneNumber[]
 
     /**
@@ -1552,6 +1565,14 @@ declare namespace contact {
      * @type { ?Name }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     */
+    /**
+     * Indicates the contact name.
+     *
+     * @type { ?Name }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
      */
     name?: Name
 
@@ -2120,6 +2141,14 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
+    /**
+     * Indicates the full name of the contact.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
+     */
     fullName: string
 
     /**
@@ -2479,6 +2508,14 @@ declare namespace contact {
      * @type { string }
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
+     */
+    /**
+     * Indicates the phone number of the contact.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Applications.ContactsData
+     * @atomicservice
+     * @since 11
      */
     phoneNumber: string
 

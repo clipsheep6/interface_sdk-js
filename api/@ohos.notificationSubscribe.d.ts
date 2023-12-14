@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Notification Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { BundleOption as _BundleOption } from './notification/NotificationCommonDef';
 import { NotificationSubscribeInfo as _NotificationSubscribeInfo } from './notification/notificationSubscribeInfo';
@@ -185,7 +190,7 @@ declare namespace notificationSubscribe {
   function unsubscribe(subscriber: NotificationSubscriber): Promise<void>;
 
   /**
-   * Remove notification.
+   * Remove notification based on BundleOption and NotificationKey.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
@@ -212,7 +217,7 @@ declare namespace notificationSubscribe {
   ): void;
 
   /**
-   * Remove notification.
+   * Remove notification based on BundleOption and NotificationKey.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
@@ -234,7 +239,7 @@ declare namespace notificationSubscribe {
   function remove(bundle: BundleOption, notificationKey: NotificationKey, reason: RemoveReason): Promise<void>;
 
   /**
-   * Remove notification.
+   * Remove notification based on hashCode.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { string } hashCode - The hashCode.
@@ -255,7 +260,7 @@ declare namespace notificationSubscribe {
 
 
   /**
-   * Remove notifications.
+   * Remove notifications based on hashCodes.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { Array<String> } hashCodes - The hashCode array.
@@ -274,7 +279,7 @@ declare namespace notificationSubscribe {
   function remove(hashCodes: Array<String>, reason: RemoveReason, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove notification.
+   * Remove notification based on hashCode.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { string } hashCode - The hashCode.
@@ -294,7 +299,7 @@ declare namespace notificationSubscribe {
   function remove(hashCode: string, reason: RemoveReason): Promise<void>;
 
   /**
-   * Remove notifications.
+   * Remove notifications based on hashCodes.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { Array<String> } hashCodes - The hashCode array.
@@ -313,7 +318,7 @@ declare namespace notificationSubscribe {
   function remove(hashCodes: Array<String>, reason: RemoveReason): Promise<void>;
 
   /**
-   * RemoveAll all notifications.
+   * RemoveAll all notifications based on BundleOption.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
