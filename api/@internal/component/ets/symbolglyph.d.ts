@@ -27,13 +27,13 @@ interface SymbolGlyphInterface {
    * Called when anything is entered in SymbolGlyph.
    *
    * @param { Resource } value
-   * @returns { SymbolAttribute }
+   * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  (value: Resource): SymbolAttribute;
+  (value: Resource): SymbolGlyphAttribute;
 }
 
 /**
@@ -45,7 +45,7 @@ interface SymbolGlyphInterface {
  * @since 11
  * @form
  */
-declare const enum SymbolRenderingStrategy {
+declare enum SymbolRenderingStrategy {
   /**
    * single.
    *
@@ -83,7 +83,7 @@ declare const enum SymbolRenderingStrategy {
  * @since 11
  * @form
  */
-declare const enum SymbolEffectStrategy {
+declare enum SymbolEffectStrategy {
   /**
    * none.
    *
@@ -113,69 +113,69 @@ declare const enum SymbolEffectStrategy {
 }
 
 /**
- * @extends CommonMethod<SymbolAttribute>
+ * @extends CommonMethod<SymbolGlyphAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  * @form
  */
-declare class SymbolAttribute extends CommonMethod<SymbolAttribute> {
+declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   /**
    * Called when the SymbolGlyph size is set.
    *
    * @param { number | string | Resource } value
-   * @returns { SymbolAttribute }
+   * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  fontSize(value: number | string | Resource): SymbolAttribute;
+  fontSize(value: number | string | Resource): SymbolGlyphAttribute;
 
   /**
    * Called when the symbolGlyph color is set.
    *
    * @param { Array<ResourceColor> } value
-   * @returns { SymbolAttribute } The attribute of the SymbolGlyph.
+   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  fontColor(value: Array<ResourceColor>): SymbolAttribute;
+  fontColor(value: Array<ResourceColor>): SymbolGlyphAttribute;
 
   /**
    * Called when the font symbolGlyph weight is set.
    *
    * @param { number | FontWeight | string } value
-   * @returns { SymbolAttribute }
+   * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  fontWeight(value: number | FontWeight | string): SymbolAttribute;
+  fontWeight(value: number | FontWeight | string): SymbolGlyphAttribute;
 
   /**
    * Called when the symbolGlyph effect is set.
    *
    * @param { SymbolEffectStrategy } value
-   * @returns { SymbolAttribute } The attribute of the SymbolGlyph.
+   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  effect(value: SymbolEffectStrategy): SymbolAttribute;
+  effectStrategy(value: SymbolEffectStrategy): SymbolGlyphAttribute;
 
   /**
    * Called when the symbolGlyph renderingstrategy is set.
    *
    * @param { SymbolRenderingStrategy } value
-   * @returns { SymbolAttribute } The attribute of the SymbolGlyph.
+   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  renderingStrategy(value: SymbolRenderingStrategy): SymbolAttribute;
+  renderingStrategy(value: SymbolRenderingStrategy): SymbolGlyphAttribute;
 }
 
 /**
@@ -196,4 +196,4 @@ declare const SymbolGlyph: SymbolGlyphInterface;
  * @since 11
  * @form
  */
-declare const SymbolGlyphInstance: SymbolAttribute;
+declare const SymbolGlyphInstance: SymbolGlyphAttribute;

@@ -33,7 +33,73 @@ interface SymbolSpanInterface {
    * @since 11
    * @form
    */
-  (value: Resource): SymbolAttribute;
+  (value: Resource): SymbolSpanAttribute;
+}
+
+/**
+ * @extends CommonMethod<SymbolSpanAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
+  /**
+   * Called when the SymbolGlyph size is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SymbolSpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  fontSize(value: number | string | Resource): SymbolSpanAttribute;
+
+  /**
+   * Called when the symbolGlyph color is set.
+   *
+   * @param { Array<ResourceColor> } value
+   * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontColor(value: Array<ResourceColor>): SymbolSpanAttribute;
+
+  /**
+   * Called when the font symbolGlyph weight is set.
+   *
+   * @param { number | FontWeight | string } value
+   * @returns { SymbolSpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  fontWeight(value: number | FontWeight | string): SymbolSpanAttribute;
+
+  /**
+   * Called when the symbolGlyph effect is set.
+   *
+   * @param { SymbolEffectStrategy } value
+   * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  effectStrategy(value: SymbolEffectStrategy): SymbolSpanAttribute;
+
+  /**
+   * Called when the symbolGlyph renderingstrategy is set.
+   *
+   * @param { SymbolRenderingStrategy } value
+   * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  renderingStrategy(value: SymbolRenderingStrategy): SymbolSpanAttribute;
 }
 
 /**
@@ -54,4 +120,4 @@ declare const SymbolSpan: SymbolSpanInterface;
  * @since 11
  * @form
  */
-declare const SymbolSpanInstance: SymbolAttribute;
+declare const SymbolSpanInstance: SymbolSpanAttribute;
