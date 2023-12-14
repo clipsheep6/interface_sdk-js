@@ -37,82 +37,6 @@ interface SymbolSpanInterface {
 }
 
 /**
- * symbol renderingstrategy.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 11
- * @form
- */
-declare enum SymbolSpanRenderingStrategy {
-  /**
-   * single.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  SINGLE = 0,
-
-  /**
-   * multiple color.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  MULTIPLE_COLOR = 1,
-
-  /**
-   * multiple opacity.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  MULTIPLE_OPACITY = 2,
-}
-
-/**
- * symbol effectstrategy.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 11
- * @form
- */
-declare enum SymbolSpanEffectStrategy {
-  /**
-   * NONE.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  NONE = 0,
-
-  /**
-   * multiple color.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  SCALE = 1,
-
-  /**
-   * multiple opacity.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  HIERARCHICAL = 2,
-}
-
-/**
  * @extends CommonMethod<SymbolSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -158,24 +82,24 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   /**
    * Called when the symbol span effect is set.
    *
-   * @param { SymbolSpanEffectStrategy } value
+   * @param { SymbolEffectStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolSpan.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  symbolSpanEffect(value: SymbolSpanEffectStrategy): SymbolSpanAttribute;
+  symbolSpanEffect(value: SymbolEffectStrategy): SymbolSpanAttribute;
 
   /**
    * Called when the symbol span renderingstrategy is set.
    *
-   * @param { SymbolSpanRenderingStrategy } value
+   * @param { SymbolRenderingStrategy } value
    * @returns { SymbolSpanAttribute } The attribute of the SymbolSpan.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  symbolSpanRenderingStrategy(value: SymbolSpanRenderingStrategy): SymbolSpanAttribute;
+  symbolSpanRenderingStrategy(value: SymbolRenderingStrategy): SymbolSpanAttribute;
 }
 
 /**

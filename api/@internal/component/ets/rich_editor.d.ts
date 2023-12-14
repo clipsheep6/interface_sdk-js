@@ -601,12 +601,12 @@ declare interface RichEditorSymbolSpanStyle {
   /**
    * font size.
    *
-   * @type { ?Dimension }
+   * @type { ?number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  fontSize?: Dimension;
+  fontSize?: number | string | Resource;
 
   /**
    * font color.
@@ -627,6 +627,26 @@ declare interface RichEditorSymbolSpanStyle {
    * @since 11
    */
   fontWeight?: number | FontWeight | string;
+
+  /**
+   * symbol span effectstrategy.
+   *
+   * @type { ?SymbolEffectStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  symbolEffect?: SymbolEffectStrategy;
+
+  /**
+   * symbol span renderingstrategy.
+   *
+   * @type { ?SymbolRenderingStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  symbolRenderingStrategy?: SymbolRenderingStrategy;
 }
 
 /**

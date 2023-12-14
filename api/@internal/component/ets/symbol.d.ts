@@ -45,7 +45,7 @@ interface SymbolGlyphInterface {
  * @since 11
  * @form
  */
-declare enum SymbolGlyphRenderingStrategy {
+declare enum SymbolRenderingStrategy {
   /**
    * single.
    *
@@ -83,7 +83,7 @@ declare enum SymbolGlyphRenderingStrategy {
  * @since 11
  * @form
  */
-declare enum SymbolGlyphEffectStrategy {
+declare enum SymbolEffectStrategy {
   /**
    * NONE.
    *
@@ -158,24 +158,24 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   /**
    * Called when the symbolGlyph effect is set.
    *
-   * @param { SymbolGlyphEffectStrategy } value
+   * @param { SymbolEffectStrategy } value
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  symbolGlyphEffect(value: SymbolGlyphEffectStrategy): SymbolGlyphAttribute;
+  symbolGlyphEffect(value: SymbolEffectStrategy): SymbolGlyphAttribute;
 
   /**
    * Called when the symbolGlyph renderingstrategy is set.
    *
-   * @param { SymbolGlyphRenderingStrategy } value
+   * @param { SymbolRenderingStrategy } value
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  symbolGlyphRenderingStrategy(value: SymbolGlyphRenderingStrategy): SymbolGlyphAttribute;
+  symbolGlyphRenderingStrategy(value: SymbolRenderingStrategy): SymbolGlyphAttribute;
 }
 
 /**
