@@ -601,7 +601,7 @@ declare interface RichEditorSymbolSpanStyle {
   /**
    * font size.
    *
-   * @type { ?number | string | Resource) }
+   * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
