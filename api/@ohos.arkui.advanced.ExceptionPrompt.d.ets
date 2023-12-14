@@ -21,14 +21,14 @@
  */
 export declare enum MarginType {
   /**
-   * DEFAULT_MARGIN of MarginType.
+   * Default margin of MarginType.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   DEFAULT_MARGIN = 0,
   /**
-   * FIT_MARGIN of MarginType.
+   * Margins can be adapted of MarginType.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -44,7 +44,7 @@ export declare enum MarginType {
  */
 export interface PromptOptions {
   /**
-   * icon of PromptOptions.
+   * Icon of PromptOptions.
    * @type {?ResourceStr}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -52,7 +52,7 @@ export interface PromptOptions {
    */
   icon?: ResourceStr;
   /**
-   * tip of PromptOptions.
+   * Tip text of PromptOptions.
    * @type {?ResourceStr}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -82,7 +82,7 @@ export interface PromptOptions {
    * @crossplatform
    * @since 11
    */
-  isTouchShow?: boolean;
+  isTouchShown?: boolean;
   /**
    * Distance from the top of PromptOptions.
    * @type {number}
@@ -90,7 +90,7 @@ export interface PromptOptions {
    * @crossplatform
    * @since 11
    */
-  positionTop:number
+  marginTop:number
   /**
    * Control concealment of PromptOptions.
    * @type {boolean}
@@ -98,10 +98,10 @@ export interface PromptOptions {
    * @crossplatform
    * @since 11
    */
-  isShow?:boolean
+  isShown?:boolean
 }
 /**
- * Declare struct ExceptionPrompt
+ * Declare struct ExceptionPrompt higher-order component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -109,7 +109,7 @@ export interface PromptOptions {
 @Component
 export declare struct ExceptionPrompt {
   /**
-   * Options of ExceptionPrompt.
+   * Configuration information of ExceptionPrompt.
    * @type { PromptOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -131,9 +131,10 @@ export declare struct ExceptionPrompt {
    * @crossplatform
    * @since 11
    */
-  onConfigure?: () => void;
+  onIconButtonClick?: () => void;
   /**
-   * Build function of ExceptionPrompt.
+   * Custom build functions in PromptOptions.
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
