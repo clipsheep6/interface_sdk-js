@@ -21,14 +21,14 @@
  */
 export declare enum MarginType {
   /**
-   * Default margin of MarginType.
+   * Default margin of MarginType，Margin 1: references ohos_id_card_margin_start, margin 2: references ohos_id_card_margin_end
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   DEFAULT_MARGIN = 0,
   /**
-   * Margins can be adapted of MarginType.
+   * Margins can be adapted of MarginType，Margin 1: references ohos_id_max_padding_start, margin 2: references ohos_id_max_padding_end
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -133,7 +133,7 @@ export declare struct ExceptionPrompt {
    */
   onIconButtonClick?: () => void;
   /**
-   * Custom build functions in PromptOptions.
+   * The build function is a member function that must return an ArkTS component type (Element) to represent the component to be rendered as a user interface.
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
