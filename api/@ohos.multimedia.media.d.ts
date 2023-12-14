@@ -3324,6 +3324,7 @@ declare namespace media {
 
     /**
      * Whether to record HDR video.
+     * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
