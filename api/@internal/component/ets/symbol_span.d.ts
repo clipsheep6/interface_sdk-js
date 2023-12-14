@@ -14,7 +14,7 @@
  */
 
 /**
- * Provide text decoration.
+ * Provides an interface for symbolspan.
  *
  * @interface SymbolSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full

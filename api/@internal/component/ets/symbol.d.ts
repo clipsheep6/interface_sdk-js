@@ -14,7 +14,7 @@
  */
 
 /**
- * Provide text decoration.
+ * Provides an interface for symbolglyph.
  *
  * @interface SymbolGlyphInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
