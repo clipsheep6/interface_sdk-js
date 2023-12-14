@@ -23,18 +23,18 @@
  * @form
  */
 interface SymbolSpanInterface {
-    /**
-     * Called when text is entered in SymbolSpan.
-     *
-     * @param { Resource } value
-     * @returns { SymbolSpanAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 11
-     * @form
-     */
-    (value: Resource): SymbolSpanAttribute;
-  }
+  /**
+   * Called when text is entered in SymbolSpan.
+   * 
+   * @param { Resource } value
+   * @returns { SymbolSpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  (value: Resource): SymbolSpanAttribute;
+}
 
 /**
  * symbol renderingstrategy.

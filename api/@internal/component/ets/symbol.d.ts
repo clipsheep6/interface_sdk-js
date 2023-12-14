@@ -23,18 +23,18 @@
  * @form
  */
 interface SymbolGlyphInterface {
-    /**
-     * Called when text is entered in SymbolGlyph.
-     *
-     * @param { Resource } value
-     * @returns { SymbolGlyphAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 11
-     * @form
-     */
-    (value: Resource): SymbolGlyphAttribute;
-  }
+  /**
+   * Called when text is entered in SymbolGlyph.
+   *
+   * @param { Resource } value
+   * @returns { SymbolGlyphAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  (value: Resource): SymbolGlyphAttribute;
+}
 
 /**
  * symbol renderingstrategy.
