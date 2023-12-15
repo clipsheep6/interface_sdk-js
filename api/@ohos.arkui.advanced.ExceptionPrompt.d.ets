@@ -70,7 +70,7 @@ export interface PromptOptions {
    * @crossplatform
    * @since 11
    */
-  marginState: MarginType;
+  marginType: MarginType;
 
   /**
    * Right icon button text of PromptOptions.
