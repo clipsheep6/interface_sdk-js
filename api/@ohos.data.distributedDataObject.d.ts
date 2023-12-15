@@ -289,8 +289,7 @@ declare namespace distributedDataObject {
      * Change object session.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param {string | null | undefined} sessionId - sessionId The sessionId to be joined, if empty or null
-     *                                                or undefined, leave all session.
+     * @param {string | null} sessionId - sessionId The sessionId to be joined, if empty or null, leave all session.
      * @param {AsyncCallback<void>} callback - The callback of setSessionId.
      * @throws {BusinessError} 201 - Permission verification failed.
      * @throws {BusinessError} 401 - Parameter error.
@@ -298,7 +297,7 @@ declare namespace distributedDataObject {
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 11
      */
-    setSessionId(sessionId: string | null | undefined, callback: AsyncCallback<void>): void;
+    setSessionId(sessionId: string | null, callback: AsyncCallback<void>): void;
 
     /*
      * Leave all session.
