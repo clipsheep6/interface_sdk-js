@@ -1569,7 +1569,7 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
  */
 declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEditorSpanStyleOptions {
   /**
-   * symbol span style.
+   * Symbol span style.
    *
    * @type { RichEditorSymbolSpanStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1599,7 +1599,7 @@ declare interface RichEditorSymbolSpanOptions {
   offset?: [number, number];
 
   /**
-   * symbol style
+   * Symbol style
    *
    * @type { ?RichEditorSymbolSpanStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
