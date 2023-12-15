@@ -2748,7 +2748,7 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
-  interface PortraitPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, ColorEffect, Portrait, Aperture {
+  interface PortraitPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, ColorEffect, ColorManagement, Portrait, Aperture {
     /**
      * Subscribes to error events.
      *
@@ -2861,7 +2861,7 @@ declare namespace camera {
    * @systemapi
    * @since 11
    */
-  interface NightPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualExposure {
+  interface NightPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ColorManagement, ManualExposure {
     /**
      * Subscribes to error events.
      *
