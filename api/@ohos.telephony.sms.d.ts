@@ -155,6 +155,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   function sendShortMessage(options: SendMessageOptions, callback: AsyncCallback<void>): void;
@@ -175,6 +176,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
    * @since 10
    */
   function sendShortMessage(options: SendMessageOptions): Promise<void>;
