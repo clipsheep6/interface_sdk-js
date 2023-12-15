@@ -2108,11 +2108,10 @@ declare namespace camera {
 
     /**
      * Determines whether the camera input can be added into the session.
+     * This method is valid between Session.beginConfig() and Session.commitConfig().
      *
      * @param { CameraInput } cameraInput - Target camera input to add.
      * @returns { boolean } You can add the input into the session.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
-     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -2120,10 +2119,12 @@ declare namespace camera {
 
     /**
      * Adds a camera input.
+     * This method is valid between Session.beginConfig() and Session.commitConfig().
      *
      * @param { CameraInput } cameraInput - Target camera input to add.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -2131,10 +2132,12 @@ declare namespace camera {
 
     /**
      * Removes a camera input.
+     * This method is valid between Session.beginConfig() and Session.commitConfig().
      *
      * @param { CameraInput } cameraInput - Target camera input to remove.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -2142,11 +2145,10 @@ declare namespace camera {
 
     /**
      * Determines whether the camera output can be added into the session.
+     * This method is valid after Session.addInput(cameraInput) and before Session.commitConfig().
      *
      * @param { CameraOutput } cameraOutput - Target camera output to add.
      * @returns { boolean } You can add the output into the session.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
-     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -2154,10 +2156,12 @@ declare namespace camera {
 
     /**
      * Adds a camera output.
+     * This method is valid after Session.addInput(cameraInput) and before Session.commitConfig().
      *
      * @param { CameraOutput } cameraOutput - Target camera output to add.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
@@ -2165,10 +2169,12 @@ declare namespace camera {
 
     /**
      * Removes a camera output.
+     * This method is valid between Session.beginConfig() and Session.commitConfig().
      *
      * @param { CameraOutput } cameraOutput - Target camera output to remove.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
