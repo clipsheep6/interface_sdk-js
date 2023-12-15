@@ -17,6 +17,56 @@ import { UIContext } from './@ohos.arkui.UIContext';
 import { WrappedBuilder } from 'wrappedBuilderObject';
 
 /**
+ * Render type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare enum NodeRenderType {
+  /**
+   * Display type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  RENDER_TYPE_DISPLAY = 0,
+
+  /**
+   * Exporting texture type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  RENDER_TYPE_TEXTURE = 1,
+}
+
+/**
+ * RenderOptions info.
+ *
+ * @interface RenderOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+export interface RenderOptions {
+  /**
+   * Render type of the node.
+   * @type { NodeRenderType } type - Render type of the node
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  type: NodeRenderType;
+
+  /**
+   * Get the height of the rect.
+   * @type { string } surfaceId - surfaceId of a surface which can recieve the texuture of the Node
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  surfaceId?: string;
+}
+
+/**
  * Size info.
  *
  * @interface Size
@@ -126,6 +176,16 @@ export declare class BaseNode {
 * @since 11
 */
 export declare class BuilderNode<Args extends Object[]> extends BaseNode {
+  /**
+  * constructor.
+  *
+  * @param { UIContext } uiContext - uiContext used to create the BaseNode
+  * @param { RenderOptions } options - Render options of the Builder Node
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 11
+  */
+  constructor(uiContext: UIContext, options: RenderOptions);
+
   /**
   * Build the BuilderNode with the builder.
   *
