@@ -722,7 +722,7 @@ declare namespace camera {
     getTorchMode(): TorchMode;
 
     /**
-     * Get current torch mode.
+     * Set torch mode to the device.
      *
      * @param { TorchMode } mode torch mode.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
@@ -735,17 +735,17 @@ declare namespace camera {
      * Subscribes torch status change event callback.
      *
      * @param { 'torchStatusChange' } type Event type
-     * @param { AsyncCallback<TorchStatusInfo> } callback Callback used to get the torch state change
+     * @param { AsyncCallback<TorchStatusInfo> } callback Callback used to return the torch state change
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
     on(type: 'torchStatusChange', callback: AsyncCallback<TorchStatusInfo>): void;
 
     /**
-     * unSubscribes torch status change event callback.
+     * Unsubscribes torch status change event callback.
      *
      * @param { 'torchStatusChange' } type Event type
-     * @param { AsyncCallback<TorchStatusInfo> } callback Callback used to get the torch state change
+     * @param { AsyncCallback<TorchStatusInfo> } callback Callback used to return the torch state change
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -886,7 +886,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
-    CAMERA_POSITION_FLOD_INNER = 3
+    CAMERA_POSITION_FOLD_INNER = 3
   }
 
   /**
@@ -3329,7 +3329,7 @@ declare namespace camera {
    */
   enum DeferredDeliveryImageType {
     /**
-     * High image quality.
+     * Undefer image delivery.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3338,7 +3338,7 @@ declare namespace camera {
     NONE = 0,
 
     /**
-     * Medium image quality.
+     * Defer photo delivery when capturing photos.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3347,7 +3347,7 @@ declare namespace camera {
     PHOTO = 1,
 
     /**
-     * Low image quality.
+     * Defer video delivery when capturing videos.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3562,7 +3562,7 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
-    off(type: 'deferredPhotoProxyAvailable', callback: AsyncCallback<DeferredPhotoProxy>): void;
+    off(type: 'deferredPhotoProxyAvailable', callback?: AsyncCallback<DeferredPhotoProxy>): void;
 
     /**
      * Check whether to support mirror photo.
