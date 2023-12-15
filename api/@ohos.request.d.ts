@@ -2324,6 +2324,22 @@ declare namespace request {
    */
   namespace agent {
     /**
+     * Defines the task event callback.
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @atomicservice
+     * @since 11
+     */
+    interface TaskEventCallback {
+      /**
+       * Defines the task event callback with a `Progress` argument.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @atomicservice
+       * @since 11
+       */
+      (progress: Progress): void;
+    }
+
+    /**
      * The action options.
      *
      * @enum { number } Action
@@ -4092,14 +4108,14 @@ declare namespace request {
        * Enables the specified callback.
        *
        * @param { 'progress' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
+       * @param { TaskEventCallback } callback - task event callback.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 11
        */
-      on(event: 'progress', callback: (progress: Progress) => void): void;
+      on(event: 'progress', callback: TaskEventCallback): void;
       /**
        * Disable the specified callback for a frontend task.
        *
@@ -4114,14 +4130,14 @@ declare namespace request {
        * Disables the specified callback.
        *
        * @param { 'progress' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
+       * @param { ?TaskEventCallback } callback - task event callback.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 11
        */
-      off(event: 'progress', callback?: (progress: Progress) => void): void;
+      off(event: 'progress', callback?: TaskEventCallback): void;
       /**
        * Enable the specified callback for a frontend task.
        *
@@ -4136,14 +4152,14 @@ declare namespace request {
        * Enables the specified callback.
        *
        * @param { 'completed' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
+       * @param { TaskEventCallback } callback - task event callback.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 11
        */
-      on(event: 'completed', callback: (progress: Progress) => void): void;
+      on(event: 'completed', callback: TaskEventCallback): void;
       /**
        * Disable the specified callback for a frontend task.
        *
@@ -4158,14 +4174,14 @@ declare namespace request {
        * Disables the specified callback.
        *
        * @param { 'completed' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
+       * @param { ?TaskEventCallback } callback - task event callback.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 11
        */
-      off(event: 'completed', callback?: (progress: Progress) => void): void;
+      off(event: 'completed', callback?: TaskEventCallback): void;
       /**
        * Enable the specified callback for a frontend task.
        *
@@ -4180,14 +4196,14 @@ declare namespace request {
        * Enables the specified callback.
        *
        * @param { 'failed' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
+       * @param { TaskEventCallback } callback - task event callback.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 11
        */
-      on(event: 'failed', callback: (progress: Progress) => void): void;
+      on(event: 'failed', callback: TaskEventCallback): void;
       /**
        * Disable the specified callback for a frontend task.
        *
@@ -4202,74 +4218,74 @@ declare namespace request {
        * Disables the specified callback.
        *
        * @param { 'failed' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
+       * @param { ?TaskEventCallback } callback - task event callback.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 11
        */
-      off(event: 'failed', callback?: (progress: Progress) => void): void;
+      off(event: 'failed', callback?: TaskEventCallback): void;
       /**
        * Enables the specified callback.
        *
        * @param { 'pause' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
+       * @param { TaskEventCallback } callback - task event callback.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
-      on(event: 'pause', callback: (progress: Progress) => void): void;
+      on(event: 'pause', callback: TaskEventCallback): void;
       /**
        * Disables the specified callback.
        *
        * @param { 'pause' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
+       * @param { ?TaskEventCallback } callback - task event callback.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
-      off(event: 'pause', callback?: (progress: Progress) => void): void;
+      off(event: 'pause', callback?: TaskEventCallback): void;
       /**
        * Enables the specified callback.
        *
        * @param { 'resume' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
+       * @param { TaskEventCallback } callback - task event callback.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
-      on(event: 'resume', callback: (progress: Progress) => void): void;
+      on(event: 'resume', callback: TaskEventCallback): void;
       /**
        * Disables the specified callback.
        *
        * @param { 'resume' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
+       * @param { ?TaskEventCallback } callback - task event callback.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
-      off(event: 'resume', callback?: (progress: Progress) => void): void;
+      off(event: 'resume', callback?: TaskEventCallback): void;
       /**
        * Enables the specified callback.
        *
        * @param { 'remove' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
+       * @param { TaskEventCallback } callback - task event callback.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
-      on(event: 'remove', callback: (progress: Progress) => void): void;
+      on(event: 'remove', callback: TaskEventCallback): void;
       /**
        * Disables the specified callback.
        *
        * @param { 'remove' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
+       * @param { ?TaskEventCallback } callback - task event callback.
        * @throws { BusinessError } 401 - Parameter error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
        */
-      off(event: 'remove', callback?: (progress: Progress) => void): void;
+      off(event: 'remove', callback?: TaskEventCallback): void;
       /**
        * Starts the task.
        *
