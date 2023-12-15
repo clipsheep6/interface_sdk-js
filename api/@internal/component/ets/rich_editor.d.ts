@@ -1788,7 +1788,7 @@ declare interface RichEditorDeleteValue {
   /**
    * The deleted span object.
    *
-   * @type { Array<RichEditorTextSpanResult | RichEditorImageSpanResult> }
+   * @type { Array<RichEditorTextSpanResult | RichEditorImageSpanResult | RichEditorSymbolSpanResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
@@ -2044,7 +2044,7 @@ declare class RichEditorController {
    * Get span content.
    *
    * @param { RichEditorRange } [value] - range for getting span info.
-   * @returns { Array<RichEditorImageSpanResult | RichEditorTextSpanResult> }
+   * @returns { Array<RichEditorImageSpanResult | RichEditorTextSpanResult | RichEditorSymbolSpanResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
