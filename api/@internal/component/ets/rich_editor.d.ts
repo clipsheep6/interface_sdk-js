@@ -827,7 +827,7 @@ declare interface RichEditorSymbolSpanResult {
   /**
    * The resource string of the symbol span.
    *
-   * @type { ResourceStr }
+   * @type { Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
