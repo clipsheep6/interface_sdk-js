@@ -241,7 +241,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    NUMBER,
+    NUMBER = 1,
 
     /**
      * Real.
@@ -250,7 +250,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    REAL,
+    REAL = 2,
 
     /**
      * Text.
@@ -259,7 +259,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    TEXT,
+    TEXT = 3,
 
     /**
      * Boolean.
@@ -268,7 +268,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    BOOL,
+    BOOL = 4,
 
     /**
      * BLOB.
@@ -277,7 +277,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    BLOB,
+    BLOB = 5,
 
     /**
      * Asset. For details, see {@link relationalStore.Asset}.
@@ -286,7 +286,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    ASSET,
+    ASSET = 6,
 
     /**
      * Assets. For details, see {@link relationalStore.Assets}.
@@ -295,7 +295,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    ASSETS
+    ASSETS = 7
   }
 
   /**
@@ -596,7 +596,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    INSERT,
+    INSERT = 0,
 
     /**
      * Update data.
@@ -605,7 +605,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    UPDATE,
+    UPDATE = 1,
 
     /**
      * Delete data.
@@ -614,7 +614,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    DELETE
+    DELETE = 2
   }
 
   /**
@@ -719,7 +719,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    SUCCESS,
+    SUCCESS = 0,
 
     /**
      * Unknown error.
@@ -728,7 +728,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    UNKNOWN_ERROR,
+    UNKNOWN_ERROR = 1,
 
     /**
      * Network error.
@@ -737,7 +737,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    NETWORK_ERROR,
+    NETWORK_ERROR = 2,
 
     /**
      * Cloud is disabled.
@@ -746,7 +746,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    CLOUD_DISABLED,
+    CLOUD_DISABLED = 3,
 
     /**
      * The cloud database is locked by others.
@@ -755,7 +755,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    LOCKED_BY_OTHERS,
+    LOCKED_BY_OTHERS = 4,
 
     /**
      * The number of records exceeds the limit.
@@ -764,7 +764,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    RECORD_LIMIT_EXCEEDED,
+    RECORD_LIMIT_EXCEEDED = 5,
 
     /**
      * The cloud has no space for the asset.
@@ -773,7 +773,7 @@ declare namespace cloudExtension {
      * @systemapi
      * @since 11
      */
-    NO_SPACE_FOR_ASSET
+    NO_SPACE_FOR_ASSET = 6
   }
 
   /**
