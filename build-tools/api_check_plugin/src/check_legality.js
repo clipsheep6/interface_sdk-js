@@ -36,7 +36,8 @@ function checkJsDocLegality(node, comments, checkInfoMap) {
   // 'enum'
   legalityCheck(node, comments, [ts.SyntaxKind.EnumDeclaration], ['enum'], true, checkInfoMap);
   // 'extends'
-  legalityCheck(node, comments, [ts.SyntaxKind.ClassDeclaration], ['extends'], true, checkInfoMap,
+  legalityCheck(node, comments, [ts.SyntaxKind.ClassDeclaration, ts.SyntaxKind.InterfaceDeclaration], ['extends'],
+    true, checkInfoMap,
     (currentNode, checkResult) => {
       let tagCheckResult = false;
       if (ts.isClassDeclaration(currentNode) && currentNode.heritageClauses) {
@@ -50,31 +51,46 @@ function checkJsDocLegality(node, comments, checkInfoMap) {
       return (checkResult && !tagCheckResult) || (!checkResult && tagCheckResult);
     }
   );
+  // 'implements'
+  legalityCheck(node, comments, [ts.SyntaxKind.ClassDeclaration], ['implements'], true, checkInfoMap,
+    (currentNode, checkResult) => {
+      let tagCheckResult = false;
+      if (ts.isClassDeclaration(currentNode) && currentNode.heritageClauses) {
+        const clauses = currentNode.heritageClauses;
+        clauses.forEach(claus => {
+          if (/^implements\s/.test(claus.getText())) {
+            tagCheckResult = true;
+          }
+        });
+      }
+      return (checkResult && !tagCheckResult) || (!checkResult && tagCheckResult);
+    }
+  );
   // 'namespace'
   legalityCheck(node, comments, [ts.SyntaxKind.ModuleDeclaration], ['namespace'], true, checkInfoMap);
   // 'param'
   legalityCheck(node, comments, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-    ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor], ['param'], true, checkInfoMap,
-  (currentNode, checkResult) => {
-    if (!new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+  ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor], ['param'], true, checkInfoMap,
+    (currentNode, checkResult) => {
+      if (!new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
       ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.Constructor]).has(currentNode.kind)) {
-      return true;
+        return true;
+      }
+      return currentNode.parameters;
     }
-    return currentNode.parameters;
-  }
   );
   // 'returns'
   legalityCheck(node, comments, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-    ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature], ['returns'], true, checkInfoMap,
-  (currentNode, checkResult) => {
-    if (!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+  ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature], ['returns'], true, checkInfoMap,
+    (currentNode, checkResult) => {
+      if (!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
       ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature]).has(currentNode.kind)) {
-      return false;
-    }
-    return !(!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+        return false;
+      }
+      return !(!checkResult && !new Set([ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
       ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature]).has(currentNode.kind)) && (currentNode.type &&
         currentNode.type.kind !== ts.SyntaxKind.VoidKeyword);
-  }
+    }
   );
   // 'useinstead'
   legalityCheck(node, comments, commentNodeWhiteList, ['useinstead'], true, checkInfoMap,
@@ -89,7 +105,12 @@ function checkJsDocLegality(node, comments, checkInfoMap) {
     ['type', 'readonly'], false, checkInfoMap);
   // 'default'
   legalityCheck(node, comments, [ts.SyntaxKind.PropertyDeclaration, ts.SyntaxKind.PropertySignature,
-    ts.SyntaxKind.VariableStatement], ['default'], false, checkInfoMap);
+  ts.SyntaxKind.VariableStatement], ['default'], false, checkInfoMap);
+  // 'permission'
+  legalityCheck(node, comments, [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
+  ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor,
+  ts.SyntaxKind.PropertyDeclaration, ts.SyntaxKind.PropertySignature, ts.SyntaxKind.VariableStatement],
+    ['permission','throws'], false, checkInfoMap);
   return checkInfoMap;
 }
 exports.checkJsDocLegality = checkJsDocLegality;
@@ -107,6 +128,7 @@ function getIllegalKinds(legalKinds) {
 
 function dealSpecialTag(comment, tagName) {
   let checkResult = false;
+  let hasPermission = false;
   const useinsteadResultObj = {
     hasUseinstead: false,
     hasDeprecated: false,
@@ -119,6 +141,8 @@ function dealSpecialTag(comment, tagName) {
       } else if (tag.tag === 'deprecated') {
         useinsteadResultObj.hasDeprecated = true;
       }
+    } else if (tagName === 'permision') {
+      hasPermission = true;
     } else if (((tagName === 'interface' || tagName === 'typedef') && (tag.tag === 'interface' ||
       tag.tag === 'typedef')) || tag.tag === tagName) {
       checkResult = true;
@@ -165,6 +189,13 @@ function legalityCheck(node, comments, legalKinds, tagsName, isRequire, checkInf
         extraCheckResult = true;
       } else {
         extraCheckResult = extraCheckCallback(node, dealSpecialTagResult.checkResult);
+      }
+      if (tagName === 'permission' && !legalKindSet.has(node.kind) && dealSpecialTagResult.hasPermission) {
+        let errorInfo = createErrorInfo(ErrorValueInfo.ERROR_USE, [tagName]);
+        checkInfoMap[index].illegalTags.push({
+          checkResult: false,
+          errorInfo,
+        });
       }
       // useinstead特殊处理
       if (isRequire && tagName !== 'useinstead' && ((tagName !== 'useinstead' && tagName !== 'param' &&
@@ -232,7 +263,7 @@ function checkTagValue(tag, index, node, fileName, errorLogs) {
   if (checker) {
     let valueCheckResult;
     if (tag.tag === 'param' && [ts.SyntaxKind.FunctionDeclaration, ts.SyntaxKind.MethodSignature,
-      ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor].indexOf(node.kind) >= 0) {
+    ts.SyntaxKind.MethodDeclaration, ts.SyntaxKind.CallSignature, ts.SyntaxKind.Constructor].indexOf(node.kind) >= 0) {
       valueCheckResult = checker(tag, node, fileName, paramIndex++);
     } else if (tag.tag === 'throws') {
       valueCheckResult = checker(tag, node, fileName, throwsIndex++);

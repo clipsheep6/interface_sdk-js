@@ -60,12 +60,16 @@ function isAscendingOrder(tags) {
       // 判断标签是否为官方标签
       const firstTag = isOfficialTag(tags[tagIndex].tag);
       // 非自定义标签在前或数组降序时报错
-      if (tags[tagIndex].tag !== 'form' && tags[tagIndex + 1].tag !== 'form' &&
-        ((firstTag && secondIndex > -1) || (firstIndex > secondIndex && secondIndex > -1))) {
+      // if (tags[tagIndex].tag !== 'form' && tags[tagIndex + 1].tag !== 'form' &&
+      //   ((firstTag && secondIndex > -1) || (firstIndex > secondIndex && secondIndex > -1))) {
+      //   checkResult = false;
+      //   break;
+      // } else if (tags[tagIndex].tag === 'form') {
+      //   checkResult = formOrderCheck(tags, tagIndex, firstIndex, secondIndex);
+      // }
+      if ((firstTag && secondIndex > -1) || (firstIndex > secondIndex && secondIndex > -1)) {
         checkResult = false;
         break;
-      } else if (tags[tagIndex].tag === 'form') {
-        checkResult = formOrderCheck(tags, tagIndex, firstIndex, secondIndex);
       }
     }
   };
