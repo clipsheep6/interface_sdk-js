@@ -52,6 +52,7 @@ declare enum SymbolRenderingStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
    */
   SINGLE = 0,
 
@@ -61,6 +62,7 @@ declare enum SymbolRenderingStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
    */
   MULTIPLE_COLOR = 1,
 
@@ -70,6 +72,7 @@ declare enum SymbolRenderingStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
    */
   MULTIPLE_OPACITY = 2,
 }
@@ -90,6 +93,7 @@ declare enum SymbolEffectStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
    */
   NONE = 0,
 
@@ -99,6 +103,7 @@ declare enum SymbolEffectStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
    */
   SCALE = 1,
 
@@ -108,6 +113,7 @@ declare enum SymbolEffectStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
    */
   HIERARCHICAL = 2,
 }
