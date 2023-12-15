@@ -334,11 +334,11 @@ declare namespace inputMethodEngine {
   /**
    * Get InputMethodAbility object to subscribe events about IME.
    *
-   * @returns { InputMethodAbility } the object of the InputMethodAbility.
+   * @returns { InputMethodAbility | undefined } the object of the InputMethodAbility, or undefined if an error occurred.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
-  function getInputMethodAbility(): InputMethodAbility;
+  function getInputMethodAbility(): InputMethodAbility | undefined;
 
   /**
    * @returns { InputMethodEngine }
@@ -352,11 +352,11 @@ declare namespace inputMethodEngine {
   /**
    * Get KeyboardDelegate object to subscribe key event or events about editor.
    *
-   * @returns { KeyboardDelegate } the object of KeyboardDelegate.
+   * @returns { KeyboardDelegate | undefined } the object of KeyboardDelegate, or undefined if an error occurred.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
-  function getKeyboardDelegate(): KeyboardDelegate;
+  function getKeyboardDelegate(): KeyboardDelegate | undefined;
 
   /**
    * @returns { KeyboardDelegate }

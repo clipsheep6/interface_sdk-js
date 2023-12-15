@@ -135,11 +135,11 @@ declare namespace inputMethod {
   /**
    * Get current input method
    *
-   * @returns { InputMethodProperty } the property of current inputmethod.
+   * @returns { InputMethodProperty | null } the property of current inputmethod, or null if an error occurred.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
-  function getCurrentInputMethod(): InputMethodProperty;
+  function getCurrentInputMethod(): InputMethodProperty | null;
 
   /**
    * Switch current input method subtype
@@ -200,11 +200,11 @@ declare namespace inputMethod {
   /**
    * Get the current input method subtype
    *
-   * @returns { InputMethodSubtype } the subtype of the current input method.
+   * @returns { InputMethodSubtype | null } the subtype of the current input method, or null if an error occurred.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
-  function getCurrentInputMethodSubtype(): InputMethodSubtype;
+  function getCurrentInputMethodSubtype(): InputMethodSubtype | null;
 
   /**
    * Switch input method and subtype. If the caller is an input method, it must be the current inputmethod.
