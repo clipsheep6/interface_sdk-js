@@ -796,6 +796,108 @@ declare interface RichEditorParagraphResult {
 }
 
 /**
+ * Defines the symbol span result.
+ *
+ * @interface RichEditorSymbolSpanResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface RichEditorSymbolSpanResult {
+  /**
+   * The position of the symbol span.
+   *
+   * @type { RichEditorSpanPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  spanPosition: RichEditorSpanPosition;
+
+  /**
+   * symbol span style.
+   *
+   * @type { RichEditorSymbolSpanStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  symbolSpanStyle: RichEditorSymbolSpanStyle;
+
+  /**
+   * The resource string of the symbol span.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  valueResourceStr: ResourceStr;
+
+  /**
+   * get offset in symbol span.
+   *
+   * @type { [number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  offsetInSpan: [number, number];
+}
+
+declare interface RichEditorSymbolSpanStyleResult {
+  /**
+   * font size.
+   *
+   * @type { number | string | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontSize: number | string | Resource;
+
+  /**
+   * font color.
+   *
+   * @type { Array<ResourceColor> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontColor: Array<ResourceColor>;
+
+  /**
+   * font weight.
+   *
+   * @type { ?(number | FontWeight | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  fontWeight: number | FontWeight | string;
+
+  /**
+   * symbol span effectstrategy.
+   *
+   * @type { SymbolEffectStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  effectStrategy: SymbolEffectStrategy;
+
+  /**
+   * symbol span renderingstrategy.
+   *
+   * @type { ?SymbolRenderingStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  renderingStrategy: SymbolRenderingStrategy;
+}
+
+/**
  * Defines the text span result.
  *
  * @interface RichEditorTextSpanResult
@@ -829,7 +931,7 @@ declare interface RichEditorTextSpanResult {
   spanPosition: RichEditorSpanPosition;
 
   /**
-   * The content of the text span.
+   * The content of the text span.pan
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1489,12 +1591,12 @@ declare interface RichEditorSymbolSpanOptions {
   /**
    * The offset that add custom symbol span at.
    *
-   * @type { ?number }
+   * @type { ?[number, number] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  offset?: number;
+  offset?: [number, number];
 
   /**
    * symbol style
@@ -1691,7 +1793,7 @@ declare interface RichEditorDeleteValue {
    * @atomicservice
    * @since 11
    */
-  richEditorDeleteSpans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult>;
+  richEditorDeleteSpans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult | RichEditorSymbolSpanResult>;
 }
 /**
  * Defines the options of RichEditor.
@@ -1947,7 +2049,7 @@ declare class RichEditorController {
    * @atomicservice
    * @since 11
    */
-  getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult>;
+  getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult | RichEditorSymbolSpanResult>;
 
   /**
    * Get span content.

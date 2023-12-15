@@ -64,6 +64,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
    */
   fontColor(value: Array<ResourceColor>): SymbolSpanAttribute;
 
@@ -87,6 +88,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
    */
   effectStrategy(value: SymbolEffectStrategy): SymbolSpanAttribute;
 
@@ -98,6 +100,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolSpanAttribute;
 }
