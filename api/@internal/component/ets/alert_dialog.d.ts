@@ -1242,6 +1242,97 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
 }
 
 /**
+ * Defines the AlertDialog with CustomBuilder.
+ *
+ * @interface CustomAlertDialogOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface CustomAlertDialogOptions {
+  /**
+   * The arrangement of buttons.
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  builder: CustomBuilder;
+
+  /**
+   * Allows users to click the mask layer to exit.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  autoCancel?: boolean;
+
+  /**
+   * Alignment in the vertical direction.
+   *
+   * @type { ?DialogAlignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  alignment?: DialogAlignment;
+
+  /**
+   * Offset of the pop-up window relative to the alignment position.
+   *
+   * @type { ?Offset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  offset?: Offset;
+
+  /**
+   * Grid count of dialog.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  gridCount?: number;
+
+  /**
+   * Mask Region of dialog. The size cannot exceed the main window.
+   *
+   * @type { ?Rectangle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  maskRect?: Rectangle;
+  
+  /**
+   * Whether to display in the sub window.
+   * 
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  showInSubWindow?: boolean;
+
+  /**
+   * Whether it is a modal dialog
+   * 
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  isModal?: boolean;  
+}
+
+/**
  * Defines AlertDialog which uses show method to show alert dialog.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1293,6 +1384,6 @@ declare class AlertDialog {
 declare module "AlertDialogParam" {
   module "AlertDialogParam" {
     // @ts-ignore
-    export { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions };
+    export { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions, CustomAlertDialogOptions };
   }
 }

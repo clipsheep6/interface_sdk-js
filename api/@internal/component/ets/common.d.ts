@@ -13,6 +13,10 @@
  * limitations under the License.
  */
 
+/// <reference path="alert_dialog.d.ts" />
+
+import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions, CustomAlertDialogOptions } from 'AlertDialogParam';
+
 /**
  * Defines the options of Component ClassDecorator.
  *
@@ -14495,6 +14499,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   bindSheet(isShow: boolean, builder: CustomBuilder, options?: SheetOptions): T;
+
+  /**
+   * Alert dialog control
+   *
+   * @param { boolean } show - true means display alert dialog, false means hide alert dialog.
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions | CustomAlertDialogOptions} alert - the content to be displayed.
+   * @returns { T } - template type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+   bindAlert(show: boolean, alert: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions | CustomAlertDialogOptions): T;
 
   /**
    * Sets styles for component state.
