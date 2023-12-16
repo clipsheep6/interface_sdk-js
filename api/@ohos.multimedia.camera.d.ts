@@ -683,6 +683,16 @@ declare namespace camera {
     prelaunch(): void;
 
     /**
+     * Prepare the camera resources.
+     * This function is called when the user touch down the camera switch icon in camera application.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    preSwtichCamera(cameraId: string): void;
+
+    /**
      * Creates a deferred PreviewOutput instance.
      *
      * @param { Profile } profile - Preview output profile.
