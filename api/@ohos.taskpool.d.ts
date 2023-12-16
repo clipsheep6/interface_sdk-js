@@ -643,6 +643,44 @@ declare namespace taskpool {
   }
 
   /**
+   * A util class used for concurrent objects.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  class Immutable {
+    /**
+     * Make a concurrent object become immutable.
+     *
+     * @param { Object } concurrentObject: The concurrent object that will become immutable.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    static convert(concurrentObject: Object): void;
+
+    /**
+     * Set value to the specific property of an immutable concurrent object and return a new immutable concurrent object with value set down.
+     *
+     * @param { Object } concurrentObject: A concurrent object as input object.
+     * @param { Array<string> } keyPath: A kayPath denotes what property will be set.
+     * @param { string | number | boolean | Object }  value: The value you want to set to the specific property.
+     * @returns { Object } A new immutable concurrent object shallow copied from the old one with the value you just updated.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200029 - The input concurrent object is muatable.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    static set(concurrentObject: Object, keyPath: Array<string>, value: string | number | boolean | Object): Object;
+  }
+
+  /**
    * Execute a concurrent function.
    *
    * @param { Function } func - func func Concurrent function want to execute.
