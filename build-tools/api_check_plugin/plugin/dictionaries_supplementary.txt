@@ -221,6 +221,7 @@ earpiece
 ebu
 ece
 edr
+effectstrategy
 efuse
 egid
 ehrpd
@@ -616,6 +617,7 @@ remotedevice
 removable
 renderbuffer
 renderbuffertarget
+renderingstrategy
 repayment
 repeates
 reposition
@@ -735,6 +737,7 @@ suscriber
 suscribes
 suspends
 switchvideomode
+symbolspan
 synched
 synchronizes
 synchronizing
