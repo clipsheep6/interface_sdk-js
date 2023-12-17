@@ -28,6 +28,12 @@ import type _AbilityContext from './application/UIAbilityContext';
  * @syscap SystemCapability.Communication.NetManager.Vpn
  * @since 10
  */
+/**
+ * Provides VPN related interfaces.
+ * @namespace vpn
+ * @syscap SystemCapability.Communication.NetManager.Vpn
+ * @since 11
+ */
 declare namespace vpn {
   export type LinkAddress = connection.LinkAddress;
   export type RouteInfo = connection.RouteInfo;
@@ -43,6 +49,14 @@ declare namespace vpn {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
+  /**
+   * Create a VPN connection using the AbilityContext.
+   * @param { AbilityContext } context - Indicates the context of application or capability.
+   * @returns { VpnConnection } the VpnConnection of the construct VpnConnection instance.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @since 11
+   */
   function createVpnConnection(context: AbilityContext): VpnConnection;
  
   /**
@@ -51,6 +65,12 @@ declare namespace vpn {
    * @syscap SystemCapability.Communication.NetManager.Vpn
    * @systemapi Hide this for inner system use.
    * @since 10
+   */
+  /**
+   * Defines a VPN connection.
+   * @interface VpnConnection
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @since 11
    */
   export interface VpnConnection {
     /**
@@ -69,6 +89,21 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * Create a VPN network using the VpnConfig.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { VpnConfig } config - Indicates the {@link VpnConfig} configuration of the VPN network.
+     * @param { AsyncCallback<number> } callback - The callback is used to return file descriptor of VPN interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied, please check the user type.
+     * @throws { BusinessError } 2203002 - VPN exist already, please execute destroy first.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
      */
     setUp(config: VpnConfig, callback: AsyncCallback<number>): void;
  
@@ -89,6 +124,21 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Create a VPN network using the VpnConfig.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { VpnConfig } config - Indicates the {@link VpnConfig} configuration of the VPN network.
+     * @returns { Promise<number> } The promise returns file descriptor of VPN interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203001 - VPN creation denied, please check the user type.
+     * @throws { BusinessError } 2203002 - VPN exist already, please execute destroy first.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
+     */
     setUp(config: VpnConfig): Promise<number>;
  
     /**
@@ -107,6 +157,21 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
+     * underlying network so its traffic will not be forwarded through the VPN.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { number } socketFd - File descriptor of socket, this socket from @ohos.net.socket.
+     * @param { AsyncCallback<void> } callback - The callback of protect.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203004 - Invalid socket file descriptor.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
      */
     protect(socketFd: number, callback: AsyncCallback<void>): void;
  
@@ -127,6 +192,21 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Protect a socket from VPN connections. After protecting, data sent through this socket will go directly to the
+     * underlying network so its traffic will not be forwarded through the VPN.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { number } socketFd - File descriptor of socket, this socket from @ohos.net.socket.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200001 - Invalid parameter value.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @throws { BusinessError } 2203004 - Invalid socket file descriptor.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
+     */
     protect(socketFd: number): Promise<void>;
  
     /**
@@ -141,6 +221,17 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * Destroy the VPN network.
+     * @permission ohos.permission.MANAGE_VPN
+     * @param { AsyncCallback<void> } callback - The callback of destroy.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
      */
     destroy(callback: AsyncCallback<void>): void;
  
@@ -157,6 +248,17 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Destroy the VPN network.
+     * @permission ohos.permission.MANAGE_VPN
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2200003 - System internal error.
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
+     */
     destroy(): Promise<void>;
   }
 
@@ -167,6 +269,12 @@ declare namespace vpn {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
+  /**
+   * Define configuration of the VPN network.
+   * @interface VpnConfig
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @since 11
+   */
   export interface VpnConfig {
     /**
      * The array of addresses for VPN interface.
@@ -174,6 +282,12 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * The array of addresses for VPN interface.
+     * @type {Array<LinkAddress>}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
      */
     addresses: Array<LinkAddress>;
  
@@ -184,6 +298,12 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * The array of routes for VPN interface.
+     * @type {?Array<RouteInfo>}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
+     */
     routes?: Array<RouteInfo>;
 
     /**
@@ -192,6 +312,12 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * The array of DNS servers for the VPN network.
+     * @type {?Array<string>}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
      */
     dnsAddresses?: Array<string>;
  
@@ -202,6 +328,12 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * The array of search domains for the DNS resolver.
+     * @type {?Array<string>}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
+     */
     searchDomains?: Array<string>;
  
     /**
@@ -210,6 +342,12 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * The maximum transmission unit (MTU) for the VPN interface.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
      */
     mtu?: number;
  
@@ -220,6 +358,12 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Whether ipv4 is supported. The default value is true.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
+     */
     isIPv4Accepted?: boolean;
  
     /**
@@ -228,6 +372,12 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * Whether ipv6 is supported. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
      */
     isIPv6Accepted?: boolean;
  
@@ -238,6 +388,12 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * Whether to use the built-in VPN. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
+     */
     isLegacy?: boolean;
  
     /**
@@ -246,6 +402,12 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * Whether the VPN interface's file descriptor is in blocking/non-blocking mode. The default value is false.
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
      */
     isBlocking?: boolean;
  
@@ -256,6 +418,12 @@ declare namespace vpn {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    /**
+     * The array of trustlist for the VPN network. The string indicates package name.
+     * @type {?Array<string>}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
+     */
     trustedApplications?: Array<string>;
  
     /**
@@ -264,6 +432,12 @@ declare namespace vpn {
      * @syscap SystemCapability.Communication.NetManager.Vpn
      * @systemapi Hide this for inner system use.
      * @since 10
+     */
+    /**
+     * The array of blocklist for the VPN network. The string indicates package name.
+     * @type {?Array<string>}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @since 11
      */
     blockedApplications?: Array<string>;
   }
