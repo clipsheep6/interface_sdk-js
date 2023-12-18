@@ -366,6 +366,28 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 11
    */
   onBackPressed(callback: () => boolean): NavDestinationAttribute;
+
+  /**
+   * Set back button icon.
+   *
+   * @param { ResourceStr | PixelMap } value - Indicates icon of back button.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backButtonIcon(value: ResourceStr | PixelMap): NavDestinationAttribute;
+
+  /**
+   * Hide back button
+   *
+   * @param { boolean } value - Whether to hide the back button.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  hideBackButton(value: boolean): NavDestinationAttribute;
 }
 
 /**
