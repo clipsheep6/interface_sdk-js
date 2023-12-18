@@ -64,7 +64,7 @@ export interface PromptOptions {
   tip?: ResourceStr;
 
   /**
-   * Unavailable resource of PromptOptions.
+   * Margin Type  of ExceptionPrompt.
    * @type {MarginType}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -88,7 +88,7 @@ export interface PromptOptions {
    * @crossplatform
    * @since 11
    */
-  isTouchShown?: boolean;
+  isIconButtonShown?: boolean;
 
   /**
    * Distance from the top of PromptOptions.
