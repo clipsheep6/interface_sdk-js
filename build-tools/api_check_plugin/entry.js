@@ -30,8 +30,7 @@ function checkEntry(prId) {
     const execSync = require('child_process').execSync;
     do {
       try {
-        buffer = execSync('cd interface/sdk-js/build-tools/diff_api && npm install && cd ../api_check_plugin && npm install '
-        + '&& cd ../../../sdk_c && pip install -r bulid-tools/capi_parser/requirements.txt', {
+        buffer = execSync('cd interface/sdk-js/build-tools/diff_api && npm install && cd ../api_check_plugin && npm install', {
           timeout: 120000,
         });
         execute = true;
@@ -39,6 +38,19 @@ function checkEntry(prId) {
     } while (++i < 3 && !execute);
     if (!execute) {
       throw 'npm install timeout';
+    }
+    let i = 0;
+    let execute = false;
+    do {
+      try {
+        buffer = execSync('cd interface/sdk_c && pip install -r build-tools/capi_parser/requirements.txt', {
+          timeout: 120000,
+        });
+        execute = true;
+      } catch (error) { }
+    } while (++i < 3 && !execute);
+    if (!execute) {
+      throw 'pip install timeout';
     }
     const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
     result = scanEntry(mdFilesPath, prId, false);

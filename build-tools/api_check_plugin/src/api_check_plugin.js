@@ -139,7 +139,7 @@ function scanEntry(url, prId, isTestCase) {
       const json = JSON.parse(data)
       result.scanResult.push(...json)
     } catch (error) {
-        throw error;
+        throw "error,python run error";
     }
   }
   result.scanResult.push(`api_check: ${ApiCheckResult.formatCheckResult}`);
