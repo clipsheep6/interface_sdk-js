@@ -3527,6 +3527,44 @@ declare interface ScriptItem {
 }
 
 /**
+ * Defines the contents of the JavaScript.
+ *
+ * @interface JavaScriptProxyItem
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 11
+ */
+declare interface JavaScriptProxyItem {
+  /**
+   * Sets obj JavaScript.
+   *
+   * @type { object }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  object: object;
+  /**
+   * Sets name JavaScript.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  name: string;
+  /**
+   * Sets the methodList of the JavaScript.
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  methodList: Array<string>;
+}
+
+/**
  * Defines the Web interface.
  *
  * @interface WebInterface
@@ -3934,6 +3972,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   javaScriptProxy(javaScriptProxy: { object: object, name: string, methodList: Array<string>,
     controller: WebController | WebviewController }): WebAttribute;
+  
+  /**
+   * Injects the JavaScript object into window and invoke the function in window.
+   *
+   * @param { object } javaScriptListProxy - The JavaScript object to be injected.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 11
+   */
+  javaScriptListProxy(javaScriptListProxy: {controller: WebController | WebviewController,
+    objectList?: Array<JavaScriptProxyItem> }): WebAttribute;
 
   /**
    * Sets whether the Web should save the password.
