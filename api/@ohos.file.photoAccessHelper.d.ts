@@ -181,11 +181,10 @@ declare namespace photoAccessHelper {
   /**
    * Defines the photo asset
    *
-   * @interface PhotoAsset
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
    */
-  interface PhotoAsset {
+  class PhotoAsset {
     /**
      * uri of the asset.
      *
@@ -207,6 +206,36 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     readonly displayName: string;
+    /**
+     * Fetch photo assets
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { FetchOptions } options - Fetch options
+     * @param { AsyncCallback<FetchResult<PhotoAsset>> } callback - Returns the fetch result.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    static getAssets(context: Context, options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>): void;
+    /**
+     * Fetch photo assets
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { FetchOptions } options - Fetch options
+     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    static getAssets(context: Context, options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
      * Returns the value of the specified member.
      *
@@ -1429,11 +1458,89 @@ declare namespace photoAccessHelper {
   /**
    * Defines the album.
    *
-   * @interface Album
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
    */
-  interface Album extends AbsAlbum {
+  class Album {
+    /**
+     * Album type
+     *
+     * @type { AlbumType }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    readonly albumType: AlbumType;
+    /**
+     * Album subtype
+     *
+     * @type { AlbumSubtype }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    readonly albumSubtype: AlbumSubtype;
+    /**
+     * Album name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    albumName: string;
+    /**
+     * Album uri.
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    readonly albumUri: string;
+    /**
+     * Number of assets in the album
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    readonly count: number;
+    /**
+     * Cover uri for the album
+     *
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    readonly coverUri: string;
+    /**
+     * Fetch assets in an album.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { FetchOptions } options - Fetch options.
+     * @param { AsyncCallback<FetchResult<PhotoAsset>> } callback - Returns the fetch result
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>): void;
+    /**
+     * Fetch assets in an album.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { FetchOptions } options - Fetch options.
+     * @returns { Promise<FetchResult<PhotoAsset>> } Returns the fetch result
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    getAssets(options: FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
      * Modify metadata for the album
      *
@@ -1612,6 +1719,100 @@ declare namespace photoAccessHelper {
      * @since 10
      */
     setCoverUri(uri: string): Promise<void>;
+    /**
+     * Fetch albums.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { AlbumType } type - Album type.
+     * @param { AlbumSubtype } subtype - Album subtype.
+     * @param { FetchOptions } options - options to fetch albums
+     * @param { AsyncCallback<FetchResult<Album>> } callback - Returns the fetch result
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    static getAlbums(
+      context: Context,
+      type: AlbumType,
+      subtype: AlbumSubtype,
+      options: FetchOptions,
+      callback: AsyncCallback<FetchResult<Album>>
+    ): void;
+    /**
+     * Fetch albums.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { AlbumType } type - Album type.
+     * @param { AlbumSubtype } subtype - Album subtype.
+     * @param { AsyncCallback<FetchResult<Album>> } callback - Returns the fetch result
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    static getAlbums(context: Context, type: AlbumType, subtype: AlbumSubtype, callback: AsyncCallback<FetchResult<Album>>): void;
+    /**
+     * Fetch albums.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { AlbumType } type - Album type.
+     * @param { AlbumSubtype } subtype - Album subtype.
+     * @param { FetchOptions } [options] - options to fetch albums
+     * @returns { Promise<FetchResult<Album>> } - Returns the fetch result
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    static getAlbums(context: Context, type: AlbumType, subtype: AlbumSubtype, options?: FetchOptions): Promise<FetchResult<Album>>;
+    /**
+     * Get the index of the asset in the album
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { string } photoUri - The photo asset uri.
+     * @param { string } albumUri - The album uri.
+     * @param { FetchOptions } options - fetch options
+     * @param { AsyncCallback<number> } callback - Returns the index of the asset in the album
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    static getPhotoIndex(context: Context, photoUri: string, albumUri: string, options: FetchOptions, callback: AsyncCallback<number>): void;
+    /**
+     * Get the index of the asset in the album
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { string } photoUri - The photo asset uri.
+     * @param { string } albumUri - The album uri.
+     * @param { FetchOptions } options - fetch options
+     * @returns { Promise<number> } - Returns the index of the asset in the album
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 11
+     */
+    static getPhotoIndex(context: Context, photoUri: string, albumUri: string, options: FetchOptions): Promise<number>;
   }
 
   /**
