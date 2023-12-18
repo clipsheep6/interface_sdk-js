@@ -1286,6 +1286,26 @@ declare namespace webview {
     static clearSessionCookie(callback: AsyncCallback<void>): void;
   }
 
+    /**
+     * Enable the ability to check website security risks.
+     * Illegal and fraudulent websites are mandatory enabled and cann't be disabled by this function.
+     * @param { boolean } enable {@code true} enable check the website security risks; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    static enableSafeBrowsing(enable: boolean): void;
+
+    /**
+     * Get whether checking website security risks is enabled.
+     * @returns { boolean } True if enable the ability to check website security risks else false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    static isSafeBrowsingEnabled(): boolean;
+
   /**
    * Enum type supplied to {@link onMessageEventExt} for indicating the type of web message.
    * 
