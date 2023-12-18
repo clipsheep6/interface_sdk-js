@@ -28,11 +28,12 @@ function checkEntry(prId) {
     const execSync = require('child_process').execSync;
     do {
       try {
-        buffer = execSync('cd interface/sdk-js/build-tools/diff_api && npm install && cd ../api_check_plugin && npm install', {
+        buffer = execSync('cd interface/sdk-js/build-tools/diff_api && npm install && cd ../api_check_plugin && npm install '
+        + '&& cd ../../../sdk_c && pip install -r bulid-tools/capi_parser/requirements.txt', {
           timeout: 120000,
         });
         execute = true;
-      } catch (error) {}
+      } catch (error) { }
     } while (++i < 3 && !execute);
     if (!execute) {
       throw 'npm install timeout';
