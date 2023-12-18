@@ -810,6 +810,7 @@ unducked
 unequal
 unfiltered
 unfocused
+unhealthy
 unhold
 unicom
 unicon
