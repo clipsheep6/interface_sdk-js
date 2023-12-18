@@ -138,3 +138,17 @@ ohos_copy("form_declaration") {
   module_source_dir = target_out_dir + "/$target_name"
   module_install_name = ""
 }
+
+action("device") {
+  script = "build-tools/device_test.py"
+  outputs = [ "${target_out_dir}/${target_name}"]
+}
+
+
+ohos_copy("device_test") {
+  deps = [ ":device" ]
+  sources = [ "device_test" ]
+  outputs = [ target_out_dir + "/$target_name" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
+}
