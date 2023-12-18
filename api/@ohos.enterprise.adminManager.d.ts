@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -11,6 +11,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ */
+
+/**
+ * @file
+ * @kit MDM Kit
  */
 
 import type { AsyncCallback } from './@ohos.base';
@@ -126,7 +131,16 @@ declare namespace adminManager {
      * @systemapi
      * @since 10
      */
-    MANAGED_EVENT_APP_STOP = 3
+    MANAGED_EVENT_APP_STOP = 3,
+
+    /**
+     * The event of system update.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
+     * @since 11
+     */
+    MANAGED_EVENT_SYSTEM_UPDATE = 4,
   }
 
   /**
@@ -504,6 +518,46 @@ declare namespace adminManager {
    * @since 9
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
+
+  /**
+   * Administrator authorize permissions to other applications.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - bundleName indicates the administrator bundle information.
+   * @param { AsyncCallback<void> } callback - the callback of authorizeAdmin.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200009 - authorize permission to the application failed.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function authorizeAdmin(admin: Want, bundleName: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Administrator authorize permissions to other applications.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - bundleName indicates the administrator bundle information.
+   * @returns { Promise<void> } the promise returned by the authorizeAdmin.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200009 - authorize permission to the application failed.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @StageModelOnly
+   * @since 10
+   */
+  function authorizeAdmin(admin: Want, bundleName: string): Promise<void>;
 }
 
 export default adminManager;

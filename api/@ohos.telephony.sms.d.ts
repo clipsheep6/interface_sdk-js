@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./@ohos.base";
+/**
+ * @file
+ * @kit Telephony Kit
+ */
+
+import type { AsyncCallback } from './@ohos.base';
+import type Context from './application/BaseContext';
 
 /**
  * Provides the capabilities and methods for obtaining Short Message Service (SMS) management objects.
@@ -33,7 +39,7 @@ declare namespace sms {
    * @param { string } content - Indicates the short message content, which cannot be {@code null}.
    * @param { AsyncCallback<Array<string>> } callback - Indicates the callback for getting a list of split segments,
    * which can be combined into a complete SMS message;
-   * returns an empty string if no permission is granted or the short message content is {@code null}.
+   * Returns an empty string if no permission is granted or the short message content is {@code null}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -56,7 +62,7 @@ declare namespace sms {
    * @permission ohos.permission.SEND_MESSAGES
    * @param { string } content - Indicates the short message content, which cannot be {@code null}.
    * @returns { Promise<Array<string>> } Returns a list of split segments, which can be combined into a complete SMS
-   * message; returns an empty string if no permission is granted or the short message content is {@code null}.
+   * message; Returns an empty string if no permission is granted or the short message content is {@code null}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -80,7 +86,7 @@ declare namespace sms {
    * @param { string } specification - Indicates the SMS protocol type. The value {@code 3gpp} indicates GSM/UMTS/LTE
    * SMS, and the value {@code 3gpp2} indicates CDMA/LTE SMS.
    * @param { AsyncCallback<ShortMessage> } callback - Indicates the callback for getting an SMS message instance;
-   * returns {@code null} if {@code pdu} is empty or {@code specification} is not supported.
+   * Returns {@code null} if {@code pdu} is empty or {@code specification} is not supported.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -101,7 +107,7 @@ declare namespace sms {
    * @param { string } specification - Indicates the SMS protocol type. The value {@code 3gpp} indicates GSM/UMTS/LTE
    * SMS, and the value {@code 3gpp2} indicates CDMA/LTE SMS.
    * @returns { Promise<ShortMessage> } Returns an SMS message instance;
-   * returns {@code null} if {@code pdu} is empty or {@code specification} is not supported.
+   * Returns {@code null} if {@code pdu} is empty or {@code specification} is not supported.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -128,8 +134,50 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 6
+   * @deprecated since 10
+   * @useinstead telephony.sms#sendShortMessage
    */
   function sendMessage(options: SendMessageOptions): void;
+
+  /**
+   * Sends a text or data SMS message.
+   *
+   * <p>This method checks whether the length of an SMS message exceeds the maximum length. If the
+   * maximum length is exceeded, the SMS message is split into multiple parts and sent separately.
+   *
+   * @permission ohos.permission.SEND_MESSAGES
+   * @param { SendMessageOptions } options - Indicates the parameters and callback for sending the SMS message.
+   * @param { AsyncCallback<void> } callback - The callback of sendShortMessage.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @since 10
+   */
+  function sendShortMessage(options: SendMessageOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sends a text or data SMS message.
+   *
+   * <p>This method checks whether the length of an SMS message exceeds the maximum length. If the
+   * maximum length is exceeded, the SMS message is split into multiple parts and sent separately.
+   *
+   * @permission ohos.permission.SEND_MESSAGES
+   * @param { SendMessageOptions } options - Indicates the parameters and callback for sending the SMS message.
+   * @returns { Promise<void> } The promise returned by the sendShortMessage.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @since 10
+   */
+  function sendShortMessage(options: SendMessageOptions): Promise<void>;
 
   /**
    * Sets the default SIM card for sending SMS messages. You can obtain the default SIM card by
@@ -181,7 +229,7 @@ declare namespace sms {
    * @param { AsyncCallback<number> } callback - Indicates the callback for getting the default SIM card for sending SMS
    * messages.
    * Returns {@code 0} if the default SIM card for sending SMS messages is in card slot 1;
-   * returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
+   * Returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 7
    */
@@ -191,7 +239,7 @@ declare namespace sms {
    * Obtains the default SIM card for sending SMS messages.
    *
    * @returns { Promise<number> } Returns {@code 0} if the default SIM card for sending SMS messages is in card slot 1;
-   * returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
+   * Returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 7
    */
@@ -279,7 +327,7 @@ declare namespace sms {
    * Returns whether a device is capable of sending and receiving SMS messages.
    *
    * @returns { boolean } Returns {@code true} if the device is capable of sending and receiving SMS messages;
-   * returns {@code false} otherwise.
+   * Returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 7
    */
@@ -731,6 +779,166 @@ declare namespace sms {
      * @since 8
      */
     attachment?: Array<MmsAttachment>;
+  }
+
+  /**
+   * Sends an MMS message.
+   *
+   * @permission ohos.permission.SEND_MESSAGES
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { MmsParams } mmsParams - Indicates the parameters of the MMS message.
+   * @param { AsyncCallback<void> } callback - The callback of sendMms. For error code, see MmsFailCode.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function sendMms(context: Context, mmsParams: MmsParams, callback: AsyncCallback<void>): void;
+
+  /**
+   * Sends an MMS message.
+   *
+   * @permission ohos.permission.SEND_MESSAGES
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { MmsParams } mmsParams - Indicates the parameters of the MMS message.
+   * @returns { Promise<void> } The promise returned by the sendMms.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function sendMms(context: Context, mmsParams: MmsParams): Promise<void>;
+
+  /**
+   * Downloads an MMS message.
+   *
+   * @permission ohos.permission.RECEIVE_MMS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { MmsParams }  mmsParams - Indicates the parameters of the MMS message.
+   * @param { AsyncCallback<void> } callback - The callback of downloadMms. For error code, see MmsFailCode.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function downloadMms(context: Context, mmsParams: MmsParams, callback: AsyncCallback<void>): void;
+
+  /**
+   * Downloads an MMS message.
+   *
+   * @permission ohos.permission.RECEIVE_MMS
+   * @param { Context } context - Indicates the context of application or capability.
+   * @param { MmsParams }  mmsParams - Indicates the parameters of the MMS message.
+   * @returns { Promise<void> } The promise returned by the downloadMms. For error code, see MmsFailCode.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function downloadMms(context: Context, mmsParams: MmsParams): Promise<void>;
+
+  /**
+   * Defines the MMS message param.
+   *
+   * @interface MmsParams
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export interface MmsParams {
+    /**
+     * Indicates the ID of the SIM card slot used for sending the MMS message.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    slotId: number;
+
+    /**
+     * Indicates the MMSC used for sending the MMS message.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    mmsc: string;
+
+    /**
+     * Indicates the MMS pdu url used for sending the MMS message.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    data: string;
+
+    /**
+     * Indicates the MMS UA and MMS UaProf used for sending the MMS message.
+     *
+     * @type { ?MmsConfig }
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    mmsConfig?: MmsConfig;
+  }
+
+  /**
+   * Defines the MMS message config.
+   *
+   * @interface MmsConfig
+   * @syscap SystemCapability.Telephony.SmsMms
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export interface MmsConfig {
+    /**
+     * Indicates the user agent used for the MMS message.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    userAgent: string;
+
+    /**
+     * Indicates the user agent profile for the MMS message.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.SmsMms
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    userAgentProfile: string;
   }
 
   /**

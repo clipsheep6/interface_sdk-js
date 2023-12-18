@@ -15,64 +15,147 @@
 
 /**
  * Provides interfaces for layout in the vertical direction.
+ *
+ * @interface RowSplitInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Provides interfaces for layout in the vertical direction.
+ *
+ * @interface RowSplitInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Provides interfaces for layout in the vertical direction.
+ *
+ * @interface RowSplitInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 interface RowSplitInterface {
   /**
    * Called when the layout along the vertical direction is set.
+   *
+   * @returns { RowSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when the layout along the vertical direction is set.
+   *
+   * @returns { RowSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when the layout along the vertical direction is set.
+   *
+   * @returns { RowSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (): RowSplitAttribute;
 }
 
 /**
+ * @extends CommonMethod<RowSplitAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
+ * @extends CommonMethod<RowSplitAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * @extends CommonMethod<RowSplitAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
   /**
    * Called when judging whether the split line can be dragged.
+   *
+   * @param { boolean } value
+   * @returns { RowSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * Called when judging whether the split line can be dragged.
+   *
+   * @param { boolean } value
+   * @returns { RowSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when judging whether the split line can be dragged.
+   *
+   * @param { boolean } value
+   * @returns { RowSplitAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   resizeable(value: boolean): RowSplitAttribute;
 }
 
 /**
  * Defines RowSplit Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines RowSplit Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines RowSplit Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const RowSplit: RowSplitInterface;
 
 /**
  * Defines RowSplit Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
  * Defines RowSplit Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines RowSplit Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const RowSplitInstance: RowSplitAttribute;

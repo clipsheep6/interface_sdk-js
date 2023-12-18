@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
+import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
+import type hdrCapability from './@ohos.graphics.hdrCapability';
 
 /**
  * Interface of display manager.
@@ -69,6 +76,16 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Obtain the default display.
+   *
+   * @returns { Display } the result of display
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function getDefaultDisplaySync(): Display;
 
@@ -172,6 +189,199 @@ declare namespace display {
    * @since 10
    */
   function off(type: 'privateModeChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Check whether the device is foldable.
+   *
+   * @returns { boolean } true means the device is foldable.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 10
+   */
+  function isFoldable(): boolean;
+
+  /**
+   * Get the current fold status of the foldable device.
+   *
+   * @returns { FoldStatus } fold status of device.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 10
+   */
+  function getFoldStatus(): FoldStatus;
+
+  /**
+   * Register the callback for fold status changes.
+   *
+   * @param { 'foldStatusChange' } type the event of fold status changes
+   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 10
+   */
+  function on(type: 'foldStatusChange', callback: Callback<FoldStatus>): void;
+
+  /**
+   * Unregister the callback for fold status changes.
+   *
+   * @param { 'foldStatusChange' } type the event of fold status changes
+   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 10
+   */
+  function off(type: 'foldStatusChange', callback?: Callback<FoldStatus>): void;
+
+  /**
+   * Get the display mode of the foldable device.
+   *
+   * @returns { FoldDisplayMode } display mode of the foldable device.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 10
+   */
+  function getFoldDisplayMode(): FoldDisplayMode;
+
+  /**
+   * Change the display mode of the foldable device.
+   *
+   * @param { FoldDisplayMode } mode target display mode to change.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function setFoldDisplayMode(mode: FoldDisplayMode): void;
+
+  /**
+   * Register the callback for fold display mode changes.
+   *
+   * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
+   * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 10
+   */
+  function on(type: 'foldDisplayModeChange', callback: Callback<FoldDisplayMode>): void;
+
+  /**
+   * Unregister the callback for fold display mode changes.
+   *
+   * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
+   * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 10
+   */
+  function off(type: 'foldDisplayModeChange', callback?: Callback<FoldDisplayMode>): void;
+
+  /**
+   * Get the fold crease region in the current display mode.
+   *
+   * @returns { FoldCreaseRegion } fold crease region in the current display mode.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 10
+   */
+  function getCurrentFoldCreaseRegion(): FoldCreaseRegion;
+
+  /**
+   * Enumerates the fold status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 10
+   */
+  enum FoldStatus {
+    /**
+     * Fold Status Unknown.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 10
+     */
+    FOLD_STATUS_UNKNOWN = 0,
+    /**
+     * Fold Status Expanded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 10
+     */
+    FOLD_STATUS_EXPANDED,
+    /**
+     * Fold Status Folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 10
+     */
+    FOLD_STATUS_FOLDED,
+    /**
+     * Fold Status Half Folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 10
+     */
+    FOLD_STATUS_HALF_FOLDED
+  }
+
+  /**
+   * Enumerates the fold display mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 10
+   */
+  enum FoldDisplayMode {
+    /**
+     * Unknown Display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 10
+     */
+    FOLD_DISPLAY_MODE_UNKNOWN = 0,
+    /**
+     * Full Display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 10
+     */
+    FOLD_DISPLAY_MODE_FULL,
+    /**
+     * Main Display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 10
+     */
+    FOLD_DISPLAY_MODE_MAIN,
+    /**
+     * Sub Display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 10
+     */
+    FOLD_DISPLAY_MODE_SUB,
+    /**
+     * Coordination Display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 10
+     */
+    FOLD_DISPLAY_MODE_COORDINATION
+  }
 
   /**
    * Enumerates the display states.
@@ -279,19 +489,38 @@ declare namespace display {
   }
 
   /**
-   * Rectangle
+   * Fold Crease Region
    *
-   * @interface Rect
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @since 9
+   * @interface FoldCreaseRegion
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 10
    */
+  interface FoldCreaseRegion {
+    /**
+     * The display ID is used to identify the screen where the crease is located.
+     *
+     * @readonly
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 10
+     */
+    readonly displayId: number;
+
+    /**
+     * Crease Region.
+     *
+     * @readonly
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 10
+     */
+    readonly creaseRects: Array<Rect>;
+  }
+
   /**
    * Rectangle
    *
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform
-   * @since 10
+   * @since 9
    */
   interface Rect {
     /**
@@ -299,13 +528,6 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     left: number;
 
@@ -315,13 +537,6 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    /**
-     * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
     top: number;
 
     /**
@@ -330,13 +545,6 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    /**
-     * Width of the rectangle, in pixels.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
-     */
     width: number;
 
     /**
@@ -344,13 +552,6 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
-     */
-    /**
-     * Height of the rectangle, in pixels.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 10
      */
     height: number;
   }
@@ -436,6 +637,15 @@ declare namespace display {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Define properties of the display. They cannot be updated automatically.
+   *
+   * @interface Display
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Display {
     /**
      * Display ID.
@@ -490,6 +700,13 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
+    /**
+     * Rotation degrees of the display.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
+     */
     rotation: number;
 
     /**
@@ -504,6 +721,14 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Display width, in pixels.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     width: number;
 
@@ -520,6 +745,14 @@ declare namespace display {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Display height, in pixels.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     height: number;
 
     /**
@@ -527,6 +760,13 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * Display resolution.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     densityDPI: number;
 
@@ -545,6 +785,14 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
+    /**
+     * Display density, in pixels. The value for a low-resolution display is 1.0.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     densityPixels: number;
 
     /**
@@ -552,6 +800,13 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * Text scale density of the display.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     scaledDensity: number;
 
@@ -572,6 +827,24 @@ declare namespace display {
     yDPI: number;
 
     /**
+     * All supported color spaces.
+     *
+     * @type { Array<colorSpaceManager.ColorSpace> }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    colorSpaces: Array<colorSpaceManager.ColorSpace>;
+
+    /**
+     * All supported HDR formats.
+     *
+     * @type { Array<hdrCapability.HDRFormat> }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    hdrFormats: Array<hdrCapability.HDRFormat>;
+
+    /**
      * Obtain the cutout info of the display.
      *
      * @param { AsyncCallback<CutoutInfo> } callback
@@ -590,6 +863,32 @@ declare namespace display {
      * @since 9
      */
     getCutoutInfo(): Promise<CutoutInfo>;
+
+    /**
+     * Check if current display has immersive window.
+     *
+     * @param { AsyncCallback<boolean> } callback
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1400001 - Invalid display or screen.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    hasImmersiveWindow(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Check if current display has immersive window.
+     *
+     * @returns { Promise<boolean> }
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1400001 - Invalid display or screen.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    hasImmersiveWindow(): Promise<boolean>;
   }
 }
 

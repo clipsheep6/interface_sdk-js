@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Core File Kit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
@@ -105,7 +110,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -121,7 +126,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -142,7 +147,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 13600003 - Failed to mount.
    * @throws { BusinessError } 13600005 - Incorrect volume state.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -163,7 +168,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 13600003 - Failed to mount.
    * @throws { BusinessError } 13600005 - Incorrect volume state.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -184,7 +189,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 13600004 - Failed to unmount.
    * @throws { BusinessError } 13600005 - Incorrect volume state.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -205,7 +210,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 13600004 - Failed to unmount.
    * @throws { BusinessError } 13600005 - Incorrect volume state.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -223,7 +228,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -241,7 +246,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -259,7 +264,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -277,7 +282,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -298,7 +303,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600005 - Incorrect volume state.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -319,7 +324,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600005 - Incorrect volume state.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -340,7 +345,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600005 - Incorrect volume state.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -361,7 +366,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600005 - Incorrect volume state.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -380,7 +385,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9
@@ -399,7 +404,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13900032 - Unknown error.
+   * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @since 9

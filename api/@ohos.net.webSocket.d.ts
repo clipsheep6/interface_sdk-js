@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, ErrorCallback } from "./@ohos.base";
+/**
+ * @file
+ * @kit Network Kit
+ */
+
+import type { AsyncCallback, ErrorCallback, Callback } from './@ohos.base';
 
 /**
  * Provides WebSocket APIs.
@@ -28,6 +33,14 @@ import { AsyncCallback, ErrorCallback } from "./@ohos.base";
  * @crossplatform
  * @since 10
  */
+/**
+ * Provides WebSocket APIs.
+ * @namespace webSocket
+ * @syscap SystemCapability.Communication.NetStack
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace webSocket {
   /**
    * Creates a web socket connection.
@@ -41,6 +54,14 @@ declare namespace webSocket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Creates a web socket connection.
+   * @returns { WebSocket } the WebSocket of the createWebSocket.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function createWebSocket(): WebSocket;
 
@@ -87,6 +108,14 @@ declare namespace webSocket {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Defines the optional parameters carried in the request for closing a WebSocket connection.
+   * @interface WebSocketCloseOptions
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export interface WebSocketCloseOptions {
     /**
      * Error code.
@@ -100,6 +129,14 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Error code.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     code?: number;
     /**
@@ -115,7 +152,65 @@ declare namespace webSocket {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Error cause.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     reason?: string;
+  }
+
+  /**
+   * The result for closing a WebSocket connection.
+   * @interface CloseResult
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * The result for closing a WebSocket connection.
+   * @interface CloseResult
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  export interface CloseResult {
+    /**
+     * Error code.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Error code.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    code: number;
+    /**
+     * Error cause.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Error cause.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    reason: string;
   }
 
   /**
@@ -132,6 +227,15 @@ declare namespace webSocket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 10
+   */
+  /**
+   * <p>Defines a WebSocket object. Before invoking WebSocket APIs,
+   * you need to call webSocket.createWebSocket to create a WebSocket object.</p>
+   * @interface WebSocket
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   export interface WebSocket {
     /**
@@ -228,6 +332,18 @@ declare namespace webSocket {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Sends data through a WebSocket connection.
+     * @permission ohos.permission.INTERNET
+     * @param { string | ArrayBuffer } data - Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
+     * @param { AsyncCallback<boolean> } callback - the callback of send.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     send(data: string | ArrayBuffer, callback: AsyncCallback<boolean>): void;
 
     /**
@@ -251,6 +367,18 @@ declare namespace webSocket {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Sends data through a WebSocket connection.
+     * @permission ohos.permission.INTERNET
+     * @param { string | ArrayBuffer } data - Data to send. It can be a string(API 6) or an ArrayBuffer(API 8).
+     * @returns { Promise<boolean> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     send(data: string | ArrayBuffer): Promise<boolean>;
 
     /**
@@ -271,6 +399,17 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Closes a WebSocket connection.
+     * @permission ohos.permission.INTERNET
+     * @param { AsyncCallback<boolean> } callback - the callback of close.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     close(callback: AsyncCallback<boolean>): void;
 
@@ -295,6 +434,18 @@ declare namespace webSocket {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Closes a WebSocket connection.
+     * @permission ohos.permission.INTERNET
+     * @param { WebSocketCloseOptions } options - Optional parameters {@link WebSocketCloseOptions}.
+     * @param { AsyncCallback<boolean> } callback - the callback of close.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     close(options: WebSocketCloseOptions, callback: AsyncCallback<boolean>): void;
 
     /**
@@ -318,6 +469,18 @@ declare namespace webSocket {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Closes a WebSocket connection.
+     * @permission ohos.permission.INTERNET
+     * @param { WebSocketCloseOptions } options - Optional parameters {@link WebSocketCloseOptions}.
+     * @returns { Promise<boolean> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     close(options?: WebSocketCloseOptions): Promise<boolean>;
 
     /**
@@ -334,6 +497,15 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Enables listening for the open events of a WebSocket connection.
+     * @param { 'open' } type - event indicating that a WebSocket connection has been opened.
+     * @param { AsyncCallback<Object> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     on(type: 'open', callback: AsyncCallback<Object>): void;
 
@@ -371,6 +543,16 @@ declare namespace webSocket {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Enables listening for the message events of a WebSocket connection.
+     * data in AsyncCallback can be a string(API 6) or an ArrayBuffer(API 8).
+     * @param { 'message' } type - event indicating that a message has been received from the server.
+     * @param { AsyncCallback<string | ArrayBuffer> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     on(type: 'message', callback: AsyncCallback<string | ArrayBuffer>): void;
 
     /**
@@ -395,7 +577,7 @@ declare namespace webSocket {
     /**
      * Enables listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<{ code: number, reason: string }> } callback - the callback used to return the result.
+     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
@@ -403,18 +585,28 @@ declare namespace webSocket {
     /**
      * Enables listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<{ code: number, reason: string }> } callback - the callback used to return the result.
+     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
      */
-    on(type: 'close', callback: AsyncCallback<{ code: number, reason: string }>): void;
+    /**
+     * Enables listening for the close events of a WebSocket connection.
+     * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
+     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
+     * <br>close indicates the close error code and reason indicates the error code description.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    on(type: 'close', callback: AsyncCallback<CloseResult>): void;
 
     /**
      * Cancels listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<{ code: number, reason: string }> } callback - the callback used to return the result.
+     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @since 6
@@ -422,13 +614,13 @@ declare namespace webSocket {
     /**
      * Cancels listening for the close events of a WebSocket connection.
      * @param { 'close' } type - event indicating that a WebSocket connection has been closed.
-     * @param { AsyncCallback<{ code: number, reason: string }> } callback - the callback used to return the result.
+     * @param { AsyncCallback<CloseResult> } callback - the callback used to return the result.
      * <br>close indicates the close error code and reason indicates the error code description.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
      */
-    off(type: 'close', callback?: AsyncCallback<{ code: number, reason: string }>): void;
+    off(type: 'close', callback?: AsyncCallback<CloseResult>): void;
 
     /**
      * Enables listening for the error events of a WebSocket connection.
@@ -444,6 +636,15 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Enables listening for the error events of a WebSocket connection.
+     * @param { 'error' } type - event indicating the WebSocket connection has encountered an error.
+     * @param { ErrorCallback } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -463,6 +664,24 @@ declare namespace webSocket {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Enables listening for receiving data ends events of a WebSocket connection.
+     * @param { 'dataEnd' } type - event indicating the WebSocket connection has received data ends.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    on(type: 'dataEnd', callback: Callback<void>): void;
+
+    /**
+     * Cancels listening for receiving data ends events of a WebSocket connection.
+     * @param { 'dataEnd' } type - event indicating the WebSocket connection has received data ends.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 11
+     */
+    off(type: 'dataEnd', callback?: Callback<void>): void;
   }
 }
 

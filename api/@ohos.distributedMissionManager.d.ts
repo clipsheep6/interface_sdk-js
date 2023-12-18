@@ -13,14 +13,19 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type { ContinuableInfo as _ContinuableInfo } from './application/ContinuableInfo';
-import { ContinueCallback } from './application/ContinueCallback';
-import { ContinueDeviceInfo } from './application/ContinueDeviceInfo';
+import type { ContinueCallback as _ContinueCallback } from './application/ContinueCallback';
+import type { ContinueDeviceInfo as _ContinueDeviceInfo } from './application/ContinueDeviceInfo';
 import type { ContinueMissionInfo as _ContinueMissionInfo } from './application/ContinueMissionInfo';
-import { MissionCallback } from './application/MissionCallbacks';
-import { MissionDeviceInfo } from './application/MissionDeviceInfo';
-import { MissionParameter } from './application/MissionParameter';
+import type { MissionCallback as _MissionCallback } from './application/MissionCallbacks';
+import type { MissionDeviceInfo as _MissionDeviceInfo } from './application/MissionDeviceInfo';
+import type { MissionParameter as _MissionParameter } from './application/MissionParameter';
 
 /**
  * This module provides the capability to manage abilities and obtain system task information for distributed
@@ -58,6 +63,36 @@ declare namespace distributedMissionManager {
      * @since 10
      */
     INACTIVE = 1
+  }
+
+  /**
+   * ContinueCallbackInfo.
+   *
+   * @interface ContinueCallbackInfo
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  interface ContinueCallbackInfo {
+    /**
+     * Continue state event.
+     *
+     * @type { ContinueState }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    state: ContinueState;
+
+    /**
+     * Continuable information corresponding to ability.
+     *
+     * @type { ContinuableInfo }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    info: ContinuableInfo;
   }
 
   /**
@@ -190,7 +225,19 @@ declare namespace distributedMissionManager {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: 'continueStateChange', callback: Callback<{ state: ContinueState, info: ContinuableInfo }>): void;
+  /**
+   * Register continuable info listener to ams.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { 'continueStateChange' } type - Indicate the event type.
+   * @param { Callback<ContinueCallbackInfo> } callback - The callback of continueStateChange.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'continueStateChange', callback: Callback<ContinueCallbackInfo>): void;
 
   /**
    * Unregister continuable info listener to ams.
@@ -204,7 +251,19 @@ declare namespace distributedMissionManager {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: 'continueStateChange', callback?: Callback<{ state: ContinueState, info: ContinuableInfo }>): void;
+  /**
+   * Unregister continuable info listener to ams.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { 'continueStateChange' } type - Indicate the event type.
+   * @param { Callback<ContinueCallbackInfo> } callback - The callback of continueStateChange.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'continueStateChange', callback?: Callback<ContinueCallbackInfo>): void;
 
   /**
    * Continue mission
@@ -325,5 +384,53 @@ declare namespace distributedMissionManager {
    * @since 10
    */
   export type ContinueMissionInfo = _ContinueMissionInfo;
+  
+  /**
+   * ContinueCallback registered for notify continue result.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  export type ContinueCallback = _ContinueCallback;
+
+  /**
+   * Parameters corresponding to continue mission.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  export type ContinueDeviceInfo = _ContinueDeviceInfo;
+
+  /**
+   * MissionCallback registered by app.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  export type MissionCallback = _MissionCallback;
+
+  /**
+   * Parameters corresponding to mission.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  export type MissionDeviceInfo = _MissionDeviceInfo;
+
+  /**
+   * Parameters corresponding to mission.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 10
+   */
+  export type MissionParameter = _MissionParameter;
 }
 export default distributedMissionManager;

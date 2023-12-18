@@ -14,11 +14,24 @@
  */
 
 /**
+ * @file
+ * @kit Ability Kit
+ */
+
+/**
  * the constant for action and entity in the want
  *
  * @namespace wantConstant
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 9
+ */
+/**
+ * the constant for action and entity in the want
+ *
+ * @namespace wantConstant
+ * @syscap SystemCapability.Ability.AbilityBase
+ * @atomicservice
+ * @since 11
  */
 declare namespace wantConstant {
   /**
@@ -27,6 +40,14 @@ declare namespace wantConstant {
    * @enum { string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
+   */
+  /**
+   * The constant for params of the want
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 11
    */
   export enum Params {
     /**
@@ -81,6 +102,14 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
+    /**
+     * Indicates the ability in this want can back to the current top ability even though they are not in the same
+     * mission stack.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
+     */
     ABILITY_BACK_TO_OTHER_MISSION_STACK = 'ability.params.backToOtherMissionStack',
 
     /**
@@ -88,6 +117,13 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 10
+     */
+    /**
+     * Indicates the param of ability failure restart recovery identification
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
      */
     ABILITY_RECOVERY_RESTART = 'ohos.ability.params.abilityRecoveryRestart',
 
@@ -97,6 +133,13 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 10
      */
+    /**
+     * Indicates the param of extra content title
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
+     */
     CONTENT_TITLE_KEY = 'ohos.extra.param.key.contentTitle',
 
     /**
@@ -104,6 +147,13 @@ declare namespace wantConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 10
+     */
+    /**
+     * Indicates the param of extra shared abstract
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
      */
     SHARE_ABSTRACT_KEY = 'ohos.extra.param.key.shareAbstract',
 
@@ -113,7 +163,52 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 10
      */
-    SHARE_URL_KEY = 'ohos.extra.param.key.shareUrl'
+    /**
+     * Indicates the param of extra shareURL
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
+     */
+    SHARE_URL_KEY = 'ohos.extra.param.key.shareUrl',
+
+    /**
+     * Indicates the param of extra support continue page stack.
+     * The default value of the param is true,
+     * and the system will automatically flow the page stack information by default.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    /**
+     * Indicates the param of extra support continue page stack.
+     * The default value of the param is true,
+     * and the system will automatically flow the page stack information by default.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
+     */
+    SUPPORT_CONTINUE_PAGE_STACK_KEY = 'ohos.extra.param.key.supportContinuePageStack',
+
+    /**
+     * Indicates the param of extra stop source ability on continue.
+     * The default value of the param is true,
+     * and the system will exit the source application by default.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 10
+     */
+    /**
+     * Indicates the param of extra stop source ability on continue.
+     * The default value of the param is true,
+     * and the system will exit the source application by default.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
+     */
+    SUPPORT_CONTINUE_SOURCE_EXIT_KEY = 'ohos.extra.param.key.supportContinueSourceExit'
   }
 
   /**
@@ -123,12 +218,27 @@ declare namespace wantConstant {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
+  /**
+   * Used to indicate how Want is handled.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 11
+   */
   export enum Flags {
     /**
      * Indicates the grant to perform read operations on the URI.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
+     */
+    /**
+     * Indicates the grant to perform read operations on the URI.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
      */
     FLAG_AUTH_READ_URI_PERMISSION = 0x00000001,
 
@@ -138,7 +248,31 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
+    /**
+     * Indicates the grant to perform write operations on the URI.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
+     */
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
+
+    /**
+     * Indicates the grant for possible persisting on the URI.
+     * The flag only valid in PC scenarios.
+     * When sharing user file URI,
+     * if the application has PERMISSION_PROXY_AUTHORIZATION_URI permission or persistable permission to the URI,
+     * it can share persistable URI permission by using this flag.
+     * To grant persistable read permissions to URI,
+     * you can set flag = FLAG_AUTH_READ_URI_PERMISSION | FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
+     * To grant persistable write permissions to URI,
+     * you can set flag = FLAG_AUTH_WRITE_URI_PERMISSION | FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @systemapi
+     * @since 10
+     */
+    FLAG_AUTH_PERSISTABLE_URI_PERMISSION = 0x00000040,
 
     /**
      * Install the specified ability if it's not installed.
@@ -146,7 +280,22 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
-    FLAG_INSTALL_ON_DEMAND = 0x00000800
+    /**
+     * Install the specified ability if it's not installed.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
+     */
+    FLAG_INSTALL_ON_DEMAND = 0x00000800,
+
+    /**
+     * Indicates that if implicit start ability couldn't match any application, no tip dialog will be pulled up.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @since 11
+     */
+    FLAG_START_WITHOUT_TIPS = 0x40000000
   }
 }
 

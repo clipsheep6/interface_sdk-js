@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import type { AsyncCallback } from './basic';
+/**
+ * @file
+ * @kit Lancet Kit
+ */
+
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * Provides the event logging function for applications to log the fault, statistical, security,

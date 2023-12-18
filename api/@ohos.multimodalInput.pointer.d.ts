@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Input Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
+import type image from './@ohos.multimedia.image';
 
 /**
  * Declares interfaces related to mouse pointer attributes.
@@ -365,7 +371,23 @@ declare namespace pointer {
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 10
      */
-    CURSOR_CIRCLE
+    CURSOR_CIRCLE,
+
+    /**
+     * Loading state with dynamic cursor
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    LOADING,
+
+    /**
+     * Running state with dynamic cursor
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 10
+     */
+    RUNNING
   }
 
   /**
@@ -448,6 +470,18 @@ declare namespace pointer {
   function setPointerSpeed(speed: number): Promise<void>;
 
   /**
+   * Sets the pointer moving speed through sync mode.
+   *
+   * @param { number } speed - Pointer moving speed, which is any number.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function setPointerSpeedSync(speed: number): void;
+
+  /**
    * Queries the pointer moving speed.
    *
    * @param { AsyncCallback<number> } callback - Callback used to return the result.
@@ -467,6 +501,17 @@ declare namespace pointer {
    * @since 9
    */
   function getPointerSpeed(): Promise<number>;
+
+  /**
+   * Queries the pointer moving speed through sync mode.
+   * @returns { number } Returns the pointer speed through sync mode.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use
+   * @since 10
+   */
+  function getPointerSpeedSync(): number;
 
   /**
    * Sets the pointer style.
@@ -493,6 +538,17 @@ declare namespace pointer {
   function setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise<void>;
 
   /**
+   * Sets the pointer style through sync mode.
+   *
+   * @param { number } windowId - Window ID.
+   * @param { PointerStyle } pointerStyle - Pointer style.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function setPointerStyleSync(windowId: number, pointerStyle: PointerStyle): void;
+
+  /**
    * Queries the pointer style.
    *
    * @param { number } windowId - Window ID.
@@ -513,6 +569,17 @@ declare namespace pointer {
    * @since 9
    */
   function getPointerStyle(windowId: number): Promise<PointerStyle>;
+
+  /**
+   * Queries the pointer style through sync mode.
+   *
+   * @param { number } windowId - Window ID.
+   * @returns { PointerStyle } Returns the pointerStyle.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function getPointerStyleSync(windowId: number): PointerStyle;
 
   /**
    * Sets whether the pointer icon is visible.
@@ -539,6 +606,17 @@ declare namespace pointer {
   function setPointerVisible(visible: boolean): Promise<void>;
 
   /**
+   * Sets whether the pointer icon is visible through sync mode.
+   *
+   * @param { boolean } visible Whether the pointer icon is visible. The value true indicates that the pointer
+   * icon is visible, and the value false indicates the opposite.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function setPointerVisibleSync(visible: boolean): void;
+
+  /**
    * Checks whether the pointer icon is visible.
    *
    * @param { AsyncCallback<boolean> } callback - Returns <b>true</b> if the pointer icon is visible,
@@ -557,6 +635,159 @@ declare namespace pointer {
    * @since 9
    */
   function isPointerVisible(): Promise<boolean>;
+
+  /**
+   * Checks whether the pointer icon is visible through sync mode.
+   *
+   * @returns { boolean } Returns true if the pointer icon is visible, returns false otherwise.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 10
+   */
+  function isPointerVisibleSync(): boolean;
+
+  /**
+   * Set the color of pointer.
+   *
+   * @param { number } color - Indicates the color of pointer.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerColor(color: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the color of pointer.
+   *
+   * @param { number } color - Indicates the color of pointer.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerColor(color: number): Promise<void>;
+
+  /**
+   * Set the color of pointer.
+   *
+   * @param { number } color - Indicates the color of pointer.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerColorSync(color: number): void;
+
+  /**
+   * Get the color of pointer.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerColor(callback: AsyncCallback<number>): void;
+
+  /**
+   * Get the color of pointer.
+   *
+   * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerColor(): Promise<number>;
+
+  /**
+   * Get the color of pointer.
+   *
+   * @returns { number } Returns the pointer color through sync mode.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerColorSync(): number;
+
+  /**
+   * Set the size of pointer.
+   *
+   * @param { number } size - Indicates the size of pointer.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerSize(size: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the size of pointer.
+   *
+   * @param { number } size - Indicates the size of pointer.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerSize(size: number): Promise<void>;
+
+  /**
+   * Set the size of pointer.
+   *
+   * @param { number } size - Indicates the size of pointer.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function setPointerSizeSync(size: number): void;
+
+  /**
+   * Get the size of pointer.
+   *
+   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerSize(callback: AsyncCallback<number>): void;
+
+  /**
+   * Get the size of pointer.
+   *
+   * @returns { Promise<number> } Returns the result through a promise.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerSize(): Promise<number>;
+
+  /**
+   * Get the size of pointer.
+   *
+   * @returns { number } Returns the pointer size through sync mode.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @systemapi hide for inner use.
+   * @since 10
+   */
+  function getPointerSizeSync(): number;
 
   /**
    * Sets mouse primary button.
@@ -1061,6 +1292,33 @@ declare namespace pointer {
    * @since 10
    */
   function getTouchpadRightClickType(): Promise<RightClickType>;
+
+  /**
+   * Sets the custom cursor.
+   *
+   * @param { number } windowId - Window ID.
+   * @param { image.PixelMap } pixelMap - the cursor of pixelMap.
+   * @param { number } focusX - focus x.
+   * @param { number } focusY - focus y.
+   * @returns { Promise<void> } Returns the result through a promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 11
+   */
+  function setCustomCursor(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): Promise<void>;
+
+  /**
+   * Sets the custom cursor through sync mode.
+   *
+   * @param { number } windowId - Window ID.
+   * @param { image.PixelMap } pixelMap - the cursor of pixelMap.
+   * @param { number } focusX - focus x.
+   * @param { number } focusY - focus y.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 11
+   */
+  function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
 }
 
 export default pointer;

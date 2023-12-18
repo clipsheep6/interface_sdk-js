@@ -15,170 +15,401 @@
 
 /**
  * Defines the navigation destination common title.
+ *
+ * @interface NavDestinationCommonTitle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the navigation destination common title.
+ *
+ * @interface NavDestinationCommonTitle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines the navigation destination common title.
+ *
+ * @interface NavDestinationCommonTitle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare interface NavDestinationCommonTitle {
   /**
    * Sets the main title.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Sets the main title.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the main title.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   main: string;
 
   /**
    * Sets the sub title.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Sets the sub title.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the sub title.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   sub: string;
 }
 
 /**
  * Defines the navigation destination custom title.
+ *
+ * @interface NavDestinationCustomTitle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines the navigation destination custom title.
+ *
+ * @interface NavDestinationCustomTitle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines the navigation destination custom title.
+ *
+ * @interface NavDestinationCustomTitle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare interface NavDestinationCustomTitle {
   /**
    * Sets the custom title builder.
+   *
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Sets the custom title builder.
+   *
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the custom title builder.
+   *
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   builder: CustomBuilder;
 
   /**
    * Sets the custom title height.
+   *
+   * @type { TitleHeight | Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Sets the custom title height.
+   *
+   * @type { TitleHeight | Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the custom title height.
+   *
+   * @type { TitleHeight | Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   height: TitleHeight | Length;
 }
 
 /**
  * The construct function of NavDestination.
+ *
+ * @interface NavDestinationInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * The construct function of NavDestination.
+ *
+ * @interface NavDestinationInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * The construct function of NavDestination.
+ *
+ * @interface NavDestinationInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare interface NavDestinationInterface {
   /**
    * Constructor.
+   *
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Constructor.
+   *
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Constructor.
+   *
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (): NavDestinationAttribute;
 }
 
 /**
  * The attribute function of NavDestination
+ *
+ * @extends CommonMethod<NavDestinationAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * The attribute function of NavDestination
+ *
+ * @extends CommonMethod<NavDestinationAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * The attribute function of NavDestination
+ *
+ * @extends CommonMethod<NavDestinationAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribute> {
   /**
    * Navigation title bar
+   *
+   * @param { string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle } value
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Navigation title bar
+   *
+   * @param { string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle } value
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Navigation title bar
+   *
+   * @param { string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle } value
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle): NavDestinationAttribute;
 
   /**
    * Hide navigation title bar
+   *
+   * @param { boolean } value
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
    * Hide navigation title bar
+   *
+   * @param { boolean } value
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Hide navigation title bar
+   *
+   * @param { boolean } value
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   hideTitleBar(value: boolean): NavDestinationAttribute;
 
   /**
    * Invoked when the navDestination page is displayed.
-   * @param { () => void) } callback Indicates callback when the navDestination page is displayed.
+   *
+   * @param { function } callback - Indicates callback when the navDestination page is displayed.
+   * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Invoked when the navDestination page is displayed.
+   *
+   * @param { function } callback - Indicates callback when the navDestination page is displayed.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onShown(callback: () => void): NavDestinationAttribute;
 
   /**
    * Invoked when the navDestination is hidden.
-   * @param { () => void } callback Indicates callback when the navDestination is hidden.
+   *
+   * @param { function } callback - Indicates callback when the navDestination is hidden.
+   * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Invoked when the navDestination is hidden.
+   *
+   * @param { function } callback - Indicates callback when the navDestination is hidden.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onHidden(callback: () => void): NavDestinationAttribute;
 
   /**
    * Invoked when the backButton is pressed.
-   * @param { () => boolean } callback Indicates callback when the backButton is pressed.
+   *
+   * @param { function } callback - Indicates callback when the backButton is pressed.
+   * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Invoked when the backButton is pressed.
+   *
+   * @param { function } callback - Indicates callback when the backButton is pressed.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onBackPressed(callback: () => boolean): NavDestinationAttribute;
 }
 
 /**
  * Defines NavDestination Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines NavDestination Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines NavDestination Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const NavDestination: NavDestinationInterface;
 
 /**
  * Defines NavDestination Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  */
 /**
  * Defines NavDestination Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines NavDestination Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const NavDestinationInstance: NavDestinationAttribute;

@@ -15,49 +15,106 @@
 
 /**
  * Provides ports for relative containers.
- * @form
+ *
+ * @interface RelativeContainerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
  * Provides ports for relative containers.
- * @form
+ *
+ * @interface RelativeContainerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Provides ports for relative containers.
+ *
+ * @interface RelativeContainerInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
  */
 interface RelativeContainerInterface {
   (): RelativeContainerAttribute;
 }
 
 /**
- * @form
+ * @extends CommonMethod<RelativeContainerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
- * @form
+ * @extends CommonMethod<RelativeContainerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
  */
-declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {
-}
+/**
+ * @extends CommonMethod<RelativeContainerAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {}
 
 /**
- * @form
+ * RelativeContainer
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
- * @form
+ * RelativeContainer
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * RelativeContainer
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
  */
 declare const RelativeContainer: RelativeContainerInterface;
 
 /**
- * @form
+ * RelativeContainerInstance
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
+ * @form
  */
 /**
- * @form
+ * RelativeContainerInstance
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * RelativeContainerInstance
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
  */
 declare const RelativeContainerInstance: RelativeContainerAttribute;

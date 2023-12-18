@@ -13,15 +13,26 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 import { Permissions } from './permissions';
-import { Context } from './application/Context';
-import { PermissionRequestResult } from './security/PermissionRequestResult';
+import type _Context from './application/Context';
+import type _PermissionRequestResult from './security/PermissionRequestResult';
 
 /**
  * @namespace abilityAccessCtrl
  * @syscap SystemCapability.Security.AccessToken
  * @since 8
+ */
+/**
+ * @namespace abilityAccessCtrl
+ * @syscap SystemCapability.Security.AccessToken
+ * @atomicservice
+ * @since 11
  */
 declare namespace abilityAccessCtrl {
   /**
@@ -39,6 +50,15 @@ declare namespace abilityAccessCtrl {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Obtains the AtManager instance.
+   *
+   * @returns { AtManager } returns the instance of the AtManager.
+   * @syscap SystemCapability.Security.AccessToken
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function createAtManager(): AtManager;
 
   /**
@@ -47,6 +67,14 @@ declare namespace abilityAccessCtrl {
    * @interface AtManager
    * @syscap SystemCapability.Security.AccessToken
    * @since 8
+   */
+  /**
+   * Provides methods for managing access_token.
+   *
+   * @interface AtManager
+   * @syscap SystemCapability.Security.AccessToken
+   * @atomicservice
+   * @since 11
    */
   interface AtManager {
     /**
@@ -110,6 +138,20 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Checks whether a specified application has been granted the given permission.
+     * On the cross-platform, this function can be used to check the permission grant status for the current application only.
+     *
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be verified.
+     * @returns { Promise<GrantStatus> } Returns permission verify result.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @syscap SystemCapability.Security.AccessToken
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     checkAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
 
     /**
@@ -124,6 +166,20 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Checks whether a specified application has been granted the given permission.
+     * On the cross-platform, this function can be used to check the permission grant status for the current application only.
+     *
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be verified.
+     * @returns { GrantStatus } Returns permission verify result.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @syscap SystemCapability.Security.AccessToken
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     checkAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
 
@@ -183,6 +239,20 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Requests certain permissions from the user.
+     *
+     * @param { Context } context - The context that initiates the permission request.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+     * @returns { Promise<PermissionRequestResult> } Returns result of requesting permissions.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
+     * @syscap SystemCapability.Security.AccessToken
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>): Promise<PermissionRequestResult>;
 
     /**
@@ -196,7 +266,8 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flags value is invalid.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
+     *  or the flags value is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be granted with the specified permission.
@@ -219,7 +290,8 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flags value is invalid.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
+     *  or the flags value is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be granted with the specified permission.
@@ -247,7 +319,8 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flags value is invalid.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
+     *  or the flags value is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be revoked with the specified permission.
@@ -270,7 +343,8 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256, or the flags value is invalid.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
+     *  or the flags value is invalid.
      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be revoked with the specified permission.
@@ -328,14 +402,16 @@ declare namespace abilityAccessCtrl {
      *        <ul>
      *        <li>{@code empty} - Indicates that the application can be notified if the specified permission state of any applications changes.
      *        </li>
-     *        <li>{@code non-empty} - Indicates that the application can only be notified if the specified permission state of the specified applications change.
+     *        <li>{@code non-empty} - Indicates that the application can only be notified if the specified
+     *                                permission state of the specified applications change.
      *        </li>
      *        </ul>
      * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be listened on. The value in the list can be:
      *        <ul>
      *        <li>{@code empty} - Indicates that the application can be notified if any permission state of the specified applications changes.
      *        </li>
-     *        <li>{@code non-empty} - Indicates that the application can only be notified if the specified permission state of the specified applications changes.
+     *        <li>{@code non-empty} - Indicates that the application can only be notified if the specified
+     *                                permission state of the specified applications changes.
      *        </li>
      *        </ul>
      * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from registering permissions.
@@ -402,6 +478,15 @@ declare namespace abilityAccessCtrl {
    * @crossplatform
    * @since 10
    */
+  /**
+   * GrantStatus.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.AccessToken
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export enum GrantStatus {
     /**
      * access_token permission check fail
@@ -416,6 +501,14 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * access_token permission check fail
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     PERMISSION_DENIED = -1,
     /**
      * access_token permission check success
@@ -429,6 +522,14 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @since 10
+     */
+    /**
+     * access_token permission check success
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     PERMISSION_GRANTED = 0
   }
@@ -504,3 +605,5 @@ declare namespace abilityAccessCtrl {
 
 export default abilityAccessCtrl;
 export { Permissions };
+export type PermissionRequestResult = _PermissionRequestResult;
+export type Context = _Context;

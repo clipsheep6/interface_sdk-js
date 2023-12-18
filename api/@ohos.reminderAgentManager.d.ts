@@ -13,9 +13,15 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Background Tasks Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import notification from './@ohos.notificationManager';
 import { NotificationSlot } from './notification/notificationSlot';
+import { ValuesBucket } from './@ohos.data.ValuesBucket';
 
 /**
  * Providers static methods for managing reminders, including publishing or canceling a reminder.
@@ -199,7 +205,7 @@ declare namespace reminderAgentManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-     ACTION_BUTTON_TYPE_CUSTOM = 2
+    ACTION_BUTTON_TYPE_CUSTOM = 2
   }
 
   /**
@@ -254,6 +260,15 @@ declare namespace reminderAgentManager {
     title: string;
 
     /**
+     * Resource ID for button title.
+     * 
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 11
+     */
+    titleResource?: string;
+
+    /**
      * Button type.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
@@ -268,7 +283,17 @@ declare namespace reminderAgentManager {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-     wantAgent?: WantAgent;
+    wantAgent?: WantAgent;
+
+    /**
+     * It will update the database when the button is clicked.
+     *
+     * @type { ?DataShareUpdate }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    dataShareUpdate?: DataShareUpdate;
   }
 
   /**
@@ -304,6 +329,47 @@ declare namespace reminderAgentManager {
      * @since 10
      */
     uri?: string;
+  }
+
+  /**
+   * DataShareUpdate information.
+   * It will update the database when the button is clicked.
+   *
+   * @interface DataShareUpdate
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  interface DataShareUpdate {
+    /**
+     * Indicates the path of data to update.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    uri: string;
+
+    /**
+     * Indicates filter criteria.
+     *
+     * @type { Record<string, number | string | boolean> }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    equalTo: Record<string, number | string | boolean>;
+
+    /**
+     * Indicates the data to update. This parameter can be null.
+     *
+     * @type { ValuesBucket }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    value: ValuesBucket;
   }
 
   /**
@@ -445,6 +511,15 @@ declare namespace reminderAgentManager {
     notificationId?: number;
 
     /**
+     * If the same group ID is set for reminders, these reminders are canceled together.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 11
+     */
+    groupId?: string;
+
+    /**
      * Type of the slot used by the reminder.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
@@ -467,8 +542,33 @@ declare namespace reminderAgentManager {
      * @since 10
      */
     autoDeletedTime?: number;
+     
+    /**
+     * Type of the snoozeSlot used by the reminder.
+     *
+     * @type { ?notification.SlotType }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 11
+     */
+    snoozeSlotType?: notification.SlotType;
+
+    /**
+     * The directory of storing reminder announcements.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 11
+     */
+    customRingUri?: string;
   }
 
+  /**
+   * Calendar reminder information.
+   *
+   * @interface ReminderRequestCalendar
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 9
+   */
   interface ReminderRequestCalendar extends ReminderRequest {
     /**
      * Reminder time.
@@ -493,6 +593,15 @@ declare namespace reminderAgentManager {
      * @since 9
      */
     repeatDays?: Array<number>;
+
+    /**
+     * Days of a week when the reminder repeats.
+     *
+     * @type { ?Array<number> }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 11
+     */
+    daysOfWeek?: Array<number>;
   }
 
   /**
@@ -537,9 +646,22 @@ declare namespace reminderAgentManager {
    * @since 9
    */
   interface ReminderRequestTimer extends ReminderRequest {
+    /**
+     * The number of seconds to count down.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 9
+     */
     triggerTimeInSeconds: number;
   }
 
+  /**
+   * Used for ReminderRequestCalendar when set the time.
+   *
+   * @interface LocalDateTime
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 9
+   */
   interface LocalDateTime {
     /**
      * Value of year.

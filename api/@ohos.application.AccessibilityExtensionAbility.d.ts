@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,9 +13,89 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Accessibility Kit
+ */
+
 import type accessibility from './@ohos.accessibility';
-import type AccessibilityExtensionContext, { AccessibilityElement } from './application/AccessibilityExtensionContext';
 import type { KeyEvent } from './@ohos.multimodalInput.keyEvent';
+import type {
+  AccessibilityElement as _AccessibilityElement,
+  ElementAttributeValues as _ElementAttributeValues,
+  FocusDirection as _FocusDirection,
+  FocusType as _FocusType,
+  WindowType as _WindowType,
+  Rect as _Rect,
+} from './application/AccessibilityExtensionContext';
+import type * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
+
+
+/**
+ * Indicates an accessibility element.
+ * Supports querying element attributes, requesting execution actions, and finding child elements by condition.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type AccessibilityElement = _AccessibilityElement;
+
+/**
+ * Indicates the possible attributes of the element and the type of the attribute value.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type ElementAttributeValues = _ElementAttributeValues;
+
+/**
+ * Indicates the direction of the search focus.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type FocusDirection = _FocusDirection;
+
+/**
+ * Indicates the key of the attribute value.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type ElementAttributeKeys = keyof ElementAttributeValues;
+
+/**
+ * Indicates the type of the focus.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type FocusType = _FocusType;
+
+/**
+ * Indicates the type of the window.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type WindowType = _WindowType;
+
+/**
+ * Indicates rectangle.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+export type Rect = _Rect;
+
+/**
+ * The accessibility extension context. Used to configure, query information, and inject gestures.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 10
+ */
+
+export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
 
 /**
  * class of accessibility extension ability.
@@ -84,14 +164,38 @@ declare interface AccessibilityEvent {
 
 /**
  * Indicates the gesture type.
- *
+ * value range: { 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
+ * 'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
+ * 'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
+ * 'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp' }
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
+/**
+ * Indicates the gesture type.
+ * value range: { 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
+ * 'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
+ * 'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
+ * 'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp' |
+ * 'twoFingerSingleTap' | 'twoFingerDoubleTap' | 'twoFingerDoubleTapAndHold' | 'twoFingerTripleTap' |
+ * 'twoFingerTripleTapAndHold' | 'threeFingerSingleTap' | 'threeFingerDoubleTap' | 'threeFingerDoubleTapAndHold' |
+ * 'threeFingerTripleTap' | 'threeFingerTripleTapAndHold' | 'fourFingerSingleTap' | 'fourFingerDoubleTap' |
+ * 'fourFingerDoubleTapAndHold' | 'fourFingerTripleTap' | 'fourFingerTripleTapAndHold' |
+ * 'threeFingerSwipeUp' | 'threeFingerSwipeDown' | 'threeFingerSwipeLeft' | 'threeFingerSwipeRight' |
+ * 'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight' }
+* @syscap SystemCapability.BarrierFree.Accessibility.Core
+* @since 11
+*/
 type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
   'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
   'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' |
-  'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp';
+  'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp' |
+  'twoFingerSingleTap' | 'twoFingerDoubleTap' | 'twoFingerDoubleTapAndHold' | 'twoFingerTripleTap' |
+  'twoFingerTripleTapAndHold' | 'threeFingerSingleTap' | 'threeFingerDoubleTap' | 'threeFingerDoubleTapAndHold' |
+  'threeFingerTripleTap' | 'threeFingerTripleTapAndHold' | 'fourFingerSingleTap' | 'fourFingerDoubleTap' |
+  'fourFingerDoubleTapAndHold' | 'fourFingerTripleTap' | 'fourFingerTripleTapAndHold' |
+  'threeFingerSwipeUp' | 'threeFingerSwipeDown' | 'threeFingerSwipeLeft' | 'threeFingerSwipeRight' |
+  'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight';
 
 /**
  * Indicates the page update type.

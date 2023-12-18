@@ -15,64 +15,135 @@
 
 /**
  * Provide image decoration in the text component.
+ *
+ * @interface ImageSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
+/**
+ * Provide image decoration in the text component.
+ *
+ * @interface ImageSpanInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 interface ImageSpanInterface {
   /**
    * Called when image is entered in span.
-   * @param { ResourceStr | PixelMap } - The image resource.
+   *
+   * @param { ResourceStr | PixelMap } value - The image resource.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when image is entered in span.
+   *
+   * @param { ResourceStr | PixelMap } value - The image resource.
+   * @returns { ImageSpanAttribute } The attribute of the image span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   (value: ResourceStr | PixelMap): ImageSpanAttribute;
 }
 
 /**
  * Define the ImageSpan attribute functions.
+ *
+ * @extends CommonMethod<ImageSpanAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
+/**
+ * Define the ImageSpan attribute functions.
+ *
+ * @extends CommonMethod<ImageSpanAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare class ImageSpanAttribute extends CommonMethod<ImageSpanAttribute> {
   /**
    * Called when the alignment of image span is set.
+   *
    * @param { ImageSpanAlignment } value - The alignment type of image span.
-   * @default ImageSpanAlignment.BOTTOM
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the alignment of image span is set.
+   *
+   * @param { ImageSpanAlignment } value - The alignment type of image span.
+   * @returns { ImageSpanAttribute } The attribute of the image span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   verticalAlign(value: ImageSpanAlignment): ImageSpanAttribute;
 
   /**
    * Sets the zoom type of an image.
+   *
    * @param { ImageFit } value - Image display mode.
-   * @default ImageFit.Cover
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Sets the zoom type of an image.
+   *
+   * @param { ImageFit } value - Image display mode.
+   * @returns { ImageSpanAttribute } The attribute of the image span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   objectFit(value: ImageFit): ImageSpanAttribute;
 }
 
 /**
  * Defines ImageSpan Component instance.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines ImageSpan Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const ImageSpan: ImageSpanInterface;
 
 /**
  * Defines ImageSpan Component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines ImageSpan Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const ImageSpanInstance: ImageSpanAttribute;

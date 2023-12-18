@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Sensor Service Kit
+ */
+
+/**
  * @interface AccelerometerResponse
  * @permission ohos.permission.ACCELEROMETER
  * @syscap SystemCapability.Sensors.Sensor.Lite
@@ -293,7 +298,7 @@ export interface SubscribeStepCounterOptions {
  */
 export interface BarometerResponse {
   /**
-   * Pressure, in pascal.
+   * Pressure, in hpa.
    * 
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @since 3

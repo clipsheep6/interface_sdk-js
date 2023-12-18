@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 
-import fs, { constants, Stats } from 'fs';
+import fs, { constants } from 'fs';
 import path from 'path';
 import { LogUtil } from './logUtil';
+import type { Stats } from 'fs';
 
 export class FileUtils {
   static readFileContent(file: string): string | undefined {
@@ -41,7 +42,7 @@ export class FileUtils {
     return files;
   }
 
-  static writeStringToFile(str: string, filePath: string) {
+  static writeStringToFile(str: string, filePath: string): void {
     const parentDir = path.dirname(filePath);
     if (!FileUtils.isExists(parentDir)) {
       fs.mkdirSync(parentDir, { recursive: true });
@@ -68,6 +69,6 @@ export class FileUtils {
 
   static getFileTimeStamp(): string {
     const now = new Date();
-    return `${now.getFullYear()}_${now.getMonth()+1}_${now.getDate()}_${now.getHours()}_${now.getMinutes()}_${now.getSeconds()}`;
+    return `${now.getFullYear()}_${now.getMonth() + 1}_${now.getDate()}_${now.getHours()}_${now.getMinutes()}_${now.getSeconds()}`;
   }
 }

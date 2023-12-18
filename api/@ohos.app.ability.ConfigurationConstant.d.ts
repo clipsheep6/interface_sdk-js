@@ -14,11 +14,24 @@
  */
 
 /**
+ * @file
+ * @kit Ability Kit
+ */
+
+/**
  * The definition of ConfigurationConstant.
  *
  * @namespace ConfigurationConstant
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 9
+ */
+/**
+ * The definition of ConfigurationConstant.
+ *
+ * @namespace ConfigurationConstant
+ * @syscap SystemCapability.Ability.AbilityBase
+ * @atomicservice
+ * @since 11
  */
 declare namespace ConfigurationConstant {
   /**
@@ -36,6 +49,15 @@ declare namespace ConfigurationConstant {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Color mode
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export enum ColorMode {
     /**
      * The color mode is not set.
@@ -49,6 +71,14 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The color mode is not set.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     COLOR_MODE_NOT_SET = -1,
 
@@ -65,6 +95,14 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Dark mode.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     COLOR_MODE_DARK = 0,
 
     /**
@@ -79,6 +117,14 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Light mode.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     COLOR_MODE_LIGHT = 1
   }
@@ -98,6 +144,15 @@ declare namespace ConfigurationConstant {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Screen direction.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export enum Direction {
     /**
      * The direction is not set.
@@ -111,6 +166,14 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The direction is not set.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     DIRECTION_NOT_SET = -1,
 
@@ -127,6 +190,14 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Vertical direction.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     DIRECTION_VERTICAL = 0,
 
     /**
@@ -142,6 +213,14 @@ declare namespace ConfigurationConstant {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Horizontal direction.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     DIRECTION_HORIZONTAL = 1
   }
 
@@ -152,12 +231,27 @@ declare namespace ConfigurationConstant {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
+  /**
+   * Screen density
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 11
+   */
   export enum ScreenDensity {
     /**
      * The screen pixel density is not set.
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
+     */
+    /**
+     * The screen pixel density is not set.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
      */
     SCREEN_DENSITY_NOT_SET = 0,
 
@@ -167,6 +261,13 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
+    /**
+     * Screen pixel density is 'SDPI'
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
+     */
     SCREEN_DENSITY_SDPI = 120,
 
     /**
@@ -174,6 +275,13 @@ declare namespace ConfigurationConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
+     */
+    /**
+     * Screen pixel density is 'MDPI'
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
      */
     SCREEN_DENSITY_MDPI = 160,
 
@@ -183,6 +291,13 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
+    /**
+     * Screen pixel density is 'LDPI'
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
+     */
     SCREEN_DENSITY_LDPI = 240,
 
     /**
@@ -190,6 +305,13 @@ declare namespace ConfigurationConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
+     */
+    /**
+     * Screen pixel density is 'XLDPI'
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
      */
     SCREEN_DENSITY_XLDPI = 320,
 
@@ -199,6 +321,13 @@ declare namespace ConfigurationConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
      */
+    /**
+     * Screen pixel density is 'XXLDPI'
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
+     */
     SCREEN_DENSITY_XXLDPI = 480,
 
     /**
@@ -206,6 +335,13 @@ declare namespace ConfigurationConstant {
      *
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 9
+     */
+    /**
+     * Screen pixel density is 'XXXLDPI'
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 11
      */
     SCREEN_DENSITY_XXXLDPI = 640
   }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Basic Services Kit
+ */
+
+/**
  * Obtains battery information of a device.
  * <p>Battery information includes the remaining battery power,
  * voltage, temperature, model, and charger type.
@@ -23,6 +28,52 @@
  * @since 6
  */
 declare namespace batteryInfo {
+  /**
+   * Sets the battery config by scene name.
+   *
+   * @param { string } sceneName - Indicates the battery charging scene name.
+   * @param { string } sceneValue - Indicates the battery charging scene value.
+   * @returns { number } Return to set the charging configuration result.
+   * @throws { BusinessError } 201 - If the permission is denied.
+   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 401 - If the reason is not valid.
+   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @syscap SystemCapability.PowerManager.BatteryManager.Core
+   * @systemapi
+   * @since 11
+   */
+  function setBatteryConfig(sceneName: string, sceneValue: string): number;
+
+  /**
+   * Queries the battery config by scene name.
+   *
+   * @param { string } sceneName - Indicates the battery charging scene name.
+   * @returns { string } Returns the battery charging configuration, returns "" otherwise.
+   * @throws { BusinessError } 201 - If the permission is denied.
+   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 401 - If the reason is not valid.
+   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @syscap SystemCapability.PowerManager.BatteryManager.Core
+   * @systemapi
+   * @since 11
+   */
+  function getBatteryConfig(sceneName: string): string;
+
+  /**
+   * Checks the battery config is enable by scene name.
+   *
+   * @param { string } sceneName - Indicates the battery charging scene name.
+   * @returns { boolean } Returns true if the device supports the charging scene, returns false otherwise.
+   * @throws { BusinessError } 201 - If the permission is denied.
+   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 401 - If the reason is not valid.
+   * @throws { BusinessError } 4900101 - If connecting to the service failed.
+   * @syscap SystemCapability.PowerManager.BatteryManager.Core
+   * @systemapi
+   * @since 11
+   */
+  function isBatteryConfigSupported(sceneName: string): boolean;
+
   /**
    * Battery state of charge (SoC) of the current device, in percent.
    *
@@ -99,7 +150,6 @@ declare namespace batteryInfo {
    * Battery capacity level of the current device.
    *
    * @constant
-   * @type { BatteryCapacityLevel }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 9
    */
@@ -109,7 +159,6 @@ declare namespace batteryInfo {
    * Estimated remaining time for the current device to be fully charged, in ms.
    *
    * @constant
-   * @type { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 9
@@ -120,7 +169,6 @@ declare namespace batteryInfo {
    * Battery total energy of the current device, in mAh.
    *
    * @constant
-   * @type { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 9
@@ -131,7 +179,6 @@ declare namespace batteryInfo {
    * Battery immediate current of the current device, in mA.
    *
    * @constant
-   * @type { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 9
@@ -142,7 +189,6 @@ declare namespace batteryInfo {
    * Battery remaining energy of the current device, in mAh.
    *
    * @constant
-   * @type { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 9
@@ -152,6 +198,7 @@ declare namespace batteryInfo {
   /**
    * Charger type of a device.
    *
+   * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6
    */
@@ -189,6 +236,7 @@ declare namespace batteryInfo {
   /**
    * Battery charging status of a device.
    *
+   * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6
    */
@@ -226,6 +274,7 @@ declare namespace batteryInfo {
   /**
    * Battery health status of a device.
    *
+   * @enum { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6
    */

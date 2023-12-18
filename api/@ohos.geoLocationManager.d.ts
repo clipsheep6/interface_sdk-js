@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Location Kit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 import { WantAgent } from './@ohos.wantAgent';
 
@@ -22,6 +27,14 @@ import { WantAgent } from './@ohos.wantAgent';
  *
  * @namespace geoLocationManager
  * @since 9
+ */
+/**
+ * Provides interfaces for acquiring location information, managing location switches,
+ * geocoding, reverse geocoding, country code, fencing and other functions.
+ *
+ * @namespace geoLocationManager
+ * @atomicservice
+ * @since 11
  */
 declare namespace geoLocationManager {
   /**
@@ -40,6 +53,23 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
+  /**
+   * Subscribe location changed.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
+   * @param { LocationRequest } request - Indicates the location request parameters.
+   * @param { Callback<Location> } callback - Indicates the callback for reporting the location result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
+   */
   function on(type: 'locationChange', request: LocationRequest, callback: Callback<Location>): void;
 
   /**
@@ -56,6 +86,22 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
+   */
+  /**
+   * Unsubscribe location changed.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'locationChange' } type - Indicates the location service event to be subscribed to.
+   * @param { Callback<Location> } [callback] - Indicates the callback for reporting the location result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
    */
   function off(type: 'locationChange', callback?: Callback<Location>): void;
 
@@ -249,6 +295,39 @@ declare namespace geoLocationManager {
   function off(type: 'countryCodeChange', callback?: Callback<CountryCode>): void;
 
   /**
+   * Subscribe to changes in WiFi/BT scanning information,
+   * and use the WiFi/BT scanning information for localization.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'locatingRequiredDataChange' } type - Indicates the location service event to be subscribed to.
+   * @param { LocatingRequiredDataConfig } config - Indicates the locating required data configuration parameters.
+   * @param { Callback<Array<LocatingRequiredData>> } [callback] - Indicates the callback for reporting WiFi/BT scan info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301800 - Failed to start WiFi or Bluetooth scanning.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  function on(type: 'locatingRequiredDataChange', config: LocatingRequiredDataConfig, callback: Callback<Array<LocatingRequiredData>>): void;
+
+  /**
+   * Stop WiFi/BT scanning and unsubscribe from WiFi/BT scanning information changes.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { 'locatingRequiredDataChange' } type - Indicates the location service event to be subscribed to.
+   * @param { Callback<Array<LocatingRequiredData>> } [callback] - Indicates the callback for reporting WiFi/BT scan info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  function off(type: 'locatingRequiredDataChange', callback?: Callback<Array<LocatingRequiredData>>): void;
+
+  /**
    * Obtain current location.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
@@ -262,6 +341,22 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
+   */
+  /**
+   * Obtain current location.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { CurrentLocationRequest } request - Indicates the location request parameters.
+   * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
    */
   function getCurrentLocation(request: CurrentLocationRequest, callback: AsyncCallback<Location>): void;
 
@@ -278,6 +373,21 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
+   */
+  /**
+   * Obtain current location.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { AsyncCallback<Location> } callback - Indicates the callback for reporting the location result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
    */
   function getCurrentLocation(callback: AsyncCallback<Location>): void;
 
@@ -296,6 +406,22 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
+  /**
+   * Obtain current location.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @param { CurrentLocationRequest } [request] - Indicates the location request parameters.
+   * @returns { Promise<Location> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
+   */
   function getCurrentLocation(request?: CurrentLocationRequest): Promise<Location>;
 
   /**
@@ -311,6 +437,20 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
+  /**
+   * Obtain last known location.
+   *
+   * @permission ohos.permission.APPROXIMATELY_LOCATION
+   * @returns { Location } The last known location information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the geographical location.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
+   */
   function getLastLocation(): Location;
 
   /**
@@ -321,6 +461,16 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301000 - Location service is unavailable.
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
+   */
+  /**
+   * Obtain current location switch status.
+   *
+   * @returns { boolean } Returns {@code true} if the location switch on, returns {@code false} otherwise.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301000 - Location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
    */
   function isLocationEnabled(): boolean;
 
@@ -663,6 +813,22 @@ declare namespace geoLocationManager {
    * @since 9
    */
   function setLocationPrivacyConfirmStatus(type: LocationPrivacyType, isConfirmed: boolean): void;
+
+  /**
+   * Get WiFi/BT scanning information, and use the WiFi/BT scanning information for localization.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { LocatingRequiredDataConfig } config - Indicates the request parameters for obtaining the data required for locating.
+   * @returns { Promise<Array<LocatingRequiredData>> } The promise returned by the function, for reporting WiFi/BT scan info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3301800 - Failed to start WiFi or Bluetooth scanning.
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  function getLocatingRequiredData(config: LocatingRequiredDataConfig): Promise<Array<LocatingRequiredData>>;
 
   /**
    * Configuration parameters for simulating reverse geocoding.
@@ -1196,6 +1362,14 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
+  /**
+   * Configuring parameters in location requests.
+   *
+   * @typedef LocationRequest
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
+   */
   export interface LocationRequest {
     /**
      * Priority of the location request.
@@ -1203,6 +1377,14 @@ declare namespace geoLocationManager {
      * @type { ?LocationRequestPriority }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Priority of the location request.
+     *
+     * @type { ?LocationRequestPriority }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     priority?: LocationRequestPriority;
 
@@ -1213,6 +1395,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * User scenario of the location request.
+     *
+     * @type { ?LocationRequestScenario }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     scenario?: LocationRequestScenario;
 
     /**
@@ -1221,6 +1411,14 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Location report interval.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     timeInterval?: number;
 
@@ -1231,6 +1429,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Location report distance interval.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     distanceInterval?: number;
 
     /**
@@ -1239,6 +1445,14 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Accuracy requirements for reporting locations.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     maxAccuracy?: number;
   }
@@ -1250,6 +1464,14 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
+  /**
+   * Configuring parameters in current location requests.
+   *
+   * @typedef CurrentLocationRequest
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
+   */
   export interface CurrentLocationRequest {
     /**
      * Priority of the location request.
@@ -1257,6 +1479,14 @@ declare namespace geoLocationManager {
      * @type { ?LocationRequestPriority }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Priority of the location request.
+     *
+     * @type { ?LocationRequestPriority }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     priority?: LocationRequestPriority;
 
@@ -1267,6 +1497,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * User scenario of the location request.
+     *
+     * @type { ?LocationRequestScenario }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     scenario?: LocationRequestScenario;
 
     /**
@@ -1276,6 +1514,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Accuracy requirements for reporting locations.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     maxAccuracy?: number;
 
     /**
@@ -1284,6 +1530,14 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Timeout interval of a single location request.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     timeoutMs?: number;
   }
@@ -1295,6 +1549,14 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
+  /**
+   * Provides information about geographic locations.
+   *
+   * @typedef Location
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
+   */
   export interface Location {
     /**
      * Indicates latitude information.
@@ -1304,6 +1566,16 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Indicates latitude information.
+     * A positive value indicates north latitude,
+     * and a negative value indicates south latitude.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     latitude: number;
 
@@ -1316,6 +1588,16 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Indicates Longitude information.
+     * A positive value indicates east longitude ,
+     * and a negative value indicates west longitude.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     longitude: number;
 
     /**
@@ -1324,6 +1606,14 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Indicates location altitude, in meters.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     altitude: number;
 
@@ -1334,6 +1624,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Indicates location accuracy, in meters.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     accuracy: number;
 
     /**
@@ -1342,6 +1640,14 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Indicates speed, in m/s.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     speed: number;
 
@@ -1352,6 +1658,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Indicates location timestamp in the UTC format.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     timeStamp: number;
 
     /**
@@ -1360,6 +1674,14 @@ declare namespace geoLocationManager {
      * @type { number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Indicates direction information.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     direction: number;
 
@@ -1370,6 +1692,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Indicates location timestamp since boot.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     timeSinceBoot: number;
 
     /**
@@ -1379,6 +1709,14 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Indicates additional information.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     additions?: Array<string>;
 
     /**
@@ -1387,6 +1725,14 @@ declare namespace geoLocationManager {
      * @type { ?number }
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Indicates the amount of additional descriptive information.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     additionSize?: number;
 
@@ -1398,7 +1744,205 @@ declare namespace geoLocationManager {
      * @systemapi
      * @since 9
      */
+    /**
+     * Indicates whether it is an mock location.
+     *
+     * @type { ?Boolean }
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @atomicservice
+     * @since 11
+     */
     isFromMock?: Boolean;
+  }
+
+  /**
+   * Describes the request parameters for obtaining the data required for locating.
+   * @typedef LocatingRequiredDataConfig
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  export interface LocatingRequiredDataConfig {
+    /**
+     * Indicates the type of locating required data.
+     *
+     * @type {LocatingRequiredDataType}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    type: LocatingRequiredDataType;
+
+    /**
+     * Indicates whether to start scanning.
+     *
+     * @type {boolean}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    needStartScan: boolean;
+
+    /**
+     * Indicates the interval between scans. The unit is millisecond.
+     * This parameter needs to be set only when scanning information is continuously monitored.
+     *
+     * @type {?number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    scanInterval?: number;
+
+    /**
+     * Indicates the timeout period of a single scan. The unit is millisecond. The default value is 10000.
+     * This parameter needs to be set only when getLocatingRequiredData is used.
+     *
+     * @type {?number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    scanTimeout?: number;
+  }
+
+  /**
+   * Describes the structure of the data required for locating.
+   * @typedef LocatingRequiredData
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  export interface LocatingRequiredData {
+    /**
+     * WiFi scan info.
+     *
+     * @type {?WifiScanInfo}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    wifiData?: WifiScanInfo;
+
+    /**
+     * Bluetooth scan info.
+     *
+     * @type {?BluetoothScanInfo}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    bluetoothData?: BluetoothScanInfo;
+  }
+
+  /**
+   * Describes the scanned WiFi information.
+   * @typedef WifiScanInfo
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  export interface WifiScanInfo {
+    /**
+     * WiFi SSID: the maximum length is 32.
+     *
+     * @type {string}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    ssid: string;
+
+    /**
+     * WiFi bssid(MAC): the length is 6.
+     *
+     * @type {string}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    bssid: string;
+
+    /**
+     * Received signal strength indicator (RSSI).
+     *
+     * @type {number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    rssi: number;
+
+    /**
+     * Frequency
+     *
+     * @type {number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    frequency: number;
+
+    /**
+     * Time stamp.
+     *
+     * @type {number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    timestamp: number;
+  }
+
+  /**
+   * Describes the contents of the Bluetooth scan results.
+   *
+   * @typedef BluetoothScanInfo
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  export interface BluetoothScanInfo {
+    /**
+     * The local name of the device.
+     *
+     * @type {string}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    deviceName: string;
+
+    /**
+     * Mac address of the scanned device.
+     *
+     * @type {string}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    macAddress: string;
+
+    /**
+     * RSSI of the remote device.
+     *
+     * @type {number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    rssi: number;
+
+    /**
+     * Time stamp.
+     *
+     * @type {number}
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    timestamp: number;
   }
 
   /**
@@ -1408,12 +1952,27 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
+  /**
+   * Enum for location priority.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum LocationRequestPriority {
     /**
      * Default priority.
      *
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Default priority.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     UNSET = 0x200,
 
@@ -1423,6 +1982,13 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Preferentially ensure the locating accuracy.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     ACCURACY,
 
     /**
@@ -1431,6 +1997,13 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Preferentially ensure low power consumption for locating.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     LOW_POWER,
 
     /**
@@ -1438,6 +2011,13 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Preferentially ensure that the first location is time-consuming.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     FIRST_FIX
   }
@@ -1449,12 +2029,27 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @since 9
    */
+  /**
+   * Enum for location scenario.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum LocationRequestScenario {
     /**
      * Default scenario.
      *
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Default scenario.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     UNSET = 0x300,
 
@@ -1464,6 +2059,13 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Navigation scenario. High positioning precision and real-time performance are required.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     NAVIGATION,
 
     /**
@@ -1471,6 +2073,13 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Trajectory tracking scenario. High positioning precision is required.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     TRAJECTORY_TRACKING,
 
@@ -1480,6 +2089,13 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Car hailing scenario. High positioning precision and real-time performance are required.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     CAR_HAILING,
 
     /**
@@ -1488,6 +2104,13 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
      */
+    /**
+     * Daily life scenarios. Low requirements on positioning precision and real-time performance.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
+     */
     DAILY_LIFE_SERVICE,
 
     /**
@@ -1495,6 +2118,13 @@ declare namespace geoLocationManager {
      *
      * @syscap SystemCapability.Location.Location.Core
      * @since 9
+     */
+    /**
+     * Power saving scenarios.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @atomicservice
+     * @since 11
      */
     NO_POWER
   }
@@ -1629,6 +2259,34 @@ declare namespace geoLocationManager {
      * @since 9
      */
     COUNTRY_CODE_FROM_NETWORK
+  }
+
+  /**
+   * Enum for locating required data type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Core
+   * @systemapi
+   * @since 10
+   */
+  export enum LocatingRequiredDataType {
+    /**
+     * Obtains WiFi scanning information for locating.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    WIFI = 1,
+
+    /**
+     * Obtains BT scanning information for locating.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @systemapi
+     * @since 10
+     */
+    BLUETOOTH
   }
 }
 

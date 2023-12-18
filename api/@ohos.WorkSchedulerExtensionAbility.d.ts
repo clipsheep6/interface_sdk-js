@@ -13,8 +13,14 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Background Tasks Kit
+ */
+
 import workScheduler from './@ohos.resourceschedule.workScheduler';
-import WorkSchedulerExtensionContext from './application/WorkSchedulerExtensionContext';
+import _WorkSchedulerExtensionContext from './application/WorkSchedulerExtensionContext';
+export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
 
 /**
  * Class of the work scheduler extension ability.

@@ -12,7 +12,13 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-import type { AsyncCallback } from './basic';
+
+/**
+ * @file
+ * @kit Input Kit
+ */
+
+import type { AsyncCallback } from './@ohos.base';
 /**
  * Declares interfaces related to short key attributes.
  *
@@ -21,6 +27,7 @@ import type { AsyncCallback } from './basic';
  * @systemapi hide for inner use
  * @since 10
  */
+
 declare namespace shortKey {
   /**
    * Sets short key down duration.

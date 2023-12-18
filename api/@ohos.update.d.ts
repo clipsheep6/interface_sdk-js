@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Basic Services Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 
 /**
@@ -247,7 +252,8 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { DownloadOptions } downloadOptions - Download options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -285,7 +291,8 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resume download.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -323,7 +330,8 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pause download.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -361,7 +369,8 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { UpgradeOptions } upgradeOptions - Update options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -394,7 +403,8 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { ClearOptions } clearOptions - Clear options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -478,7 +488,8 @@ declare namespace update {
      * Terminate upgrade task.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, 'err' is 'undefined'; otherwise, 'err' is an 'Error' object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     *     If the operation is successful, 'err' is 'undefined'; otherwise, 'err' is an 'Error' object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService
@@ -536,7 +547,8 @@ declare namespace update {
      * Reboot and clean user data.
      *
      * @permission ohos.permission.FACTORY_RESET
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. 
+     *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 11500104 - IPC error.
      * @syscap SystemCapability.Update.UpdateService

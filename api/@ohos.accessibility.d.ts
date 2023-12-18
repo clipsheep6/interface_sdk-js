@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Accessibility Kit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import type { Callback } from './@ohos.base';
 
@@ -27,14 +32,14 @@ declare namespace accessibility {
   /**
    * The type of the Ability app.
    *
-   * @type { 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' }
+   *{ 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
    */
   /**
    * The type of the Ability app.
    *
-   * @type { 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all' }
+   * { 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all' }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9
    */
@@ -47,8 +52,8 @@ declare namespace accessibility {
    * @since 7
    */
   type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
-    'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
-    'scrollForward' | 'scrollBackward' | 'setSelection';
+  'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
+  'scrollForward' | 'scrollBackward' | 'setSelection';
 
   /**
    * The type of the accessibility event.
@@ -58,8 +63,8 @@ declare namespace accessibility {
    * @since 7
    */
   type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
-    'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
-    'textUpdate' | 'textSelectionUpdate' | 'scroll';
+  'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
+  'textUpdate' | 'textSelectionUpdate' | 'scroll';
 
   /**
    * The change type of the windowsChange event.
@@ -106,18 +111,38 @@ declare namespace accessibility {
    * @param { AsyncCallback<boolean> } callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
+   * @deprecated since 10
+   * @useinstead ohos.accessibility#isOpenAccessibilitySync
    */
   function isOpenAccessibility(callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether accessibility ability is enabled.
    *
-   * @param { AsyncCallback<boolean> } callback Asynchronous callback interface.
    * @returns { Promise<boolean> } Returns {@code true} if the accessibility is enabled; returns {@code false} otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 7
+   * @deprecated since 10
+   * @useinstead ohos.accessibility#isOpenAccessibilitySync
    */
   function isOpenAccessibility(): Promise<boolean>;
+
+  /**
+   * Checks whether accessibility ability is enabled.
+   *
+   * @returns { boolean } Returns true if the accessibility is enabled; returns false otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 10
+   */
+  /**
+   * Checks whether accessibility ability is enabled.
+   *
+   * @returns { boolean } Returns true if the accessibility is enabled; returns false otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @atomicservice
+   * @since 11
+   */
+  function isOpenAccessibilitySync(): boolean;
 
   /**
    * Checks touch browser ability (which is used by talkback) is enabled.
@@ -125,18 +150,38 @@ declare namespace accessibility {
    * @param { AsyncCallback<boolean> } callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @since 7
+   * @deprecated since 10
+   * @useinstead ohos.accessibility#isOpenTouchGuideSync
    */
   function isOpenTouchGuide(callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks touch browser ability (which is used by talkback) is enabled.
    *
-   * @param { AsyncCallback<boolean> } callback Asynchronous callback interface.
    * @returns { Promise<boolean> } Returns {@code true} if the touch browser is enabled; returns {@code false} otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @since 7
+   * @deprecated since 10
+   * @useinstead ohos.accessibility#isOpenTouchGuideSync
    */
   function isOpenTouchGuide(): Promise<boolean>;
+
+  /**
+   * Checks touch browser ability (which is used by talkback) is enabled.
+   *
+   * @returns { boolean } Returns true if the touch browser is enabled; returns false otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
+   * @since 10
+   */
+  /**
+   * Checks touch browser ability (which is used by talkback) is enabled.
+   *
+   * @returns { boolean } Returns true if the touch browser is enabled; returns false otherwise.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
+   * @atomicservice
+   * @since 11
+   */
+  function isOpenTouchGuideSync(): boolean;
 
   /**
    * Queries the list of accessibility abilities.
@@ -380,7 +425,7 @@ declare namespace accessibility {
    * @since 8
    */
   type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' |
-    'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals';
+  'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals';
   /**
    * Indicates the style of captions.
    *

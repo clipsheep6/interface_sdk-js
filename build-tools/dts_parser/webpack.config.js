@@ -29,43 +29,40 @@ module.exports = (env, argv) => {
         {
           test: /\.ts$/,
           include: path.resolve(__dirname, 'src'),
-          exclude: [
-            /node_modules/,
-            /test/
-          ],
+          exclude: [/node_modules/, /test/],
           loader: 'ts-loader',
           options: {
-            onlyCompileBundledFiles: true
-          }
+            onlyCompileBundledFiles: true,
+          },
         },
         {
           test: /build\.json$/,
           use: [
             {
-              loader: path.resolve(__dirname, 'loader/flavor.js')
-            }
-          ]
-        }
-      ]
+              loader: path.resolve(__dirname, 'loader/flavor.js'),
+            },
+          ],
+        },
+      ],
     },
     resolve: {
-      extensions: ['.js', '.ts', '.json']
+      extensions: ['.js', '.ts', '.json'],
     },
     output: {
-      filename: 'bundle.js',
-      path: path.resolve(__dirname, './build')
+      filename: 'JS_API_OPTIMIZE_PLUGIN.js',
+      path: path.resolve(__dirname, './package'),
     },
     optimization: {
       minimize: true,
-      minimizer: [new TerserPlugin({ extractComments: false })]
+      minimizer: [new TerserPlugin({ extractComments: false })],
     },
     plugins: [
       new webpack.BannerPlugin({
         banner: `version:${packageInfo.version}`,
         raw: false,
-        entryOnly: true
-      })
-    ]
+        entryOnly: true,
+      }),
+    ],
   };
   return config;
 };

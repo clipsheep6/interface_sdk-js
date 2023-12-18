@@ -13,8 +13,13 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from './@ohos.base';
-import connection from './@ohos.net.connection';
+/**
+ * @file
+ * @kit Network Kit
+ */
+
+import type { AsyncCallback, Callback } from './@ohos.base';
+import type connection from './@ohos.net.connection';
 
 /**
  * Provides interfaces to manage network policy rules.
@@ -252,7 +257,7 @@ declare namespace policy {
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { number } uid - The specified UID of application.
    * @param { boolean } isMetered - Indicates metered network or non-metered network.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -794,6 +799,7 @@ declare namespace policy {
     /**
      * The matching rules of network quota policies.
      * @type {NetworkMatchRule}
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -802,6 +808,7 @@ declare namespace policy {
     /**
      * Policies that limit network quota.
      * @type {QuotaPolicy}
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -819,6 +826,7 @@ declare namespace policy {
     /**
      * The period and the start time for quota policy, default: "M1" (Monthly cycle).
      * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -827,6 +835,7 @@ declare namespace policy {
     /**
      * The warning threshold of traffic, default:  DATA_USAGE_UNKNOWN.
      * @type {number}
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -835,6 +844,7 @@ declare namespace policy {
     /**
      * The limit threshold of traffic, default: DATA_USAGE_UNKNOWN.
      * @type {number}
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -842,7 +852,8 @@ declare namespace policy {
 
     /**
      * Is metered network or not.
-     * @type {number}
+     * @type {boolean}
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -850,7 +861,8 @@ declare namespace policy {
 
     /**
      * The action while the used bytes reach the limit, see {@link LimitAction}.
-     * @type {number}
+     * @type {LimitAction}
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -858,7 +870,8 @@ declare namespace policy {
 
     /**
      * The time of the last warning reminder. For notifying only, default: REMIND_NEVER.
-     * @type {number}
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -866,7 +879,8 @@ declare namespace policy {
 
     /**
      * The time of the last limit reminder. For notifying only, default: REMIND_NEVER.
-     * @type {number}
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -884,6 +898,7 @@ declare namespace policy {
     /**
      * netType see {@link NetBearType}.
      * @type {NetBearType}
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -892,6 +907,7 @@ declare namespace policy {
     /**
      * To specify the identity of network, such as different WLAN.
      * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -900,6 +916,7 @@ declare namespace policy {
     /**
      * The ID of the target card, valid when netType is BEARER_CELLULAR.
      * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -949,6 +966,7 @@ declare namespace policy {
   export enum NetUidRule {
     /**
      * Default uid rule.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -956,6 +974,7 @@ declare namespace policy {
 
     /**
      * Allow traffic on metered networks while app is foreground.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -963,6 +982,7 @@ declare namespace policy {
 
     /**
      * Allow traffic on metered network.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -970,6 +990,7 @@ declare namespace policy {
 
     /**
      * Reject traffic on metered network.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -977,6 +998,7 @@ declare namespace policy {
 
     /**
      * Allow traffic on all network (metered or non-metered).
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -984,6 +1006,7 @@ declare namespace policy {
 
     /**
      * Reject traffic on all network.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -1000,6 +1023,7 @@ declare namespace policy {
   export enum RemindType {
     /**
      * Warning alerts when the limit is reached.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -1007,6 +1031,7 @@ declare namespace policy {
 
     /**
      * Limit alerts when the limit is reached.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -1023,6 +1048,7 @@ declare namespace policy {
   export enum NetUidPolicy {
     /**
      * Default net policy.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -1030,6 +1056,7 @@ declare namespace policy {
 
     /**
      * Allow on metered networks when app in background.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
@@ -1037,6 +1064,7 @@ declare namespace policy {
 
     /**
      * Reject on metered networks when app in background.
+     * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */

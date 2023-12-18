@@ -13,8 +13,14 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkData
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
-import Context from './application/Context';
+import type Context from './application/BaseContext';
+import commonType from '@ohos.data.commonType';
 
 /**
  * Provides interfaces to sync distributed object.
@@ -24,6 +30,61 @@ import Context from './application/Context';
  * @since 8
  */
 declare namespace distributedDataObject {
+  /**
+   * The information about the database bound to the asset.
+   *
+   * @interface BindInfo
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @since 11
+   */
+  interface BindInfo {
+    /**
+     * The name of store where the asset resides.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    storeName: string;
+
+    /**
+     * The name of table where the asset resides.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    tableName: string;
+
+    /**
+     * The Primary key of the rdb table where the asset resides.
+     *
+     * @type { commonType.ValuesBucket }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    primaryKey: commonType.ValuesBucket;
+
+    /**
+     * The field(column) name of the rdb table where the asset resides.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    field: string;
+
+    /**
+     * Name of the asset to be bound. When the column type is Assets, this field refers to the asset name of
+     * one of the assets.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    assetName: string;
+  }
+
   /**
    * Create distributed object.
    *
@@ -85,7 +146,7 @@ declare namespace distributedDataObject {
     /**
      * deviceid that data saved
      * data is "local", means save in local device
-     * otherwise, means the networkId of device
+     * otherwise, means the deviceId of others device
      *
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
@@ -137,39 +198,39 @@ declare namespace distributedDataObject {
     /**
      * On watch of change
      *
-     * @param { 'change' } type - Event type, fixed as' change ', indicates data change.
-     * @param { Callback<{ sessionId: string, fields: Array<string> }> } callback
+     * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
+     * @param { Function } callback
      *          Indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {Array<string>} fields - Changed data.
+     *          {Array<string>} fields - Attribute names of changed data.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.distributedDataObject.DataObject.on
      */
-    on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
+    on(type: 'change', callback: (sessionId: string, fields: Array<string>) => void): void;
 
     /**
      * Off watch of change
      *
-     * @param { 'change' } type - Event type, fixed as' change ', indicates data change.
-     * @param { Callback<{ sessionId: string, fields: Array<string> }> } callback
+     * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
+     * @param { Function } callback
      *          Indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {Array<string>} fields - Changed data.
+     *          {Array<string>} fields - Attribute names of changed data.
      *          callback If not null, off the callback, if undefined, off all callbacks.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8
      * @deprecated since 9
      * @useinstead ohos.distributedDataObject.DataObject.off
      */
-    off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
+    off(type: 'change', callback?: (sessionId: string, fields: Array<string>) => void): void;
 
     /**
      * On watch of status
      *
-     * @param { 'status' } type - Event type, fixed as' status', indicates the online and offline of the object.
-     * @param { Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }> } callback
+     * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
+     * @param { Function } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {string} networkId - NetworkId of the changed device.
@@ -183,14 +244,14 @@ declare namespace distributedDataObject {
      */
     on(
       type: 'status',
-      callback: Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }>
+      callback: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void
     ): void;
 
     /**
      * Off watch of status
      *
-     * @param { 'status' } type - Event type, fixed as' status', indicates the online and offline of the object.
-     * @param { Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }> } callback
+     * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
+     * @param { Function } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {string} networkId - NetworkId of the changed device.
@@ -205,7 +266,7 @@ declare namespace distributedDataObject {
      */
     off(
       type: 'status',
-      callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>
+      callback?: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void
     ): void;
   }
 
@@ -232,10 +293,9 @@ declare namespace distributedDataObject {
     setSessionId(sessionId: string, callback: AsyncCallback<void>): void;
 
     /*
-     * Change object session.
+     * Leave all session.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param {string} sessionId - sessionId The sessionId to be joined, if empty, leave all session.
      * @param {AsyncCallback<void>} callback - The callback of setSessionId.
      * @throws {BusinessError} 201 - Permission verification failed.
      * @throws {BusinessError} 401 - Parameter error.
@@ -262,38 +322,38 @@ declare namespace distributedDataObject {
     /**
      * On watch of change.
      *
-     * @param { 'change' } type - event type, fixed as' change ', indicates data change.
-     * @param { Callback<{ sessionId: string, fields: Array<string> }> } callback
+     * @param { 'change' } type - event type, fixed as 'change', indicates data change.
+     * @param { Function } callback
      *          indicates the observer of object data changed.
      *          {string} sessionId - the sessionId of the changed object.
-     *          {Array<string>} fields - changed data.
+     *          {Array<string>} fields - Attribute names of changed data.
      *          sessionId The sessionId of the changed object.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
-    on(type: 'change', callback: Callback<{ sessionId: string, fields: Array<string> }>): void;
+    on(type: 'change', callback: (sessionId: string, fields: Array<string>) => void ): void;
 
     /**
      * Off watch of change.
      *
-     * @param { 'change' } type - Event type, fixed as' change ', indicates data change.
-     * @param { Callback<{ sessionId: string, fields: Array<string> }> } callback
+     * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
+     * @param { Function } callback
      *          indicates the observer of object data changed.
      *          {string} sessionId - The sessionId of the changed object.
-     *          {Array<string>} fields - Changed data.
+     *          {Array<string>} fields - Attribute names of changed data.
      *          callback If not null, off the callback, if undefined, off all callbacks.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
      */
-    off(type: 'change', callback?: Callback<{ sessionId: string, fields: Array<string> }>): void;
+    off(type: 'change', callback?: (sessionId: string, fields: Array<string>) => void ): void;
 
     /**
      * On watch of status.
      *
-     * @param { 'status' } type - Event type, fixed as' status', indicates the online and offline of the object.
-     * @param { Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }> } callback
+     * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
+     * @param { Function } callback
      *          indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {string} networkId - NetworkId of the changed device.
@@ -307,14 +367,14 @@ declare namespace distributedDataObject {
      */
     on(
       type: 'status',
-      callback: Callback<{ sessionId: string, networkId: string, status: 'online' | 'offline' }>
+      callback: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void
     ): void;
 
     /**
      * Off watch of status.
      *
-     * @param { 'status' } type - Event type, fixed as' status', indicates the online and offline of the object.
-     * @param { Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }> } callback
+     * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
+     * @param { Function } callback
      *          Indicates the observer of object status changed.
      *          {string} sessionId - The sessionId of the changed object.
      *          {string} networkId - NetworkId of the changed device.
@@ -328,7 +388,7 @@ declare namespace distributedDataObject {
      */
     off(
       type: 'status',
-      callback?: Callback<{ sessionId: string, deviceId: string, status: 'online' | 'offline' }>
+      callback?: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void
     ): void;
 
     /**
@@ -396,6 +456,32 @@ declare namespace distributedDataObject {
      * @since 9
      */
     revokeSave(): Promise<RevokeSaveSuccessResponse>;
+
+    /**
+     * Bind an Asset of a distributed object to an asset in rdb that points to the same asset file, which means that
+     * both assets have the same uri.
+     * @param { string } assetKey - Indicates the key of the asset type in Object.
+     * @param { BindInfo } bindInfo - Indicates the information of the asset in RelationalStore.
+     * @param { AsyncCallback<void> } callback - The callback of bindAssetStore.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    bindAssetStore(assetKey: string, bindInfo: BindInfo, callback: AsyncCallback<void>): void;
+
+    /**
+     * Bind an Asset of a distributed object to an asset in rdb that points to the same asset file, which means that
+     * both assets have the same uri.
+     * @param { string } assetKey - Indicates the key of the asset type in Object.
+     * @param { BindInfo } bindInfo - Indicates the information of the asset in RelationalStore.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 11
+     */
+    bindAssetStore(assetKey: string, bindInfo: BindInfo): Promise<void>;
   }
 }
 

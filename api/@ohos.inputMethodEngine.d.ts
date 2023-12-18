@@ -13,12 +13,17 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit IME Kit
+ */
+
 /// <reference path="../component/common_ts_ets_api.d.ts"/>
 
-import { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './@ohos.base';
 import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import LocalStorage from 'StateManagement';
+import type { LocalStorage } from 'StateManagement';
 import BaseContext from './application/BaseContext';
 
 /**
@@ -163,6 +168,24 @@ declare namespace inputMethodEngine {
    * @since 8
    */
   const PATTERN_PASSWORD: number;
+
+  /**
+   * Editor of type SCREEN LOCK PASSWORD
+   *
+   * @constant
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  const PATTERN_PASSWORD_SCREEN_LOCK: number;
+
+  /**
+   * Editor of type NUMBER PASSWORD
+   *
+   * @constant
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  const PATTERN_PASSWORD_NUMBER: number;
 
   /**
    * Editor in SELECTING state
@@ -387,6 +410,28 @@ declare namespace inputMethodEngine {
      * @useinstead inputMethodEngine.KeyboardController#hide
      */
     hideKeyboard(): Promise<void>;
+
+    /**
+     * Exit the current input type. This function can only be called by default input method configured by system.
+     *
+     * @param { AsyncCallback<void> } callback - the callback of exitCurrentInputType.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    exitCurrentInputType(callback: AsyncCallback<void>): void;
+
+    /**
+     * Exit the current input type. This function can only be called by default input method configured by system.
+     *
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 12800008 - input method manager service error.
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    exitCurrentInputType(): Promise<void>;
   }
 
   /**
@@ -551,6 +596,37 @@ declare namespace inputMethodEngine {
      * @since 9
      */
     off(type: 'setSubtype', callback?: (inputMethodSubtype: InputMethodSubtype) => void): void;
+
+    /**
+     * Subscribe 'securityModeChange' event.
+     *
+     * @param { 'securityModeChange' } type - the type of subscribe event.
+     * @param { Callback<SecurityMode> } callback - the callback of on('securityModeChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    on(type: 'securityModeChange', callback: Callback<SecurityMode>): void;
+
+    /**
+     * Unsubscribe 'securityModeChange' event.
+     *
+     * @param { 'securityModeChange' } type - the type of unsubscribe event.
+     * @param { Callback<SecurityMode> } [callback] - optional, the callback of off('securityModeChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    off(type: 'securityModeChange', callback?: Callback<SecurityMode>): void;
+
+
+    /**
+     * Get input method's security mode.
+     *
+     * @returns { SecurityMode } return security mode.
+     * @throws { BusinessError } 12800004 - not an input method extension.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    getSecurityMode(): SecurityMode;
 
     /**
      * Creates a panel.
@@ -809,6 +885,18 @@ declare namespace inputMethodEngine {
     deleteForward(length: number): Promise<boolean>;
 
     /**
+     * Delete text forward.
+     *
+     * @param { number } length - length of text which will be deleted forward.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    deleteForwardSync(length: number): void;
+
+    /**
      * Delete text backward.
      *
      * @param { number } length - length of text which will be deleted backward.
@@ -833,6 +921,18 @@ declare namespace inputMethodEngine {
      * @since 9
      */
     deleteBackward(length: number): Promise<boolean>;
+
+    /**
+     * Delete text backward.
+     *
+     * @param { number } length - length of text which will be deleted backward.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    deleteBackwardSync(length: number): void;
 
     /**
      * Insert text into Editor.
@@ -861,6 +961,18 @@ declare namespace inputMethodEngine {
     insertText(text: string): Promise<boolean>;
 
     /**
+     * Insert text into Editor.
+     *
+     * @param { string } text - text which will be inserted.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800002 - input method engine error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    insertTextSync(text: string): void;
+
+    /**
      * Get the text before cursor.
      *
      * @param { number } length - the length of text which will be got.
@@ -885,6 +997,19 @@ declare namespace inputMethodEngine {
      * @since 9
      */
     getForward(length: number): Promise<string>;
+
+    /**
+     * Get the text before cursor.
+     *
+     * @param { number } length - the length of text which will be got.
+     * @returns { string } the text string before cursor.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    getForwardSync(length: number): string;
 
     /**
      * Get the text after cursor.
@@ -913,6 +1038,19 @@ declare namespace inputMethodEngine {
     getBackward(length: number): Promise<string>;
 
     /**
+     * Get the text after cursor.
+     *
+     * @param { number } length - the length of text which will be got.
+     * @returns { string } the text string after cursor.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    getBackwardSync(length: number): string;
+
+    /**
      * Get attribute about editor.
      *
      * @param { AsyncCallback<EditorAttribute> } callback - the callback of getEditorAttribute.
@@ -931,6 +1069,16 @@ declare namespace inputMethodEngine {
      * @since 9
      */
     getEditorAttribute(): Promise<EditorAttribute>;
+
+    /**
+     * Get attribute about editor.
+     *
+     * @returns { EditorAttribute } the attribute of editor.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    getEditorAttributeSync(): EditorAttribute;
 
     /**
      * Move cursor from input method.
@@ -957,6 +1105,17 @@ declare namespace inputMethodEngine {
     moveCursor(direction: number): Promise<void>;
 
     /**
+     * Move cursor from input method.
+     *
+     * @param { number } direction - Indicates the distance of cursor to be moved.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    moveCursorSync(direction: number): void;
+
+    /**
      * Select text in editor by range.
      *
      * @param { Range } range - indicates the range of selected text in editor.
@@ -979,6 +1138,17 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     selectByRange(range: Range): Promise<void>;
+
+    /**
+     * Select text in editor by range.
+     *
+     * @param { Range } range - indicates the range of selected text in editor.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    selectByRangeSync(range: Range): void;
 
     /**
      * Select text in editor by cursor movement.
@@ -1005,6 +1175,17 @@ declare namespace inputMethodEngine {
     selectByMovement(movement: Movement): Promise<void>;
 
     /**
+     * Select text in editor by cursor movement.
+     *
+     * @param { Movement } movement - indicates the movement of cursor when selecting.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    selectByMovementSync(movement: Movement): void;
+
+    /**
      * Get the index number of text at cursor.
      *
      * @param { AsyncCallback<number> } callback - the callback of getTextIndexAtCursor, number represents the index
@@ -1027,6 +1208,17 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     getTextIndexAtCursor(): Promise<number>;
+
+    /**
+     * Get the index number of text at cursor.
+     *
+     * @returns { number } the index number of text at cursor.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800006 - Input method controller error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    getTextIndexAtCursorSync(): number;
 
     /**
      * Send extend action code.
@@ -1169,6 +1361,26 @@ declare namespace inputMethodEngine {
      * @since 8
      */
     off(type: 'textChange', callback?: (text: string) => void): void;
+
+    /**
+     * Subscribe input text attribute change
+     *
+     * @param { 'editorAttributeChanged' } type - indicates the type of subscribe event.
+     * @param { function } callback - indicates the callback function of on('editorAttributeChanged').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    on(type: 'editorAttributeChanged', callback: (attr: EditorAttribute) => void): void;
+
+    /**
+     * Unsubscribe input text attribute change
+     *
+     * @param { 'editorAttributeChanged' } type - indicates the type of subscribe event.
+     * @param { function } [callback] - indicates the callback function of off('editorAttributeChanged').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 10
+     */
+    off(type: 'editorAttributeChanged', callback?: (attr: EditorAttribute) => void): void;
   }
 
   /**
@@ -1370,6 +1582,19 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     changeFlag(flag: PanelFlag): void;
+
+    /**
+     * Sets ime panel private mode or not.
+     *
+     * @permission ohos.permission.PRIVACY_WINDOW
+     * @param { boolean } isPrivacyMode - if the value is true, the privacy mode will be set,
+     * otherwise the non-privacy mode will be set.
+     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    setPrivacyMode(isPrivacyMode: boolean): void;
   }
 
   /**
@@ -1541,6 +1766,30 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     CURSOR_RIGHT
+  }
+
+  /**
+   * Enumerates the security mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
+  export enum SecurityMode {
+    /**
+     * Basic security mode
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    BASIC = 0,
+    /**
+     * Full security mode
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 11
+     */
+    FULL
   }
 
   /**

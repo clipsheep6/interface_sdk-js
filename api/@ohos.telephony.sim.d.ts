@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from "./@ohos.base";
+/**
+ * @file
+ * @kit Telephony Kit
+ */
+
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * Provides applications with APIs for obtaining SIM card status, card file information, and card specifications.
@@ -47,6 +52,17 @@ declare namespace sim {
    * @since 7
    */
   function isSimActive(slotId: number): Promise<boolean>;
+
+  /**
+   * Checks whether the SIM card in a specified slot is activated.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slots supported by the device.
+   * @returns { boolean } Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 10
+   */
+  function isSimActiveSync(slotId: number): boolean;
 
   /**
    * Obtains the default card slot for the voice service.
@@ -145,6 +161,18 @@ declare namespace sim {
   function getISOCountryCodeForSim(slotId: number): Promise<string>;
 
   /**
+   * Obtains the ISO country code of the SIM card in a specified slot.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slots supported by the device.
+   * @returns { string } Returns the country code defined in ISO 3166-2; returns an empty string if no SIM card
+   * is inserted.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 10
+   */
+  function getISOCountryCodeForSimSync(slotId: number): string;
+
+  /**
    * Obtains the home PLMN number of the SIM card in a specified slot.
    *
    * <p>The value is recorded in the SIM card and is irrelevant to the network
@@ -184,6 +212,20 @@ declare namespace sim {
    * @since 6
    */
   function getSimOperatorNumeric(slotId: number): Promise<string>;
+
+  /**
+   * Obtains the home PLMN number of the SIM card in a specified slot.
+   *
+   * <p>The value is recorded in the SIM card and is irrelevant to the network
+   * with which the SIM card is currently registered.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slots supported by the device.
+   * @returns { string } Returns the PLMN number; returns an empty string if no SIM card is inserted.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 10
+   */
+  function getSimOperatorNumericSync(slotId: number): string;
 
   /**
    * Obtains the service provider name (SPN) of the SIM card in a specified slot.
@@ -226,6 +268,21 @@ declare namespace sim {
    * @since 6
    */
   function getSimSpn(slotId: number): Promise<string>;
+
+  /**
+   * Obtains the service provider name (SPN) of the SIM card in a specified slot.
+   *
+   * <p>The value is recorded in the EFSPN file of the SIM card and is irrelevant to the network
+   * with which the SIM card is currently registered.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slots supported by the device.
+   * @returns { string } Returns the SPN; returns an empty string if no EFSPN file is configured for the SIM card.
+   * in the SIM card.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 10
+   */
+  function getSimSpnSync(slotId: number): string;
 
   /**
    * Obtains the state of the SIM card in a specified slot.
@@ -276,6 +333,25 @@ declare namespace sim {
   function getSimState(slotId: number): Promise<SimState>;
 
   /**
+   * Obtains the state of the SIM card in a specified slot.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slots supported by the device.
+   * @returns { SimState } Returns one of the following SIM card states:
+   * <ul>
+   * <li>{@code SimState#SIM_STATE_UNKNOWN}
+   * <li>{@code SimState#SIM_STATE_NOT_PRESENT}
+   * <li>{@code SimState#SIM_STATE_LOCKED}
+   * <li>{@code SimState#SIM_STATE_NOT_READY}
+   * <li>{@code SimState#SIM_STATE_READY}
+   * <li>{@code SimState#SIM_STATE_LOADED}
+   * </ul>
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 10
+   */
+  function getSimStateSync(slotId: number): SimState;
+
+  /**
    * Obtains the type of the SIM card installed in a specified slot.
    *
    * @param { number } slotId - Indicates the card slot index number,
@@ -308,6 +384,17 @@ declare namespace sim {
    * @since 7
    */
   function getCardType(slotId: number): Promise<CardType>;
+
+  /**
+   * Obtains the type of the SIM card inserted in a specified slot.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slots supported by the device.
+   * @returns { CardType } Returns the SIM card type.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 10
+   */
+  function getCardTypeSync(slotId: number): CardType;
 
   /**
    * Obtains the ICCID of the SIM card in a specified slot.
@@ -498,7 +585,7 @@ declare namespace sim {
    * Obtains the MSISDN of the SIM card in a specified slot.
    * The MSISDN is recorded in the EFMSISDN file of the SIM card.
    *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @permission ohos.permission.GET_PHONE_NUMBERS
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting the MSISDN;
@@ -522,7 +609,7 @@ declare namespace sim {
    * Obtains the MSISDN of the SIM card in a specified slot.
    * The MSISDN is recorded in the EFMSISDN file of the SIM card.
    *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @permission ohos.permission.GET_PHONE_NUMBERS
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<string> } Returns the MSISDN; returns an empty string if no SIM card is inserted or
@@ -641,6 +728,26 @@ declare namespace sim {
   function getIMSI(slotId: number): Promise<string>;
 
   /**
+   * Indicates whether the SIM card in a specified slot is a specified operator.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { OperatorSimCard } operator - Indicates the operator of sim.
+   * @returns { boolean } Returns {@code true} if the SIM card is specified operator; return {@code false} otherwise.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300004 - Do not have sim card.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function isOperatorSimCard(slotId: number, operator: OperatorSimCard): boolean;
+
+  /**
    * Checks whether a SIM card is inserted in a specified slot.
    *
    * @param { number } slotId - Indicates the card slot index number,
@@ -672,6 +779,17 @@ declare namespace sim {
    * @since 7
    */
   function hasSimCard(slotId: number): Promise<boolean>;
+
+  /**
+   * Checks whether a SIM card is inserted in a specified slot.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slots supported by the device.
+   * @returns { boolean } Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 10
+   */
+  function hasSimCardSync(slotId: number): boolean;
 
   /**
    * Get account information of SIM card.
@@ -1845,6 +1963,18 @@ declare namespace sim {
   function getOpKey(slotId: number): Promise<string>;
 
   /**
+   * Obtains the operator key of the SIM card in a specified slot.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slots supported by the device.
+   * @returns { string } Returns the operator key; returns an empty string if no SIM card is inserted or
+   * no operator key is matched.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 10
+   */
+  function getOpKeySync(slotId: number): string;
+
+  /**
    * Obtains the operator name of the SIM card in a specified slot.
    *
    * @param { number } slotId - Indicates the card slot index number,
@@ -1881,6 +2011,18 @@ declare namespace sim {
   function getOpName(slotId: number): Promise<string>;
 
   /**
+   * Obtains the operator name of the SIM card in a specified slot.
+   *
+   * @param { number } slotId - Indicates the card slot index number,
+   * ranging from 0 to the maximum card slots supported by the device.
+   * @returns { string } Returns the operator name; returns an empty string if no SIM card is inserted or
+   * no operator name is matched.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @since 10
+   */
+  function getOpNameSync(slotId: number): string;
+
+  /**
    * Obtains the default SIM ID for the voice service.
    *
    * @param { AsyncCallback<number> } callback - Returns the SIM ID of the default voice sim
@@ -1912,6 +2054,56 @@ declare namespace sim {
    * @since 10
    */
   function getDefaultVoiceSimId(): Promise<number>;
+
+  /**
+   * Obtains the value of dsds mode.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @param { AsyncCallback<DsdsMode> } callback - Indicates the callback for
+   *     getting one of the following dsds mode states:
+   * <ul>
+   * <li>{@code DsdsMode#DSDS_MODE_V2}
+   * <li>{@code DsdsMode#DSDS_MODE_V3}
+   * <li>{@code DsdsMode#DSDS_MODE_V5_TDM}
+   * <li>{@code DsdsMode#DSDS_MODE_V5_DSDA}
+   * </ul>
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to
+   *     service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getDsdsMode(callback: AsyncCallback<DsdsMode>): void;
+
+  /**
+   * Obtains the value of dsds mode.
+   *
+   * @permission ohos.permission.GET_TELEPHONY_STATE
+   * @returns { Promise<DsdsMode> } Returns one of the following dsds mode
+   *     states:
+   * <ul>
+   * <li>{@code DsdsMode#DSDS_MODE_V2}
+   * <li>{@code DsdsMode#DSDS_MODE_V3}
+   * <li>{@code DsdsMode#DSDS_MODE_V5_TDM}
+   * <li>{@code DsdsMode#DSDS_MODE_V5_DSDA}
+   * </ul>
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to
+   *     service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function getDsdsMode(): Promise<DsdsMode>;
 
   /**
    * Defines the carrier configuration.
@@ -1948,8 +2140,7 @@ declare namespace sim {
    *
    * @interface IccAccountInfo
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 10
    */
   export interface IccAccountInfo {
     /**
@@ -1957,8 +2148,7 @@ declare namespace sim {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 10
      */
     simId: number;
 
@@ -1968,8 +2158,7 @@ declare namespace sim {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 10
      */
     slotIndex: number;
 
@@ -1978,8 +2167,7 @@ declare namespace sim {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 10
      */
     isEsim: boolean;
 
@@ -1988,8 +2176,7 @@ declare namespace sim {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 10
      */
     isActive: boolean;
 
@@ -1998,8 +2185,7 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 10
      */
     iccId: string;
 
@@ -2008,8 +2194,7 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 10
      */
     showName: string;
 
@@ -2018,8 +2203,7 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since 10
      */
     showNumber: string;
   }
@@ -2526,7 +2710,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_VOICE_MAIL_NUMBER_STRING = "voice_mail_number_string",
+    KEY_VOICE_MAIL_NUMBER_STRING = 'voice_mail_number_string',
 
     /**
      * Indicates the status of ims switch.
@@ -2535,7 +2719,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_IMS_SWITCH_ON_BY_DEFAULT_BOOL = "ims_switch_on_by_default_bool",
+    KEY_IMS_SWITCH_ON_BY_DEFAULT_BOOL = 'ims_switch_on_by_default_bool',
 
     /**
      * Indicates whether the ims switch status is hidden.
@@ -2544,7 +2728,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_HIDE_IMS_SWITCH_BOOL = "hide_ims_switch_bool",
+    KEY_HIDE_IMS_SWITCH_BOOL = 'hide_ims_switch_bool',
 
     /**
      * Indicates whether volte mode is supported.
@@ -2553,7 +2737,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_VOLTE_SUPPORTED_BOOL = "volte_supported_bool",
+    KEY_VOLTE_SUPPORTED_BOOL = 'volte_supported_bool',
 
     /**
      * Indicates the list supported by nr mode.
@@ -2562,7 +2746,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_NR_MODE_SUPPORTED_LIST_INT_ARRAY = "nr_mode_supported_list_int_array",
+    KEY_NR_MODE_SUPPORTED_LIST_INT_ARRAY = 'nr_mode_supported_list_int_array',
 
     /**
      * Indicates whether VOLTE supports configuration.
@@ -2571,7 +2755,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_VOLTE_PROVISIONING_SUPPORTED_BOOL = "volte_provisioning_supported_bool",
+    KEY_VOLTE_PROVISIONING_SUPPORTED_BOOL = 'volte_provisioning_supported_bool',
 
     /**
      * Indicates whether SS service supports UT.
@@ -2580,7 +2764,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_SS_OVER_UT_SUPPORTED_BOOL = "ss_over_ut_supported_bool",
+    KEY_SS_OVER_UT_SUPPORTED_BOOL = 'ss_over_ut_supported_bool',
 
     /**
      * Indicates whether the IMS requires GBA.
@@ -2589,7 +2773,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_IMS_GBA_REQUIRED_BOOL = "ims_gba_required_bool",
+    KEY_IMS_GBA_REQUIRED_BOOL = 'ims_gba_required_bool',
 
     /**
      * Indicates whether UT configuration is supported.
@@ -2598,7 +2782,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_UT_PROVISIONING_SUPPORTED_BOOL = "ut_provisioning_supported_bool",
+    KEY_UT_PROVISIONING_SUPPORTED_BOOL = 'ut_provisioning_supported_bool',
 
     /**
      * Indicates the ims emergency preference.
@@ -2607,7 +2791,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_IMS_PREFER_FOR_EMERGENCY_BOOL = "ims_prefer_for_emergency_bool",
+    KEY_IMS_PREFER_FOR_EMERGENCY_BOOL = 'ims_prefer_for_emergency_bool',
 
     /**
      * Indicates call waiting service.
@@ -2616,7 +2800,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_CALL_WAITING_SERVICE_CLASS_INT = "call_waiting_service_class_int",
+    KEY_CALL_WAITING_SERVICE_CLASS_INT = 'call_waiting_service_class_int',
 
     /**
      * Indicates call forwarding visibility.
@@ -2625,7 +2809,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_CALL_TRANSFER_VISIBILITY_BOOL = "call_transfer_visibility_bool",
+    KEY_CALL_TRANSFER_VISIBILITY_BOOL = 'call_transfer_visibility_bool',
 
     /**
      * Indicates the list of ims call end reasons.
@@ -2635,7 +2819,7 @@ declare namespace sim {
      * @since 9
      */
     KEY_IMS_CALL_DISCONNECT_REASON_INFO_MAPPING_STRING_ARRAY =
-        "ims_call_disconnect_reason_info_mapping_string_array",
+    'ims_call_disconnect_reason_info_mapping_string_array',
 
     /**
      * Indicates the forced Volte switch on state.
@@ -2644,7 +2828,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_FORCE_VOLTE_SWITCH_ON_BOOL = "force_volte_switch_on_bool",
+    KEY_FORCE_VOLTE_SWITCH_ON_BOOL = 'force_volte_switch_on_bool',
 
     /**
      * Indicates whether the operator name is displayed.
@@ -2653,7 +2837,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_ENABLE_OPERATOR_NAME_CUST_BOOL = "enable_operator_name_cust_bool",
+    KEY_ENABLE_OPERATOR_NAME_CUST_BOOL = 'enable_operator_name_cust_bool',
 
     /**
      * Indicates the name of the operator.
@@ -2662,7 +2846,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_OPERATOR_NAME_CUST_STRING = "operator_name_cust_string",
+    KEY_OPERATOR_NAME_CUST_STRING = 'operator_name_cust_string',
 
     /**
      * Indicates the spn display rule.
@@ -2671,7 +2855,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_SPN_DISPLAY_CONDITION_CUST_INT = "spn_display_condition_cust_int",
+    KEY_SPN_DISPLAY_CONDITION_CUST_INT = 'spn_display_condition_cust_int',
 
     /**
      * Indicates the PLMN name.
@@ -2680,7 +2864,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_PNN_CUST_STRING_ARRAY = "pnn_cust_string_array",
+    KEY_PNN_CUST_STRING_ARRAY = 'pnn_cust_string_array',
 
     /**
      * Indicates operator PLMN information.
@@ -2689,7 +2873,7 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_OPL_CUST_STRING_ARRAY = "opl_cust_string_array",
+    KEY_OPL_CUST_STRING_ARRAY = 'opl_cust_string_array',
 
     /**
      * Indicates the emergency call list.
@@ -2698,7 +2882,72 @@ declare namespace sim {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    KEY_EMERGENCY_CALL_STRING_ARRAY = "emergency_call_string_array",
+    KEY_EMERGENCY_CALL_STRING_ARRAY = 'emergency_call_string_array',
+  }
+
+  /**
+   * Indicates the Dsds Mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export enum DsdsMode {
+    /**
+     * Indicates the DSDS 2.0 Mode.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    DSDS_MODE_V2 = 0,
+
+    /**
+     * Indicates the DSDS 3.0 Mode.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    DSDS_MODE_V3 = 1,
+
+    /**
+     * Indicates the DSDS 5.0 TDM Mode.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    DSDS_MODE_V5_TDM = 2,
+
+    /**
+     * Indicates the DSDS 5.0 DSDA Mode.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    DSDS_MODE_V5_DSDA = 3,
+  }
+
+  /**
+   * Indicates the operator of SIM.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Telephony.CoreService
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export enum OperatorSimCard {
+    /**
+     * Indicates the China Telecom card.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    CHINA_TELECOM_CARD = 'china_telecom_card',
   }
 }
 

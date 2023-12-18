@@ -4177,6 +4177,7 @@ audibly
 audie
 audience
 audio
+audiobook
 audioformat
 audiogram
 audiological
@@ -29073,6 +29074,7 @@ hoydenish
 hoyle
 hoyt
 hp
+hpa
 hpp
 hq
 hql
@@ -38281,6 +38283,7 @@ mdc
 mdf
 mdi
 mdl
+mdm
 mdn
 mdpi
 mdrawerlayout
@@ -39765,6 +39768,7 @@ mme
 mmm
 mmmm
 mms
+mmsc
 mn
 mname
 mnchhausen
@@ -65701,6 +65705,8 @@ vbox
 vbs
 vbscript
 vc
+vcard
+vcf
 vcl
 vcr
 vcs

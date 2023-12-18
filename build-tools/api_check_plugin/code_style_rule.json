@@ -1,6 +1,7 @@
 {
   "decorators": {
     "customDoc": [
+      "atomicservice",
       "constant",
       "crossplatform",
       "default",
@@ -20,6 +21,7 @@
       "since",
       "stagemodelonly",
       "static",
+      "struct",
       "syscap",
       "systemapi",
       "type",
@@ -28,7 +30,9 @@
       "test",
       "useinstead",
       "FAModelOnly",
-      "StageModelOnly"
+      "StageModelOnly",
+      "kit",
+      "file"
     ],
     "jsDoc": [
       "abstract",
@@ -45,7 +49,6 @@
       "event",
       "exports",
       "external",
-      "file",
       "function",
       "generator",
       "global",
@@ -92,6 +95,7 @@
   ],
   "syscap": {
     "SystemCapability": [
+      "SystemCapability.Applications.CalendarData",
       "SystemCapability.ArkUI.ArkUI.Full",
       "SystemCapability.ArkUI.ArkUI.Lite",
       "SystemCapability.ArkUI.ArkUI.Napi",
@@ -113,6 +117,7 @@
       "SystemCapability.Graphic.Graphic2D.WebGL",
       "SystemCapability.Graphic.Graphic2D.WebGL2",
       "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
+      "SystemCapability.Window.SessionManager",
       "SystemCapability.Graphic.Vulkan",
       "SystemCapability.WindowManager.WindowManager.Core",
       "SystemCapability.WindowManager.WindowManager.MutiScreen",
@@ -179,6 +184,7 @@
       "SystemCapability.Multimedia.Media.Spliter",
       "SystemCapability.Multimedia.Media.Muxer",
       "SystemCapability.Multimedia.Media.AVScreenCapture",
+      "SystemCapability.Multimedia.Media.SoundPool",
       "SystemCapability.Multimedia.AVSession.Core",
       "SystemCapability.Multimedia.AVSession.Manager",
       "SystemCapability.Multimedia.AVSession.AVCast",
@@ -190,6 +196,7 @@
       "SystemCapability.Multimedia.Audio.Device",
       "SystemCapability.Multimedia.Audio.Volume",
       "SystemCapability.Multimedia.Audio.Communication",
+      "SystemCapability.Multimedia.Audio.PlaybackCapture",
       "SystemCapability.Multimedia.Camera.Core",
       "SystemCapability.Multimedia.Camera.DistributedCore",
       "SystemCapability.Multimedia.Image.Core",
@@ -201,6 +208,8 @@
       "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
       "SystemCapability.Multimedia.Media.AVPlayer",
       "SystemCapability.Multimedia.Media.AVRecorder",
+      "SystemCapability.Multimedia.Media.AVMetadataExtractor",
+      "SystemCapability.Multimedia.Media.AVImageGenerator",
       "SystemCapability.Multimedia.Image.ImageCreator",
       "SystemCapability.Multimedia.SystemSound.Core",
       "SystemCapability.Telephony.CoreService",
@@ -239,6 +248,7 @@
       "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
       "SystemCapability.Update.UpdateService",
       "SystemCapability.DistributedHardware.DeviceManager",
+      "SystemCapability.DistributedHardware.DistributedHardwareFWK",
       "SystemCapability.Security.DeviceAuth",
       "SystemCapability.Security.DataTransitManager",
       "SystemCapability.Security.DeviceSecurityLevel",
@@ -282,6 +292,7 @@
       "SystemCapability.Sensors.Sensor.Lite",
       "SystemCapability.Sensors.MiscDevice.Lite",
       "SystemCapability.Startup.SystemInfo",
+      "SystemCapability.Startup.SystemInfo.Lite",
       "SystemCapability.DistributedDataManager.RelationalStore.Core",
       "SystemCapability.DistributedDataManager.RelationalStore.Synchronize",
       "SystemCapability.DistributedDataManager.RelationalStore.Lite",
@@ -312,7 +323,8 @@
       "SystemCapability.Test.UiTest",
       "SystemCapability.Web.Webview.Core",
       "SystemCapability.Cloud.AAID",
-      "SystemCapability.Cloud.OAID",
+      "SystemCapability.Advertising.OAID",
+      "SystemCapability.Advertising.Ads",
       "SystemCapability.Cloud.VAID",
       "SystemCapability.Cloud.Push",
       "SystemCapability.XTS.DeviceAttest",
@@ -328,7 +340,12 @@
       "SystemCapability.Print.PrintFramework",
       "SystemCapability.DistributedDataManager.Preferences.Core.Lite",
       "SystemCapability.Driver.ExternalDevice",
-      "SystemCapability.FileManagement.PhotoAccessHelper.Core"
+      "SystemCapability.FileManagement.PhotoAccessHelper.Core",
+      "SystemCapability.AI.IntelligentVoice.Core",
+      "SystemCapability.Msdp.DeviceStatus.Drag",
+      "SystemCapability.DistributedDataManager.CommonType",
+      "SystemCapability.Multimedia.Audio.Spatialization",
+      "SystemCapability.Multimedia.AudioHaptic.Core"
     ]
   },
   "administrators": [
@@ -340,6 +357,18 @@
     },
     {
       "user": "9127956"
+    },
+    {
+      "user": "9712536"
+    },
+    {
+      "user": "12626261"
+    },
+    {
+      "user": "6570462"
+    },
+    {
+      "user": "10183964"
     }
   ],
   "ciId":"7387629"

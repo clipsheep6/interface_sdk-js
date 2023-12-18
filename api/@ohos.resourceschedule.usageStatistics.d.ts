@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022  Huawei Device Co., Ltd.
+ * Copyright (c) 2023  Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -11,6 +11,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ */
+
+/**
+ * @file
+ * @kit Background Tasks Kit
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
@@ -410,7 +415,7 @@ declare namespace usageStatistics {
    * @since 9
    */
   interface AppGroupCallbackInfo {
-    /*
+    /**
      * The usage old group of the application
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -419,7 +424,7 @@ declare namespace usageStatistics {
      */
     appOldGroup: number;
 
-    /*
+    /**
      * The usage new group of the application
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -428,7 +433,7 @@ declare namespace usageStatistics {
      */
     appNewGroup: number;
 
-    /*
+    /**
      * The use id
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -437,7 +442,7 @@ declare namespace usageStatistics {
      */
     userId: number;
 
-    /*
+    /**
      * The change reason
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -446,7 +451,7 @@ declare namespace usageStatistics {
      */
     changeReason: number;
 
-    /*
+    /**
      * The bundle name
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
@@ -501,6 +506,28 @@ declare namespace usageStatistics {
   function isIdleState(bundleName: string): Promise<boolean>;
 
   /**
+   * Checks whether the application with a specified bundle name is in the idle state.
+   *
+   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+   * @param { string } bundleName - Indicates the bundle name of the application to query.
+   * @returns { boolean }
+   * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
+   * The time range of the particular period is defined by the system, which may be hours or days.</p>
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 10000001 - Memory operation failed.
+   * @throws { BusinessError } 10000002 - Parcel operation failed.
+   * @throws { BusinessError } 10000003 - System service operation failed.
+   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000006 - Failed to get the application information.
+   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function isIdleStateSync(bundleName: string): boolean;
+
+  /**
    * Queries the app group of the calling application.
    * <p>The priority defined in a priority group restricts the resource usage of an application,
    * for example, restricting the running of background tasks. </p>
@@ -547,6 +574,29 @@ declare namespace usageStatistics {
    * @since 9
    */
   function queryAppGroup(): Promise<number>;
+
+  /**
+   * Queries the app group of the calling application.
+   * <p>The priority defined in a priority group restricts the resource usage of an application,
+   * for example, restricting the running of background tasks. </p>
+   *
+   * @returns { number } Returns the app group of the calling application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 10000001 - Memory operation failed.
+   * @throws { BusinessError } 10000002 - Parcel operation failed.
+   * @throws { BusinessError } 10000003 - System service operation failed.
+   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000005 - Application is not installed.
+   * @throws { BusinessError } 10000006 - Failed to get the application information.
+   * @throws { BusinessError } 10100002 - Failed to get the application group information.
+   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function queryAppGroupSync(): number;
 
   /**
    * Queries the usage priority group by bundleName.
@@ -601,14 +651,36 @@ declare namespace usageStatistics {
   function queryAppGroup(bundleName: string): Promise<number>;
 
   /**
-   * @interface BundleStatsMap
+   * Queries the usage priority group by bundleName.
+   * <p>The priority defined in a priority group restricts the resource usage of an application,
+   * for example, restricting the running of background tasks. </p>
+   *
+   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+   * @param { string } bundleName - name of the application.
+   * @returns { number } the usage priority group of the calling application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 10000001 - Memory operation failed.
+   * @throws { BusinessError } 10000002 - Parcel operation failed.
+   * @throws { BusinessError } 10000003 - System service operation failed.
+   * @throws { BusinessError } 10000004 - IPC failed.
+   * @throws { BusinessError } 10000005 - Application is not installed.
+   * @throws { BusinessError } 10000006 - Failed to get the application information.
+   * @throws { BusinessError } 10100002 - Failed to get the application group information.
+   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function queryAppGroupSync(bundleName: string): number;
+
+  /**
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  interface BundleStatsMap {
-    [key: string]: BundleStatsInfo;
-  }
+  type BundleStatsMap = Record<string, BundleStatsInfo>;
 
   /**
    * Queries usage information about each bundle within a specified period.

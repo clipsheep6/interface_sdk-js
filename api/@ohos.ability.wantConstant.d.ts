@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Ability Kit
+ */
+
+/**
  * the constant for action and entity in the want
  *
  * @namespace wantConstant
@@ -333,6 +338,7 @@ declare namespace wantConstant {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 6
    * @deprecated since 9
+   * @useinstead ohos.app.ability.wantConstant/wantConstant#Flags
    */
   export enum Flags {
     /**
@@ -341,6 +347,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant/wantConstant.Flags#FLAG_AUTH_READ_URI_PERMISSION
      */
     FLAG_AUTH_READ_URI_PERMISSION = 0x00000001,
 
@@ -350,6 +357,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant/wantConstant.Flags#FLAG_AUTH_WRITE_URI_PERMISSION
      */
     FLAG_AUTH_WRITE_URI_PERMISSION = 0x00000002,
 
@@ -444,6 +452,7 @@ declare namespace wantConstant {
      * @syscap SystemCapability.Ability.AbilityBase
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.app.ability.wantConstant/wantConstant.Flags#FLAG_INSTALL_ON_DEMAND
      */
     FLAG_INSTALL_ON_DEMAND = 0x00000800,
 

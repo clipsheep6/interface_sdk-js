@@ -474,8 +474,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 9
    */
   /**
-   * Starts a new service extension ability. If the caller application is in foreground, you can use this method to start service extension ability;
-   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Starts a new service extension ability.
    * If the target service extension ability is visible, you can start the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
@@ -526,8 +525,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 9
    */
   /**
-   * Starts a new service extension ability. If the caller application is in foreground, you can use this method to start service extension ability;
-   * If the caller application is in the background, you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Starts a new service extension ability.
    * If the target service extension ability is visible, you can start the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
@@ -580,9 +578,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 9
    */
   /**
-   * Starts a new service extension ability with account. If the caller application is in foreground,
-   * you can use this method to start service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Starts a new service extension ability with account.
    * If the target service extension ability is visible, you can start the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
@@ -637,9 +633,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 9
    */
   /**
-   * Starts a new service extension ability with account. If the caller application is in foreground,
-   * you can use this method to start service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Starts a new service extension ability with account.
    * If the target service extension ability is visible, you can start the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible service extension ability.
@@ -690,9 +684,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 9
    */
   /**
-   * Stops other service extension ability. If the caller application is in foreground,
-   * you can use this method to stop service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Stops other service extension ability.
    * If the target service extension ability is visible, you can stop the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
@@ -738,9 +730,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 9
    */
   /**
-   * Stops other service extension ability. If the caller application is in foreground,
-   * you can use this method to stop service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Stops other service extension ability.
    * If the target service extension ability is visible, you can stop the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
@@ -789,9 +779,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 9
    */
   /**
-   * Stops other service extension ability with account. If the caller application is in foreground,
-   * you can use this method to stop service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Stops other service extension ability with account.
    * If the target service extension ability is visible, you can stop the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
@@ -842,9 +830,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 9
    */
   /**
-   * Stops other service extension ability with account. If the caller application is in foreground,
-   * you can use this method to stop service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Stops other service extension ability with account.
    * If the target service extension ability is visible, you can stop the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to stop target invisible service extension ability.
@@ -953,9 +939,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 9
    */
   /**
-   * Connects an ability to a service extension ability. If the caller application is in foreground,
-   * you can use this method to connect service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Connects an ability to a service extension ability.
    * If the target service extension ability is visible, you can connect the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
@@ -1010,9 +994,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 9
    */
   /**
-   * Connects an ability to a service extension ability with account. If the caller application is in foreground,
-   * you can use this method to connect service extension ability; If the caller application is in the background,
-   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * Connects an ability to a service extension ability with account.
    * If the target service extension ability is visible, you can connect the target service extension ability;
    * If the target service extension ability is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
@@ -1047,7 +1029,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
   connectServiceExtensionAbilityWithAccount(want: Want, accountId: number, options: ConnectOptions): number;
 
   /**
-   * Disconnect an ability to a service extension, in contrast to {@link connectAbility}.
+   * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
    * @param { number } connection - the connection id returned from connectAbility api.
    * @param { AsyncCallback<void> } callback - The callback of disconnectAbility.
@@ -1062,7 +1044,7 @@ export default class ServiceExtensionContext extends ExtensionContext {
   disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Disconnect an ability to a service extension, in contrast to {@link connectAbility}.
+   * Disconnect an ability from a service extension, in contrast to {@link connectAbility}.
    *
    * @param { number } connection - the connection id returned from connectAbility api.
    * @returns { Promise<void> } The promise returned by the function.
@@ -1332,4 +1314,48 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 10
    */
   startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
+
+  /**
+   * Requests the Modal UIExtensionAbility.
+   * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
+   *
+   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @param { AsyncCallback<void> } callback - The callback of requestModalUIExtension.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
+
+  /**
+   * Requests the Modal UIExtensionAbility.
+   * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
+   *
+   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @returns { Promise<void> } The promise returned by the requestModalUIExtension.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 11
+   */
+  requestModalUIExtension(pickerWant: Want): Promise<void>;
 }

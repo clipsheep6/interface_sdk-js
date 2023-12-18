@@ -13,8 +13,13 @@
  * limitations under the License.
  */
 
-import { AsyncCallback, Callback } from "./@ohos.base";
-import connection from "./@ohos.net.connection";
+/**
+ * @file
+ * @kit Network Kit
+ */
+
+import type { AsyncCallback, Callback } from './@ohos.base';
+import type connection from './@ohos.net.connection';
 
 /**
  * Provides network sharing related interfaces.

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Lancet Kit
+ */
+
+/**
  * This module provides the capability to check bad code usage.
  *
  * @namespace hichecker
@@ -56,6 +61,15 @@ declare namespace hichecker {
    * @since 8
    */
   const RULE_CHECK_ABILITY_CONNECTION_LEAK: 8589934592n; // 1 << 33
+
+  /**
+   * The process rule check ability Arkui performance
+   *
+   * @constant
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @since 11
+   */
+  const RULE_CHECK_ARKUI_PERFORMANCE: 17179869184n; // 1 << 34
 
   /**
    * add one or more rule.

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Form Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import formBindingData from './@ohos.app.form.formBindingData';
 import formInfo from './@ohos.app.form.formInfo';
@@ -24,6 +29,14 @@ import Want from './@ohos.app.ability.Want';
  * @namespace formProvider
  * @syscap SystemCapability.Ability.Form
  * @since 9
+ */
+/**
+ * Interface of formProvider.
+ *
+ * @namespace formProvider
+ * @syscap SystemCapability.Ability.Form
+ * @atomicservice
+ * @since 11
  */
 declare namespace formProvider {
   /**
@@ -81,6 +94,24 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @since 9
    */
+  /**
+   * Update a specified form.
+   * Client to communication with FormManagerService.
+   *
+   * @param { string } formId - Indicates the form ID.
+   * @param { formBindingData.FormBindingData } formBindingData - Indicates the form data.
+   * @param { AsyncCallback<void> } callback - The callback of updateForm.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 11
+   */
   function updateForm(
     formId: string,
     formBindingData: formBindingData.FormBindingData,
@@ -103,6 +134,24 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @since 9
+   */
+  /**
+   * Update a specified form.
+   * Client to communication with FormManagerService.
+   *
+   * @param { string } formId - Indicates the form ID.
+   * @param { formBindingData.FormBindingData } formBindingData - Indicates the form data.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @throws { BusinessError } 16501003 - The form can not be operated by the current application.
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 11
    */
   function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
 

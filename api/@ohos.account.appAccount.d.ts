@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Basic Services Kit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import rpc from './@ohos.rpc';
@@ -951,8 +956,9 @@ declare namespace appAccount {
      * Obtains extra information of this application account.
      *
      * @param { string } name - Indicates the name of the application account.
-     * @param { AsyncCallback<string> } callback - Asynchronous callback interface. Returns the extra information of the account; returns {@code null} in other scenarios,
-     *         for example, if the account does not exist.
+     * @param { AsyncCallback<string> } callback - Asynchronous callback interface.
+     *   Returns the extra information of the account; returns {@code null} in other scenarios,
+     *   for example, if the account does not exist.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7
      * @deprecated since 9
@@ -1281,7 +1287,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, authType or token.
      * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12400004 - The number of token reaches the upper limit.
+     * @throws { BusinessError } 12400004 - The number of tokens reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
@@ -1300,7 +1306,7 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, authType or token.
      * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12400004 - The number of token reaches the upper limit.
+     * @throws { BusinessError } 12400004 - The number of tokens reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9
      */
@@ -1581,7 +1587,8 @@ declare namespace appAccount {
      *
      * @param { string } name - Indicates the account name of your application or third-party applications.
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AsyncCallback<Array<AuthTokenInfo>> } callback - Asynchronous callback interface. Returns a list of auth tokens visible to the caller application.
+     * @param { AsyncCallback<Array<AuthTokenInfo>> } callback - Asynchronous callback interface.
+     *   Returns a list of auth tokens visible to the caller application.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or owner.
@@ -1613,7 +1620,8 @@ declare namespace appAccount {
      *
      * @param { string } name - Indicates the account name of your application.
      * @param { string } authType - Indicates the authentication type.
-     * @param { AsyncCallback<Array<string>> } callback - Asynchronous callback interface. Returns the open authorization list of the specified authentication type.
+     * @param { AsyncCallback<Array<string>> } callback - Asynchronous callback interface.
+     *   Returns the open authorization list of the specified authentication type.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
@@ -1643,7 +1651,8 @@ declare namespace appAccount {
      *
      * @param { string } name - Indicates the account name of your application.
      * @param { string } authType - Indicates the authentication type.
-     * @param { AsyncCallback<Array<string>> } callback - Asynchronous callback interface.  Returns the open authorization list of the specified authentication type.
+     * @param { AsyncCallback<Array<string>> } callback - Asynchronous callback interface.
+     *   Returns the open authorization list of the specified authentication type.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or authType.
@@ -1678,7 +1687,8 @@ declare namespace appAccount {
      * Only the owner of the authenticator has the permission to call this method.
      *
      * @param { string } sessionId - Indicates the id of a authentication session.
-     * @param { AsyncCallback<AuthenticatorCallback> } callback - Asynchronous callback interface. Returns the authenticator callback related to the session id.
+     * @param { AsyncCallback<AuthenticatorCallback> } callback - Asynchronous callback interface.
+     *   Returns the authenticator callback related to the session id.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
@@ -1706,7 +1716,8 @@ declare namespace appAccount {
      * Only the owner of the authenticator has the permission to call this method.
      *
      * @param { string } sessionId - Indicates the id of a authentication session.
-     * @param { AsyncCallback<AuthCallback> } callback - Asynchronous callback interface. Returns the authenticator callback related to the session id.
+     * @param { AsyncCallback<AuthCallback> } callback - Asynchronous callback interface.
+     *   Returns the authenticator callback related to the session id.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid sessionId.
@@ -1736,7 +1747,8 @@ declare namespace appAccount {
      * Gets the authenticator information of an application account.
      *
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AsyncCallback<AuthenticatorInfo> } callback - Asynchronous callback interface. Returns the authenticator information of the application account.
+     * @param { AsyncCallback<AuthenticatorInfo> } callback - Asynchronous callback interface.
+     *   Returns the authenticator information of the application account.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
@@ -1760,7 +1772,8 @@ declare namespace appAccount {
      * Queries the authenticator information of an application account.
      *
      * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AsyncCallback<AuthenticatorInfo> } callback - Asynchronous callback interface. Returns the authenticator information of the application account.
+     * @param { AsyncCallback<AuthenticatorInfo> } callback - Asynchronous callback interface.
+     *   Returns the authenticator information of the application account.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid owner.
@@ -2437,24 +2450,175 @@ declare namespace appAccount {
    * @deprecated since 9
    */
   enum ResultCode {
+    /**
+    * Indicates the success result.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     SUCCESS = 0,
+
+    /**
+    * Indicates the result of account not exist.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_ACCOUNT_NOT_EXIST = 10001,
+
+    /**
+    * Indicates the result of account service exception.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_APP_ACCOUNT_SERVICE_EXCEPTION = 10002,
+
+    /**
+    * Indicates the result of password is invalid.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_INVALID_PASSWORD = 10003,
+
+    /**
+    * Indicates the result of request is invalid.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_INVALID_REQUEST = 10004,
+
+    /**
+    * Indicates the result of response is invalid.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_INVALID_RESPONSE = 10005,
+
+    /**
+    * Indicates the result of network exception.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_NETWORK_EXCEPTION = 10006,
+
+    /**
+    * Indicates the result of network exception.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_AUTHENTICATOR_NOT_EXIST = 10007,
+
+    /**
+    * Indicates the result of auth has been canceled.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_CANCELED = 10008,
+
+    /**
+    * Indicates the result of auth list is too large.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_LIST_TOO_LARGE = 10009,
+
+    /**
+    * Indicates the result of auth service is busy.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_SERVICE_BUSY = 10010,
+
+    /**
+    * Indicates the result of auth service exception.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_SERVICE_EXCEPTION = 10011,
+
+    /**
+    * Indicates the result of auth session is not exist.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_SESSION_NOT_EXIST = 10012,
+
+    /**
+    * Indicates the result of auth timeout.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_TIMEOUT = 10013,
+
+    /**
+    * Indicates the result of token is not exist.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_TOKEN_NOT_EXIST = 10014,
+
+    /**
+    * Indicates the result of token is too many.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_TOKEN_TOO_MANY = 10015,
+
+    /**
+    * Indicates the result of not supported action.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_UNSUPPORT_ACTION = 10016,
+
+    /**
+    * Indicates the result of not supported auth type.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_OAUTH_UNSUPPORT_AUTH_TYPE = 10017,
+
+    /**
+    * Indicates the result of permission denied.
+    *
+    * @syscap SystemCapability.Account.AppAccount
+    * @since 8
+    * @deprecated since 9
+    */
     ERROR_PERMISSION_DENIED = 10018
   }
 
@@ -2643,178 +2807,6 @@ declare namespace appAccount {
      * @since 9
      */
     getRemoteObject(): rpc.RemoteObject;
-  }
-
-  /**
-   * Enum for account capability type.
-   *
-   * @enum { number } AccountCapabilityType
-   * @syscap SystemCapability.Account.AppAccount
-   * @since 10
-   */
-  enum AccountCapabilityType {
-    /**
-     * Indicates the type of account authorization capability.
-     *
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 10
-     */
-    AUTHORIZATION = 1
-  }
-
-  /**
-   * The class of the account capability provider.
-   *
-   * @syscap SystemCapability.Account.AppAccount
-   * @since 10
-   */
-  class AccountCapabilityProvider {
-    /**
-     * Indicates the type of account capability provided.
-     *
-     * @type { AccountCapabilityType }
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 10
-     */
-    readonly capabilityType: AccountCapabilityType;
-
-    /**
-     * A constructor used to create a AccountCapabilityProvider object.
-     *
-     * @param { AccountCapabilityType } capabilityType - Indicates the type of account capability provided.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 10
-     */
-    constructor(capabilityType: AccountCapabilityType);
-  }
-
-  /**
-   * The class of an authorization provider.
-   *
-   * @extends AccountCapabilityProvider
-   * @syscap SystemCapability.Account.AppAccount
-   * @since 10
-   */
-  class AuthorizationProvider extends AccountCapabilityProvider {
-    /**
-     * A constructor used to create a AuthorizationProvider object.
-     *
-     * @param { AuthorizationProviderInfo } info - Indicates the provider information.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 10
-     */
-    constructor(info: AuthorizationProviderInfo);
-  }
-
-  /**
-   * The definition of the authorization provider information.
-   *
-   * @interface AuthorizationProviderInfo
-   * @syscap SystemCapability.Account.AppAccount
-   * @since 10
-   */
-  interface AuthorizationProviderInfo {
-    /**
-     * Indicates the bundle name of the provider.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 10
-     */
-    readonly bundleName: string;
-
-    /**
-     * Indicates the ability name of the provider.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 10
-     */
-    readonly abilityName: string;
-  }
-
-  /**
-   * The class of an account capability request.
-   *
-   * @syscap SystemCapability.Account.AppAccount
-   * @since 10
-   */
-  class AccountCapabilityRequest {
-    /**
-     * A constructor used to create a AccountCapabilityRequest object.
-     *
-     * @param { AccountCapabilityProvider } provider - Indicates the account capability provider for handling the request.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 10
-     */
-    constructor(provider: AccountCapabilityProvider);
-  }
-
-  /**
-   * The class of an account capability response.
-   *
-   * @syscap SystemCapability.Account.AppAccount
-   * @since 10
-   */
-  class AccountCapabilityResponse {
-    /**
-     * Indicates the request corresponding to the current response.
-     *
-     * @type { AccountCapabilityRequest }
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 10
-     */
-    readonly request: AccountCapabilityRequest;
-
-    /**
-     * A constructor used to create a AccountCapabilityResponse object.
-     *
-     * @param { AccountCapabilityRequest } request - Indicates the request corresponding to the current response.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 10
-     */
-    constructor(request: AccountCapabilityRequest);
-  }
-
-  /**
-   * The class of an account capability scheduler.
-   *
-   * @syscap SystemCapability.Account.AppAccount
-   * @since 10
-   */
-  class AccountCapabilityScheduler {
-    /**
-     * Executes the specified account capability request.
-     *
-     * @param { AccountCapabilityRequest } request - Indicates the account capability request.
-     * @param { AsyncCallback<AccountCapabilityResponse, { [key: string]: object }> } callback - Indicates the callback for getting the response.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300002 - Invalid request.
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 10
-     */
-    executeRequest(
-      request: AccountCapabilityRequest,
-      callback: AsyncCallback<AccountCapabilityResponse, { [key: string]: object }>
-    ): void;
-
-    /**
-     * Executes the specified account capability request.
-     *
-     * @param { AccountCapabilityRequest } request - Indicates the account capability request.
-     * @returns { Promise<AccountCapabilityResponse> } The promise returned by the function.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300002 - Invalid request.
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 10
-     */
-    executeRequest(request: AccountCapabilityRequest): Promise<AccountCapabilityResponse>;
   }
 }
 

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit Basic Services Kit
+ */
+
+/**
  * This module provides the capability of manage USB device.
  *
  * @namespace usbManager
@@ -55,6 +60,7 @@ declare namespace usbManager {
 
   /**
    * Requests the permission for a given application to access the USB device.
+   * The system application has access to the device by default, and there is no need to call this interface to apply.
    *
    * @param { string } deviceName - device name defined by USBDevice.name.
    * @returns { Promise<boolean> } indicates if the device access permissions are granted.
@@ -66,6 +72,7 @@ declare namespace usbManager {
 
   /**
    * Remove the permission for a given application to access the USB device.
+   * The system application has access to the device by default, and calling this interface will not have any impact.
    *
    * @param { string } deviceName - device name defined by USBDevice.name.
    * @returns { boolean } indicates if the device access permissions are removed.
@@ -77,6 +84,7 @@ declare namespace usbManager {
 
   /**
    * Add device access permission.
+   * The system application has access to the device by default, and calling this interface will not have any impact.
    *
    * @param { string } bundleName - refers to application that require access permissions.
    * @param { string } deviceName - device name defined by USBDevice.name.
@@ -118,7 +126,7 @@ declare namespace usbManager {
    * @param { FunctionType } funcs - numeric mask combination of the supported function list.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - The parameter types do not match or parameter is not specified.
-   * @throws {BusinessError} 14400002 - Permission denied.The HDC is disabled by the system.
+   * @throws { BusinessError } 14400002 - Permission denied.The HDC is disabled by the system.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Core File Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 
 export default fileIo;
@@ -32,12 +37,23 @@ export default fileIo;
  * @crossplatform
  * @since 10
  */
+/**
+ * FileIO
+ *
+ * @namespace fileIo
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace fileIo {
   export { access };
   export { accessSync };
   export { close };
   export { closeSync };
+  export { copy };
   export { copyDir };
+  export { copyDirSync };
   export { copyFile };
   export { copyFileSync };
   export { createRandomAccessFile };
@@ -45,6 +61,7 @@ declare namespace fileIo {
   export { createStream };
   export { createStreamSync };
   export { createWatcher };
+  export { dup };
   export { fdatasync };
   export { fdatasyncSync };
   export { fdopenStream };
@@ -53,6 +70,7 @@ declare namespace fileIo {
   export { fsyncSync };
   export { listFile };
   export { listFileSync };
+  export { lseek };
   export { lstat };
   export { lstatSync };
   export { mkdir };
@@ -60,12 +78,15 @@ declare namespace fileIo {
   export { mkdtemp };
   export { mkdtempSync };
   export { moveDir };
+  export { moveDirSync };
   export { moveFile };
   export { moveFileSync };
   export { open };
   export { openSync };
   export { read };
   export { readSync };
+  export { readLines };
+  export { readLinesSync };
   export { readText };
   export { readTextSync };
   export { rename };
@@ -80,14 +101,20 @@ declare namespace fileIo {
   export { truncateSync };
   export { unlink };
   export { unlinkSync };
+  export { utimes };
   export { write };
   export { writeSync };
   export { File };
   export { OpenMode };
   export { RandomAccessFile };
+  export { ReaderIterator };
   export { Stat };
   export { Stream };
   export { Watcher };
+  export { WhenceType };
+  export type { Progress };
+  export type { CopyOptions };
+  export type { ProgressListener };
 
   /**
    * Mode Indicates the open flags.
@@ -103,6 +130,15 @@ declare namespace fileIo {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 10
+   */
+   /**
+   * Mode Indicates the open flags.
+   *
+   * @namespace OpenMode
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   namespace OpenMode {
   /**
@@ -120,6 +156,15 @@ declare namespace fileIo {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Read only Permission.
+   *
+   * @constant
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
     const READ_ONLY = 0o0;
   /**
    * Write only Permission.
@@ -135,6 +180,15 @@ declare namespace fileIo {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Write only Permission.
+   *
+   * @constant
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
     const WRITE_ONLY = 0o1;
   /**
@@ -152,6 +206,15 @@ declare namespace fileIo {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Write and Read Permission.
+   *
+   * @constant
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
     const READ_WRITE = 0o2;
   /**
    * If not exist, create file.
@@ -167,6 +230,15 @@ declare namespace fileIo {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 10
+   */
+  /**
+   * If not exist, create file.
+   *
+   * @constant
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
     const CREATE = 0o100;
   /**
@@ -184,6 +256,15 @@ declare namespace fileIo {
    * @crossplatform
    * @since 10
    */
+  /**
+   * File truncate len 0.
+   *
+   * @constant
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
     const TRUNC = 0o1000;
   /**
    * File append write.
@@ -199,6 +280,15 @@ declare namespace fileIo {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 10
+   */
+  /**
+   * File append write.
+   *
+   * @constant
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
     const APPEND = 0o2000;
   /**
@@ -288,13 +378,56 @@ declare namespace fileIo {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
+/**
+ * Access file.
+ *
+ * @param { string } path - path.
+ * @returns { Promise<boolean> } Returns the file is accessible or not in promise mode.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Access file.
+ *
+ * @param { string } path - path.
+ * @returns { Promise<boolean> } Returns the file is accessible or not in promise mode.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function access(path: string): Promise<boolean>;
 
 /**
  * Access file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<boolean> } [callback] - callback.
+ * @param { AsyncCallback<boolean> } callback - The callback is used to return the file is accessible or not.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -309,6 +442,49 @@ declare function access(path: string): Promise<boolean>;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
+ */
+/**
+ * Access file.
+ *
+ * @param { string } path - path.
+ * @param { AsyncCallback<boolean> } callback - The callback is used to return the file is accessible or not.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Access file.
+ *
+ * @param { string } path - path.
+ * @param { AsyncCallback<boolean> } callback - The callback is used to return the file is accessible or not.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function access(path: string, callback: AsyncCallback<boolean>): void;
 
@@ -316,7 +492,7 @@ declare function access(path: string, callback: AsyncCallback<boolean>): void;
  * Access file with sync interface.
  *
  * @param { string } path - path.
- * @returns { boolean } access success
+ * @returns { boolean } Returns the file is accessible or not.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -332,13 +508,56 @@ declare function access(path: string, callback: AsyncCallback<boolean>): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
+/**
+ * Access file with sync interface.
+ *
+ * @param { string } path - path.
+ * @returns { boolean } Returns the file is accessible or not.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Access file with sync interface.
+ *
+ * @param { string } path - path.
+ * @returns { boolean } Returns the file is accessible or not.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function accessSync(path: string): boolean;
 
 /**
  * Close file or fd.
  *
  * @param { number | File } file - file object or fd.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -352,7 +571,7 @@ declare function accessSync(path: string): boolean;
  * Close file or fd.
  *
  * @param { number | File } file - file object or fd.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -362,6 +581,22 @@ declare function accessSync(path: string): boolean;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Close file or fd.
+ *
+ * @param { number | File } file - file object or fd.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function close(file: number | File): Promise<void>;
 
@@ -369,7 +604,7 @@ declare function close(file: number | File): Promise<void>;
  * Close file or fd.
  *
  * @param { number | File } file - file object or fd.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -383,7 +618,7 @@ declare function close(file: number | File): Promise<void>;
  * Close file or fd.
  *
  * @param { number | File } file - file object or fd.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -393,6 +628,22 @@ declare function close(file: number | File): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Close file or fd.
+ *
+ * @param { number | File } file - file object or fd.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function close(file: number | File, callback: AsyncCallback<void>): void;
 
@@ -423,7 +674,132 @@ declare function close(file: number | File, callback: AsyncCallback<void>): void
  * @crossplatform
  * @since 10
  */
+/**
+ * Close file or fd with sync interface.
+ *
+ * @param { number | File } file - file object or fd.
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function closeSync(file: number | File): void;
+
+/**
+ * Copy file or directory.
+ *
+ * @param { string } srcUri - src uri.
+ * @param { string } destUri - dest uri.
+ * @param { CopyOptions } [options] - options.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied by the file system
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900021 - File table overflow
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
+
+/**
+ * Copy file or directory.
+ *
+ * @param { string } srcUri - src uri.
+ * @param { string } destUri - dest uri.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied by the file system
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900021 - File table overflow
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
+
+/**
+ * Copy file or directory.
+ *
+ * @param { string } srcUri - src uri.
+ * @param { string } destUri - dest uri.
+ * @param { CopyOptions } options - options.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 401 - Parameter error.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied by the file system
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900021 - File table overflow
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function copy(srcUri: string, destUri: string, options: CopyOptions, callback: AsyncCallback<void>): void;
 
 /**
  * Copy directory.
@@ -431,7 +807,7 @@ declare function closeSync(file: number | File): void;
  * @param { string } src - source path.
  * @param { string } dest - destination path.
  * @param { number } [mode = 0] - mode.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -459,7 +835,7 @@ declare function copyDir(src: string, dest: string, mode?: number): Promise<void
  *
  * @param { string } src - source path.
  * @param { string } dest - destination path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -487,8 +863,21 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
  *
  * @param { string } src - source path.
  * @param { string } dest - destination path.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+
+
+/**
+ * Copy directory.
+ *
+ * @param { string } src - source path.
+ * @param { string } dest - destination path.
  * @param { number } mode - mode.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -512,12 +901,54 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
 declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
+ * Copy directory.
+ *
+ * @param { string } src - source path.
+ * @param { string } dest - destination path.
+ * @param { number } mode - mode.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+
+/**
+ * Copy directory with sync interface.
+ *
+ * @param { string } src - source path.
+ * @param { string } dest - destination path.
+ * @param { number } [mode = 0] - mode.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function copyDirSync(src: string, dest: string, mode?: number): void;
+
+/**
  * Copy file.
  *
  * @param { string | number } src - src.
  * @param { string | number } dest - dest.
  * @param { number } [mode = 0] - mode.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -538,6 +969,63 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
+/**
+ * Copy file.
+ *
+ * @param { string | number } src - src.
+ * @param { string | number } dest - dest.
+ * @param { number } [mode = 0] - mode.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Copy file.
+ *
+ * @param { string | number } src - src.
+ * @param { string | number } dest - dest.
+ * @param { number } [mode = 0] - mode.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function copyFile(src: string | number, dest: string | number, mode?: number): Promise<void>;
 
 /**
@@ -545,7 +1033,7 @@ declare function copyFile(src: string | number, dest: string | number, mode?: nu
  *
  * @param { string | number } src - src.
  * @param { string | number } dest - dest.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -565,6 +1053,61 @@ declare function copyFile(src: string | number, dest: string | number, mode?: nu
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
+ */
+/**
+ * Copy file.
+ *
+ * @param { string | number } src - src.
+ * @param { string | number } dest - dest.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Copy file.
+ *
+ * @param { string | number } src - src.
+ * @param { string | number } dest - dest.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function copyFile(src: string | number, dest: string | number, callback: AsyncCallback<void>): void;
 
@@ -574,7 +1117,7 @@ declare function copyFile(src: string | number, dest: string | number, callback:
  * @param { string | number } src - src.
  * @param { string | number } dest - dest.
  * @param { number } [mode = 0] - mode.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -594,6 +1137,63 @@ declare function copyFile(src: string | number, dest: string | number, callback:
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
+ */
+/**
+ * Copy file.
+ *
+ * @param { string | number } src - src.
+ * @param { string | number } dest - dest.
+ * @param { number } [mode = 0] - mode.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Copy file.
+ *
+ * @param { string | number } src - src.
+ * @param { string | number } dest - dest.
+ * @param { number } [mode = 0] - mode.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function copyFile(
   src: string | number,
@@ -627,6 +1227,61 @@ declare function copyFile(
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
+ */
+/**
+ * Copy file with sync interface.
+ *
+ * @param { string | number } src - src.
+ * @param { string | number } dest - dest.
+ * @param { number } [mode = 0] - mode.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Copy file with sync interface.
+ *
+ * @param { string | number } src - src.
+ * @param { string | number } dest - dest.
+ * @param { number } [mode = 0] - mode.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
 
@@ -672,7 +1327,7 @@ declare function createStream(path: string, mode: string): Promise<Stream>;
  *
  * @param { string } path - path.
  * @param { string } mode - mode.
- * @param { AsyncCallback<Stream> } [callback] - callback.
+ * @param { AsyncCallback<Stream> } callback - callback.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -747,7 +1402,7 @@ declare function createStreamSync(path: string, mode: string): Stream;
  *
  * @param { string | File } file - file path, object.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @returns { Promise<RandomAccessFile> } return Promise
+ * @returns { Promise<RandomAccessFile> } Returns the RandomAccessFile object which has been created in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -783,7 +1438,7 @@ declare function createRandomAccessFile(file: string | File, mode?: number): Pro
  * Create class RandomAccessFile.
  *
  * @param { string | File } file - file path, object.
- * @param { AsyncCallback<RandomAccessFile> } [callback] - callback.
+ * @param { AsyncCallback<RandomAccessFile> } callback - The callback is used to return the RandomAccessFile object which has been created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -820,7 +1475,7 @@ declare function createRandomAccessFile(file: string | File, callback: AsyncCall
  *
  * @param { string | File } file - file path, object.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @param { AsyncCallback<RandomAccessFile> } [callback] - callback.
+ * @param { AsyncCallback<RandomAccessFile> } callback - The callback is used to return the RandomAccessFile object which has been created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -857,7 +1512,7 @@ declare function createRandomAccessFile(file: string | File, mode: number, callb
  *
  * @param { string | File } file - file path, object.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @returns { RandomAccessFile } createRandomAccessFile
+ * @returns { RandomAccessFile } Returns the RandomAccessFile object which has been created.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -895,7 +1550,7 @@ declare function createRandomAccessFileSync(file: string | File, mode?: number):
  * @param { string } path - path.
  * @param { number } events - listened events.
  * @param { WatchEventListener } listener - Callback to invoke when an event of the specified type occurs.
- * @returns { Watcher } Return watcher object.
+ * @returns { Watcher } Returns the Watcher object which has been created.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -910,16 +1565,32 @@ declare function createRandomAccessFileSync(file: string | File, mode?: number):
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @systemapi
  * @since 10
  */
 declare function createWatcher(path: string, events: number, listener: WatchEventListener): Watcher;
 
 /**
+ * Duplicate fd to File Object.
+ *
+ * @param { number } fd - fd.
+ * @returns { File } return File
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function dup(fd: number): File;
+
+/**
  * Synchronize file metadata.
  *
  * @param { number } fd - fd.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -934,7 +1605,7 @@ declare function createWatcher(path: string, events: number, listener: WatchEven
  * Synchronize file metadata.
  *
  * @param { number } fd - fd.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -952,7 +1623,7 @@ declare function fdatasync(fd: number): Promise<void>;
  * Synchronize file metadata.
  *
  * @param { number } fd - fd.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -967,7 +1638,7 @@ declare function fdatasync(fd: number): Promise<void>;
  * Synchronize file metadata.
  *
  * @param { number } fd - fd.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1017,7 +1688,7 @@ declare function fdatasyncSync(fd: number): void;
  *
  * @param { number } fd - fd.
  * @param { string } mode - mode.
- * @returns { Promise<Stream> } return Promise
+ * @returns { Promise<Stream> } Returns the Stream object in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1055,7 +1726,7 @@ declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
  *
  * @param { number } fd - fd.
  * @param { string } mode - mode.
- * @param { AsyncCallback<Stream> } [callback] - callback.
+ * @param { AsyncCallback<Stream> } callback - The callback is used to return the Stream object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1093,7 +1764,7 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  *
  * @param { number } fd - fd.
  * @param { string } mode - mode.
- * @returns { Stream } open stream from fd
+ * @returns { Stream } Returns the Stream object.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1130,7 +1801,7 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
  * Synchronize file.
  *
  * @param { number } fd - fd.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1145,7 +1816,7 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
  * Synchronize file.
  *
  * @param { number } fd - fd.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1163,7 +1834,7 @@ declare function fsync(fd: number): Promise<void>;
  * Synchronize file.
  *
  * @param { number } fd - fd.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1178,7 +1849,7 @@ declare function fsync(fd: number): Promise<void>;
  * Synchronize file.
  *
  * @param { number } fd - fd.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1228,7 +1899,8 @@ declare function fsyncSync(fd: number): void;
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @returns { Promise<string[]> } return Promise
+ * @returns { Promise<string[]> } Returns an Array containing the name of files or directories that meet the filter criteria in promise mode.
+ *      If present, Include the subdirectory structure.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1236,6 +1908,39 @@ declare function fsyncSync(fd: number): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
+ */
+/**
+ * List file.
+ *
+ * @param { string } path - path.
+ * @param { object } [options] - options.
+ * @returns { Promise<string[]> } Returns an Array containing the name of files or directories that meet the filter criteria.
+ *      If present, Include the subdirectory structure.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * List file.
+ *
+ * @param { string } path - path.
+ * @param { object } [options] - options.
+ * @returns { Promise<string[]> } Returns an Array containing the name of files or directories that meet the filter criteria.
+ *      If present, Include the subdirectory structure.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function listFile(
   path: string,
@@ -1250,7 +1955,8 @@ declare function listFile(
  * List file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<string[]> } callback - callback.
+ * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name of files or directories 
+ *      that meet the filter criteria in promise mode. If present, Include the subdirectory structure.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1259,6 +1965,37 @@ declare function listFile(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
+/**
+ * List file.
+ *
+ * @param { string } path - path.
+ * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name of files or directories 
+ *      that meet the filter criteria in promise mode. If present, Include the subdirectory structure.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * List file.
+ *
+ * @param { string } path - path.
+ * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name of files or directories 
+ *      that meet the filter criteria in promise mode. If present, Include the subdirectory structure.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function listFile(path: string, callback: AsyncCallback<string[]>): void;
 
 /**
@@ -1266,7 +2003,8 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @param { AsyncCallback<string[]> } callback - callback.
+ * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name of files or directories 
+ *      that meet the filter criteria in promise mode. If present, Include the subdirectory structure.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1274,6 +2012,39 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
+ */
+/**
+ * List file.
+ *
+ * @param { string } path - path.
+ * @param { object } [options] - options.
+ * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name of files or directories 
+ *      that meet the filter criteria in promise mode. If present, Include the subdirectory structure.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * List file.
+ *
+ * @param { string } path - path.
+ * @param { object } [options] - options.
+ * @param { AsyncCallback<string[]> } callback - The callback is used to return an Array containing the name of files or directories 
+ *      that meet the filter criteria in promise mode. If present, Include the subdirectory structure.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function listFile(
   path: string,
@@ -1290,7 +2061,7 @@ declare function listFile(
  *
  * @param { string } path - path.
  * @param { object } [options] - options.
- * @returns { string[] } array of file name
+ * @returns { string[] } Returns an Array containing the name of files or directories that meet the filter criteria.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1298,6 +2069,37 @@ declare function listFile(
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
+ */
+/**
+ * List file with sync interface.
+ *
+ * @param { string } path - path.
+ * @param { object } [options] - options.
+ * @returns { string[] } Returns an Array containing the name of files or directories that meet the filter criteria.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * List file with sync interface.
+ *
+ * @param { string } path - path.
+ * @param { object } [options] - options.
+ * @returns { string[] } Returns an Array containing the name of files or directories that meet the filter criteria.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function listFileSync(
   path: string,
@@ -1309,10 +2111,27 @@ declare function listFileSync(
 ): string[];
 
 /**
+ *  Reposition file offset.
+ *
+ * @param { number } fd - file descriptor.
+ * @param { number } offset - file offset.
+ * @param { WhenceType } [whence = WhenceType.SEEK_SET] - directive whence.
+ * @returns { number } Returns the file offset relative to starting position of file.
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900026 - Illegal seek
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
+
+/**
  * Stat link file.
  *
  * @param { string } path - path.
- * @returns { Promise<Stat> } return Promise
+ * @returns { Promise<Stat> } Returns the Stat object in promise mode.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1332,7 +2151,7 @@ declare function lstat(path: string): Promise<Stat>;
  * Stat link file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<Stat> } [callback] - callback.
+ * @param { AsyncCallback<Stat> } callback - The callback is used to return the Stat object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1352,7 +2171,7 @@ declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
  * Stat link file with sync interface.
  *
  * @param { string } path - path.
- * @returns { Stat } lstat success
+ * @returns { Stat } Returns the Stat object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1372,7 +2191,7 @@ declare function lstatSync(path: string): Stat;
  * Make dir.
  *
  * @param { string } path - path.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1395,7 +2214,7 @@ declare function lstatSync(path: string): Stat;
  * Make dir.
  *
  * @param { string } path - path.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1414,6 +2233,31 @@ declare function lstatSync(path: string): Stat;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Make dir.
+ *
+ * @param { string } path - path.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function mkdir(path: string): Promise<void>;
 
@@ -1421,7 +2265,34 @@ declare function mkdir(path: string): Promise<void>;
  * Make dir.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { boolean } recursion - whether to recursively make directory.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
+ * @since 11
+ */
+declare function mkdir(path: string, recursion: boolean): Promise<void>;
+
+/**
+ * Make dir.
+ *
+ * @param { string } path - path.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1444,7 +2315,7 @@ declare function mkdir(path: string): Promise<void>;
  * Make dir.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1463,10 +2334,62 @@ declare function mkdir(path: string): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Make dir.
+ *
+ * @param { string } path - path.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function mkdir(path: string, callback: AsyncCallback<void>): void;
 
 /**
+ * Make dir.
+ *
+ * @param { string } path - path.
+ * @param { boolean } recursion - whether to recursively make directory.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
+ * @since 11
+ */
+declare function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>): void;
+
+/**
  * Make dir with sync interface.
  *
  * @param { string } path - path.
@@ -1511,13 +2434,63 @@ declare function mkdir(path: string, callback: AsyncCallback<void>): void;
  * @crossplatform
  * @since 10
  */
+/**
+ * Make dir with sync interface.
+ *
+ * @param { string } path - path.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function mkdirSync(path: string): void;
+
+/**
+ * Make dir with sync interface.
+ *
+ * @param { string } path - path.
+ * @param { boolean } recursion - whether to recursively make directory.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @atomicservice
+ * @since 11
+ */
+declare function mkdirSync(path: string, recursion: boolean): void;
 
 /**
  * Make temp dir.
  *
  * @param { string } prefix - dir prefix.
- * @returns { Promise<string> } return Promise
+ * @returns { Promise<string> } Returns the path to the new directory in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1540,7 +2513,7 @@ declare function mkdirSync(path: string): void;
  * Make temp dir.
  *
  * @param { string } prefix - dir prefix.
- * @returns { Promise<string> } return Promise
+ * @returns { Promise<string> } Returns the path to the new directory in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1566,7 +2539,7 @@ declare function mkdtemp(prefix: string): Promise<string>;
  * Make temp dir.
  *
  * @param { string } prefix - dir prefix.
- * @param { AsyncCallback<string> } [callback] - callback.
+ * @param { AsyncCallback<string> } callback - The callback is used to return the path to the new directory.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1589,7 +2562,7 @@ declare function mkdtemp(prefix: string): Promise<string>;
  * Make temp dir.
  *
  * @param { string } prefix - dir prefix.
- * @param { AsyncCallback<string> } [callback] - callback.
+ * @param { AsyncCallback<string> } callback - The callback is used to return the path to the new directory.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1615,7 +2588,7 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * Make temp dir with sync interface.
  *
  * @param { string } prefix - dir prefix.
- * @returns { string } directory name
+ * @returns { string } Returns the path to the new directory.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1638,7 +2611,7 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * Make temp dir with sync interface.
  *
  * @param { string } prefix - dir prefix.
- * @returns { string } directory name
+ * @returns { string } Returns the path to the new directory.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1666,7 +2639,7 @@ declare function mkdtempSync(prefix: string): string;
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
  * @param { number } [mode = 0] - move mode when duplicate file name exists.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1696,7 +2669,7 @@ declare function moveDir(src: string, dest: string, mode?: number): Promise<void
  *
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
- * @param { AsyncCallback<void> } callback - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1704,8 +2677,7 @@ declare function moveDir(src: string, dest: string, mode?: number): Promise<void
  * @throws { BusinessError } 13900012 - Permission denied
  * @throws { BusinessError } 13900013 - Bad address
  * @throws { BusinessError } 13900014 - Device or resource busy
- * @throws { BusinessError } 13900015 - File exists
- * @throws { BusinessError } 13900015 - Cross-device link
+ * @throws { BusinessError } 13900016 - Cross-device link
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900019 - Is a directory
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1726,8 +2698,20 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  *
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function moveDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+
+/**
+ * Move directory.
+ *
+ * @param { string } src - source file path.
+ * @param { string } dest - destination file path.
  * @param { number } mode - move mode when duplicate file name exists.
- * @param { AsyncCallback<void> } callback - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1735,8 +2719,7 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  * @throws { BusinessError } 13900012 - Permission denied
  * @throws { BusinessError } 13900013 - Bad address
  * @throws { BusinessError } 13900014 - Device or resource busy
- * @throws { BusinessError } 13900015 - File exists
- * @throws { BusinessError } 13900015 - Cross-device link
+ * @throws { BusinessError } 13900016 - Cross-device link
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900019 - Is a directory
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1753,12 +2736,55 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
 declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
+ * Move directory.
+ *
+ * @param { string } src - source file path.
+ * @param { string } dest - destination file path.
+ * @param { number } mode - move mode when duplicate file name exists.
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
+ * @throws { BusinessError } 13900015 - File exists
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+
+/**
+ * Move directory with sync interface.
+ *
+ * @param { string } src - source file path.
+ * @param { string } dest - destination file path.
+ * @param { number } [mode = 0] - move mode when duplicate file name exists.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 10
+ */
+declare function moveDirSync(src: string, dest: string, mode?: number): void;
+
+/**
  * Move file.
  *
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
  * @param { number } [mode = 0] - move mode when duplicate file name exists.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1781,6 +2807,36 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
+/**
+ * Move file.
+ *
+ * @param { string } src - source file path.
+ * @param { string } dest - destination file path.
+ * @param { number } [mode = 0] - move mode when duplicate file name exists.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
 declare function moveFile(src: string, dest: string, mode?: number): Promise<void>;
 
 /**
@@ -1788,7 +2844,7 @@ declare function moveFile(src: string, dest: string, mode?: number): Promise<voi
  *
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
- * @param { AsyncCallback<void> } callback - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1810,6 +2866,35 @@ declare function moveFile(src: string, dest: string, mode?: number): Promise<voi
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
+ */
+/**
+ * Move file.
+ *
+ * @param { string } src - source file path.
+ * @param { string } dest - destination file path.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
  */
 declare function moveFile(src: string, dest: string, callback: AsyncCallback<void>): void;
 
@@ -1819,7 +2904,7 @@ declare function moveFile(src: string, dest: string, callback: AsyncCallback<voi
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
  * @param { number } [mode = 0] - move mode when duplicate file name exists.
- * @param { AsyncCallback<void> } callback - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1841,6 +2926,36 @@ declare function moveFile(src: string, dest: string, callback: AsyncCallback<voi
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
+ */
+/**
+ * Move file.
+ *
+ * @param { string } src - source file path.
+ * @param { string } dest - destination file path.
+ * @param { number } [mode = 0] - move mode when duplicate file name exists.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
  */
 declare function moveFile(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
@@ -1872,6 +2987,35 @@ declare function moveFile(src: string, dest: string, mode: number, callback: Asy
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
+/**
+ * Move file with sync interface.
+ *
+ * @param { string } src - source file path.
+ * @param { string } dest - destination file path.
+ * @param { number } [mode = 0] - move mode when duplicate file name exists.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
 declare function moveFileSync(src: string, dest: string, mode?: number): void;
 
 /**
@@ -1879,7 +3023,7 @@ declare function moveFileSync(src: string, dest: string, mode?: number): void;
  *
  * @param { string } path - path.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @returns { Promise<File> } return Promise
+ * @returns { Promise<File> } Returns the File object in Promise mode to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1914,7 +3058,7 @@ declare function moveFileSync(src: string, dest: string, mode?: number): void;
  *
  * @param { string } path - path.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @returns { Promise<File> } return Promise
+ * @returns { Promise<File> } Returns the File object in Promise mode to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1945,13 +3089,50 @@ declare function moveFileSync(src: string, dest: string, mode?: number): void;
  * @crossplatform
  * @since 10
  */
+/**
+ * Open file.
+ *
+ * @param { string } path - path.
+ * @param { number } [mode = OpenMode.READ_ONLY] - mode.
+ * @returns { Promise<File> } Returns the File object in Promise mode to record the file descriptor.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function open(path: string, mode?: number): Promise<File>;
 
 /**
  * Open file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<File> } [callback] - callback.
+ * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1985,7 +3166,7 @@ declare function open(path: string, mode?: number): Promise<File>;
  * Open file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<File> } [callback] - callback.
+ * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2015,6 +3196,42 @@ declare function open(path: string, mode?: number): Promise<File>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Open file.
+ *
+ * @param { string } path - path.
+ * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record the file descriptor.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function open(path: string, callback: AsyncCallback<File>): void;
 
@@ -2023,7 +3240,7 @@ declare function open(path: string, callback: AsyncCallback<File>): void;
  *
  * @param { string } path - path.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @param { AsyncCallback<File> } [callback] - callback.
+ * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2058,7 +3275,7 @@ declare function open(path: string, callback: AsyncCallback<File>): void;
  *
  * @param { string } path - path.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @param { AsyncCallback<File> } [callback] - callback.
+ * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2089,6 +3306,43 @@ declare function open(path: string, callback: AsyncCallback<File>): void;
  * @crossplatform
  * @since 10
  */
+/**
+ * Open file.
+ *
+ * @param { string } path - path.
+ * @param { number } [mode = OpenMode.READ_ONLY] - mode.
+ * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record the file descriptor.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function open(path: string, mode: number, callback: AsyncCallback<File>): void;
 
 /**
@@ -2096,7 +3350,7 @@ declare function open(path: string, mode: number, callback: AsyncCallback<File>)
  *
  * @param { string } path - path.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @returns { File } open fd
+ * @returns { File } Returns the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2131,7 +3385,7 @@ declare function open(path: string, mode: number, callback: AsyncCallback<File>)
  *
  * @param { string } path - path.
  * @param { number } [mode = OpenMode.READ_ONLY] - mode.
- * @returns { File } open fd
+ * @returns { File } Returns the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2161,6 +3415,43 @@ declare function open(path: string, mode: number, callback: AsyncCallback<File>)
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Open file with sync interface.
+ *
+ * @param { string } path - path.
+ * @param { number } [mode = OpenMode.READ_ONLY] - mode.
+ * @returns { File } Returns the File object to record the file descriptor.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900006 - No such device or address
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900017 - No such device
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900029 - Resource deadlock would occur
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function openSync(path: string, mode?: number): File;
 
@@ -2170,7 +3461,7 @@ declare function openSync(path: string, mode?: number): File;
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { Promise<number> } return Promise
+ * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2189,7 +3480,7 @@ declare function openSync(path: string, mode?: number): File;
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { Promise<number> } return Promise
+ * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2202,6 +3493,27 @@ declare function openSync(path: string, mode?: number): File;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Read file.
+ *
+ * @param { number } fd - file descriptor.
+ * @param { ArrayBuffer } buffer - buffer.
+ * @param { object } [options] - options.
+ * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function read(
   fd: number,
@@ -2217,7 +3529,7 @@ declare function read(
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2235,7 +3547,7 @@ declare function read(
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2248,6 +3560,26 @@ declare function read(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Read file.
+ *
+ * @param { number } fd - file descriptor.
+ * @param { ArrayBuffer } buffer - buffer.
+ * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
 
@@ -2257,7 +3589,7 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
  * @param { object } [options] - options.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2276,7 +3608,7 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
  * @param { object } [options] - options.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2289,6 +3621,27 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Read file.
+ *
+ * @param { number } fd - file descriptor.
+ * @param { ArrayBuffer } buffer - buffer.
+ * @param { object } [options] - options.
+ * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function read(
   fd: number,
@@ -2306,7 +3659,7 @@ declare function read(
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { number } number of bytesRead
+ * @returns { number } Returns the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2325,7 +3678,7 @@ declare function read(
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { number } number of bytesRead
+ * @returns { number } Returns the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2339,6 +3692,27 @@ declare function read(
  * @crossplatform
  * @since 10
  */
+/**
+ * Read file with sync interface.
+ *
+ * @param { number } fd - file descriptor.
+ * @param { ArrayBuffer } buffer - buffer.
+ * @param { object } [options] - options.
+ * @returns { number } Returns the number of file bytes read to buffer.
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function readSync(
   fd: number,
   buffer: ArrayBuffer,
@@ -2349,11 +3723,103 @@ declare function readSync(
 ): number;
 
 /**
+ * Read content line by line.
+ *
+ * @param { string } filePath - file path.
+ * @param { Options } [options] - optional parameters
+ * @returns { Promise<ReaderIterator> } Returns the iterator object in promise mode.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function readLines(filePath: string, options?: Options): Promise<ReaderIterator>;
+
+/**
+ * Read content line by line.
+ *
+ * @param { string } filePath - file path.
+ * @param { AsyncCallback<ReaderIterator> } callback - The callback is used to return the iterator object.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function readLines(filePath: string, callback: AsyncCallback<ReaderIterator>): void;
+
+/**
+ * Read content line by line.
+ *
+ * @param { string } filePath - file path.
+ * @param { Options } options - optional parameters
+ * @param { AsyncCallback<ReaderIterator> } callback - The callback is used to return the iterator object.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function readLines(filePath: string, options: Options, callback: AsyncCallback<ReaderIterator>): void;
+
+/**
+ * Read content line by line with sync interface.
+ *
+ * @param { string } filePath - file path.
+ * @param { Options } [options] - optional parameters
+ * @returns { ReaderIterator } Returns the iterator object.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900022 - Too many open files
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+
+declare function readLinesSync(filePath: string, options?: Options): ReaderIterator;
+
+/**
  * Read text.
  *
  * @param { string } filePath - file path.
  * @param { object } [options] - options.
- * @returns { Promise<string> } return Promise
+ * @returns { Promise<string> } Returns the contents of the read file in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2369,6 +3835,53 @@ declare function readSync(
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
+ */
+/**
+ * Read text.
+ *
+ * @param { string } filePath - file path.
+ * @param { object } [options] - options.
+ * @returns { Promise<string> } Returns the contents of the read file in promise mode.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Read text.
+ *
+ * @param { string } filePath - file path.
+ * @param { object } [options] - options.
+ * @returns { Promise<string> } Returns the contents of the read file in promise mode.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function readText(
   filePath: string,
@@ -2383,7 +3896,7 @@ declare function readText(
  * Read text.
  *
  * @param { string } filePath - file path.
- * @param { AsyncCallback<string> } [callback] - callback.
+ * @param { AsyncCallback<string> } callback - The callback is used to return the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2400,6 +3913,51 @@ declare function readText(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
+/**
+ * Read text.
+ *
+ * @param { string } filePath - file path.
+ * @param { AsyncCallback<string> } callback - The callback is used to return the contents of the read file.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Read text.
+ *
+ * @param { string } filePath - file path.
+ * @param { AsyncCallback<string> } callback - The callback is used to return the contents of the read file.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function readText(filePath: string, callback: AsyncCallback<string>): void;
 
 /**
@@ -2407,7 +3965,7 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  *
  * @param { string } filePath - file path.
  * @param { object } [options] - options.
- * @param { AsyncCallback<string> } [callback] - callback.
+ * @param { AsyncCallback<string> } callback - The callback is used to return the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2423,6 +3981,53 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
+ */
+/**
+ * Read text.
+ *
+ * @param { string } filePath - file path.
+ * @param { object } [options] - options.
+ * @param { AsyncCallback<string> } callback - The callback is used to return the contents of the read file.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Read text.
+ *
+ * @param { string } filePath - file path.
+ * @param { object } [options] - options.
+ * @param { AsyncCallback<string> } callback - The callback is used to return the contents of the read file.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function readText(
   filePath: string,
@@ -2439,7 +4044,7 @@ declare function readText(
  *
  * @param { string } filePath - file path.
  * @param { object } [options] - options.
- * @returns { string } readout result
+ * @returns { string } Returns the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2456,6 +4061,53 @@ declare function readText(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9
  */
+/**
+ * Read text with sync interface.
+ *
+ * @param { string } filePath - file path.
+ * @param { object } [options] - options.
+ * @returns { string } Returns the contents of the read file.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Read text with sync interface.
+ *
+ * @param { string } filePath - file path.
+ * @param { object } [options] - options.
+ * @returns { string } Returns the contents of the read file.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function readTextSync(
   filePath: string,
   options?: {
@@ -2470,7 +4122,7 @@ declare function readTextSync(
  *
  * @param { string } oldPath - oldPath.
  * @param { string } newPath - newPath.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2498,7 +4150,7 @@ declare function readTextSync(
  *
  * @param { string } oldPath - oldPath.
  * @param { string } newPath - newPath.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2521,6 +4173,36 @@ declare function readTextSync(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Rename file.
+ *
+ * @param { string } oldPath - oldPath.
+ * @param { string } newPath - newPath.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function rename(oldPath: string, newPath: string): Promise<void>;
 
@@ -2529,7 +4211,7 @@ declare function rename(oldPath: string, newPath: string): Promise<void>;
  *
  * @param { string } oldPath - oldPath.
  * @param { string } newPath - newPath.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Returns the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2557,7 +4239,7 @@ declare function rename(oldPath: string, newPath: string): Promise<void>;
  *
  * @param { string } oldPath - oldPath.
  * @param { string } newPath - newPath.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Returns the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2580,6 +4262,36 @@ declare function rename(oldPath: string, newPath: string): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Rename file.
+ *
+ * @param { string } oldPath - oldPath.
+ * @param { string } newPath - newPath.
+ * @param { AsyncCallback<void> } callback - Returns the callback function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function rename(oldPath: string, newPath: string, callback: AsyncCallback<void>): void;
 
@@ -2638,13 +4350,42 @@ declare function rename(oldPath: string, newPath: string, callback: AsyncCallbac
  * @crossplatform
  * @since 10
  */
+/**
+ * Rename file with sync interface.
+ *
+ * @param { string } oldPath - oldPath.
+ * @param { string } newPath - newPath.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900015 - File exists
+ * @throws { BusinessError } 13900016 - Cross-device link
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900028 - Too many links
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function renameSync(oldPath: string, newPath: string): void;
 
 /**
  * Delete dir.
  *
  * @param { string } path - path.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -2664,7 +4405,7 @@ declare function renameSync(oldPath: string, newPath: string): void;
  * Delete dir.
  *
  * @param { string } path - path.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -2680,6 +4421,28 @@ declare function renameSync(oldPath: string, newPath: string): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Delete dir.
+ *
+ * @param { string } path - path.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900027 - Read-only file system1
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function rmdir(path: string): Promise<void>;
 
@@ -2687,7 +4450,7 @@ declare function rmdir(path: string): Promise<void>;
  * Delete dir.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -2707,7 +4470,7 @@ declare function rmdir(path: string): Promise<void>;
  * Delete dir.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -2723,6 +4486,28 @@ declare function rmdir(path: string): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Delete dir.
+ *
+ * @param { string } path - path.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900027 - Read-only file system1
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function rmdir(path: string, callback: AsyncCallback<void>): void;
 
@@ -2765,13 +4550,34 @@ declare function rmdir(path: string, callback: AsyncCallback<void>): void;
  * @crossplatform
  * @since 10
  */
+/**
+ * Delete dir with sync interface.
+ *
+ * @param { string } path - path.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900027 - Read-only file system1
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900032 - Directory not empty
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function rmdirSync(path: string): void;
 
 /**
  * Get file information.
  *
  * @param { string | number } file - path or file descriptor.
- * @returns { Promise<Stat> } return Promise
+ * @returns { Promise<Stat> } Returns the Stat object in promise mode.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2792,7 +4598,7 @@ declare function rmdirSync(path: string): void;
  * Get file information.
  *
  * @param { string | number } file - path or file descriptor.
- * @returns { Promise<Stat> } return Promise
+ * @returns { Promise<Stat> } Returns the Stat object in promise mode.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2809,6 +4615,29 @@ declare function rmdirSync(path: string): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Get file information.
+ *
+ * @param { string | number } file - path or file descriptor.
+ * @returns { Promise<Stat> } Returns the Stat object in promise mode.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function stat(file: string | number): Promise<Stat>;
 
@@ -2816,7 +4645,7 @@ declare function stat(file: string | number): Promise<Stat>;
  * Get file information.
  *
  * @param { string | number } file - path or file descriptor.
- * @param { AsyncCallback<Stat> } [callback] - callback.
+ * @param { AsyncCallback<Stat> } callback - The callback is used to return the Stat object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2837,7 +4666,7 @@ declare function stat(file: string | number): Promise<Stat>;
  * Get file information.
  *
  * @param { string | number } file - path or file descriptor.
- * @param { AsyncCallback<Stat> } [callback] - callback.
+ * @param { AsyncCallback<Stat> } callback - The callback is used to return the Stat object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2855,13 +4684,36 @@ declare function stat(file: string | number): Promise<Stat>;
  * @crossplatform
  * @since 10
  */
+/**
+ * Get file information.
+ *
+ * @param { string | number } file - path or file descriptor.
+ * @param { AsyncCallback<Stat> } callback - The callback is used to return the Stat object.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function stat(file: string | number, callback: AsyncCallback<Stat>): void;
 
 /**
  * Get file information with sync interface.
  *
  * @param { string | number } file - path or file descriptor.
- * @returns { Stat } stat success
+ * @returns { Stat } Returns the Stat object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2882,7 +4734,7 @@ declare function stat(file: string | number, callback: AsyncCallback<Stat>): voi
  * Get file information with sync interface.
  *
  * @param { string | number } file - path or file descriptor.
- * @returns { Stat } stat success
+ * @returns { Stat } Returns the Stat object.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -2899,6 +4751,29 @@ declare function stat(file: string | number, callback: AsyncCallback<Stat>): voi
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Get file information with sync interface.
+ *
+ * @param { string | number } file - path or file descriptor.
+ * @returns { Stat } Returns the Stat object.
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900031 - Function not implemented
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900038 - Value too large for defined data type
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function statSync(file: string | number): Stat;
 
@@ -2907,7 +4782,7 @@ declare function statSync(file: string | number): Stat;
  *
  * @param { string } target - target.
  * @param { string } srcPath - srcPath.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -2932,7 +4807,7 @@ declare function symlink(target: string, srcPath: string): Promise<void>;
  *
  * @param { string } target - target.
  * @param { string } srcPath - srcPath.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -2981,7 +4856,7 @@ declare function symlinkSync(target: string, srcPath: string): void;
  *
  * @param { string | number } file - path or file descriptor.
  * @param { number } [len = 0] - len.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3006,7 +4881,7 @@ declare function symlinkSync(target: string, srcPath: string): void;
  *
  * @param { string | number } file - path or file descriptor.
  * @param { number } [len = 0] - len.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3027,13 +4902,40 @@ declare function symlinkSync(target: string, srcPath: string): void;
  * @crossplatform
  * @since 10
  */
+/**
+ * Truncate file.
+ *
+ * @param { string | number } file - path or file descriptor.
+ * @param { number } [len = 0] - len.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function truncate(file: string | number, len?: number): Promise<void>;
 
 /**
  * Truncate file.
  *
  * @param { string | number } file - path or file descriptor.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3057,7 +4959,7 @@ declare function truncate(file: string | number, len?: number): Promise<void>;
  * Truncate file.
  *
  * @param { string | number } file - path or file descriptor.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3077,6 +4979,32 @@ declare function truncate(file: string | number, len?: number): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Truncate file.
+ *
+ * @param { string | number } file - path or file descriptor.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function truncate(file: string | number, callback: AsyncCallback<void>): void;
 
@@ -3085,7 +5013,7 @@ declare function truncate(file: string | number, callback: AsyncCallback<void>):
  *
  * @param { string | number } file - path or file descriptor.
  * @param { number } [len = 0] - len.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3110,7 +5038,7 @@ declare function truncate(file: string | number, callback: AsyncCallback<void>):
  *
  * @param { string | number } file - path or file descriptor.
  * @param { number } [len = 0] - len.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3130,6 +5058,33 @@ declare function truncate(file: string | number, callback: AsyncCallback<void>):
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Truncate file.
+ *
+ * @param { string | number } file - path or file descriptor.
+ * @param { number } [len = 0] - len.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function truncate(file: string | number, len: number, callback: AsyncCallback<void>): void;
 
@@ -3182,13 +5137,39 @@ declare function truncate(file: string | number, len: number, callback: AsyncCal
  * @crossplatform
  * @since 10
  */
+/**
+ * Truncate file with sync interface.
+ *
+ * @param { string | number } file - path or file descriptor.
+ * @param { number } [len = 0] - len.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900023 - Text file busy
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function truncateSync(file: string | number, len?: number): void;
 
 /**
  * Delete file.
  *
  * @param { string } path - path.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3211,7 +5192,7 @@ declare function truncateSync(file: string | number, len?: number): void;
  * Delete file.
  *
  * @param { string } path - path.
- * @returns { Promise<void> } return Promise
+ * @returns { Promise<void> } The promise returned by the function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3230,6 +5211,31 @@ declare function truncateSync(file: string | number, len?: number): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Delete file.
+ *
+ * @param { string } path - path.
+ * @returns { Promise<void> } The promise returned by the function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function unlink(path: string): Promise<void>;
 
@@ -3237,7 +5243,7 @@ declare function unlink(path: string): Promise<void>;
  * Delete file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3260,7 +5266,7 @@ declare function unlink(path: string): Promise<void>;
  * Delete file.
  *
  * @param { string } path - path.
- * @param { AsyncCallback<void> } [callback] - callback.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3279,6 +5285,31 @@ declare function unlink(path: string): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Delete file.
+ *
+ * @param { string } path - path.
+ * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function unlink(path: string, callback: AsyncCallback<void>): void;
 
@@ -3327,7 +5358,47 @@ declare function unlink(path: string, callback: AsyncCallback<void>): void;
  * @crossplatform
  * @since 10
  */
+/**
+ * Delete file with sync interface.
+ *
+ * @param { string } path - path.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900011 - Out of memory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900014 - Device or resource busy
+ * @throws { BusinessError } 13900018 - Not a directory
+ * @throws { BusinessError } 13900019 - Is a directory
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900030 - File name too long
+ * @throws { BusinessError } 13900033 - Too many symbolic links encountered
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function unlinkSync(path: string): void;
+
+/**
+ * Change file mtime.
+ *
+ * @param { string } path - path.
+ * @param { number } mtime - last modification time
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900002 - No such file or directory
+ * @throws { BusinessError } 13900012 - Permission denied
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900027 - Read-only file system
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare function utimes(path: string, mtime: number): void;
 
 /**
  * Write file.
@@ -3335,7 +5406,7 @@ declare function unlinkSync(path: string): void;
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { Promise<number> } return Promise
+ * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3357,7 +5428,7 @@ declare function unlinkSync(path: string): void;
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { Promise<number> } return Promise
+ * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3373,6 +5444,30 @@ declare function unlinkSync(path: string): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Write file.
+ *
+ * @param { number } fd - file descriptor.
+ * @param { ArrayBuffer | string } buffer - buffer.
+ * @param { object } [options] - options.
+ * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function write(
   fd: number,
@@ -3389,7 +5484,7 @@ declare function write(
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3410,7 +5505,7 @@ declare function write(
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3426,6 +5521,29 @@ declare function write(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Write file.
+ *
+ * @param { number } fd - file descriptor.
+ * @param { ArrayBuffer | string } buffer - buffer.
+ * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function write(fd: number, buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
 
@@ -3435,7 +5553,7 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
  * @param { object } [options] - options.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3457,7 +5575,7 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
  * @param { object } [options] - options.
- * @param { AsyncCallback<number> } [callback] - callback.
+ * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3473,6 +5591,30 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @since 10
+ */
+/**
+ * Write file.
+ *
+ * @param { number } fd - file descriptor.
+ * @param { ArrayBuffer | string } buffer - buffer.
+ * @param { object } [options] - options.
+ * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare function write(
   fd: number,
@@ -3491,7 +5633,7 @@ declare function write(
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { number } on success number of bytesRead
+ * @returns { number } Returns the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3513,7 +5655,7 @@ declare function write(
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
  * @param { object } [options] - options.
- * @returns { number } on success number of bytesRead
+ * @returns { number } Returns the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3530,6 +5672,30 @@ declare function write(
  * @crossplatform
  * @since 10
  */
+/**
+ * Write file with sync interface.
+ *
+ * @param { number } fd - file descriptor.
+ * @param { ArrayBuffer | string } buffer - buffer.
+ * @param { object } [options] - options.
+ * @returns { number } Returns the number of bytes written to the file.
+ * @throws { BusinessError } 13900001 - Operation not permitted
+ * @throws { BusinessError } 13900004 - Interrupted system call
+ * @throws { BusinessError } 13900005 - I/O error
+ * @throws { BusinessError } 13900008 - Bad file descriptor
+ * @throws { BusinessError } 13900010 - Try again
+ * @throws { BusinessError } 13900013 - Bad address
+ * @throws { BusinessError } 13900020 - Invalid argument
+ * @throws { BusinessError } 13900024 - File too large
+ * @throws { BusinessError } 13900025 - No space left on device
+ * @throws { BusinessError } 13900034 - Operation would block
+ * @throws { BusinessError } 13900041 - Quota exceeded
+ * @throws { BusinessError } 13900042 - Unknown error
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare function writeSync(
   fd: number,
   buffer: ArrayBuffer | string,
@@ -3539,6 +5705,51 @@ declare function writeSync(
     encoding?: string;
   }
 ): number;
+
+/**
+ * Progress data of copyFile
+ *
+ * @typedef Progress
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+interface Progress {
+  /**
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  readonly processedSize: number;
+
+  /**
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  readonly totalSize: number;
+}
+
+/**
+ * Get options of copy
+ *
+ * @typedef CopyOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+interface CopyOptions {
+  /**
+   * Listener of copy progress
+   *
+   * @type { ?ProgressListener }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  progressListener?: ProgressListener;
+}
+
+type ProgressListener = (progress: Progress) => void;
 
 /**
  * File object.
@@ -3555,6 +5766,15 @@ declare function writeSync(
  * @crossplatform
  * @since 10
  */
+/**
+ * File object.
+ *
+ * @interface File
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface File {
   /**
    * @type { number }
@@ -3569,13 +5789,58 @@ declare interface File {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   readonly fd: number;
+
+  /**
+   * File path
+   * 
+   * @type { string }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 14300002 - Invalid uri
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  readonly path: string;
+
+  /**
+   * File name
+   * 
+   * @type { string }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 10
+   */
+  readonly name: string;
+
+  /**
+   * Get parent path of file.
+   *
+   * @returns { string } Return the parent path of file.
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @throws { BusinessError } 14300002 - Invalid uri
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  getParent(): string;
 
   /**
    * Lock file with blocking method.
    *
    * @param { boolean } exclusive - whether lock is exclusive.
-   * @returns { Promise<void> } return Promise
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -3590,7 +5855,7 @@ declare interface File {
   /**
    * Lock file with blocking method.
    *
-   * @param { AsyncCallback<void> } callback - callback.
+   * @param { AsyncCallback<void> } callback - Return the callback function.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -3606,7 +5871,7 @@ declare interface File {
    * Lock file with blocking method.
    *
    * @param { boolean } exclusive - whether lock is exclusive.
-   * @param { AsyncCallback<void> } callback - callback.
+   * @param { AsyncCallback<void> } callback - Return the callback function.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -3710,7 +5975,7 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer | string } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -3739,7 +6004,7 @@ declare interface RandomAccessFile {
    * Write randomAccessFile.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -3762,7 +6027,7 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer | string } buffer - buffer.
    * @param { object } [options] - options.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -3787,12 +6052,13 @@ declare interface RandomAccessFile {
     },
     callback: AsyncCallback<number>
   ): void;
+
   /**
    * Write randomAccessFile with sync interface.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { number } on success number of bytes written
+   * @returns { number } Returns the number of bytes written to the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -3821,7 +6087,7 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -3846,7 +6112,7 @@ declare interface RandomAccessFile {
    * Read randomAccessFile.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -3866,7 +6132,7 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - buffer.
    * @param { object } [options] - options.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -3893,7 +6159,7 @@ declare interface RandomAccessFile {
    *
    * @param { ArrayBuffer } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { number } number of bytesRead
+   * @returns { number } Returns the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -3930,6 +6196,15 @@ declare interface RandomAccessFile {
  * @crossplatform
  * @since 10
  */
+/**
+ * Stat object.
+ *
+ * @interface Stat
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare interface Stat {
   /**
    * @type { bigint }
@@ -3965,6 +6240,16 @@ declare interface Stat {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 10
+   */
+  /**
+   * @type { number }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   readonly mode: number;
   /**
@@ -4024,6 +6309,16 @@ declare interface Stat {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @type { number }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   readonly size: number;
   /**
    * @type { number }
@@ -4042,6 +6337,16 @@ declare interface Stat {
    * @crossplatform
    * @since 10
    */
+  /**
+   * @type { number }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   readonly atime: number;
   /**
    * @type { number }
@@ -4059,6 +6364,16 @@ declare interface Stat {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 10
+   */
+  /**
+   * @type { number }
+   * @readonly
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   readonly mtime: number;
   /**
@@ -4080,9 +6395,19 @@ declare interface Stat {
    */
   readonly ctime: number;
   /**
+   * 
+   * @type { LocationType }
+   * @readonly
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  readonly location: LocationType;
+  
+  /**
    * Whether path/fd is block device.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a block device or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4091,7 +6416,7 @@ declare interface Stat {
   /**
    * Whether path/fd is block device.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a block device or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4102,7 +6427,7 @@ declare interface Stat {
   /**
    * Whether path/fd is character device.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a character device or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4111,7 +6436,7 @@ declare interface Stat {
   /**
    * Whether path/fd is character device.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a character device or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4122,7 +6447,7 @@ declare interface Stat {
   /**
    * Whether path/fd is directory.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a directory or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4131,18 +6456,29 @@ declare interface Stat {
   /**
    * Whether path/fd is directory.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a directory or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 10
    */
+  /**
+   * Whether path/fd is directory.
+   *
+   * @returns { boolean } Returns whether the path/fd point to a directory or not.
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   isDirectory(): boolean;
   /**
    * Whether path/fd is fifo.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a fifo file or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4151,7 +6487,7 @@ declare interface Stat {
   /**
    * Whether path/fd is fifo.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a fifo file or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4162,7 +6498,7 @@ declare interface Stat {
   /**
    * Whether path/fd is file.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a normal file or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4171,18 +6507,29 @@ declare interface Stat {
   /**
    * Whether path/fd is file.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a normal file or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 10
    */
+  /**
+   * Whether path/fd is file.
+   *
+   * @returns { boolean } Returns whether the path/fd point to a normal file or not.
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   isFile(): boolean;
   /**
    * Whether path/fd is socket.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a socket file or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4191,7 +6538,7 @@ declare interface Stat {
   /**
    * Whether path/fd is socket.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a socket file or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4202,7 +6549,7 @@ declare interface Stat {
   /**
    * Whether path/fd is symbolic link.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a symbolic link or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4211,7 +6558,7 @@ declare interface Stat {
   /**
    * Whether path/fd is symbolic link.
    *
-   * @returns { boolean } is or not
+   * @returns { boolean } Returns whether the path/fd point to a symbolic link or not.
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4232,7 +6579,7 @@ declare interface Stream {
   /**
    * Close stream.
    *
-   * @returns { Promise<void> } return Promise
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4247,7 +6594,7 @@ declare interface Stream {
   /**
    * Close stream.
    *
-   * @param { AsyncCallback<void> } [callback] - callback.
+   * @param { AsyncCallback<void> } callback - Return the callback function.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4275,7 +6622,7 @@ declare interface Stream {
   /**
    * Flush stream.
    *
-   * @returns { Promise<void> } return Promise
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4296,7 +6643,7 @@ declare interface Stream {
   /**
    * Flush stream.
    *
-   * @param { AsyncCallback<void> } [callback] - callback.
+   * @param { AsyncCallback<void> } callback - Return the callback function.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4337,7 +6684,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<number> } Returns the number of file bytes written to file in promise mode.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4366,7 +6713,7 @@ declare interface Stream {
    * Write stream.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes written to file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4389,7 +6736,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - buffer.
    * @param { object } [options] - options.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes written to file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4419,7 +6766,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer | string } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { number } on success number of bytes written
+   * @returns { number } Returns the number of file bytes written to file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4448,7 +6795,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4473,7 +6820,7 @@ declare interface Stream {
    * Read stream.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4493,7 +6840,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer } buffer - buffer.
    * @param { object } [options] - options.
-   * @param { AsyncCallback<number> } [callback] - callback.
+   * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4520,7 +6867,7 @@ declare interface Stream {
    *
    * @param { ArrayBuffer } buffer - buffer.
    * @param { object } [options] - options.
-   * @returns { number } number of bytesRead
+   * @returns { number } Returns the number of file bytes read to file.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4547,7 +6894,6 @@ declare interface Stream {
  *
  * @interface WatchEventListener
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @systemapi
  * @since 10
  */
 export interface WatchEventListener {
@@ -4556,7 +6902,6 @@ export interface WatchEventListener {
    *
    * @param { WatchEvent } event - Event type for the callback to invoke.
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
    * @since 10
    */
   (event: WatchEvent): void;
@@ -4567,7 +6912,6 @@ export interface WatchEventListener {
  *
  * @interface WatchEvent
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @systemapi
  * @since 10
  */
 export interface WatchEvent {
@@ -4577,7 +6921,6 @@ export interface WatchEvent {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
    * @since 10
    */
   readonly fileName: string;
@@ -4588,7 +6931,6 @@ export interface WatchEvent {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
    * @since 10
    */
   readonly event: number;
@@ -4599,7 +6941,6 @@ export interface WatchEvent {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
    * @since 10
    */
   readonly cookie: number;
@@ -4610,7 +6951,6 @@ export interface WatchEvent {
  *
  * @interface Watcher
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @systemapi
  * @since 10
  */
 export interface Watcher {
@@ -4631,7 +6971,6 @@ export interface Watcher {
    * @throws { BusinessError } 13900030 - File name too long
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
    * @since 10
    */
   start(): void;
@@ -4653,59 +6992,108 @@ export interface Watcher {
    * @throws { BusinessError } 13900030 - File name too long
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
    * @since 10
    */
   stop(): void;
 }
 
 /**
+ * Reader Iterator Result
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export type ReaderIteratorResult = {
+  /**
+   * Whether reader iterator completes the traversal.
+   * 
+   * @type { boolean }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  done: boolean;
+
+  /**
+   * The value of reader iterator.
+   * 
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  value: string;
+};
+
+/**
+ * ReaderIterator object
+ *
+ * @interface ReaderIterator
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare interface ReaderIterator {
+  /**
+   * Get next result from the iterator.
+   *
+   * @returns { ReaderIteratorResult } Returns the result of reader iterator.
+   * @throws { BusinessError } 13900005 - I/O error
+   * @throws { BusinessError } 13900037 - No data available
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  next(): ReaderIteratorResult;
+}
+
+/**
  * File filter type
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 9
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * File filter type
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 export type Filter = {
   /**
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   suffix?: Array<string>;
   /**
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   displayName?: Array<string>;
   /**
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   mimeType?: Array<string>;
   /**
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   fileSizeOver?: number;
   /**
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   lastModifiedAfter?: number;
   /**
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @systemapi
-   * @since 9
+   * @since 10
    */
   excludeMedia?: boolean;
 };
@@ -4731,3 +7119,76 @@ export type ConflictFiles = {
    */
   destFile: string;
 };
+
+/**
+ * Options type
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export type Options = {
+  /**
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  encoding?: string;
+};
+
+/**
+ * Enumeration of different types of whence.
+ *
+ * @enum { number } whence type
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare enum WhenceType {
+  /**
+   * Starting position of the file offset.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  SEEK_SET = 0,
+
+  /**
+   * Current position of the file offset.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  SEEK_CUR = 1,
+
+  /**
+   * Ending position of the file offset.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  SEEK_END = 2,
+}
+
+/**
+ * Enumeration of different types of file location.
+ *
+ * @enum { number } location type
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare enum LocationType {  
+  /**
+   * Local file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  LOCAL = 1 << 0,
+
+  /**
+   * Cloud file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  CLOUD = 1 << 1,
+}

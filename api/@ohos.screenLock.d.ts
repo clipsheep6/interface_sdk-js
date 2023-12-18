@@ -12,6 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ * @file
+ * @kit Basic Services Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { Callback } from './@ohos.base';
 
@@ -105,6 +111,18 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
+  /**
+   * Unlock the screen.
+   *
+   * @param { AsyncCallback<boolean> } callback - the callback of unlock.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
+   * @throws { BusinessError } 13200003 - illegal use.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
   function unlock(callback: AsyncCallback<boolean>): void;
 
   /**
@@ -116,6 +134,17 @@ declare namespace screenLock {
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
    * @since 9
+   */
+  /**
+   * Unlock the screen.
+   *
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 13200002 - the screenlock management service is abnormal.
+   * @throws { BusinessError } 13200003 - illegal use.
+   * @syscap SystemCapability.MiscServices.ScreenLock
+   * @systemapi Hide this for inner system use.
+   * @since 11
    */
   function unlock(): Promise<boolean>;
 
@@ -180,7 +209,21 @@ declare namespace screenLock {
    * @since 9
    */
   interface SystemEvent {
+    /**
+     * Indicates the system event type related to the screenlock management service.
+     *
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     eventType: EventType;
+    /**
+     * Identifies the customized extended parameter of an event.
+     *
+     * @syscap SystemCapability.MiscServices.ScreenLock
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     params: string;
   }
 

@@ -13,22 +13,37 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Notification Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { BundleOption as _BundleOption } from './notification/NotificationCommonDef';
 import { NotificationActionButton as _NotificationActionButton } from './notification/notificationActionButton';
 import { NotificationBasicContent as _NotificationBasicContent } from './notification/notificationContent';
 import { NotificationContent as _NotificationContent } from './notification/notificationContent';
 import { NotificationLongTextContent as _NotificationLongTextContent } from './notification/notificationContent';
+import type { NotificationLiveViewContent as _NotificationLiveViewContent } from './notification/notificationContent';
 import { NotificationMultiLineContent as _NotificationMultiLineContent } from './notification/notificationContent';
 import { NotificationPictureContent as _NotificationPictureContent } from './notification/notificationContent';
+import type { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
+import { NotificationSystemLiveViewContent as _NotificationSystemLiveViewContent } from './notification/notificationContent';
+import { NotificationCapsule as _NotificationCapsule } from './notification/notificationContent';
+import { NotificationButton as _NotificationButton } from './notification/notificationContent';
+import { NotificationTime as _NotificationTime } from './notification/notificationContent';
+import { NotificationProgress as _NotificationProgress } from './notification/notificationContent';
 import { NotificationFlags as _NotificationFlags } from './notification/notificationFlags';
 import { NotificationFlagStatus as _NotificationFlagStatus } from './notification/notificationFlags';
 import { NotificationRequest as _NotificationRequest } from './notification/notificationRequest';
 import { DistributedOptions as _DistributedOptions } from './notification/notificationRequest';
+import type { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
+import type { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
 import { NotificationSlot as _NotificationSlot } from './notification/notificationSlot';
 import { NotificationSorting as _NotificationSorting } from './notification/notificationSorting';
 import { NotificationTemplate as _NotificationTemplate } from './notification/notificationTemplate';
 import { NotificationUserInput as _NotificationUserInput } from './notification/notificationUserInput';
+import type UIAbilityContext from './application/UIAbilityContext';
 
 /**
  * Manages notifications.
@@ -63,6 +78,29 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
+  /**
+   * Publishes a notification.
+   * <p>If a notification with the same ID has been published by the current application and has not been deleted,
+   * this method will update the notification.
+   *
+   * @param { NotificationRequest } request - notification request
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600014 - No relevant right.
+   * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
+   * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 2300007 - Network is unreachable.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
   function publish(request: NotificationRequest, callback: AsyncCallback<void>): void;
 
   /**
@@ -82,6 +120,29 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
+   */
+  /**
+   * Publishes a notification.
+   * <p>If a notification with the same ID has been published by the current application and has not been deleted,
+   * this method will update the notification.
+   *
+   * @param { NotificationRequest } request - notification request
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600014 - No relevant right.
+   * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
+   * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 2300007 - Network is unreachable.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
    */
   function publish(request: NotificationRequest): Promise<void>;
 
@@ -107,6 +168,33 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Publishes a notification to the specified user.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { NotificationRequest } request - a notification.
+   * @param { number } userId - of subscriber receiving the notification.
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600014 - No relevant right.
+   * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
+   * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 2300007 - Network is unreachable.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
   function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
 
   /**
@@ -130,6 +218,33 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Publishes a notification to the specified user.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { NotificationRequest } request - a notification.
+   * @param { number } userId - of subscriber receiving the notification.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 1600014 - No relevant right.
+   * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
+   * @throws { BusinessError } 1600016 - The notification version for this update is too low.
+   * @throws { BusinessError } 2300007 - Network is unreachable.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
    */
   function publish(request: NotificationRequest, userId: number): Promise<void>;
 
@@ -618,6 +733,19 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Checks whether this application allows to publish notifications.
+   *
+   * @param { AsyncCallback<boolean> } callback - The callback of isNotificationEnabled.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
   function isNotificationEnabled(callback: AsyncCallback<boolean>): void;
 
   /**
@@ -634,6 +762,19 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
+   */
+  /**
+   * Checks whether this application allows to publish notifications.
+   *
+   * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
    */
   function isNotificationEnabled(): Promise<boolean>;
 
@@ -958,6 +1099,38 @@ declare namespace notificationManager {
   function getActiveNotifications(): Promise<Array<NotificationRequest>>;
 
   /**
+   * Get the live view notification by bundle option and notification key. If the extraInfoKeys is provided,
+   * filter the additional information of the live view notification and return the filtered result.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { NotificationFilter } filter - The bundle, notification key and additional information filter of the live view notification.
+   * @param { AsyncCallback<NotificationRequest> } callback - The callback of getActiveNotificationByFilter.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  function getActiveNotificationByFilter(filter: NotificationFilter, callback: AsyncCallback<NotificationRequest>): void;
+
+  /**
+   * Get the live view notification by bundle option and notification key. If the extraInfoKeys is provided,
+   * filter the additional information of the live view notification and return the filtered result.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { NotificationFilter } filter - The bundle, notification key and additional information filter of the live view notification.
+   * @returns { Promise<NotificationRequest> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  function getActiveNotificationByFilter(filter: NotificationFilter): Promise<NotificationRequest>;
+
+  /**
    * Cancel the notification of a specified group for this application.
    *
    * @param { string } groupName - The name of the group.
@@ -1255,7 +1428,50 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
+  /**
+   * Request permission to send notification.
+   *
+   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
   function requestEnableNotification(callback: AsyncCallback<void>): void;
+
+  /**
+   * Request permission to send notification.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @since 10
+   */
+  /**
+   * Request permission to send notification.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @param { AsyncCallback<void> } callback - The callback of requestEnableNotification.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @since 11
+   */
+  function requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void;
 
   /**
    * Request permission to send notification.
@@ -1268,7 +1484,50 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
+  /**
+   * Request permission to send notification.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
   function requestEnableNotification(): Promise<void>;
+
+  /**
+   * Request permission to send notification.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @since 10
+   */
+  /**
+   * Request permission to send notification.
+   *
+   * @param { UIAbilityContext } context - The context indicates the ability context you want to bind;
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
+   * @syscap SystemCapability.Notification.Notification
+   * @StageModelOnly
+   * @since 11
+   */
+  function requestEnableNotification(context: UIAbilityContext): Promise<void>;
 
   /**
    * Sets whether the device supports distributed notification.
@@ -1473,11 +1732,61 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Set whether the application slot is enabled.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { SlotType } type - Type of the notification slot.
+   * @param { boolean } enable - Set enable or not.
+   * @param { AsyncCallback<void> } callback - The callback of setNotificationEnableSlot.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
   function setNotificationEnableSlot(
     bundle: BundleOption,
     type: SlotType,
     enable: boolean,
     callback: AsyncCallback<void>
+  ): void;
+
+  /**
+   * Set whether the application slot is enabled.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { SlotType } type - Type of the notification slot.
+   * @param { boolean } enable - Set enable or not.
+   * @param { boolean } isForceControl - Is the notification slot enable affected by the application
+   *         notification enable, false means affected.
+   * @param { AsyncCallback<void> } callback - The callback of setNotificationEnableSlot.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  function setNotificationEnableSlot(
+    bundle: BundleOption,
+    type: SlotType,
+    enable: boolean,
+    isForceControl: boolean,
+    callback: AsyncCallback<void>,
   ): void;
 
   /**
@@ -1499,7 +1808,29 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
-  function setNotificationEnableSlot(bundle: BundleOption, type: SlotType, enable: boolean): Promise<void>;
+  /**
+   * Set whether the application slot is enabled.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { SlotType } type - Type of the notification slot.
+   * @param { boolean } enable - Set enable or not.
+   * @param { boolean } isForceControl - Is the notification slot enable affected by the application
+   *         notification enable, false means affected.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  function setNotificationEnableSlot(bundle: BundleOption, type: SlotType, enable: boolean, isForceControl?: boolean): Promise<void>;
 
   /**
    * Obtains whether the application slot is enabled.
@@ -1665,6 +1996,26 @@ declare namespace notificationManager {
   function on(type: 'checkNotification', callback: (checkInfo: NotificationCheckInfo) => NotificationCheckResult): void;
 
   /**
+   * Subscribe the callback for check notifications.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { 'checkNotification' } type - Type of the callback to listen for.
+   * @param { NotificationCheckRequest } checkRequest - Check Request for filter notification request.
+   * @param { function } callback - callback - The callback of check notifications.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  function on(type: 'checkNotification', checkRequest: NotificationCheckRequest,
+    callback: (checkInfo: NotificationCheckInfo) => Promise<NotificationCheckResult>): void;
+
+  /**
    * Unsubscribe the callback for check notifications.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
@@ -1682,6 +2033,125 @@ declare namespace notificationManager {
     type: 'checkNotification',
     callback?: (checkInfo: NotificationCheckInfo) => NotificationCheckResult
   ): void;
+
+  /**
+   * Trigger system live view notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { number } notificationId - The notification id.
+   * @param { ButtonOptions } buttonOptions - The button option.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  function triggerSystemLiveView(bundle: BundleOption, notificationId: number, buttonOptions: ButtonOptions): Promise<void>;
+
+  /**
+   * Subscribe to system live view notifications
+   *
+   * @param { SystemLiveViewSubscriber } subscriber - The system live vie notification subscriber.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  function subscribeSystemLiveView(subscriber: SystemLiveViewSubscriber): Promise<void>;
+
+  /**
+   * Set basic configurations of application-level notification channels.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { number } slotFlags - Indicates the slotFlags.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: number): Promise<void>;
+
+  /**
+   * Obtains basic configurations of application-level notification channels.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @returns { Promise<number> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  function getSlotFlagsByBundle(bundle: BundleOption): Promise<number>;
+
+  /**
+   * Describes a button option for a triggering.
+   *
+   * @typedef ButtonOptions
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  export interface ButtonOptions {
+    /**
+     * The button name for a triggering.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @type { string }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 11
+     */
+    buttonName: string;
+  }
+
+  /**
+   * Describes a subscriber for system live view.
+   *
+   * @typedef SystemLiveViewSubscriber
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  export interface SystemLiveViewSubscriber {
+    /**
+     * The callback function that receives a new button option of a notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 11
+     */
+    onResponse?: (notificationId: number, buttonOptions: ButtonOptions) => void;
+  }
 
   /**
    * Describes the parameters of check notifications.
@@ -1716,6 +2186,17 @@ declare namespace notificationManager {
     notificationId: number;
 
     /**
+     * Label of the notification.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 11
+     */
+    label?: string;
+
+    /**
      * The notification content type.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
@@ -1725,6 +2206,39 @@ declare namespace notificationManager {
      * @since 10
      */
     contentType: ContentType;
+
+    /**
+     * UserId of the notification creator.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @type { number }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 11
+     */
+    creatorUserId: number;
+
+    /**
+     * Type of the notification slot.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @type { SlotType }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 11
+     */
+    slotType: SlotType;
+
+    /**
+     * Additional information of the live view notification.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @type { ?Record<string, Object> }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 11
+     */
+    extraInfos?: Record<string, Object>;
   }
 
   /**
@@ -1801,6 +2315,22 @@ declare namespace notificationManager {
     CONTENT_INFORMATION = 3,
 
     /**
+     * NotificationSlot for live view.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @since 11
+     */
+    LIVE_VIEW = 4,
+
+    /**
+     * NotificationSlot for customer service.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @since 11
+     */
+    CUSTOMER_SERVICE = 5,
+
+    /**
      * NotificationSlot for other purposes.
      *
      * @syscap SystemCapability.Notification.Notification
@@ -1855,7 +2385,23 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @since 9
      */
-    NOTIFICATION_CONTENT_MULTILINE
+    NOTIFICATION_CONTENT_MULTILINE,
+
+    /**
+     * System local live view notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @since 11
+     */
+    NOTIFICATION_CONTENT_SYSTEM_LIVE_VIEW,
+
+    /**
+     * Common live view notification.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @since 11
+     */
+    NOTIFICATION_CONTENT_LIVE_VIEW,
   }
 
   /**
@@ -2121,6 +2667,15 @@ declare namespace notificationManager {
   export type NotificationLongTextContent = _NotificationLongTextContent;
 
   /**
+   * Describes a live view notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  export type NotificationLiveViewContent = _NotificationLiveViewContent;
+
+  /**
    * Describes a multi-line text notification.
    *
    * @syscap SystemCapability.Notification.Notification
@@ -2135,6 +2690,14 @@ declare namespace notificationManager {
    * @since 9
    */
   export type NotificationPictureContent = _NotificationPictureContent;
+
+  /**
+   * Describes a system live view notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  export type NotificationSystemLiveViewContent = _NotificationSystemLiveViewContent;
 
   /**
    * Describes a NotificationFlags instance.
@@ -2163,6 +2726,22 @@ declare namespace notificationManager {
   export type NotificationRequest = _NotificationRequest;
 
   /**
+   * Defines a NotificationFilter instance.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  export type NotificationFilter = _NotificationFilter;
+
+  /**
+   * Defines a NotificationCheckRequest instance.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  export type NotificationCheckRequest = _NotificationCheckRequest;
+
+  /**
    * Describes distributed options.
    *
    * @syscap SystemCapability.Notification.Notification
@@ -2177,6 +2756,15 @@ declare namespace notificationManager {
    * @since 9
    */
   export type NotificationSlot = _NotificationSlot;
+
+  /**
+   * Describes live view notification option type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 11
+   */
+  export type LiveViewStatus = _LiveViewStatus;
 
   /**
    * Provides sorting information about an active notification.
@@ -2202,6 +2790,38 @@ declare namespace notificationManager {
    * @since 9
    */
   export type NotificationUserInput = _NotificationUserInput;
+
+  /**
+   * Describes a system live view capsule type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  export type NotificationCapsule = _NotificationCapsule;
+
+  /**
+   * Describes a system live view button type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  export type NotificationButton = _NotificationButton;
+
+  /**
+   * Describes a system live view time type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  export type NotificationTime = _NotificationTime;
+
+  /**
+   * Describes a system live view progress type.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @since 11
+   */
+  export type NotificationProgress = _NotificationProgress;
 }
 
 export default notificationManager;

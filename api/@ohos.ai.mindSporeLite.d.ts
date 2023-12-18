@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit MindSpore Lite Kit
+ */
+
 import { Callback } from './@ohos.base';
 
 /**
@@ -153,12 +158,12 @@ declare namespace mindSporeLite {
     /**
      * Infer model
      * @param { MSTensor[] } inputs - indicates the MSTensor array of the inputs.
-     * @param { callback: Callback<Model> }  callback - the callback of model.
+     * @param { callback: Callback<MSTensor[]> }  callback - the callback of MSTensor array.
      * @syscap SystemCapability.AI.MindSporeLite
      * @stagemodelonly
      * @since 10
      */
-     predict(inputs: MSTensor[], callback: Callback<Model>): void;
+    predict(inputs: MSTensor[], callback: Callback<MSTensor[]>): void;
 
     /**
      * Infer model
@@ -168,7 +173,7 @@ declare namespace mindSporeLite {
      * @stagemodelonly
      * @since 10
      */
-     predict(inputs: MSTensor[]): Promise<MSTensor[]>;
+    predict(inputs: MSTensor[]): Promise<MSTensor[]>;
 
     /**
      * resize model input
@@ -179,7 +184,7 @@ declare namespace mindSporeLite {
      * @stagemodelonly
      * @since 10
      */
-     resize(inputs: MSTensor[], dims: Array<Array<number>>): boolean;
+    resize(inputs: MSTensor[], dims: Array<Array<number>>): boolean;
   }
 
   /**
@@ -356,7 +361,7 @@ declare namespace mindSporeLite {
    * @since 10
    */
   export enum DataType {
-   /**
+    /**
      * data type is unknown
      * @syscap SystemCapability.AI.MindSporeLite
      * @since 10
@@ -475,7 +480,7 @@ declare namespace mindSporeLite {
      */
     HWCK = 4,
    /**
-     * data format is HWCK
+     * data format is KCHW
      * @syscap SystemCapability.AI.MindSporeLite
      * @since 10
      */

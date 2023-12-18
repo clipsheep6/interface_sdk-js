@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Ability Kit
+ */
+
 import { DataAbilityHelper as _DataAbilityHelper } from './ability/dataAbilityHelper';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { DataAbilityOperation as _DataAbilityOperation } from './ability/dataAbilityOperation';
@@ -28,6 +33,13 @@ import { StartAbilityParameter as _StartAbilityParameter } from './ability/start
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @FAModelOnly
  * @since 9
+ */
+/**
+ * The class of an ability.
+ *
+ * @namespace ability
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @since 11
  */
 declare namespace ability {
   /**
@@ -45,6 +57,12 @@ declare namespace ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
    * @since 9
+   */
+  /**
+   * Defines a PacMap object for storing a series of values.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @since 11
    */
   export type PacMap = _PacMap;
 
