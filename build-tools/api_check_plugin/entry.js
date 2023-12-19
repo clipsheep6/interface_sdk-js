@@ -20,10 +20,10 @@ const SECOND_PARAM = 2;
 function checkEntry(prId) {
   let result = ['api_check: false'];
   const sourceDirname = __dirname;
-  __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
+  // __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', 'all_files.txt');
   result.push(`path:${sourceDirname}`);
-  const MAX_TIMES = 3;
+  const MAX_TIMES = 6;
   let buffer = new Buffer.from('');
   let bufferTestClang = new Buffer.from('');
   let bufferTestCapi = new Buffer.from('');
@@ -34,24 +34,85 @@ function checkEntry(prId) {
     bufferTestClang = execSync('clang --version', {
       timeout: 5000,
     });
-    result.push(`bufferTestClang : ${bufferTestClang.toString()}`);
+    result.push(`clang --version : ${bufferTestClang.toString()}`);
+
+    bufferTestClang = execSync('pip --version', {
+      timeout: 5000,
+    });
+    result.push(`pip --version : ${bufferTestClang.toString()}`);
 
     do {
       try {
-        buffer = execSync('cd interface/sdk_c/capi_parser && pip install -r requirements.txt', {
+        result.push(`count : ${i}`);
+
+        bufferTestClang = execSync('pip install clang==15.0.7', {
+          timeout: 120000,
+        });
+        result.push(`pip install clang==16.0.1 : ${bufferTestClang.toString()}`);
+        execute = true;
+      } catch (error) {}
+    } while (++i < MAX_TIMES && !execute);
+    execute = false;
+
+    bufferTestClang = execSync('llvm-config --version', {
+      timeout: 5000,
+    });
+    result.push(`llvm-config --version : ${bufferTestClang.toString()}`);
+
+    bufferTestClang = execSync('pip config list', {
+      timeout: 5000,
+    });
+    result.push(`pip config list : ${bufferTestClang.toString()}`);
+
+    bufferTestClang = execSync('ls /home/tools/llvm/bin ', {
+      timeout: 5000,
+    });
+    result.push(`ls llvmBin : ${bufferTestClang.toString()}`);
+
+    bufferTestClang = execSync('ls -l /home/tools/llvm/lib ', {
+      timeout: 5000,
+    });
+    result.push(`ls llvmLib : ${bufferTestClang.toString()}`);
+
+    bufferTestClang = execSync('cd interface/sdk_c/capi_parser &&  pwd', {
+      timeout: 5000,
+    });
+    result.push(`pwd : ${bufferTestClang.toString()}`);
+
+    bufferTestClang = execSync('cd interface/sdk_c/third_party &&  ls -R', {
+      timeout: 5000,
+    });
+    result.push(`third_party lR : ${bufferTestClang.toString()}`);
+
+    // bufferTestClang = execSync('find  interface ', {
+    //   timeout: 10000,
+    // });
+    // result.push(`interface list : ${bufferTestClang.toString()}`);
+
+    // bufferTestClang = execSync('find / -type f -name "libclang.so" ');
+    // result.push(`libclang list : ${bufferTestClang.toString()}`);
+
+    do {
+      try {
+        result.push(`count : ${i}`);
+
+        buffer = execSync('cd interface/sdk_c/capi_parser && pip install -r requirements.txt ', {
           timeout: 120000,
         });
         execute = true;
       } catch (error) {}
     } while (++i < MAX_TIMES && !execute);
-    if (!execute) {
-      throw 'npm install timeout';
-    }
+    // if (!execute) {
+    //   throw 'npm install timeout';
+    // }
     result.push(`buffer : ${buffer.toString()}`);
 
-    bufferTestCapi = execSync(`cd interface/sdk_c/capi_parser && py interface/sdk_c/capi_parser/src/main.py  -N collect -P interface/sdk_c/ai/neural_network_runtime `, {
-      timeout: 10000,
-    });
+    bufferTestCapi = execSync(
+      `cd interface/sdk_c && python capi_parser/src/main.py  -N collect -P ai/neural_network_runtime `,
+      {
+        timeout: 10000,
+      }
+    );
     result.push(`bufferTestCapi : ${bufferTestCapi.toString()}`);
 
     // const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
