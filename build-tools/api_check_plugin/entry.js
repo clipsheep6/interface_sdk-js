@@ -29,7 +29,7 @@ function checkEntry(prId) {
   let execute = false;
   try {
     const execSync = require('child_process').execSync;
-    bufferTestClang = execSync('clang -v', {
+    bufferTestClang = execSync('clang --version', {
       timeout: 5000,
     });
     result.push(`bufferTestClang : ${bufferTestClang.toString()}`);
