@@ -22,9 +22,11 @@ function checkEntry(prId) {
   const sourceDirname = __dirname;
   __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', 'all_files.txt');
+  result.push(`path:${sourceDirname}`);
   const MAX_TIMES = 3;
   let buffer = new Buffer.from('');
   let bufferTestClang = new Buffer.from('');
+  let bufferTestCapi = new Buffer.from('');
   let i = 0;
   let execute = false;
   try {
@@ -33,9 +35,10 @@ function checkEntry(prId) {
       timeout: 5000,
     });
     result.push(`bufferTestClang : ${bufferTestClang.toString()}`);
+
     do {
       try {
-        buffer = execSync('cd interface/sdk-js/build-tools/api_diff && npm install && cd ../api_check_plugin && npm install', {
+        buffer = execSync('cd interface/sdk_c/capi_parser && pip install -r requirements.txt', {
           timeout: 120000,
         });
         execute = true;
@@ -44,17 +47,25 @@ function checkEntry(prId) {
     if (!execute) {
       throw 'npm install timeout';
     }
+    result.push(`buffer : ${buffer.toString()}`);
+
+    bufferTestCapi = execSync(`cd interface/sdk_c/capi_parser && py interface/sdk_c/capi_parser/src/main.py  -N collect -P interface/sdk_c/ai/neural_network_runtime `, {
+      timeout: 10000,
+    });
+    result.push(`bufferTestCapi : ${bufferTestCapi.toString()}`);
+
     // const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
     // result = scanEntry(mdFilesPath, prId, false);
     // result = reqGitApi(result, prId);
     result.push(`run over`);
-    removeDir(path.resolve(__dirname, '../api_diff/node_modules'));
-    removeDir(path.resolve(__dirname, 'node_modules'));
+    // removeDir(path.resolve(__dirname, '../api_diff/node_modules'));
+    // removeDir(path.resolve(__dirname, 'node_modules'));
   } catch (error) {
     // catch error
     result.push(`API_CHECK_ERROR : ${error}`);
-    result.push(`buffer : ${buffer.toString()}`);
+    result.push(`buffer error : ${buffer.toString()}`);
     result.push(`bufferTestClang error : ${bufferTestClang.toString()}`);
+    result.push(`bufferTestCapi error : ${bufferTestCapi.toString()}`);
   } finally {
     // const { apiCheckInfoArr, removeDuplicateObj } = require('./src/utils');
     // const apiCheckResultArr = removeDuplicateObj(apiCheckInfoArr);
@@ -81,13 +92,18 @@ function removeDir(url) {
 
 function writeResultFile(resultData, outputPath, option) {
   const STANDARD_INDENT = 2;
-  fs.writeFile(path.resolve(__dirname, outputPath), JSON.stringify(resultData, null, STANDARD_INDENT), option, (err) => {
-    if (err) {
-      console.error(`ERROR FOR CREATE FILE:${err}`);
-    } else {
-      console.log('API CHECK FINISH!');
+  fs.writeFile(
+    path.resolve(__dirname, outputPath),
+    JSON.stringify(resultData, null, STANDARD_INDENT),
+    option,
+    (err) => {
+      if (err) {
+        console.error(`ERROR FOR CREATE FILE:${err}`);
+      } else {
+        console.log('API CHECK FINISH!');
+      }
     }
-  });
+  );
 }
 
 checkEntry(process.argv[SECOND_PARAM]);
