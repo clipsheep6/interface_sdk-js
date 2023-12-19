@@ -84,10 +84,10 @@ function checkAPICodeStyleCallback(fileName) {
 }
 
 function checkAllNode(node, sourcefile, fileName) {
-  if (!ts.isImportDeclaration(node) && !ts.isSourceFile(node)) {
+  //if (!ts.isImportDeclaration(node) && !ts.isSourceFile(node)) {
     // check hump naming
-    checkAPINameOfHump(node, sourcefile, fileName);
-  }
+  checkAPINameOfHump(node, sourcefile, fileName);
+  //}
   if (hasAPINote(node)) {
     // check decorator
     checkAPIDecorators(node, sourcefile, fileName);
@@ -128,6 +128,19 @@ function scanEntry(url, prId, isTestCase) {
     checkApiChanges(prId);
     // scan entry
     checkAPICodeStyle(url, isTestCase);
+    const { execSync } = require('child_process');
+    const python = `cd interface/sdk_c && python build-tools/capi_parser/src/main.py -N check -P ${url}`;
+    let buffer = new Buffer.from('');
+    try {
+      buffer = execSync(python, {
+        timeout: 120000,
+      });
+      const data = fs.readFileSync('./Error.txt','utf8')
+      const json = JSON.parse(data)
+      result.scanResult.push(...json)
+    } catch (error) {
+        throw "error,python run error";
+    }
   }
   result.scanResult.push(`api_check: ${ApiCheckResult.formatCheckResult}`);
   return result.scanResult;
