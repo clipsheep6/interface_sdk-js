@@ -49,6 +49,11 @@ function checkEntry(prId) {
           timeout: 120000,
         });
         result.push(`pip install clang==16.0.1 : ${bufferTestClang.toString()}`);
+
+        bufferTestClang = execSync('pip install openpyxl==3.1.2', {
+          timeout: 120000,
+        });
+        result.push(`pip install openpyxl==3.1.2 : ${bufferTestClang.toString()}`);
         execute = true;
       } catch (error) {}
     } while (++i < MAX_TIMES && !execute);
@@ -74,7 +79,7 @@ function checkEntry(prId) {
     });
     result.push(`ls llvmLib : ${bufferTestClang.toString()}`);
 
-    bufferTestClang = execSync('cd interface/sdk_c/capi_parser &&  pwd', {
+    bufferTestClang = execSync('cd interface/sdk_c/build-tools/capi_parser &&  pwd', {
       timeout: 5000,
     });
     result.push(`pwd : ${bufferTestClang.toString()}`);
@@ -96,19 +101,19 @@ function checkEntry(prId) {
       try {
         result.push(`count : ${i}`);
 
-        buffer = execSync('cd interface/sdk_c/capi_parser && pip install -r requirements.txt ', {
-          timeout: 120000,
+        buffer = execSync('cd interface/sdk_c/build-tools/capi_parser && pip install -r requirements.txt ', {
+          timeout: 12000,
         });
         execute = true;
       } catch (error) {}
     } while (++i < MAX_TIMES && !execute);
-    // if (!execute) {
-    //   throw 'npm install timeout';
-    // }
+    if (!execute) {
+      throw 'npm install timeout';
+    }
     result.push(`buffer : ${buffer.toString()}`);
 
     bufferTestCapi = execSync(
-      `cd interface/sdk_c && python capi_parser/src/main.py  -N collect -P ai/neural_network_runtime `,
+      `cd interface/sdk_c && python build-tools/capi_parser/src/main.py  -N collect -P ai/neural_network_runtime `,
       {
         timeout: 10000,
       }
