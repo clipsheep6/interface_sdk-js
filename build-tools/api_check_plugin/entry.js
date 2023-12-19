@@ -23,7 +23,7 @@ function checkEntry(prId) {
   // __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', 'all_files.txt');
   result.push(`path:${sourceDirname}`);
-  const MAX_TIMES = 6;
+  const MAX_TIMES = 3;
   let buffer = new Buffer.from('');
   let bufferTestClang = new Buffer.from('');
   let bufferTestCapi = new Buffer.from('');
@@ -31,85 +31,36 @@ function checkEntry(prId) {
   let execute = false;
   try {
     const execSync = require('child_process').execSync;
-    // bufferTestClang = execSync('clang --version', {
-    //   timeout: 5000,
-    // });
-    // result.push(`clang --version : ${bufferTestClang.toString()}`);
-
-    // bufferTestClang = execSync('pip --version', {
-    //   timeout: 5000,
-    // });
-    // result.push(`pip --version : ${bufferTestClang.toString()}`);
-
     // do {
     //   try {
     //     result.push(`count : ${i}`);
-
-    //     bufferTestClang = execSync('pip install clang==15.0.7', {
-    //       timeout: 12000,
-    //     });
-    //     result.push(`pip install clang==16.0.1 : ${bufferTestClang.toString()}`);
-
-    //     bufferTestClang = execSync('pip install openpyxl==3.1.2', {
-    //       timeout: 12000,
-    //     });
-    //     result.push(`pip install openpyxl==3.1.2 : ${bufferTestClang.toString()}`);
+    //     buffer = execSync(
+    //       'cd interface/sdk-js/build-tools/api_diff && npm install && cd ../api_check_plugin && npm install',
+    //       {
+    //         timeout: 120000,
+    //       }
+    //     );
     //     execute = true;
     //   } catch (error) {}
     // } while (++i < MAX_TIMES && !execute);
+    // if (!execute) {
+    //   throw 'npm install timeout';
+    // }
+    // i = 0;
     // execute = false;
-
-
-    // bufferTestClang = execSync('llvm-config --version', {
-    //   timeout: 5000,
-    // });
-    // result.push(`llvm-config --version : ${bufferTestClang.toString()}`);
-
-    // bufferTestClang = execSync('pip config list', {
-    //   timeout: 5000,
-    // });
-    // result.push(`pip config list : ${bufferTestClang.toString()}`);
-
-    // bufferTestClang = execSync('ls /home/tools/llvm/bin ', {
-    //   timeout: 5000,
-    // });
-    // result.push(`ls llvmBin : ${bufferTestClang.toString()}`);
-
-    // bufferTestClang = execSync('ls -l /home/tools/llvm/lib ', {
-    //   timeout: 5000,
-    // });
-    // result.push(`ls llvmLib : ${bufferTestClang.toString()}`);
-
-    // bufferTestClang = execSync('cd interface/sdk_c/build-tools/capi_parser &&  pwd', {
-    //   timeout: 5000,
-    // });
-    // result.push(`pwd : ${bufferTestClang.toString()}`);
-
-    // bufferTestClang = execSync('cd interface/sdk_c/third_party &&  ls -R', {
-    //   timeout: 5000,
-    // });
-    // result.push(`third_party lR : ${bufferTestClang.toString()}`);
-
-    // bufferTestClang = execSync('find  interface ', {
-    //   timeout: 10000,
-    // });
-    // result.push(`interface list : ${bufferTestClang.toString()}`);
-
-    // bufferTestClang = execSync('find / -type f -name "libclang.so" ');
-    // result.push(`libclang list : ${bufferTestClang.toString()}`);
-
     do {
       try {
         result.push(`count : ${i}`);
-
         buffer = execSync('cd interface/sdk_c/build-tools/capi_parser && pip install -r requirements.txt ', {
           timeout: 120000,
         });
         execute = true;
-      } catch (error) {}
+      } catch (error) {
+        result.push(`pip install error ${i}: ${error}`);
+      }
     } while (++i < MAX_TIMES && !execute);
     if (!execute) {
-      throw 'npm install timeout';
+      throw 'pip install timeout';
     }
     result.push(`buffer : ${buffer.toString()}`);
 
