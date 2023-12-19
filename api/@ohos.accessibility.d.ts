@@ -549,7 +549,14 @@ declare namespace accessibility {
    * @since 7
    */
   class EventInfo {
-    constructor(jsonObject);
+    /**
+    * A constructor used to create a EventInfo
+    *
+    * @syscap SystemCapability.BarrierFree.Accessibility.Core
+    * @crossplatform
+    * @since 11
+    */
+    constructor(jsonObject: Object | Record<string,Object>);
     /**
      * The type of an accessibility event.
      *

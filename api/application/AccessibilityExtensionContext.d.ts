@@ -378,7 +378,14 @@ declare interface AccessibilityElement {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
-type ElementAttributeValues = {
+/**
+ * @typedef ElementAttributeValues
+ * Indicates the possible attributes of the element and the type of the attribute value.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 11
+ */
+interface ElementAttributeValues {
   /**
    * Indicates accessibility focus state.
    *
@@ -708,7 +715,7 @@ type ElementAttributeValues = {
    * @since 9
    */
   'windowId': number;
-};
+}
 
 /**
  * Indicates the direction of the search focus.
