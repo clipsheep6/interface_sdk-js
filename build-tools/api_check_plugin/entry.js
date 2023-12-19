@@ -31,63 +31,64 @@ function checkEntry(prId) {
   let execute = false;
   try {
     const execSync = require('child_process').execSync;
-    bufferTestClang = execSync('clang --version', {
-      timeout: 5000,
-    });
-    result.push(`clang --version : ${bufferTestClang.toString()}`);
+    // bufferTestClang = execSync('clang --version', {
+    //   timeout: 5000,
+    // });
+    // result.push(`clang --version : ${bufferTestClang.toString()}`);
 
-    bufferTestClang = execSync('pip --version', {
-      timeout: 5000,
-    });
-    result.push(`pip --version : ${bufferTestClang.toString()}`);
+    // bufferTestClang = execSync('pip --version', {
+    //   timeout: 5000,
+    // });
+    // result.push(`pip --version : ${bufferTestClang.toString()}`);
 
-    do {
-      try {
-        result.push(`count : ${i}`);
+    // do {
+    //   try {
+    //     result.push(`count : ${i}`);
 
-        bufferTestClang = execSync('pip install clang==15.0.7', {
-          timeout: 120000,
-        });
-        result.push(`pip install clang==16.0.1 : ${bufferTestClang.toString()}`);
+    //     bufferTestClang = execSync('pip install clang==15.0.7', {
+    //       timeout: 12000,
+    //     });
+    //     result.push(`pip install clang==16.0.1 : ${bufferTestClang.toString()}`);
 
-        bufferTestClang = execSync('pip install openpyxl==3.1.2', {
-          timeout: 120000,
-        });
-        result.push(`pip install openpyxl==3.1.2 : ${bufferTestClang.toString()}`);
-        execute = true;
-      } catch (error) {}
-    } while (++i < MAX_TIMES && !execute);
-    execute = false;
+    //     bufferTestClang = execSync('pip install openpyxl==3.1.2', {
+    //       timeout: 12000,
+    //     });
+    //     result.push(`pip install openpyxl==3.1.2 : ${bufferTestClang.toString()}`);
+    //     execute = true;
+    //   } catch (error) {}
+    // } while (++i < MAX_TIMES && !execute);
+    // execute = false;
 
-    bufferTestClang = execSync('llvm-config --version', {
-      timeout: 5000,
-    });
-    result.push(`llvm-config --version : ${bufferTestClang.toString()}`);
 
-    bufferTestClang = execSync('pip config list', {
-      timeout: 5000,
-    });
-    result.push(`pip config list : ${bufferTestClang.toString()}`);
+    // bufferTestClang = execSync('llvm-config --version', {
+    //   timeout: 5000,
+    // });
+    // result.push(`llvm-config --version : ${bufferTestClang.toString()}`);
 
-    bufferTestClang = execSync('ls /home/tools/llvm/bin ', {
-      timeout: 5000,
-    });
-    result.push(`ls llvmBin : ${bufferTestClang.toString()}`);
+    // bufferTestClang = execSync('pip config list', {
+    //   timeout: 5000,
+    // });
+    // result.push(`pip config list : ${bufferTestClang.toString()}`);
 
-    bufferTestClang = execSync('ls -l /home/tools/llvm/lib ', {
-      timeout: 5000,
-    });
-    result.push(`ls llvmLib : ${bufferTestClang.toString()}`);
+    // bufferTestClang = execSync('ls /home/tools/llvm/bin ', {
+    //   timeout: 5000,
+    // });
+    // result.push(`ls llvmBin : ${bufferTestClang.toString()}`);
 
-    bufferTestClang = execSync('cd interface/sdk_c/build-tools/capi_parser &&  pwd', {
-      timeout: 5000,
-    });
-    result.push(`pwd : ${bufferTestClang.toString()}`);
+    // bufferTestClang = execSync('ls -l /home/tools/llvm/lib ', {
+    //   timeout: 5000,
+    // });
+    // result.push(`ls llvmLib : ${bufferTestClang.toString()}`);
 
-    bufferTestClang = execSync('cd interface/sdk_c/third_party &&  ls -R', {
-      timeout: 5000,
-    });
-    result.push(`third_party lR : ${bufferTestClang.toString()}`);
+    // bufferTestClang = execSync('cd interface/sdk_c/build-tools/capi_parser &&  pwd', {
+    //   timeout: 5000,
+    // });
+    // result.push(`pwd : ${bufferTestClang.toString()}`);
+
+    // bufferTestClang = execSync('cd interface/sdk_c/third_party &&  ls -R', {
+    //   timeout: 5000,
+    // });
+    // result.push(`third_party lR : ${bufferTestClang.toString()}`);
 
     // bufferTestClang = execSync('find  interface ', {
     //   timeout: 10000,
@@ -102,7 +103,7 @@ function checkEntry(prId) {
         result.push(`count : ${i}`);
 
         buffer = execSync('cd interface/sdk_c/build-tools/capi_parser && pip install -r requirements.txt ', {
-          timeout: 12000,
+          timeout: 120000,
         });
         execute = true;
       } catch (error) {}
