@@ -128,8 +128,21 @@ function scanEntry(url, prId, isTestCase) {
     checkApiChanges(prId);
     // scan entry
     checkAPICodeStyle(url, isTestCase);
+    const { execSync } = require('child_process');
+    const python = `cd interface/sdk_c && python build-tools/capi_parser/src/main.py -N check -P ${url}`;
+    let buffer = new Buffer.from('');
+    try {
+      buffer = execSync(python, {
+        timeout: 120000,
+      });
+      const data = fs.readFileSync('./interface/sdk_c/Error.txt','utf8')
+      const json = JSON.parse(data)
+      result.scanResult.push(...json)
+    } catch (error) {
+        throw error;
+    }
   }
-  result.scanResult.push(`api_check: ${ApiCheckResult.formatCheckResult}`);
+  //result.scanResult.push(`api_check: ${ApiCheckResult.formatCheckResult}`);
   return result.scanResult;
 }
 exports.scanEntry = scanEntry;
