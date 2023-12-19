@@ -257,6 +257,17 @@ declare const Observed: ClassDecorator;
 declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
 /**
+ * Defining Require PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare const Require: PropertyDecorator;
+
+/**
  * Defining BuilderParam PropertyDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -427,6 +438,31 @@ declare const Link: PropertyDecorator;
 declare const ObjectLink: PropertyDecorator;
 
 /**
+ * Defines the options of Provide PropertyDecorator.
+ *
+ * @interface ProvideOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare interface ProvideOptions {
+  /**
+   * Override the @Provide of any parent or parent of parent @Component.@Provide({allowOverride: "name"}) is
+   * also allowed to be used even when there is no ancestor @Component whose @Provide would be overridden.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  allowOverride?: string,
+}
+
+/**
  * Defining Provide PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -456,7 +492,7 @@ declare const ObjectLink: PropertyDecorator;
  * @since 11
  * @form
  */
-declare const Provide: PropertyDecorator & ((value: string) => PropertyDecorator);
+declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
  * Defining Consume PropertyDecorator.
@@ -806,6 +842,16 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
  * @since 11
  */
 declare const Concurrent: MethodDecorator;
+
+/**
+ * Defining Sendable ClassDecorator
+ * The Sendable decorator can be used only for classes. A class with this decorator is marked as sendable, and the class object can be shared globally.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare const Sendable: ClassDecorator;
 
 /**
  * Defining  CustomDialog ClassDecorator
@@ -2118,6 +2164,26 @@ declare interface sharedTransitionOptions {
    * @since 11
    */
   type?: SharedTransitionEffectType;
+}
+
+/**
+ * Defines the options of geometry transition.
+ *
+ * @interface GeometryTransitionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface GeometryTransitionOptions {
+  /**
+   * whether follow target for the component still in the hierarchy, default: false, stay current.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  follow?: boolean;
 }
 
 /**
@@ -3901,6 +3967,18 @@ declare interface DragItemInfo {
  * @form
  */
 declare function animateTo(value: AnimateParam, event: () => void): void;
+
+/**
+ * Define animation functions for immediate distribution.
+ *
+ * @param { AnimateParam } value - Set animation effect parameters.
+ * @param { function } event - Specify the closure function that displays dynamic effects,
+ * and the system will automatically insert transition animations for state changes caused by the closure function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 11
+ */
+declare function animateToImmediately(value: AnimateParam, event: () => void): void;
 
 /**
  * Converts a value in vp units to a value in px.
@@ -9346,6 +9424,50 @@ declare interface PopupOptions {
    * @since 11
    */
   arrowPointPosition?: ArrowPointPosition;
+
+ /**
+   * The width of the arrow.
+   *
+   * @type { ?Dimension }
+   * @default 16.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowWidth?: Dimension;
+
+  /**
+   * The height of the arrow.
+   *
+   * @type { ?Dimension }
+   * @default 8.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowHeight?: Dimension;
+
+  /**
+   * The round corners of the popup.
+   *
+   * @type { ?Dimension }
+   * @default 20.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  radius?: Dimension;
+
+  /**
+   * The style of popup Shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @default ShadowStyle.OUTER_DEFAULT_MD.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**
@@ -9691,6 +9813,50 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   arrowPointPosition?: ArrowPointPosition;
+
+  /**
+   * The width of the arrow.
+   *
+   * @type { ?Dimension }
+   * @default 16.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowWidth?: Dimension;
+
+  /**
+   * The height of the arrow.
+   *
+   * @type { ?Dimension }
+   * @default 8.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  arrowHeight?: Dimension;
+
+  /**
+   * The round corners of the popup.
+   *
+   * @type { ?Dimension }
+   * @default 20.0_vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  radius?: Dimension;
+
+  /**
+   * The style of popup Shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @default ShadowStyle.OUTER_DEFAULT_MD.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**
@@ -9868,6 +10034,26 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   onDisappear?: () => void;
+
+  /**
+   * Callback function before the context menu animation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  aboutToAppear?: () => void;
+
+  /**
+   * Callback function before the context menu popAnimation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  aboutToDisappear?: () => void;
 }
 
 /**
@@ -10459,7 +10645,88 @@ declare interface AttributeModifier<T> {
    * @crossplatform
    * @since 11
    */
-  applyNormalAttribute(instance: T) : void;
+  applyNormalAttribute?(instance: T) : void;
+
+  /**
+   * Defines the pressed update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applyPressedAttribute?(instance: T) : void;
+
+  /**
+   * Defines the focused update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applyFocusedAttribute?(instance: T) : void;
+
+  /**
+   * Defines the disabled update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applyDisabledAttribute?(instance: T) : void;
+
+  /**
+   * Defines the selected update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  applySelectedAttribute?(instance: T) : void;
+}
+
+/**
+ * Outline Style
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare enum OutlineStyle {
+  /**
+   * Shows as a solid line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  SOLID = 0,
+
+  /**
+   * Shows as a series of short square dashed lines.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  DASHED = 1,
+
+  /**
+   * Displays as a series of dots with a radius of half the borderWidth.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  DOTTED = 2,
 }
 
 /**
@@ -11567,6 +11834,67 @@ declare class CommonMethod<T> {
    * @form
    */
   borderImage(value: BorderImageOption): T;
+
+  /**
+   * Opacity
+   * width:Outline width;color:Outline color;radius:Outline radius;
+   *
+   * @param { OutlineOptions } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outline(value: OutlineOptions): T;
+
+  /**
+   * Outline style
+   *
+   * @param { OutlineStyle | EdgeOutlineStyles } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outlineStyle(value: OutlineStyle | EdgeOutlineStyles): T;
+
+  /**
+   * Outline width
+   *
+   * @param { Dimension | EdgeOutlineWidths } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outlineWidth(value: Dimension | EdgeOutlineWidths): T;
+
+  /**
+   * Outline color
+   *
+   * @param { ResourceColor | EdgeColors } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outlineColor(value: ResourceColor | EdgeColors): T;
+
+  /**
+   * Outline radius
+   *
+   * @param { Dimension | OutlineRadiuses } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  outlineRadius(value: Dimension | OutlineRadiuses): T;
 
   /**
    * Provides the general foreground color capability of UI components, and assigns color values
@@ -14316,6 +14644,17 @@ declare class CommonMethod<T> {
    * @since 11
    */
   geometryTransition(id: string): T;
+  /**
+   * Shared geometry transition
+   *
+   * @param { string } id - geometry transition id
+   * @param { GeometryTransitionOptions } options - Indicates the options of geometry transition.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  geometryTransition(id: string, options?: GeometryTransitionOptions): T;
 
   /**
    * Popup control
@@ -14734,6 +15073,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   accessibilityLevel(value: string): T;
+
+  /**
+   * Sets accessibilityVirtualNode
+   *
+   * @param { CustomBuilder } builder - set virtual node of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  accessibilityVirtualNode(builder: CustomBuilder): T;
 
   /**
    * Sets obscured
@@ -17210,4 +17561,45 @@ declare interface LightSource {
    * @since 11
    */
   intensity: number;
+}
+
+/**
+ * Defining wrapBuilder function.
+ * @param { function } builder
+ * @returns { WrappedBuilder<Args> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
+
+/**
+ * Defines the WrappedBuilder class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare class WrappedBuilder<Args extends Object[]> {
+  /**
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  builder: (...args: Args) => void;
+
+  /**
+   * @param { function } builder
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  constructor(builder: (...args: Args) => void);
+}
+
+declare module "wrappedBuilderObject" {
+  module "wrappedBuilderObject" {
+    // @ts-ignore
+    export { WrappedBuilder };
+  }
 }

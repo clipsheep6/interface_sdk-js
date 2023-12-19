@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Notification Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { CommonEventData as _CommonEventData } from './commonEvent/commonEventData';
 import { CommonEventSubscriber as _CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
@@ -1975,7 +1980,17 @@ declare namespace commonEventManager {
       * @systemapi
       * @since 10
       */
-    COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE'
+    COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE',
+
+    /**
+      * Indicates that the privacy status is changed.
+      * This is a protected common event that can only be sent by system.
+      *
+      * @syscap SystemCapability.Notification.CommonEvent
+      * @systemapi
+      * @since 11
+      */
+    COMMON_EVENT_PRIVACY_STATE_CHANGED = 'usual.event.PRIVACY_STATE_CHANGED',
   }
 
   /**

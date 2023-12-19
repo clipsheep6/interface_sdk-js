@@ -137,6 +137,7 @@ cpx
 cpy
 creatable
 crl
+crls
 crops
 crosshair
 crowdtest
@@ -468,6 +469,7 @@ multisim
 multitask
 mutes
 narrowband
+navigations
 nci
 ndef
 neglects
@@ -666,6 +668,7 @@ sece
 secinfo
 seeked
 semicircles
+sendable
 sensing
 sequenceable
 settingsdata
@@ -719,6 +722,8 @@ stroked
 subassembies
 subassemblies
 subcomponents
+subframe
+subframes
 subnode
 subpixel
 subscrbers

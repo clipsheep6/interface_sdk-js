@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../component/common_ts_ets_api.d.ts"/>
 
 import { AsyncCallback, Callback } from './@ohos.base';
@@ -567,6 +572,14 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The width of the Rect.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     width: number;
 
     /**
@@ -654,6 +667,15 @@ declare namespace window {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Window size
+   *
+   * @interface Size
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Size {
     /**
      * The width of the window.
@@ -670,6 +692,15 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The width of the window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     width: number;
 
     /**
@@ -685,6 +716,15 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The height of the window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     height: number;
   }
@@ -704,6 +744,15 @@ declare namespace window {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Properties of window, it couldn't update automatically
+   *
+   * @interface WindowProperties
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface WindowProperties {
     /**
      * The position and size of the window
@@ -720,8 +769,26 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The position and size of the window
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     windowRect: Rect;
 
+    /**
+     * The position relative to the window and size of drawable area
+     *
+     * @type { Rect } 
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    drawableRect: Rect;
+    
     /**
      * Window type
      *
@@ -854,6 +921,14 @@ declare namespace window {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 8
    */
+  /**
+   * Type of allowing the specified of color space.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @since 11
+   */
   enum ColorSpace {
     /**
      * Default color space.
@@ -861,12 +936,26 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 8
      */
+    /**
+     * Default color space.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
+     */
     DEFAULT,
     /**
      * Wide gamut color space. The specific wide color gamut depends on thr screen.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 8
+     */
+    /**
+     * Wide gamut color space. The specific wide color gamut depends on thr screen.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     WIDE_GAMUT
   }
@@ -1310,6 +1399,18 @@ declare namespace window {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Find the window by name.
+   *
+   * @param { string } name - Indicates window name.
+   * @returns { Window } Window found.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1300002 - This window state is abnormal.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function findWindow(name: string): Window;
 
   /**
@@ -1634,6 +1735,15 @@ declare namespace window {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Display orientation
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum Orientation {
     /**
      * Default value. The direction mode is not clearly defined. It is determined by the system.
@@ -1662,6 +1772,14 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Display in portrait orientation.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     PORTRAIT = 1,
 
@@ -1715,6 +1833,13 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     */
+    /**
+     * Follow the rotation of the sensor, ignore auto rotation lock.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
      */
     AUTO_ROTATION = 5,
 
@@ -1881,8 +2006,24 @@ declare namespace window {
      * @crossplatform
      * @since 11
      */
-    WINDOW_HIDDEN = 4
+    WINDOW_HIDDEN = 4,
+    /**
+     * The value of window event is window destroy
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    WINDOW_DESTROYED = 7
   }
+
+  /**
+   * Specific system bar type.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  type SpecificSystemBar = 'status' | 'navigation' | 'navigationIndicator';
+
   interface Window {
     /**
      * Hide window.
@@ -1971,6 +2112,16 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Show window.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     showWindow(callback: AsyncCallback<void>): void;
 
     /**
@@ -1989,6 +2140,16 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Show window.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     showWindow(): Promise<void>;
 
@@ -2059,6 +2220,17 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Destroy the window.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     destroyWindow(callback: AsyncCallback<void>): void;
 
     /**
@@ -2079,6 +2251,17 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Destroy the window.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     destroyWindow(): Promise<void>;
 
@@ -2133,6 +2316,20 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Set the position of a window.
+     *
+     * @param { number } x - Indicate the X-coordinate of the window.
+     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     moveWindowTo(x: number, y: number): Promise<void>;
 
     /**
@@ -2159,6 +2356,20 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Set the position of a window.
+     *
+     * @param { number } x - Indicate the X-coordinate of the window.
+     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     moveWindowTo(x: number, y: number, callback: AsyncCallback<void>): void;
 
@@ -2213,6 +2424,20 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Set the size of a window .
+     *
+     * @param { number } width - Indicates the width of the window.
+     * @param { number } height - Indicates the height of the window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     resize(width: number, height: number): Promise<void>;
 
     /**
@@ -2239,6 +2464,20 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Set the size of a window .
+     *
+     * @param { number } width - Indicates the width of the window.
+     * @param { number } height - Indicates the height of the window.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     resize(width: number, height: number, callback: AsyncCallback<void>): void;
 
@@ -2332,6 +2571,16 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Get the properties of current window
+     *
+     * @returns { WindowProperties } Return the window properties.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getWindowProperties(): WindowProperties;
 
@@ -2520,6 +2769,21 @@ declare namespace window {
     setWindowSystemBarEnable(names: Array<'status' | 'navigation'>): Promise<void>;
 
     /**
+     * Set specific system bar to have visible.
+     *
+     * @param {SpecificSystemBar} name - the set of system bar
+     * @param {boolean} enable - Show specific system bar if true, or hide specific system bar if false.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 1300002 - This window state is abnormal.
+     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 11
+     */
+    setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean): Promise<void>;
+
+    /**
      * Set the properties of system bar
      *
      * @param { SystemBarProperties } systemBarProperties - The properties of system bar
@@ -2592,6 +2856,18 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Set the preferred orientation config of the window
+     *
+     * @param { Orientation } orientation - The orientation config of the window
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     setPreferredOrientation(orientation: Orientation): Promise<void>;
 
     /**
@@ -2614,6 +2890,18 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Set the preferred orientation config of the window
+     *
+     * @param { Orientation } orientation - The orientation config of the window
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     setPreferredOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
 
@@ -2799,6 +3087,19 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Loads content
+     *
+     * @param { string } path - Path of the page to which the content will be loaded
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     setUIContent(path: string, callback: AsyncCallback<void>): void;
 
     /**
@@ -2824,6 +3125,19 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Loads content
+     *
+     * @param { string } path - Path of the page to which the content will be loaded
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     setUIContent(path: string): Promise<void>;
 
     /**
@@ -2838,6 +3152,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
@@ -2853,6 +3168,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     loadContentByName(name: string, callback: AsyncCallback<void>): void;
@@ -2869,6 +3185,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
@@ -2912,6 +3229,16 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Checks whether the window is displayed
+     *
+     * @returns { boolean } Whether the window is displayed. The value true means that the window is displayed, and false means the opposite.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     isWindowShowing(): boolean;
 
     /**
@@ -2923,6 +3250,16 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
+    /**
+     * Register the callback of windowSizeChange
+     *
+     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
+     * @param { Callback<Size> } callback - Callback used to return the window size.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
+     */
     on(type: 'windowSizeChange', callback: Callback<Size>): void;
 
     /**
@@ -2933,6 +3270,16 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * Unregister the callback of windowSizeChange
+     *
+     * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
+     * @param { Callback<Size> } callback - Callback used to return the window size.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
      */
     off(type: 'windowSizeChange', callback?: Callback<Size>): void;
 
@@ -3022,6 +3369,7 @@ declare namespace window {
      * @param { Callback<void> } callback - Callback used to return the click event outside this window.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
      * @since 11
      */
     off(type: 'touchOutside', callback?: Callback<void>): void;
@@ -3116,6 +3464,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
@@ -3137,6 +3486,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
@@ -3306,6 +3656,17 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
+    /**
+     * Sets the specified color space.
+     *
+     * @param { ColorSpace } colorSpace the specified color space.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
+     */
     setWindowColorSpace(colorSpace: ColorSpace): Promise<void>;
 
     /**
@@ -3317,6 +3678,17 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     */
+    /**
+     * Sets the specified color space.
+     *
+     * @param { ColorSpace } colorSpace the specified color space.
+     * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     setWindowColorSpace(colorSpace: ColorSpace, callback: AsyncCallback<void>): void;
 
@@ -3349,6 +3721,15 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
+     */
+    /**
+     * Obtains the set color space.
+     *
+     * @returns { ColorSpace } Color space obtained.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     getWindowColorSpace(): ColorSpace;
 
@@ -3394,6 +3775,17 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Sets the background color of window.
+     *
+     * @param { string } color the specified color.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     setWindowBackgroundColor(color: string): void;
 
@@ -3444,6 +3836,19 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Sets the brightness of window.
+     *
+     * @param { number } brightness the specified brightness value.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     setWindowBrightness(brightness: number): Promise<void>;
 
     /**
@@ -3468,6 +3873,19 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Sets the brightness of window.
+     *
+     * @param { number } brightness the specified brightness value.
+     * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     setWindowBrightness(brightness: number, callback: AsyncCallback<void>): void;
 
@@ -3590,6 +4008,19 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Sets whether keep screen on or not.
+     *
+     * @param { boolean } isKeepScreenOn keep screen on if true, or not if false.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     setWindowKeepScreenOn(isKeepScreenOn: boolean): Promise<void>;
 
     /**
@@ -3614,6 +4045,19 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Sets whether keep screen on or not.
+     *
+     * @param { boolean } isKeepScreenOn keep screen on if true, or not if false.
+     * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     setWindowKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback<void>): void;
 
@@ -4269,6 +4713,32 @@ declare namespace window {
      * @since 11
      */
     setSingleFrameComposerEnabled(enable: boolean): Promise<void>;
+
+    /*
+     * When get focused, keep the keyboard created by other windows, support system window and app subwindow.
+     *
+     * @param { boolean } keepKeyboardFlag - keep the keyboard if true, otherwise means the opposite.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    keepKeyboardOnFocus(keepKeyboardFlag: boolean): void;
+
+    /**
+     * Recover app main window.
+     *
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1300001 - Repeated operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    recover(): Promise<void>;
   }
   /**
    * Window stage callback event type
@@ -4433,6 +4903,18 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Get main window of the stage.
+     *
+     * @returns { Promise<Window> } Callback used to return the subwindow.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     getMainWindow(): Promise<Window>;
     /**
      * Get main window of the stage.
@@ -4489,6 +4971,18 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Get main window of the stage.
+     *
+     * @returns { Window }
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     getMainWindowSync(): Window;
     /**
      * Create sub window of the stage.
@@ -4515,6 +5009,20 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Create sub window of the stage.
+     *
+     * @param { string } name window name of sub window
+     * @returns { Promise<Window> } Promise used to return the subwindow.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     createSubWindow(name: string): Promise<Window>;
     /**
      * Create sub window of the stage.
@@ -4540,6 +5048,20 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Create sub window of the stage.
+     *
+     * @param { string } name window name of sub window
+     * @param { AsyncCallback<Window> } callback Callback used to return the subwindow.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     createSubWindow(name: string, callback: AsyncCallback<Window>): void;
     /**
@@ -4576,6 +5098,17 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Get sub window of the stage.
+     *
+     * @returns { Promise<Array<Window>> }
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     getSubWindow(): Promise<Array<Window>>;
     /**
      * Get sub window of the stage.
@@ -4595,6 +5128,17 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Get sub window of the stage.
+     *
+     * @param { AsyncCallback<Array<Window>> } callback Callback used to return all the subwindows.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     getSubWindow(callback: AsyncCallback<Array<Window>>): void;
     /**
@@ -4736,6 +5280,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
@@ -4751,6 +5296,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     loadContentByName(name: string, callback: AsyncCallback<void>): void;
@@ -4767,6 +5313,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
      * @crossplatform
+     * @atomicservice
      * @since 11
      */
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
@@ -4796,6 +5343,20 @@ declare namespace window {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Window stage event callback on.
+     *
+     * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
+     * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void;
     /**
      * Window stage event callback off.
@@ -4821,6 +5382,20 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Window stage event callback off.
+     *
+     * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
+     * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
 

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit Image Kit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import type rpc from './@ohos.rpc';
@@ -3000,7 +3005,7 @@ declare namespace image {
     getDelayTimeList(): Promise<Array<number>>;
 
     /**
-     * Obtains the array of delay time in an image. This method uses a callback to to return the array.
+     * Obtains the array of delay time in an image. This method uses a callback to return the array.
      *
      * @param { AsyncCallback<Array<number>> } callback Callback used to return the array.
      * @throws { BusinessError } 62980096 - If the operation failed.
@@ -3034,7 +3039,7 @@ declare namespace image {
     getFrameCount(): Promise<number>;
 
     /**
-     * Obtains the count of frame in an image. This method uses a callback to to return the number.
+     * Obtains the count of frame in an image. This method uses a callback to return the number.
      *
      * @param { AsyncCallback<number> } callback Callback used to return the number.
      * @throws { BusinessError } 62980096 - If the operation failed.
