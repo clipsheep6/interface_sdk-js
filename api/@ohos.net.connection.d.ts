@@ -931,11 +931,11 @@ declare namespace connection {
     /**
      * Registers a listener for netBlockStatusChange events.
      * @param { 'netBlockStatusChange' } type - Indicates Event name.
-     * @param { Callback<{ netHandle: NetHandle, blocked: boolean }> } callback - the callback used to return the result.
+     * @param { Callback<NetStatus> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
-    on(type: 'netBlockStatusChange', callback: Callback<{ netHandle: NetHandle, blocked: boolean }>): void;
+    on(type: 'netBlockStatusChange', callback: Callback<NetStatus>): void;
 
     /**
      * Registers a listener for **netCapabilitiesChange** events.
@@ -966,11 +966,11 @@ declare namespace connection {
     /**
      * Registers a listener for netConnectionPropertiesChange events.
      * @param { 'netConnectionPropertiesChange' } type - Indicates Event name.
-     * @param { Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }> } callback - the callback used to return the result.
+     * @param { Callback<NetworkConnection> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
-    on(type: 'netConnectionPropertiesChange', callback: Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }>): void;
+    on(type: 'netConnectionPropertiesChange', callback: Callback<NetworkConnection>): void;
 
     /**
      * Registers a listener for **netLost** events.
@@ -1414,6 +1414,66 @@ declare namespace connection {
      * @since 11
      */
     bearerTypes: Array<NetBearType>;
+  }
+
+  /**
+   * Get information about network connections.
+   * @interface NetworkConnection
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  export interface NetworkConnection{
+    /**
+     * Defines the handle of the data network.
+     * @interface NetHandle
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 8
+     */
+    /**
+     * Defines the handle of the data network.
+     * @interface NetHandle
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
+     */
+    netHandle: NetHandle;
+    /**
+     * Defines the network connection properties.
+     * @interface ConnectionProperties
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 8
+     */
+    connectionProperties: ConnectionProperties;
+  }
+
+  /**
+   * Get network status information.
+   * @interface NetCapabilities
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  export interface NetStatus{
+    /**
+     * Defines the handle of the data network.
+     * @interface NetHandle
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 8
+     */
+    /**
+     * Defines the handle of the data network.
+     * @interface NetHandle
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @since 10
+     */
+    netHandle: NetHandle;
+    /**
+     * Define network congestion status.
+     * @type {boolean}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 8
+     */
+    blocked: boolean;
   }
 
   /**
