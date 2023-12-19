@@ -931,9 +931,16 @@ declare namespace connection {
     /**
      * Registers a listener for netBlockStatusChange events.
      * @param { 'netBlockStatusChange' } type - Indicates Event name.
-     * @param { Callback<NetStatus> } callback - the callback used to return the result.
+     * @param { Callback<{ netHandle: NetHandle, blocked: boolean }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
+     */
+    /**
+     * Registers a listener for netBlockStatusChange events.
+     * @param { 'netBlockStatusChange' } type - Indicates Event name.
+     * @param { Callback<NetStatus> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
      */
     on(type: 'netBlockStatusChange', callback: Callback<NetStatus>): void;
 
@@ -966,9 +973,16 @@ declare namespace connection {
     /**
      * Registers a listener for netConnectionPropertiesChange events.
      * @param { 'netConnectionPropertiesChange' } type - Indicates Event name.
-     * @param { Callback<NetworkConnection> } callback - the callback used to return the result.
+     * @param { Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
+     */
+    /**
+     * Registers a listener for netConnectionPropertiesChange events.
+     * @param { 'netConnectionPropertiesChange' } type - Indicates Event name.
+     * @param { Callback<NetworkConnection> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
      */
     on(type: 'netConnectionPropertiesChange', callback: Callback<NetworkConnection>): void;
 
