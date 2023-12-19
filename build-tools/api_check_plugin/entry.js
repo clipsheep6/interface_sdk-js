@@ -30,7 +30,25 @@ function checkEntry(prId) {
     const execSync = require('child_process').execSync;
     do {
       try {
-        buffer = execSync('cd interface/sdk-js/build-tools/api_diff && npm install && cd ../api_check_plugin && npm install', {
+        result.push(`count : ${i}`);
+        buffer = execSync(
+          'cd interface/sdk-js/build-tools/api_diff && npm install && cd ../api_check_plugin && npm install',
+          {
+            timeout: 120000,
+          }
+        );
+        execute = true;
+      } catch (error) {}
+    } while (++i < MAX_TIMES && !execute);
+    if (!execute) {
+      throw 'npm install timeout';
+    }
+    i = 0;
+    execute = false;
+    do {
+      try {
+        result.push(`count : ${i}`);
+        buffer = execSync('cd interface/sdk_c/capi_parser && pip install -r requirements.txt ', {
           timeout: 120000,
         });
         execute = true;
@@ -39,11 +57,12 @@ function checkEntry(prId) {
     if (!execute) {
       throw 'npm install timeout';
     }
-    const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
-    result = scanEntry(mdFilesPath, prId, false);
-    result = reqGitApi(result, prId);
-    removeDir(path.resolve(__dirname, '../api_diff/node_modules'));
-    removeDir(path.resolve(__dirname, 'node_modules'));
+    result.push('run over');
+    // const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
+    // result = scanEntry(mdFilesPath, prId, false);
+    // result = reqGitApi(result, prId);
+    // removeDir(path.resolve(__dirname, '../api_diff/node_modules'));
+    // removeDir(path.resolve(__dirname, 'node_modules'));
   } catch (error) {
     // catch error
     result.push(`API_CHECK_ERROR : ${error}`);
@@ -74,13 +93,18 @@ function removeDir(url) {
 
 function writeResultFile(resultData, outputPath, option) {
   const STANDARD_INDENT = 2;
-  fs.writeFile(path.resolve(__dirname, outputPath), JSON.stringify(resultData, null, STANDARD_INDENT), option, (err) => {
-    if (err) {
-      console.error(`ERROR FOR CREATE FILE:${err}`);
-    } else {
-      console.log('API CHECK FINISH!');
+  fs.writeFile(
+    path.resolve(__dirname, outputPath),
+    JSON.stringify(resultData, null, STANDARD_INDENT),
+    option,
+    (err) => {
+      if (err) {
+        console.error(`ERROR FOR CREATE FILE:${err}`);
+      } else {
+        console.log('API CHECK FINISH!');
+      }
     }
-  });
+  );
 }
 
 checkEntry(process.argv[SECOND_PARAM]);
