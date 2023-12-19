@@ -79,16 +79,7 @@ export interface PromptOptions {
    * @crossplatform
    * @since 11
    */
-  touchText?: ResourceStr;
-
-  /**
-   * The icon button on the right is hidden of PromptOptions.
-   * @type {boolean}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  isIconButtonShown?: boolean;
+  actionText?: ResourceStr;
 
   /**
    * Distance from the top of PromptOptions.
@@ -134,7 +125,7 @@ export declare struct ExceptionPrompt {
    * @crossplatform
    * @since 11
    */
-  onTextClick?: () => void;
+  onTipClick?: () => void;
 
   /**
    * Callback when click the icon button.
@@ -143,7 +134,7 @@ export declare struct ExceptionPrompt {
    * @crossplatform
    * @since 11
    */
-  onIconButtonClick?: () => void;
+  onActionTextClick?: () => void;
 
   /**
    * The build function is a member function that must return an ArkTS component type (Element) to represent the component to be rendered as a user interface.
