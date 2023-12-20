@@ -17,84 +17,61 @@ const path = require('path');
 const fs = require('fs');
 const SECOND_PARAM = 2;
 
-function checkEntry(prId) {
+function checkEntry (prId) {
   let result = ['api_check: false'];
   const sourceDirname = __dirname;
-  // __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
+  __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', 'all_files.txt');
-  result.push(`path:${sourceDirname}`);
   const MAX_TIMES = 3;
   let buffer = new Buffer.from('');
-  let bufferTestClang = new Buffer.from('');
-  let bufferTestCapi = new Buffer.from('');
   let i = 0;
   let execute = false;
   try {
     const execSync = require('child_process').execSync;
-    // do {
-    //   try {
-    //     result.push(`count : ${i}`);
-    //     buffer = execSync(
-    //       'cd interface/sdk-js/build-tools/api_diff && npm install && cd ../api_check_plugin && npm install',
-    //       {
-    //         timeout: 120000,
-    //       }
-    //     );
-    //     execute = true;
-    //   } catch (error) {}
-    // } while (++i < MAX_TIMES && !execute);
-    // if (!execute) {
-    //   throw 'npm install timeout';
-    // }
-    // i = 0;
-    // execute = false;
     do {
       try {
-        result.push(`count : ${i}`);
-        buffer = execSync('cd interface/sdk_c/build-tools/capi_parser && pip install -r requirements.txt ', {
+        buffer = execSync('cd interface/sdk-js/build-tools/api_diff && npm install && cd ../api_check_plugin && npm install', {
           timeout: 120000,
         });
         execute = true;
-      } catch (error) {
-        result.push(`pip install error ${i}: ${error}`);
-      }
+      } catch (error) { }
     } while (++i < MAX_TIMES && !execute);
+    if (!execute) {
+      throw 'npm install timeout';
+    }
+    i = 0;
+    execute = false;
+    do {
+      try {
+        buffer = execSync('cd interface/sdk_c && pip3 install -r build-tools/capi_parser/requirements.txt', {
+          timeout: 120000,
+        });
+        execute = true;
+      } catch (error) { }
+    } while (++i < 3 && !execute);
     if (!execute) {
       throw 'pip install timeout';
     }
-    result.push(`buffer : ${buffer.toString()}`);
-
-    bufferTestCapi = execSync(
-      `cd interface/sdk_c && python build-tools/capi_parser/src/main.py  -N collect -P ai/neural_network_runtime `,
-      {
-        timeout: 10000,
-      }
-    );
-    result.push(`bufferTestCapi : ${bufferTestCapi.toString()}`);
-
-    // const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
-    // result = scanEntry(mdFilesPath, prId, false);
-    // result = reqGitApi(result, prId);
-    result.push(`run over`);
-    // removeDir(path.resolve(__dirname, '../api_diff/node_modules'));
-    // removeDir(path.resolve(__dirname, 'node_modules'));
+    const { scanEntry, reqGitApi } = require('./src/api_check_plugin');
+    result = scanEntry(mdFilesPath, prId, false);
+    result = reqGitApi(result, prId);
+    removeDir(path.resolve(sourceDirname, '../api_diff/node_modules'));
+    removeDir(path.resolve(sourceDirname, 'node_modules'));
   } catch (error) {
     // catch error
     result.push(`API_CHECK_ERROR : ${error}`);
-    result.push(`buffer error : ${buffer.toString()}`);
-    result.push(`bufferTestClang error : ${bufferTestClang.toString()}`);
-    result.push(`bufferTestCapi error : ${bufferTestCapi.toString()}`);
+    result.push(`buffer : ${buffer.toString()}`);
   } finally {
-    // const { apiCheckInfoArr, removeDuplicateObj } = require('./src/utils');
-    // const apiCheckResultArr = removeDuplicateObj(apiCheckInfoArr);
-    // apiCheckResultArr.forEach((errorInfo) => {
-    //   result.unshift(errorInfo);
-    // });
+    const { apiCheckInfoArr, removeDuplicateObj } = require('./src/utils');
+    const apiCheckResultArr = removeDuplicateObj(apiCheckInfoArr);
+    apiCheckResultArr.forEach((errorInfo) => {
+      result.unshift(errorInfo);
+    });
     writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
   }
 }
 
-function removeDir(url) {
+function removeDir (url) {
   const statObj = fs.statSync(url);
   if (statObj.isDirectory()) {
     let dirs = fs.readdirSync(url);
@@ -108,20 +85,15 @@ function removeDir(url) {
   }
 }
 
-function writeResultFile(resultData, outputPath, option) {
+function writeResultFile (resultData, outputPath, option) {
   const STANDARD_INDENT = 2;
-  fs.writeFile(
-    path.resolve(__dirname, outputPath),
-    JSON.stringify(resultData, null, STANDARD_INDENT),
-    option,
-    (err) => {
-      if (err) {
-        console.error(`ERROR FOR CREATE FILE:${err}`);
-      } else {
-        console.log('API CHECK FINISH!');
-      }
+  fs.writeFile(path.resolve(__dirname, outputPath), JSON.stringify(resultData, null, STANDARD_INDENT), option, (err) => {
+    if (err) {
+      console.error(`ERROR FOR CREATE FILE:${err}`);
+    } else {
+      console.log('API CHECK FINISH!');
     }
-  );
+  });
 }
 
 checkEntry(process.argv[SECOND_PARAM]);
