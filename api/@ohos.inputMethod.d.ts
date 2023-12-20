@@ -115,6 +115,18 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
+  /**
+   * Switch input method. The caller must be the current inputmethod.
+   *
+   * @param { InputMethodProperty } target - indicates the input method which will replace the current one.
+   * @param { AsyncCallback<boolean> } callback - the callback of switchInputMethod.
+   * @throws { BusinessError } 201 - permissions check fails.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
   function switchInputMethod(target: InputMethodProperty, callback: AsyncCallback<boolean>): void;
 
   /**
@@ -129,6 +141,18 @@ declare namespace inputMethod {
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
+   */
+  /**
+   * Switch input method. The caller must be the current inputmethod.
+   *
+   * @param { InputMethodProperty } target - indicates the input method which will replace the current one.
+   * @param { AsyncCallback<boolean> } callback - the callback of switchInputMethod.
+   * @throws { BusinessError } 201 - permissions check fails.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
    */
   function switchInputMethod(target: InputMethodProperty): Promise<boolean>;
 
@@ -167,6 +191,18 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
+  /**
+   * Switch current input method subtype. The caller must be the current inputmethod.
+   *
+   * @param { InputMethodSubtype } target - Indicates the input method subtype which will replace the current one.
+   * @param { AsyncCallback<boolean> } callback - the callback of switchCurrentInputMethodSubtype.
+   * @throws { BusinessError } 201 - permissions check fails.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype, callback: AsyncCallback<boolean>): void;
 
   /**
@@ -195,6 +231,18 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 10
    */
+  /**
+   * Switch current input method subtype. The caller must be the current inputmethod.
+   *
+   * @param { InputMethodSubtype } target - Indicates the input method subtype which will replace the current one.
+   * @param { AsyncCallback<boolean> } callback - the callback of switchCurrentInputMethodSubtype.
+   * @throws { BusinessError } 201 - permissions check fails.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11
+   */
   function switchCurrentInputMethodSubtype(target: InputMethodSubtype): Promise<boolean>;
 
   /**
@@ -220,6 +268,19 @@ declare namespace inputMethod {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
+  /**
+   * Switch input method and subtype. The caller must be the current inputmethod.
+   *
+   * @param { InputMethodProperty } inputMethodProperty - Indicates the target input method.
+   * @param { InputMethodSubtype } inputMethodSubtype - Indicates the target input method subtype.
+   * @param { AsyncCallback<boolean> } callback - the callback of switchCurrentInputMethodAndSubtype.
+   * @throws { BusinessError } 201 - permissions check fails.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11 
+   */
   function switchCurrentInputMethodAndSubtype(
     inputMethodProperty: InputMethodProperty,
     inputMethodSubtype: InputMethodSubtype,
@@ -239,6 +300,19 @@ declare namespace inputMethod {
    * @throws { BusinessError } 12800008 - input method manager service error.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
+   */
+  /**
+   * Switch input method and subtype. The caller must be the current inputmethod.
+   *
+   * @param { InputMethodProperty } inputMethodProperty - Indicates the target input method.
+   * @param { InputMethodSubtype } inputMethodSubtype - Indicates the target input method subtype.
+   * @param { AsyncCallback<boolean> } callback - the callback of switchCurrentInputMethodAndSubtype.
+   * @throws { BusinessError } 201 - permissions check fails.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 12800005 - configuration persisting error.
+   * @throws { BusinessError } 12800008 - input method manager service error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 11 
    */
   function switchCurrentInputMethodAndSubtype(
     inputMethodProperty: InputMethodProperty,
