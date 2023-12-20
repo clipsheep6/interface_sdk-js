@@ -1726,6 +1726,55 @@ declare namespace image {
   }
 
   /**
+   * Provides color matrixes in common use for {@link #applyColorMatrix(Array<number>)} and
+   * {@link #applyColorMatrix(Array<number>, AsyncCallback<void>)}
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 11
+   */
+  class ColorMatrix {
+    /**
+     * Indicates a gray transformation matrix.
+     *
+     * @readonly
+     * @static
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    static readonly GRAY: Array<number>;
+
+    /**
+     * Indicates a color invert transformation matrix.
+     *
+     * @readonly
+     * @static
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    static readonly INVERT: Array<number>;
+
+    /**
+     * Indicates a color increase transformation matrix.
+     *
+     * @readonly
+     * @static
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    static readonly INCREASE: Array<number>;
+
+    /**
+     * Indicates a color decrease transformation matrix.
+     *
+     * @readonly
+     * @static
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    static readonly DECREASE: Array<number>;
+  }
+
+  /**
    * Create pixelmap by data buffer.
    *
    * @param { ArrayBuffer } colors The image color buffer.
@@ -2662,6 +2711,36 @@ declare namespace image {
      * @since 10
      */
     crop(region: Region): Promise<void>;
+
+    /**
+     * Change pixels color by using target color matrix. This method uses a callback to return the operation result.
+     *
+     * @param { Array<number> } targetColorMatrix - A matrix of 5x4 size for pixel map.
+     * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980101 - If the image data abnormal.
+     * @throws { BusinessError } 62980102 - If the image malloc abnormal
+     * @throws { BusinessError } 62980104 - If the internal object initialized failed.
+     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    applyColorMatrix(targetColorMatrix: Array<number>, callback: AsyncCallback<void>): void;
+
+    /**
+     * Change pixels color by using target color matrix. This method uses a promise to return the result.
+     *
+     * @param { Array<number> } targetColorMatrix - A matrix of 5x4 size for pixel map.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980101 - If the image data abnormal.
+     * @throws { BusinessError } 62980102 - If the image malloc abnormal
+     * @throws { BusinessError } 62980104 - If the internal object initialized failed.
+     * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    applyColorMatrix(targetColorMatrix: Array<number>): Promise<void>;
 
     /**
      * Get color space of pixel map.
