@@ -168,14 +168,16 @@ declare namespace cert {
    *
    * @enum { number }
    * @syscap SystemCapability.Security.Cert
-   * @since 9
+   * @crossplatform
+   * @since 11
    */
   enum EncodingFormat {
     /**
      * The value of cert DER format.
      *
      * @syscap SystemCapability.Security.Cert
-     * @since 9
+     * @crossplatform
+     * @since 11
      */
     FORMAT_DER = 0,
 
@@ -183,7 +185,8 @@ declare namespace cert {
      * The value of cert PEM format.
      *
      * @syscap SystemCapability.Security.Cert
-     * @since 9
+	 * @crossplatform
+     * @since 11
      */
     FORMAT_PEM = 1
   }
@@ -428,7 +431,8 @@ declare namespace cert {
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
-     * @since 9
+	 * @crossplatform
+     * @since 11
      */
     getPublicKey(): cryptoFramework.PubKey;
 
@@ -652,6 +656,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     match(param: X509CertMatchParameters): boolean;
@@ -667,7 +672,8 @@ declare namespace cert {
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
-   * @since 9
+   * @crossplatform
+   * @since 11
    */
   function createX509Cert(inStream: EncodingBlob, callback: AsyncCallback<X509Cert>): void;
 
@@ -681,7 +687,8 @@ declare namespace cert {
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
-   * @since 9
+   * @crossplatform
+   * @since 11
    */
   function createX509Cert(inStream: EncodingBlob): Promise<X509Cert>;
 
@@ -756,6 +763,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     hasUnsupportedCriticalExtension(): boolean;
@@ -874,6 +882,7 @@ declare namespace cert {
    *
    * @typedef X509CRLEntry
    * @syscap SystemCapability.Security.Cert
+   * @crossplatform
    * @since 11
    */
   interface X509CRLEntry {
@@ -886,6 +895,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
@@ -899,6 +909,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getEncoded(): Promise<EncodingBlob>;
@@ -911,6 +922,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getSerialNumber(): bigint;
@@ -924,6 +936,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getCertIssuer(): DataBlob;
@@ -936,6 +949,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getRevocationDate(): string;
@@ -948,6 +962,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getExtensions(): DataBlob;
@@ -960,6 +975,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     hasExtensions(): boolean;
@@ -1277,6 +1293,7 @@ declare namespace cert {
    *
    * @typedef X509CRL
    * @syscap SystemCapability.Security.Cert
+   * @crossplatform
    * @since 11
    */
   interface X509CRL {
@@ -1287,6 +1304,7 @@ declare namespace cert {
      * @returns { boolean } result of Check cert is revoked or not.
      * @throws { BusinessError } 401 - invalid parameters.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     isRevoked(cert: X509Cert): boolean;
@@ -1296,6 +1314,7 @@ declare namespace cert {
      *
      * @returns { string } string of CRL type.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getType(): string;
@@ -1309,6 +1328,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
@@ -1322,6 +1342,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getEncoded(): Promise<EncodingBlob>;
@@ -1334,6 +1355,7 @@ declare namespace cert {
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     verify(key: cryptoFramework.PubKey, callback: AsyncCallback<void>): void;
@@ -1346,6 +1368,7 @@ declare namespace cert {
      * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     verify(key: cryptoFramework.PubKey): Promise<void>;
@@ -1355,6 +1378,7 @@ declare namespace cert {
      *
      * @returns { number } version of CRL.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getVersion(): number;
@@ -1367,6 +1391,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getIssuerName(): DataBlob;
@@ -1379,6 +1404,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getLastUpdate(): string;
@@ -1391,6 +1417,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getNextUpdate(): string;
@@ -1404,6 +1431,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getRevokedCert(serialNumber: bigint): X509CRLEntry;
@@ -1417,6 +1445,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getRevokedCertWithCert(cert: X509Cert): X509CRLEntry;
@@ -1429,6 +1458,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getRevokedCerts(callback: AsyncCallback<Array<X509CRLEntry>>): void;
@@ -1441,6 +1471,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getRevokedCerts(): Promise<Array<X509CRLEntry>>;
@@ -1453,6 +1484,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getTBSInfo(): DataBlob;
@@ -1465,6 +1497,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getSignature(): DataBlob;
@@ -1477,6 +1510,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getSignatureAlgName(): string;
@@ -1489,6 +1523,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getSignatureAlgOid(): string;
@@ -1502,6 +1537,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getSignatureAlgParams(): DataBlob;
@@ -1514,6 +1550,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     getExtensions(): DataBlob;
@@ -1527,6 +1564,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     match(param: X509CRLMatchParameters): boolean;
@@ -1542,6 +1580,7 @@ declare namespace cert {
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
+   * @crossplatform
    * @since 11
    */
   function createX509CRL(inStream: EncodingBlob, callback: AsyncCallback<X509CRL>): void;
@@ -1556,6 +1595,7 @@ declare namespace cert {
    * @throws { BusinessError } 801 - this operation is not supported.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
+   * @crossplatform
    * @since 11
    */
   function createX509CRL(inStream: EncodingBlob): Promise<X509CRL>;
@@ -1639,6 +1679,7 @@ declare namespace cert {
    *
    * @typedef X509CertMatchParameters
    * @syscap SystemCapability.Security.Cert
+   * @crossplatform
    * @since 11
    */
   interface X509CertMatchParameters {
@@ -1650,6 +1691,7 @@ declare namespace cert {
      *
      * @type { ?X509Cert }
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     x509Cert?: X509Cert;
@@ -1662,6 +1704,7 @@ declare namespace cert {
      *
      * @type { ?string } format is YYMMDDHHMMSSZ or YYYYMMDDHHMMSSZ.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     validDate?: string;
@@ -1674,6 +1717,7 @@ declare namespace cert {
      *
      * @type { ?Uint8Array }
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     issuer?: Uint8Array;
@@ -1687,6 +1731,7 @@ declare namespace cert {
      *
      * @type { ?Array<boolean> }
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     keyUsage?: Array<boolean>;
@@ -1699,6 +1744,7 @@ declare namespace cert {
      *
      * @type { ?bigint }
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     serialNumber?: bigint;
@@ -1711,6 +1757,7 @@ declare namespace cert {
      *
      * @type { ?Uint8Array } subject in DER encoding format
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     subject?: Uint8Array;
@@ -1723,6 +1770,7 @@ declare namespace cert {
      *
      * @type { ?DataBlob } publicKey
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     publicKey?: DataBlob;
@@ -1735,6 +1783,7 @@ declare namespace cert {
      *
      * @type { ?string } the object identifier (OID) of the signature algorithm to check.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     publicKeyAlgID?: string;
@@ -1745,6 +1794,7 @@ declare namespace cert {
    *
    * @typedef X509CRLMatchParameters
    * @syscap SystemCapability.Security.Cert
+   * @crossplatform
    * @since 11
    */
   interface X509CRLMatchParameters {
@@ -1756,6 +1806,7 @@ declare namespace cert {
      *
      * @type { ?Array<Uint8Array> }
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     issuer?: Array<Uint8Array>;
@@ -1768,6 +1819,7 @@ declare namespace cert {
      *
      * @type { ?X509Cert }
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     x509Cert?: X509Cert;
@@ -1778,6 +1830,7 @@ declare namespace cert {
    *
    * @typedef CertCRLCollection
    * @syscap SystemCapability.Security.Cert
+   * @crossplatform
    * @since 11
    */
   interface CertCRLCollection {
@@ -1790,6 +1843,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     selectCerts(param: X509CertMatchParameters): Promise<Array<X509Cert>>;
@@ -1803,6 +1857,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     selectCerts(param: X509CertMatchParameters, callback: AsyncCallback<Array<X509Cert>>): void;
@@ -1816,6 +1871,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     selectCRLs(param: X509CRLMatchParameters): Promise<Array<X509CRL>>;
@@ -1829,6 +1885,7 @@ declare namespace cert {
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
+	 * @crossplatform
      * @since 11
      */
     selectCRLs(param: X509CRLMatchParameters, callback: AsyncCallback<Array<X509CRL>>): void;
@@ -1843,6 +1900,7 @@ declare namespace cert {
    * @throws { BusinessError } 401 - invalid parameters.
    * @throws { BusinessError } 19020001 - memory error.
    * @syscap SystemCapability.Security.Cert
+   * @crossplatform
    * @since 11
    */
   function createCertCRLCollection(certs: Array<X509Cert>, crls?: Array<X509CRL>): CertCRLCollection;
