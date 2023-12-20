@@ -88,7 +88,7 @@ export interface PromptOptions {
    * @crossplatform
    * @since 11
    */
-  marginTop:Dimension
+  marginTop: Dimension
 
   /**
    * Control concealment of PromptOptions.
@@ -97,7 +97,7 @@ export interface PromptOptions {
    * @crossplatform
    * @since 11
    */
-  isShown?:boolean
+  isShown?: boolean
 }
 
 /**
