@@ -2717,7 +2717,6 @@ declare namespace image {
     /**
      * Is it stride Alignment
      *
-     *
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
