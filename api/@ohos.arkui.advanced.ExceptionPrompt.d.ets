@@ -83,12 +83,12 @@ export interface PromptOptions {
 
   /**
    * Distance from the top of PromptOptions.
-   * @type {number}
+   * @type {Dimension}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  marginTop:number
+  marginTop:Dimension
 
   /**
    * Control concealment of PromptOptions.
