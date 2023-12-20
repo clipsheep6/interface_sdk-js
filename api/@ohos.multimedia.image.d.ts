@@ -2053,6 +2053,21 @@ declare namespace image {
    * @deprecated since 11
    * @useinstead image#createImageReceiver
    */
+  /**
+   * Creates an ImageReceiver instance.
+   *
+   * @param { number } width - The default width in pixels of the Images that this receiver will produce.
+   * @param { number } height - The default height in pixels of the Images that this receiver will produce.
+   * @param { number } format - The format of the Image that this receiver will produce. This must be one of the
+   *            {@link ImageFormat} constants.
+   * @param { number } capacity - The maximum number of images the user will want to access simultaneously.
+   * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+   * @since 11
+   * @deprecated since 11
+   * @useinstead image#createImageReceiver
+   */
   function createImageReceiver(width: number, height: number, format: number, capacity: number): ImageReceiver;
 
   /**
@@ -2063,6 +2078,7 @@ declare namespace image {
    *            {@link ImageFormat} constants.
    * @param { number } capacity - The maximum number of images the user will want to access simultaneously.
    * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 11
    */
@@ -2082,6 +2098,21 @@ declare namespace image {
    * @deprecated since 11
    * @useinstead image#createImageCreator
    */
+  /**
+   * Creates an ImageCreator instance.
+   *
+   * @param { number } width - The default width in pixels of the Images that this creator will produce.
+   * @param { number } height - The default height in pixels of the Images that this creator will produce.
+   * @param { number } format - The format of the Image that this creator will produce. This must be one of the
+   *            {@link ImageFormat} constants.
+   * @param { number } capacity - The maximum number of images the user will want to access simultaneously.
+   * @returns { ImageCreator } Returns the ImageCreator instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Multimedia.Image.ImageCreator
+   * @since 11
+   * @deprecated since 11
+   * @useinstead image#createImageCreator
+   */
   function createImageCreator(width: number, height: number, format: number, capacity: number): ImageCreator;
 
   /**
@@ -2092,6 +2123,7 @@ declare namespace image {
    *            {@link ImageFormat} constants.
    * @param { number } capacity - The maximum number of images the user will want to access simultaneously.
    * @returns { ImageCreator } Returns the ImageCreator instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
    * @since 11
    */
@@ -3116,6 +3148,32 @@ declare namespace image {
      * Obtains the value of a property in an image with the specified index. This method uses a
      * promise to return the property value in a string.
      *
+     * @param { PropertyKey } key - Name of the property whose value is to be obtained.
+     * @param { ImagePropertyOptions } options - Index of the image.
+     * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980103 - If the image data unsupport.
+     * @throws { BusinessError } 62980110 - If the image source data error.
+     * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980112 - If the image format mismatch.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980115 - If the image invalid parameter.
+     * @throws { BusinessError } 62980116 - If the image decode failed.
+     * @throws { BusinessError } 62980118 - If the image plugin create failed.
+     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 62980123 - If the image unsupport exif.
+     * @throws { BusinessError } 62980135 - If the exif value is invalid.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
+     */
+    getImageProperty(key: PropertyKey, options?: ImagePropertyOptions): Promise<string>;
+
+    /**
+     * Obtains the value of a property in an image with the specified index. This method uses a
+     * promise to return the property value in a string.
+     *
      * @param { string } key Name of the property whose value is to be obtained.
      * @param { GetImagePropertyOptions } options Index of the image.
      * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
@@ -3134,6 +3192,32 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
+     */
+    /**
+     * Obtains the value of a property in an image with the specified index. This method uses a
+     * promise to return the property value in a string.
+     *
+     * @param { string } key - Name of the property whose value is to be obtained.
+     * @param { GetImagePropertyOptions } options - Index of the image.
+     * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980103 - If the image data unsupport.
+     * @throws { BusinessError } 62980110 - If the image source data error.
+     * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980112 - If the image format mismatch.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980115 - If the image invalid parameter.
+     * @throws { BusinessError } 62980116 - If the image decode failed.
+     * @throws { BusinessError } 62980118 - If the image plugin create failed.
+     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 62980123 - If the image unsupport exif.
+     * @throws { BusinessError } 62980135 - If the exif value is invalid.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
      * @deprecated since 11
      * @useinstead image.ImageSource#getImageProperty
      */
@@ -3159,6 +3243,31 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
+     */
+    /**
+     * Obtains the value of a property in this image. This method uses a callback to return the
+     * property value in a string.
+     *
+     * @param { string } key - Name of the property whose value is to be obtained.
+     * @param { AsyncCallback<string> } callback - Callback used to return the property value. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980103 - If the image data unsupport.
+     * @throws { BusinessError } 62980110 - If the image source data error.
+     * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980112 - If the image format mismatch.
+     * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980115 - If the image invalid parameter.
+     * @throws { BusinessError } 62980116 - If the image decode failed.
+     * @throws { BusinessError } 62980118 - If the image plugin create failed.
+     * @throws { BusinessError } 62980122 - If the image decode head abnormal.
+     * @throws { BusinessError } 62980123 - If the image unsupport exif.
+     * @throws { BusinessError } 62980135 - If the exif value is invalid. 
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
      * @deprecated since 11
      * @useinstead image.ImageSource#getImageProperty
      */
@@ -3189,29 +3298,52 @@ declare namespace image {
      * @deprecated since 11
      * @useinstead image.ImageSource#getImageProperty
      */
-    getImageProperty(key: string, options: GetImagePropertyOptions, callback: AsyncCallback<string>): void;
-
     /**
-     * Obtains the value of a property in an image with the specified index. This method uses a
-     * promise to return the property value in a string.
+     * Obtains the value of a property in an image with the specified index. This method uses
+     * a callback to return the property value in a string.
      *
-     * @param { PropertyKey } key - Name of the property whose value is to be obtained.
-     * @param { ImagePropertyOptions } options - Index of the image.
-     * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
+     * @param { string } key - Name of the property whose value is to be obtained.
+     * @param { GetImagePropertyOptions } - options Index of the image.
+     * @param { AsyncCallback<string> } - callback Callback used to return the property value. If the operation fails, the default value is returned.
      * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - If the operation failed.
+     * @throws { BusinessError } 62980103 - If the image data unsupport.
+     * @throws { BusinessError } 62980110 - If the image source data error.
      * @throws { BusinessError } 62980111 - If the image source data incomplete.
+     * @throws { BusinessError } 62980112 - If the image format mismatch.
      * @throws { BusinessError } 62980113 - If the image format unknown.
+     * @throws { BusinessError } 62980115 - If the image invalid parameter.
      * @throws { BusinessError } 62980116 - If the image decode failed.
      * @throws { BusinessError } 62980118 - If the image plugin create failed.
      * @throws { BusinessError } 62980122 - If the image decode head abnormal.
      * @throws { BusinessError } 62980123 - If the image unsupport exif.
+     * @throws { BusinessError } 62980135 - If the exif value is invalid.  
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
+     * @deprecated since 11
+     * @useinstead image.ImageSource#getImageProperty
+     */
+    getImageProperty(key: string, options: GetImagePropertyOptions, callback: AsyncCallback<string>): void;
+
+    /**
+     * Modify the value of a property in an image with the specified key. This method uses a
+     * promise to return the property value in a string.
+     *
+     * @param { PropertyKey } key - Name of the property whose value is to be modified.
+     * @param { string } value - The value to be set to property.
+     * @returns { Promise<void> } A Promise instance used to return the property value.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980123 - If the image unsupport exif.
+     * @throws { BusinessError } 62980133 - If the exif data out of range.
      * @throws { BusinessError } 62980135 - If the exif value is invalid.
+     * @throws { BusinessError } 62980146 - If the exif failed to be written to the file.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 11
      */
-    getImageProperty(key: PropertyKey, options?: ImagePropertyOptions): Promise<string>;
-    
+    modifyImageProperty(key: PropertyKey, value: string): Promise<void>;
+
     /**
      * Modify the value of a property in an image with the specified key. This method uses a
      * promise to return the property value in a string.
@@ -3234,6 +3366,24 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
+     * @deprecated since 11
+     * @useinstead image.ImageSource#modifyImageProperty
+     */
+    /**
+     * Modify the value of a property in an image with the specified key. This method uses a
+     * promise to return the property value in a string.
+     *
+     * @param { string } key - Name of the property whose value is to be modified.
+     * @param { string } value - The value to be set to property.
+     * @returns { Promise<void> } A Promise instance used to return the property value.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980123 - If the image unsupport exif.
+     * @throws { BusinessError } 62980133 - If the exif data out of range.
+     * @throws { BusinessError } 62980135 - If the exif value is invalid.
+     * @throws { BusinessError } 62980146 - If the exif failed to be written to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
      * @deprecated since 11
      * @useinstead image.ImageSource#modifyImageProperty
      */
@@ -3264,32 +3414,25 @@ declare namespace image {
      * @deprecated since 11
      * @useinstead image.ImageSource#modifyImageProperty
      */
-    modifyImageProperty(key: string, value: string, callback: AsyncCallback<void>): void;
-
     /**
-     * Modify the value of a property in an image with the specified key. This method uses a
-     * promise to return the property value in a string.
+     * Modify the value of a property in an image with the specified key. This method uses a callback to return the
+     * property value in a string.
      *
-     * @param { PropertyKey } key - Name of the property whose value is to be modified.
+     * @param { string } key - Name of the property whose value is to be obtained.
      * @param { string } value - The value to be set to property.
-     * @returns { Promise<void> } A Promise instance used to return the property value.
+     * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 62980110 - If the image source data error.
-     * @throws { BusinessError } 62980111 - If the image source data incomplete.
-     * @throws { BusinessError } 62980113 - If the image format unknown.
-     * @throws { BusinessError } 62980116 - If the image decode failed.
-     * @throws { BusinessError } 62980118 - If the image plugin create failed.
      * @throws { BusinessError } 62980123 - If the image unsupport exif.
-     * @throws { BusinessError } 62980130 - If the image source file is abnormal unsupport exif.
-     * @throws { BusinessError } 62980132 - If the image source buffer size is abnormal.
+     * @throws { BusinessError } 62980133 - If the exif data out of range.
      * @throws { BusinessError } 62980135 - If the exif value is invalid.
      * @throws { BusinessError } 62980146 - If the exif failed to be written to the file.
-     * @throws { BusinessError } 62980147 - If the file fails to be read.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 11
+     * @deprecated since 11
+     * @useinstead image.ImageSource#modifyImageProperty
      */
-    modifyImageProperty(key: PropertyKey, value: string): Promise<void>;
+    modifyImageProperty(key: string, value: string, callback: AsyncCallback<void>): void;
 
     /**
      * Update the data in the incremental ImageSource.
