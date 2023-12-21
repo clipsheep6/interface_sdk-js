@@ -3499,7 +3499,7 @@ declare function openSync(path: string, mode?: number): File;
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
- * @param { object } [options] - options.
+ * @param { ReadOptions } [options] - options.
  * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3518,10 +3518,7 @@ declare function openSync(path: string, mode?: number): File;
 declare function read(
   fd: number,
   buffer: ArrayBuffer,
-  options?: {
-    offset?: number;
-    length?: number;
-  }
+  options?: ReadOptions
 ): Promise<number>;
 
 /**
@@ -3627,7 +3624,7 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
- * @param { object } [options] - options.
+ * @param { ReadOptions } [options] - options.
  * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3646,10 +3643,7 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
 declare function read(
   fd: number,
   buffer: ArrayBuffer,
-  options: {
-    offset?: number;
-    length?: number;
-  },
+  options: ReadOptions,
   callback: AsyncCallback<number>
 ): void;
 
@@ -3697,7 +3691,7 @@ declare function read(
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer } buffer - buffer.
- * @param { object } [options] - options.
+ * @param { ReadOptions } [options] - options.
  * @returns { number } Returns the number of file bytes read to buffer.
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3716,10 +3710,7 @@ declare function read(
 declare function readSync(
   fd: number,
   buffer: ArrayBuffer,
-  options?: {
-    offset?: number;
-    length?: number;
-  }
+  options?: ReadOptions
 ): number;
 
 /**
@@ -3863,7 +3854,7 @@ declare function readLinesSync(filePath: string, options?: Options): ReaderItera
  * Read text.
  *
  * @param { string } filePath - file path.
- * @param { object } [options] - options.
+ * @param { ReadTextOptions } [options] - options.
  * @returns { Promise<string> } Returns the contents of the read file in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3885,11 +3876,7 @@ declare function readLinesSync(filePath: string, options?: Options): ReaderItera
  */
 declare function readText(
   filePath: string,
-  options?: {
-    offset?: number;
-    length?: number;
-    encoding?: string;
-  }
+  options?: ReadTextOptions
 ): Promise<string>;
 
 /**
@@ -4009,7 +3996,7 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  * Read text.
  *
  * @param { string } filePath - file path.
- * @param { object } [options] - options.
+ * @param { ReadTextOptions } [options] - options.
  * @param { AsyncCallback<string> } callback - The callback is used to return the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -4031,11 +4018,7 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  */
 declare function readText(
   filePath: string,
-  options: {
-    offset?: number;
-    length?: number;
-    encoding?: string;
-  },
+  options: ReadTextOptions,
   callback: AsyncCallback<string>
 ): void;
 
@@ -4088,7 +4071,7 @@ declare function readText(
  * Read text with sync interface.
  *
  * @param { string } filePath - file path.
- * @param { object } [options] - options.
+ * @param { ReadTextOptions } [options] - options.
  * @returns { string } Returns the contents of the read file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -4110,11 +4093,7 @@ declare function readText(
  */
 declare function readTextSync(
   filePath: string,
-  options?: {
-    offset?: number;
-    length?: number;
-    encoding?: string;
-  }
+  options?: ReadTextOptions
 ): string;
 
 /**
@@ -5450,7 +5429,7 @@ declare function utimes(path: string, mtime: number): void;
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
- * @param { object } [options] - options.
+ * @param { WriteOptions } [options] - options.
  * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5472,11 +5451,7 @@ declare function utimes(path: string, mtime: number): void;
 declare function write(
   fd: number,
   buffer: ArrayBuffer | string,
-  options?: {
-    offset?: number;
-    length?: number;
-    encoding?: string;
-  }
+  options?: WriteOptions
 ): Promise<number>;
 
 /**
@@ -5597,7 +5572,7 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
- * @param { object } [options] - options.
+ * @param { WriteOptions } [options] - options.
  * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5619,11 +5594,7 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
 declare function write(
   fd: number,
   buffer: ArrayBuffer | string,
-  options: {
-    offset?: number;
-    length?: number;
-    encoding?: string;
-  },
+  options: WriteOptions,
   callback: AsyncCallback<number>
 ): void;
 
@@ -5677,7 +5648,7 @@ declare function write(
  *
  * @param { number } fd - file descriptor.
  * @param { ArrayBuffer | string } buffer - buffer.
- * @param { object } [options] - options.
+ * @param { WriteOptions } [options] - options.
  * @returns { number } Returns the number of bytes written to the file.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5699,11 +5670,7 @@ declare function write(
 declare function writeSync(
   fd: number,
   buffer: ArrayBuffer | string,
-  options?: {
-    offset?: number;
-    length?: number;
-    encoding?: string;
-  }
+  options?: WriteOptions
 ): number;
 
 /**
@@ -5974,7 +5941,7 @@ declare interface RandomAccessFile {
    * Write randomAccessFile.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { WriteOptions } [options] - options.
    * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5993,11 +5960,7 @@ declare interface RandomAccessFile {
    */
   write(
     buffer: ArrayBuffer | string,
-    options?: {
-      offset?: number;
-      length?: number;
-      encoding?: string;
-    }
+    options?: WriteOptions
   ): Promise<number>;
 
   /**
@@ -6026,7 +5989,7 @@ declare interface RandomAccessFile {
    * Write randomAccessFile.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { WriteOptions } [options] - options.
    * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -6045,11 +6008,7 @@ declare interface RandomAccessFile {
    */
   write(
     buffer: ArrayBuffer | string,
-    options: {
-      offset?: number;
-      length?: number;
-      encoding?: string;
-    },
+    options: WriteOptions,
     callback: AsyncCallback<number>
   ): void;
 
@@ -6057,7 +6016,7 @@ declare interface RandomAccessFile {
    * Write randomAccessFile with sync interface.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { WriteOptions } [options] - options.
    * @returns { number } Returns the number of bytes written to the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -6076,17 +6035,13 @@ declare interface RandomAccessFile {
    */
   writeSync(
     buffer: ArrayBuffer | string,
-    options?: {
-      offset?: number;
-      length?: number;
-      encoding?: string;
-    }
+    options?: WriteOptions
   ): number;
   /**
    * Read randomAccessFile.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { ReadOptions } [options] - options.
    * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -6102,10 +6057,7 @@ declare interface RandomAccessFile {
    */
   read(
     buffer: ArrayBuffer,
-    options?: {
-      offset?: number;
-      length?: number;
-    }
+    options?: ReadOptions
   ): Promise<number>;
 
   /**
@@ -6131,7 +6083,7 @@ declare interface RandomAccessFile {
    * Read randomAccessFile.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { ReadOptions } [options] - options.
    * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -6147,10 +6099,7 @@ declare interface RandomAccessFile {
    */
   read(
     buffer: ArrayBuffer,
-    options: {
-      offset?: number;
-      length?: number;
-    },
+    options: ReadOptions,
     callback: AsyncCallback<number>
   ): void;
 
@@ -6158,7 +6107,7 @@ declare interface RandomAccessFile {
    * Read randomAccessFile with sync interface.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { ReadOptions } [options] - options.
    * @returns { number } Returns the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -6174,10 +6123,7 @@ declare interface RandomAccessFile {
    */
   readSync(
     buffer: ArrayBuffer,
-    options?: {
-      offset?: number;
-      length?: number;
-    }
+    options?: ReadOptions
   ): number;
 }
 
@@ -6683,7 +6629,7 @@ declare interface Stream {
    * Write stream.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { WriteOptions } [options] - options.
    * @returns { Promise<number> } Returns the number of file bytes written to file in promise mode.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -6702,11 +6648,7 @@ declare interface Stream {
    */
   write(
     buffer: ArrayBuffer | string,
-    options?: {
-      offset?: number;
-      length?: number;
-      encoding?: string;
-    }
+    options?: WriteOptions
   ): Promise<number>;
 
   /**
@@ -6735,7 +6677,7 @@ declare interface Stream {
    * Write stream.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { WriteOptions } [options] - options.
    * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes written to file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -6754,18 +6696,14 @@ declare interface Stream {
    */
   write(
     buffer: ArrayBuffer | string,
-    options: {
-      offset?: number;
-      length?: number;
-      encoding?: string;
-    },
+    options: WriteOptions,
     callback: AsyncCallback<number>
   ): void;
   /**
    * Write stream with sync interface.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { WriteOptions } [options] - options.
    * @returns { number } Returns the number of file bytes written to file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -6784,17 +6722,13 @@ declare interface Stream {
    */
   writeSync(
     buffer: ArrayBuffer | string,
-    options?: {
-      offset?: number;
-      length?: number;
-      encoding?: string;
-    }
+    options?: WriteOptions
   ): number;
   /**
    * Read stream.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { ReadOptions } [options] - options.
    * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -6810,10 +6744,7 @@ declare interface Stream {
    */
   read(
     buffer: ArrayBuffer,
-    options?: {
-      offset?: number;
-      length?: number;
-    }
+    options?: ReadOptions
   ): Promise<number>;
 
   /**
@@ -6839,7 +6770,7 @@ declare interface Stream {
    * Read stream.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { ReadOptions } [options] - options.
    * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -6855,10 +6786,7 @@ declare interface Stream {
    */
   read(
     buffer: ArrayBuffer,
-    options: {
-      offset?: number;
-      length?: number;
-    },
+    options: ReadOptions,
     callback: AsyncCallback<number>
   ): void;
 
@@ -6866,7 +6794,7 @@ declare interface Stream {
    * Read stream with sync interface.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { ReadOptions } [options] - options.
    * @returns { number } Returns the number of file bytes read to file.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -6882,10 +6810,7 @@ declare interface Stream {
    */
   readSync(
     buffer: ArrayBuffer,
-    options?: {
-      offset?: number;
-      length?: number;
-    }
+    options?: ReadOptions
   ): number;
 }
 
@@ -7134,6 +7059,60 @@ export type Options = {
    */
   encoding?: string;
 };
+
+/**
+ * ReadOptions type
+ *
+ * @interface ReadOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export interface ReadOptions {
+  /**
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  offset?: number;
+  /**
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  length?: number;
+}
+
+/**
+ * ReadTextOptions type
+ *
+ * @interface ReadTextOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export interface ReadTextOptions extends ReadOptions {
+  /**
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  encoding?: string;
+}
+
+/**
+ * WriteOptions type
+ *
+ * @interface WriteOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export interface WriteOptions extends ReadOptions {
+  /**
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  encoding?: string;
+}
 
 /**
  * Enumeration of different types of whence.
