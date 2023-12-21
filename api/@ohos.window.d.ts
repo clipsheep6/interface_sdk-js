@@ -2760,6 +2760,20 @@ declare namespace window {
     setWindowSystemBarEnable(names: Array<'status' | 'navigation'>, callback: AsyncCallback<void>): void;
 
     /**
+     * Set specific system bar to have visible.
+     *
+     * @param {SpecificSystemBar} name - the set of system bar
+     * @param {boolean} enable - Show specific system bar if true, or hide specific system bar if false.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws {BusinessError} 401 - Parameter error.
+     * @throws {BusinessError} 1300002 - This window state is abnormal.
+     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean): Promise<void>;
+
+    /**
      * Set the system bar to have visible.
      *
      * @param { Array<'status' | 'navigation'> } names - The set of system bar
