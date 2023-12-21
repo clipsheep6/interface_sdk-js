@@ -690,7 +690,7 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
-    preSwtichCamera(cameraId: string): void;
+    preSwitchCamera(cameraId: string): void;
 
     /**
      * Creates a deferred PreviewOutput instance.
