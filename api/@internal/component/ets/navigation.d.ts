@@ -591,6 +591,13 @@ declare class NavPathInfo {
   param?: unknown;
 }
 
+/**
+ * Indicates the path of route page.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ */
 declare class NavPathStack {
   /**
    * Creates an instance of NavPathStack.
