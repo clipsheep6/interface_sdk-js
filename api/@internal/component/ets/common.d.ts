@@ -17493,3 +17493,10 @@ declare module "wrappedBuilderObject" {
     export { WrappedBuilder };
   }
 }
+
+declare module 'touchEvent'{
+  module 'touchEvent' {
+    // @ts-ignore
+    export { TouchEvent };
+  }
+}
