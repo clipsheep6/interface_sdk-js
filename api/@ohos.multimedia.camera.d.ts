@@ -2038,6 +2038,7 @@ declare namespace camera {
      * Sets a color space for the session.
      *
      * @param { colorSpaceManager.ColorSpace } colorSpace - The type of color space.
+     * @throws { BusinessError } 7400102 - The colorSpace does not match the format.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
