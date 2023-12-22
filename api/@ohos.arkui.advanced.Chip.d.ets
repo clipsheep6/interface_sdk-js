@@ -171,12 +171,12 @@ export interface LabelOptions {
   /**
    * Text content.
    *
-   * @type { string }
+   * @type { ResourcStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  text: string;
+  text: ResourcStr;
 
   /**
    * Text font size.
@@ -201,12 +201,12 @@ export interface LabelOptions {
   /**
    * Text font family.
    *
-   * @type { ?string }
+   * @type { ?ResourcStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  fontFamily?: string;
+  fontFamily?: ResourcStr;
 
   /**
    * Label margin.
