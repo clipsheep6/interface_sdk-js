@@ -1300,7 +1300,17 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    on(type: 'setLoopMode', callback: (mode: LoopMode) => void): void;
+    /**
+     * Register setLoopMode command callback
+     * @param { 'setLoopMode' } type - Registration Type 'setLoopMode'
+     * @param { function } callback - Used to handle setLoopMode command.The LoopMode is optional.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    on(type: 'setLoopMode', callback: (mode?: LoopMode) => void): void;
 
     /**
      * Unregister setLoopMode command callback
@@ -1312,7 +1322,17 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
-    off(type: 'setLoopMode', callback?: (mode: LoopMode) => void): void;
+    /**
+     * Unregister setLoopMode command callback
+     * @param { 'setLoopMode' } type - Registration Type 'setLoopMode'
+     * @param { function } callback - Used to handle setLoopMode command.The LoopMode is optional.
+     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @since 11
+     */
+    off(type: 'setLoopMode', callback?: (mode?: LoopMode) => void): void;
 
     /**
      * Register toggle favorite command callback
