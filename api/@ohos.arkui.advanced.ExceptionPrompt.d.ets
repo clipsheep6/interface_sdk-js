@@ -47,7 +47,7 @@ export declare enum MarginType {
 export interface PromptOptions {
   /**
    * Icon of PromptOptions.
-   * @type {?ResourceStr}
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -56,7 +56,7 @@ export interface PromptOptions {
 
   /**
    * Tip text of PromptOptions.
-   * @type {?ResourceStr}
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -65,7 +65,7 @@ export interface PromptOptions {
 
   /**
    * Margin Type  of ExceptionPrompt.
-   * @type {MarginType}
+   * @type { MarginType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -74,7 +74,7 @@ export interface PromptOptions {
 
   /**
    * Right icon button text of PromptOptions.
-   * @type {?ResourceStr}
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -83,7 +83,7 @@ export interface PromptOptions {
 
   /**
    * Distance from the top of PromptOptions.
-   * @type {Dimension}
+   * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -92,7 +92,7 @@ export interface PromptOptions {
 
   /**
    * Control concealment of PromptOptions.
-   * @type {boolean}
+   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -120,7 +120,7 @@ export declare struct ExceptionPrompt {
 
   /**
    * Callback when clicking the text on the left.
-   * @type {?function }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
