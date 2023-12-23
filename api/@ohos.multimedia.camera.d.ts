@@ -375,7 +375,7 @@ declare namespace camera {
    * @typedef PrelaunchConfig
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 10
+   * @since 11
    */
   interface PrelaunchConfig {
     /**
@@ -424,7 +424,7 @@ declare namespace camera {
    *
    * @interface CameraManager
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since 11
    */
   interface CameraManager {
     /**
@@ -745,7 +745,7 @@ declare namespace camera {
      * Subscribes torch status change event callback.
      *
      * @param { 'torchStatusChange' } type Event type
-     * @param { AsyncCallback<TorchStatusInfo> } callback Callback used to return the torch state change
+     * @param { AsyncCallback<TorchStatusInfo> } callback Callback used to return the torch status change
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -755,7 +755,7 @@ declare namespace camera {
      * Unsubscribes torch status change event callback.
      *
      * @param { 'torchStatusChange' } type Event type
-     * @param { AsyncCallback<TorchStatusInfo> } callback Callback used to return the torch state change
+     * @param { AsyncCallback<TorchStatusInfo> } callback Callback used to return the torch status change
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -853,7 +853,7 @@ declare namespace camera {
      *
      * @type { CameraStatus }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since 11
      */
     status: CameraStatus;
   }
@@ -1234,7 +1234,7 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since 11
    */
   enum CameraFormat {
     /**
@@ -2284,7 +2284,7 @@ declare namespace camera {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Subscribes focus status change event callback.
+     * Subscribes focus state change event callback.
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -2294,7 +2294,7 @@ declare namespace camera {
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
     /**
-     * Unsubscribes from focus status change event callback.
+     * Unsubscribes from focus state change event callback.
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -2353,7 +2353,7 @@ declare namespace camera {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Subscribes focus status change event callback.
+     * Subscribes focus state change event callback.
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -2363,7 +2363,7 @@ declare namespace camera {
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
     /**
-     * Unsubscribes from focus status change event callback.
+     * Unsubscribes from focus state change event callback.
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -2444,7 +2444,7 @@ declare namespace camera {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Subscribes focus status change event callback.
+     * Subscribes focus state change event callback.
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -2454,7 +2454,7 @@ declare namespace camera {
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
     /**
-     * Unsubscribes from focus status change event callback.
+     * Unsubscribes from focus state change event callback.
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -2512,7 +2512,7 @@ declare namespace camera {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 10
+   * @since 11
    */
   enum PortraitEffect {
     /**
@@ -2781,7 +2781,7 @@ declare namespace camera {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Subscribes focus status change event callback.
+     * Subscribes focus state change event callback.
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -2791,7 +2791,7 @@ declare namespace camera {
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
     /**
-     * Unsubscribes from focus status change event callback.
+     * Unsubscribes from focus state change event callback.
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -2894,7 +2894,7 @@ declare namespace camera {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Subscribes focus status change event callback.
+     * Subscribes focus state change event callback.
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -2904,7 +2904,7 @@ declare namespace camera {
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
     /**
-     * Unsubscribes from focus status change event callback.
+     * Unsubscribes from focus state change event callback.
      *
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
@@ -2999,7 +2999,7 @@ declare namespace camera {
    *
    * @interface PreviewOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since 11
    */
   interface PreviewOutput extends CameraOutput {
     /**
@@ -3436,7 +3436,7 @@ declare namespace camera {
    *
    * @interface PhotoOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 10
+   * @since 11
    */
   interface PhotoOutput extends CameraOutput {
     /**
@@ -3537,7 +3537,7 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
-    deferImageDeliveryFor(type: DeferredDeliveryImageType): void;
+    deferImageDelivery(type: DeferredDeliveryImageType): void;
 
     /**
      * Subscribes photo available event callback.
