@@ -2482,6 +2482,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Adds a camera output.
+     * This method is valid after Session.addInput(cameraInput) and before Session.commitConfig().
+     * Move to Session interface from CaptureSession interface since 11.
+     *
+     * @param { CameraOutput } cameraOutput - Target camera output to add.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     addOutput(cameraOutput: CameraOutput): void;
 
     /**
@@ -2495,6 +2507,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Removes a camera output.
+     * This method is valid between Session.beginConfig() and Session.commitConfig().
+     * Move to Session interface from CaptureSession interface since 11.
+     *
+     * @param { CameraOutput } cameraOutput - Target camera output to remove.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     removeOutput(cameraOutput: CameraOutput): void;
 
     /**
@@ -2505,6 +2529,16 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Starts capture session.
+     * Move to Session interface from CaptureSession interface since 11.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     start(callback: AsyncCallback<void>): void;
 
@@ -2517,6 +2551,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Starts capture session.
+     * Move to Session interface from CaptureSession interface since 11.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     start(): Promise<void>;
 
     /**
@@ -2526,6 +2570,15 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Stops capture session.
+     * Move to Session interface from CaptureSession interface since 11.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -2537,6 +2590,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Stops capture session.
+     * Move to Session interface from CaptureSession interface since 11.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     stop(): Promise<void>;
 
     /**
@@ -2547,6 +2609,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Release capture session instance.
+     * Move to Session interface from CaptureSession interface since 11.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     release(callback: AsyncCallback<void>): void;
 
     /**
@@ -2556,6 +2627,15 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Release capture session instance.
+     * Move to Session interface from CaptureSession interface since 11.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     release(): Promise<void>;
   }
@@ -2646,6 +2726,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Subscribes to error events.
+     * Move to PhotoSession interface from CaptureSession interface since 11.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
@@ -2655,6 +2744,15 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Unsubscribes from error events.
+     * Move to PhotoSession interface from CaptureSession interface since 11.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -2666,6 +2764,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Subscribes focus state change event callback.
+     * Move to PhotoSession interface from CaptureSession interface since 11.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
     /**
@@ -2675,6 +2782,15 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Unsubscribes from focus state change event callback.
+     * Move to PhotoSession interface from CaptureSession interface since 11.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -2737,6 +2853,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Subscribes to error events.
+     * Move to VideoSession interface from CaptureSession interface since 11.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
@@ -2746,6 +2871,15 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Unsubscribes from error events.
+     * Move to VideoSession interface from CaptureSession interface since 11.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -2757,6 +2891,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Subscribes focus state change event callback.
+     * Move to VideoSession interface from CaptureSession interface since 11.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
     /**
@@ -2766,6 +2909,15 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Unsubscribes from focus state change event callback.
+     * Move to VideoSession interface from CaptureSession interface since 11.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -2894,6 +3046,16 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Gets supported portrait effect.
+     * Move to Portrait interface from CaptureSession interface since 11.
+     *
+     * @returns { Array<PortraitEffect> } List of portrait effect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
     getSupportedPortraitEffects(): Array<PortraitEffect>;
 
     /**
@@ -2905,6 +3067,16 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Gets the portrait effect in use.
+     * Move to Portrait interface from CaptureSession interface since 11.
+     *
+     * @returns { PortraitEffect } The portrait effect in use.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
     getPortraitEffect(): PortraitEffect;
 
     /**
@@ -2915,6 +3087,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Sets a portrait effect for a camera device.
+     * Move to Portrait interface from CaptureSession interface since 11.
+     *
+     * @param { PortraitEffect } effect - Effect Portrait effect to set.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
      */
     setPortraitEffect(effect: PortraitEffect): void;
   }
@@ -3074,10 +3256,28 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Subscribes to error events.
+     * Move to PortraitPhotoSession interface from CaptureSession interface since 11.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
      * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    /**
+     * Unsubscribes from error events.
+     * Move to PortraitPhotoSession interface from CaptureSession interface since 11.
      *
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
