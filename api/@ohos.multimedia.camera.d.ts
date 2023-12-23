@@ -375,7 +375,7 @@ declare namespace camera {
    * @typedef PrelaunchConfig
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 11
+   * @since 10
    */
   interface PrelaunchConfig {
     /**
@@ -424,7 +424,7 @@ declare namespace camera {
    *
    * @interface CameraManager
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 11
+   * @since 10
    */
   interface CameraManager {
     /**
@@ -853,7 +853,7 @@ declare namespace camera {
      *
      * @type { CameraStatus }
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
+     * @since 10
      */
     status: CameraStatus;
   }
@@ -1234,7 +1234,7 @@ declare namespace camera {
    *
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 11
+   * @since 10
    */
   enum CameraFormat {
     /**
@@ -1335,6 +1335,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Check if device has flash light.
+     * Move to Flash interface from CaptureSession interface since 11.
+     *
+     * @returns { boolean } The flash light support status.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     hasFlash(): boolean;
 
     /**
@@ -1346,6 +1355,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Checks whether a specified flash mode is supported.
+     * Move to Flash interface from CaptureSession interface since 11.
+     *
+     * @param { FlashMode } flashMode - Flash mode
+     * @returns { boolean } Is the flash mode supported.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     isFlashModeSupported(flashMode: FlashMode): boolean;
 
     /**
@@ -1356,6 +1375,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Gets current flash mode.
+     * Move to Flash interface from CaptureSession interface since 11.
+     *
+     * @returns { FlashMode } The current flash mode.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     getFlashMode(): FlashMode;
 
     /**
@@ -1365,6 +1393,15 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Sets flash mode.
+     * Move to Flash interface from CaptureSession interface since 11.
+     *
+     * @param { FlashMode } flashMode - Target flash mode.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     setFlashMode(flashMode: FlashMode): void;
   }
@@ -1419,6 +1456,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Checks whether a specified exposure mode is supported.
+     * Move to AutoExposure interface from CaptureSession interface since 11.
+     *
+     * @param { ExposureMode } aeMode - Exposure mode
+     * @returns { boolean } Is the exposure mode supported.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     isExposureModeSupported(aeMode: ExposureMode): boolean;
 
     /**
@@ -1428,6 +1475,15 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Gets current exposure mode.
+     * Move to AutoExposure interface from CaptureSession interface since 11.
+     *
+     * @returns { ExposureMode } The current exposure mode.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     getExposureMode(): ExposureMode;
 
@@ -1439,6 +1495,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Sets Exposure mode.
+     * Move to AutoExposure interface from CaptureSession interface since 11.
+     *
+     * @param { ExposureMode } aeMode - Exposure mode
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     setExposureMode(aeMode: ExposureMode): void;
 
     /**
@@ -1448,6 +1513,15 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Gets current metering point.
+     * Move to AutoExposure interface from CaptureSession interface since 11.
+     *
+     * @returns { Point } The current metering point.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     getMeteringPoint(): Point;
 
@@ -1459,6 +1533,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Set the center point of the metering area.
+     * Move to AutoExposure interface from CaptureSession interface since 11.
+     *
+     * @param { Point } point - metering point
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     setMeteringPoint(point: Point): void;
 
     /**
@@ -1469,6 +1552,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Query the exposure compensation range.
+     * Move to AutoExposure interface from CaptureSession interface since 11.
+     *
+     * @returns { Array<number> } The array of compensation range.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     getExposureBiasRange(): Array<number>;
 
     /**
@@ -1478,6 +1570,15 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Set exposure compensation.
+     * Move to AutoExposure interface from CaptureSession interface since 11.
+     *
+     * @param { number } exposureBias - Exposure compensation
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     setExposureBias(exposureBias: number): void;
   }
@@ -1573,6 +1674,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Checks whether a specified focus mode is supported.
+     * Move to Focus interface from CaptureSession interface since 11.
+     *
+     * @param { FocusMode } afMode - Focus mode.
+     * @returns { boolean } Is the focus mode supported.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     isFocusModeSupported(afMode: FocusMode): boolean;
 
     /**
@@ -1582,6 +1693,15 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Gets current focus mode.
+     * Move to Focus interface from CaptureSession interface since 11.
+     *
+     * @returns { FocusMode } The current focus mode.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     getFocusMode(): FocusMode;
 
@@ -1593,6 +1713,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Sets focus mode.
+     * Move to Focus interface from CaptureSession interface since 11.
+     *
+     * @param { FocusMode } afMode - Target focus mode.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     setFocusMode(afMode: FocusMode): void;
 
     /**
@@ -1602,6 +1731,15 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Sets focus point.
+     * Move to Focus interface from CaptureSession interface since 11.
+     *
+     * @param { Point } point - Target focus point.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     setFocusPoint(point: Point): void;
 
@@ -1613,6 +1751,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Gets current focus point.
+     * Move to Focus interface from CaptureSession interface since 11.
+     *
+     * @returns { Point } The current focus point.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     getFocusPoint(): Point;
 
     /**
@@ -1622,6 +1769,15 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Gets current focal length.
+     * Move to Focus interface from CaptureSession interface since 11.
+     *
+     * @returns { number } The current focal point.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     getFocalLength(): number;
   }
@@ -1677,6 +1833,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Gets all supported zoom ratio range.
+     * Move to Zoom interface from CaptureSession interface since 11.
+     *
+     * @returns { Array<number> } The zoom ratio range.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     getZoomRatioRange(): Array<number>;
 
     /**
@@ -1687,6 +1852,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Gets zoom ratio.
+     * Move to Zoom interface from CaptureSession interface since 11.
+     *
+     * @returns { number } The zoom ratio value.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     getZoomRatio(): number;
 
     /**
@@ -1696,6 +1870,15 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Sets zoom ratio.
+     * Move to Zoom interface from CaptureSession interface since 11.
+     *
+     * @param { number } zoomRatio - Target zoom ratio.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     setZoomRatio(zoomRatio: number): void;
 
@@ -1797,6 +1980,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Check whether the specified video stabilization mode is supported.
+     * Move to Stabilization interface from CaptureSession interface since 11.
+     *
+     * @param { VideoStabilizationMode } vsMode - Video Stabilization mode.
+     * @returns { boolean } Is flash mode supported.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     isVideoStabilizationModeSupported(vsMode: VideoStabilizationMode): boolean;
 
     /**
@@ -1807,6 +2000,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Query the video stabilization mode currently in use.
+     * Move to Stabilization interface from CaptureSession interface since 11.
+     *
+     * @returns { VideoStabilizationMode } The current video stabilization mode.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     getActiveVideoStabilizationMode(): VideoStabilizationMode;
 
     /**
@@ -1816,6 +2018,15 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Set video stabilization mode.
+     * Move to Stabilization interface from CaptureSession interface since 11.
+     *
+     * @param { VideoStabilizationMode } mode - video stabilization mode to set.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     setVideoStabilizationMode(mode: VideoStabilizationMode): void;
   }
@@ -1884,6 +2095,16 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Gets supported beauty effect types.
+     * Move to Beauty interface from CaptureSession interface since 11.
+     *
+     * @returns { Array<BeautyType> } List of beauty effect types.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
     getSupportedBeautyTypes(): Array<BeautyType>;
 
     /**
@@ -1895,6 +2116,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Gets the specific beauty effect type range.
+     * Move to Beauty interface from CaptureSession interface since 11.
+     *
+     * @param { BeautyType } type - The type of beauty effect.
+     * @returns { Array<number> } The array of the specific beauty effect range.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
      */
     getSupportedBeautyRange(type: BeautyType): Array<number>;
 
@@ -1908,6 +2140,17 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Gets the beauty effect in use.
+     * Move to Beauty interface from CaptureSession interface since 11.
+     *
+     * @param { BeautyType } type - The type of beauty effect.
+     * @returns { number } the beauty effect in use.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
     getBeauty(type: BeautyType): number;
 
     /**
@@ -1919,6 +2162,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Sets a beauty effect for a camera device.
+     * Move to Beauty interface from CaptureSession interface since 11.
+     *
+     * @param { BeautyType } type - The type of beauty effect.
+     * @param { number } value The number of beauty effect.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
      */
     setBeauty(type: BeautyType, value: number): void;
   }
@@ -2093,6 +2347,14 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Begin capture session config.
+     * Move to Session interface from CaptureSession interface since 11.
+     *
+     * @throws { BusinessError } 7400105 - Session config locked.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     beginConfig(): void;
 
     /**
@@ -2104,6 +2366,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Commit capture session config.
+     * Move to Session interface from CaptureSession interface since 11.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     commitConfig(callback: AsyncCallback<void>): void;
 
     /**
@@ -2114,6 +2386,16 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Commit capture session config.
+     * Move to Session interface from CaptureSession interface since 11.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     commitConfig(): Promise<void>;
 
@@ -2139,6 +2421,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Adds a camera input.
+     * This method is valid between Session.beginConfig() and Session.commitConfig().
+     * Move to Session interface from CaptureSession interface since 11.
+     *
+     * @param { CameraInput } cameraInput - Target camera input to add.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     addInput(cameraInput: CameraInput): void;
 
     /**
@@ -2151,6 +2445,18 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Removes a camera input.
+     * This method is valid between Session.beginConfig() and Session.commitConfig().
+     * Move to Session interface from CaptureSession interface since 11.
+     *
+     * @param { CameraInput } cameraInput - Target camera input to remove.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     removeInput(cameraInput: CameraInput): void;
 
@@ -2512,7 +2818,7 @@ declare namespace camera {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
-   * @since 11
+   * @since 10
    */
   enum PortraitEffect {
     /**
@@ -2999,7 +3305,7 @@ declare namespace camera {
    *
    * @interface PreviewOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 11
+   * @since 10
    */
   interface PreviewOutput extends CameraOutput {
     /**
@@ -3436,7 +3742,7 @@ declare namespace camera {
    *
    * @interface PhotoOutput
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @since 11
+   * @since 10
    */
   interface PhotoOutput extends CameraOutput {
     /**
