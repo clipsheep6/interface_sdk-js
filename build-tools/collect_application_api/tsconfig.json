@@ -14,6 +14,7 @@
         "Blank",
         "Button",
         "Calendar",
+        "CachedImage",
         "CalendarPicker",
         "Camera",
         "Canvas",
@@ -134,6 +135,11 @@
             "name": "Button",
             "type": "ButtonAttribute",
             "instance": "ButtonInstance"
+          },
+          {
+            "name": "CachedImage",
+            "type": "CachedImageAttribute",
+            "instance": "CachedImageInstance"
           },
           {
             "name": "Calendar",
