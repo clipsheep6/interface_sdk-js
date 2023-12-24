@@ -1384,6 +1384,7 @@ declare interface ExpectedFrameRateRange {
  * @param { string } value
  * @param { any[] } params
  * @returns { Resource }
+ * @throws { BusinessError } 401 - The parameter parse failed.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
