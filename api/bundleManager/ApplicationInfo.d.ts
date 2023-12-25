@@ -531,14 +531,15 @@ export interface ApplicationInfo {
   readonly dataUnclearable: boolean;
 
   /**
-   * Indicates the reserved flag of the application
+   * Indicates whether the application is encrypted.
    *
-   * @type { number }
+   * @type { boolean }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 11
    */
-  readonly applicationReservedFlag: number;
+  readonly encrypted: boolean;
 }
 
 /**
