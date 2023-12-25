@@ -107,6 +107,7 @@ declare namespace fileIo {
   export { Stream };
   export { Watcher };
   export { WhenceType };
+  export { CopyOperation };
   export type { Progress };
   export type { CopyOptions };
   export type { ProgressListener };
@@ -5744,7 +5745,31 @@ interface CopyOptions {
   progressListener?: ProgressListener;
 }
 
-type ProgressListener = (progress: Progress) => void;
+/**
+ * Enumeration of different operations of copy.
+ *
+ * @enum { number } copy operations
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+declare enum CopyOperation {
+  /**
+   * No operation.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  NONE = 0,
+  /**
+   * Cancel the copy task.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  CANCEL = 1,
+}
+
+type ProgressListener = (progress: Progress) => CopyOperation;
 
 /**
  * File object.
