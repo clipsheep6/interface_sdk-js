@@ -2398,6 +2398,7 @@ declare namespace notificationManager {
      * Common live view notification.
      *
      * @syscap SystemCapability.Notification.Notification
+     * @systemapi
      * @since 11
      */
     NOTIFICATION_CONTENT_LIVE_VIEW,
