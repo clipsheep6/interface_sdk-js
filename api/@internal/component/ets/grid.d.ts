@@ -1103,17 +1103,18 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @since 10
    */
   /**
-   * Called When sliding the grid.
+   * Called when the Grid scrolls.
    *
-   * @param { function } event - callback of grid scroll,
-   * scrollOffset is offset per frame scrolling, ScrollState is current sliding state.
+   * @param { function } callback - callback of Grid,
+   * scrollOffset is offset per frame scrolling, scrollState is current sliding state.
+   * @param { ScrollEventOptions } eventOption - scroll event options
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): GridAttribute;
+  onScroll(callback: (scrollOffset: number, scrollState: ScrollState) => void, eventOption?: ScrollEventOptions): GridAttribute;
 
   /**
    * Called when the grid begins to arrive.

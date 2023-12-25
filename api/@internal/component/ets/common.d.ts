@@ -17397,15 +17397,16 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Called when the scrollable scrolls.
    *
-   * @param { function } event - callback of scrollable,
+   * @param { function } callback - callback of scrollable,
    * scrollOffset is offset per frame scrolling, ScrollState is current scroll state.
+   * @param { ScrollEventOptions } options - scroll event options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
+  onScroll(callback: (scrollOffset: number, scrollState: ScrollState) => void, options?: ScrollEventOptions): T;
 
   /**
    * Called when the scrollable reaches the start position.
@@ -17515,6 +17516,53 @@ declare interface EdgeEffectOptions {
    * @since 11
    */
   alwaysEnabled: boolean;
+}
+
+/**
+ * Enumerates the onScroll event trigger times.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare enum ScrollEventTriggerTime {
+    /**
+     * trigger onScroll before scroll
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    WILL_SCROLL = 1,
+
+    /**
+     * trigger onScroll after scroll
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 11
+     */
+    DID_SCROLL = 2,
+}
+
+/**
+ * Define scrollable event Options.
+ *
+ * @interface ScrollEventOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface ScrollEventOptions {
+  /**
+   * Defines the onScroll event trigger timing.
+   *
+   * @type { ScrollEventTriggerTime }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  triggerTime: ScrollEventTriggerTime;
 }
 
 /**
