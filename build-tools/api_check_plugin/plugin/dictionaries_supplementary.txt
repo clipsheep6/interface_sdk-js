@@ -220,6 +220,7 @@ earphones
 earpiece
 ebu
 ece
+edgeAntialiasing
 edr
 efuse
 egid
