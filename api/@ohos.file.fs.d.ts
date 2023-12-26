@@ -5733,35 +5733,7 @@ interface Progress {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-class CancelSignal {
-  /**
-   * Constructor for obtaining the instance of the CancelSignal class.
-   *
-   * @param { string } src - src Uri.
-   * @param { string } dest - dest Uri.
-   * @throws { BusinessError } 401 - Parameter error
-   * @throws { BusinessError } 13900020 - Invalid argument
-   * @syscap SystemCapability.FileManagement.AppFileService
-   * @since 11
-   */
-  constructor(src: string, dest: string);
-
-  /**
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 11
-   */
-  readonly srcPath: string;
-
-  /**
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 11
-   */
-  readonly destPath: string;
-
+interface CancelSignal {
   /**
    * Check if the copy task was canceled.
    *
