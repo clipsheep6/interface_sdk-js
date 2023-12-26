@@ -107,7 +107,7 @@ declare namespace fileIo {
   export { Stream };
   export { Watcher };
   export { WhenceType };
-  export { CopyOperation };
+  export { CancelSignal };
   export type { Progress };
   export type { CopyOptions };
   export type { ProgressListener };
@@ -5728,6 +5728,60 @@ interface Progress {
 }
 
 /**
+ * Cancel signal of copy
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+class CancelSignal {
+  /**
+   * Constructor for obtaining the instance of the CancelSignal class.
+   *
+   * @param { string } src - src Uri.
+   * @param { string } dest - dest Uri.
+   * @throws { BusinessError } 401 - Parameter error
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @syscap SystemCapability.FileManagement.AppFileService
+   * @since 11
+   */
+  constructor(src: string, dest: string);
+
+  /**
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  readonly srcPath: string;
+
+  /**
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  readonly destPath: string;
+
+  /**
+   * Check if the copy task was canceled.
+   *
+   * @returns { boolean } The result if the copy task was canceled.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  isCanceled(): boolean;
+
+  /**
+   * cancel the copy task.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  cancel(): Promise<void>;
+}
+
+/**
  * Get options of copy
  *
  * @typedef CopyOptions
@@ -5743,33 +5797,17 @@ interface CopyOptions {
    * @since 11
    */
   progressListener?: ProgressListener;
-}
-
-/**
- * Enumeration of different operations of copy.
- *
- * @enum { number } copy operations
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 11
- */
-declare enum CopyOperation {
   /**
-   * No operation.
+   * Cancel signal of copy
    *
+   * @type { ?CancelSignal }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
-  NONE = 0,
-  /**
-   * Cancel the copy task.
-   *
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 11
-   */
-  CANCEL = 1,
+  cancel?: CancelSignal;
 }
 
-type ProgressListener = (progress: Progress) => CopyOperation;
+type ProgressListener = (progress: Progress) => void;
 
 /**
  * File object.
