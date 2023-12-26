@@ -1585,6 +1585,16 @@ declare interface RichEditorSymbolSpanOptions {
    * @since 11
    */
   style?: RichEditorSymbolSpanStyle;
+
+  /**
+   * RichEditor gesture.
+   *
+   * @type { ?RichEditorGesture }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  gesture?: RichEditorGesture;
 }
 
 /**
