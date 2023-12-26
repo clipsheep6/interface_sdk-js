@@ -386,6 +386,36 @@ declare interface SubmitEvent {
 }
 
 /**
+ * Provides the method of keeping TextInput editable state when submitted.
+ *
+ * @interface SubmitEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare interface SubmitEvent {
+  /**
+   * Keeps TextInput editable state when submitted
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  keepEditableState(): void;
+
+  /**
+   * Sets the current value of TextInput.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  text: string;
+}
+
+/**
  * Provides the method of switching the cursor position.
  *
  * @extends TextContentControllerBase
