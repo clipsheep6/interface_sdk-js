@@ -1089,6 +1089,27 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 7
      */
+    /**
+     * Creates an OS account using the local name and account type.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { string } localName - Indicates the local name of the OS account to create.
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid localName or type.
+     * @throws { BusinessError } 12300004 - Account already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
     createOsAccount(localName: string, type: OsAccountType, callback: AsyncCallback<OsAccountInfo>): void;
 
     /**
@@ -1110,6 +1131,27 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7
+     */
+    /**
+     * Creates an OS account using the local name and account type.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { string } localName - Indicates the local name of the OS account to create.
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid localName or type.
+     * @throws { BusinessError } 12300004 - Account already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 11
      */
     createOsAccount(localName: string, type: OsAccountType): Promise<OsAccountInfo>;
 
