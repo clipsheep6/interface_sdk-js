@@ -320,13 +320,13 @@ declare namespace camera {
     PRESISTENT_DEFAULT_PARAM = 1,
 
     /**
-     * Transistent active parameter, which has a higher priority than PRESISTENT_DEFAULT_PARAM when both exist.
+     * Transient active parameter, which has a higher priority than PRESISTENT_DEFAULT_PARAM when both exist.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    TRANSISTENT_ACTIVE_PARAM = 2
+    TRANSIENT_ACTIVE_PARAM = 2
   }
 
   /**
@@ -1911,7 +1911,7 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
-    unPrepareZoom(): void;
+    unprepareZoom(): void;
   }
 
   /**
@@ -3019,13 +3019,13 @@ declare namespace camera {
     STUDIO = 4,
 
     /**
-     * theator blurring for portrait.
+     * theater blurring for portrait.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    THEATOR = 5
+    THEATER = 5
   }
 
   /**
@@ -3282,7 +3282,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since 11
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -3294,6 +3294,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Subscribes focus state change event callback.
+     * Move to PortraitPhotoSession interface from CaptureSession interface since 11.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
     /**
@@ -3303,6 +3312,15 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Unsubscribes from focus state change event callback.
+     * Move to PortraitPhotoSession interface from CaptureSession interface since 11.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -3385,7 +3403,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since 11
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -3395,7 +3413,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since 11
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -3405,7 +3423,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since 11
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -3415,7 +3433,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 10
+     * @since 11
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
