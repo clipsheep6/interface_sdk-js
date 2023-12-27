@@ -349,6 +349,7 @@
       "SystemCapability.DistributedDataManager.CommonType",
       "SystemCapability.Multimedia.Audio.Spatialization",
       "SystemCapability.Multimedia.AudioHaptic.Core",
+      "SystemCapability.Multimedia.Drm.Core"
       "SystemCapability.ArkUi.Graphics3D"
     ]
   },
