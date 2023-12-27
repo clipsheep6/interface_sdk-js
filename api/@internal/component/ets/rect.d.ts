@@ -312,6 +312,17 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
 }
 
 /**
+ * rect attribute declaration.
+ *
+ * @extends CommonShapeMethod<RectAttribute>
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare class RectShape extends CommonShapeMethod<RectAttribute> {}
+
+/**
  * Defines Rect Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

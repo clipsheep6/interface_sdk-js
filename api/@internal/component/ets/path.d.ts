@@ -206,6 +206,18 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
 }
 
 /**
+ * Provides methods for attribute path component.
+ *
+ * @extends CommonShapeMethod<PathAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare class PathShape extends CommonShapeMethod<PathAttribute> {}
+
+/**
  * Defines Path Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
