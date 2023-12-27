@@ -5762,12 +5762,12 @@ class CancelSignal {
   /**
    * Subscribe cancel event of copy.
    *
-   * @param { Callback<Array<string>> } callback - callback of cancel event.
-   *        The last file copied are provided for this callback.
+   * @param { Callback<string> } callback - callback of cancel event.
+   *        The last file copied is provided for this callback.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
-  setOnCancelListener(callback: Callback<Array<string>>);
+  setOnCancelListener(callback: Callback<string>);
 }
 
 /**
