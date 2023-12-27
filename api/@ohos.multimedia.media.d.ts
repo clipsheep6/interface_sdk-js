@@ -1993,7 +1993,7 @@ declare namespace media {
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
      * @throws { BusinessError } 5400106 - Unsupport format.
-     * @throws { BusinessError } 5400107 - Audio interruptted.
+     * @throws { BusinessError } 5400107 - Audio interrupted.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
@@ -2019,7 +2019,7 @@ declare namespace media {
       * Cancel Listens for recording audioCapturerChange events.
       * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
       * @syscap SystemCapability.Multimedia.Media.AVRecorder
-      * @since 10
+      * @since 11
       */
     off(type: 'audioCapturerChange'): void;
   }
