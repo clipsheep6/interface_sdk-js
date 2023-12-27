@@ -5733,7 +5733,15 @@ interface Progress {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-interface CancelSignal {
+class CancelSignal {
+  /**
+   * Constructor for obtaining the instance of the CancelSignal class.
+   *
+   * @syscap SystemCapability.FileManagement.AppFileService
+   * @since 11
+   */
+  constructor();
+
   /**
    * Check if the copy task was canceled.
    *
@@ -5746,11 +5754,20 @@ interface CancelSignal {
   /**
    * cancel the copy task.
    *
-   * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
-  cancel(): Promise<void>;
+  cancel(): void;
+
+  /**
+   * Subscribe cancel event of copy.
+   *
+   * @param { Callback<Array<string>> } callback - callback of cancel event.
+   *        The last file copied are provided for this callback.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  setOnCancelListener(callback: Callback<Array<string>>);
 }
 
 /**
@@ -5776,7 +5793,7 @@ interface CopyOptions {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
-  cancel?: CancelSignal;
+  cancelSignal?: CancelSignal;
 }
 
 type ProgressListener = (progress: Progress) => void;
