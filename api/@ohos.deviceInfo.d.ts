@@ -220,6 +220,18 @@ declare namespace deviceInfo {
    * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 6
+   * @deprecated since 11
+   */
+  const serial: string;
+
+  /**
+   * Obtains the device serial number represented by a string.
+   *
+   * @permission ohos.permission.sec.ACCESS_UDID
+   * @constant
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @systemapi Hide this for inner system use.
+   * @since 11
    */
   const serial: string;
 
@@ -575,6 +587,18 @@ declare namespace deviceInfo {
    * @constant
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 7
+   * @deprecated since 11
+   */
+  const udid: string;
+
+  /**
+   * Obtains the device udid.
+   *
+   * @permission ohos.permission.sec.ACCESS_UDID
+   * @constant
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @systemapi Hide this for inner system use.
+   * @since 11
    */
   const udid: string;
 
