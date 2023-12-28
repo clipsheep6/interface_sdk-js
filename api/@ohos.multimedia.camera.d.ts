@@ -443,7 +443,7 @@ declare namespace camera {
      * @returns { CameraOutputCapability } The camera output capability.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
-     * @useinstead ohos.multiedia.camera.CameraManager#getSupportedOutputCapability
+     * @useinstead ohos.multimedia.camera.CameraManager#getSupportedOutputCapability
      * @since 10
      */
     getSupportedOutputCapability(camera: CameraDevice): CameraOutputCapability;
@@ -482,8 +482,8 @@ declare namespace camera {
      * Determine whether camera mute is supported.
      *
      * @returns { boolean } Is camera mute supported.
-     * @syscap SystemCapability.Multimedia.Camera.Core
      * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
      */
@@ -546,7 +546,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
-     * @useinstead ohos.multiedia.camera.CameraManager#createPhotoOutput
+     * @useinstead ohos.multimedia.camera.CameraManager#createPhotoOutput
      * @since 10
      */
     createPhotoOutput(profile: Profile, surfaceId: string): PhotoOutput;
@@ -594,7 +594,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
-     * @useinstead ohos.multiedia.camera.CameraManager#createSession
+     * @useinstead ohos.multimedia.camera.CameraManager#createSession
      * @since 10
      */
     createCaptureSession(): CaptureSession;
@@ -2729,7 +2729,7 @@ declare namespace camera {
    * @interface CaptureSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @deprecated since 11
-   * @useinstead ohos.multiedia.camera.VideoSession
+   * @useinstead ohos.multimedia.camera.VideoSession
    * @since 10
    */
   interface CaptureSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty {
@@ -3636,7 +3636,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
-     * @useinstead ohos.multiedia.camera.Session#start
+     * @useinstead ohos.multimedia.camera.Session#start
      * @since 10
      */
     start(callback: AsyncCallback<void>): void;
@@ -3648,7 +3648,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
-     * @useinstead ohos.multiedia.camera.Session#start
+     * @useinstead ohos.multimedia.camera.Session#start
      * @since 10
      */
     start(): Promise<void>;
@@ -3659,7 +3659,7 @@ declare namespace camera {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
-     * @useinstead ohos.multiedia.camera.Session#stop
+     * @useinstead ohos.multimedia.camera.Session#stop
      * @since 10
      */
     stop(callback: AsyncCallback<void>): void;
@@ -3670,7 +3670,7 @@ declare namespace camera {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
-     * @useinstead ohos.multiedia.camera.Session#stop
+     * @useinstead ohos.multimedia.camera.Session#stop
      * @since 10
      */
     stop(): Promise<void>;
@@ -4243,7 +4243,7 @@ declare namespace camera {
      * @param { AsyncCallback<number> } callback - Callback used to get the capture ID.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
-     * @useinstead ohos.multiedia.camera.PhotoOutput#captureStartWithInfo
+     * @useinstead ohos.multimedia.camera.PhotoOutput#captureStartWithInfo
      * @since 10
      */
     on(type: 'captureStart', callback: AsyncCallback<number>): void;
@@ -4255,7 +4255,7 @@ declare namespace camera {
      * @param { AsyncCallback<number> } callback - Callback used to get the capture ID.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
-     * @useinstead ohos.multiedia.camera.PhotoOutput#captureStartWithInfo
+     * @useinstead ohos.multimedia.camera.PhotoOutput#captureStartWithInfo
      * @since 10
      */
     off(type: 'captureStart', callback?: AsyncCallback<number>): void;
