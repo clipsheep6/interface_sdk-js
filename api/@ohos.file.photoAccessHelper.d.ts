@@ -1489,6 +1489,24 @@ declare namespace photoAccessHelper {
    */
   interface Album extends AbsAlbum {
     /**
+     * Number of image assets in the album
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    readonly imageCount?: number;
+    /**
+     * Number of video assets in the album
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 11
+     */
+    readonly videoCount?: number;
+    /**
      * Modify metadata for the album
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
