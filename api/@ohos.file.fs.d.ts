@@ -5754,6 +5754,7 @@ class CancelSignal {
   /**
    * cancel the copy task.
    *
+   * @throws { BusinessError } 13900043 - No task can be canceled.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
@@ -5764,6 +5765,7 @@ class CancelSignal {
    *
    * @param { Callback<string> } callback - callback of cancel event.
    *        The last file copied is provided for this callback.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
