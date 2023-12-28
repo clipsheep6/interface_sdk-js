@@ -155,8 +155,26 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      */
     interface WebStorageOrigin {
+      /**
+       * Url source.
+       * 
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 9
+       */
         origin: string;
+      /**
+       * Specify the amount of storage for the source.
+       * 
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 9
+       */
         usage: number;
+      /**
+       * the callback of getOriginUsage.
+       * 
+       * @syscap SystemCapability.Web.Webview.Core
+       * @since 9
+       */
         quota: number;
     }
 
@@ -440,6 +458,12 @@ declare namespace webview {
         static deleteSessionCookie(): void;
     }
 
+    /**
+     * WebMessage type supplied to {@link onMessageEventExt} for indicating the type of web message.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 9
+     */
     type WebMessage = ArrayBuffer | string;
     /**
      * Define html web message port.
