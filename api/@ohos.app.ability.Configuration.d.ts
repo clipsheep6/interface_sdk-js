@@ -63,7 +63,7 @@ export interface Configuration {
   language?: string;
 
   /**
-   * Indicates the current time24 of the application.
+   * Indicates the current hour type of the application.
    *
    * @type { ?ConfigurationConstant.Time24 }
    * @syscap SystemCapability.Ability.AbilityBase
