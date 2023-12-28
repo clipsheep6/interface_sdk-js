@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ErrorCallback, AsyncCallback, BusinessError } from './@ohos.base';
+import { ErrorCallback, AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
 import image from './@ohos.multimedia.image';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
