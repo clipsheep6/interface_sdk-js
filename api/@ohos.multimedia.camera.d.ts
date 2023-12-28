@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ErrorCallback, AsyncCallback } from './@ohos.base';
+import { ErrorCallback, AsyncCallback, BusinessError } from './@ohos.base';
 import type Context from './application/BaseContext';
 import image from './@ohos.multimedia.image';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
@@ -391,32 +391,32 @@ declare namespace camera {
     /**
      * Restore parameter type.
      *
-     * @type { RestoreParamType }
+     * @type { ?RestoreParamType }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    restoreParamType: RestoreParamType;
+    restoreParamType?: RestoreParamType;
 
     /**
      * Begin activiting time.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    activeTime: number;
+    activeTime?: number;
 
     /**
      * Setting parameter.
      *
-     * @type { SettingParam }
+     * @type { ?SettingParam }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
      */
-    settingParam: SettingParam;
+    settingParam?: SettingParam;
   }
 
   /**
@@ -443,6 +443,7 @@ declare namespace camera {
      * @returns { CameraOutputCapability } The camera output capability.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
+     * @useinstead ohos.multiedia.camera.CameraManager#getSupportedOutputCapability
      * @since 10
      */
     getSupportedOutputCapability(camera: CameraDevice): CameraOutputCapability;
@@ -482,6 +483,7 @@ declare namespace camera {
      *
      * @returns { boolean } Is camera mute supported.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @throws { BusinessError } 202 - Not System Application.
      * @systemapi
      * @since 10
      */
@@ -491,6 +493,7 @@ declare namespace camera {
      * Mute camera.
      *
      * @param { boolean } mute - Mute camera if TRUE, otherwise unmute camera.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
@@ -543,12 +546,15 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
+     * @useinstead ohos.multiedia.camera.CameraManager#createPhotoOutput
      * @since 10
      */
     createPhotoOutput(profile: Profile, surfaceId: string): PhotoOutput;
 
     /**
-     * Creates a PhotoOutput instance.
+     * Creates a PhotoOutput instance without surfaceId.
+     * Call PhotoOutput capture interface will give a callback,
+     * {@link on(type: 'photoAvailable', callback: AsyncCallback<Photo>)}
      *
      * @param { Profile } profile - Photo output profile.
      * @returns { PhotoOutput } The PhotoOutput instance.
@@ -588,6 +594,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
+     * @useinstead ohos.multiedia.camera.CameraManager#createSession
      * @since 10
      */
     createCaptureSession(): CaptureSession;
@@ -628,6 +635,7 @@ declare namespace camera {
      *
      * @param { 'cameraMute' } type - Event type.
      * @param { AsyncCallback<boolean> } callback - Callback used to get the camera mute change.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
@@ -639,6 +647,7 @@ declare namespace camera {
      *
      * @param { 'cameraMute' } type - Event type.
      * @param { AsyncCallback<boolean> } callback - Callback used to get the camera mute change.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
@@ -651,6 +660,7 @@ declare namespace camera {
      *
      * @param { CameraDevice } camera - Camera device.
      * @returns { boolean } Whether prelaunch is supported.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -664,6 +674,7 @@ declare namespace camera {
      *
      * @permission ohos.permission.CAMERA
      * @param { PrelaunchConfig } prelaunchConfig - Prelaunch configuration info.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -676,6 +687,7 @@ declare namespace camera {
      * Enable the camera to prelaunch and start.
      * This function is called when the user clicks the system camera icon to start the camera application.
      *
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
@@ -686,6 +698,7 @@ declare namespace camera {
      * Prepare the camera resources.
      * This function is called when the user touch down the camera switch icon in camera application.
      *
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -697,6 +710,7 @@ declare namespace camera {
      *
      * @param { Profile } profile - Preview output profile.
      * @returns { PreviewOutput } the PreviewOutput instance.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -913,7 +927,39 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
-    CAMERA_TYPE_DEFAULT = 0
+    CAMERA_TYPE_DEFAULT = 0,
+
+    /**
+     * Wide camera
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    CAMERA_TYPE_WIDE_ANGLE = 1,
+
+    /**
+     * Ultra wide camera
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    CAMERA_TYPE_ULTRA_WIDE = 2,
+
+    /**
+     * Telephoto camera
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    CAMERA_TYPE_TELEPHOTO = 3,
+
+    /**
+     * True depth camera
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    CAMERA_TYPE_TRUE_DEPTH = 4
   }
 
   /**
@@ -1581,6 +1627,25 @@ declare namespace camera {
      * @since 11
      */
     setExposureBias(exposureBias: number): void;
+
+    /**
+     * Query the exposure value.
+     *
+     * @returns { number } The exposure value.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
+    /**
+     * Query the exposure value.
+     * Move to AutoExposure interface from CaptureSession interface since 11.
+     *
+     * @returns { number } The exposure value.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
+    getExposureValue(): number;
   }
 
   /**
@@ -1895,7 +1960,8 @@ declare namespace camera {
 
     /**
      * Notify device to prepare for zoom.
-     * 
+     *
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -1906,6 +1972,7 @@ declare namespace camera {
     /**
      * Notify device of zoom completion.
      *
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2090,6 +2157,7 @@ declare namespace camera {
      * Gets supported beauty effect types.
      *
      * @returns { Array<BeautyType> } List of beauty effect types.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2100,6 +2168,7 @@ declare namespace camera {
      * Move to Beauty interface from CaptureSession interface since 11.
      *
      * @returns { Array<BeautyType> } List of beauty effect types.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2112,6 +2181,7 @@ declare namespace camera {
      *
      * @param { BeautyType } type - The type of beauty effect.
      * @returns { Array<number> } The array of the specific beauty effect range.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2123,6 +2193,7 @@ declare namespace camera {
      *
      * @param { BeautyType } type - The type of beauty effect.
      * @returns { Array<number> } The array of the specific beauty effect range.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2135,6 +2206,7 @@ declare namespace camera {
      *
      * @param { BeautyType } type - The type of beauty effect.
      * @returns { number } the beauty effect in use.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2146,6 +2218,7 @@ declare namespace camera {
      *
      * @param { BeautyType } type - The type of beauty effect.
      * @returns { number } the beauty effect in use.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2158,6 +2231,7 @@ declare namespace camera {
      *
      * @param { BeautyType } type - The type of beauty effect.
      * @param { number } value The number of beauty effect.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2169,6 +2243,7 @@ declare namespace camera {
      *
      * @param { BeautyType } type - The type of beauty effect.
      * @param { number } value The number of beauty effect.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2227,6 +2302,7 @@ declare namespace camera {
      * Gets supported color effect types.
      *
      * @returns { Array<ColorEffectType> } List of color effect types.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2238,6 +2314,7 @@ declare namespace camera {
      * Gets the specific color effect type.
      *
      * @returns { ColorEffectType } The array of the specific color effect type.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2249,6 +2326,7 @@ declare namespace camera {
      * Sets a color effect for a camera device.
      *
      * @param { ColorEffectType } type - The type of color effect.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2270,6 +2348,7 @@ declare namespace camera {
      * Gets the specific color space type.
      *
      * @returns { colorSpaceManager.ColorSpace } Current color space.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2281,6 +2360,7 @@ declare namespace camera {
      * Gets the supported color space types.
      *
      * @returns { Array<colorSpaceManager.ColorSpace> } The array of the supported color space for the session.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2292,6 +2372,7 @@ declare namespace camera {
      * Sets a color space for the session.
      *
      * @param { colorSpaceManager.ColorSpace } colorSpace - The type of color space.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400102 - The colorSpace does not match the format.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -2314,6 +2395,7 @@ declare namespace camera {
      * Determine whether camera macro is supported.
      *
      * @returns { boolean } Is camera macro supported.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -2324,6 +2406,7 @@ declare namespace camera {
      * Enable macro for camera.
      *
      * @param { boolean } enabled - enable macro for camera if TRUE.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2646,6 +2729,7 @@ declare namespace camera {
    * @interface CaptureSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @deprecated since 11
+   * @useinstead ohos.multiedia.camera.VideoSession
    * @since 10
    */
   interface CaptureSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty {
@@ -2819,6 +2903,7 @@ declare namespace camera {
      *
      * @param { 'macroStatusChanged' } type - Event type.
      * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -2830,6 +2915,7 @@ declare namespace camera {
      *
      * @param { 'macroStatusChanged' } type - Event type.
      * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -2946,6 +3032,7 @@ declare namespace camera {
      *
      * @param { 'macroStatusChanged' } type - Event type.
      * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -2957,6 +3044,7 @@ declare namespace camera {
      *
      * @param { 'macroStatusChanged' } type - Event type.
      * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -3041,6 +3129,7 @@ declare namespace camera {
      * Gets supported portrait effect.
      *
      * @returns { Array<PortraitEffect> } List of portrait effect.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3051,6 +3140,7 @@ declare namespace camera {
      * Move to Portrait interface from CaptureSession interface since 11.
      *
      * @returns { Array<PortraitEffect> } List of portrait effect.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3062,6 +3152,7 @@ declare namespace camera {
      * Gets the portrait effect in use.
      *
      * @returns { PortraitEffect } The portrait effect in use.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3072,6 +3163,7 @@ declare namespace camera {
      * Move to Portrait interface from CaptureSession interface since 11.
      *
      * @returns { PortraitEffect } The portrait effect in use.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3083,6 +3175,7 @@ declare namespace camera {
      * Sets a portrait effect for a camera device.
      *
      * @param { PortraitEffect } effect - Effect Portrait effect to set.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3093,6 +3186,7 @@ declare namespace camera {
      * Move to Portrait interface from CaptureSession interface since 11.
      *
      * @param { PortraitEffect } effect - Effect Portrait effect to set.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3176,6 +3270,7 @@ declare namespace camera {
      * Gets the supported virtual apertures.
      *
      * @returns { Array<number> } The array of supported virtual apertures.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3187,6 +3282,7 @@ declare namespace camera {
      * Gets current virtual aperture value.
      *
      * @returns { number } The current virtual aperture value.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3198,6 +3294,7 @@ declare namespace camera {
      * Sets virtual aperture value.
      *
      * @param { number } aperture - virtual aperture value
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3209,6 +3306,7 @@ declare namespace camera {
      * Gets the supported physical apertures.
      *
      * @returns { Array<PhysicalAperture> } The array of supported physical apertures.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3220,6 +3318,7 @@ declare namespace camera {
      * Gets current physical aperture value.
      *
      * @returns { number } The current physical aperture value.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3231,6 +3330,7 @@ declare namespace camera {
      * Sets physical aperture value.
      *
      * @param { number } aperture - physical aperture value
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3358,6 +3458,7 @@ declare namespace camera {
      * Gets the supported manual exposure range.
      *
      * @returns { Array<number> } The array of manual exposure range.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3369,6 +3470,7 @@ declare namespace camera {
      * Gets current exposure value.
      *
      * @returns { number } The current exposure value.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3380,6 +3482,7 @@ declare namespace camera {
      * Sets Exposure value.
      *
      * @param { number } exposure - Exposure value
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3533,6 +3636,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
+     * @useinstead ohos.multiedia.camera.Session#start
      * @since 10
      */
     start(callback: AsyncCallback<void>): void;
@@ -3544,6 +3648,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
+     * @useinstead ohos.multiedia.camera.Session#start
      * @since 10
      */
     start(): Promise<void>;
@@ -3554,6 +3659,7 @@ declare namespace camera {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
+     * @useinstead ohos.multiedia.camera.Session#stop
      * @since 10
      */
     stop(callback: AsyncCallback<void>): void;
@@ -3564,6 +3670,7 @@ declare namespace camera {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
+     * @useinstead ohos.multiedia.camera.Session#stop
      * @since 10
      */
     stop(): Promise<void>;
@@ -3632,6 +3739,7 @@ declare namespace camera {
      * Adds a deferred surface.
      *
      * @param { string } surfaceId - Surface object id used in camera photo output.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3643,6 +3751,7 @@ declare namespace camera {
      * Determine whether camera sketch is supported.
      *
      * @returns { boolean } Is camera sketch supported.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -3653,6 +3762,7 @@ declare namespace camera {
      * Gets the specific zoom ratio when sketch stream open.
      *
      * @returns { number } The specific zoom ratio of sketch.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3664,6 +3774,7 @@ declare namespace camera {
      * Enable sketch for camera.
      *
      * @param { boolean } enabled - enable sketch for camera if TRUE.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3675,6 +3786,7 @@ declare namespace camera {
      * Attach surface to the sketch stream.
      *
      * @param { string } surfaceId - Surface object id used in sketch stream.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3687,6 +3799,7 @@ declare namespace camera {
      *
      * @param { 'sketchStatusChanged' } type - Event type.
      * @param { AsyncCallback<SketchStatusData> } callback - Callback used to sketch status data.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -3698,6 +3811,7 @@ declare namespace camera {
      *
      * @param { 'sketchStatusChanged' } type - Event type.
      * @param { AsyncCallback<SketchStatusData> } callback - Callback used to get sketch status data.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -3937,6 +4051,7 @@ declare namespace camera {
      * Thumbnail image.
      *
      * @returns { Promise<image.PixelMap> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -3947,6 +4062,7 @@ declare namespace camera {
      * Release DeferredPhotoProxy object.
      *
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -4014,6 +4130,7 @@ declare namespace camera {
     /**
      * Confirm capture in Night mode.
      *
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400104 - Session not running.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -4027,6 +4144,7 @@ declare namespace camera {
      *
      * @param { DeferredDeliveryImageType } type - Type of delivery image.
      * @returns { boolean } TRUE if the type of delivery image is support.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400104 - Session not running.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -4041,6 +4159,7 @@ declare namespace camera {
      *
      * @param { DeferredDeliveryImageType } type - Type of delivery image.
      * @returns { boolean } TRUE if the type of delivery image is enable.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400104 - Session not running.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -4054,6 +4173,7 @@ declare namespace camera {
      * Sets the image type for deferred image delivery.
      *
      * @param { DeferredDeliveryImageType } type - Type of delivery image.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400104 - Session not running.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
@@ -4088,6 +4208,7 @@ declare namespace camera {
      *
      * @param { 'deferredPhotoProxyAvailable' } type - Event type.
      * @param { AsyncCallback<DeferredPhotoProxy> } callback - Callback used to get the DeferredPhotoProxy.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -4099,6 +4220,7 @@ declare namespace camera {
      *
      * @param { 'deferredPhotoProxyAvailable' } type - Event type.
      * @param { AsyncCallback<DeferredPhotoProxy> } callback - Callback used to get the DeferredPhotoProxy.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -4121,6 +4243,7 @@ declare namespace camera {
      * @param { AsyncCallback<number> } callback - Callback used to get the capture ID.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
+     * @useinstead ohos.multiedia.camera.PhotoOutput#captureStartWithInfo
      * @since 10
      */
     on(type: 'captureStart', callback: AsyncCallback<number>): void;
@@ -4132,6 +4255,7 @@ declare namespace camera {
      * @param { AsyncCallback<number> } callback - Callback used to get the capture ID.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @deprecated since 11
+     * @useinstead ohos.multiedia.camera.PhotoOutput#captureStartWithInfo
      * @since 10
      */
     off(type: 'captureStart', callback?: AsyncCallback<number>): void;
@@ -4221,6 +4345,7 @@ declare namespace camera {
      * This method is valid after Session.addInput() and Session.addOutput(photoOutput) are called.
      *
      * @returns { boolean } Whether quick thumbnail is supported.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400104 - session is not running.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -4235,6 +4360,7 @@ declare namespace camera {
      * you are advised to call the method before Session.commitConfig().
      * 
      * @param { boolean } enabled - The value TRUE means to enable quick thumbnail, and FALSE means the opposite.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400104 - session is not running.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -4248,6 +4374,7 @@ declare namespace camera {
      *
      * @param { 'quickThumbnail' } type - Event type.
      * @param { AsyncCallback<image.PixelMap> } callback - Callback used to get the quick thumbnail.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
@@ -4260,6 +4387,7 @@ declare namespace camera {
      *
      * @param { 'quickThumbnail' } type - Event type.
      * @param { AsyncCallback<image.PixelMap> } callback - Callback used to get the quick thumbnail.
+     * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
