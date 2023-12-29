@@ -408,7 +408,7 @@ declare namespace fileAccess {
      * Get the next fileInfo.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @returns { { value: FileInfo, done: boolean } } Returns FileInfo Object and boolean flag.
+     * @returns { object } Returns FileInfo Object and boolean flag.
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900004 - Interrupted system call
@@ -625,7 +625,7 @@ declare namespace fileAccess {
      * Get a next RootInfo.
      *
      * @permission ohos.permission.FILE_ACCESS_MANAGER
-     * @returns { { value: RootInfo, done: boolean } } Returns RootInfo Object and boolean flag.
+     * @returns { object } Returns RootInfo Object and boolean flag.
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900002 - No such file or directory
      * @throws { BusinessError } 13900004 - Interrupted system call
@@ -675,12 +675,57 @@ declare namespace fileAccess {
    * @permission ohos.permission.FILE_ACCESS_MANAGER
    * @syscap SystemCapability.FileManagement.UserFileService
    * @systemapi
+   * @StageModelOnly
    * @since 10
    */
   interface CopyResult {
+    /**
+     * Indicates the source file or directory uri to be copy.
+     * 
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
     sourceUri: string;
+    /**
+     * Indicates the file or directory uri in the destination folder.
+     * 
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
     destUri: string;
+    /**
+     * Error code for failure to copy a file or directory.
+     * 
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
     errCode: number;
+    /**
+     * Error message for failure to copy a file.
+     * 
+     * @permission ohos.permission.FILE_ACCESS_MANAGER
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 10
+     */
     errMsg: string;
   }
 
