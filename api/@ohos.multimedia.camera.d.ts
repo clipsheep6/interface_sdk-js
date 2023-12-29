@@ -692,6 +692,7 @@ declare namespace camera {
      * This function is called when the user touch down the camera switch icon in camera application.
      *
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
