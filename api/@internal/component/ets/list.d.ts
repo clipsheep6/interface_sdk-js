@@ -1266,9 +1266,11 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @form
    */
   /**
-   * Called when the offset and status callback of the slide are set.
+   * Called when the List scrolls.
    *
-   * @param { function } event
+   * @param { function } callback - callback of List,
+   * scrollOffset is offset per frame scrolling, scrollState is current sliding state.
+   * @param { ScrollEventOptions } eventOption - scroll event options
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1276,7 +1278,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): ListAttribute;
+  onScroll(callback: (scrollOffset: number, scrollState: ScrollState) => void, eventOption?: ScrollEventOptions): ListAttribute;
 
   /**
    * Called when the start and end positions of the display change.

@@ -757,16 +757,18 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 10
    */
   /**
-   * Called when the setting slides to the specified position.
+   * Called when the Scroll scrolls.
    *
-   * @param { function } event
+   * @param { function } callback - callback of Scroll
+   * xOffset and yOffset are offsets per frame scrolling, scrollState is current scroll state.
+   * @param { ScrollEventOptions } eventOption - scroll event options
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  onScroll(event: (xOffset: number, yOffset: number) => void): ScrollAttribute;
+  onScroll(callback: (xOffset: number, yOffset: number, scrollState: ScrollState) => void, eventOption?: ScrollEventOptions): ScrollAttribute;
 
   /**
    * Called when scrolling to the edge of the container.
