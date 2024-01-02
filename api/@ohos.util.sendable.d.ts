@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import type ArkTS from "./@ohos.util.json"
+
 /**
  * @file
  * @kit ArkTS
@@ -27,38 +29,8 @@
  * @since 11
  */
 declare namespace sendable {
-  /**
-   * The JSON interface provides functions to convert sendable JavaScript values to and from the JavaScript Object Notation (JSON) format.<br/>
-   * Do not support array now.
-   * @typedef SendableJSON
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 11
-   */
-  export interface SendableJSON extends JSON {
-    /**
-     * Query whether a sendable JavaScript value has a specified key
-     * @param { Object } obj A sendable JavaScript value to be queried
-     * @param { string } key Key to be queried
-     * @returns { boolean } whether a sendable JavaScript value has a specified key
-     * @throws { BusinessError } 401 - The parameter check failed. 
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @since 11
-     */
-    has(obj: Object, key: string): boolean;
-  }
-
-  /**
-   * An intrinsic object that provides functions to convert sendable JavaScript values to and from the JavaScript Object Notation (JSON) format.<br/>
-   * Do not support array now.
-   *
-   * @constant
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 11
-   */
-  const JSON: SendableJSON;
+ 
+  const JSON: ArkTS.ArkJSON;
 }
 
 export default sendable;
