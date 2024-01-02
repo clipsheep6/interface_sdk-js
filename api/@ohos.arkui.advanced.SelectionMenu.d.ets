@@ -25,8 +25,6 @@
  * @crossplatform
  * @since 11
  */
-
-
 export interface EditorMenuOptions {
   /**
    * The icon of icon and text item.

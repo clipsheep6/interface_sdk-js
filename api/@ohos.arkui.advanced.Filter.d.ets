@@ -38,7 +38,30 @@ import { ResourceStr } from 'GlobalResource';
  * @since 11
  */
 export declare enum FilterType {
+    /**
+     * Multi line filter
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    /**
+     * Multi line filter
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     MULTI_LINE_FILTER = 0,
+
+    /**
+     * List filter
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 10
+     */
+    /**
+     * List filter
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 11
+     */
     LIST_FILTER = 1
 }
 

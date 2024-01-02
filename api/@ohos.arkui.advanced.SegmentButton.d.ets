@@ -114,6 +114,13 @@ interface SegmentButtonIconTextItem {
   text: ResourceStr;
 }
 
+/**
+ * Defines dimension without percentage.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
 
 /**
@@ -255,8 +262,31 @@ interface CommonSegmentButtonOptions {
   backgroundBlurStyle?: BlurStyle;
 }
 
+/**
+ * Defines item restriction.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare type ItemRestriction<T> = [T, T, T?, T?, T?];
+
+/**
+ * Defines SegmentButton item tuple.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | ItemRestriction<SegmentButtonIconItem> | ItemRestriction<SegmentButtonIconTextItem>;
+
+/**
+ * Defines SegmentButton item array.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<SegmentButtonIconItem> | Array<SegmentButtonIconTextItem>;
 
 /**
@@ -724,7 +754,13 @@ declare class SegmentButtonOptions {
   static capsule(options: CapsuleSegmentButtonConstructionOptions): SegmentButtonOptions;
 }
 
-
+/**
+ * Defines SegmentButton.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 @Component
 declare struct SegmentButton {
   /**
