@@ -1339,6 +1339,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100018 - Not authorized application.
    * @throws { BusinessError } 19100019 - The DLP file has expired.
    * @throws { BusinessError } 19100020 - No network connection.
+   * @throws { BusinessError } 19100021 - DLP file integrity verification failed.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -1366,6 +1367,7 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100018 - Not authorized application.
    * @throws { BusinessError } 19100019 - The DLP file has expired.
    * @throws { BusinessError } 19100020 - No network connection.
+   * @throws { BusinessError } 19100021 - DLP file integrity verification failed.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 11
