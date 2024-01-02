@@ -12,7 +12,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+  
 
+/**
+  * Defines ViewModel
+  *
+  * @interface ViewModel
+  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+  * @since 4
+  */
 export interface ViewModel {
   /**
    * Displays content based on the current system language and a path of the language resource key specified through $t.
@@ -37,6 +45,13 @@ export interface ViewModel {
   $refs: ElementReferences;
 }
 
+/**
+  * Defines list scroll to options.
+  *
+  * @interface ListScrollToOptions
+  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+  * @since 4
+  */
 export interface ListScrollToOptions {
   /**
    * specified position.
@@ -48,6 +63,13 @@ export interface ListScrollToOptions {
   index: number;
 }
 
+/**
+  * Defines list element.
+  *
+  * @interface ListElement
+  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+  * @since 4
+  */
 export interface ListElement {
   /**
    * Scrolls the list to the position of the item at the specified index.
@@ -59,6 +81,14 @@ export interface ListElement {
   scrollTo(position: ListScrollToOptions): void;
 }
 
+
+/**
+  * Defines image animator element.
+  *
+  * @interface ImageAnimatorElement
+  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+  * @since 4
+  */
 export interface ImageAnimatorElement {
   /**
    * Starts to play the frame animation of an image. If this method is called again, the playback starts from the first frame.
@@ -101,10 +131,32 @@ export interface ImageAnimatorElement {
   getState(): "Playing" | "Paused" | "Stopped";
 }
 
+
+/**
+  * Defines element reference
+  *
+  * @interface ElementReferences
+  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+  * @since 4
+  */
 export interface ElementReferences {
+  /**
+    * Defines element reference
+    *
+    * @type { object & ListElement & ImageAnimatorElement }
+    * @syscap SystemCapability.ArkUI.ArkUI.Lite
+    * @since 4
+    */
   [k: string]: object & ListElement & ImageAnimatorElement;
 }
 
+/**
+  * Defines options
+  *
+  * @interface Options
+  * @syscap SystemCapability.ArkUI.ArkUI.Lite
+  * @since 4
+  */
 export interface Options<T extends ViewModel, Data = DefaultData<T>> {
   /**
    * Data model of the page that can be converted into a JSON object.

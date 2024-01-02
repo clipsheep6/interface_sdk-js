@@ -16679,7 +16679,22 @@ declare interface MeasureResult extends SizeResult {
  
 }
 
+/**
+  * The navigation destination information.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 11
+  */
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
+
+/**
+  * UIContext
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 11
+  */
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
 /**

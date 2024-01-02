@@ -1780,6 +1780,15 @@ declare interface Position {
   y?: Length;
 }
 
+/**
+  * Defines the bias
+  *
+  * @interface Bias
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 11
+  * @form
+  */
 declare interface Bias {
   /**
    * Horizontal ratio of the Bias, it must be >= 0.
