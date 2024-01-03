@@ -3768,7 +3768,7 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
-    enalbeSketch(enabled: boolean): void;
+    enableSketch(enabled: boolean): void;
 
     /**
      * Attach surface to the sketch stream.
