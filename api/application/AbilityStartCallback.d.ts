@@ -15,12 +15,13 @@
 
 /**
  * The callback of UIAbility or UIExtensionAbility.
+ * @typedef AbilityStartCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @atomicservice
  * @since 11
  */
-export default class AbilityStartCallback {
+export interface AbilityStartCallback {
 
   /**
    * Called when some error occurred except disconnected from UIAbility or UIExtensionAbility.
@@ -35,3 +36,5 @@ export default class AbilityStartCallback {
    */
   onError(code: number, name: string, message: string): void;
 }
+
+export default AbilityStartCallback;
