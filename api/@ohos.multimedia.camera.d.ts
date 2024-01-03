@@ -2720,9 +2720,9 @@ declare namespace camera {
    *
    * @interface CaptureSession
    * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 10
    * @deprecated since 11
    * @useinstead ohos.multimedia.camera.VideoSession
-   * @since 10
    */
   interface CaptureSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty {
     /**
