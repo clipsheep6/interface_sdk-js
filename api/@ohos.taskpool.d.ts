@@ -955,6 +955,22 @@ declare namespace taskpool {
   function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise<Object>;
 
   /**
+   * Execute a concurrent task after the specified time.
+   *
+   * @param { number } delayTime - delayTime delayTime The time want to delay.
+   * @param { Task } task - task task The task want to execute.
+   * @param { Priority } priority - priority priority Task priority, MEDIUM is default.
+   * @returns { Promise<Object> }
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 102000028 - The delayTime is less than zero.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  function executeAfter(delayTime: number, task: Task, priority?: Priority): Promise<Object>;
+
+  /**
    * Cancel a concurrent task.
    *
    * @param { Task } task - task task The task want to cancel.
