@@ -6559,7 +6559,16 @@ declare interface BorderImageOption {
    */
   fill?: boolean
 }
-
+/**
+ * The tap action triggers this method invocation.
+ *
+ * @interface RichEditorClickEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface RichEditorClickEvent extends ClickEvent {
+  preventDefault: () => void;
+}
 /**
  * The tap action triggers this method invocation.
  *
