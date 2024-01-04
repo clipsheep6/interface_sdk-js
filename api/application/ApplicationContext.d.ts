@@ -155,7 +155,7 @@ export default class ApplicationContext extends Context {
   /**
    * Register environment callback.
    *
-   * @param { 'environment' } type - environment.
+   * @param { string } type - environment.
    * @param { EnvironmentCallback } callback - The environment callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -166,7 +166,7 @@ export default class ApplicationContext extends Context {
   /**
    * Register environment callback.
    *
-   * @param { 'environment' } type - environment.
+   * @param { string } type - environment.
    * @param { EnvironmentCallback } callback - The environment callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -180,7 +180,7 @@ export default class ApplicationContext extends Context {
   /**
    * Unregister environment callback.
    *
-   * @param { 'environment' } type - environment.
+   * @param { string } type - environment.
    * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -191,7 +191,7 @@ export default class ApplicationContext extends Context {
   /**
    * Unregister environment callback.
    *
-   * @param { 'environment' } type - environment.
+   * @param { string } type - environment.
    * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -205,7 +205,7 @@ export default class ApplicationContext extends Context {
   /**
    * Unregister environment callback.
    *
-   * @param { 'environment' } type - environment.
+   * @param { string } type - environment.
    * @param { number } callbackId - Indicates the number code of the callback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -216,7 +216,7 @@ export default class ApplicationContext extends Context {
   /**
    * Unregister environment callback.
    *
-   * @param { 'environment' } type - environment.
+   * @param { string } type - environment.
    * @param { number } callbackId - Indicates the number code of the callback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
