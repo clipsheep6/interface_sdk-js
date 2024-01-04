@@ -1972,6 +1972,7 @@ declare namespace media {
      * @throws { BusinessError } 401 - Parameter error. Return by callback.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
@@ -1986,6 +1987,7 @@ declare namespace media {
      * @throws { BusinessError } 401 - Parameter error. Return by promise.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
