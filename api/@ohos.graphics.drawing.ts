@@ -28,7 +28,6 @@ declare namespace drawing {
    * Enumerate blending modes for colors.
    * Blend is a operation that use 4 components(red, green, blue, alpha) to generate
    * a new color from two colors(source, destination).
-   * 
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
@@ -36,98 +35,84 @@ declare namespace drawing {
   enum BlendMode {
     /**
      * disable 4 regions(red, green, blue, alpha)
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     CLEAR = 0,
     /**
      * Use components of the source
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     SRC = 1,
     /**
      * Use components of the destination
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     DST = 2,
     /**
      * The source is placed above the destination.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     SRC_OVER = 3,
     /**
      * The Destination is placed above the source.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     DST_OVER = 4,
     /**
      * Use source replaces the destination, and will not exceed the boundaries of the destination
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     SRC_IN = 5,
     /**
      * Use destination, and will not exceed the boundaries of the source
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     DST_IN = 6,
     /**
      * Source is use in outside of the boundaries of the destination.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     SRC_OUT = 7,
     /**
      * Destination is use in outside of the boundaries of the source.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     DST_OUT = 8,
     /**
      * Source which overlaps the destination will replaces the destination.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     SRC_ATOP = 9,
     /**
      * Destination which overlaps the source will replaces the source.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     DST_ATOP = 10,
     /**
      * Combine regions where source and destination do not overlap.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     XOR = 11,
     /**
      * The sum of the source and destination.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     PLUS = 12,
     /**
      * All components are multiplied.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -135,105 +120,90 @@ declare namespace drawing {
     /**
      * Multiply the complement values of the background and source color values,
      * and then complement the result.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     SCREEN = 14,
     /**
      * Multiplies or screens the colors, depending on destination
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     OVERLAY = 15,
     /**
      * Choose a darker background and source color.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     DARKEN = 16,
     /**
      * Choose a lighter background and source color. 
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     LIGHTEN = 17,
     /**
      * Brightens destination color to reflect the source color.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     COLOR_DODGE = 18,
     /**
      * Darkens destination color to reflect the source color.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     COLOR_BURN = 19,
     /**
      * Multiplies or screens the colors, depending on source
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     HARD_LIGHT = 20,
     /**
      * Lightens or Darkens the colors, depending on the source. 
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     SOFT_LIGHT = 21,
     /**
      * Subtract the darker of the two colors from the brighter color.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     DIFFERENCE = 22,
     /**
      * Produces an effect similar to difference mode, but with lower contrast.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     EXCLUSION = 23,
     /**
      * Multiply the source color by the destination color and replace the destination.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     MULTIPLY = 24,
     /**
      * Use the hue of the source and the saturation and brightness of the destination.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     HUE = 25,
     /**
      * Use the saturation of the source and the hue and brightness of the destination.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     SATURATION = 26,
     /**
      * Use the hue and saturation of the source and the brightness of the destination.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     COLOR = 27,
     /**
      * Use the brightness of the source and the hue and saturation of the destination.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -250,7 +220,6 @@ declare namespace drawing {
   class Path {
     /**
      * constructor for the Path
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -258,7 +227,6 @@ declare namespace drawing {
 
     /**
      * Sets the start point of a path
-     * 
      * @param { number } x Indicates the x coordinate of the start point.
      * @param { number } y Indicates the y coordinate of the start point.
      * @syscap SystemCapability.Graphics.Drawing.Core
@@ -268,7 +236,6 @@ declare namespace drawing {
 
     /**
      * Draws a line segment from the last point of a path to the target point.
-     * 
      * @param { number } x Indicates the x coordinate of the target point.
      * @param { number } y Indicates the y coordinate of the target point.
      * @syscap SystemCapability.Graphics.Drawing.Core
@@ -281,7 +248,6 @@ declare namespace drawing {
      * and then a start angle and a sweep angle are specified.
      * The arc is a portion of the ellipse defined by the start angle and the sweep angle. 
      * By default, a line segment from the last point of the path to the start point of the arc is also added.
-     * 
      * @param { number } x1 Indicates the x coordinate of the upper left corner of the rectangle.
      * @param { number } y1 Indicates the y coordinate of the upper left corner of the rectangle.
      * @param { number } x2 Indicates the x coordinate of the lower right corner of the rectangle.
@@ -295,7 +261,6 @@ declare namespace drawing {
 
     /**
      * Draws a quadratic Bezier curve from the last point of a path to the target point.
-     * 
      * @param { number } ctrlX Indicates the x coordinate of the control point.
      * @param { number } ctrlY Indicates the y coordinate of the control point.
      * @param { number } endX Indicates the x coordinate of the target point.
@@ -307,7 +272,6 @@ declare namespace drawing {
 
     /**
      * Draws a cubic Bezier curve from the last point of a path to the target point.
-     * 
      * @param { number } ctrlX1 Indicates the x coordinate of the first control point.
      * @param { number } ctrlY1 Indicates the y coordinate of the first control point.
      * @param { number } ctrlX2 Indicates the x coordinate of the second control point.
@@ -321,7 +285,6 @@ declare namespace drawing {
 
     /**
      * Closes a path. A line segment from the start point to the last point of the path is added.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -329,7 +292,6 @@ declare namespace drawing {
 
     /**
      * Resets path data.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -345,7 +307,6 @@ declare namespace drawing {
   class Canvas {
     /**
      * constructor for the Canvas
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -354,7 +315,6 @@ declare namespace drawing {
     /**
      * If rectangle is stroked, use pen to stroke width describes the line thickness,
      * else use brush to fill the rectangle.
-     * 
      * @param { GraphicsBase.Rect } rect Rectangle to draw.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -364,7 +324,6 @@ declare namespace drawing {
     /**
      * If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
      * stroke width describes the line thickness, else use brush to fill the circle.
-     * 
      * @param { number } x X-coordinate of the circle center.
      * @param { number } y Y-coordinate of the circle center.
      * @param { number } radius Half the diameter of circle.
@@ -375,7 +334,6 @@ declare namespace drawing {
 
     /**
      * Draw an pixelmap, with the upper left corner at (left, top).
-     * 
      * @param { image.PixelMap } pixelmap PixelMap.
      * @param { number } left Left side of image.
      * @param { number } top Top side of image.
@@ -386,7 +344,6 @@ declare namespace drawing {
 
     /**
      * Fills clip with color color. Mode determines how ARGB is combined with destination.
-     * 
      * @param { GraphicsBase.Color } color Color in 32-bit argb format.
      * @param { BlendMode } blendMode Used to combine source color and destination. The default value is SRC_OVER.
      * @syscap SystemCapability.Graphics.Drawing.Core
@@ -396,7 +353,6 @@ declare namespace drawing {
 
     /**
      * Draw a point.
-     * 
      * @param { number } x X-coordinate position of the point.
      * @param { number } y Y-coordinate position of the point.
      * @syscap SystemCapability.Graphics.Drawing.Core
@@ -406,7 +362,6 @@ declare namespace drawing {
 
     /**
      * Path contains an array of path contour, each of which may be open or closed.
-     * 
      * @param { Path } path Path to draw.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -415,7 +370,6 @@ declare namespace drawing {
 
     /**
      * Draws line segment from startPt to endPt.
-     * 
      * @param { number } x0 X-coordinate of the start point of the line segment.
      * @param { number } y0 Y-coordinate of the start point of the line segment.
      * @param { number } x1 X-coordinate of the end point of the line segment.
@@ -427,7 +381,6 @@ declare namespace drawing {
 
     /**
      * Draws line segment from startPt to endPt.
-     * 
      * @param { TextBlob } blob X-coordinate of the start point of the line segment.
      * @param { number } x X-coordinate of the text start point.
      * @param { number } y Y-coordinate of the text start point.
@@ -438,7 +391,6 @@ declare namespace drawing {
 
     /**
      * Set pen to a canvas.
-     * 
      * @param { Pen } pen object
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -447,7 +399,6 @@ declare namespace drawing {
 
     /**
      * Set brush to a canvas.
-     * 
      * @param { Brush } brush object
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -456,7 +407,6 @@ declare namespace drawing {
 
     /**
      * Unset pen to a canvas.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -464,7 +414,6 @@ declare namespace drawing {
 
     /**
      * Unset brush to a canvas.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -480,21 +429,18 @@ declare namespace drawing {
   interface TextBlobRunBuffer {
     /**
      * Text model.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     glyph: number;
     /**
      * X-coordinate of the text start point.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     positionX: number;
     /**
      * Y-coordinate of the text start point.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -511,28 +457,24 @@ declare namespace drawing {
   enum TextEncoding {
     /**
      * Use 1 byte to represent UTF-8 or ASCII
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     TEXTENCODING_UTF8 = 0,
     /**
      * Use 2 bytes to represent most of Unicode
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     TEXTENCODING_UTF16 = 1,
     /**
      * Use 4 bytes to represent all Unicodes.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     TEXTENCODING_UTF32 = 2,
     /**
      * Use 2 bytes to represent the glyph index.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -549,7 +491,6 @@ declare namespace drawing {
   class TextBlob {
     /**
      * Create a textblob from a string
-     * 
      * @param { string } text Drawn glyph content.
      * @param { Font } font Specify text size, font, text scale, etc.
      * @param { TextEncoding } encoding The default value is TEXTENCODING_UTF8.
@@ -561,7 +502,6 @@ declare namespace drawing {
 
     /**
      * Creating a textblob object based on RunBuffer information
-     * 
      * @param { Array<TextBlobRunBuffer> } pos The array of TextBlobRunBuffer
      * @returns { TextBlob } TextBlob objest.
      * @syscap SystemCapability.Graphics.Drawing.Core
@@ -571,7 +511,6 @@ declare namespace drawing {
 
     /**
      * Returns the bounding rectangle shape
-     * 
      * @returns { GraphicsBase.Rect } Rect objest.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -621,7 +560,6 @@ declare namespace drawing {
     constructor();
     /**
      * Requests, but does not require, that glyphs respect sub-pixel positioning.
-     * 
      * @param { boolean } isSubpixel Setting for sub-pixel positioning
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -630,7 +568,6 @@ declare namespace drawing {
 
     /**
      * Increases stroke width when creating glyph bitmaps to approximate a bold typeface.
-     * 
      * @param { boolean } isEmbolden Setting for bold approximation.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -639,7 +576,6 @@ declare namespace drawing {
 
     /**
      * Requests linearly scalable font and glyph metrics.
-     * 
      * @param { boolean } isLinearMetrics Setting for linearly scalable font and glyph metrics.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -648,7 +584,6 @@ declare namespace drawing {
 
     /**
      * Sets text size in points. Has no effect if textSize is not greater than or equal to zero.
-     * 
      * @param { number } textSize Typographic height of text.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -657,7 +592,6 @@ declare namespace drawing {
 
     /**
      * Obtains the text size.
-     * 
      * @returns { number } Text size.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -666,7 +600,6 @@ declare namespace drawing {
 
     /**
      * Sets Typeface to font.
-     * 
      * @param typeface font and style used to draw text
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -675,7 +608,6 @@ declare namespace drawing {
 
     /**
      * Get Typeface to font.
-     * 
      * @returns { Typeface } Typeface.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -684,7 +616,6 @@ declare namespace drawing {
 
     /**
      * Get fontMetrics associated with typeface.
-     * 
      * @returns { FontMetrics } The fontMetrics value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -693,7 +624,6 @@ declare namespace drawing {
 
     /**
      * Measure the width of text.
-     * 
      * @param { string } text Text Symbol Content.
      * @param { TextEncoding } encoding Encoding format.
      * @returns { number } The width of text.
@@ -712,39 +642,34 @@ declare namespace drawing {
   interface FontMetrics {
     /**
      * Maximum range above the glyph bounding box.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    fTop: number;
+    top: number;
     /**
      * Distance Retained Above Baseline.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    fAscent: number;
+    ascent: number;
     /**
      * The distance that remains below the baseline.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    fDescent: number;
+    descent: number;
     /**
      * Maximum range below the glyph bounding box.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    fBottom: number;
+    bottom: number;
     /**
      * Line Spacing.
-     * 
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    fLeading: number;
+    leading: number;
   }
   /**
    * ColorFilters are optional objects in the drawing pipeline.
@@ -763,7 +688,6 @@ declare namespace drawing {
     constructor();
     /**
      * Makes a color filter with the given color and blend mode.
-     * 
      * @param { GraphicsBase.Color } color X-coordinate of the start point of the line segment.
      * @param { BlendMode } mode X-coordinate of the start point of the line segment.
      * @returns { ColorFilter } Colorfilter.
@@ -774,7 +698,6 @@ declare namespace drawing {
 
     /**
      * Makes a color filter composing two color filters.
-     * 
      * @param { ColorFilter } outer X-coordinate of the start point of the line segment.
      * @param { ColorFilter } inner X-coordinate of the start point of the line segment.
      * @returns { ColorFilter } Colorfilter.
@@ -785,7 +708,6 @@ declare namespace drawing {
 
     /**
      * Creates a color filter using the provided color matrix.
-     * 
      * @returns { ColorFilter } Colorfilter.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -794,7 +716,6 @@ declare namespace drawing {
 
     /**
      * Makes a color filter that converts between linear colors and sRGB colors.
-     * 
      * @returns { ColorFilter } Colorfilter.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -803,7 +724,6 @@ declare namespace drawing {
 
     /**
      * Makes a color filter that converts between sRGB colors and linear colors.
-     * 
      * @returns { ColorFilter } Colorfilter.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -813,7 +733,6 @@ declare namespace drawing {
     /**
      * Makes a color filter that multiplies the luma of its input into the alpha channel,
      * and sets the red, green, and blue channels to zero.
-     * 
      * @returns { ColorFilter } Colorfilter.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -921,7 +840,6 @@ declare namespace drawing {
      * point values, unpremultiplied. The color values are interpreted as being in
      * the colorSpace. If colorSpace is nullptr, then color is assumed to be in the
      * sRGB color space.
-     * 
      * @param { GraphicsBase.Color } color unpremultiplied RGBA
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -931,7 +849,6 @@ declare namespace drawing {
     /**
      * Requests, but does not require, that edge pixels draw opaque or with
      * partial transparency.
-     * 
      * @param { boolean } aa setting for antialiasing
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -940,7 +857,6 @@ declare namespace drawing {
 
     /**
      * Replaces alpha, leaving RGB
-     * 
      * @param { number } alpha alpha component of color, value range: 0–255
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -949,7 +865,6 @@ declare namespace drawing {
 
     /**
      * Sets ColorFilter to brush
-     * 
      * @param { ColorFilter } filter ColorFilter to apply to subsequent draw
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -958,7 +873,6 @@ declare namespace drawing {
 
     /**
      * Sets a blender that implements the specified blendmode enum.
-     * 
      * @param { BlendMode } mode blendmode
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
