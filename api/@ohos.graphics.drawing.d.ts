@@ -618,7 +618,7 @@ declare namespace drawing {
 
   /**
    * The metrics of an Font.
-   * @typedef TextBlobRunBuffer
+   * @typedef FontMetrics
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
