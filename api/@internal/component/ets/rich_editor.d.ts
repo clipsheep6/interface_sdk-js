@@ -1334,7 +1334,7 @@ declare interface RichEditorGesture {
    * @crossplatform
    * @since 11
    */
-  onClick?: (event: ClickEvent) => void;
+  onClick?: (event: RichEditorClickEvent) => void;
 
   /**
    * Trigger a gesture event when long press event is complete.
@@ -1344,7 +1344,7 @@ declare interface RichEditorGesture {
    * @crossplatform
    * @since 11
    */
-  onLongPress?: (event: GestureEvent) => void;
+  onLongPress?: (event: RichEditorGestureEvent) => void;
 }
 
 /**

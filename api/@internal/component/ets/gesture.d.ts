@@ -845,7 +845,16 @@ declare type GestureType =
   | SwipeGestureInterface
   | RotationGestureInterface
   | GestureGroupInterface;
-
+/**
+ * The tap action triggers this method invocation.
+ *
+ * @interface RichEditorGestureEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 11
+ */
+declare interface RichEditorGestureEvent extends GestureEvent {
+  preventDefault: () => void;
+}
 /**
  * Defines the gesture base event.
  *
