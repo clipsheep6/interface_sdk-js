@@ -13,14 +13,19 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkGraphics 2D
+ */
+
 import type image from './@ohos.multimedia.image';
-import type GraphicsCore from './@ohos.graphics.core';
+import type graphicsCommon from './@ohos.graphics.common';
 
 /**
  * Provides functions such as 2D graphics rendering, text drawing, and image display.
  *
  * @namespace drawing
- * @syscap SystemCapability.Graphics.Drawing.Core
+ * @syscap SystemCapability.Graphics.drawing.Core
  * @since 11
  */
 declare namespace drawing {
@@ -211,9 +216,9 @@ declare namespace drawing {
   }
 
   /**
+   * class Path
    * Describes a path object.
    * 
-   * @class Path
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
@@ -292,14 +297,14 @@ declare namespace drawing {
   }
 
   /**
-   * 
-   * @class Canvas
+   * class Canvas
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
   class Canvas {
     /**
      * constructor for the Canvas
+     * @param { image.PixelMap } pixelmap PixelMap.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -308,11 +313,11 @@ declare namespace drawing {
     /**
      * If rectangle is stroked, use pen to stroke width describes the line thickness,
      * else use brush to fill the rectangle.
-     * @param { GraphicsCore.Rect } rect Rectangle to draw.
+     * @param { graphicsCommon.Rect } rect Rectangle to draw.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    drawRect(rect: GraphicsCore.Rect): void;
+    drawRect(rect: graphicsCommon.Rect): void;
 
     /**
      * If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
@@ -337,12 +342,12 @@ declare namespace drawing {
 
     /**
      * Fills clip with color color. Mode determines how ARGB is combined with destination.
-     * @param { GraphicsCore.Color } color Color in 32-bit argb format.
+     * @param { graphicsCommon.Color } color Color in 32-bit argb format.
      * @param { BlendMode } blendMode Used to combine source color and destination. The default value is SRC_OVER.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    drawColor(color: GraphicsCore.Color, blendMode?: BlendMode): void;
+    drawColor(color: graphicsCommon.Color, blendMode?: BlendMode): void;
 
     /**
      * Draw a point.
@@ -415,7 +420,7 @@ declare namespace drawing {
 
   /**
    * Provide a description of the type and position of the text.
-   * @interface TextBlobRunBuffer
+   * @typedef TextBlobRunBuffer
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
@@ -455,13 +460,13 @@ declare namespace drawing {
      */
     TEXTENCODING_UTF8 = 0,
     /**
-     * Use 2 bytes to represent most of Unicode
+     * Use 2 bytes to represent most of unicode
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     TEXTENCODING_UTF16 = 1,
     /**
-     * Use 4 bytes to represent all Unicodes.
+     * Use 4 bytes to represent all unicode.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -477,7 +482,7 @@ declare namespace drawing {
   /**
    * Provide a description of the text
    * 
-   * @class TextBlob
+   * class TextBlob
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
@@ -487,7 +492,7 @@ declare namespace drawing {
      * @param { string } text Drawn glyph content.
      * @param { Font } font Specify text size, font, text scale, etc.
      * @param { TextEncoding } encoding The default value is TEXTENCODING_UTF8.
-     * @returns { TextBlob } TextBlob objest.
+     * @returns { TextBlob } TextBlob object.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -496,7 +501,7 @@ declare namespace drawing {
     /**
      * Creating a textblob object based on RunBuffer information
      * @param { Array<TextBlobRunBuffer> } pos The array of TextBlobRunBuffer
-     * @returns { TextBlob } TextBlob objest.
+     * @returns { TextBlob } TextBlob object.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -504,17 +509,17 @@ declare namespace drawing {
 
     /**
      * Returns the bounding rectangle shape
-     * @returns { GraphicsCore.Rect } Rect objest.
+     * @returns { graphicsCommon.Rect } Rect object.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    bounds(): GraphicsCore.Rect;
+    bounds(): graphicsCommon.Rect;
   }
   
   /**
+   * class Typeface
    * The Typeface class specifies the typeface and intrinsic style of a font.
    * 
-   * @class Typeface
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
@@ -529,9 +534,9 @@ declare namespace drawing {
   }
 
   /**
+   * class Font
    * Font controls options applied when drawing and measuring text.
    * 
-   * @class Font
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
@@ -578,7 +583,7 @@ declare namespace drawing {
 
     /**
      * Sets Typeface to font.
-     * @param typeface font and style used to draw text
+     * @param { Typeface } typeface font and style used to draw text.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -613,7 +618,7 @@ declare namespace drawing {
 
   /**
    * The metrics of an Font.
-   * @interface TextBlobRunBuffer
+   * @typedef TextBlobRunBuffer
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
@@ -650,25 +655,25 @@ declare namespace drawing {
     leading: number;
   }
   /**
+   * class ColorFilter
    * ColorFilters are optional objects in the drawing pipeline.
    * 
-   * @class ColorFilter
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
   class ColorFilter {
     /**
      * Makes a color filter with the given color and blend mode.
-     * @param { GraphicsCore.Color } color X-coordinate of the start point of the line segment.
+     * @param { graphicsCommon.Color } color X-coordinate of the start point of the line segment.
      * @param { BlendMode } mode X-coordinate of the start point of the line segment.
      * @returns { ColorFilter } Colorfilter.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    static createBlendModeColorFilter(color: GraphicsCore.Color, mode: BlendMode): ColorFilter;
+    static createBlendModeColorFilter(color: graphicsCommon.Color, mode: BlendMode): ColorFilter;
 
     /**
-     * Makes a color filter composing two color filters.
+     * Create a color filter consisting of two filters.
      * @param { ColorFilter } outer X-coordinate of the start point of the line segment.
      * @param { ColorFilter } inner X-coordinate of the start point of the line segment.
      * @returns { ColorFilter } Colorfilter.
@@ -705,21 +710,18 @@ declare namespace drawing {
 
   /**
    *
-   * @class Pen
+   * class Pen
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
   class Pen {
     /**
-    * Sets alpha and RGB used when stroking and filling. The color is four floating
-    * point values, unpremultiplied. The color values are interpreted as being in
-    * the colorSpace. If colorSpace is nullptr, then color is assumed to be in the
-    * sRGB color space.
-    * @param { GraphicsCore.Color } color unpremultiplied RGBA.
+    * Set the color of the pen.
+    * @param { graphicsCommon.Color } color Set colors.
     * @syscap SystemCapability.Graphics.Drawing.Core
     * @since 11
     */
-    setColor(color: GraphicsCore.Color): void;
+    setColor(color: graphicsCommon.Color): void;
 
     /**
     * Sets the thickness of the pen used by the paint to outline the shape.
@@ -779,21 +781,18 @@ declare namespace drawing {
 
   /**
    *
-   * @class Brush
+   * class Brush
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
   class Brush {
     /**
-     * Sets alpha and RGB used when stroking and filling. The color is four floating
-     * point values, unpremultiplied. The color values are interpreted as being in
-     * the colorSpace. If colorSpace is nullptr, then color is assumed to be in the
-     * sRGB color space.
-     * @param { GraphicsCore.Color } color unpremultiplied RGBA
+     * Set the color of the brush.
+     * @param { graphicsCommon.Color } color Set colors.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    setColor(color: GraphicsCore.Color): void;
+    setColor(color: graphicsCommon.Color): void;
 
     /**
      * Requests, but does not require, that edge pixels draw opaque or with

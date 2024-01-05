@@ -12,26 +12,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
- * GraphicsBase.
+ * @file
+ * @kit ArkGraphics 2D
+ */
+
+/**
+ * graphicsCommon.
  *
- * @namespace GraphicsBase
- * @syscap SystemCapability.Graphics.Core
+ * @namespace graphicsCommon
+ * @syscap SystemCapability.Graphics.Common
  * @since 11
  */
-declare namespace GraphicsCore {
+declare namespace graphicsCommon {
   /**
    * Provide a description in the form of color ARGB.
    * 
-   * @interface Color
-   * @syscap SystemCapability.Graphics.Core
+   * @typedef Color
+   * @syscap SystemCapability.Graphics.Common
    * @since 11
    */
   interface Color {
     /**
      * Alpha component of color, from 0 to 255.
      * 
-     * @syscap SystemCapability.Graphics.Core
+     * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
     alpha: number;
@@ -39,7 +45,7 @@ declare namespace GraphicsCore {
     /**
      * Red component of color, from 0 to 255.
      * 
-     * @syscap SystemCapability.Graphics.Core
+     * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
     red: number;
@@ -47,7 +53,7 @@ declare namespace GraphicsCore {
     /**
      * Green component of color, from 0 to 255.
      * 
-     * @syscap SystemCapability.Graphics.Core
+     * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
     green: number;
@@ -55,7 +61,7 @@ declare namespace GraphicsCore {
     /**
      * Blue component of color, from 0 to 255.
      * 
-     * @syscap SystemCapability.Graphics.Core
+     * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
     blue: number;
@@ -64,15 +70,15 @@ declare namespace GraphicsCore {
   /**
    * Provides the definition of the rectangle.
    * 
-   * @interface Rect
-   * @syscap SystemCapability.Graphics.Core
+   * @typedef Rect
+   * @syscap SystemCapability.Graphics.Common
    * @since 11
    */
   interface Rect {
     /**
      * Left Position of Rectangle.
      * 
-     * @syscap SystemCapability.Graphics.Core
+     * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
     left: number;
@@ -80,7 +86,7 @@ declare namespace GraphicsCore {
     /**
      * Top side position of the rectangle
      * 
-     * @syscap SystemCapability.Graphics.Core
+     * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
     top: number;
@@ -88,7 +94,7 @@ declare namespace GraphicsCore {
     /**
      * Right Position of Rectangle.
      * 
-     * @syscap SystemCapability.Graphics.Core
+     * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
     right: number;
@@ -96,7 +102,7 @@ declare namespace GraphicsCore {
     /**
      * Position of the bottom side of the rectangle.
      * 
-     * @syscap SystemCapability.Graphics.Core
+     * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
     bottom: number;

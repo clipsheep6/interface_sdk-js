@@ -15,5 +15,7 @@
 
 import effectKit from '@ohos.effectKit';
 import colorSpaceManager from '@ohos.graphics.colorSpaceManager';
+import graphicsCommon from '@ohos.graphics.common';
+import drawing from '@ohos.graphics.drawing';
 
 export { colorSpaceManager, effectKit };
