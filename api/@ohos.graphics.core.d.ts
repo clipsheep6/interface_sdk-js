@@ -16,22 +16,22 @@
  * GraphicsBase.
  *
  * @namespace GraphicsBase
- * @syscap SystemCapability.Graphics.Base
+ * @syscap SystemCapability.Graphics.Core
  * @since 11
  */
-declare namespace GraphicsBase {
+declare namespace GraphicsCore {
   /**
    * Provide a description in the form of color ARGB.
    * 
    * @interface Color
-   * @syscap SystemCapability.Graphics.Base
+   * @syscap SystemCapability.Graphics.Core
    * @since 11
    */
   interface Color {
     /**
      * Alpha component of color, from 0 to 255.
      * 
-     * @syscap SystemCapability.Graphics.Base
+     * @syscap SystemCapability.Graphics.Core
      * @since 11
      */
     alpha: number;
@@ -39,7 +39,7 @@ declare namespace GraphicsBase {
     /**
      * Red component of color, from 0 to 255.
      * 
-     * @syscap SystemCapability.Graphics.Base
+     * @syscap SystemCapability.Graphics.Core
      * @since 11
      */
     red: number;
@@ -47,7 +47,7 @@ declare namespace GraphicsBase {
     /**
      * Green component of color, from 0 to 255.
      * 
-     * @syscap SystemCapability.Graphics.Base
+     * @syscap SystemCapability.Graphics.Core
      * @since 11
      */
     green: number;
@@ -55,7 +55,7 @@ declare namespace GraphicsBase {
     /**
      * Blue component of color, from 0 to 255.
      * 
-     * @syscap SystemCapability.Graphics.Base
+     * @syscap SystemCapability.Graphics.Core
      * @since 11
      */
     blue: number;
@@ -65,38 +65,38 @@ declare namespace GraphicsBase {
    * Provides the definition of the rectangle.
    * 
    * @interface Rect
-   * @syscap SystemCapability.Graphics.Base
+   * @syscap SystemCapability.Graphics.Core
    * @since 11
    */
   interface Rect {
     /**
      * Left Position of Rectangle.
      * 
-     * @syscap SystemCapability.Graphics.Base
+     * @syscap SystemCapability.Graphics.Core
      * @since 11
      */
     left: number;
 
     /**
-     * Right Position of Rectangle.
-     * 
-     * @syscap SystemCapability.Graphics.Base
-     * @since 11
-     */
-    right: number;
-
-    /**
      * Top side position of the rectangle
      * 
-     * @syscap SystemCapability.Graphics.Base
+     * @syscap SystemCapability.Graphics.Core
      * @since 11
      */
     top: number;
 
     /**
+     * Right Position of Rectangle.
+     * 
+     * @syscap SystemCapability.Graphics.Core
+     * @since 11
+     */
+    right: number;
+
+    /**
      * Position of the bottom side of the rectangle.
      * 
-     * @syscap SystemCapability.Graphics.Base
+     * @syscap SystemCapability.Graphics.Core
      * @since 11
      */
     bottom: number;

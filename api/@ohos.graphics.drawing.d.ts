@@ -14,7 +14,7 @@
  */
 
 import type image from './@ohos.multimedia.image';
-import type GraphicsBase from './@ohos.graphics.base';
+import type GraphicsCore from './@ohos.graphics.core';
 
 /**
  * Provides functions such as 2D graphics rendering, text drawing, and image display.
@@ -219,13 +219,6 @@ declare namespace drawing {
    */
   class Path {
     /**
-     * constructor for the Path
-     * @syscap SystemCapability.Graphics.Drawing.Core
-     * @since 11
-     */
-    constructor();
-
-    /**
      * Sets the start point of a path
      * @param { number } x Indicates the x coordinate of the start point.
      * @param { number } y Indicates the y coordinate of the start point.
@@ -315,11 +308,11 @@ declare namespace drawing {
     /**
      * If rectangle is stroked, use pen to stroke width describes the line thickness,
      * else use brush to fill the rectangle.
-     * @param { GraphicsBase.Rect } rect Rectangle to draw.
+     * @param { GraphicsCore.Rect } rect Rectangle to draw.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    drawRect(rect: GraphicsBase.Rect): void;
+    drawRect(rect: GraphicsCore.Rect): void;
 
     /**
      * If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
@@ -344,12 +337,12 @@ declare namespace drawing {
 
     /**
      * Fills clip with color color. Mode determines how ARGB is combined with destination.
-     * @param { GraphicsBase.Color } color Color in 32-bit argb format.
+     * @param { GraphicsCore.Color } color Color in 32-bit argb format.
      * @param { BlendMode } blendMode Used to combine source color and destination. The default value is SRC_OVER.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    drawColor(color: GraphicsBase.Color, blendMode?: BlendMode): void;
+    drawColor(color: GraphicsCore.Color, blendMode?: BlendMode): void;
 
     /**
      * Draw a point.
@@ -511,11 +504,11 @@ declare namespace drawing {
 
     /**
      * Returns the bounding rectangle shape
-     * @returns { GraphicsBase.Rect } Rect objest.
+     * @returns { GraphicsCore.Rect } Rect objest.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    bounds(): GraphicsBase.Rect;
+    bounds(): GraphicsCore.Rect;
   }
   
   /**
@@ -526,14 +519,6 @@ declare namespace drawing {
    * @since 11
    */
   class Typeface {
-    /**
-    * constructor for the Typeface
-    * 
-    * @syscap SystemCapability.Graphics.Drawing.Core
-    * @since 11
-    */
-    constructor();
-
     /**
      * Get the family name for this typeface.
      * @returns { string } Family name.
@@ -551,13 +536,6 @@ declare namespace drawing {
    * @since 11
    */
   class Font {
-    /**
-    * constructor for the Font
-    * 
-    * @syscap SystemCapability.Graphics.Drawing.Core
-    * @since 11
-    */
-    constructor();
     /**
      * Requests, but does not require, that glyphs respect sub-pixel positioning.
      * @param { boolean } isSubpixel Setting for sub-pixel positioning
@@ -680,21 +658,14 @@ declare namespace drawing {
    */
   class ColorFilter {
     /**
-    * constructor for the ColorFilter
-    * 
-    * @syscap SystemCapability.Graphics.Drawing.Core
-    * @since 11
-    */
-    constructor();
-    /**
      * Makes a color filter with the given color and blend mode.
-     * @param { GraphicsBase.Color } color X-coordinate of the start point of the line segment.
+     * @param { GraphicsCore.Color } color X-coordinate of the start point of the line segment.
      * @param { BlendMode } mode X-coordinate of the start point of the line segment.
      * @returns { ColorFilter } Colorfilter.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    static createBlendModeColorFilter(color: GraphicsBase.Color, mode: BlendMode): ColorFilter;
+    static createBlendModeColorFilter(color: GraphicsCore.Color, mode: BlendMode): ColorFilter;
 
     /**
      * Makes a color filter composing two color filters.
@@ -705,14 +676,6 @@ declare namespace drawing {
      * @since 11
      */
     static createComposeColorFilter(outer: ColorFilter, inner: ColorFilter): ColorFilter;
-
-    /**
-     * Creates a color filter using the provided color matrix.
-     * @returns { ColorFilter } Colorfilter.
-     * @syscap SystemCapability.Graphics.Drawing.Core
-     * @since 11
-     */
-    static createMatrixColorFilter(): ColorFilter;
 
     /**
      * Makes a color filter that converts between linear colors and sRGB colors.
@@ -748,22 +711,15 @@ declare namespace drawing {
    */
   class Pen {
     /**
-    * constructor for the Pen
-    * 
-    * @syscap SystemCapability.Graphics.Drawing.Core
-    * @since 11
-    */
-    constructor();
-    /**
     * Sets alpha and RGB used when stroking and filling. The color is four floating
     * point values, unpremultiplied. The color values are interpreted as being in
     * the colorSpace. If colorSpace is nullptr, then color is assumed to be in the
     * sRGB color space.
-    * @param { GraphicsBase.Color } color unpremultiplied RGBA.
+    * @param { GraphicsCore.Color } color unpremultiplied RGBA.
     * @syscap SystemCapability.Graphics.Drawing.Core
     * @since 11
     */
-    setColor(color: GraphicsBase.Color): void;
+    setColor(color: GraphicsCore.Color): void;
 
     /**
     * Sets the thickness of the pen used by the paint to outline the shape.
@@ -829,22 +785,15 @@ declare namespace drawing {
    */
   class Brush {
     /**
-    * constructor for the Brush
-    * 
-    * @syscap SystemCapability.Graphics.Drawing.Core
-    * @since 11
-    */
-    constructor();
-    /**
      * Sets alpha and RGB used when stroking and filling. The color is four floating
      * point values, unpremultiplied. The color values are interpreted as being in
      * the colorSpace. If colorSpace is nullptr, then color is assumed to be in the
      * sRGB color space.
-     * @param { GraphicsBase.Color } color unpremultiplied RGBA
+     * @param { GraphicsCore.Color } color unpremultiplied RGBA
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    setColor(color: GraphicsBase.Color): void;
+    setColor(color: GraphicsCore.Color): void;
 
     /**
      * Requests, but does not require, that edge pixels draw opaque or with
