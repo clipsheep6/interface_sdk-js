@@ -1079,7 +1079,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageAnalyzerConfig } config
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 11
    */
   analyzerConfig(config: ImageAnalyzerConfig): ImageAttribute;
