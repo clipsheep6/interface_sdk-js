@@ -18,7 +18,6 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
  * @since 11
  */
 declare enum ImageAnalyzerType {
@@ -26,7 +25,6 @@ declare enum ImageAnalyzerType {
    * Image analyze type subject.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 11
    */
   SUBJECT = 0,
@@ -35,7 +33,6 @@ declare enum ImageAnalyzerType {
    * Image analyze type text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 11
    */
   TEXT,
@@ -46,7 +43,6 @@ declare enum ImageAnalyzerType {
  *
  * @interface ImageAnalyzerConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
  * @since 11
  */
 declare interface ImageAnalyzerConfig {
@@ -55,7 +51,6 @@ declare interface ImageAnalyzerConfig {
    *
    * @type { ImageAnalyzerType[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 11
    */
   types: ImageAnalyzerType[];
