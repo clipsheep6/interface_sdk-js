@@ -745,11 +745,11 @@ declare namespace drawing {
     /**
     * Replaces alpha, leaving RGB
     * 
-    * @param { boolean } a alpha component of color
+    * @param { number } a alpha component of color
     * @syscap SystemCapability.Graphics.Drawing.Core
     * @since 11
     */
-    setAlpha(a: boolean): void;
+    setAlpha(alpha: number): void;
 
     /**
     * Sets ColorFilter to pen
