@@ -458,25 +458,25 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    TEXTENCODING_UTF8 = 0,
+    TEXT_ENCODING_UTF8 = 0,
     /**
      * Use 2 bytes to represent most of unicode
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    TEXTENCODING_UTF16 = 1,
+    TEXT_ENCODING_UTF16 = 1,
     /**
      * Use 4 bytes to represent all unicode.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    TEXTENCODING_UTF32 = 2,
+    TEXT_ENCODING_UTF32 = 2,
     /**
      * Use 2 bytes to represent the glyph index.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    TEXTENCODING_GLYPH_ID = 3,
+    TEXT_ENCODING_GLYPH_ID = 3,
   }
 
   /**
