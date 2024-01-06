@@ -141,12 +141,12 @@ export declare struct TabTitleBar {
 
   /**
    * Menu items on the right side.
-   * @type { Array<OperationOptions> }.
+   * @type { Array<TabTitleBarMenuItem> }.
    * @since 10
    */
   /**
    * Menu items on the right side.
-   * @type { Array<OperationOptions> }.
+   * @type { Array<TabTitleBarMenuItem> }.
    * @atomicservice
    * @since 11
    */
