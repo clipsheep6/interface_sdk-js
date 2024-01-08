@@ -2732,8 +2732,6 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.camera.VideoSession
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -2744,8 +2742,6 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.camera.VideoSession
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -2756,8 +2752,6 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.camera.VideoSession
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -2768,8 +2762,6 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.camera.VideoSession
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -2780,8 +2772,6 @@ declare namespace camera {
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.camera.VideoSession
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -2792,8 +2782,6 @@ declare namespace camera {
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
-     * @deprecated since 11
-     * @useinstead ohos.multimedia.camera.VideoSession
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
@@ -3355,6 +3343,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 10
      */
     /**
@@ -3364,6 +3353,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 11
      */
     on(type: 'error', callback: ErrorCallback): void;
@@ -3374,6 +3364,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 10
      */
     /**
@@ -3383,6 +3374,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 11
      */
     off(type: 'error', callback?: ErrorCallback): void;
@@ -3402,6 +3394,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 11
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
@@ -3421,6 +3414,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 11
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
@@ -3431,6 +3425,7 @@ declare namespace camera {
      * @param { 'smoothZoomInfoAvailable' } type - Event type.
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 11
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
@@ -3441,6 +3436,7 @@ declare namespace camera {
      * @param { 'smoothZoomInfoAvailable' } type - Event type.
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 11
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
