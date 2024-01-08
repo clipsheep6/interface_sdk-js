@@ -543,9 +543,9 @@ declare namespace camera {
      * @returns { PhotoOutput } The PhotoOutput instance.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
      * @deprecated since 11
      * @useinstead ohos.multimedia.camera.CameraManager#createPhotoOutput
-     * @since 10
      */
     createPhotoOutput(profile: Profile, surfaceId: string): PhotoOutput;
 
@@ -591,9 +591,9 @@ declare namespace camera {
      * @returns { CaptureSession } The CaptureSession instance.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
      * @deprecated since 11
      * @useinstead ohos.multimedia.camera.CameraManager#createSession
-     * @since 10
      */
     createCaptureSession(): CaptureSession;
 
@@ -3624,9 +3624,9 @@ declare namespace camera {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
      * @deprecated since 11
      * @useinstead ohos.multimedia.camera.Session#start
-     * @since 10
      */
     start(callback: AsyncCallback<void>): void;
 
@@ -3636,9 +3636,9 @@ declare namespace camera {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
      * @deprecated since 11
      * @useinstead ohos.multimedia.camera.Session#start
-     * @since 10
      */
     start(): Promise<void>;
 
@@ -3647,9 +3647,9 @@ declare namespace camera {
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
      * @deprecated since 11
      * @useinstead ohos.multimedia.camera.Session#stop
-     * @since 10
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -3658,9 +3658,9 @@ declare namespace camera {
      *
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
      * @deprecated since 11
      * @useinstead ohos.multimedia.camera.Session#stop
-     * @since 10
      */
     stop(): Promise<void>;
 
@@ -4230,9 +4230,9 @@ declare namespace camera {
      * @param { 'captureStart' } type - Event type.
      * @param { AsyncCallback<number> } callback - Callback used to get the capture ID.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
      * @deprecated since 11
      * @useinstead ohos.multimedia.camera.PhotoOutput#captureStartWithInfo
-     * @since 10
      */
     on(type: 'captureStart', callback: AsyncCallback<number>): void;
 
@@ -4242,9 +4242,9 @@ declare namespace camera {
      * @param { 'captureStart' } type - Event type.
      * @param { AsyncCallback<number> } callback - Callback used to get the capture ID.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
      * @deprecated since 11
      * @useinstead ohos.multimedia.camera.PhotoOutput#captureStartWithInfo
-     * @since 10
      */
     off(type: 'captureStart', callback?: AsyncCallback<number>): void;
 
