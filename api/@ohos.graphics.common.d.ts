@@ -19,7 +19,7 @@
  */
 
 /**
- * graphicsCommon.
+ * The date structure that provides the basis for graphics.
  *
  * @namespace graphicsCommon
  * @syscap SystemCapability.Graphics.Common
@@ -37,6 +37,7 @@ declare namespace graphicsCommon {
     /**
      * Alpha component of color, from 0 to 255.
      * 
+     * @type { number }
      * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
@@ -45,6 +46,7 @@ declare namespace graphicsCommon {
     /**
      * Red component of color, from 0 to 255.
      * 
+     * @type { number }
      * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
@@ -53,6 +55,7 @@ declare namespace graphicsCommon {
     /**
      * Green component of color, from 0 to 255.
      * 
+     * @type { number }
      * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
@@ -61,6 +64,7 @@ declare namespace graphicsCommon {
     /**
      * Blue component of color, from 0 to 255.
      * 
+     * @type { number }
      * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
@@ -78,6 +82,7 @@ declare namespace graphicsCommon {
     /**
      * Left Position of Rectangle.
      * 
+     * @type { number }
      * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
@@ -86,6 +91,7 @@ declare namespace graphicsCommon {
     /**
      * Top side position of the rectangle
      * 
+     * @type { number }
      * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
@@ -94,6 +100,7 @@ declare namespace graphicsCommon {
     /**
      * Right Position of Rectangle.
      * 
+     * @type { number }
      * @syscap SystemCapability.Graphics.Common
      * @since 11
      */
@@ -102,6 +109,7 @@ declare namespace graphicsCommon {
     /**
      * Position of the bottom side of the rectangle.
      * 
+     * @type { number }
      * @syscap SystemCapability.Graphics.Common
      * @since 11
      */

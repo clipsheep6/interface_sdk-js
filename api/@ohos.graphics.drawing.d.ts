@@ -39,7 +39,7 @@ declare namespace drawing {
    */
   enum BlendMode {
     /**
-     * disable 4 regions(red, green, blue, alpha)
+     * Disable 4 regions(red, green, blue, alpha)
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -216,7 +216,6 @@ declare namespace drawing {
   }
 
   /**
-   * class Path
    * Describes a path object.
    * 
    * @syscap SystemCapability.Graphics.Drawing.Core
@@ -225,8 +224,8 @@ declare namespace drawing {
   class Path {
     /**
      * Sets the start point of a path
-     * @param { number } x Indicates the x coordinate of the start point.
-     * @param { number } y Indicates the y coordinate of the start point.
+     * @param { number } x - Indicates the x coordinate of the start point.
+     * @param { number } y - Indicates the y coordinate of the start point.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -234,8 +233,8 @@ declare namespace drawing {
 
     /**
      * Draws a line segment from the last point of a path to the target point.
-     * @param { number } x Indicates the x coordinate of the target point.
-     * @param { number } y Indicates the y coordinate of the target point.
+     * @param { number } x - Indicates the x coordinate of the target point.
+     * @param { number } y - Indicates the y coordinate of the target point.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -246,12 +245,12 @@ declare namespace drawing {
      * and then a start angle and a sweep angle are specified.
      * The arc is a portion of the ellipse defined by the start angle and the sweep angle. 
      * By default, a line segment from the last point of the path to the start point of the arc is also added.
-     * @param { number } x1 Indicates the x coordinate of the upper left corner of the rectangle.
-     * @param { number } y1 Indicates the y coordinate of the upper left corner of the rectangle.
-     * @param { number } x2 Indicates the x coordinate of the lower right corner of the rectangle.
-     * @param { number } y2 Indicates the y coordinate of the lower right corner of the rectangle.
-     * @param { number } startDeg Indicates the start angle, in degrees.
-     * @param { number } sweepDeg Indicates the angle to sweep, in degrees.
+     * @param { number } x1 - Indicates the x coordinate of the upper left corner of the rectangle.
+     * @param { number } y1 - Indicates the y coordinate of the upper left corner of the rectangle.
+     * @param { number } x2 - Indicates the x coordinate of the lower right corner of the rectangle.
+     * @param { number } y2 - Indicates the y coordinate of the lower right corner of the rectangle.
+     * @param { number } startDeg - Indicates the start angle, in degrees.
+     * @param { number } sweepDeg - Indicates the angle to sweep, in degrees.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -259,10 +258,10 @@ declare namespace drawing {
 
     /**
      * Draws a quadratic Bezier curve from the last point of a path to the target point.
-     * @param { number } ctrlX Indicates the x coordinate of the control point.
-     * @param { number } ctrlY Indicates the y coordinate of the control point.
-     * @param { number } endX Indicates the x coordinate of the target point.
-     * @param { number } endY Indicates the y coordinate of the target point.
+     * @param { number } ctrlX - Indicates the x coordinate of the control point.
+     * @param { number } ctrlY - Indicates the y coordinate of the control point.
+     * @param { number } endX - Indicates the x coordinate of the target point.
+     * @param { number } endY - Indicates the y coordinate of the target point.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -270,12 +269,12 @@ declare namespace drawing {
 
     /**
      * Draws a cubic Bezier curve from the last point of a path to the target point.
-     * @param { number } ctrlX1 Indicates the x coordinate of the first control point.
-     * @param { number } ctrlY1 Indicates the y coordinate of the first control point.
-     * @param { number } ctrlX2 Indicates the x coordinate of the second control point.
-     * @param { number } ctrlY2 Indicates the y coordinate of the second control point.
-     * @param { number } endX Indicates the x coordinate of the target point.
-     * @param { number } endY Indicates the y coordinate of the target point.
+     * @param { number } ctrlX1 - Indicates the x coordinate of the first control point.
+     * @param { number } ctrlY1 - Indicates the y coordinate of the first control point.
+     * @param { number } ctrlX2 - Indicates the x coordinate of the second control point.
+     * @param { number } ctrlY2 - Indicates the y coordinate of the second control point.
+     * @param { number } endX - Indicates the x coordinate of the target point.
+     * @param { number } endY - Indicates the y coordinate of the target point.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -297,14 +296,14 @@ declare namespace drawing {
   }
 
   /**
-   * class Canvas
+   * Provides an interface to the drawing, and how to clip and transform the drawing.
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
   class Canvas {
     /**
-     * constructor for the Canvas
-     * @param { image.PixelMap } pixelmap PixelMap.
+     * Constructor for the Canvas.
+     * @param { image.PixelMap } pixelmap - PixelMap.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -313,7 +312,7 @@ declare namespace drawing {
     /**
      * If rectangle is stroked, use pen to stroke width describes the line thickness,
      * else use brush to fill the rectangle.
-     * @param { graphicsCommon.Rect } rect Rectangle to draw.
+     * @param { graphicsCommon.Rect } rect - Rectangle to draw.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -322,9 +321,9 @@ declare namespace drawing {
     /**
      * If radius is zero or less, nothing is drawn. If circle is stroked, use pen to
      * stroke width describes the line thickness, else use brush to fill the circle.
-     * @param { number } x X-coordinate of the circle center.
-     * @param { number } y Y-coordinate of the circle center.
-     * @param { number } radius Half the diameter of circle.
+     * @param { number } x - X coordinate of the circle center.
+     * @param { number } y - Y coordinate of the circle center.
+     * @param { number } radius - Half the diameter of circle.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -332,9 +331,9 @@ declare namespace drawing {
 
     /**
      * Draw an pixelmap, with the upper left corner at (left, top).
-     * @param { image.PixelMap } pixelmap PixelMap.
-     * @param { number } left Left side of image.
-     * @param { number } top Top side of image.
+     * @param { image.PixelMap } pixelmap - PixelMap.
+     * @param { number } left - Left side of image.
+     * @param { number } top - Top side of image.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -342,8 +341,8 @@ declare namespace drawing {
 
     /**
      * Fills clip with color color. Mode determines how ARGB is combined with destination.
-     * @param { graphicsCommon.Color } color Color in 32-bit argb format.
-     * @param { BlendMode } blendMode Used to combine source color and destination. The default value is SRC_OVER.
+     * @param { graphicsCommon.Color } color - Color in 32-bit argb format.
+     * @param { BlendMode } blendMode - Used to combine source color and destination. The default value is SRC_OVER.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -351,8 +350,8 @@ declare namespace drawing {
 
     /**
      * Draw a point.
-     * @param { number } x X-coordinate position of the point.
-     * @param { number } y Y-coordinate position of the point.
+     * @param { number } x - X coordinate position of the point.
+     * @param { number } y - Y coordinate position of the point.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -360,7 +359,7 @@ declare namespace drawing {
 
     /**
      * Path contains an array of path contour, each of which may be open or closed.
-     * @param { Path } path Path to draw.
+     * @param { Path } path - Path to draw.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -368,10 +367,10 @@ declare namespace drawing {
 
     /**
      * Draws line segment from startPt to endPt.
-     * @param { number } x0 X-coordinate of the start point of the line segment.
-     * @param { number } y0 Y-coordinate of the start point of the line segment.
-     * @param { number } x1 X-coordinate of the end point of the line segment.
-     * @param { number } y1 Y-coordinate of the end point of the line segment.
+     * @param { number } x0 - X coordinate of the start point of the line segment.
+     * @param { number } y0 - Y coordinate of the start point of the line segment.
+     * @param { number } x1 - X coordinate of the end point of the line segment.
+     * @param { number } y1 - Y coordinate of the end point of the line segment.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -379,9 +378,9 @@ declare namespace drawing {
 
     /**
      * Draws line segment from startPt to endPt.
-     * @param { TextBlob } blob X-coordinate of the start point of the line segment.
-     * @param { number } x X-coordinate of the text start point.
-     * @param { number } y Y-coordinate of the text start point.
+     * @param { TextBlob } blob - X coordinate of the start point of the line segment.
+     * @param { number } x - X coordinate of the text start point.
+     * @param { number } y - Y coordinate of the text start point.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -389,7 +388,7 @@ declare namespace drawing {
 
     /**
      * Set pen to a canvas.
-     * @param { Pen } pen object
+     * @param { Pen } pen - object.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -397,7 +396,7 @@ declare namespace drawing {
 
     /**
      * Set brush to a canvas.
-     * @param { Brush } brush object
+     * @param { Brush } brush - Object.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -427,18 +426,21 @@ declare namespace drawing {
   interface TextBlobRunBuffer {
     /**
      * Text model.
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     glyph: number;
     /**
      * X-coordinate of the text start point.
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     positionX: number;
     /**
      * Y-coordinate of the text start point.
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -489,9 +491,9 @@ declare namespace drawing {
   class TextBlob {
     /**
      * Create a textblob from a string
-     * @param { string } text Drawn glyph content.
-     * @param { Font } font Specify text size, font, text scale, etc.
-     * @param { TextEncoding } encoding The default value is TEXTENCODING_UTF8.
+     * @param { string } text - Drawn glyph content.
+     * @param { Font } font - Specify text size, font, text scale, etc.
+     * @param { TextEncoding } encoding - The default value is TEXTENCODING_UTF8.
      * @returns { TextBlob } TextBlob object.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -500,9 +502,9 @@ declare namespace drawing {
 
     /**
      * Creating a textblob object based on RunBuffer information
-     * @param { Array<TextBlobRunBuffer> } pos The array of TextBlobRunBuffer
-     * @param { Font } font Font used for this run
-     * @param { Array<TextBlobRunBuffer> } bounds Optional run bounding box
+     * @param { Array<TextBlobRunBuffer> } pos - The array of TextBlobRunBuffer.
+     * @param { Font } font - Font used for this run.
+     * @param { Array<TextBlobRunBuffer> } bounds - Optional run bounding box.
      * @returns { TextBlob } TextBlob object.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -519,7 +521,6 @@ declare namespace drawing {
   }
   
   /**
-   * class Typeface
    * The Typeface class specifies the typeface and intrinsic style of a font.
    * 
    * @syscap SystemCapability.Graphics.Drawing.Core
@@ -536,7 +537,6 @@ declare namespace drawing {
   }
 
   /**
-   * class Font
    * Font controls options applied when drawing and measuring text.
    * 
    * @syscap SystemCapability.Graphics.Drawing.Core
@@ -545,7 +545,7 @@ declare namespace drawing {
   class Font {
     /**
      * Requests, but does not require, that glyphs respect sub-pixel positioning.
-     * @param { boolean } isSubpixel Setting for sub-pixel positioning
+     * @param { boolean } isSubpixel - Setting for sub-pixel positioning.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -553,7 +553,7 @@ declare namespace drawing {
 
     /**
      * Increases stroke width when creating glyph bitmaps to approximate a bold typeface.
-     * @param { boolean } isEmbolden Setting for bold approximation.
+     * @param { boolean } isEmbolden - Setting for bold approximation.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -561,7 +561,7 @@ declare namespace drawing {
 
     /**
      * Requests linearly scalable font and glyph metrics.
-     * @param { boolean } isLinearMetrics Setting for linearly scalable font and glyph metrics.
+     * @param { boolean } isLinearMetrics - Setting for linearly scalable font and glyph metrics.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -569,7 +569,7 @@ declare namespace drawing {
 
     /**
      * Sets text size in points. Has no effect if textSize is not greater than or equal to zero.
-     * @param { number } textSize Typographic height of text.
+     * @param { number } textSize - Typographic height of text.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -585,7 +585,7 @@ declare namespace drawing {
 
     /**
      * Sets Typeface to font.
-     * @param { Typeface } typeface font and style used to draw text.
+     * @param { Typeface } typeface - Font and style used to draw text.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -609,8 +609,8 @@ declare namespace drawing {
 
     /**
      * Measure the width of text.
-     * @param { string } text Text Symbol Content.
-     * @param { TextEncoding } encoding Encoding format.
+     * @param { string } text - Text Symbol Content.
+     * @param { TextEncoding } encoding - Encoding format.
      * @returns { number } The width of text.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
@@ -627,37 +627,41 @@ declare namespace drawing {
   interface FontMetrics {
     /**
      * Maximum range above the glyph bounding box.
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     top: number;
     /**
      * Distance Retained Above Baseline.
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     ascent: number;
     /**
      * The distance that remains below the baseline.
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     descent: number;
     /**
      * Maximum range below the glyph bounding box.
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     bottom: number;
     /**
      * Line Spacing.
+     * @type { number }
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
     leading: number;
   }
   /**
-   * class ColorFilter
    * ColorFilters are optional objects in the drawing pipeline.
    * 
    * @syscap SystemCapability.Graphics.Drawing.Core
@@ -666,9 +670,9 @@ declare namespace drawing {
   class ColorFilter {
     /**
      * Makes a color filter with the given color and blend mode.
-     * @param { graphicsCommon.Color } color X-coordinate of the start point of the line segment.
-     * @param { BlendMode } mode X-coordinate of the start point of the line segment.
-     * @returns { ColorFilter } Colorfilter.
+     * @param { graphicsCommon.Color } color - Color.
+     * @param { BlendMode } mode - BlendMode.
+     * @returns { ColorFilter } Colorfilter object.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -676,9 +680,9 @@ declare namespace drawing {
 
     /**
      * Create a color filter consisting of two filters.
-     * @param { ColorFilter } outer X-coordinate of the start point of the line segment.
-     * @param { ColorFilter } inner X-coordinate of the start point of the line segment.
-     * @returns { ColorFilter } Colorfilter.
+     * @param { ColorFilter } outer - The filter is used next.
+     * @param { ColorFilter } inner - The filter is used first.
+     * @returns { ColorFilter } Colorfilter object.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -686,7 +690,8 @@ declare namespace drawing {
 
     /**
      * Makes a color filter that converts between linear colors and sRGB colors.
-     * @returns { ColorFilter } Colorfilter.
+     * @returns { ColorFilter } Colorfilter object.
+     * @static
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -694,7 +699,8 @@ declare namespace drawing {
 
     /**
      * Makes a color filter that converts between sRGB colors and linear colors.
-     * @returns { ColorFilter } Colorfilter.
+     * @returns { ColorFilter } Colorfilter object.
+     * @static
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -711,15 +717,14 @@ declare namespace drawing {
   }
 
   /**
-   *
-   * class Pen
+   * Provides settings for strokes during drawing.
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
   class Pen {
     /**
     * Set the color of the pen.
-    * @param { graphicsCommon.Color } color Set colors.
+    * @param { graphicsCommon.Color } color - Set colors.
     * @syscap SystemCapability.Graphics.Drawing.Core
     * @since 11
     */
@@ -728,7 +733,7 @@ declare namespace drawing {
     /**
     * Sets the thickness of the pen used by the paint to outline the shape.
     * 
-    * @param { number } width zero thickness for hairline; greater than zero for pen thickness
+    * @param { number } width - Zero thickness for hairline; greater than zero for pen thickness.
     * @syscap SystemCapability.Graphics.Drawing.Core
     * @since 11
     */
@@ -738,7 +743,7 @@ declare namespace drawing {
     * Requests, but does not require, that edge pixels draw opaque or with
     * partial transparency.
     * 
-    * @param { boolean } aa setting for antialiasing
+    * @param { boolean } aa - Setting for antialiasing.
     * @syscap SystemCapability.Graphics.Drawing.Core
     * @since 11
     */
@@ -747,7 +752,7 @@ declare namespace drawing {
     /**
     * Replaces alpha, leaving RGB
     * 
-    * @param { number } a alpha component of color
+    * @param { number } alpha - Alpha component of color.
     * @syscap SystemCapability.Graphics.Drawing.Core
     * @since 11
     */
@@ -756,7 +761,7 @@ declare namespace drawing {
     /**
     * Sets ColorFilter to pen
     * 
-    * @param { ColorFilter } filter ColorFilter to apply to subsequent draw
+    * @param { ColorFilter } filter - ColorFilter to apply to subsequent draw.
     * @syscap SystemCapability.Graphics.Drawing.Core
     * @since 11
     */
@@ -765,7 +770,7 @@ declare namespace drawing {
     /**
     * Sets a blender that implements the specified blendmode enum.
     * 
-    * @param { BlendMode } mode blendmode
+    * @param { BlendMode } mode - Blendmode.
     * @syscap SystemCapability.Graphics.Drawing.Core
     * @since 11
     */
@@ -774,7 +779,7 @@ declare namespace drawing {
     /**
     * Request color distribution error.
     * 
-    * @param { boolean } dither Whether the color is distributed incorrectly.
+    * @param { boolean } dither - Whether the color is distributed incorrectly.
     * @syscap SystemCapability.Graphics.Drawing.Core
     * @since 11
     */
@@ -782,15 +787,14 @@ declare namespace drawing {
   }
 
   /**
-   *
-   * class Brush
+   * Provides settings for brush fill when drawing.
    * @syscap SystemCapability.Graphics.Drawing.Core
    * @since 11
    */
   class Brush {
     /**
      * Set the color of the brush.
-     * @param { graphicsCommon.Color } color Set colors.
+     * @param { graphicsCommon.Color } color - Set colors.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -799,7 +803,7 @@ declare namespace drawing {
     /**
      * Requests, but does not require, that edge pixels draw opaque or with
      * partial transparency.
-     * @param { boolean } aa setting for antialiasing
+     * @param { boolean } aa - Setting for antialiasing.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -807,7 +811,7 @@ declare namespace drawing {
 
     /**
      * Replaces alpha, leaving RGB
-     * @param { number } alpha alpha component of color, value range: 0–255
+     * @param { number } alpha - Alpha component of color, value range: 0–255.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -815,7 +819,7 @@ declare namespace drawing {
 
     /**
      * Sets ColorFilter to brush
-     * @param { ColorFilter } filter ColorFilter to apply to subsequent draw
+     * @param { ColorFilter } filter - ColorFilter to apply to subsequent draw.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
@@ -823,7 +827,7 @@ declare namespace drawing {
 
     /**
      * Sets a blender that implements the specified blendmode enum.
-     * @param { BlendMode } mode blendmode
+     * @param { BlendMode } mode - Blendmode.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
