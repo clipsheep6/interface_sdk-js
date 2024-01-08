@@ -91,6 +91,7 @@ import SystemRouter, {
   BackRouterOptions, DisableAlertBeforeBackPageOptions, EnableAlertBeforeBackPageOptions,
   RouterOptions, RouterState
 } from '@system.router';
+import uiExtensionHost from '@ohos.uiExtensionHost';
 
 export {
   AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
@@ -114,5 +115,5 @@ export {
   TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, WindowExtensionAbility,
   WindowExtensionContext, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
-  screen, screenshot, uiAppearance, uiObserver, window, windowAnimationManager
+  screen, screenshot, uiAppearance, uiObserver, window, windowAnimationManager, uiExtensionHost
 };
