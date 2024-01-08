@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import effectKit from '@ohos.effectKit';
-import colorSpaceManager from '@ohos.graphics.colorSpaceManager';
-import graphicsCommon from '@ohos.graphics.common';
-import drawing from '@ohos.graphics.drawing';
-import displaySync from '@ohos.graphics.displaySync';
+/**
+ * @file Defines the DRM capability.
+ * @kit DrmKit
+ */
 
-export { displaySync, colorSpaceManager, effectKit };
+import drm from '@ohos.multimedia.drm';
+
+export { drm };
