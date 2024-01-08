@@ -34,6 +34,12 @@ export type ValueType = number | string | boolean;
  * @StageModelOnly
  * @since 10
  */
-export type ValuesBucket = {
-  [key: string]: ValueType | Uint8Array | null;
-};
+/**
+ * Values in buckets are stored in key-value pairs
+ *
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+ * @StageModelOnly
+ * @since 11
+ */
+export type ValuesBucket = Record<string, ValueType| Uint8Array| null>;
+

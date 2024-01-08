@@ -320,7 +320,17 @@ declare namespace dataShare {
      * @StageModelOnly
      * @since 10
      */
-    predicates: { [key: string]: string };
+    /**
+     * Specifies the predicates of the template.
+     * When the callback in {@link DataShareHelper#on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}
+     * is called, the predicates is used to generate data in {@link ChangeNode}. Only for rdb store data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    predicates: Record<string, string>;
 
     /**
      * Specifies the scheduler sql of the template.
