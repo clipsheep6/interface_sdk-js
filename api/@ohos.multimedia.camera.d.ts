@@ -399,7 +399,7 @@ declare namespace camera {
     restoreParamType?: RestoreParamType;
 
     /**
-     * Begin activiting time.
+     * Begin active time.
      *
      * @type { ?number }
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -442,9 +442,9 @@ declare namespace camera {
      * @param { CameraDevice } camera - Camera device.
      * @returns { CameraOutputCapability } The camera output capability.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
      * @deprecated since 11
      * @useinstead ohos.multimedia.camera.CameraManager#getSupportedOutputCapability
-     * @since 10
      */
     getSupportedOutputCapability(camera: CameraDevice): CameraOutputCapability;
 
@@ -600,8 +600,8 @@ declare namespace camera {
     /**
      * Gets a Session instance by specific scene mode.
      *
-     * @returns { T } The specific Session instance by specific scene mode.
      * @param { SceneMode } mode - Scene mode.
+     * @returns { T } The specific Session instance by specific scene mode.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
@@ -714,7 +714,7 @@ declare namespace camera {
     /**
      * Check if the device has a torch.
      *
-     * @return { boolean } this value that specifies whether the device has a torch.
+     * @returns { boolean } this value that specifies whether the device has a torch.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -723,7 +723,7 @@ declare namespace camera {
     /**
      * Check if a specifies torch mode is supported.
      * @param { TorchMode } mode - torch mode.
-     * @return { boolean } is torch mode supported.
+     * @returns { boolean } is torch mode supported.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -732,7 +732,7 @@ declare namespace camera {
     /**
      * Get current torch mode.
      *
-     * @return { boolean } torch mode.
+     * @returns { TorchMode } torch mode.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -2732,6 +2732,8 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.camera.VideoSession
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -2742,6 +2744,8 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.camera.VideoSession
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -2752,6 +2756,8 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.camera.VideoSession
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -2762,6 +2768,8 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.camera.VideoSession
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -2772,6 +2780,8 @@ declare namespace camera {
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.camera.VideoSession
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
 
@@ -2782,6 +2792,8 @@ declare namespace camera {
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.camera.VideoSession
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
@@ -3495,6 +3507,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 11
      */
     on(type: 'error', callback: ErrorCallback): void;
@@ -3505,6 +3518,7 @@ declare namespace camera {
      * @param { 'error' } type - Event type.
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 11
      */
     off(type: 'error', callback?: ErrorCallback): void;
@@ -3515,6 +3529,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 11
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
@@ -3525,6 +3540,7 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 11
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
@@ -3535,6 +3551,7 @@ declare namespace camera {
      * @param { 'smoothZoomInfoAvailable' } type - Event type.
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 11
      */
     on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
@@ -3545,6 +3562,7 @@ declare namespace camera {
      * @param { 'smoothZoomInfoAvailable' } type - Event type.
      * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 11
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
@@ -4143,7 +4161,7 @@ declare namespace camera {
     isDeferredImageDeliverySupported(type: DeferredDeliveryImageType): boolean;
 
     /**
-     * Confirm if the deferred image delivery enalbed.
+     * Confirm if the deferred image delivery enabled.
      *
      * @param { DeferredDeliveryImageType } type - Type of delivery image.
      * @returns { boolean } TRUE if the type of delivery image is enable.
