@@ -65,16 +65,6 @@ export default class StartOptions {
   displayId?: number;
 
   /**
-   * The target ability with animation or without
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @since 11
-   */
-  withAnimation?: boolean;
-
-  /**
    * The left position of window rectangle
    *
    * @type { ?number }
