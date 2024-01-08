@@ -107,7 +107,7 @@ declare namespace fileIo {
   export { Stream };
   export { Watcher };
   export { WhenceType };
-  export { CancelSignal };
+  export { TaskSignal };
   export type { Progress };
   export type { CopyOptions };
   export type { ProgressListener };
@@ -5728,31 +5728,15 @@ interface Progress {
 }
 
 /**
- * Cancel signal of copy
+ * Task signal.
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 11
  */
-class CancelSignal {
-  /**
-   * Constructor for obtaining the instance of the CancelSignal class.
-   *
-   * @syscap SystemCapability.FileManagement.AppFileService
-   * @since 11
-   */
-  constructor();
+class TaskSignal {
 
   /**
-   * Check if the copy task was canceled.
-   *
-   * @returns { boolean } The result if the copy task was canceled.
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 11
-   */
-  isCanceled(): boolean;
-
-  /**
-   * cancel the copy task.
+   * Cancel the task.
    *
    * @throws { BusinessError } 13900043 - No task can be canceled.
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -5761,7 +5745,7 @@ class CancelSignal {
   cancel(): void;
 
   /**
-   * Subscribe cancel event of copy.
+   * Subscribe cancel event of current task.
    *
    * @param { Callback<string> } callback - callback of cancel event.
    *        The last file copied is provided for this callback.
@@ -5769,7 +5753,7 @@ class CancelSignal {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
-  setOnCancelListener(callback: Callback<string>);
+  onCancel(callback: Callback<string>);
 }
 
 /**
@@ -5791,11 +5775,11 @@ interface CopyOptions {
   /**
    * Cancel signal of copy
    *
-   * @type { ?CancelSignal }
+   * @type { ?TaskSignal }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
-  cancelSignal?: CancelSignal;
+  copySignal?: TaskSignal;
 }
 
 type ProgressListener = (progress: Progress) => void;
