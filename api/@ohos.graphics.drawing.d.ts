@@ -501,11 +501,13 @@ declare namespace drawing {
     /**
      * Creating a textblob object based on RunBuffer information
      * @param { Array<TextBlobRunBuffer> } pos The array of TextBlobRunBuffer
+     * @param { Font } font Font used for this run
+     * @param { Array<TextBlobRunBuffer> } bounds Optional run bounding box
      * @returns { TextBlob } TextBlob object.
      * @syscap SystemCapability.Graphics.Drawing.Core
      * @since 11
      */
-    static makeFromRunBuffer(pos: Array<TextBlobRunBuffer>): TextBlob;
+    static makeFromRunBuffer(pos: Array<TextBlobRunBuffer>, font: Font, bounds?: graphicsCommon.Rect): TextBlob;
 
     /**
      * Returns the bounding rectangle shape
