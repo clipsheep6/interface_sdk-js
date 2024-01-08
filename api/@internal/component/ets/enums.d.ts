@@ -8264,6 +8264,15 @@ declare enum XComponentType {
    * @since 11
    */
   TEXTURE,
+
+  /**
+   * Node type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  NODE,
 }
 
 /**
