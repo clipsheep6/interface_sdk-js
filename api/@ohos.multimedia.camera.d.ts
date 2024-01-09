@@ -691,6 +691,7 @@ declare namespace camera {
      * Prepare the camera resources.
      * This function is called when the user touch down the camera switch icon in camera application.
      *
+     * @param { string } cameraId - The camera to prepare.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -2732,6 +2733,8 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.camera.VideoSession#error
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -2742,6 +2745,8 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the capture session errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.camera.VideoSession#error
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -2752,6 +2757,8 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.camera.VideoSession#focusStateChange
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -2762,28 +2769,10 @@ declare namespace camera {
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     * @deprecated since 11
+     * @useinstead ohos.multimedia.camera.VideoSession#focusStateChange
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
-
-    /**
-     * Subscribes zoom info event callback.
-     *
-     * @param { 'smoothZoomInfoAvailable' } type - Event type.
-     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
-     */
-    on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
-
-    /**
-     * Unsubscribes from zoom info event callback.
-     *
-     * @param { 'smoothZoomInfoAvailable' } type - Event type.
-     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 11
-     */
-    off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
 
   /**
@@ -4126,6 +4115,18 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Start capture output.
+     * Remove optional param.
+     *
+     * @param { PhotoCaptureSetting } setting - Photo capture settings.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400104 - Session not running.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     capture(setting: PhotoCaptureSetting): Promise<void>;
 
