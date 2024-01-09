@@ -2574,6 +2574,12 @@ declare namespace camera {
    * @since 10
    */
   enum MetadataObjectType {
+    /**
+     * Face detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 10
+     */
     FACE_DETECTION = 0
   }
 
