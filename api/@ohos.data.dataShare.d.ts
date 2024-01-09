@@ -315,7 +315,7 @@ declare namespace dataShare {
      * When the callback in {@link DataShareHelper#on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}
      * is called, the predicates is used to generate data in {@link ChangeNode}. Only for rdb store data.
      *
-     * @type { [key:string]: string] }
+     * @type { [key:string]: string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
