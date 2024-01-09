@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit Ability Kit
+ * @kit AbilityKit
  */
 
 import * as _UIAbilityContext from './application/UIAbilityContext';
@@ -31,8 +31,9 @@ import * as _ServiceExtensionContext from './application/ServiceExtensionContext
 import * as _EventHub from './application/EventHub';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
-import type { AbilityStartCallback as _AbilityStartCallback } from './application/AbilityStartCallback';
+import type _AbilityStartCallback from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
+import type * as _VpnExtensionContext from './application/VpnExtensionContext';
 import type { AutoStartupCallback as _AutoStartupCallback } from './application/AutoStartupCallback';
 import type { AutoStartupInfo as _AutoStartupInfo } from './application/AutoStartupInfo';
 
@@ -357,6 +358,17 @@ declare namespace common {
    * @since 11
    */
   export type AutoStartupCallback = _AutoStartupCallback;
+
+  /**
+   * The context of vpn extension. It allows access to
+   * vpnExtension-specific resources.
+   * The class of auto startup info.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 11
+   */
+  export type VpnExtensionContext = _VpnExtensionContext.default;
 }
 
 export default common;
