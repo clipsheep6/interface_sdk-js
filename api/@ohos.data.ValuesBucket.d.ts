@@ -32,7 +32,7 @@ export type ValueType = number | string | boolean;
  *
  * @type{[key: string]: ValueType | Uint8Array | null}
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @StageModelonly
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -40,7 +40,7 @@ export type ValueType = number | string | boolean;
  *
  * @type{Record<string, ValueType | Uint8Array | null>}
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @StageModelonly
+ * @stagemodelonly
  * @since 11
  */
 export type ValuesBucket = Record<string, ValueType | Uint8Array | null>;
