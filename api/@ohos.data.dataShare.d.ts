@@ -318,7 +318,7 @@ declare namespace dataShare {
      * @type { [key:string]: string }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 10
      */
     /**
@@ -329,7 +329,7 @@ declare namespace dataShare {
      * @type { Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 11
      */
     predicates: Record<string, string>;
