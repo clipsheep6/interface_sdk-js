@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit NetworkKit
+ * @kit Network Kit
  */
 
 import type { AsyncCallback } from './@ohos.base';
