@@ -41,5 +41,5 @@ export type ValueType = number | string | boolean;
  * @StageModelOnly
  * @since 11
  */
-export type ValuesBucket = Record<string, ValueType| Uint8Array| null>;
+export type ValuesBucket = Record<string, ValueType | Uint8Array | null>;
 
