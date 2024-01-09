@@ -35,6 +35,7 @@ antialias
 antialiasing
 apdu
 apecified
+apertures
 appselect
 arcs
 arfcn
@@ -578,6 +579,7 @@ premultiply
 prepares
 preresolve
 presently
+presistent
 prevgroup
 prikey
 primaries
@@ -811,6 +813,7 @@ uncategorized
 uncatergorized
 unclearable
 unconditional
+undefer
 undisturbed
 unduck
 unducked
@@ -916,6 +919,7 @@ xoffset
 xxldpi
 xxxldpi
 ycbcr
+ycrcb
 yoffset
 zenkaku
 zfail
