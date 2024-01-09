@@ -30,7 +30,6 @@ export type ValueType = number | string | boolean;
 /**
  * Values in buckets are stored in key-value pairs
  *
- * @typedef { [key: string]: ValueType | Uint8Array | null }
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @StageModelOnly
  * @since 10
@@ -38,7 +37,6 @@ export type ValueType = number | string | boolean;
 /**
  * Values in buckets are stored in key-value pairs
  *
- * @typedef { Record<string, ValueType | Uint8Array | null> }
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @StageModelOnly
  * @since 11
