@@ -18,9 +18,9 @@
  * @kit NetworkKit
  */
 
-import type { AsyncCallback, Callback, ErrorCallback } from './@ohos.base';
+import { AsyncCallback, Callback, ErrorCallback } from './@ohos.base';
 import connection from "./@ohos.net.connection";
-import type cert from './@ohos.security.cert';
+import cert from './@ohos.security.cert';
 
 /**
  * Provides TCP and UDP Socket APIs.

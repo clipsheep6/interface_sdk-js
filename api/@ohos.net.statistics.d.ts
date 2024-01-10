@@ -18,7 +18,7 @@
  * @kit NetworkKit
  */
 
-import type { AsyncCallback, Callback } from './@ohos.base';
+import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * Obtains traffic statistics.

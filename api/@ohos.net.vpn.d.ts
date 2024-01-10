@@ -18,9 +18,9 @@
  * @kit NetworkKit
  */
 
-import type { AsyncCallback, Callback } from './@ohos.base';
-import type connection from './@ohos.net.connection';
-import type _AbilityContext from './application/UIAbilityContext';
+import { AsyncCallback, Callback } from './@ohos.base';
+import connection from './@ohos.net.connection';
+import _AbilityContext from './application/UIAbilityContext';
 
 /**
  * Provides VPN related interfaces.
