@@ -1506,6 +1506,48 @@ declare interface RichEditorBuilderSpanOptions {
 }
 
 /**
+ * Defines the builder span.
+ *
+ * @interface RichEditorBuilderSpanResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare interface RichEditorBuilderSpanResult {
+  /**
+   * The position of the builder span.
+   *
+   * @type { RichEditorSpanPosition }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  spanPosition: RichEditorSpanPosition;
+
+  /**
+   * Get builder offset in span.
+   *
+   * @type { [number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  offsetInSpan: [number, number];
+
+  /**
+   * Get builder size in span.
+   *
+   * @type { [number, number] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  sizeInSpan: [number, number];
+}
+
+/**
  * Defines span style option of RichEditor.
  *
  * @interface RichEditorSpanStyleOptions
@@ -1716,7 +1758,15 @@ declare interface RichEditorSelection {
    * @atomicservice
    * @since 11
    */
-  spans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult>;
+  /**
+   * The selected text content.
+   *
+   * @type { Array<RichEditorTextSpanResult | RichEditorImageSpanResult | RichEditorBuilderSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  spans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult | RichEditorBuilderSpanResult>;
 }
 
 /**
@@ -1860,7 +1910,15 @@ declare interface RichEditorDeleteValue {
    * @atomicservice
    * @since 11
    */
-  richEditorDeleteSpans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult>;
+  /**
+   * The deleted span object.
+   *
+   * @type { Array<RichEditorTextSpanResult | RichEditorImageSpanResult | RichEditorBuilderSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  richEditorDeleteSpans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult | RichEditorBuilderSpanResult>;
 }
 /**
  * Defines the options of RichEditor.
@@ -2140,7 +2198,16 @@ declare class RichEditorController {
    * @atomicservice
    * @since 11
    */
-  getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult>;
+  /**
+   * Get span content.
+   *
+   * @param { RichEditorRange } [value] - range for getting span info.
+   * @returns { Array<RichEditorImageSpanResult | RichEditorTextSpanResult | RichEditorBuilderSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult | RichEditorBuilderSpanResult>;
 
   /**
    * Get span content.
