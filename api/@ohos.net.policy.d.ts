@@ -1018,7 +1018,7 @@ declare namespace policy {
    */
   export interface NetUidPolicyInfo {
     /**
-     * The warning threshold of traffic, default:  DATA_USAGE_UNKNOWN.
+     * Unique identifier of the application.
      * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
