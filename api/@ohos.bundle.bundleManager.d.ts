@@ -2743,6 +2743,21 @@ declare namespace bundleManager {
   function setAdditionalInfo(bundleName: string, additionalInfo: string): void;
 
   /**
+   * Check whether the link can be opened.
+   *
+   * @param { string } link - Indicates the link to be opened.
+   * @param { number } userId - Indicates the user ID.
+   * @returns { boolean } Returns true if the link can be opened; returns false otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700055 - The specified link is invalid.
+   * @throws { BusinessError } 17700004 - The specified userId is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  function canOpenLink(link: string, userId?: number): boolean;
+
+  /**
    * Obtains configuration information about an application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
