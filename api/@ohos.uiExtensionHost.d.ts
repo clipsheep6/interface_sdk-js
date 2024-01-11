@@ -109,6 +109,21 @@ declare namespace uiExtensionHost {
      * @since 11
      */
     properties: UIExtensionHostWindowProxyProperties;
+
+    /**
+     * Create sub window of the host window.
+     *
+     * @param { string } name window name of sub window
+     * @returns { Promise<window.Window> } Promise used to return the subwindow.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - The host windowv is abnormal.
+     * @throws { BusinessError } 1300005 - The host window is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @systemapi
+     * @since 11
+     */
+    createSubWindow(name: string): Promise<window.Window>;
   }
 
   /**
