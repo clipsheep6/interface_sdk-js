@@ -544,7 +544,7 @@ declare namespace statistics {
    */
   export interface NetStatsChangeInfo {
     /**
-     * Network interface for querying traffic.
+     * Network adapter name.
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
@@ -552,7 +552,7 @@ declare namespace statistics {
      */
     iface: string;
     /**
-     * Network interface for querying traffic.
+     * Unique identifier of the application.
      * @type { ?number }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
