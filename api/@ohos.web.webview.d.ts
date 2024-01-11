@@ -3560,7 +3560,7 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
-     setScrollable(enable: boolean): void;
+    setScrollable(enable: boolean): void;
 
     /**
      * Get whether scrolling is allowed.
@@ -3571,31 +3571,7 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
-     getScrollable(): boolean;
-
-    /**
-     * Set whether print web page background.
-     *
-     * @param { boolean } enable - Set whether print web page background
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 12
-     */
-     setPrintBackground(enable: boolean): void;
-
-    /**
-     * Get whether print web page background.
-     * @returns { boolean } Get whether print web page background.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 12
-     */
-     getPrintBackground(): boolean;
+    getScrollable(): boolean;
 
     /**
      * Serialize the access stack of the web, that is, the history of access.
@@ -3888,6 +3864,30 @@ declare namespace webview {
      * @since 11
      */
     isIncognitoMode(): boolean;
+
+    /**
+     * Set whether print web page background.
+     *
+     * @param { boolean } enable - Set whether print web page background
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setPrintBackground(enable: boolean): void;
+
+     /**
+      * Get whether print web page background.
+      * @returns { boolean } Get whether print web page background.
+      * @throws { BusinessError } 17100001 - Init error.
+      *                           The WebviewController must be associated with a Web component.
+      * @syscap SystemCapability.Web.Webview.Core
+      * @atomicservice
+      * @since 12
+      */
+    getPrintBackground(): boolean;
   }
 
   /**
