@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,7 +18,58 @@
  * @kit ArkUI
  */
 
-import { CommonShapeMethod } from "./@internal/component/ets/common";
+/**
+ * Interface for shape size properties.
+ *
+ * @interface ShapeSize
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+interface ShapeSize {
+  width?: number | string;
+  height?: number | string;
+}
+
+/**
+ * Interface for RectShape constructor parameters.
+ *
+ * @interface RectShapeOptions
+ * @extends ShapeSize
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+interface RectShapeOptions extends ShapeSize {
+  radius?: number | string | Array<any>;
+}
+
+/**
+ * Interface for RectShape constructor parameters with separate radius values.
+ *
+ * @interface RectShapeRadiusOptions
+ * @extends ShapeSize
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+interface RectShapeRadiusOptions extends ShapeSize {
+  radiusWidth?: number | string;
+  radiusHeight?: number | string;
+}
+
+/**
+ * Interface for PathShape constructor parameters.
+ *
+ * @interface PathShapeOptions
+ * @extends ShapeSize
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+interface PathShapeOptions extends ShapeSize {
+  commands?: string;
+}
 
 /**
  * Defines a rect drawing class.
@@ -31,23 +82,12 @@ export declare class RectShape {
   /**
    * Constructor.
    *
-   * @param { object } value
+   * @param { RectShapeOptions | RectShapeRadiusOptions } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  constructor(value?:
-    {
-      width?: number | string;
-      height?: number | string;
-      radius?: number | string | Array<any>;
-    }
-    | {
-      width?: number | string;
-      height?: number | string;
-      radiusWidth?: number | string;
-      radiusHeight?: number | string;
-    });
+  constructor(value?: RectShapeOptions | RectShapeRadiusOptions);
 }
 
 /**
@@ -61,15 +101,12 @@ export declare class CircleShape {
   /**
    * Constructor.
    *
-   * @param { object } value
+   * @param { ShapeSize } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  constructor(value?: {
-    width?: number | string;
-    height?: number | string;
-  });
+  constructor(value?: ShapeSize);
 }
 
 /**
@@ -83,15 +120,12 @@ export declare class EllipseShape {
   /**
    * Constructor.
    *
-   * @param { object } value
+   * @param { ShapeSize } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  constructor(value?: {
-    width?: number | string;
-    height?: number | string;
-  });
+  constructor(value?: ShapeSize);
 }
 
 /**
@@ -105,14 +139,10 @@ export declare class PathShape {
   /**
    * Constructor.
    *
-   * @param { object } value
+   * @param { PathShapeOptions } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  constructor(value?: {
-    width?: number | string;
-    height?: number | string;
-    commands?: string;
-  });
+  constructor(value?: PathShapeOptions);
 }
