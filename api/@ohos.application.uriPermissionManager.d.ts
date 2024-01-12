@@ -57,6 +57,25 @@ declare namespace uriPermissionManager {
    * @systemapi hide this for inner system use.
    * @since 10
    */
+  /**
+   * Grant URI to another application
+   *
+   * @param { string } uri - File URI.
+   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
+   *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
+   * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+   * @param { AsyncCallback<number> } callback - the callback of grantUriPermission.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000058 - Invalid URI flag.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
+   * @throws { BusinessError } 16000060 - Sandbox application can not grant URI permission.
+   * @throws { BusinessError } 16000063 - No-white list application can not use the interface.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use.
+   * @since 11
+   */
   function grantUriPermission(
     uri: string,
     flag: wantConstant.Flags,
@@ -84,6 +103,25 @@ declare namespace uriPermissionManager {
    * @systemapi hide this for inner system use.
    * @since 10
    */
+  /**
+   * Grant URI to another application
+   *
+   * @param { string } uri - File URI.
+   * @param { wantConstant.Flags } flag - wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION or wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
+   *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
+   * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+   * @returns { Promise<number> } - the promise returned by the function.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000058 - Invalid URI flag.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
+   * @throws { BusinessError } 16000060 - Sandbox application can not grant URI permission.
+   * @throws { BusinessError } 16000063 - No-white list application can not use the interface.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use.
+   * @since 11
+   */
   function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string): Promise<number>;
 
   /**
@@ -102,6 +140,21 @@ declare namespace uriPermissionManager {
    * @systemapi hide this for inner system use
    * @since 10
    */
+  /**
+   * Revoke URI from one application
+   *
+   * @param { string } uri - File URI.
+   * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+   * @param { AsyncCallback<number> } callback - the callback of revokeUriPermission.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
+   * @throws { BusinessError } 16000063 - No-white list application can not use the interface.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use
+   * @since 11
+   */
   function revokeUriPermission(uri: string, targetBundleName: string, callback: AsyncCallback<number>): void;
 
   /**
@@ -119,6 +172,21 @@ declare namespace uriPermissionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi hide this for inner system use
    * @since 10
+   */
+  /**
+   * Revoke URI from one application
+   *
+   * @param { string } uri - File URI.
+   * @param { string } targetBundleName - Indicates the bundle name of authorization target.
+   * @returns { Promise<number> } - the promise returned by the function.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000059 - Invalid URI type.
+   * @throws { BusinessError } 16000063 - No-white list application can not use the interface.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi hide this for inner system use
+   * @since 11
    */
   function revokeUriPermission(uri: string, targetBundleName: string): Promise<number>;
 }
