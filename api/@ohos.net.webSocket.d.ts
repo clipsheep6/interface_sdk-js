@@ -18,7 +18,7 @@
  * @kit NetworkKit
  */
 
-import type { AsyncCallback, ErrorCallback, Callback } from './@ohos.base';
+import { AsyncCallback, ErrorCallback, Callback } from './@ohos.base';
 
 /**
  * Provides WebSocket APIs.

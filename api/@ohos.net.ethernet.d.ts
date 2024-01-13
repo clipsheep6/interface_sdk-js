@@ -18,8 +18,8 @@
  * @kit NetworkKit
  */
 
-import type { AsyncCallback, Callback } from './@ohos.base';
-import type connection from './@ohos.net.connection';
+import { AsyncCallback, Callback } from './@ohos.base';
+import connection from './@ohos.net.connection';
 
 /**
  * Provides interfaces to manage ethernet.
