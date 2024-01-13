@@ -5387,7 +5387,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
  * @since 11
  * @form
  */
-declare class OffscreenCanvas extends CanvasRenderer {
+declare class OffscreenCanvas {
   /**
    * Height of the off-screen canvas.
    *
