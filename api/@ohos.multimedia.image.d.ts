@@ -51,6 +51,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Enumerates pixel map formats.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   enum PixelMapFormat {
     /**
      * Indicates an unknown format.
@@ -64,6 +73,14 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates an unknown format.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     UNKNOWN = 0,
 
@@ -84,6 +101,16 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates that each pixel is stored on 16 bits. Only the R, G, and B components are encoded
+     * from the higher-order to the lower-order bits: red is stored with 5 bits of precision,
+     * green is stored with 6 bits of precision, and blue is stored with 5 bits of precision.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     RGB_565 = 2,
 
     /**
@@ -100,6 +127,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     RGBA_8888 = 3,
 
@@ -118,6 +154,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     BGRA_8888 = 4,
 
     /**
@@ -134,6 +179,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates that each pixel is stored on 24 bits. Each pixel contains 3 components：R(8bits), G(8bits), B(8bits)
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     RGB_888 = 5,
 
@@ -152,6 +206,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates that each pixel is stored on 8 bits. Each pixel contains 1 component：ALPHA(8bits)
+     * and is stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     ALPHA_8 = 6,
 
     /**
@@ -168,6 +231,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
+     * and are stored from the higher-order to the lower-order bits in F16.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     RGBA_F16 = 7,
 
@@ -186,6 +258,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates that the storage order is to store Y first and then V U alternately each occupies 8 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     NV21 = 8,
 
     /**
@@ -202,6 +283,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     NV12 = 9
   }
@@ -221,6 +311,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes the size of an image.
+   *
+   * @typedef Size
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Size {
     /**
      * Height
@@ -236,6 +335,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Height
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     height: number;
 
@@ -253,6 +361,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Width
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     width: number;
   }
@@ -992,6 +1109,15 @@ declare namespace image {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes region information.
+   *
+   * @typedef Region
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Region {
     /**
      * Image size.
@@ -1007,6 +1133,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Image size.
+     *
+     * @type { Size }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     size: Size;
 
@@ -1025,6 +1160,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * x-coordinate at the upper left corner of the image.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     x: number;
 
     /**
@@ -1041,6 +1185,15 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * y-coordinate at the upper left corner of the image.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     y: number;
   }
