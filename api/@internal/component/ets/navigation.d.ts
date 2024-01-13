@@ -533,6 +533,36 @@ declare interface NavigationMenuItem {
 }
 
 /**
+ * Indicates the information of the popped page.
+ *
+ * @interface PopInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface PopInfo {
+  /**
+   * The info of the popped page.
+   *
+   * @type { NavPathInfo }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  info: NavPathInfo;
+
+  /**
+   * The result of the popped page.
+   *
+   * @type { Object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  result: Object;
+}
+
+/**
  * Indicates the information of route page.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -562,12 +592,13 @@ declare class NavPathInfo {
    *
    * @param { string } name - The name of route page.
    * @param { unknown } param - The detailed parameter of the route page.
+   * @param { function } onPopResult - The callback when next page returns.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  constructor(name: string, param: unknown);
+  constructor(name: string, param: unknown, onPop?: (info: PopInfo) => void);
 
   /**
    * The name of route page.
@@ -606,6 +637,16 @@ declare class NavPathInfo {
    * @since 11
    */
   param?: unknown;
+
+  /**
+   * The callback when next page returns.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  onPop?: (popInfo: PopInfo) => void;
 }
 
 /**
@@ -684,6 +725,19 @@ declare class NavPathStack {
   pushPathByName(name: string, param: unknown, animated?: boolean): void;
 
   /**
+   * Pushes the specified route page into the stack.
+   *
+   * @param { string } name - Indicates the name of the route page to be pushed.
+   * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
+   * @param { function } onPop - The callback when next page returns.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  pushPathByName(name: string, param: Object, onPop: (info: PopInfo) => void, animated?: boolean): void;
+
+  /**
    * replace the current page with the specific one.The current page will be destroyed.
    *
    * @param { NavPathInfo } info - Indicates the the new route page in top of the stack.
@@ -707,6 +761,28 @@ declare class NavPathStack {
   replacePathByName(name: string, param: Object, animated?: boolean): void;
 
   /**
+   * Remove the specified pages by index.
+   *
+   * @param { Array<number> } indexes - Indicates the index of the pages to be removed.
+   * @returns { number } Returns the number of removed pages. Invalid indexes will be ignored.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  removeByIndexes(indexes: Array<number>): number;
+
+  /**
+   * Remove the specified page by name.
+   *
+   * @param { string } name - Indicates the name of the page to be removed.
+   * @returns { number } Returns the number of removed pages.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  removeByName(name: string): number;
+
+  /**
    * Pops the top route page out of the stack.
    *
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
@@ -725,6 +801,18 @@ declare class NavPathStack {
    * @since 11
    */
   pop(animated?: boolean): NavPathInfo | undefined;
+
+  /**
+   * Pops the top route page out of the stack.
+   *
+   * @param { Object } result - The result of the page.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  pop(result: Object, animated?: boolean): NavPathInfo | undefined;
 
   /**
    * Pops the specified route page out of the stack.
@@ -751,6 +839,19 @@ declare class NavPathStack {
   /**
    * Pops the specified route page out of the stack.
    *
+   * @param { string } name - Indicates the name of the route page to be popped.
+   * @param { Object } result - The result of the page.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * @returns { number } Returns the index of the route page if it exists in the stack, otherwise returns -1;
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  popToName(name: string, result: Object, animated?: boolean): number;
+
+  /**
+   * Pops the specified route page out of the stack.
+   *
    * @param { number } index - Indicates the index of the route page to be popped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -767,6 +868,19 @@ declare class NavPathStack {
    * @since 11
    */
   popToIndex(index: number, animated?: boolean): void;
+
+  /**
+   * Pops the specified route page out of the stack.
+   *
+   * @param { number } index - Indicates the index of the route page to be popped.
+   * @param { Object } result - The result of the page.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  popToIndex(index: number, result: Object, animated?: boolean): void;
 
   /**
    * Moves the specified route page to stack top.
@@ -909,6 +1023,16 @@ declare class NavPathStack {
    * @since 11
    */
   getIndexByName(name: string): Array<number>;
+
+  /**
+   * Obtains the parent of the current stack.
+   *
+   * @returns { NavPathStack | null } Returns the parent of the current stack. If no parent, it returns null.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getParent(): NavPathStack | null;
 
   /**
    * Obtains the size of the stack.
