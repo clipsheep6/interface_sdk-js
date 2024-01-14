@@ -1217,35 +1217,6 @@ declare namespace avSession {
     off(type: 'rewind', callback?: () => void): void;
 
     /**
-     * Register playFromAssetId command callback.
-     * As long as it is registered, it means that the ability supports this command.
-     * If you cancel the callback, you need to call off {@link off}
-     * When canceling the callback, need to update the supported commands list.
-     * Each playback command only supports registering one callback,
-     * and the new callback will replace the previous one.
-     * @param { 'playFromAssetId' } type - Command to register 'playFromAssetId'.
-     * @param { function } callback - Used to handle ('playFromAssetId') command
-     * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600102 - The session does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
-     */
-    on(type: 'playFromAssetId', callback: (assetId: number) => void): void;
-
-    /**
-     * Unregister playFromAssetId command callback.
-     * @param { 'playFromAssetId' } type - Command to register 'playFromAssetId'.
-     * @param { function } callback - Used to handle ('playFromAssetId') command
-     * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 6600101 - Session service exception.
-     * @throws { BusinessError } 6600102 - The session does not exist.
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since 11
-     */
-    off(type: 'playFromAssetId', callback?: (assetId: number) => void): void;
-
-    /**
      * Register seek command callback
      * @param { 'seek' } type - Registration Type 'seek'
      * @param { function } callback - Used to handle seek command.The callback provides the seek time(ms)
@@ -3969,12 +3940,12 @@ declare namespace avSession {
    * @since 10
    */
   /**
-   * The type of control command, add new support 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute'
+   * The type of control command, add new support 'answer' | 'hangUp' | 'toggleCallMute'
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 11
    */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
-  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'answer' | 'hangUp' | 'toggleCallMute';
+  'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'answer' | 'hangUp' | 'toggleCallMute';
 
   /**
    * The definition of command to be sent to the session
