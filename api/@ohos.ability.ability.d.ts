@@ -37,7 +37,7 @@ import { StartAbilityParameter as _StartAbilityParameter } from './ability/start
 /**
  * The class of an ability.
  *
- * @namespace ability
+ * @namespace abilityaaa
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @since 11
  */

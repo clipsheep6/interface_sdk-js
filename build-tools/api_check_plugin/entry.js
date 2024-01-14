@@ -39,6 +39,19 @@ function checkEntry(prId) {
     if (!execute) {
       throw 'npm install timeout';
     }
+    i = 0;
+    execute = false;
+    do {
+      try {
+        buffer = execSync('cd interface/sdk_c && pip install -r build-tools/capi_parser/requirements.txt', {
+          timeout: 120000,
+        });
+        execute = true;
+      } catch (error) { }
+    } while (++i < 3 && !execute);
+    if (!execute) {
+      throw 'pip install timeout';
+    }
     const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
     result = scanEntry(mdFilesPath, prId, false);
     result = reqGitApi(result, prId);
