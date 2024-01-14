@@ -28,7 +28,7 @@ import Want from './@ohos.app.ability.Want';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
-interface PluginComponentTemplate {
+export interface PluginComponentTemplate {
   source: string;
   ability: string;
 }
