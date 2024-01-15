@@ -56,11 +56,11 @@ interface ShapeSize {
 interface RectShapeOptions extends ShapeSize {
   /**
    * Defines the corner radius of the RectShape.
-   * @type { ? (number | string | Array<any>) } 
+   * @type { ? (number | string | Array<number | string>) } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  radius?: number | string | Array<any>;
+  radius?: number | string | Array<number | string>;
 }
 
 /**
@@ -120,12 +120,12 @@ export declare class RectShape {
   /**
    * Constructor.
    *
-   * @param { RectShapeOptions | RectShapeRadiusOptions } value
+   * @param { RectShapeOptions | RectShapeRadiusOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  constructor(value?: RectShapeOptions | RectShapeRadiusOptions);
+  constructor(options?: RectShapeOptions | RectShapeRadiusOptions);
 }
 
 /**
@@ -139,12 +139,12 @@ export declare class CircleShape {
   /**
    * Constructor.
    *
-   * @param { ShapeSize } value
+   * @param { ShapeSize } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  constructor(value?: ShapeSize);
+  constructor(options?: ShapeSize);
 }
 
 /**
@@ -158,12 +158,12 @@ export declare class EllipseShape {
   /**
    * Constructor.
    *
-   * @param { ShapeSize } value
+   * @param { ShapeSize } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  constructor(value?: ShapeSize);
+  constructor(options?: ShapeSize);
 }
 
 /**
@@ -177,10 +177,10 @@ export declare class PathShape {
   /**
    * Constructor.
    *
-   * @param { PathShapeOptions } value
+   * @param { PathShapeOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  constructor(value?: PathShapeOptions);
+  constructor(options?: PathShapeOptions);
 }
