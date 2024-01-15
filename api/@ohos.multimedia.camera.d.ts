@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit CameraKit
+ */
+
 import { ErrorCallback, AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
 import image from './@ohos.multimedia.image';
@@ -2146,7 +2151,6 @@ declare namespace camera {
    *
    * @interface Beauty
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
    * @since 11
    */
   interface Beauty {
@@ -2287,7 +2291,6 @@ declare namespace camera {
    *
    * @interface ColorEffect
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
    * @since 11
    */
   interface ColorEffect {
@@ -2333,7 +2336,6 @@ declare namespace camera {
    *
    * @interface ColorManagement
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
    * @since 11
    */
   interface ColorManagement {
@@ -2380,7 +2382,6 @@ declare namespace camera {
    *
    * @interface Macro
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
    * @since 11
    */
   interface Macro {
@@ -2725,7 +2726,7 @@ declare namespace camera {
    * @deprecated since 11
    * @useinstead ohos.multimedia.camera.VideoSession
    */
-  interface CaptureSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty {
+  interface CaptureSession extends Session, Flash, AutoExposure, Focus, Zoom, Beauty, Stabilization {
     /**
      * Subscribes to error events.
      *
