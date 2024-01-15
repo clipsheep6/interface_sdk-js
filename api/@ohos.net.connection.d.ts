@@ -45,23 +45,23 @@ import type socket from './@ohos.net.socket';
  */
 declare namespace connection {
   /**
-   * Get a HTTP request task.
+   * Get an HTTP request task.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
+   * @since 8
    */
   type HttpRequest = http.HttpRequest;
 
   /**
    * Get a TCPSocket object.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 10
+   * @since 8
    */
   type TCPSocket = socket.TCPSocket;
 
   /**
    * Get a UDPSocket object.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 10
+   * @since 8
    */
   type UDPSocket = socket.UDPSocket;
 

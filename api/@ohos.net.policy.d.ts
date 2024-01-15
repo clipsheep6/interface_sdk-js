@@ -31,7 +31,7 @@ declare namespace policy {
   /**
    * Get network types.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 11
+   * @since 10
    */
   type NetBearType = connection.NetBearType;
 

@@ -31,7 +31,7 @@ declare namespace sharing {
   /**
    * Get the handle of the data network.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 11
+   * @since 9
    */
   type NetHandle = connection.NetHandle;
   /**

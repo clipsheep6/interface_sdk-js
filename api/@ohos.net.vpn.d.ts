@@ -32,21 +32,21 @@ declare namespace vpn {
   /**
    * Get network link information.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 8
+   * @since 10
    */
   export type LinkAddress = connection.LinkAddress;
 
   /**
    * Get network route information.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 8
+   * @since 10
    */
   export type RouteInfo = connection.RouteInfo;
 
   /**
    * The context of an ability. It allows access to ability-specific resources.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 11
+   * @since 10
    */
   export type AbilityContext = _AbilityContext;
 

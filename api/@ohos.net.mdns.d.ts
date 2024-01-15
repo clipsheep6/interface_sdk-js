@@ -39,7 +39,7 @@ declare namespace mdns {
   /**
    * Get a network address.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since 8
+   * @since 10
    */
   type NetAddress = connection.NetAddress;
 
