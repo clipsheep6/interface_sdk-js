@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { CircleShape, EllipseShape, PathShape, RectShape } from '../../../@ohos.arkui.shape';
+import { CircleShape, EllipseShape, PathShape, RectShape } from '@ohos.arkui.shape';
 
 /**
  * Defines the options of Component ClassDecorator.
@@ -14947,7 +14947,7 @@ declare class CommonMethod<T> {
   * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
   * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
   *
-  * @param { boolean | CircleShape | EllipseShape | PathShape | RectShape } value
+  * @param { CircleShape | EllipseShape | PathShape | RectShape } value
   * @returns { T }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
@@ -14955,7 +14955,7 @@ declare class CommonMethod<T> {
   * @since 11
   * @form
   */
-  clipShape(value: boolean | CircleShape | EllipseShape | PathShape | RectShape): T;
+  clipShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
 
   /**
    * Applies a mask of the specified shape to the current assembly.

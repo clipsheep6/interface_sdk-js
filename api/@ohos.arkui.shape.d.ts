@@ -27,7 +27,20 @@
  * @since 11
  */
 interface ShapeSize {
+  /**
+   * Defines the width of Shape.
+   * @type { ? (number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
   width?: number | string;
+
+  /**
+   * Defines the height of Shape.
+   * @type { ? (number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
   height?: number | string;
 }
 
@@ -41,6 +54,12 @@ interface ShapeSize {
  * @since 11
  */
 interface RectShapeOptions extends ShapeSize {
+  /**
+   * Defines the corner radius of the RectShape.
+   * @type { ? (number | string | Array<any>) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
   radius?: number | string | Array<any>;
 }
 
@@ -54,7 +73,20 @@ interface RectShapeOptions extends ShapeSize {
  * @since 11
  */
 interface RectShapeRadiusOptions extends ShapeSize {
+  /**
+   * Defines the width of the corner radius for RectShape.
+   * @type { ? (number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
   radiusWidth?: number | string;
+
+  /**
+   * Defines the height of the corner radius for RectShape.
+   * @type { ? (number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
   radiusHeight?: number | string;
 }
 
@@ -68,6 +100,12 @@ interface RectShapeRadiusOptions extends ShapeSize {
  * @since 11
  */
 interface PathShapeOptions extends ShapeSize {
+  /**
+   * Defines the commands for drawing the PathShape.
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
   commands?: string;
 }
 
