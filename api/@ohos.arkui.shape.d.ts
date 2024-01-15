@@ -25,6 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
  */
 interface ShapeSize {
   /**
@@ -32,6 +33,7 @@ interface ShapeSize {
    * @type { ? (number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   * @form
    */
   width?: number | string;
 
@@ -40,6 +42,7 @@ interface ShapeSize {
    * @type { ? (number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   * @form
    */
   height?: number | string;
 }
@@ -52,6 +55,7 @@ interface ShapeSize {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
  */
 interface RectShapeOptions extends ShapeSize {
   /**
@@ -59,6 +63,7 @@ interface RectShapeOptions extends ShapeSize {
    * @type { ? (number | string | Array<number | string>) } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   * @form
    */
   radius?: number | string | Array<number | string>;
 }
@@ -71,6 +76,7 @@ interface RectShapeOptions extends ShapeSize {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
  */
 interface RectShapeRadiusOptions extends ShapeSize {
   /**
@@ -78,6 +84,7 @@ interface RectShapeRadiusOptions extends ShapeSize {
    * @type { ? (number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   * @form
    */
   radiusWidth?: number | string;
 
@@ -86,6 +93,7 @@ interface RectShapeRadiusOptions extends ShapeSize {
    * @type { ? (number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   * @form
    */
   radiusHeight?: number | string;
 }
@@ -98,6 +106,7 @@ interface RectShapeRadiusOptions extends ShapeSize {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
  */
 interface PathShapeOptions extends ShapeSize {
   /**
@@ -105,6 +114,7 @@ interface PathShapeOptions extends ShapeSize {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
+   * @form
    */
   commands?: string;
 }
@@ -115,6 +125,7 @@ interface PathShapeOptions extends ShapeSize {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
  */
 export declare class RectShape {
   /**
@@ -124,6 +135,7 @@ export declare class RectShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
    */
   constructor(options?: RectShapeOptions | RectShapeRadiusOptions);
 }
@@ -134,6 +146,7 @@ export declare class RectShape {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
  */
 export declare class CircleShape {
   /**
@@ -143,6 +156,7 @@ export declare class CircleShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
    */
   constructor(options?: ShapeSize);
 }
@@ -153,6 +167,7 @@ export declare class CircleShape {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
  */
 export declare class EllipseShape {
   /**
@@ -162,6 +177,7 @@ export declare class EllipseShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
    */
   constructor(options?: ShapeSize);
 }
@@ -172,6 +188,7 @@ export declare class EllipseShape {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
  */
 export declare class PathShape {
   /**
@@ -181,6 +198,7 @@ export declare class PathShape {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
    */
   constructor(options?: PathShapeOptions);
 }
