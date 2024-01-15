@@ -15,11 +15,11 @@
 
 /**
  * @file
- * @kit Ability Kit
+ * @kit AbilityKit
  */
 
 import type { AbilityResult } from './ability/abilityResult';
-import type { AbilityStartCallback } from './application/AbilityStartCallback';
+import type AbilityStartCallback from './application/AbilityStartCallback';
 import type { AsyncCallback } from './@ohos.base';
 import type { LocalStorage } from 'StateManagement';
 import type Want from './@ohos.app.ability.Want';

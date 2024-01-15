@@ -11,6 +11,7 @@ acmmax
 acn
 activates
 actived
+adcp
 adjusts
 adpu
 adts
@@ -212,6 +213,7 @@ dpad
 drains
 dragbar
 drawbuffer
+drm
 dsda
 dsds
 dsf
@@ -300,6 +302,7 @@ haps
 haptic
 haptics
 hce
+hdcp
 headed
 headersreceive
 headphones
@@ -307,6 +310,7 @@ heapsnapshot
 heating
 heavier
 henkan
+hevc
 hexadecagonal
 hfp
 hibernates
@@ -592,6 +596,7 @@ psc
 psk
 psrc
 pss
+pssh
 puk
 pvr
 querier
@@ -649,6 +654,7 @@ rscp
 rsrp
 rtd
 rtt
+rtcp
 ruim
 rwt
 s5
@@ -820,6 +826,7 @@ unducked
 unequal
 unfiltered
 unfocused
+unhealthy
 unhold
 unicom
 unicon
