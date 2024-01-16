@@ -51,7 +51,6 @@ interface ShapeSize {
  * Interface for RectShape constructor parameters.
  *
  * @interface RectShapeOptions
- * @extends ShapeSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -72,7 +71,6 @@ interface RectShapeOptions extends ShapeSize {
  * Interface for RectShape constructor parameters with separate radius values.
  *
  * @interface RoundRectShapeOptions
- * @extends ShapeSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -102,7 +100,6 @@ interface RoundRectShapeOptions extends ShapeSize {
  * Interface for PathShape constructor parameters.
  *
  * @interface PathShapeOptions
- * @extends ShapeSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
@@ -141,7 +138,7 @@ export declare class RectShape {
 }
 
 /**
- * Defines a cicle drawing class.
+ * Defines a circle drawing class.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
