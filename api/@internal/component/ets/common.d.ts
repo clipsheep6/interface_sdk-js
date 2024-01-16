@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { CircleShape, EllipseShape, PathShape, RectShape } from '@ohos.arkui.shape';
-
 /**
  * Defines the options of Component ClassDecorator.
  *
@@ -11217,6 +11215,46 @@ declare interface InvertOptions {
    */
   thresholdRange: number;
 }
+
+/**
+ * Import the CircleShape type object for common method.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare type CircleShape = import('../api/@ohos.arkui.shape').CircleShape;
+
+/**
+ * Import the EllipseShape type object for common method.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare type EllipseShape = import('../api/@ohos.arkui.shape').EllipseShape;
+
+/**
+ * Import the PathShape type object for common method.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
+
+/**
+ * Import the RectShape type object for common method.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 
 /**
  * CommonMethod.

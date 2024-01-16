@@ -159,7 +159,7 @@ export declare class CircleShape {
 }
 
 /**
- * Defines a ellipse drawing class.
+ * Defines an ellipse drawing class.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
