@@ -71,14 +71,14 @@ interface RectShapeOptions extends ShapeSize {
 /**
  * Interface for RectShape constructor parameters with separate radius values.
  *
- * @interface RectShapeRadiusOptions
+ * @interface RoundRectShapeOptions
  * @extends ShapeSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  * @form
  */
-interface RectShapeRadiusOptions extends ShapeSize {
+interface RoundRectShapeOptions extends ShapeSize {
   /**
    * Defines the width of the corner radius for RectShape.
    * @type { ? (number | string) }
@@ -131,13 +131,13 @@ export declare class RectShape {
   /**
    * Constructor.
    *
-   * @param { RectShapeOptions | RectShapeRadiusOptions } options
+   * @param { RectShapeOptions | RoundRectShapeOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  constructor(options?: RectShapeOptions | RectShapeRadiusOptions);
+  constructor(options?: RectShapeOptions | RoundRectShapeOptions);
 }
 
 /**
