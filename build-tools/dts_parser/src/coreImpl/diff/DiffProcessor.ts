@@ -109,13 +109,13 @@ export namespace DiffProcessorHelper {
       if (sinceVersionOfOld === sinceVersionOfNew) {
         return;
       }
-      if (sinceVersionOfOld === '-1') {
+      if (sinceVersionOfOld === '') {
         diffTypeInfo.setDiffType(ApiDiffType.SINCE_VERSION_NA_TO_HAVE);
         const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffTypeInfo);
         diffInfos.push(diffInfo);
         return;
       }
-      if (sinceVersionOfNew === '-1') {
+      if (sinceVersionOfNew === '') {
         diffTypeInfo.setDiffType(ApiDiffType.SINCE_VERSION_HAVE_TO_NA);
         const diffInfo: BasicDiffInfo = DiffProcessorHelper.wrapDiffInfo(oldApiInfo, newApiInfo, diffTypeInfo);
         diffInfos.push(diffInfo);

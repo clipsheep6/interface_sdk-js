@@ -1,0 +1,64 @@
+[
+  {
+    "apiType": "SourceFile",
+    "statusCode": 26,
+    "oldApiDefinedText": "",
+    "newApiDefinedText": "",
+    "oldApiName": "ut_kit_delete_file.d.ts",
+    "newApiName": "",
+    "oldDtsName": "ut_kit_delete_file.d.ts",
+    "newDtsName": "",
+    "diffType": 68,
+    "diffMessage": "kit变更",
+    "changeLogUrl": "",
+    "changeLogs": [],
+    "isCompatible": true,
+    "oldHierarchicalRelations": [
+      "ut_kit_delete_file.d.ts"
+    ],
+    "newHierarchicalRelations": [],
+    "oldPos": {
+      "line": 21,
+      "character": 1
+    },
+    "newPos": {
+      "line": -1,
+      "character": -1
+    },
+    "oldDescription": "AbilityKit",
+    "newDescription": "NA",
+    "newSyscapField": ""
+  },
+  {
+    "apiType": "Class",
+    "statusCode": 0,
+    "oldApiDefinedText": " export class Test",
+    "newApiDefinedText": "",
+    "oldApiName": "Test",
+    "newApiName": "",
+    "oldDtsName": "ut_kit_delete_file.d.ts",
+    "newDtsName": "",
+    "diffType": 60,
+    "diffMessage": "删除API",
+    "changeLogUrl": "",
+    "changeLogs": [],
+    "isCompatible": false,
+    "oldHierarchicalRelations": [
+      "ut_kit_delete_file.d.ts",
+      "Test"
+    ],
+    "newHierarchicalRelations": [],
+    "oldPos": {
+      "line": 21,
+      "character": 1
+    },
+    "newPos": {
+      "line": -1,
+      "character": -1
+    },
+    "oldDescription": " export class Test",
+    "newDescription": "",
+    "oldSyscapField": "",
+    "newSyscapField": ""
+  }
+]
