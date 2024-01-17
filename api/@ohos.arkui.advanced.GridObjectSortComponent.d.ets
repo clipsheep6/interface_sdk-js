@@ -175,13 +175,23 @@ export declare struct GridObjectSortComponent {
   options: GridObjectSortComponentOptions;
 
   /**
-   * data list of GridObjectSortComponent.
+   * Data list of GridObjectSortComponent.
    * @type { Array<GridObjectSortComponentItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   dataList: Array<GridObjectSortComponentItem>;
+
+  /**
+   * Control GridObjectSortComponentItem to exit editing state.
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  @Link
+  backNormal: boolean;
 
   /**
    * Callback when Obtain edited data.
