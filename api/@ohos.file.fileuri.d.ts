@@ -62,7 +62,7 @@ declare namespace fileUri {
     readonly name: string;
 
     /**
-     * Get the full directory uri where the file URI is located
+     * Get the full directory uri where the file URI is located.
      *
      * @returns { string } Return the directory uri
      * @throws { BusinessError } 13900002 - No such file or directory
@@ -72,10 +72,21 @@ declare namespace fileUri {
      * @since 11
      */
     getFullDirectoryUri(): string;
+
+    /**
+     * Get the real path from the FileUri.
+     *
+     * @returns { string } Return the real path
+     * @throws { BusinessError } 401 - Parameter error
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @since 11
+     */
+    getRealPath(): string;
   }
   
   /**
-   * Get the uri from the path of file in app sandbox
+   * Get the uri from the path of file in app sandbox.
    *
    * @param { string } path the path of file in app sandbox
    * @returns { string } Return the file uri
@@ -84,6 +95,18 @@ declare namespace fileUri {
    * @since 9
    */
   function getUriFromPath(path: string): string;
+
+  /**
+   * Check if the input string is a uri.
+   *
+   * @param { string } uri The input string
+   * @returns { boolean } Return if the input string is a uri
+   * @throws { BusinessError } 401 - Parameter error
+   * @throws { BusinessError } 13900042 - Unknown error
+   * @syscap SystemCapability.FileManagement.AppFileService
+   * @since 11
+   */
+  function isUri(uri: string): boolean;
 }
 
 export default fileUri;
