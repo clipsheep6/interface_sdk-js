@@ -5929,7 +5929,7 @@ declare interface RandomAccessFile {
    * Write randomAccessFile.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { WriteOptions } [options] - options.
    * @returns { Promise<number> } Returns the number of bytes written to the file in promise mode.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5998,7 +5998,7 @@ declare interface RandomAccessFile {
    * Write randomAccessFile.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { WriteOptions } [options] - options.
    * @param { AsyncCallback<number> } callback - The callback is used to return the number of bytes written to the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -6046,7 +6046,7 @@ declare interface RandomAccessFile {
    * Write randomAccessFile with sync interface.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { WriteOptions } [options] - options.
    * @returns { number } Returns the number of bytes written to the file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -6093,7 +6093,7 @@ declare interface RandomAccessFile {
    * Read randomAccessFile.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { ReadOptions } [options] - options.
    * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -6153,7 +6153,7 @@ declare interface RandomAccessFile {
    * Read randomAccessFile.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { ReadOptions } [options] - options.
    * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -6195,7 +6195,7 @@ declare interface RandomAccessFile {
    * Read randomAccessFile with sync interface.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { ReadOptions } [options] - options.
    * @returns { number } Returns the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -6738,7 +6738,7 @@ declare interface Stream {
    * Write stream.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { WriteOptions } [options] - options.
    * @returns { Promise<number> } Returns the number of file bytes written to file in promise mode.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -6807,7 +6807,7 @@ declare interface Stream {
    * Write stream.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { WriteOptions } [options] - options.
    * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes written to file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -6855,7 +6855,7 @@ declare interface Stream {
    * Write stream with sync interface.
    *
    * @param { ArrayBuffer | string } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { WriteOptions } [options] - options.
    * @returns { number } Returns the number of file bytes written to file.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -6902,7 +6902,7 @@ declare interface Stream {
    * Read stream.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { ReadOptions } [options] - options.
    * @returns { Promise<number> } Returns the number of file bytes read to buffer in promise mode.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -6962,7 +6962,7 @@ declare interface Stream {
    * Read stream.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { ReadOptions } [options] - options.
    * @param { AsyncCallback<number> } callback - The callback is used to return the number of file bytes read to buffer.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -7004,7 +7004,7 @@ declare interface Stream {
    * Read stream with sync interface.
    *
    * @param { ArrayBuffer } buffer - buffer.
-   * @param { object } [options] - options.
+   * @param { ReadOptions } [options] - options.
    * @returns { number } Returns the number of file bytes read to file.
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -7500,6 +7500,60 @@ export interface ListFileOptions {
    * @since 11
    */
   filter?: Filter;
+}
+
+/**
+ * ReadOptions type
+ *
+ * @interface ReadOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export interface ReadOptions {
+  /**
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  offset?: number;
+  /**
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  length?: number;
+}
+
+/**
+ * ReadTextOptions type
+ *
+ * @interface ReadTextOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export interface ReadTextOptions extends ReadOptions {
+  /**
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  encoding?: string;
+}
+
+/**
+ * WriteOptions type
+ *
+ * @interface WriteOptions
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+export interface WriteOptions extends ReadOptions {
+  /**
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  encoding?: string;
 }
 
 /**
