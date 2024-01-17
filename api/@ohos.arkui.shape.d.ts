@@ -130,38 +130,38 @@ declare class CommonShapeMethod<T> {
   /**
    * Sets coordinate offset relative to the layout completion position.
    *
-   * @param { Position } value
+   * @param { Position } offset
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  offset(value: Position): T;
+  offset(offset: Position): T;
 
   /**
    * Sets the fill color of the shape.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } color
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  fill(value: ResourceColor): T;
+  fill(color: ResourceColor): T;
 
   /**
    * Sets the position of the shape.
    *
-   * @param { Position } value
+   * @param { Position } position
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  position(value: Position): T;
+  position(position: Position): T;
 }
 
 /**
@@ -176,38 +176,38 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
   /**
    * Sets the width of the shape.
    *
-   * @param { Length } value
+   * @param { Length } width
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  width(value: Length): T;
+  width(width: Length): T;
 
   /**
    * Sets the height of the shape.
    *
-   * @param { Length } value
+   * @param { Length } height
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  height(value: Length): T;
+  height(height: Length): T;
 
   /**
    * Sets the size of the shape.
    *
-   * @param { SizeOptions } value
+   * @param { SizeOptions } size
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  size(value: SizeOptions): T;
+  size(size: SizeOptions): T;
 }
 
 /**
@@ -234,38 +234,38 @@ export declare class RectShape extends BaseShape<RectShape> {
   /**
    * Sets the width of the corner radius for RectShape.
    *
-   * @param { number | string } value
+   * @param { number | string } rWidth
    * @returns { RectShape }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  radiusWidth(value: number | string): RectShape;
+  radiusWidth(rWidth: number | string): RectShape;
 
   /**
    * Sets the height of the corner radius for RectShape.
    *
-   * @param { number | string } value
+   * @param { number | string } rHeight
    * @returns { RectShape }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  radiusHeight(value: number | string): RectShape;
+  radiusHeight(rHeight: number | string): RectShape;
 
   /**
    * Sets the corner radius for RectShape.
    *
-   * @param { number | string | Array<number | string> } value
+   * @param { number | string | Array<number | string> } radius
    * @returns { RectShape }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  radius(value: number | string | Array<number | string>): RectShape;
+  radius(radius: number | string | Array<number | string>): RectShape;
 }
 
 /**
@@ -336,12 +336,12 @@ export declare class PathShape extends CommonShapeMethod<PathShape> {
   /**
    * Sets the commands for drawing the PathShape.
    *
-   * @param { string } value
+   * @param { string } commands
    * @returns { PathShape }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    * @form
    */
-  commands(value: string): PathShape;
+  commands(commands: string): PathShape;
 }
