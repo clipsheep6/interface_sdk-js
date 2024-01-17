@@ -18,6 +18,8 @@
  * @kit ArkUI
  */
 
+/// <reference path="../component/units.d.ts" />
+
 /**
  * Interface for shape size properties.
  *
@@ -117,14 +119,107 @@ interface PathShapeOptions extends ShapeSize {
 }
 
 /**
- * Defines a rect drawing class.
- * 
+ * Common shape method class
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  * @form
  */
-export declare class RectShape {
+declare class CommonShapeMethod<T> {
+  /**
+   * Sets coordinate offset relative to the layout completion position.
+   *
+   * @param { Position } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  offset(value: Position): T;
+
+  /**
+   * Sets the fill color of the shape.
+   *
+   * @param { ResourceColor } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  fill(value: ResourceColor): T;
+
+  /**
+   * Sets the position of the shape.
+   *
+   * @param { Position } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  position(value: Position): T;
+}
+
+/**
+ * Base shape class
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+declare class BaseShape<T> extends CommonShapeMethod<T> {
+  /**
+   * Sets the width of the shape.
+   *
+   * @param { Length } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  width(value: Length): T;
+
+  /**
+   * Sets the height of the shape.
+   *
+   * @param { Length } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  height(value: Length): T;
+
+  /**
+   * Sets the size of the shape.
+   *
+   * @param { SizeOptions } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  size(value: SizeOptions): T;
+}
+
+/**
+ * Defines a rect drawing class.
+ * 
+ * @extends BaseShape<RectShape>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+export declare class RectShape extends BaseShape<RectShape> {
   /**
    * Constructor.
    *
@@ -135,17 +230,54 @@ export declare class RectShape {
    * @form
    */
   constructor(options?: RectShapeOptions | RoundRectShapeOptions);
+
+  /**
+   * Sets the width of the corner radius for RectShape.
+   *
+   * @param { number | string } value
+   * @returns { RectShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  radiusWidth(value: number | string): RectShape;
+
+  /**
+   * Sets the height of the corner radius for RectShape.
+   *
+   * @param { number | string } value
+   * @returns { RectShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  radiusHeight(value: number | string): RectShape;
+
+  /**
+   * Sets the corner radius for RectShape.
+   *
+   * @param { number | string | Array<number | string> } value
+   * @returns { RectShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  radius(value: number | string | Array<number | string>): RectShape;
 }
 
 /**
  * Defines a circle drawing class.
  * 
+ * @extends BaseShape<CircleShape>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  * @form
  */
-export declare class CircleShape {
+export declare class CircleShape extends BaseShape<CircleShape> {
   /**
    * Constructor.
    *
@@ -161,12 +293,13 @@ export declare class CircleShape {
 /**
  * Defines an ellipse drawing class.
  * 
+ * @extends BaseShape<EllipseShape>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  * @form
  */
-export declare class EllipseShape {
+export declare class EllipseShape extends BaseShape<EllipseShape> {
   /**
    * Constructor.
    *
@@ -182,12 +315,13 @@ export declare class EllipseShape {
 /**
  * Defines a path drawing class.
  * 
+ * @extends CommonShapeMethod<PathShape>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  * @form
  */
-export declare class PathShape {
+export declare class PathShape extends CommonShapeMethod<PathShape> {
   /**
    * Constructor.
    *
@@ -198,4 +332,16 @@ export declare class PathShape {
    * @form
    */
   constructor(options?: PathShapeOptions);
+
+  /**
+   * Sets the commands for drawing the PathShape.
+   *
+   * @param { string } value
+   * @returns { PathShape }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  commands(value: string): PathShape;
 }
