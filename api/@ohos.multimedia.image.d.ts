@@ -1945,6 +1945,14 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
+    /**
+     * Component type.
+     *
+     * @type { ComponentType }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
     readonly componentType: ComponentType;
 
     /**
@@ -1953,6 +1961,14 @@ declare namespace image {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
+     */
+      /**
+     * Row stride.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
      */
     readonly rowStride: number;
 
@@ -1963,6 +1979,14 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
+    /**
+     * Pixel stride.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
     readonly pixelStride: number;
 
     /**
@@ -1971,6 +1995,14 @@ declare namespace image {
      * @type { ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
+     */
+    /**
+     * Component buffer.
+     *
+     * @type { ArrayBuffer }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
      */
     readonly byteBuffer: ArrayBuffer;
   }
@@ -2675,6 +2707,7 @@ declare namespace image {
      * Whether the image pixel map can be edited.
      *
      * @type { boolean }
+     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -4340,6 +4373,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Supported image formats.
+     *
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 11
+     */
     readonly supportedFormats: Array<string>;
   }
 
@@ -4597,6 +4639,15 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Supported image formats.
+     *
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @since 11
+     */
     readonly supportedFormats: Array<string>;
   }
 
@@ -4624,6 +4675,14 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
+    /**
+     * Image size.
+     *
+     * @type { Size }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
     readonly size: Size;
 
     /**
@@ -4632,6 +4691,14 @@ declare namespace image {
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
+     */
+     /**
+     * Image format.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
      */
     readonly format: number;
 
@@ -4689,6 +4756,14 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
+    /**
+     * Image size.
+     *
+     * @type { Size }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @since 11
+     */
     readonly size: Size;
 
     /**
@@ -4698,6 +4773,14 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
+     /**
+     * Image capacity.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @since 11
+     */
     readonly capacity: number;
 
     /**
@@ -4706,6 +4789,14 @@ declare namespace image {
      * @type { ImageFormat }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
+     */
+    /**
+     * Image format.
+     *
+     * @type { ImageFormat }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @since 11
      */
     readonly format: ImageFormat;
 
@@ -4809,6 +4900,14 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9
      */
+    /**
+     * Image capacity.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.ImageCreator
+     * @since 11
+     */
     readonly capacity: number;
 
     /**
@@ -4817,6 +4916,14 @@ declare namespace image {
      * @type { ImageFormat }
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9
+     */
+    /**
+     * Image format.
+     *
+     * @type { ImageFormat }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Image.ImageCreator
+     * @since 11
      */
     readonly format: ImageFormat;
 
