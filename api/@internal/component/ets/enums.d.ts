@@ -8976,3 +8976,20 @@ declare enum FoldStatus {
    */
   FOLD_STATUS_HALF_FOLDED = 3,
 }
+
+/**
+ * Enum of EmbeddedType
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare enum EmbeddedType {
+  /**
+   * The EmbeddedComponent show the UI in UIExtensionAbility.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  UIEXTENSION = 0,
+}
