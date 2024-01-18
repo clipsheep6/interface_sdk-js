@@ -662,6 +662,18 @@ declare class NavPathStack {
   pushPath(info: NavPathInfo, animated?: boolean): void;
 
   /**
+   * Pushes the route page into the stack.
+   *
+   * @param { NavPathInfo } info - Indicates the route page to be pushed.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { Promise<void> } The promise returned by the function.
+   * @crossplatform
+   * @since 11
+   */
+  pushDestination(info: NavPathInfo, animated?: boolean): Promise<void>;
+
+  /**
    * Pushes the specified route page into the stack.
    *
    * @param { string } name - Indicates the name of the route page to be pushed.
@@ -682,6 +694,19 @@ declare class NavPathStack {
    * @since 11
    */
   pushPathByName(name: string, param: unknown, animated?: boolean): void;
+
+  /**
+   * Pushes the specified route page into the stack.
+   *
+   * @param { string } name - Indicates the name of the route page to be pushed.
+   * @param { Object } param - Indicates the detailed parameter of the route page to be pushed.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  pushDestinationByName(name: string, param: Object, animated?: boolean): Promise<void>;
 
   /**
    * replace the current page with the specific one.The current page will be destroyed.
