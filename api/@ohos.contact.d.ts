@@ -1920,7 +1920,7 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly CUSTOM_LABEL: 0
+    static readonly CUSTOM_LABEL: 10000
 
     /**
      * Indicates a home email.
@@ -2014,7 +2014,7 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly CUSTOM_LABEL: 0
+    static readonly CUSTOM_LABEL: 10000
 
     /**
      * Indicates an anniversary event.
@@ -2162,7 +2162,7 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly CUSTOM_LABEL: -1
+    static readonly CUSTOM_LABEL: 10000
 
     /**
      * Indicates an AIM instant message.
@@ -2172,7 +2172,7 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly IM_AIM: 0
+    static readonly IM_AIM: 1
 
     /**
      * Indicates a Windows Live instant message.
@@ -2182,7 +2182,7 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly IM_MSN: 1
+    static readonly IM_MSN: 2
 
     /**
      * Indicates a Yahoo instant message.
@@ -2192,7 +2192,7 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly IM_YAHOO: 2
+    static readonly IM_YAHOO: 3
 
     /**
      * Indicates a Skype instant message.
@@ -2202,7 +2202,7 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly IM_SKYPE: 3
+    static readonly IM_SKYPE: 4
 
     /**
      * Indicates a QQ instant message.
@@ -2212,7 +2212,17 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly IM_QQ: 4
+    static readonly IM_QQ: 5
+
+    /**
+     * Indicates a Hangouts instant message.
+     *
+     * @readonly
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
+     * @since 11
+     */
+    static readonly IM_HANGOUTS: 6
 
     /**
      * Indicates an ICQ instant message.
@@ -2222,7 +2232,7 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly IM_ICQ: 6
+    static readonly IM_ICQ: 7
 
     /**
      * Indicates a Jabber instant message.
@@ -2232,7 +2242,7 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly IM_JABBER: 7
+    static readonly IM_JABBER: 8
 
     /**
      * Indicates an invalid label ID.
@@ -2458,17 +2468,7 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly CUSTOM_LABEL: 0
-
-    /**
-     * Indicates a home number.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    static readonly NUM_HOME: 1
+    static readonly CUSTOM_LABEL: 10000
 
     /**
      * Indicates a mobile phone number.
@@ -2478,7 +2478,17 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly NUM_MOBILE: 2
+    static readonly NUM_MOBILE: 1
+
+    /**
+     * Indicates a home number.
+     *
+     * @readonly
+     * @static
+     * @syscap SystemCapability.Applications.ContactsData
+     * @since 7
+     */
+    static readonly NUM_HOME: 2
 
     /**
      * Indicates a work number.
@@ -2531,46 +2541,6 @@ declare namespace contact {
     static readonly NUM_OTHER: 7
 
     /**
-     * Indicates a callback number.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    static readonly NUM_CALLBACK: 8
-
-    /**
-     * Indicates a car number.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    static readonly NUM_CAR: 9
-
-    /**
-     * Indicates a company director number.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    static readonly NUM_COMPANY_MAIN: 10
-
-    /**
-     * Indicates an Integrated Services Digital Network (ISDN) number.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    static readonly NUM_ISDN: 11
-
-    /**
      * Indicates a main number.
      *
      * @readonly
@@ -2579,86 +2549,6 @@ declare namespace contact {
      * @since 7
      */
     static readonly NUM_MAIN: 12
-
-    /**
-     * Indicates a number of the OTHER_FAX type.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    static readonly NUM_OTHER_FAX: 13
-
-    /**
-     * Indicates a radio number.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    static readonly NUM_RADIO: 14
-
-    /**
-     * Indicates a telex number.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    static readonly NUM_TELEX: 15
-
-    /**
-     * Indicates a teletypewriter (TTY) or test-driven development (TDD) number.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    static readonly NUM_TTY_TDD: 16
-
-    /**
-     * Indicates a work mobile phone number.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    static readonly NUM_WORK_MOBILE: 17
-
-    /**
-     * Indicates a work pager number.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    static readonly NUM_WORK_PAGER: 18
-
-    /**
-     * Indicates an assistant number.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    static readonly NUM_ASSISTANT: 19
-
-    /**
-     * Indicates an MMS number.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    static readonly NUM_MMS: 20
 
     /**
      * Indicates an invalid label ID.
@@ -2738,7 +2628,7 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly CUSTOM_LABEL: 0
+    static readonly CUSTOM_LABEL: 10000
 
     /**
      * Indicates a home address.
@@ -2886,7 +2776,7 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly CUSTOM_LABEL: 0
+    static readonly CUSTOM_LABEL: 10000
 
     /**
      * Indicates assistant relationship type.
@@ -2919,14 +2809,14 @@ declare namespace contact {
     static readonly RELATION_CHILD: 3
 
     /**
-     * Indicates domestic partner relationship type.
+     * Indicates partner relationship type.
      *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly RELATION_DOMESTIC_PARTNER: 4
+    static readonly RELATION_PARTNER: 4
 
     /**
      * Indicates father relationship type.
@@ -2979,14 +2869,15 @@ declare namespace contact {
     static readonly RELATION_PARENT: 9
 
     /**
-     * Indicates partner relationship type.
+     * 
+     * Indicates domestic partner relationship type.
      *
      * @readonly
      * @static
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly RELATION_PARTNER: 10
+    static readonly RELATION_DOMESTIC_PARTNER: 10
 
     /**
      * Indicates referrer relationship type.
@@ -3081,7 +2972,7 @@ declare namespace contact {
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
      */
-    static readonly CUSTOM_LABEL: 0
+    static readonly CUSTOM_LABEL: 10000
 
     /**
      * Indicates a home SIP address.
