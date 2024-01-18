@@ -135,6 +135,7 @@ declare namespace sms {
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 6
    * @deprecated since 10
+   * @systemapi Hide this for inner system use.
    * @useinstead telephony.sms#sendShortMessage
    */
   function sendMessage(options: SendMessageOptions): void;
@@ -154,6 +155,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 10
    */
@@ -174,6 +176,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
+   * @systemapi Hide this for inner system use.
    * @syscap SystemCapability.Telephony.SmsMms
    * @since 10
    */
