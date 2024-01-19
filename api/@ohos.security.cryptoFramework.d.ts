@@ -629,6 +629,20 @@ declare namespace cryptoFramework {
      * @since 11
      */
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | number;
+    
+    /**
+     * Encode the public key object to binary data in DER format.
+     *
+     * @param { string } format - indicates the encoding format.
+     * @returns { DataBlob } the binary data of the key object in DER format.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    getEncodedDer(format: string): DataBlob;
   }
 
   /**
@@ -4971,6 +4985,97 @@ declare namespace cryptoFramework {
    * @since 11
    */
   function createKdf(algName: string): Kdf;
+
+  /**
+   * Provides the interface for specifying detailed data in the SM2 ciphertext in ASN.1 format.
+   *
+   * @typedef SM2CipherTextSpec
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 12
+   */
+  interface SM2CipherTextSpec {
+    /**
+     * Indicates the x coordinate, also known as C1x.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    xCoordinate: bigint;
+
+    /**
+     * Indicates the y coordinate, also known as C1y.
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    yCoordinate: bigint;
+
+    /**
+     * Indicates the detailed ciphertext data, also known as C2.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    cipherTextData: Uint8Array;
+
+    /**
+     * Indicates the hash data, also known as C3.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    hashData: Uint8Array;
+  }
+
+  /**
+   * Utilities for SM2 crypto operations.
+   *
+   * @syscap SystemCapability.Security.CryptoFramework
+   * @crossplatform
+   * @since 12
+   */
+  class SM2CryptoUtil {
+    /**
+     * Generate the SM2 ciphertext in ASN.1 format according to the specific data.
+     *
+     * @param { SM2CipherTextSpec } spec - indicates the specific data of SM2 ciphertext.
+     * @param { string } [mode] - indicates the arrangement mode of the SM2 ciphertext.
+     * @returns { DataBlob } the SM2 ciphertext in ASN.1 format.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    static genCipherTextBySpec(spec: SM2CipherTextSpec, mode?: string): DataBlob;
+
+    /**
+     * Get the specific data from the SM2 ciphertext in ASN.1 format.
+     *
+     * @param { DataBlob } cipherText - indicates the SM2 ciphertext in ASN.1 format.
+     * @param { string } [mode] - indicates the arrangement mode of the SM2 ciphertext.
+     * @returns { SM2CipherTextSpec } the specific data of SM2 ciphertext.
+     * @throws { BusinessError } 401 - invalid parameters.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @static
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @crossplatform
+     * @since 12
+     */
+    static getCipherTextSpec(cipherText: DataBlob, mode?: string): SM2CipherTextSpec;
+  }
 }
 
 export default cryptoFramework;
