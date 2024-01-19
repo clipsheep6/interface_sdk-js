@@ -34,7 +34,7 @@ export default class InputMethodExtensionAbility {
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @StageModelOnly
-   * @since 9
+   * @since 9999
    */
   context: InputMethodExtensionContext;
 
