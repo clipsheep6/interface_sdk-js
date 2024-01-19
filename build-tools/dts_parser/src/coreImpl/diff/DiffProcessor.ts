@@ -595,10 +595,10 @@ export namespace DiffProcessorHelper {
      */
     static diffMethodReturnType(oldApiInfo: MethodInfo, newApiInfo: MethodInfo): DiffTypeInfo | undefined {
       const diffTypeInfo: DiffTypeInfo = new DiffTypeInfo();
-      const olaMethodType: string[] = oldApiInfo.getReturnValue();
+      const oldMethodType: string[] = oldApiInfo.getReturnValue();
       const newMethodType: string[] = newApiInfo.getReturnValue();
-      const olaMethodTypeStr = olaMethodType.toString().replace(/\r|\n|\s+/g, '');
-      const newMethodTypeStr = newMethodType.toString().replace(/\r|\n|\s+/g, '');
+      const olaMethodTypeStr = oldMethodType.toString().replace(/\r|\n|\s+|'|"/g, '');
+      const newMethodTypeStr = newMethodType.toString().replace(/\r|\n|\s+|'|"/g, '');
       if (olaMethodTypeStr === newMethodTypeStr) {
         return undefined;
       }
@@ -691,8 +691,8 @@ export namespace DiffProcessorHelper {
     static diffMethodParamType(oldApiInfo: ParamInfo, newApiInfo: ParamInfo): ApiDiffType | undefined {
       const oldParamType: string[] = oldApiInfo.getType();
       const newParamType: string[] = newApiInfo.getType();
-      const oldParamTypeStr: string = oldParamType.toString();
-      const newParamTypeStr: string = newParamType.toString();
+      const oldParamTypeStr: string = oldParamType.toString().replace(/\r|\n|\s+|'|"/g, '');
+      const newParamTypeStr: string = newParamType.toString().replace(/\r|\n|\s+|'|"/g, '');
       if (oldParamTypeStr === newParamTypeStr) {
         return undefined;
       }
