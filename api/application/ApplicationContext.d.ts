@@ -451,8 +451,10 @@ export default class ApplicationContext extends Context {
    *
    * @param { 'abilityAutoStartup' } type - Indicates the type of event.
    * @param { AutoStartupCallback } callback - Auto startup callback.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
@@ -463,8 +465,10 @@ export default class ApplicationContext extends Context {
    *
    * @param { 'abilityAutoStartup' } type - Indicates the type of event.
    * @param { AutoStartupCallback } [callback] - Auto startup callback.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
@@ -475,8 +479,10 @@ export default class ApplicationContext extends Context {
    *
    * @param { AutoStartupInfo } info - The application info.
    * @param { AsyncCallback<void> } callback - The callback of setAutoStartup.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
@@ -487,8 +493,10 @@ export default class ApplicationContext extends Context {
    *
    * @param { AutoStartupInfo } info - The application info.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
@@ -499,8 +507,10 @@ export default class ApplicationContext extends Context {
    *
    * @param { AutoStartupInfo } info - The application info.
    * @param { AsyncCallback<void> } callback - The callback of cancelAutoStartup.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
@@ -511,8 +521,10 @@ export default class ApplicationContext extends Context {
    *
    * @param { AutoStartupInfo } info - The application info.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
@@ -523,8 +535,10 @@ export default class ApplicationContext extends Context {
    *
    * @param { AutoStartupInfo } info - The application info.
    * @param { AsyncCallback<boolean> } callback - The callback of isAutoStartup.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
@@ -535,8 +549,10 @@ export default class ApplicationContext extends Context {
    *
    * @param { AutoStartupInfo } info - The application info.
    * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
    * @StageModelOnly
    * @since 11
    */
