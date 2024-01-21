@@ -41,6 +41,7 @@ declare namespace distributedDeviceManager {
     /**
      * Device unique identifier, The actual value is the udid-hash confused with the appid based on sha256.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @type { string }
      * @since 10
      */
     deviceId: string;
@@ -48,6 +49,7 @@ declare namespace distributedDeviceManager {
     /**
      * Device name.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @type { string }
      * @since 10
      */
     deviceName: string;
@@ -64,6 +66,7 @@ declare namespace distributedDeviceManager {
     /**
      * Device network id.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @type { string }
      * @since 10
      */
     networkId?: string;
@@ -141,7 +144,6 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @returns { Array<DeviceBasicInfo> } - Returns a list of available devices.
      * @throws { BusinessError } 201 - User permission verify failed.
-     * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
@@ -213,7 +215,7 @@ declare namespace distributedDeviceManager {
      * Get the device id of the local device.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { string } - Returns local device type.
+     * @returns { string } - Returns local device id.
      * @throws { BusinessError } 201 - User permission verify failed.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -282,7 +284,6 @@ declare namespace distributedDeviceManager {
      * Stop discovering nearby devices.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @throws { BusinessError } 401 - Input parameter error.
      * @throws { BusinessError } 201 - Permission verify failed.
      * @throws { BusinessError } 11600104 - Stop discovery repeats.
      * @throws { BusinessError } 11600101 - Failed to execute the function.
