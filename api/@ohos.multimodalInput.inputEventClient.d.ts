@@ -20,6 +20,8 @@
 
 import { MouseEvent } from './@ohos.multimodalInput.mouseEvent';
 import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
+import { JoystickEvent } from './@ohos.multimodalInput.joystickEvent';
+
 /**
  * Global Key Event Injection
  *
@@ -136,6 +138,26 @@ declare namespace inputEventClient {
   }
 
   /**
+   * Defines event of joystick that user want to inject.
+   *
+   * @interface JoystickEventData
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @systemapi hide for inner use
+   * @since 12
+   */
+  interface JoystickEventData {
+    /**
+     * Inject joystick event.
+     *
+     * @type { KeyEvent }
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @systemapi hide for inner use
+     * @since 12
+     */
+    joystickEvent: JoystickEvent;
+  }
+
+  /**
    * Inject system keys.
    *
    * @param { KeyEventData } keyEvent - the key event to be injected.
@@ -181,6 +203,18 @@ declare namespace inputEventClient {
    * @since 11
    */
   function injectTouchEvent(touchEvent: TouchEventData): void;
+
+  /**
+   * Inject joystick event.
+   *
+   * @param { JoystickEventData } joystickEvent - the joystick event to be injected.
+   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @systemapi hide for inner use
+   * @since 12
+   */
+  function injectJoystickEvent(joystickEvent: JoystickEventData): void;
 }
 
 export default inputEventClient;
