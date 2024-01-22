@@ -37,7 +37,7 @@ export declare enum Action {
   CANCEL = 0,
 
   /**
-   * Pressing down of the joystick buttom
+   * Pressing down of the joystick button
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
@@ -174,20 +174,20 @@ export declare enum Button {
   HOMEPAGE = 10,
 
    /**
-   * Thumbl button on the joystick
+   * Thumb_L button on the joystick
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
    */
-  THUMBL = 11,
+  THUMB_L = 11,
 
    /**
-   * Thumbr button on the joystick
+   * Thumb_R button on the joystick
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 12
    */
-  THUMBR = 12,
+  THUMB_R = 12,
 
    /**
    * Trigger button on the joystick
@@ -425,9 +425,9 @@ export declare interface AxisValue {
 }
 
 /**
- * joystickEvent
+ * JoystickEvent
  *
- * @interface joystickEvent
+ * @interface JoystickEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
