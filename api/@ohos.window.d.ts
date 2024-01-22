@@ -3419,6 +3419,36 @@ declare namespace window {
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
 
     /**
+     * Create content without loading page
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    createContent(callback: AsyncCallback<void>): void;
+
+    /**
+     * Create content without loading page
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    createContent(): Promise<void>;
+
+    /**
      * Checks whether the window is displayed
      *
      * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
@@ -5695,6 +5725,36 @@ declare namespace window {
      * @since 11
      */
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
+
+    /**
+     * Create content without loading page
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    createContent(callback: AsyncCallback<void>): void;
+
+    /**
+     * Create content without loading page
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    createContent(): Promise<void>;
 
     /**
      * Window stage event callback on.
