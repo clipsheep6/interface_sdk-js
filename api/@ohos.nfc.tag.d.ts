@@ -750,6 +750,13 @@ declare namespace tag {
     payload: number[];
   }
 
+  /**
+   * Provides methods to operate or manage NDEF tag.
+   *
+   * @namespace ndef
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   namespace ndef {
     /**
      * Creates an NDEF record with uri data.
