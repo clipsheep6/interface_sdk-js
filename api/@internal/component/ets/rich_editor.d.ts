@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { Callback } from '../../../@ohos.base';
+
 /**
  * Defines delete text direction.
  *
@@ -2277,8 +2279,17 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12
+  /**
+   * Called when selection range or caret position is changed.
+   *
+   * @param { Callback<RichEditorRange> } callback - The callback when selection range or caret position changed.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
-  onSelectionChange(callback: (value: RichEditorRange) => void): RichEditorAttribute;
+  onSelectionChange(callback: Callback<RichEditorRange>): RichEditorAttribute;
 
   /**
    * Get text value information when about to input.
