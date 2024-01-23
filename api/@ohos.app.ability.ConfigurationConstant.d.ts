@@ -35,6 +35,47 @@
  */
 declare namespace ConfigurationConstant {
   /**
+   * Time24
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  export enum Time24 {
+    /**
+     * The time24 is not set.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    HOUR_NOT_SET = -1,
+
+    /**
+     * 12-hour system.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    HOUR_12 = 0,
+
+    /**
+     * 24-hour system.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    HOUR_24 = 1
+  }
+
+  /**
    * Color mode
    *
    * @enum { number }

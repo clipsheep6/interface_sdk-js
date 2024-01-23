@@ -63,6 +63,17 @@ export interface Configuration {
   language?: string;
 
   /**
+   * Indicates the current hour type of the application.
+   *
+   * @type { ?ConfigurationConstant.Time24 }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  time24?: ConfigurationConstant.Time24;
+
+  /**
    * Indicates the current colorMode of the application.
    *
    * @type { ?ConfigurationConstant.ColorMode }
