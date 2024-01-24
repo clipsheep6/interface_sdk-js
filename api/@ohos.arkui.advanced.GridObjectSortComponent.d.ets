@@ -256,16 +256,6 @@ export declare struct GridObjectSortComponent {
   backController: BackController;
 
   /**
-   * Control GridObjectSortComponentItem to exit editing state.
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  @Link
-  backNormal: boolean;
-
-  /**
    * Callback when Obtain edited data.
    * @type { (select: Array<GridObjectSortComponentItem>, unselect: Array<GridObjectSortComponentItem>) => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
