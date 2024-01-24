@@ -157,14 +157,16 @@ export interface GridObjectSortComponentOptions {
 }
 
 /**
- * GridObjectSortComponent exit editing state controller.
+ * Grid object sort component exit editing state controller.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
  */
 export class BackController {
   /**
-   * It is to obtain the value after the component editing status has been changed.
+   * It is used to obtain the value after the Grid object sort component editing status has been changed.
+   *
+   * @return The editing status of the current Grid object sort component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -172,7 +174,7 @@ export class BackController {
   getEditStatus(): boolean;
 
   /**
-   * Method for exiting editing status of components.
+   * Method for exiting editing status of Grid object sort component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -209,7 +211,7 @@ export declare struct GridObjectSortComponent {
   dataList: Array<GridObjectSortComponentItem>;
 
   /**
-   * GridObjectSortComponent exit editing state controller.
+   * Grid object sort component exit editing state controller.
    * @type { BackController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
