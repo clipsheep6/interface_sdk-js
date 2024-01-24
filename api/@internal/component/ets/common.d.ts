@@ -14968,10 +14968,22 @@ declare class CommonMethod<T> {
    * @form
    */
   /**
-   * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
-   * When the parameter is of the boolean type, this parameter specifies whether to crop based on the edge contour.
+   * The current component is cropped according to the specified shape.
    *
-   * @param { boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value
+   * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @deprecated since 11
+   * @form
+   */
+  clip(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
+
+  /**
+   * The parameter specifies whether to crop based on the edge contour.
+   *
+   * @param { boolean } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -14979,7 +14991,7 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
+  clip(value: boolean): T;
 
   /**
   * When the parameter is of the Shape type, the current component is cropped according to the specified shape.
@@ -15024,7 +15036,20 @@ declare class CommonMethod<T> {
   /**
    * Applies a mask of the specified shape to the current assembly.
    *
-   * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - indicates the shape of the mask.
+   * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute } value - indicates the shape of the mask.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @deprecated since 11
+   * @form
+   */
+  mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
+
+  /**
+   * Sets the mask of the current component.
+   *
+   * @param { ProgressMask } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -15032,7 +15057,7 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
+  mask(value: ProgressMask): T;
 
   /**
    * Applies a mask of the specified shape to the current assembly.
