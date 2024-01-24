@@ -164,26 +164,7 @@ export interface GridObjectSortComponentOptions {
  */
 export class BackController {
   /**
-   * The state after the component editing state changes.
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  editStatus?: boolean;
-
-  /**
-   * Method for saving exit editing status.
-   * @type { ?Function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  sideSlipBackMethod?: Function;
-
-  /**
    * It is to obtain the value after the component editing status has been changed.
-   * @type { Function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -192,16 +173,16 @@ export class BackController {
 
   /**
    * Set the value of editStatus.
-   * @type { Function }
+   *
+   * @param editStatus Value after component editing status change.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
-  setEditStatus(): void;
+  setEditStatus(editStatus: boolean): void;
 
   /**
    * Method for exiting editing status of components.
-   * @type { Function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -210,7 +191,8 @@ export class BackController {
 
   /**
    * Set the value of sideSlipBackMethod.
-   * @type { Function }
+   *
+   * @param sideSlipBackMethod Value after component editing status change.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
