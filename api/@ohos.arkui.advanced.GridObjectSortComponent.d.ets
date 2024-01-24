@@ -157,6 +157,69 @@ export interface GridObjectSortComponentOptions {
 }
 
 /**
+ * GridObjectSortComponent exit editing state controller.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+export class BackController {
+  /**
+   * The state after the component editing state changes.
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  editStatus?: boolean;
+
+  /**
+   * Method for saving exit editing status.
+   * @type { ?Function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  sideSlipBackMethod?: Function;
+
+  /**
+   * It is to obtain the value after the component editing status has been changed.
+   * @type { Function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  getEditStatus(): boolean;
+
+  /**
+   * Set the value of editStatus.
+   * @type { Function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  setEditStatus(): void;
+
+  /**
+   * Method for exiting editing status of components.
+   * @type { Function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  back(): void;
+
+  /**
+   * Set the value of sideSlipBackMethod.
+   * @type { Function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  setSideSlipBackMethod(sideSlipBackMethod:Function): void;
+}
+
+
+/**
  * Declare struct GridObjectSortComponent.
  * @struct { GridObjectSortComponent }
  * @crossplatform
@@ -182,6 +245,15 @@ export declare struct GridObjectSortComponent {
    * @since 11
    */
   dataList: Array<GridObjectSortComponentItem>;
+
+  /**
+   * GridObjectSortComponent exit editing state controller.
+   * @type { BackController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  backController: BackController;
 
   /**
    * Control GridObjectSortComponentItem to exit editing state.
