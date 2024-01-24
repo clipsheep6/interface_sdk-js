@@ -174,7 +174,7 @@ export class BackController {
   getEditStatus(): boolean;
 
   /**
-   * Method for exiting editing status of Grid object sort component.
+   * Method for exiting editing status of Grid object sort Grid object sort component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
