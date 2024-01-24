@@ -76,7 +76,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    summary: { [key: string]: number };
+    summary: Record<string, number>;
     /**
      * Total data size of data in Bytes
      *
@@ -117,7 +117,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    details?: { [key: string]: string };
+    details?: Record<string, string>;
   }
 
   /**
@@ -206,7 +206,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    details?: { [key: string]: string };
+    details?: Record<string, number>;
     /**
      * Indicates the uri of file
      *
@@ -299,7 +299,7 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 10
      */
-    details?: { [key: string]: number | string | Uint8Array };
+    details?: Record<string, number | string | Uint8Array>;
   }
 
   /**
@@ -465,26 +465,12 @@ declare namespace unifiedDataChannel {
   /**
    * Describe the optional arguments of data operation
    *
+   * intention: Indicates the target Intention
+   * key: Indicates the unique identifier of target UnifiedData
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 10
    */
-  type Options = {
-    /**
-     * Indicates the target Intention
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    intention?: Intention;
-
-    /**
-     * Indicates the unique identifier of target UnifiedData
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    key?: string;
-  };
+  type Options = Record<Intention, string>;
 
   /**
    * Insert data into unified data channel by Intention
