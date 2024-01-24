@@ -172,32 +172,12 @@ export class BackController {
   getEditStatus(): boolean;
 
   /**
-   * Set the value of editStatus.
-   *
-   * @param editStatus Value after component editing status change.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  setEditStatus(editStatus: boolean): void;
-
-  /**
    * Method for exiting editing status of components.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   back(): void;
-
-  /**
-   * Set the value of sideSlipBackMethod.
-   *
-   * @param sideSlipBackMethod Value after component editing status change.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  setSideSlipBackMethod(sideSlipBackMethod:Function): void;
 }
 
 
