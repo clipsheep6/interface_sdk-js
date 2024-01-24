@@ -112,6 +112,7 @@ declare namespace fileIo {
   export { Stream };
   export { Watcher };
   export { WhenceType };
+  export { TaskSignal };
   export type { Progress };
   export type { CopyOptions };
   export type { ProgressListener };
@@ -5687,6 +5688,35 @@ interface Progress {
 }
 
 /**
+ * Task signal.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 11
+ */
+class TaskSignal {
+
+  /**
+   * Cancel the task.
+   *
+   * @throws { BusinessError } 13900043 - No task can be canceled.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  cancel(): void;
+
+  /**
+   * Subscribe cancel event of current task.
+   *
+   * @param { Callback<string> } callback - callback of cancel event.
+   *        The last file copied is provided for this callback.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  onCancel(callback: Callback<string>);
+}
+
+/**
  * Get options of copy
  *
  * @typedef CopyOptions
@@ -5702,6 +5732,14 @@ interface CopyOptions {
    * @since 11
    */
   progressListener?: ProgressListener;
+  /**
+   * Cancel signal of copy
+   *
+   * @type { ?TaskSignal }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 11
+   */
+  copySignal?: TaskSignal;
 }
 
 type ProgressListener = (progress: Progress) => void;
