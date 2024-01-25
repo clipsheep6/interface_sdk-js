@@ -2631,6 +2631,16 @@ declare namespace image {
    * @since 11
    */
   function createImageCreator(size: Size, format: ImageFormat, capacity: number): ImageCreator;
+
+  /**
+   * Creates an ImageConvert instance.
+   *
+   * @returns { ImageConvert } Returns the ImageConvert instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  function createImageConvert(): ImageConvert;
+
   /**
    * PixelMap instance.
    *
@@ -4885,6 +4895,36 @@ declare namespace image {
      * @since 9
      */
     release(): Promise<void>;
+  }
+
+  interface ImageConvert {
+    /**
+     * Convert PixelMap in YUV format to PixelMap in RGB format.
+     * a promise to return the result.
+     *
+     * @param { PixelMap } srcPixelMap PixelMap instance in YUV format.
+     * @param { PixelMapFormat } destPixelFormat The pixel format of the converted target PixelMap instance.
+     * @param { colorSpaceManager.ColorSpace } colorSpace ColorSpace of image.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    yuvToRgb(srcPixelMap: PixelMap, destPixelFormat: PixelMapFormat, colorSpace: colorSpaceManager.ColorSpace):
+      Promise<PixelMap>;
+
+    /**
+     * Convert PixelMap in RGB format to PixelMap in YUV format.
+     * a promise to return the result.
+     *
+     * @param { PixelMap } srcPixelMap PixelMap instance in RGB format.
+     * @param { PixelMapFormat } destPixelFormat The pixel format of the converted target PixelMap instance.
+     * @param { colorSpaceManager.ColorSpace } colorSpace ColorSpace of image.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    rgbToYuv(srcPixelMap: PixelMap, destPixelFormat: PixelMapFormat, colorSpace: colorSpaceManager.ColorSpace):
+      Promise<PixelMap>;
   }
 }
 
