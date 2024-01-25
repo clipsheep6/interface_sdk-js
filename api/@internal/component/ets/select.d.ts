@@ -28,6 +28,38 @@
  * @crossplatform
  * @since 10
  */
+
+/**
+ * Enum for Control Size.
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ * @form
+ */
+ declare enum ControlSize {
+  /**
+   * The component size is small.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  SMALL = 'small',
+
+  /**
+   * The component size is normal.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  NORMAL = 'normal',
+}
+
 /**
  * The declare of selectOption.
  *
@@ -89,6 +121,16 @@ declare interface SelectOption {
    * @since 11
    */
   icon?: ResourceStr;
+  /**
+   * Describes the select size.
+   *
+   * @type { ?ControlSize }
+   * @default ControlSize.NORMAL
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  controlSize?: ControlSize;
 }
 
 /**
