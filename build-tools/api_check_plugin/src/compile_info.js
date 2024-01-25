@@ -81,6 +81,9 @@ function checkMarkError(node, errorMessage, baseFileName) {
 
   // unicode->json
   const maskInfos = parseUnicodeConfig();
+  if(maskInfos===undefined){
+    return needMasking;
+  }
   maskInfos.maskInformations.forEach(maskInfo => {
     if (maskInfo.kind === apiKindName &&
       maskInfo.name === apiName &&

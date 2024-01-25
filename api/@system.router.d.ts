@@ -23,7 +23,7 @@
  *
  * @interface RouterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 3
+ * @since aa
  * @deprecated since 8
  * @useinstead ohos.router#RouterOptions
  */
