@@ -238,7 +238,7 @@ declare interface DataChangeListener {
  * @atomicservice
  * @since 11
  */
-declare interface IDataSource {
+declare interface IDataSource<T> {
   /**
    * Total data count.
    *
@@ -269,7 +269,7 @@ declare interface IDataSource {
    * Return the data of index.
    *
    * @param { number } index
-   * @returns { any }
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -277,7 +277,7 @@ declare interface IDataSource {
    * Return the data of index.
    *
    * @param { number } index
-   * @returns { any }
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -286,13 +286,13 @@ declare interface IDataSource {
    * Return the data of index.
    *
    * @param { number } index
-   * @returns { any }
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  getData(index: number): any;
+  getData(index: number): T;
 
   /**
    * Register data change listener.
@@ -405,10 +405,10 @@ interface LazyForEachInterface {
    * @atomicservice
    * @since 11
    */
-  (
-    dataSource: IDataSource,
-    itemGenerator: (item: any, index: number) => void,
-    keyGenerator?: (item: any, index: number) => string,
+  <T>(
+    dataSource: IDataSource<T>,
+    itemGenerator: (item: T, index: number) => void,
+    keyGenerator?: (item: T, index: number) => string,
   ): LazyForEachInterface;
 }
 

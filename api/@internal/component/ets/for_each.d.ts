@@ -51,7 +51,7 @@ interface ForEachInterface {
   /**
    * Set the value, array, and key.
    *
-   * @param { Array<any> } arr
+   * @param { Array<T> } arr
    * @param { function } itemGenerator
    * @param { function } keyGenerator
    * @returns { ForEachInterface }
@@ -61,7 +61,7 @@ interface ForEachInterface {
   /**
    * Set the value, array, and key.
    *
-   * @param { Array<any> } arr
+   * @param { Array<T> } arr
    * @param { function } itemGenerator
    * @param { function } keyGenerator
    * @returns { ForEachInterface }
@@ -72,7 +72,7 @@ interface ForEachInterface {
   /**
    * Set the value, array, and key.
    *
-   * @param { Array<any> } arr
+   * @param { Array<T> } arr
    * @param { function } itemGenerator
    * @param { function } keyGenerator
    * @returns { ForEachInterface }
@@ -84,7 +84,7 @@ interface ForEachInterface {
   /**
    * Set the value, array, and key.
    *
-   * @param { Array<any> } arr
+   * @param { Array<T> } arr
    * @param { function } itemGenerator
    * @param { function } keyGenerator
    * @returns { ForEachInterface }
@@ -94,10 +94,10 @@ interface ForEachInterface {
    * @since 11
    * @form
    */
-  (
-    arr: Array<any>,
-    itemGenerator: (item: any, index: number) => void,
-    keyGenerator?: (item: any, index: number) => string,
+  <T>(
+    arr: Array<T>,
+    itemGenerator: (item: T, index: number) => void,
+    keyGenerator?: (item: T, index: number) => string,
   ): ForEachInterface;
 }
 
