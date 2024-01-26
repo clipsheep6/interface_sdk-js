@@ -274,6 +274,18 @@ interface CircleInterface {
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
 
 /**
+ * Circle drawing component attribute functions.
+ *
+ * @extends CommonShapeMethod<CircleAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare class CircleShape extends CommonShapeMethod<CircleAttribute> {}
+
+/**
  * Defines Circle Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

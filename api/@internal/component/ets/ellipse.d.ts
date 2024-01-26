@@ -158,6 +158,16 @@ interface EllipseInterface {
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 
 /**
+ * @extends CommonShapeMethod<EllipseAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare class EllipseShape extends CommonShapeMethod<EllipseAttribute> {}
+
+/**
  * Defines Ellipse Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
