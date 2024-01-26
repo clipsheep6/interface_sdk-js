@@ -24,7 +24,7 @@ import type display from './@ohos.display';
 import type { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 import type { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe } from './@ohos.multimodalInput.gestureEvent';
 import type { ThreeFingersTap } from './@ohos.multimodalInput.gestureEvent';
-
+import { JoystickEvent } from './@ohos.multimodalInput.joystickEvent';
 /**
  * Global input event listener
  * System API, available only to system processes
@@ -315,5 +315,36 @@ declare namespace inputMonitor {
    */
   function off(type: 'threeFingersTap', receiver?: Callback<ThreeFingersTap>): void;
 
+    /**
+   * Listens for joystick events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { 'joystick' } type - Event type, which is **joystick**.
+   * @param { Callback<JoystickEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 12
+   */
+    function on(type: 'joystick', receiver: Callback<JoystickEvent>): void;
+
+    /**
+     * Cancel listening for touchPad pinch events.
+     *
+     * @permission ohos.permission.INPUT_MONITORING
+     * @param { 'joystick' } type - Event type, which is **joystick**.
+     * @param { Callback<JoystickEvent> } receiver - Callback used to receive the reported data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - SystemAPI permit error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+     * @systemapi hide for inner use
+     * @since 12
+     */
+    function off(type: 'joystick', receiver?: Callback<JoystickEvent>): void;
+
+    
 }
 export default inputMonitor;
