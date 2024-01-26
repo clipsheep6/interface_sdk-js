@@ -27,7 +27,7 @@ import Environment from '@ohos.file.environment';
 import fileAccess from '@ohos.file.fileAccess';
 import fileExtensionInfo from '@ohos.file.fileExtensionInfo';
 import fileUri from '@ohos.file.fileuri';
-import fileIo, {
+import fs, {
   ConflictFiles, Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
   Watcher
 } from '@ohos.file.fs';
@@ -57,6 +57,6 @@ export {
   FileReadTextOption, FileReadTextResponse, FileResponse, FileRmdirOption,
   FileWriteArrayBufferOption, FileWriteTextOption, Filter, Options, ReaderIteratorResult,
   Statfs, WatchEvent, WatchEventListener, Watcher, backup, cloudSync, cloudSyncManager, document,
-  fileAccess, fileExtensionInfo, fileIO, fileIo, fileShare, fileUri, hash, picker, recent, securityLabel, statfs,
+  fileAccess, fileExtensionInfo, fileIO, fs, fileShare, fileUri, hash, picker, recent, securityLabel, statfs,
   storageStatistics, trash, userFileManager, volumeManager
 };
