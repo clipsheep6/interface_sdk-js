@@ -216,6 +216,17 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    */
   allowUpdate(value: boolean): FormComponentAttribute;
 
+    /**
+   * Indicates whether to freeze form window.
+   *
+   * @param { boolean } value
+   * @returns { FormComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  freezeWindow(value: boolean): FormComponentAttribute;
+
   /**
    * Whether the card is visible.
    *
