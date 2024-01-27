@@ -9279,6 +9279,26 @@ declare interface PopupMessageOptions {
 }
 
 /**
+ * Component popup dismiss
+ *
+ * @interface PopupDismiss
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface PopupDismiss {
+  /**
+   * Defines sheet dismiss function
+   *
+   * @type { function  }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  dismiss: () => void;
+}
+
+/**
  * Defines the popup options.
  *
  * @interface PopupOptions
@@ -9810,6 +9830,16 @@ declare interface PopupOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Callback function when the sheet interactive dismiss
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  shouldDismiss?: (popupDismiss: PopupDismiss) => void;
 }
 
 /**
@@ -10221,6 +10251,16 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   focusable?: boolean;
+
+  /**
+   * Callback function when the sheet interactive dismiss
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+  */
+  shouldDismiss?: (popupDismiss: PopupDismiss) => void;
 }
 
 /**
