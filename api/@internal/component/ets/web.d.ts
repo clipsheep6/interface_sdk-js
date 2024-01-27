@@ -4709,7 +4709,32 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onBeforeUnload(callback: (event?: { url: string, message: string, result: JsResult }) => boolean): WebAttribute;
+  onBeforeUnload(callback: (event?: {
+    /**
+     * The url of the page.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    url: string,
+    /**
+     * The message of confirm dialog.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    message: string,
+    /**
+     *  Handle the user's JavaScript result.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    result: JsResult
+  }) => boolean): WebAttribute;
 
   /**
    * Triggered when the web page wants to display a JavaScript confirm() dialog.
@@ -5022,7 +5047,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 11
    */
-  onRefreshAccessedHistory(callback: (event?: { url: string, isRefreshed: boolean }) => void): WebAttribute;
+  onRefreshAccessedHistory(callback: (event?: {
+    /**
+     * URL of the visit.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    url: string, isRefreshed: boolean }) => void): WebAttribute;
 
   /**
    * Triggered when the URL loading is intercepted.
