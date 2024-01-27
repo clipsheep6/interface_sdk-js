@@ -15,7 +15,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { ApiType } from '../../../typedef/parser/ApiInfoDefination';
+import { ApiType, ExportImportValue, ImportInfo } from '../../../typedef/parser/ApiInfoDefination';
 import {
   ErrorType,
   ErrorID,
@@ -52,9 +52,15 @@ export class WordsCheck {
   static wordCheckResultsProcessing(baseInfos: BasicApiInfo[]): void {
     baseInfos.forEach((baseInfo) => {
       if (baseInfo.getApiType() !== ApiType.SOURCE_FILE) {
-        const nodeFullText = JSON.stringify(baseInfo.getNode()?.getFullText());
-        const nodeText = nodeFullText.substring(nodeFullText.indexOf('/**'), nodeFullText.length);
-        const apiText = nodeText.indexOf('{') > -1 ? nodeText.substring(0, nodeText.indexOf('{')) : nodeText;
+        let apiText: string = baseInfo.getJsDocText() + baseInfo.getDefinedText();
+        if (baseInfo.getApiType() === ApiType.IMPORT) {
+          const importText: Array<ExportImportValue> = (baseInfo as ImportInfo).getImportValues();
+          const importValueArr: string[] = [];
+          importText.forEach(importValue => {
+            importValueArr.push(importValue.key);
+          });
+          apiText = importValueArr.join('|');
+        }
         WordsCheck.wordsCheck(apiText, baseInfo);
       }
     });
@@ -67,7 +73,7 @@ export class WordsCheck {
    */
   static wordsCheck(apiText: string, baseInfo: BasicApiInfo): void {
     const reg = /\s{2,}/g;
-    const regx = /(\/\*|\*\/|\*)|\\n|\\r/g;
+    const regx = /(\/\*|\*\/|\*)|\n|\r/g;
     let fullText: string = apiText.replace(regx, ' ');
     punctuationMarkSet.forEach(punctuationMark => {
       const punctuationMarkReg = new RegExp(punctuationMark, 'g');
@@ -84,7 +90,7 @@ export class WordsCheck {
           errorWords.push(basicWord);
           const wordsCheckFormat: ErrorTagFormat = {
             state: false,
-            errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_WORD, [basicWord]),
+            errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_WORD, [apiWord, basicWord]),
           };
           AddErrorLogs.addAPICheckErrorLogs(
             ErrorID.MISSPELL_WORDS_ID,

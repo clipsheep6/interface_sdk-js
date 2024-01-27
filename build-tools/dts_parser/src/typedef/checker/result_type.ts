@@ -98,12 +98,13 @@ export enum ErrorMessage {
   ERROR_INFO_VALUE_NAMESPACE = 'the [namespace] tag value is incorrect. Please check if it matches the namespace name.',
   ERROR_INFO_VALUE_INTERFACE = 'the [interface] label value is incorrect. Please check if it matches the interface name.',
   ERROR_INFO_VALUE_TYPEDEF = 'the [typedef] tag value is incorrect. Please check if it matches the interface name.',
+  ERROR_INFO_VALUE_STRUCT = 'the [struct] tag value is incorrect. Please check if it matches the struct name.',
   ERROR_INFO_TYPE_PARAM = 'the type of the [$$] [param] tag is incorrect. Please check if it matches the type of the [$$] parameter.',
   ERROR_INFO_VALUE_PARAM = 'the value of the [$$] [param] tag is incorrect. Please check if it matches the [$$] parameter name.',
   ERROR_INFO_VALUE1_THROWS = 'the type of the [$$] [throws] tag is incorrect. Please fill in [BusinessError].',
   ERROR_INFO_VALUE2_THROWS = 'the type of the [$$] [throws] tag is incorrect. Please check if the tag value is a numerical value',
   ERROR_INFO_INHERIT = 'it was detected that there is an inheritable label [$$] in the current file, but there are child nodes without this label',
-  ERROR_ORDER = 'JSDoc label order error, please make adjustments',
+  ERROR_ORDER = 'JSDoc label order error, please adjust the order of [$$] labels',
   ERROR_LABELNAME = 'the [$$] tag does not exist. Please use a valid JSDoc tag',
   ERROR_LOST_LABEL = 'JSDoc tag validity verification failed. Please confirm if the [$$] tag is missing',
   ERROR_USE = 'JSDoc label validity verification failed. The [$$] label is not allowed. Please check the label usage method.',
@@ -119,7 +120,7 @@ export enum ErrorMessage {
   ERROR_EVENT_WITHOUT_PARAMETER = 'The event subscription methods should has at least one parameter.',
   ILLEGAL_USE_ANY = 'Illegal [$$] keyword used in the API',
   ERROR_CHANGES_VERSION = 'Please check if the changed API version number is 10.',
-  ERROR_WORD = 'The current word [$$] is incompatible with the regulaion, please confirm whether it needs to be corrected to a common word.',
+  ERROR_WORD = 'Error words in [$$]: {$$}. please confirm whether it needs to be corrected to a common word.',
   ERROR_NAMING = 'Prohibited word in [$$]:{$$}.The word allowed is [$$]',
   ERROR_SCENARIO = 'Prohibited word in [$$]:{$$} in the [$$] file',
   ERROR_UPPERCASE_NAME = 'This name [$$] should be named by all uppercase.',
@@ -143,7 +144,8 @@ export enum ErrorMessage {
   ERROR_CHANGES_API = 'Forbid changes: API cannot be deleted.',
   ERROR_CHANGES_JSDOC_CHANGE = 'Forbid changes: Historical JSDoc cannot be changed.',
   ERROR_CHANGES_JSDOC_NUMBER = 'Forbid changes: API changes must add a new section of JSDoc.',
-  ERROR_NO_JSDOC = 'Jsdoc needs to be added to the current API.'
+  ERROR_NO_JSDOC = 'Jsdoc needs to be added to the current API.',
+  ERROR_NO_JSDOC_TAG = 'add  tags to the Jsdoc'
 }
 
 export const incompatibleApiDiffTypes: Map<ApiDiffType, ErrorMessage> = new Map([
