@@ -210,6 +210,7 @@ declare namespace hidebug {
      * @since 12
      */
     rssLimit: bigint;
+    
     /**
      * the limit of the process’s virtual memory, in bytes
      * 
@@ -218,6 +219,7 @@ declare namespace hidebug {
      * @since 12
      */
     vssLimit: bigint;
+
     /**
      * the limit of the js vm heap size of current thread, in bytes
      * 
