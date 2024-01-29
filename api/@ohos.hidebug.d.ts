@@ -56,10 +56,120 @@ declare namespace hidebug {
   function getNativeHeapFreeSize(): bigint;
 
   /**
+   * application process native meminfo
+   * typedef NativeMemInfo
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  export interface NativeMemInfo {
+    /**
+     * process proportional set size memory, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    pss: bigint;
+    /**
+     * virtual set size memory, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    vss: bigint;
+    /**
+     * resident set size
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    rss: bigint;
+    /**
+     * the size of the shared dirty memory, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    sharedDirty: bigint;
+      /**
+     * the size of the private dirty memory, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    privateDirty: bigint;
+    /**
+     * the size of the shared clean memory, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    sharedClean: bigint;
+    /**
+     * the size of the private clean memory, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    privateClean: bigint;
+  }
+  function getAppNativeMemory(): NativeMemInfo;
+
+  /**
+   * system meminfo
+   *
+   * typedef SysMemInfo
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  export interface SysMemInfo {
+    /**
+     * memory total, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    memTotal: bigint;
+    /**
+     * memory free, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    memFree: bigint;
+    /**
+     * memory available, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    memAvailable: bigint;
+  }
+  /**
+   * Obtains the memory info of system.
+   *
+   * @returns { SysMemInfo } Returns memory info of system.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getSysMemory(): SysMemInfo;
+
+  /**
    * Get the virtual set size memory of the application process
    * @returns { bigint } Returns application process virtual set size memory information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 11
+   * @deprecated
+   * @useinstead ohos.hidebug/hidebug.getAppNativeMemory
    */
   function getVss(): bigint;
 
@@ -69,6 +179,8 @@ declare namespace hidebug {
    * @returns { bigint } Returns application process proportional set size memory information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
+   * @deprecated
+   * @useinstead ohos.hidebug/hidebug.getAppNativeMemory
    */
   function getPss(): bigint;
 
@@ -78,6 +190,8 @@ declare namespace hidebug {
    * @returns { bigint } Returns the size of the shared dirty memory.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
+   * @deprecated
+   * @useinstead ohos.hidebug/hidebug.getAppNativeMemory
    */
   function getSharedDirty(): bigint;
 
@@ -86,6 +200,8 @@ declare namespace hidebug {
    * @returns { bigint } Returns the size of the private dirty memory.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9
+   * @deprecated
+   * @useinstead ohos.hidebug/hidebug.getAppNativeMemory
    */
   function getPrivateDirty(): bigint;
 
