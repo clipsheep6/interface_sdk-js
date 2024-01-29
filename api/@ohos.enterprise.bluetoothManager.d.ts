@@ -89,9 +89,8 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getBluetoothInfo(admin: Want): BluetoothInfo;
 
@@ -108,9 +107,8 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function setBluetoothDisabled(admin: Want, disabled: boolean): void;
 
@@ -127,9 +125,8 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function isBluetoothDisabled(admin: Want): boolean;
 }

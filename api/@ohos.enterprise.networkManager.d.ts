@@ -578,6 +578,24 @@ declare namespace networkManager {
   function getAllNetworkInterfaces(admin: Want): Promise<Array<string>>;
 
   /**
+   * Gets all the network interfaces of the device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Array<string> } all the network interfaces of the device.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getAllNetworkInterfaces(admin: Want): Array<string>;
+
+  /**
    * Gets the ip address of the network interface.
    * This function can be called by a super administrator.
    *
@@ -616,6 +634,25 @@ declare namespace networkManager {
    * @since 10
    */
   function getIpAddress(admin: Want, networkInterface: string): Promise<string>;
+
+  /**
+   * Gets the ip address of the network interface.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } networkInterface - the ip address of the network interface.
+   * @returns { string } the promise returned by getIpAddress.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getIpAddress(admin: Want, networkInterface: string): string;
 
   /**
    * Gets the mac address of the network interface.
@@ -658,6 +695,25 @@ declare namespace networkManager {
   function getMac(admin: Want, networkInterface: string): Promise<string>;
 
   /**
+   * Gets the mac address of the network interface.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } networkInterface - networkInterface indicates the network interface to get mac address.
+   * @returns { string } the mac address of the network interface.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getMac(admin: Want, networkInterface: string): string;
+
+  /**
    * Gets state of whether the network interface is disabled.
    * This function can be called by a super administrator.
    *
@@ -696,6 +752,25 @@ declare namespace networkManager {
    * @since 10
    */
   function isNetworkInterfaceDisabled(admin: Want, networkInterface: string): Promise<boolean>;
+
+  /**
+   * Gets state of whether the network interface is disabled.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } networkInterface - networkInterface indicates the network interface to get status.
+   * @returns { boolean } true if disable the network interfaces, otherwise false.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function isNetworkInterfaceDisabled(admin: Want, networkInterface: string): boolean;
 
   /**
    * Disables the network interfaces.
@@ -740,6 +815,25 @@ declare namespace networkManager {
   function setNetworkInterfaceDisabled(admin: Want, networkInterface: string, isDisabled: boolean): Promise<void>;
 
   /**
+   * Disables the network interfaces.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } networkInterface - networkInterface indicates the network interface to set status.
+   * @param { boolean } isDisabled - True if disable the network interfaces, otherwise false.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setNetworkInterfaceDisabled(admin: Want, networkInterface: string, isDisabled: boolean): void;
+
+  /**
    * Set a network independent global {@link connection.HttpProxy} proxy.
    * This function can be called by a super administrator.
    *
@@ -780,6 +874,24 @@ declare namespace networkManager {
   function setGlobalProxy(admin: Want, httpProxy: connection.HttpProxy): Promise<void>;
 
   /**
+   * Set a network independent global {@link connection.HttpProxy} proxy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { connection.HttpProxy } httpProxy - network global proxy configuration information.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setGlobalProxy(admin: Want, httpProxy: connection.HttpProxy): void;
+
+  /**
    * Obtains the network independent global {@link connection.HttpProxy} proxy.
    * This function can be called by a super administrator.
    *
@@ -816,6 +928,24 @@ declare namespace networkManager {
    * @since 10
    */
   function getGlobalProxy(admin: Want): Promise<connection.HttpProxy>;
+
+  /**
+   * Obtains the network independent global {@link connection.HttpProxy} proxy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { connection.HttpProxy } the network global proxy configuration information.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getGlobalProxy(admin: Want): connection.HttpProxy;
 
   /**
    * Add iptables filter rule by {@link AddFilterRule}.
@@ -948,9 +1078,8 @@ declare namespace networkManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function addFirewallRule(admin: Want, firewallRule: FirewallRule): void;
 
@@ -968,9 +1097,8 @@ declare namespace networkManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function removeFirewallRule(admin: Want, firewallRule?: FirewallRule): void;
 
@@ -987,9 +1115,8 @@ declare namespace networkManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getFirewallRules(admin: Want): Array<FirewallRule>;
 
@@ -1006,9 +1133,8 @@ declare namespace networkManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function addDomainFilterRule(admin: Want, domainFilterRule: DomainFilterRule): void;
 
@@ -1026,9 +1152,8 @@ declare namespace networkManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function removeDomainFilterRule(admin: Want, domainFilterRule?: DomainFilterRule): void;
 
@@ -1045,9 +1170,8 @@ declare namespace networkManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getDomainFilterRules(admin: Want): Array<DomainFilterRule>;
 }

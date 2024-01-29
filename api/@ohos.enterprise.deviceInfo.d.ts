@@ -62,9 +62,8 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 12
    */
   function getDeviceSerial(admin: Want): Promise<string>;
 
@@ -100,9 +99,8 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 12
    */
   function getDisplayVersion(admin: Want): Promise<string>;
 
@@ -138,9 +136,8 @@ declare namespace deviceInfo {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 12
    */
   function getDeviceName(admin: Want): Promise<string>;
 }

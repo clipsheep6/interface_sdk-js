@@ -189,9 +189,8 @@ declare namespace deviceSettings {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function setScreenOffTime(admin: Want, time: number): void;
 
@@ -234,6 +233,24 @@ declare namespace deviceSettings {
   function getScreenOffTime(admin: Want): Promise<number>;
 
   /**
+   * Gets the device screen off time.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_SETTINGS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { number } screen off time.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function getScreenOffTime(admin: Want): number;
+
+  /**
    * Install user certificate.
    * This function can be called by a super administrator.
    *
@@ -269,9 +286,8 @@ declare namespace deviceSettings {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   function installUserCertificate(admin: Want, certificate: CertBlob): Promise<string>;
 
@@ -311,9 +327,8 @@ declare namespace deviceSettings {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   function uninstallUserCertificate(admin: Want, certUri: string): Promise<void>;
 
@@ -331,9 +346,8 @@ declare namespace deviceSettings {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function setPowerPolicy(admin: Want, powerScene: PowerScene, powerPolicy: PowerPolicy): void;
 
@@ -351,9 +365,8 @@ declare namespace deviceSettings {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getPowerPolicy(admin: Want, powerScene: PowerScene): PowerPolicy;
 }

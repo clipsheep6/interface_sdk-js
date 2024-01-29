@@ -71,6 +71,24 @@ declare namespace restrictions {
   function setPrinterDisabled(admin: Want, disabled: boolean): Promise<void>;
 
   /**
+   * Disable or enable the printing function of the device
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_RESTRICT_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { boolean } disabled - true if the user disables the printing function.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function setPrinterDisabled(admin: Want, disabled: boolean): void;
+
+  /**
    * Is the printing function of the device disabled
    * This function can be called by a super administrator.
    *
@@ -107,6 +125,24 @@ declare namespace restrictions {
    * @since 10
    */
   function isPrinterDisabled(admin: Want): Promise<boolean>;
+
+  /**
+   * Is the printing function of the device disabled
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_RESTRICT_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { boolean } true if the user disables the printing function.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function isPrinterDisabled(admin: Want): boolean;
 
   /**
    * Disable or enable the HDC function of the device
@@ -149,6 +185,24 @@ declare namespace restrictions {
   function setHdcDisabled(admin: Want, disabled: boolean): Promise<void>;
 
   /**
+   * Disable or enable the HDC function of the device
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_RESTRICT_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { boolean } disabled - true if the user disables the HDC function.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function setHdcDisabled(admin: Want, disabled: boolean): void;
+
+  /**
    * Is the HDC function of the device disabled
    * This function can be called by a super administrator.
    *
@@ -185,6 +239,24 @@ declare namespace restrictions {
    * @since 10
    */
   function isHdcDisabled(admin: Want): Promise<boolean>;
+
+  /**
+   * Is the HDC function of the device disabled
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_RESTRICT_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { boolean } true if the user disables the HDC function.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function isHdcDisabled(admin: Want): boolean;
   
   /**
    * Disables the microphone of device.
@@ -198,9 +270,8 @@ declare namespace restrictions {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function disableMicrophone(admin: Want, disable: boolean): void;
 
@@ -216,9 +287,8 @@ declare namespace restrictions {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function isMicrophoneDisabled(admin: Want): boolean;
 
@@ -234,9 +304,8 @@ declare namespace restrictions {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function setFingerprintAuthDisabled(admin: Want, disabled: boolean): void;
 
@@ -252,9 +321,8 @@ declare namespace restrictions {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function isFingerprintAuthDisabled(admin: Want): boolean;
 }

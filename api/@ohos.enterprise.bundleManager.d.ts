@@ -124,6 +124,25 @@ declare namespace bundleManager {
   function addAllowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
+   * Add appid list of bundles that can be installed in the device.
+   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } appIds - ids of the bundle that can be installed.
+   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function addAllowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+
+  /**
    * Remove appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
    *
@@ -186,6 +205,26 @@ declare namespace bundleManager {
   function removeAllowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
+   * Remove appid list of bundles that can be installed in the device.
+   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } appIds - ids of the bundle that can be installed.
+   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
+   * @returns { Promise<void> } the promise returned by the removeAllowedInstallBundles.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function removeAllowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+
+  /**
    * Get the appid list of bundles that can be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
    *
@@ -243,6 +282,25 @@ declare namespace bundleManager {
    * @since 10
    */
   function getAllowedInstallBundles(admin: Want, userId?: number): Promise<Array<string>>;
+
+  /**
+   * Get appid list of bundles that can be installed in the device.
+   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
+   * @returns { Array<string> } ids of the bundle that can be installed.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function getAllowedInstallBundles(admin: Want, userId?: number): Array<string>;
 
   /**
    * Add appid list of bundles that can not be installed in the device.
@@ -307,6 +365,25 @@ declare namespace bundleManager {
   function addDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
+   * Add appid list of bundles that can not be installed in the device.
+   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } appIds - ids of the bundle that can not be installed.
+   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function addDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+
+  /**
    * Remove appid list of bundles that can not be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
    *
@@ -369,6 +446,25 @@ declare namespace bundleManager {
   function removeDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
+   * Remove appid list of bundles that can not be installed in the device.
+   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } appIds - ids of the bundle that can not be installed.
+   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function removeDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+
+  /**
    * Get the appid list of bundles that can not be installed in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
    *
@@ -426,6 +522,25 @@ declare namespace bundleManager {
    * @since 10
    */
   function getDisallowedInstallBundles(admin: Want, userId?: number): Promise<Array<string>>;
+
+  /**
+   * Get appid list of bundles that can not be installed in the device.
+   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
+   * @returns { Array<string> } ids of the bundle that can not be installed.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function getDisallowedInstallBundles(admin: Want, userId?: number): Array<string>;
 
   /**
    * Add appid list of bundles that can not be uninstalled in the device.
@@ -490,6 +605,25 @@ declare namespace bundleManager {
   function addDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
+   * Add appid list of bundles that can not be uninstalled in the device.
+   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } appIds - ids of the bundle that can not be uninstalled.
+   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function addDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+
+  /**
    * Remove appid list of bundles that can not be uninstalled in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
    *
@@ -552,6 +686,25 @@ declare namespace bundleManager {
   function removeDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
+   * Remove appid list of bundles that can not be uninstalled in the device.
+   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } appIds - ids of the bundle that can not be uninstalled.
+   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function removeDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+
+  /**
    * Get the appid list of bundles that can not be uninstalled in the device.
    * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
    *
@@ -609,6 +762,25 @@ declare namespace bundleManager {
    * @since 10
    */
   function getDisallowedUninstallBundles(admin: Want, userId?: number): Promise<Array<string>>;
+
+  /**
+   * Get appid list of bundles that can not be uninstalled in the device.
+   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
+   * @returns { Array<string> } ids of the bundle that can not be uninstalled.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function getDisallowedUninstallBundles(admin: Want, userId?: number): Array<string>;
 
   /**
    * Uninstall an application.
@@ -705,9 +877,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 12
    */
   function uninstall(admin: Want, bundleName: string, userId?: number, isKeepData?: boolean): Promise<void>;
 
@@ -767,9 +938,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 12
    */
   function install(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 }

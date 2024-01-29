@@ -93,6 +93,25 @@ declare namespace applicationManager {
   function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
+   * Add appid list of bundles that is disallowed to run in the device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
+   * @param { number } userId - userId indicates the user ID.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+
+  /**
    * Remove appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
@@ -155,6 +174,25 @@ declare namespace applicationManager {
   function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
+   * Remove appid list of bundles that is disallowed to run in the device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
+   * @param { number } userId - userId indicates the user ID.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+
+  /**
    * Get appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
@@ -214,6 +252,25 @@ declare namespace applicationManager {
   function getDisallowedRunningBundles(admin: Want, userId?: number): Promise<Array<string>>;
 
   /**
+   * Get appid list of bundles that is disallowed to run in the device.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { number } userId - userId indicates the user ID.
+   * @returns { Array<string> } ids of the bundle are disallowed to run.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function getDisallowedRunningBundles(admin: Want, userId?: number): Array<string>;
+
+  /**
    * Adds auto start applications.
    * This function can be called by a super administrator.
    *
@@ -226,9 +283,8 @@ declare namespace applicationManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function addAutoStartApps(admin: Want, autoStartApps: Array<Want>): void;
 
@@ -245,9 +301,8 @@ declare namespace applicationManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function removeAutoStartApps(admin: Want, autoStartApps: Array<Want>): void;
 
@@ -264,9 +319,8 @@ declare namespace applicationManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getAutoStartApps(admin: Want): Array<Want>;
 }

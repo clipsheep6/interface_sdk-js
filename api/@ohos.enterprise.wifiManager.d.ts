@@ -810,6 +810,24 @@ declare namespace wifiManager {
   function isWifiActive(admin: Want): Promise<boolean>;
 
   /**
+   * Gets state of whether the Wi-Fi is active.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_WIFI
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { boolean } true if Wi-Fi is active.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function isWifiActive(admin: Want): boolean;
+
+  /**
    * Sets the wifi profile.
    *
    * @permission ohos.permission.ENTERPRISE_SET_WIFI
@@ -848,6 +866,23 @@ declare namespace wifiManager {
   function setWifiProfile(admin: Want, profile: WifiProfile): Promise<void>;
 
   /**
+   * Sets the Wi-Fi profile.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_WIFI
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { WifiProfile } profile - profile indicates the profile of Wi-Fi.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setWifiProfile(admin: Want, profile: WifiProfile): void;
+
+  /**
    * Sets the Wi-Fi disabled.
    * This function can be called by a super administrator.
    *
@@ -860,9 +895,8 @@ declare namespace wifiManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function setWifiDisabled(admin: Want, disabled: boolean): void;
 
@@ -879,9 +913,8 @@ declare namespace wifiManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function isWifiDisabled(admin: Want): boolean;
 }

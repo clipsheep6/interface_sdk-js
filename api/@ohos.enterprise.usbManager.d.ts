@@ -121,6 +121,8 @@ declare namespace usbManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 12
+   * @useinstead usbManager#setUsbStorageDeviceAccessPolicy
    */
   function setUsbPolicy(admin: Want, usbPolicy: UsbPolicy, callback: AsyncCallback<void>): void;
 
@@ -141,6 +143,8 @@ declare namespace usbManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 12
+   * @useinstead usbManager#setUsbStorageDeviceAccessPolicy
    */
   function setUsbPolicy(admin: Want, usbPolicy: UsbPolicy): Promise<void>;
 
@@ -158,9 +162,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function disableUsb(admin: Want, disable: boolean): void;
 
@@ -177,9 +180,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function isUsbDisabled(admin: Want): boolean;
 
@@ -197,9 +199,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function addAllowedUsbDevices(admin: Want, usbDeviceIds: Array<UsbDeviceId>): void;
 
@@ -216,9 +217,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function removeAllowedUsbDevices(admin: Want, usbDeviceIds: Array<UsbDeviceId>): void;
 
@@ -235,9 +235,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getAllowedUsbDevices(admin: Want): Array<UsbDeviceId>;
 
@@ -255,9 +254,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function setUsbStorageDeviceAccessPolicy(admin: Want, usbPolicy: UsbPolicy): void;
 
@@ -274,9 +272,8 @@ declare namespace usbManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getUsbStorageDeviceAccessPolicy(admin: Want): UsbPolicy;
 }
