@@ -1,3 +1,4 @@
+import { MemoryLimit } from './@ohos.hidebug.d';
 /*
 * Copyright (C) 2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -184,5 +185,49 @@ declare namespace hidebug {
    * @since 9
    */
   function getServiceDump(serviceid: number, fd: number, args: Array<string>): void;
+
+  /**
+   * Obtains the memory info of application process.
+   * 
+   * @returns { MemoryLimit } Returns memory limit of application.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getAppMemoryLimit(): MemoryLimit;
+
+  /**
+   * application process memory limit
+   * 
+   * @typedef MemoryLimit
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  export interface MemoryLimit {
+    /**
+     * the limit of the application process’s resident set, in bytes
+     * 
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    rssLimit: bigint;
+    /**
+     * the limit of the process’s virtual memory, in bytes
+     * 
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    vssLimit: bigint;
+    /**
+     * the limit of the js vm heap size of current thread, in bytes
+     * 
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    vmHeapLimit: bigint;
+  }
+
 }
 export default hidebug;
