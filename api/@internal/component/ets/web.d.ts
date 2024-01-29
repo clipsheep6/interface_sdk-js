@@ -5228,8 +5228,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
     /**
      * The URL of the loaded resource file.
      *
-     * @param { function } callback The triggered when the url loading.
-     * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11

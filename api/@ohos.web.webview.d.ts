@@ -1249,7 +1249,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 9
      * @deprecated since 11
-     * @useinstead ohos.web.webview.WebCookieManager#clearEntireCookieSync
+     * @useinstead ohos.web.webview.WebCookieManager#clearAllCookiesSync
      */
     static deleteEntireCookie(): void;
 
@@ -3627,6 +3627,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getCertificate(): Promise<Array<cert.X509Cert>>;
@@ -3647,6 +3648,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
      * @since 11
      */
     getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
