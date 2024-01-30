@@ -730,6 +730,12 @@ declare namespace i18n {
    */
   export function getCalendar(locale: string, type?: string): Calendar;
 
+    /**
+     * Provides the API for accessing Calendar name, time and date related information.
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 8
+     */
   export class Calendar {
     /**
      * set the date.
