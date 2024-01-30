@@ -14,6 +14,7 @@
  */
 
 import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, Edges } from './Graphics';
+import { BorderStyle } from 'borderStyle';
 
 /**
  * Defines RenderNode. Contains node tree operations and render property operations on node.
