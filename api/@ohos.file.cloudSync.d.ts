@@ -414,9 +414,19 @@ declare namespace cloudSync {
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 11
+     * @systemapi
+     * @since 10
+     * @deprecated since 11
      */
     processed: number;
+    /**
+     * The processed data size for current file.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 11
+     */
+    processedSize: number;  
     /**
      * The size of current file.
      *
