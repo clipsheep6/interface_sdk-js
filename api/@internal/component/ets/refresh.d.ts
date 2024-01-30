@@ -411,6 +411,28 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @since 11
    */
   onRefreshing(callback: () => void): RefreshAttribute;
+  /**
+   * refreshOffset
+   *
+   * @param { number } value
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  refreshOffset(value: number): RefreshAttribute;
+  /**
+   * pullToRefresh
+   *
+   * @param { boolean } value
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  pullToRefresh(value: boolean): RefreshAttribute;
 }
 
 /**
