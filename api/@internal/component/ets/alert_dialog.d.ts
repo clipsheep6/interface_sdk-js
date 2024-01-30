@@ -521,6 +521,15 @@ declare interface AlertDialogButtonOptions {
  * @atomicservice
  * @since 11
  */
+/**
+ * Base param used for AlertDialog.show method.
+ *
+ * @interface AlertDialogParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare interface AlertDialogParam {
   /**
    * Title Properties
@@ -782,6 +791,83 @@ declare interface AlertDialogParam {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Corner radius of alertDialog.
+   *
+   * @type { ?(Dimension | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  cornerRadius?: Dimension | BorderRadiuses;
+
+  /**
+   * Defines the alertDialog's width.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  width?: Length;
+
+  /**
+   * Defines the alertDialog's height.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  height?: Length;
+
+  /**
+   * Border width of alertDialog.
+   *
+   * @param { ?(Length | EdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  borderWidth?: Length | EdgeWidths;
+
+  /**
+   * Border color of alertDialog.
+   *
+   * @param { ?(ResourceColor | EdgeColors) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  borderColor?: ResourceColor | EdgeColors;
+
+  /**
+   * Border style of alertDialog.
+   *
+   * @param { ?(BorderStyle | EdgeStyles) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  borderStyle?: BorderStyle | EdgeStyles;
+
+  /**
+   * The style of alertDialog Shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**
@@ -1473,6 +1559,14 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
  * @atomicservice
  * @since 11
  */
+/**
+ * Defines AlertDialog which uses show method to show alert dialog.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare class AlertDialog {
   /**
    * Invoking method display.
@@ -1497,6 +1591,15 @@ declare class AlertDialog {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Invoking method display.
+   *
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions} value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions);
 }

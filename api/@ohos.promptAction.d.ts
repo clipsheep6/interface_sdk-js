@@ -555,6 +555,15 @@ declare namespace promptAction {
    * @crossplatform
    * @since 11
    */
+  /**
+   * Dialog's custom content options
+   *
+   * @interface CustomDialogOptions
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   interface CustomDialogOptions extends BaseDialogOptions {
     /**
      * Allow developer custom dialog's content.
@@ -565,6 +574,94 @@ declare namespace promptAction {
      * @since 11
      */
     builder: CustomBuilder;
+
+    /**
+     * Background color of dialog.
+     *
+     * @type { ?ResourceColor }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    backgroundColor?: ResourceColor;
+
+    /**
+     * Corner radius of dialog.
+     *
+     * @type { ?(Dimension | BorderRadiuses) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    cornerRadius?: Dimension | BorderRadiuses;
+
+    /**
+     * Defines the dialog's width.
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    width?: Length;
+
+    /**
+     * Defines the dialog's height.
+     *
+     * @type { ?Length }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    height?: Length;
+
+    /**
+     * Border width of dialog.
+     *
+     * @param { ?(Length | EdgeWidths) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    borderWidth?: Length | EdgeWidths;
+
+    /**
+     * Border color of dialog.
+     *
+     * @param { ?(ResourceColor | EdgeColors) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    borderColor?: ResourceColor | EdgeColors;
+
+    /**
+     * Border style of dialog.
+     *
+     * @param { ?(BorderStyle | EdgeStyles) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    borderStyle?: BorderStyle | EdgeStyles;
+
+    /**
+     * The style of dialog Shadow.
+     *
+     * @type { ?(ShadowOptions | ShadowStyle) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    shadow?: ShadowOptions | ShadowStyle;
   }
 
   /**
@@ -821,6 +918,17 @@ declare namespace promptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+  /**
+   * Open the custom dialog.
+   *
+   * @param { CustomDialogOptions } options - Options.
+   * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
+   * @throws { BusinessError } 401 - if the number of parameters is not 1 or the type of parameters is incorrect.
+   * @throws { BusinessError } 100001 - if UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
    */
   function openCustomDialog(options: CustomDialogOptions): Promise<number>;
 
