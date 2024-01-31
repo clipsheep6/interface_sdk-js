@@ -14988,6 +14988,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @deprecated since 12
+   * @useinstead common[CommonMethod]#clipShape
    * @form
    */
   clip(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
@@ -15064,6 +15065,7 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @deprecated since 12
+   * @useinstead common[CommonMethod]#maskShape
    * @form
    */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
