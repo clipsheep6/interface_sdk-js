@@ -68,14 +68,6 @@ export interface ShowToastOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
-/**
- * Defines the prompt info of button.
- *
- * @interface Button
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface Button {
   /**
    * Defines the button info.
@@ -83,14 +75,6 @@ export interface Button {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   */
-  /**
-   * Defines the button info.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   text: string;
 
@@ -100,14 +84,6 @@ export interface Button {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   */
-  /**
-   * Defines the color of button.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   color: string;
 }
@@ -119,14 +95,6 @@ export interface Button {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
-/**
- * Defines the response of ShowDialog.
- *
- * @interface ShowDialogSuccessResponse
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface ShowDialogSuccessResponse {
   /**
    * Defines the index of data.
@@ -134,14 +102,6 @@ export interface ShowDialogSuccessResponse {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   */
-  /**
-   * Defines the index of data.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   index: number;
 }
@@ -153,14 +113,6 @@ export interface ShowDialogSuccessResponse {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
-/**
- * Defines the option of show dialog.
- *
- * @interface ShowDialogOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface ShowDialogOptions {
   /**
    * Title of the text to display.
@@ -168,14 +120,6 @@ export interface ShowDialogOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   */
-  /**
-   * Title of the text to display.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   title?: string;
 
@@ -185,14 +129,6 @@ export interface ShowDialogOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   */
-  /**
-   * Text body.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   message?: string;
 
@@ -205,16 +141,6 @@ export interface ShowDialogOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
-  /**
-   * Array of buttons in the dialog box.
-   * The array structure is {text:'button', color: '#666666'}.
-   * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
-   *
-   * @type { ?[Button, Button?, Button?] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   buttons?: [Button, Button?, Button?];
 
   /**
@@ -223,14 +149,6 @@ export interface ShowDialogOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   */
-  /**
-   * Called when the dialog box is displayed.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   success?: (data: ShowDialogSuccessResponse) => void;
 
@@ -241,14 +159,6 @@ export interface ShowDialogOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
-  /**
-   * Called when the operation is cancelled.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   cancel?: (data: string, code: string) => void;
 
   /**
@@ -257,14 +167,6 @@ export interface ShowDialogOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   */
-  /**
-   * Called when the dialog box is closed.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   complete?: (data: string) => void;
 }
@@ -276,14 +178,6 @@ export interface ShowDialogOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6
  */
-/**
- * Defines the option of ShowActionMenu.
- *
- * @interface ShowActionMenuOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export interface ShowActionMenuOptions {
   /**
    * Title of the text to display.
@@ -291,14 +185,6 @@ export interface ShowActionMenuOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Title of the text to display.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   title?: string;
 
@@ -311,16 +197,6 @@ export interface ShowActionMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Array of buttons in the dialog box.
-   * The array structure is {text:'button', color: '#666666'}.
-   * One to six buttons are supported.
-   *
-   * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   buttons: [Button, Button?, Button?, Button?, Button?, Button?];
 
   /**
@@ -329,14 +205,6 @@ export interface ShowActionMenuOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Called when the dialog box is displayed.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   success?: (tapIndex: number, errMsg: string) => void;
 
@@ -347,14 +215,6 @@ export interface ShowActionMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
    */
-  /**
-   * Called when the operation is cancelled.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   fail?: (errMsg: string) => void;
 
   /**
@@ -363,14 +223,6 @@ export interface ShowActionMenuOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Called when the dialog box is closed.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   complete?: () => void;
 }
@@ -381,13 +233,6 @@ export interface ShowActionMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3
  */
-/**
- * Defines the prompt interface.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
 export default class Prompt {
   /**
    * Displays the notification text.
@@ -395,14 +240,6 @@ export default class Prompt {
    * @param { ShowToastOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
-   */
-  /**
-   * Displays the notification text.
-   *
-   * @param { ShowToastOptions } options - Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   static showToast(options: ShowToastOptions): void;
 
@@ -413,14 +250,6 @@ export default class Prompt {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3
    */
-  /**
-   * Displays the dialog box.
-   *
-   * @param { ShowDialogOptions } options - Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
   static showDialog(options: ShowDialogOptions): void;
 
   /**
@@ -429,14 +258,6 @@ export default class Prompt {
    * @param { ShowActionMenuOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6
-   */
-  /**
-   * Displays the menu.
-   *
-   * @param { ShowActionMenuOptions } options - Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
    */
   static showActionMenu(options: ShowActionMenuOptions): void;
 }
