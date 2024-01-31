@@ -3467,6 +3467,7 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { RdbPredicates } predicates - The specified sync condition by the instance object of {@link RdbPredicates}.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
@@ -3488,6 +3489,7 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { RdbPredicates } predicates - The specified sync condition by the instance object of {@link RdbPredicates}.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
