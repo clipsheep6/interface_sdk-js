@@ -184,5 +184,55 @@ declare namespace hidebug {
    * @since 9
    */
   function getServiceDump(serviceid: number, fd: number, args: Array<string>): void;
+
+  /**
+   * Enum for trace flag
+   *
+   * @enum { number }
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  enum TraceFlag {
+    /**
+     * Only capture main thread trace
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    MAIN_THREAD = 1,
+    /**
+     * Capture all thread trace
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    ALL_THREADS = 2
+  }
+
+  /**
+   * Start capture application trace.
+   *
+   * @param { string[] } tags - Tag of trace.
+   * @param { TraceFlag } flag - Trace flag.
+   * @param { number } limitSize - Max size of trace file, in bytes, the max is 500MB.
+   * @returns { string } Returns absolute path of the trace file.
+   * @throws { BusinessError } 401 - Invalid argument
+   * @throws { BusinessError } 11400102 - Have already capture trace
+   * @throws { BusinessError } 11400103 - Without write permission on the file
+   * @throws { BusinessError } 11400104 - The status of the trace is abnormal
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function startCaptureAppTrace(tags: string[], flag: TraceFlag, limitSize: number): string;
+
+  /**
+   * Stop capture application trace.
+   *
+   * @throws { BusinessError } 11400104 - The status of the trace is abnormal
+   * @throws { BusinessError } 11400105 - No capture trace running
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function stopCaptureAppTrace(): void;
 }
 export default hidebug;
