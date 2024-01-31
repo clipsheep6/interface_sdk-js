@@ -432,6 +432,17 @@ export interface HapModuleInfo {
    * @since 11
    */
   readonly fileContextMenuConfig: string;
+
+    /**
+   * Indicates the hap path
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 11
+   */
+    readonly hapPath: string;
 }
 
 /**
