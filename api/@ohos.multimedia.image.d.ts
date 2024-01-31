@@ -284,16 +284,25 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
+    NV12 = 9,
+
     /**
      * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
+     * @since 12
      */
-    NV12 = 9
+    YU12 = 14,
+
+    /**
+     * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
+     * and are stored from the higher-order to the lower-order bits.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    YV12 = 15
   }
 
   /**
@@ -2630,6 +2639,16 @@ declare namespace image {
    * @since 11
    */
   function createImageCreator(size: Size, format: ImageFormat, capacity: number): ImageCreator;
+
+  /**
+   * Creates an ImageConvert instance.
+   *
+   * @returns { ImageConvert } Returns the ImageConvert instance if the operation is successful; returns null otherwise.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @since 12
+   */
+  function createImageConvert(): ImageConvert;
+
   /**
    * PixelMap instance.
    *
@@ -4884,6 +4903,32 @@ declare namespace image {
      * @since 9
      */
     release(): Promise<void>;
+  }
+
+  interface ImageConvert {
+    /**
+     * Convert PixelMap in YUV format to PixelMap in RGB format.
+     * a promise to return the result.
+     *
+     * @param { PixelMap } srcPixelMap PixelMap instance in YUV format.
+     * @param { PixelMapFormat } destPixelFormat The pixel format of the converted target PixelMap instance.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    yuvToRgb(srcPixelMap: PixelMap, destPixelFormat: PixelMapFormat):Promise<PixelMap>;
+
+    /**
+     * Convert PixelMap in RGB format to PixelMap in YUV format.
+     * a promise to return the result.
+     *
+     * @param { PixelMap } srcPixelMap PixelMap instance in RGB format.
+     * @param { PixelMapFormat } destPixelFormat The pixel format of the converted target PixelMap instance.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    rgbToYuv(srcPixelMap: PixelMap, destPixelFormat: PixelMapFormat):Promise<PixelMap>;
   }
 }
 
