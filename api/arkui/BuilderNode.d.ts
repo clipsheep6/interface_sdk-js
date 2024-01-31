@@ -56,6 +56,7 @@ declare enum NodeRenderType {
  * @since 11
  */
 export interface RenderOptions {
+  
   /**
    * The ideal size of the node.
    * @type { ?Size } selfIdealSize - The ideal size of the node
