@@ -284,6 +284,16 @@ declare namespace router {
      * @since 11
      */
     path: string;
+
+    /**
+     * Data that passed to the destination page during navigation.
+     *
+     * @type { Object }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    params: Object;
   }
 
   /**
@@ -655,6 +665,17 @@ declare namespace router {
   function back(options?: RouterOptions): void;
 
   /**
+   * Returns to the specified page.
+   *
+   * @param { string } url - URL of page.
+   * @returns { RouterState } Page state.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  function back(index: number, params?: Object): void;
+
+  /**
    * Clears all historical pages and retains only the current page at the top of the stack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -728,6 +749,28 @@ declare namespace router {
    * @since 11
    */
   function getState(): RouterState;
+
+  /**
+   * Obtains page information by index.
+   *
+   * @param { number } index - Index of page.
+   * @returns { RouterState } Page state.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  function getStateByIndex(index: number): RouterState;
+
+  /**
+   * Obtains page information by url.
+   *
+   * @param { string } url - URL of page.
+   * @returns { RouterState } Page state.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  function getStateByUrl(url: string): RouterState;
 
   /**
    * Pop up dialog to ask whether to back
