@@ -1446,6 +1446,16 @@ declare namespace image {
     size: Size;
 
     /**
+     * PixelMap expected format.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    pixelFormat: PixelMapFormat;
+
+    /**
      * Indicates image default density.
      *
      * @type { number }
@@ -2024,6 +2034,15 @@ declare namespace image {
      * @since 11
      */
     size: Size;
+
+    /**
+     * PixelMap source format.
+     *
+     * @type { ?PixelMapFormat }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    srcPixelFormat?: PixelMapFormat;
 
     /**
      * PixelMap expected format.
