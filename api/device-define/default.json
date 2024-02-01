@@ -1,7 +1,6 @@
 {
   "SysCaps": [
     "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.ArkUI.ArkUI.Libuv",
     "SystemCapability.ArkUI.UiAppearance",
@@ -225,7 +224,9 @@
     "SystemCapability.AI.IntelligentVoice.Core",
     "SystemCapability.Multimedia.Media.SoundPool",
     "SystemCapability.Multimedia.Audio.Spatialization",
+    "SystemCapability.Multimedia.AudioHaptic.Core",
     "SystemCapability.ArkUi.Graphics3D",
+    "SystemCapability.AI.MindSporeLite",
     "SystemCapability.Graphics.Drawing"
   ]
 }

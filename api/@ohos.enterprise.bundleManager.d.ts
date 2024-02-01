@@ -140,7 +140,7 @@ declare namespace bundleManager {
    * @StageModelOnly
    * @since 12
    */
-  function addAllowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+  function addAllowedInstallBundlesSync(admin: Want, appIds: Array<string>, userId?: number): void;
 
   /**
    * Remove appid list of bundles that can be installed in the device.
@@ -222,7 +222,7 @@ declare namespace bundleManager {
    * @StageModelOnly
    * @since 12
    */
-  function removeAllowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+  function removeAllowedInstallBundlesSync(admin: Want, appIds: Array<string>, userId?: number): void;
 
   /**
    * Get the appid list of bundles that can be installed in the device.
@@ -300,7 +300,7 @@ declare namespace bundleManager {
    * @StageModelOnly
    * @since 12
    */
-  function getAllowedInstallBundles(admin: Want, userId?: number): Array<string>;
+  function getAllowedInstallBundlesSync(admin: Want, userId?: number): Array<string>;
 
   /**
    * Add appid list of bundles that can not be installed in the device.
@@ -381,7 +381,7 @@ declare namespace bundleManager {
    * @StageModelOnly
    * @since 12
    */
-  function addDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+  function addDisallowedInstallBundlesSync(admin: Want, appIds: Array<string>, userId?: number): void;
 
   /**
    * Remove appid list of bundles that can not be installed in the device.
@@ -462,7 +462,7 @@ declare namespace bundleManager {
    * @StageModelOnly
    * @since 12
    */
-  function removeDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+  function removeDisallowedInstallBundlesSync(admin: Want, appIds: Array<string>, userId?: number): void;
 
   /**
    * Get the appid list of bundles that can not be installed in the device.
@@ -540,7 +540,7 @@ declare namespace bundleManager {
    * @StageModelOnly
    * @since 12
    */
-  function getDisallowedInstallBundles(admin: Want, userId?: number): Array<string>;
+  function getDisallowedInstallBundlesSync(admin: Want, userId?: number): Array<string>;
 
   /**
    * Add appid list of bundles that can not be uninstalled in the device.
@@ -621,7 +621,7 @@ declare namespace bundleManager {
    * @StageModelOnly
    * @since 12
    */
-  function addDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+  function addDisallowedUninstallBundlesSync(admin: Want, appIds: Array<string>, userId?: number): void;
 
   /**
    * Remove appid list of bundles that can not be uninstalled in the device.
@@ -702,7 +702,7 @@ declare namespace bundleManager {
    * @StageModelOnly
    * @since 12
    */
-  function removeDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+  function removeDisallowedUninstallBundlesSync(admin: Want, appIds: Array<string>, userId?: number): void;
 
   /**
    * Get the appid list of bundles that can not be uninstalled in the device.
@@ -780,7 +780,7 @@ declare namespace bundleManager {
    * @StageModelOnly
    * @since 12
    */
-  function getDisallowedUninstallBundles(admin: Want, userId?: number): Array<string>;
+  function getDisallowedUninstallBundlesSync(admin: Want, userId?: number): Array<string>;
 
   /**
    * Uninstall an application.

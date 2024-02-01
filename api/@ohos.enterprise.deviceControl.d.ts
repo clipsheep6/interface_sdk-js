@@ -83,7 +83,7 @@ declare namespace deviceControl {
    * @StageModelOnly
    * @since 12
    */
-  function resetFactory(admin: Want): void;
+  function resetFactorySync(admin: Want): void;
   
   /**
    * Allows the administrator to shutdown the devices.

@@ -248,7 +248,7 @@ declare namespace deviceSettings {
    * @StageModelOnly
    * @since 12
    */
-  function getScreenOffTime(admin: Want): number;
+  function getScreenOffTimeSync(admin: Want): number;
 
   /**
    * Install user certificate.

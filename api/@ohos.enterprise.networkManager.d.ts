@@ -593,7 +593,7 @@ declare namespace networkManager {
    * @stagemodelonly
    * @since 12
    */
-  function getAllNetworkInterfaces(admin: Want): Array<string>;
+  function getAllNetworkInterfacesSync(admin: Want): Array<string>;
 
   /**
    * Gets the ip address of the network interface.
@@ -652,7 +652,7 @@ declare namespace networkManager {
    * @stagemodelonly
    * @since 12
    */
-  function getIpAddress(admin: Want, networkInterface: string): string;
+  function getIpAddressSync(admin: Want, networkInterface: string): string;
 
   /**
    * Gets the mac address of the network interface.
@@ -711,7 +711,7 @@ declare namespace networkManager {
    * @stagemodelonly
    * @since 12
    */
-  function getMac(admin: Want, networkInterface: string): string;
+  function getMacSync(admin: Want, networkInterface: string): string;
 
   /**
    * Gets state of whether the network interface is disabled.
@@ -770,7 +770,7 @@ declare namespace networkManager {
    * @stagemodelonly
    * @since 12
    */
-  function isNetworkInterfaceDisabled(admin: Want, networkInterface: string): boolean;
+  function isNetworkInterfaceDisabledSync(admin: Want, networkInterface: string): boolean;
 
   /**
    * Disables the network interfaces.
@@ -831,7 +831,7 @@ declare namespace networkManager {
    * @stagemodelonly
    * @since 12
    */
-  function setNetworkInterfaceDisabled(admin: Want, networkInterface: string, isDisabled: boolean): void;
+  function setNetworkInterfaceDisabledSync(admin: Want, networkInterface: string, isDisabled: boolean): void;
 
   /**
    * Set a network independent global {@link connection.HttpProxy} proxy.
@@ -889,7 +889,7 @@ declare namespace networkManager {
    * @stagemodelonly
    * @since 12
    */
-  function setGlobalProxy(admin: Want, httpProxy: connection.HttpProxy): void;
+  function setGlobalProxySync(admin: Want, httpProxy: connection.HttpProxy): void;
 
   /**
    * Obtains the network independent global {@link connection.HttpProxy} proxy.
@@ -945,7 +945,7 @@ declare namespace networkManager {
    * @stagemodelonly
    * @since 12
    */
-  function getGlobalProxy(admin: Want): connection.HttpProxy;
+  function getGlobalProxySync(admin: Want): connection.HttpProxy;
 
   /**
    * Add iptables filter rule by {@link AddFilterRule}.

@@ -86,7 +86,7 @@ declare namespace dateTimeManager {
    * @StageModelOnly
    * @since 12
    */
-  function setDateTime(admin: Want, time: number): void;
+  function setDateTimeSync(admin: Want, time: number): void;
 
   /**
    * Disallow modify the system time.
@@ -144,7 +144,7 @@ declare namespace dateTimeManager {
    * @StageModelOnly
    * @since 12
    */
-  function disallowModifyDateTime(admin: Want, disallow: boolean): void;
+  function disallowModifyDateTimeSync(admin: Want, disallow: boolean): void;
 
   /**
    * Query the capability of modify the system time is allowed or disallowed.
@@ -200,7 +200,7 @@ declare namespace dateTimeManager {
    * @StageModelOnly
    * @since 12
    */
-  function isModifyDateTimeDisallowed(admin: Want): boolean;
+  function isModifyDateTimeDisallowedSync(admin: Want): boolean;
 }
 
 export default dateTimeManager;

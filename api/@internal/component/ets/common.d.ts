@@ -15245,6 +15245,19 @@ declare class CommonMethod<T> {
   bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): T;
 
   /**
+   * ContextMenu control
+   *
+   * @param { boolean } isShown - true means display content, false means hide content.
+   * @param { CustomBuilder } content - Indicates the content of context menu.
+   * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions): T;
+
+  /**
    * Bind content cover
    *
    * @param { boolean } isShow - true means display content, false means hide content.
@@ -16738,7 +16751,7 @@ declare interface GeometryInfo extends SizeResult {
  */
 declare interface Layoutable {
   /**
-   * Sub component name.
+   * Measurement result of the child component.
    *
    * @type { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16746,7 +16759,7 @@ declare interface Layoutable {
    * @since 10
    */
   /**
-   * Sub component name.
+   * Measurement result of the child component.
    *
    * @type { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16835,7 +16848,7 @@ declare interface Measurable {
  */
 declare interface SizeResult {
   /**
-   * Sub component width info.
+   * Width obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16843,7 +16856,7 @@ declare interface SizeResult {
    * @since 10
    */
   /**
-   * Sub component width info.
+   * Width obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16854,7 +16867,7 @@ declare interface SizeResult {
   width: number,
 
   /**
-   * Sub component height info.
+   * Height obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16862,7 +16875,7 @@ declare interface SizeResult {
    * @since 10
    */
   /**
-   * Sub component height info.
+   * Height obtained from the measurement result.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

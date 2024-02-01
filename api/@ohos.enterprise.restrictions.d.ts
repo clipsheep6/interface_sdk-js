@@ -86,7 +86,7 @@ declare namespace restrictions {
    * @StageModelOnly
    * @since 12
    */
-  function setPrinterDisabled(admin: Want, disabled: boolean): void;
+  function setPrinterDisabledSync(admin: Want, disabled: boolean): void;
 
   /**
    * Is the printing function of the device disabled
@@ -142,7 +142,7 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 12
    */
-  function isPrinterDisabled(admin: Want): boolean;
+  function isPrinterDisabledSync(admin: Want): boolean;
 
   /**
    * Disable or enable the HDC function of the device
@@ -200,7 +200,7 @@ declare namespace restrictions {
    * @StageModelOnly
    * @since 12
    */
-  function setHdcDisabled(admin: Want, disabled: boolean): void;
+  function setHdcDisabledSync(admin: Want, disabled: boolean): void;
 
   /**
    * Is the HDC function of the device disabled
@@ -256,7 +256,7 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 12
    */
-  function isHdcDisabled(admin: Want): boolean;
+  function isHdcDisabledSync(admin: Want): boolean;
   
   /**
    * Disables the microphone of device.

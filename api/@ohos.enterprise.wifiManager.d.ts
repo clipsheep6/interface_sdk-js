@@ -825,7 +825,7 @@ declare namespace wifiManager {
    * @stagemodelonly
    * @since 12
    */
-  function isWifiActive(admin: Want): boolean;
+  function isWifiActiveSync(admin: Want): boolean;
 
   /**
    * Sets the wifi profile.
@@ -880,7 +880,7 @@ declare namespace wifiManager {
    * @stagemodelonly
    * @since 12
    */
-  function setWifiProfile(admin: Want, profile: WifiProfile): void;
+  function setWifiProfileSync(admin: Want, profile: WifiProfile): void;
 
   /**
    * Sets the Wi-Fi disabled.

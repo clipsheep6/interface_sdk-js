@@ -109,7 +109,7 @@ declare namespace applicationManager {
    * @StageModelOnly
    * @since 12
    */
-  function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+  function addDisallowedRunningBundlesSync(admin: Want, appIds: Array<string>, userId?: number): void;
 
   /**
    * Remove appid list of bundles that is disallowed to run in the device.
@@ -190,7 +190,7 @@ declare namespace applicationManager {
    * @StageModelOnly
    * @since 12
    */
-  function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): void;
+  function removeDisallowedRunningBundlesSync(admin: Want, appIds: Array<string>, userId?: number): void;
 
   /**
    * Get appid list of bundles that is disallowed to run in the device.
@@ -268,7 +268,7 @@ declare namespace applicationManager {
    * @StageModelOnly
    * @since 12
    */
-  function getDisallowedRunningBundles(admin: Want, userId?: number): Array<string>;
+  function getDisallowedRunningBundlesSync(admin: Want, userId?: number): Array<string>;
 
   /**
    * Adds auto start applications.
