@@ -28,6 +28,9 @@ export namespace Comment {
     CONSTANT = 'constant',
     PERMISSION = 'permission',
     THROWS = 'throws',
+    ATOMIC_SERVICE = 'atomicservice',
+    KIT = 'kit',
+    FILE = 'file',
   }
 
   export interface JsDocProcessorInterface {
@@ -48,6 +51,9 @@ export namespace Comment {
     errorCodes: number[] = []; // @throws标签--api的错误码
     typeInfo: string = ''; // @type标签--标注的类型信息
     isConstant: boolean = false; // @constant标签--标注api为常量
+    isAtomicService: boolean = false; //@atomicservice--标注是否为高阶API
+    kit: string = '';
+    isFile: boolean = false;
     tags: CommentTag[] | undefined = undefined;
 
     constructor() {}
@@ -106,6 +112,15 @@ export namespace Comment {
 
     getIsSystemApi(): boolean {
       return this.isSystemApi;
+    }
+
+    setIsAtomicService(isAtomicService: boolean): JsDocInfo {
+      this.isAtomicService = isAtomicService;
+      return this;
+    }
+
+    getIsAtomicService(): boolean {
+      return this.isAtomicService;
     }
 
     setModelLimitation(modelLimitation: string): JsDocInfo {
@@ -169,6 +184,24 @@ export namespace Comment {
 
     getIsConstant(): boolean {
       return this.isConstant;
+    }
+
+    setKit(kit: string): JsDocInfo {
+      this.kit = kit;
+      return this;
+    }
+
+    getKit(): string {
+      return this.kit;
+    }
+
+    setIsFile(isFile: boolean): JsDocInfo {
+      this.isFile = isFile;
+      return this;
+    }
+
+    getIsFile(): boolean {
+      return this.isFile;
     }
 
     setTags(tags: CommentTag[]): JsDocInfo {
@@ -252,6 +285,11 @@ export namespace Comment {
      * 是否为特殊日志。例如，为了增加空行而添加的特殊单行日志。
      */
     isInstruct: boolean;
+
+    /**
+     * 是否为文件的jsdoc
+     */
+    isFileJsDoc: boolean;
   }
 
   export interface CommentTag {

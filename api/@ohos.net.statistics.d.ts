@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit NetworkKit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
@@ -252,7 +257,21 @@ declare namespace statistics {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function on(type: 'netStatsChange', callback: Callback<{ iface: string, uid?: number }>): void;
+  /**
+   * Register notifications of network traffic updates.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { 'netStatsChange' } type - Indicates Event name.
+   * @param { Callback<NetStatsChangeInfo> } callback - The callback of on.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function on(type: 'netStatsChange', callback: Callback<NetStatsChangeInfo>): void;
 
   /**
    * Unregister notifications of network traffic updates.
@@ -268,7 +287,21 @@ declare namespace statistics {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function off(type: 'netStatsChange', callback?: Callback<{ iface: string, uid?: number }>): void;
+  /**
+   * Unregister notifications of network traffic updates.
+   * @permission ohos.permission.GET_NETWORK_STATS
+   * @param { 'netStatsChange' } type - Indicates Event name.
+   * @param { Callback<NetStatsChangeInfo> } callback - The callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function off(type: 'netStatsChange', callback?: Callback<NetStatsChangeInfo>): void;
 
   /**
    * Get the traffic usage details of the network interface in the specified time period.
@@ -341,6 +374,58 @@ declare namespace statistics {
    * @since 10
    */
   function getTrafficStatsByUid(uidInfo: UidInfo): Promise<NetStatsInfo>;
+
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) received through a specified sockfd.
+   * @param { number } sockfd - Indicates the file descriptor of the given socket.
+   * @param { AsyncCallback<number> } callback - Returns the data traffic bytes received by the specified sockfd.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function getSockfdRxBytes(sockfd: number, callback: AsyncCallback<number>): void;
+
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) received through a specified sockfd.
+   * @param { number } sockfd - Indicates the file descriptor of the given socket.
+   * @returns { Promise<number> } Returns the data traffic bytes received by the specified sockfd.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function getSockfdRxBytes(sockfd: number): Promise<number>;
+
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) sent through a specified sockfd.
+   * @param { number } sockfd - Indicates the file descriptor of the given socket.
+   * @param { AsyncCallback<number> } callback - Returns the data traffic bytes sent by the specified sockfd.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function getSockfdTxBytes(sockfd: number, callback: AsyncCallback<number>): void;
+
+  /**
+   * Queries the data traffic (including all TCP and UDP data packets) sent through a specified sockfd.
+   * @param { number } sockfd - Indicates the file descriptor of the given socket.
+   * @returns { Promise<number> } Returns the data traffic bytes sent by the specified sockfd.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function getSockfdTxBytes(sockfd: number): Promise<number>;
 
   /**
    * Parameters for obtaining detailed information on network interface traffic usage.
@@ -448,6 +533,32 @@ declare namespace statistics {
      * @since 10
      */
     txPackets: number;
+  }
+
+  /**
+   * Used to monitor and manage the status and usage of network interfaces.
+   * @interface NetStatsChangeInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  export interface NetStatsChangeInfo {
+    /**
+     * Network interface for querying traffic.
+     * @type { string }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    iface: string;
+    /**
+     * Network interface for querying traffic.
+     * @type { ?number }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    uid?: number;
   }
 }
 

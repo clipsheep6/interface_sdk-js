@@ -14,11 +14,17 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * interface of insightIntent.
  *
  * @namespace insightIntent
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
+ * @atomicservice
  * @since 11
  */
 declare namespace insightIntent {
@@ -28,6 +34,7 @@ declare namespace insightIntent {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   enum ExecuteMode {
@@ -36,6 +43,7 @@ declare namespace insightIntent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     UI_ABILITY_FOREGROUND = 0,
@@ -45,6 +53,7 @@ declare namespace insightIntent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     UI_ABILITY_BACKGROUND = 1,
@@ -57,6 +66,16 @@ declare namespace insightIntent {
      * @since 11
      */
     UI_EXTENSION_ABILITY = 2,
+
+    /**
+     * ServiceExtensionAbility.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 11
+     */
+    SERVICE_EXTENSION_ABILITY = 3,
   }
 
   /**
@@ -65,6 +84,7 @@ declare namespace insightIntent {
    * @typedef ExecuteResult
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
+   * @atomicservice
    * @since 11
    */
   interface ExecuteResult {
@@ -74,6 +94,7 @@ declare namespace insightIntent {
      * @type { number }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     code: number;
@@ -84,6 +105,7 @@ declare namespace insightIntent {
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     result?: Record<string, Object>;

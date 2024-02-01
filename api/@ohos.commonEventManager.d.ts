@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit BasicServicesKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { CommonEventData as _CommonEventData } from './commonEvent/commonEventData';
 import { CommonEventSubscriber as _CommonEventSubscriber } from './commonEvent/commonEventSubscriber';
@@ -25,6 +30,14 @@ import { CommonEventPublishData as _CommonEventPublishData } from './commonEvent
  * @namespace commonEventManager
  * @syscap SystemCapability.Notification.CommonEvent
  * @since 9
+ */
+/**
+ * Common event definition
+ *
+ * @namespace commonEventManager
+ * @syscap SystemCapability.Notification.CommonEvent
+ * @atomicservice
+ * @since 11
  */
 declare namespace commonEventManager {
   /**
@@ -39,6 +52,20 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500009 - error obtaining system parameters
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
+   */
+  /**
+   * Publishes an ordered, sticky, or standard common event.
+   *
+   * @param { string } event - name of the common event.
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not System services
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   function publish(event: string, callback: AsyncCallback<void>): void;
 
@@ -56,6 +83,22 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500009 - error obtaining system parameters
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
+   */
+  /**
+   * Publishes an ordered, sticky, or standard common event.
+   *
+   * @param { string } event - name of the common event.
+   * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event
+   *                                             content and attributes.
+   * @param { AsyncCallback<void> } callback - The callback of publish.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 1500004 - not System services
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   function publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void;
 
@@ -112,6 +155,18 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
+  /**
+   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @param { AsyncCallback<CommonEventSubscriber> } callback - The callback is used to return the
+   *                                                            CommonEventSubscriber object.
+   * @throws { BusinessError } 401 - parameter error
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function createSubscriber(
     subscribeInfo: CommonEventSubscribeInfo,
     callback: AsyncCallback<CommonEventSubscriber>
@@ -126,6 +181,17 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
+  /**
+   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @returns { Promise<CommonEventSubscriber> } Returns the CommonEventSubscriber object.
+   * @throws { BusinessError } 401 - parameter error
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
@@ -136,6 +202,16 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 401 - parameter error
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
+   */
+  /**
+   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @returns { CommonEventSubscriber } Returns the CommonEventSubscriber object.
+   * @throws { BusinessError } 401 - parameter error
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
 
@@ -151,6 +227,20 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
    */
+  /**
+   * Subscribe an ordered, sticky, or standard common event.
+   *
+   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
+   * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 801 - capability not supported
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
   /**
@@ -164,6 +254,20 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
+   */
+  /**
+   * Unsubscribe from an ordered, sticky, or standard common event.
+   *
+   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
+   * @param { AsyncCallback<void> } [callback] - The callback of unsubscribe.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 801 - capability not supported
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
 
@@ -241,6 +345,14 @@ declare namespace commonEventManager {
    * @enum { string }
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 9
+   */
+  /**
+   * The event type that the commonEvent supported.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   export enum Support {
     /**
@@ -1521,6 +1633,13 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
      */
+    /**
+     * sent by the window manager service when the window mode is split.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 11
+     */
     COMMON_EVENT_SPLIT_SCREEN = 'common.event.SPLIT_SCREEN',
 
     /**
@@ -1716,6 +1835,26 @@ declare namespace commonEventManager {
     COMMON_EVENT_SIM_CARD_DEFAULT_MAIN_SUBSCRIPTION_CHANGED = 'usual.event.SIM.DEFAULT_MAIN_SUBSCRIPTION_CHANGED',
 
     /**
+     * Indicates the action of a common event that the status of setting primary slot has been changed.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 11
+     */
+    COMMON_EVENT_SET_PRIMARY_SLOT_STATUS = 'usual.event.SET_PRIMARY_SLOT_STATUS',
+
+    /**
+     * Indicates the action of a common event that the roaming status of main card has been changed.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 11
+     */
+    COMMON_EVENT_PRIMARY_SLOT_ROAMING = 'usual.event.PRIMARY_SLOT_ROAMING',
+
+    /**
      * Indicates the action of a common event that the default voice subscription has been changed.
      * This is a protected common event that can only be sent by system.
      *
@@ -1802,6 +1941,13 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10
      */
+    /**
+     * This commonEvent means when the screen is unlocked.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 11
+     */
     COMMON_EVENT_SCREEN_UNLOCKED = 'usual.event.SCREEN_UNLOCKED',
 
     /**
@@ -1810,14 +1956,29 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10
      */
+    /**
+     * This commonEvent means when the screen is locked.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 11
+     */
     COMMON_EVENT_SCREEN_LOCKED = 'usual.event.SCREEN_LOCKED',
 
     /**
      * Indicates the action of a common event that the network connectivity changed.
      * This is a protected common event that can only be sent by system.
-     * 
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10
+     */
+    /**
+     * Indicates the action of a common event that the network connectivity changed.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice
+     * @since 11
      */
     COMMON_EVENT_CONNECTIVITY_CHANGE = 'usual.event.CONNECTIVITY_CHANGE',
 
@@ -1834,12 +1995,22 @@ declare namespace commonEventManager {
     /**
       * Indicates the action of a common event that audio quality change.
       * This is a protected common event that can only be sent by system.
-      * 
+      *
       * @syscap SystemCapability.Notification.CommonEvent
       * @systemapi
       * @since 10
       */
-    COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE'
+    COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE',
+
+    /**
+      * Indicates that the privacy status is changed.
+      * This is a protected common event that can only be sent by system.
+      *
+      * @syscap SystemCapability.Notification.CommonEvent
+      * @systemapi
+      * @since 11
+      */
+    COMMON_EVENT_PRIVACY_STATE_CHANGED = 'usual.event.PRIVACY_STATE_CHANGED',
   }
 
   /**
@@ -1847,6 +2018,13 @@ declare namespace commonEventManager {
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
+   */
+  /**
+   * Describes the data of the common event
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   export type CommonEventData = _CommonEventData;
 
@@ -1856,6 +2034,13 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
    */
+  /**
+   * Describes the subscriber of common event
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
+   */
   export type CommonEventSubscriber = _CommonEventSubscriber;
 
   /**
@@ -1864,6 +2049,13 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
    */
+  /**
+   * Describes the information of the subscriber
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
+   */
   export type CommonEventSubscribeInfo = _CommonEventSubscribeInfo;
 
   /**
@@ -1871,6 +2063,13 @@ declare namespace commonEventManager {
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10
+   */
+  /**
+   * Describes the information of the subscriber
+   *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
    */
   export type CommonEventPublishData = _CommonEventPublishData;
 }

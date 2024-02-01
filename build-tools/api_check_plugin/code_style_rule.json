@@ -1,6 +1,7 @@
 {
   "decorators": {
     "customDoc": [
+      "atomicservice",
       "constant",
       "crossplatform",
       "default",
@@ -12,6 +13,7 @@
       "fires",
       "form",
       "interface",
+      "implements",
       "namespace",
       "param",
       "permission",
@@ -20,6 +22,7 @@
       "since",
       "stagemodelonly",
       "static",
+      "struct",
       "syscap",
       "systemapi",
       "type",
@@ -28,7 +31,9 @@
       "test",
       "useinstead",
       "FAModelOnly",
-      "StageModelOnly"
+      "StageModelOnly",
+      "kit",
+      "file"
     ],
     "jsDoc": [
       "abstract",
@@ -45,13 +50,11 @@
       "event",
       "exports",
       "external",
-      "file",
       "function",
       "generator",
       "global",
       "hideconstructor",
       "ignore",
-      "implements",
       "inheritdoc",
       "inner",
       "instance",
@@ -114,8 +117,8 @@
       "SystemCapability.Graphic.Graphic2D.WebGL",
       "SystemCapability.Graphic.Graphic2D.WebGL2",
       "SystemCapability.Graphic.Graphic2D.ColorManager.Core",
-      "SystemCapability.Graphic.Vulkan",
       "SystemCapability.Window.SessionManager",
+      "SystemCapability.Graphic.Vulkan",
       "SystemCapability.WindowManager.WindowManager.Core",
       "SystemCapability.WindowManager.WindowManager.MutiScreen",
       "SystemCapability.Notification.CommonEvent",
@@ -205,6 +208,8 @@
       "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
       "SystemCapability.Multimedia.Media.AVPlayer",
       "SystemCapability.Multimedia.Media.AVRecorder",
+      "SystemCapability.Multimedia.Media.AVMetadataExtractor",
+      "SystemCapability.Multimedia.Media.AVImageGenerator",
       "SystemCapability.Multimedia.Image.ImageCreator",
       "SystemCapability.Multimedia.SystemSound.Core",
       "SystemCapability.Telephony.CoreService",
@@ -243,6 +248,7 @@
       "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
       "SystemCapability.Update.UpdateService",
       "SystemCapability.DistributedHardware.DeviceManager",
+      "SystemCapability.DistributedHardware.DistributedHardwareFWK",
       "SystemCapability.Security.DeviceAuth",
       "SystemCapability.Security.DataTransitManager",
       "SystemCapability.Security.DeviceSecurityLevel",
@@ -275,11 +281,14 @@
       "SystemCapability.FileManagement.File.FileIO.Lite",
       "SystemCapability.FileManagement.File.Environment",
       "SystemCapability.FileManagement.File.DistributedFile",
+      "SystemCapability.FileManagement.File.Environment.FolderObtain",
       "SystemCapability.FileManagement.AppFileService",
+      "SystemCapability.FileManagement.AppFileService.FolderAuthorization",
       "SystemCapability.FileManagement.UserFileService",
       "SystemCapability.FileManagement.UserFileManager",
       "SystemCapability.FileManagement.UserFileManager.DistributedCore",
       "SystemCapability.FileManagement.UserFileManager.Core",
+      "SystemCapability.FileManagement.UserFileService.FolderSelection",
       "SystemCapability.USB.USBManager",
       "SystemCapability.Sensors.Sensor",
       "SystemCapability.Sensors.MiscDevice",
@@ -318,6 +327,7 @@
       "SystemCapability.Web.Webview.Core",
       "SystemCapability.Cloud.AAID",
       "SystemCapability.Advertising.OAID",
+      "SystemCapability.Advertising.Ads",
       "SystemCapability.Cloud.VAID",
       "SystemCapability.Cloud.Push",
       "SystemCapability.XTS.DeviceAttest",
@@ -335,7 +345,13 @@
       "SystemCapability.Driver.ExternalDevice",
       "SystemCapability.FileManagement.PhotoAccessHelper.Core",
       "SystemCapability.AI.IntelligentVoice.Core",
-      "SystemCapability.Msdp.DeviceStatus.Drag"
+      "SystemCapability.Msdp.DeviceStatus.Drag",
+      "SystemCapability.DistributedDataManager.CommonType",
+      "SystemCapability.Multimedia.Audio.Spatialization",
+      "SystemCapability.Multimedia.AudioHaptic.Core",
+      "SystemCapability.ArkUi.Graphics3D",
+      "SystemCapability.Multimedia.Drm.Core",
+      "SystemCapability.Graphics.Drawing"
     ]
   },
   "administrators": [
@@ -353,6 +369,12 @@
     },
     {
       "user": "12626261"
+    },
+    {
+      "user": "6570462"
+    },
+    {
+      "user": "10183964"
     }
   ],
   "ciId":"7387629"

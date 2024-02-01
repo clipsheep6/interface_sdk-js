@@ -22,6 +22,14 @@ import continuationManager from '../@ohos.continuation.continuationManager';
  * @syscap SystemCapability.Ability.DistributedAbilityManager
  * @since 8
  */
+/**
+ * Indicates the description of additional parameters for continuation.
+ *
+ * @typedef ContinuationExtraParams
+ * @syscap SystemCapability.Ability.DistributedAbilityManager
+ * @atomicservice
+ * @since 11
+ */
 export interface ContinuationExtraParams {
   /**
    * Indicates the type of devices to be matched.
@@ -29,6 +37,14 @@ export interface ContinuationExtraParams {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
+   */
+  /**
+   * Indicates the type of devices to be matched.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @atomicservice
+   * @since 11
    */
   deviceType?: Array<string>;
 
@@ -39,6 +55,14 @@ export interface ContinuationExtraParams {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */
+  /**
+   * Indicates the bundle name of the target application where the ability will be hopped.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @atomicservice
+   * @since 11
+   */
   targetBundle?: string;
 
   /**
@@ -47,6 +71,14 @@ export interface ContinuationExtraParams {
    * @type { ?string }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
+   */
+  /**
+   * Indicates the description used for device filtering.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @atomicservice
+   * @since 11
    */
   description?: string;
 
@@ -57,6 +89,14 @@ export interface ContinuationExtraParams {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */
+  /**
+   * Parameters used for filtering devices, type must be { [key: string]: any }.
+   *
+   * @type { ?any }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @atomicservice
+   * @since 11
+   */
   filter?: any;
 
   /**
@@ -65,6 +105,14 @@ export interface ContinuationExtraParams {
    * @type { ?continuationManager.ContinuationMode }
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
+   */
+  /**
+   * Mode of continuation.
+   *
+   * @type { ?continuationManager.ContinuationMode }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @atomicservice
+   * @since 11
    */
   continuationMode?: continuationManager.ContinuationMode;
 
@@ -75,5 +123,21 @@ export interface ContinuationExtraParams {
    * @syscap SystemCapability.Ability.DistributedAbilityManager
    * @since 8
    */
-  authInfo?: { [key: string]: any };
+  /**
+   * Authentication extra infos.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Authentication extra infos.
+   *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Ability.DistributedAbilityManager
+   * @atomicservice
+   * @since 11
+   */
+  authInfo?: Record<string, Object>;
 }

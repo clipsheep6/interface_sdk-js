@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * The convertxml module provides utilities for converting XML text to Javascript object.
  *
  * @namespace xml
@@ -28,7 +33,40 @@
  * @crossplatform
  * @since 10
  */
+/**
+ * The convertxml module provides utilities for converting XML text to Javascript object.
+ *
+ * @namespace xml
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace xml {
+  /**
+   * The options for conversion.
+   *
+   * @interface ConvertOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @since 8
+   */
+  /**
+   * The options for conversion.
+   *
+   * @interface ConvertOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * The options for conversion.
+   *
+   * @interface ConvertOptions
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface ConvertOptions {
     /**
      * Whether to trim whitespace characters that may exist before and after the text, default false.
@@ -42,6 +80,14 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Whether to trim whitespace characters that may exist before and after the text, default false.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     trim: boolean;
     /**
@@ -57,6 +103,14 @@ declare namespace xml {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Whether to ignore writing declaration directives of xml.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     ignoreDeclaration?: boolean;
     /**
      * Whether to ignore writing processing instruction of xml.
@@ -70,6 +124,14 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Whether to ignore writing processing instruction of xml.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     ignoreInstruction?: boolean;
     /**
@@ -85,6 +147,14 @@ declare namespace xml {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Whether to print attributes across multiple lines and indent them.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     ignoreAttributes?: boolean;
     /**
      * Whether to ignore writing comments of the elements.
@@ -98,6 +168,14 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Whether to ignore writing comments of the elements.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     ignoreComment?: boolean;
     /**
@@ -113,6 +191,14 @@ declare namespace xml {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Whether to ignore writing CDATA of the elements.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     ignoreCDATA?: boolean;
     /**
      * Whether to ignore writing Doctype of the elements.
@@ -126,6 +212,14 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Whether to ignore writing Doctype of the elements.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     ignoreDoctype?: boolean;
     /**
@@ -141,6 +235,14 @@ declare namespace xml {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Whether to ignore writing texts of the elements.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     ignoreText?: boolean;
     /**
      * Name of the property key which will be used for the declaration.
@@ -154,6 +256,14 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Name of the property key which will be used for the declaration.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     declarationKey: string;
     /**
@@ -169,6 +279,14 @@ declare namespace xml {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Name of the property key which will be used for the processing instruction.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     instructionKey: string;
     /**
      * Name of the property key which will be used for the attributes.
@@ -182,6 +300,14 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Name of the property key which will be used for the attributes.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     attributesKey: string;
     /**
@@ -197,6 +323,14 @@ declare namespace xml {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Name of the property key which will be used for the text.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     textKey: string;
     /**
      * Name of the property key which will be used for the cdata.
@@ -210,6 +344,14 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Name of the property key which will be used for the cdata.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     cdataKey: string;
     /**
@@ -225,6 +367,14 @@ declare namespace xml {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Name of the property key which will be used for the doctype.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     doctypeKey: string;
     /**
      * Name of the property key which will be used for the comment.
@@ -238,6 +388,14 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Name of the property key which will be used for the comment.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     commentKey: string;
     /**
@@ -253,6 +411,14 @@ declare namespace xml {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Name of the property key which will be used for the parent.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     parentKey: string;
     /**
      * Name of the property key which will be used for the type.
@@ -266,6 +432,14 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Name of the property key which will be used for the type.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     typeKey: string;
     /**
@@ -281,6 +455,14 @@ declare namespace xml {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Name of the property key which will be used for the name.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     nameKey: string;
     /**
      * Name of the property key which will be used for the elements.
@@ -294,6 +476,14 @@ declare namespace xml {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Name of the property key which will be used for the elements.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     elementsKey: string;
   }
@@ -313,6 +503,14 @@ declare namespace xml {
    * @since 10
    * @name ConvertXML
    */
+  /**
+   * ConvertXML representation refers to extensible markup language.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   class ConvertXML {
     /**
      * To convert XML text to JavaScript object.
@@ -331,7 +529,7 @@ declare namespace xml {
      * To convert XML text to JavaScript object.
      *
      * @param { string } xml - xml xml The xml text to be converted.
-     * @param { ConvertOptions } options - options option Option Inputted by user to set.
+     * @param { ConvertOptions } [options] - options option Option Inputted by user to set.
      * @returns { Object } Returns a JavaScript object converting from XML text.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200002 - Invalid xml string.
@@ -342,13 +540,26 @@ declare namespace xml {
      * To convert XML text to JavaScript object.
      *
      * @param { string } xml - xml xml The xml text to be converted.
-     * @param { ConvertOptions } options - options option Option Inputted by user to set.
+     * @param { ConvertOptions } [options] - options option Option Inputted by user to set.
      * @returns { Object } Returns a JavaScript object converting from XML text.
      * @throws { BusinessError } 401 - if the input parameters are invalid.
      * @throws { BusinessError } 10200002 - Invalid xml string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
+     */
+    /**
+     * To convert XML text to JavaScript object.
+     *
+     * @param { string } xml - xml xml The xml text to be converted.
+     * @param { ConvertOptions } [options] - options option Option Inputted by user to set.
+     * @returns { Object } Returns a JavaScript object converting from XML text.
+     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 10200002 - Invalid xml string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     convertToJSObject(xml: string, options?: ConvertOptions): Object;
   }

@@ -362,6 +362,7 @@ export enum ApiStatusCode {
   NEW_CLASS = 22,
   NEW_DECORATOR = 23,
   DELETE_DECORATOR = 24,
+  KIT_CHANGE = 26,
 }
 
 export enum ApiDiffType {
@@ -443,6 +444,9 @@ export enum ApiDiffType {
   SINCE_VERSION_NA_TO_HAVE,
   SINCE_VERSION_HAVE_TO_NA,
   SINCE_VERSION_A_TO_B,
+  HISTORICAL_JSDOC_CHANGE,
+  HISTORICAL_API_CHANGE,
+  KIT_CHANGE,
 }
 
 export const diffTypeMap: Map<ApiDiffType, string> = new Map([
@@ -461,9 +465,9 @@ export const diffTypeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.SYSCAP_NA_TO_HAVE, 'syscap变更'],
   [ApiDiffType.SYSCAP_HAVE_TO_NA, 'syscap变更'],
   [ApiDiffType.SYSCAP_A_TO_B, 'syscap变更'],
-  [ApiDiffType.DEPRECATED_NA_TO_HAVE, 'API废弃'],
-  [ApiDiffType.DEPRECATED_HAVE_TO_NA, '废弃API变更为不废弃'],
-  [ApiDiffType.DEPRECATED_A_TO_B, 'API废弃版本发生变化'],
+  [ApiDiffType.DEPRECATED_NA_TO_HAVE, 'API废弃版本变更'],
+  [ApiDiffType.DEPRECATED_HAVE_TO_NA, 'API废弃版本变更'],
+  [ApiDiffType.DEPRECATED_A_TO_B, 'API废弃版本变更'],
   [ApiDiffType.ERROR_CODE_NA_TO_HAVE, '错误码变更'],
   [ApiDiffType.ERROR_CODE_ADD, '错误码变更'],
   [ApiDiffType.ERROR_CODE_REDUCE, '错误码变更'],
@@ -511,6 +515,7 @@ export const diffTypeMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.SINCE_VERSION_A_TO_B, '起始版本有变化'],
   [ApiDiffType.SINCE_VERSION_HAVE_TO_NA, '起始版本有变化'],
   [ApiDiffType.SINCE_VERSION_NA_TO_HAVE, '起始版本有变化'],
+  [ApiDiffType.KIT_CHANGE, 'kit变更'],
 ]);
 
 export const diffMap: Map<ApiDiffType, string> = new Map([
@@ -579,6 +584,9 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.SINCE_VERSION_A_TO_B, '起始版本号变更'],
   [ApiDiffType.SINCE_VERSION_HAVE_TO_NA, '起始版本号删除'],
   [ApiDiffType.SINCE_VERSION_NA_TO_HAVE, '起始版本号新增'],
+  [ApiDiffType.HISTORICAL_JSDOC_CHANGE, '历史版本jsdoc变更'],
+  [ApiDiffType.HISTORICAL_API_CHANGE, '历史版本API变更'],
+  [ApiDiffType.KIT_CHANGE, 'kit变更'],
 ]);
 
 export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
@@ -616,4 +624,6 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.TYPE_ALIAS_REDUCE,
   ApiDiffType.ENUM_MEMBER_VALUE_CHANGE,
   ApiDiffType.REDUCE,
+  ApiDiffType.HISTORICAL_JSDOC_CHANGE,
+  ApiDiffType.HISTORICAL_API_CHANGE,
 ]);

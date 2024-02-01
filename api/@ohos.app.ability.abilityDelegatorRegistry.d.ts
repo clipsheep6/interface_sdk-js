@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit TestKit
+ */
+
 import { AbilityDelegator as _AbilityDelegator } from './application/AbilityDelegator';
 import { AbilityDelegatorArgs as _AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
 import { AbilityMonitor as _AbilityMonitor } from './application/AbilityMonitor';
@@ -35,6 +40,16 @@ import { ShellCmdResult as _ShellCmdResult } from './application/shellCmdResult'
  * @crossplatform
  * @since 10
  */
+/**
+ * A global register used to store the AbilityDelegator and AbilityDelegatorArgs objects registered
+ * during application startup.
+ *
+ * @namespace abilityDelegatorRegistry
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace abilityDelegatorRegistry {
   /**
    * Get the AbilityDelegator object of the application.
@@ -50,6 +65,15 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Get the AbilityDelegator object of the application.
+   *
+   * @returns { AbilityDelegator } Return the AbilityDelegator object initialized when the application is started.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function getAbilityDelegator(): AbilityDelegator;
 
@@ -68,6 +92,15 @@ declare namespace abilityDelegatorRegistry {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Get unit test arguments stored in the AbilityDelegatorArgs object.
+   *
+   * @returns { AbilityDelegatorArgs } Return the previously registered AbilityDelegatorArgs object.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   function getArguments(): AbilityDelegatorArgs;
 
   /**
@@ -85,6 +118,15 @@ declare namespace abilityDelegatorRegistry {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Describes all lifecycle states of an ability.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export enum AbilityLifecycleState {
     /**
      * Ability is in invalid state.
@@ -98,6 +140,14 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Ability is in invalid state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     UNINITIALIZED,
 
@@ -114,6 +164,14 @@ declare namespace abilityDelegatorRegistry {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Ability is in the created state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     CREATE,
 
     /**
@@ -128,6 +186,14 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Ability is in the foreground state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     FOREGROUND,
 
@@ -144,6 +210,14 @@ declare namespace abilityDelegatorRegistry {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Ability is in the background state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     BACKGROUND,
 
     /**
@@ -158,6 +232,14 @@ declare namespace abilityDelegatorRegistry {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Ability is in a destroyed state.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     DESTROY
   }
@@ -175,6 +257,14 @@ declare namespace abilityDelegatorRegistry {
    * @crossplatform
    * @since 10
    */
+  /**
+   * A global test utility interface used for adding AbilityMonitor objects and control lifecycle states of abilities.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export type AbilityDelegator = _AbilityDelegator;
 
   /**
@@ -189,6 +279,14 @@ declare namespace abilityDelegatorRegistry {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Store unit testing-related parameters, including test case names, and test runner name.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   export type AbilityDelegatorArgs = _AbilityDelegatorArgs;
 
@@ -207,6 +305,15 @@ declare namespace abilityDelegatorRegistry {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Provide methods for matching monitored Ability objects that meet specified conditions.
+   * The most recently matched Ability objects will be saved in the AbilityMonitor object.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export type AbilityMonitor = _AbilityMonitor;
 
   /**
@@ -214,6 +321,13 @@ declare namespace abilityDelegatorRegistry {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
+   */
+  /**
+   * A object that records the result of shell command executes.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   export type ShellCmdResult = _ShellCmdResult;
 }

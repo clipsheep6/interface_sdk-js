@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 
@@ -24,7 +29,22 @@ import Want from './@ohos.app.ability.Want';
  * @since 8
  */
 interface PluginComponentTemplate {
+  /**
+   * Defines the source
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
   source: string;
+
+  /**
+   * Defines the ability
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
   ability: string;
 }
 
@@ -36,6 +56,12 @@ interface PluginComponentTemplate {
  * @since 8
  */
 declare namespace pluginComponentManager {
+  /**
+   * Defines KVObject
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
   type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
 
   /**
@@ -46,10 +72,49 @@ declare namespace pluginComponentManager {
    * @since 8
    */
   interface PushParameters {
+    /**
+     * Defines want.
+     *
+     * @type { Want }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */    
     want: Want;
+
+    /**
+     * Defines name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */ 
     name: string;
+
+    /**
+     * Defines data.
+     *
+     * @type { KVObject }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */ 
     data: KVObject;
+
+    /**
+     * Defines extraData.
+     *
+     * @type { KVObject }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */ 
     extraData: KVObject;
+
+    /**
+     * Defines jsonPath.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */ 
     jsonPath?: string;
   }
 
@@ -62,11 +127,64 @@ declare namespace pluginComponentManager {
    * @since 9
    */
   interface PushParameterForStage {
+    /**
+     * Defines owner.
+     *
+     * @type { Want }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 9
+     */  
     owner: Want;
+
+    /**
+     * Defines target.
+     *
+     * @type { Want }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 9
+     */  
     target: Want;
+
+    /**
+     * Defines name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 9
+     */  
     name: string;
+
+    /**
+     * Defines data.
+     *
+     * @type { KVObject }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 9
+     */  
     data: KVObject;
+
+    /**
+     * Defines extraData.
+     *
+     * @type { KVObject }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 9
+     */  
     extraData: KVObject;
+
+    /**
+     * Defines jsonPath.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 9
+     */  
     jsonPath?: string;
   }
 
@@ -78,9 +196,40 @@ declare namespace pluginComponentManager {
    * @since 8
    */
   interface RequestParameters {
+    /**
+     * Defines want.
+     *
+     * @type { Want }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */  
     want: Want;
+
+    /**
+     * Defines name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */  
     name: string;
+  
+    /**
+     * Defines data.
+     *
+     * @type { KVObject }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */  
     data: KVObject;
+
+    /**
+     * Defines jsonPath.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */ 
     jsonPath?: string;
   }
 
@@ -93,10 +242,53 @@ declare namespace pluginComponentManager {
    * @since 9
    */
   interface RequestParameterForStage {
+    /**
+     * Defines owner.
+     *
+     * @type { Want }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 9
+     */    
     owner: Want;
+
+    /**
+     * Defines target.
+     *
+     * @type { Want }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 9
+     */  
     target: Want;
+    /**
+     * Defines name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 9
+     */  
     name: string;
+
+    /**
+     * Defines data.
+     *
+     * @type { KVObject }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 9
+     */  
     data: KVObject;
+
+    /**
+     * Defines jsonPath.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 9
+     */  
     jsonPath?: string;
   }
 
@@ -108,8 +300,32 @@ declare namespace pluginComponentManager {
    * @since 8
    */
   interface RequestCallbackParameters {
+
+    /**
+     * Defines componentTemplate.
+     *
+     * @type { PluginComponentTemplate }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */ 
     componentTemplate: PluginComponentTemplate;
+  
+    /**
+     * Defines data.
+     *
+     * @type { KVObject }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */ 
     data: KVObject;
+
+    /**
+     * Defines extraData.
+     *
+     * @type { KVObject }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */ 
     extraData: KVObject;
   }
 
@@ -121,8 +337,31 @@ declare namespace pluginComponentManager {
    * @since 8
    */
   interface RequestEventResult {
+    /**
+     * Defines template.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */ 
     template?: string;
+
+    /**
+     * Defines data.
+     *
+     * @type { ?KVObject }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */ 
     data?: KVObject;
+
+    /**
+     * Defines extraData.
+     *
+     * @type { ?KVObject }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */ 
     extraData?: KVObject;
   }
 
@@ -200,3 +439,4 @@ declare namespace pluginComponentManager {
 }
 
 export default pluginComponentManager;
+export type { PluginComponentTemplate };

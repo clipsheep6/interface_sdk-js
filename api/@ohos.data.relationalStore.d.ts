@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkData
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/BaseContext';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
@@ -197,17 +202,27 @@ declare namespace relationalStore {
   /**
    * Values in buckets are stored in key-value pairs
    *
+   * @typedef ValuesBucket
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 9
    */
   /**
-   * Values in buckets are stored in key-value pairs
+   * Values in buckets are stored in key-value pairs, move Uint8Array add to ValueType
    *
+   * @typedef ValuesBucket
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
    */
-  type ValuesBucket = { [key: string]: ValueType; };
+  /**
+   * Values in buckets are stored in key-value pairs, change {[key: string]: ValueType;} to Record<string, ValueType>
+   *
+   * @typedef ValuesBucket
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 11
+   */
+  type ValuesBucket = Record<string, ValueType>;
 
   /**
    * The type of the priority key can be number or string
@@ -299,6 +314,26 @@ declare namespace relationalStore {
      * @since 11
      */
     customDir?: string;
+
+    /**
+     * Specifies whether to clean up dirty data that is synchronized to
+     * the local but deleted in the cloud.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    autoCleanDirtyData?: boolean;
+
+    /**
+     * Specifies whether data can be searched.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 11
+     */
+    isSearchable?: boolean;
   }
 
   /**
@@ -495,9 +530,14 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    details: {
-      [table: string]: TableDetails;
-    };
+    /**
+     * The statistic details of the tables.
+     *
+     * @type { Record<string, TableDetails> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 11
+     */
+    details: Record<string, TableDetails>;
   }
   /**
    * Describes the {@code RdbStore} type.
@@ -743,6 +783,47 @@ declare namespace relationalStore {
   }
 
   /**
+   * Indicates the reference between tables.
+   *
+   * @interface Reference
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @systemapi
+   * @since 11
+   */
+  interface Reference {
+    /**
+     * Indicates the table that references another table.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 11
+     */
+    sourceTable: string;
+
+    /**
+     * Indicates the table to be referenced.
+     *
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 11
+     */
+    targetTable: string;
+
+    /**
+     * Indicates the reference fields.
+     *
+     * @type { Record<string, string> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 11
+     */
+    refFields: Record<string, string>
+  }
+
+
+  /**
    * Manages the distributed configuration of the table.
    *
    * @interface DistributedConfig
@@ -757,6 +838,16 @@ declare namespace relationalStore {
      * @since 10
      */
     autoSync: boolean;
+
+    /**
+     * Specifies the reference relationships between tables.
+     *
+     * @type { ?Array<Reference> }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @since 11
+     */
+    references?: Array<Reference>;
   }
 
   /**
@@ -821,6 +912,97 @@ declare namespace relationalStore {
      * @since 10
      */
     ON_CONFLICT_REPLACE = 5
+  }
+
+  /**
+   * Describes the data origin sources.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 11
+   */
+  enum Origin {
+    /**
+     * Indicates the data source is local.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    LOCAL,
+
+    /**
+     * Indicates the data source is cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    CLOUD,
+
+    /**
+     * Indicates the data source is remote.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    REMOTE,
+  }
+
+  /**
+   * Enumerates the field.
+   *
+   * @enum { string }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 11
+   */
+  enum Field {
+    /**
+     * Cursor field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    CURSOR_FIELD = '#_cursor',
+
+    /**
+     * Origin field. For details, see {@link Origin}.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    ORIGIN_FIELD = '#_origin',
+
+    /**
+     * Deleted flag field.
+     * Indicates whether data has deleted in cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    DELETED_FLAG_FIELD = '#_deleted_flag',
+
+    /**
+     * Owner field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    OWNER_FIELD = '#_cloud_owner',
+
+    /**
+     * Privilege field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    PRIVILEGE_FIELD = '#_cloud_privilege',
+
+    /**
+     * Sharing resource field.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    SHARING_RESOURCE_FIELD = '#_sharing_resource_field'
   }
 
   /**
@@ -2019,6 +2201,17 @@ declare namespace relationalStore {
     getAssets(columnIndex: number): Assets;
 
     /**
+     * Obtains the values of all columns in the specified row.
+     *
+     * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 11
+     */
+    getRow(): ValuesBucket;
+
+    /**
      * Checks whether the value of the specified column in the current row is null.
      *
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
@@ -2748,6 +2941,100 @@ declare namespace relationalStore {
       primaryKeys: PRIKeyType[],
       callback: AsyncCallback<ModifyTime>
     ): void;
+
+    /**
+     * Cleans the dirty data, which is the data deleted in the cloud.
+     *
+     * Data with a cursor smaller than the specified cursor will be cleaned up.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { number } cursor - Indicates the position of the data to be cleaned up.
+     * @param { AsyncCallback<void> } callback - Indicates the callback invoked to return the result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    cleanDirtyData(table: string, cursor: number, callback: AsyncCallback<void>): void;
+
+    /**
+     * Cleans all dirty data deleted in the cloud.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { AsyncCallback<void> } callback - The callback of clean.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    cleanDirtyData(table: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Cleans dirty data deleted in the cloud.
+     *
+     * If a cursor is specified, data with a cursor smaller than the specified cursor will be cleaned up.
+     * otherwise clean all.
+     *
+     * @param { string } table - Indicates the name of the table to check.
+     * @param { number } [cursor] - Indicates the cursor.
+     * @returns { Promise<void> } -The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 11
+     */
+    cleanDirtyData(table: string, cursor?: number): Promise<void>;
+
+    /**
+     * Obtains sharing resource of rows corresponding to the predicates.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { Array<string> } [columns] - The specified columns to query.
+     * @returns { Promise<ResultSet> } -The promise returned by the function.
+     * {@link ResultSet} is query result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    querySharingResource(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
+    /**
+     * Obtains sharing resource of rows corresponding to the predicates.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { AsyncCallback<ResultSet> } callback - The callback of querySharingResource.
+     * {@link ResultSet} is query result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    querySharingResource(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>): void;
+
+    /**
+     * Obtains sharing resource of rows corresponding to the predicates.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { Array<string> } columns - The specified columns to query.
+     * @param { AsyncCallback<ResultSet> } callback - The callback of querySharingResource.
+     * {@link ResultSet} is query result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @systemapi
+     * @since 11
+     */
+    querySharingResource(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
+
     /**
      * Executes a SQL statement that contains specified parameters but returns no value.
      *
@@ -3180,14 +3467,12 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { RdbPredicates } predicates - The specified sync condition by the instance object of {@link RdbPredicates}.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @param { AsyncCallback<void> } callback - The callback of cloudSync.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC
-     * or application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -3203,14 +3488,13 @@ declare namespace relationalStore {
     /**
      * Sync data to cloud.
      *
-     * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { SyncMode } mode - indicates the database synchronization mode.
      * @param { RdbPredicates } predicates - The specified sync condition by the instance object of {@link RdbPredicates}.
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @returns { Promise<void> } : The promise returned by the function.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
-     * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC
-     * or application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system
+     * application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi

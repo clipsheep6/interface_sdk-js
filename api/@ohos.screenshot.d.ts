@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import { AsyncCallback, ErrorCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 
@@ -36,6 +41,20 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7
+   */
+  /**
+   * Takes a screenshot and saves it as a PixelMap object.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN
+   * @param { ScreenshotOptions } options - Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
+   * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 11
    */
   function save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
 
@@ -74,9 +93,44 @@ declare namespace screenshot {
    * @since 7
    */
   interface Rect {
+    /**
+     * The X-axis coordinate of the upper left vertex of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     left: number;
+
+    /**
+     * The Y-axis coordinate of the upper left vertex of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     top: number;
+
+    /**
+     * Width of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     width: number;
+
+    /**
+     * Height of the rectangle.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     height: number;
   }
 
@@ -89,7 +143,24 @@ declare namespace screenshot {
    * @since 7
    */
   interface Size {
+    /**
+     * Defines the width property.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     width: number;
+
+    /**
+     * Defines the height property.
+     *
+     * @type { number }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
     height: number;
   }
 

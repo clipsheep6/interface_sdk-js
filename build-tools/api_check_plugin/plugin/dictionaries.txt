@@ -48383,6 +48383,8 @@ prescript
 prescription
 prescriptive
 preselect
+preselected
+preselecteduris
 presence
 present
 presentable
@@ -65705,6 +65707,8 @@ vbox
 vbs
 vbscript
 vc
+vcard
+vcf
 vcl
 vcr
 vcs
@@ -66588,7 +66592,6 @@ vps
 vr
 vs
 vscode
-vss
 vsts
 vstudio
 vt

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit InputKit
+ */
+
+/**
  * Pinch event on touchPad
  *
  * @interface Pinch
@@ -36,6 +41,33 @@ export declare interface Pinch {
    * @since 10
    */
   scale: number;
+}
+
+/**
+ * Rotate event on touchPad
+ *
+ * @interface Rotate
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 11
+ */
+export declare interface Rotate {
+  /**
+   * Action type
+   *
+   * @type { ActionType }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 11
+   */
+  type: ActionType;
+
+  /**
+   * Rotate angle
+   *
+   * @type { number }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 11
+   */
+  angle: number;
 }
 
 /**
@@ -104,6 +136,24 @@ export declare interface FourFingersSwipe {
   y: number;
 }
 
+/**
+ * Three fingers tap event on touchPad
+ *
+ * @interface ThreeFingersTap
+ * @syscap SystemCapability.MultimodalInput.Input.Core
+ * @since 11
+ */
+export declare interface ThreeFingersTap {
+  /**
+   * Action type
+   *
+   * @type { ActionType }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 11
+   */
+  type: ActionType;
+}
+  
 /**
  * Gesture action type
  *

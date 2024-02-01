@@ -14,7 +14,11 @@
  */
 
 /**
- * @interface GeolocationResponse
+ * @file
+ * @kit LocationKit
+ */
+
+/**
  * @syscap SystemCapability.Location.Location.Lite
  * @since 3
  * @deprecated since 9

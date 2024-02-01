@@ -1,7 +1,6 @@
 {
   "SysCaps": [
     "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.ArkUI.ArkUI.Libuv",
     "SystemCapability.ArkUI.UiAppearance",
@@ -10,7 +9,11 @@
     "SystemCapability.BundleManager.BundleFramework.Overlay",
     "SystemCapability.BundleManager.DistributedBundleFramework",
     "SystemCapability.BundleManager.Zlib",
+    "SystemCapability.Graphic.Graphic2D.EGL",
+    "SystemCapability.Graphic.Graphic2D.GLES2",
+    "SystemCapability.Graphic.Graphic2D.GLES3",
     "SystemCapability.Graphic.Graphic2D.WebGL",
+    "SystemCapability.Window.SessionManager",
     "SystemCapability.WindowManager.WindowManager.Core",
     "SystemCapability.WindowManager.WindowManager.MutiScreen",
     "SystemCapability.Notification.CommonEvent",
@@ -64,6 +67,8 @@
     "SystemCapability.Multimedia.Media.Muxer",
     "SystemCapability.Multimedia.Media.AVPlayer",
     "SystemCapability.Multimedia.Media.AVRecorder",
+    "SystemCapability.Multimedia.Media.AVMetadataExtractor",
+    "SystemCapability.Multimedia.Media.AVImageGenerator",
     "SystemCapability.Multimedia.AVSession.Core",
     "SystemCapability.Multimedia.AVSession.Manager",
     "SystemCapability.Multimedia.AVSession.AVCast",
@@ -78,6 +83,7 @@
     "SystemCapability.Multimedia.Audio.PlaybackCapture",
     "SystemCapability.Multimedia.Camera.Core",
     "SystemCapability.Multimedia.Camera.DistributedCore",
+    "SystemCapability.Multimedia.Drm.Core",
     "SystemCapability.Multimedia.Image.Core",
     "SystemCapability.Multimedia.Image.ImageSource",
     "SystemCapability.Multimedia.Image.ImagePacker",
@@ -111,7 +117,6 @@
     "SystemCapability.HiviewDFX.Hiview.FaultLogger",
     "SystemCapability.HiviewDFX.Hiview.LogLibrary",
     "SystemCapability.HiviewDFX.HiChecker",
-    "SystemCapability.HiviewDFX.HiCollie",
     "SystemCapability.HiviewDFX.HiDumper",
     "SystemCapability.HiviewDFX.HiAppEvent",
     "SystemCapability.HiviewDFX.HiSysEvent",
@@ -158,6 +163,7 @@
     "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
     "SystemCapability.DistributedDataManager.RelationalStore.Synchronize",
+    "SystemCapability.DistributedDataManager.CommonType",
     "SystemCapability.DistributedDataManager.KVStore.Core",
     "SystemCapability.DistributedDataManager.KVStore.DistributedKVStore",
     "SystemCapability.DistributedDataManager.DataObject.DistributedObject",
@@ -185,6 +191,7 @@
     "SystemCapability.Web.Webview.Core",
     "SystemCapability.Cloud.AAID",
     "SystemCapability.Advertising.OAID",
+    "SystemCapability.Advertising.Ads",
     "SystemCapability.Cloud.VAID",
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.Security.CryptoFramework",
@@ -206,6 +213,9 @@
     "SystemCapability.Print.PrintFramework",
     "SystemCapability.Multimedia.Media.AVScreenCapture",
     "SystemCapability.Multimedia.Media.SoundPool",
-    "SystemCapability.Driver.ExternalDevice"
+    "SystemCapability.Driver.ExternalDevice",
+    "SystemCapability.Multimedia.Audio.Spatialization",
+    "SystemCapability.Multimedia.AudioHaptic.Core",
+    "SystemCapability.Graphics.Drawing"
   ]
 }

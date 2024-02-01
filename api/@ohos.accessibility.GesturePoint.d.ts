@@ -14,12 +14,25 @@
  */
 
 /**
+ * @file
+ * @kit AccessibilityKit
+ */
+
+/**
  * Indicates the point of the gesture.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
 export declare class GesturePoint {
+  /**
+   * A constructor used to create a GesturePoint object.
+   *
+   * @param { number } positionX - Indicates the X coordinate of point.
+   * @param { number } positionY - Indicates the Y coordinate of point.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 9
+   */
   constructor(positionX: number, positionY: number);
   /**
    * Indicates the X coordinate of point.

@@ -14,11 +14,46 @@
 */
 
 /**
+ * @file
+ * @kit AVSessionKit
+ */
+
+import { AVCastPickerState } from './@ohos.multimedia.avCastPickerParam';
+
+/**
  * A picker view to show availale streaming device list.
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @since 10
  */
 @Component
 declare struct AVCastPicker {
+  /**
+   * Assigns the color of picker component at normal state .
+   * @type { ? Color | number | string }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @crossplatform
+   * @since 11
+   */
+  @Prop
+  normalColor?: Color | number | string;
+
+  /**
+   * Assigns the color of picker component at active state.
+   * @type { ? Color | number | string }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @crossplatform
+   * @since 11
+   */
+  @Prop
+  activeColor?: Color | number | string;
+
+  /**
+   * Picker state change callback.
+   * @type { ?function }
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @crossplatform
+   * @since 11
+   */
+  onStateChange?: (state: AVCastPickerState) => void;
 }
 export default AVCastPicker;

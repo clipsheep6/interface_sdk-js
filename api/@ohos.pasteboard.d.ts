@@ -12,6 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ * @file
+ * @kit BasicServicesKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
@@ -20,6 +26,14 @@ import image from './@ohos.multimedia.image';
  * systemPasteboard
  * @namespace pasteboard
  * @syscap SystemCapability.MiscServices.Pasteboard
+ * @since 6
+ */
+/**
+ * systemPasteboard
+ * @namespace pasteboard
+ * @syscap SystemCapability.MiscServices.Pasteboard
+ * @atomicservice
+ * @since 11
  */
 declare namespace pasteboard {
   /**
@@ -28,12 +42,26 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 7
    */
+  /**
+   * Indicates the maximum number of records allowed in a PasteData object.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
+   */
   const MAX_RECORD_NUM: number;
   /**
    * Indicates MIME types of HTML text.
    * @constant
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 7
+   */
+  /**
+   * Indicates MIME types of HTML text.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
    */
   const MIMETYPE_TEXT_HTML: string;
   /**
@@ -42,12 +70,26 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 7
    */
+  /**
+   * Indicates MIME types of wants.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
+   */
   const MIMETYPE_TEXT_WANT: string;
   /**
    * Indicates MIME types of plain text.
    * @constant
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 7
+   */
+  /**
+   * Indicates MIME types of plain text.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
    */
   const MIMETYPE_TEXT_PLAIN: string;
   /**
@@ -56,12 +98,26 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 7
    */
+  /**
+   * Indicates MIME types of URIs.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
+   */
   const MIMETYPE_TEXT_URI: string;
   /**
    * Indicates MIME type of PixelMap.
    * @constant
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
+   */
+  /**
+   * Indicates MIME type of PixelMap.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
    */
   const MIMETYPE_PIXELMAP: string;
 
@@ -70,6 +126,12 @@ declare namespace pasteboard {
    * @type { string | image.PixelMap | Want | ArrayBuffer }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
+   */
+  /**
+   * Indicates type of value.
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
    */
   type ValueType = string | image.PixelMap | Want | ArrayBuffer;
 
@@ -126,6 +188,16 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
    */
+  /**
+   * Creates a PasteData object with MIME type and value.
+   * @param { string } mimeType - indicates MIME type of value.
+   * @param { ValueType } value - indicates the content that is set to PasteData.
+   * @returns { PasteData } a new PasteData object which contains mimeType and value.
+   * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
+   */
   function createData(mimeType: string, value: ValueType): PasteData;
 
   /**
@@ -181,6 +253,16 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
    */
+  /**
+   * Creates a record object with MIME type and value.
+   * @param { string } mimeType - indicates MIME type of value.
+   * @param { ValueType } value - content to be saved.
+   * @returns { PasteDataRecord } a new PasteDataRecord object which contains mimeType and value.
+   * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
+   */
   function createRecord(mimeType: string, value: ValueType): PasteDataRecord;
 
   /**
@@ -188,6 +270,13 @@ declare namespace pasteboard {
    * @returns { SystemPasteboard } The system clipboard object
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 6
+   */
+  /**
+   * get SystemPasteboard
+   * @returns { SystemPasteboard } The system clipboard object
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
    */
   function getSystemPasteboard(): SystemPasteboard;
 
@@ -197,11 +286,24 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 9
    */
+  /**
+   * Types of scope that PasteData can be pasted.
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
+   */
   enum ShareOption {
     /**
      * INAPP indicates that only paste in the same app is allowed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
+     */
+    /**
+     * INAPP indicates that only paste in the same app is allowed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     INAPP,
     /**
@@ -209,11 +311,23 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * LOCALDEVICE indicates that paste in any app in this device is allowed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     LOCALDEVICE,
     /**
      * CROSSDEVICE indicates that paste in any app across devices is allowed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
+     */
+    /**
+     * CROSSDEVICE indicates that paste in any app across devices is allowed.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     CROSSDEVICE
   }
@@ -222,13 +336,28 @@ declare namespace pasteboard {
    * Paste data property.
    * @interface PasteDataProperty
    * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 7
+   */
+  /**
+   * Paste data property.
+   * @interface PasteDataProperty
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
    */
   interface PasteDataProperty {
     /**
      * additional property data. key-value pairs.
-     * @type { [key: string]: object }
+     * @type { object }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
+     */
+    /**
+     * additional property data. key-value pairs.
+     * @type { object }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     additions: {
       [key: string]: object
@@ -240,12 +369,27 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
+    /**
+     * non-repeating MIME types of all records in PasteData.
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     readonly mimeTypes: Array<string>;
     /**
      * the user-defined tag of a PasteData object.
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
+     */
+    /**
+     * the user-defined tag of a PasteData object.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     tag: string;
     /**
@@ -255,12 +399,27 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
+    /**
+     * a timestamp, which indicates when data is written to the system pasteboard.
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     readonly timestamp: number;
     /**
      * Checks whether PasteData is set for local access only.
      * @type { boolean }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
+     */
+    /**
+     * Checks whether PasteData is set for local access only.
+     * @type { boolean }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     localOnly: boolean;
     /**
@@ -270,6 +429,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Indicates the scope of clipboard data which can be pasted.
+     * If it is not set or is incorrectly set, The default value is CrossDevice.
+     * @type { ShareOption }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     shareOption: ShareOption;
   }
 
@@ -277,6 +444,14 @@ declare namespace pasteboard {
    * Paste data record.
    * @interface PasteDataRecord
    * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 7
+   */
+  /**
+   * Paste data record.
+   * @interface PasteDataRecord
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
    */
   interface PasteDataRecord {
     /**
@@ -285,12 +460,26 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
+    /**
+     * HTML text in a record.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     htmlText: string;
     /**
      * an want in a record.
      * @type { Want }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
+     */
+    /**
+     * an want in a record.
+     * @type { Want }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     want: Want;
     /**
@@ -299,12 +488,26 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
+    /**
+     * MIME types of a record.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     mimeType: string;
     /**
      * plain text in a record.
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
+     */
+    /**
+     * plain text in a record.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     plainText: string;
     /**
@@ -313,6 +516,13 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
+    /**
+     * an URI in a record.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     uri: string;
     /**
      * PixelMap in a record.
@@ -320,12 +530,26 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * PixelMap in a record.
+     * @type { image.PixelMap }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     pixelMap: image.PixelMap;
     /**
      * Custom data in a record, mimeType indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
      * @type { object }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
+     */
+    /**
+     * Custom data in a record, mimeType indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
+     * @type { object }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     data: {
       [mimeType: string]: ArrayBuffer
@@ -357,6 +581,13 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Converts data in PasteData to text format.
+     * @returns { string } the string returned by the function.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     toPlainText(): string;
   }
 
@@ -364,6 +595,14 @@ declare namespace pasteboard {
    * Classes for paste data.
    * @interface PasteData
    * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 6
+   */
+  /**
+   * Classes for paste data.
+   * @interface PasteData
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
    */
   interface PasteData {
     /**
@@ -391,6 +630,13 @@ declare namespace pasteboard {
      * @param { PasteDataRecord } record - The content of a new record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
+     */
+    /**
+     * Adds a PasteRecord to a PasteData object and updates MIME types in DataProperty.
+     * @param { PasteDataRecord } record - The content of a new record.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     addRecord(record: PasteDataRecord): void;
 
@@ -431,6 +677,15 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 10
      */
+    /**
+     * Adds a record with mimeType and value to a PasteData object.
+     * @param { string } mimeType - indicates the MIME type of value.
+     * @param { ValueType } value - content to be saved.
+     * @throws { BusinessError } 401 - if type of mimeType is not string, or the value can not match the mimeType correctly.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     addRecord(mimeType: string, value: ValueType): void;
 
     /**
@@ -438,6 +693,13 @@ declare namespace pasteboard {
      * @returns { Array<string> } type of array
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
+     */
+    /**
+     * MIME types of all content on the pasteboard.
+     * @returns { Array<string> } type of array
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     getMimeTypes(): Array<string>;
 
@@ -447,13 +709,27 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
+    /**
+     * HTML text of the primary record in a PasteData object.
+     * @returns { string } type of htmltext
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     getPrimaryHtml(): string;
 
     /**
      * the want of the primary record in a PasteData object.
-     * @returns { want } type of want
+     * @returns { Want } type of want
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
+     */
+    /**
+     * the want of the primary record in a PasteData object.
+     * @returns { Want } type of want
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     getPrimaryWant(): Want;
 
@@ -463,6 +739,13 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
+    /**
+     * the MIME type of the primary record in a PasteData object.
+     * @returns { string } type of mimetype
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     getPrimaryMimeType(): string;
 
     /**
@@ -470,6 +753,13 @@ declare namespace pasteboard {
      * @returns { string } type of text
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 6
+     */
+    /**
+     * the plain text of the primary record in a PasteData object.
+     * @returns { string } type of text
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     getPrimaryText(): string;
 
@@ -479,6 +769,13 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
+    /**
+     * the URI of the primary record in a PasteData object.
+     * @returns { string } type of uri
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     getPrimaryUri(): string;
 
     /**
@@ -486,6 +783,13 @@ declare namespace pasteboard {
      * @returns { image.PixelMap } pixelMap
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
+     */
+    /**
+     * Gets the primary PixelMap record in a PasteData object.
+     * @returns { image.PixelMap } pixelMap
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     getPrimaryPixelMap(): image.PixelMap;
 
@@ -495,6 +799,13 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
+    /**
+     * DataProperty of a PasteData object.
+     * @returns { PasteDataProperty } PasteDataProperty type of PasteDataProperty
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     getProperty(): PasteDataProperty;
 
     /**
@@ -503,6 +814,14 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - if type of property is not PasteDataProperty.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
+     */
+    /**
+     * Sets PasteDataProperty to a PasteData object, Modifying shareOption is supported only.
+     * @param { PasteDataProperty } property - save property to PasteData object.
+     * @throws { BusinessError } 401 - if type of property is not PasteDataProperty.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     setProperty(property: PasteDataProperty): void;
 
@@ -526,6 +845,16 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Gets record by index in PasteData.
+     * @param { number } index - indicates the record index in PasteData.
+     * @returns { PasteDataRecord } the record in PasteData with index.
+     * @throws { BusinessError } 401 - if type of index is not number.
+     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     getRecord(index: number): PasteDataRecord;
 
     /**
@@ -534,6 +863,13 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      */
+    /**
+     * the number of records in a PasteData object.
+     * @returns { number } The number of the clipboard contents
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     getRecordCount(): number;
 
     /**
@@ -541,6 +877,13 @@ declare namespace pasteboard {
      * @returns { string } type of tag
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
+     */
+    /**
+     * the user-defined tag of a PasteData object.
+     * @returns { string } type of tag
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     getTag(): string;
 
@@ -563,6 +906,15 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Checks whether there is a specified MIME type of data in DataProperty.
+     * @param { string } mimeType - indicates to query data type.
+     * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
+     * @throws { BusinessError } 401 - if type of path is not string.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     hasType(mimeType: string): boolean;
 
     /**
@@ -583,6 +935,15 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
+     */
+    /**
+     * Removes a Record based on a specified index.
+     * @param { number } index - indicates the record index in PasteData.
+     * @throws { BusinessError } 401 - if type of index is not number.
+     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
      */
     removeRecord(index: number): void;
 
@@ -607,6 +968,16 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Replaces a specified record with a new one.
+     * @param { number } index - indicates the record index in PasteData.
+     * @param { PasteDataRecord } record - the content of a new record.
+     * @throws { BusinessError } 401 - if type of index is not number or type of record is not PasteDataRecord.
+     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     replaceRecord(index: number, record: PasteDataRecord): void;
   }
 
@@ -614,12 +985,20 @@ declare namespace pasteboard {
    * Classes for system pasteboard.
    * @interface SystemPasteboard
    * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 6
+   */
+  /**
+   * Classes for system pasteboard.
+   * @interface SystemPasteboard
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 11
    */
   interface SystemPasteboard {
     /**
      * Callback invoked when pasteboard content changes.
-     * @param { string } type - indicates pasteboard content changed.
-     * @param { () => void } callback - the callback to add.
+     * @param { 'update' } type - indicates pasteboard content changed.
+     * @param { function } callback - the callback to add.
      * @throws { BusinessError } 401 - if type is not string or callback is not () => void.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
@@ -628,8 +1007,8 @@ declare namespace pasteboard {
 
     /**
      * Remove a callback invoked when pasteboard content changes.
-     * @param { string } type - indicates pasteboard content changed.
-     * @param { () => void } [callback] - the callback to remove. If this parameter is not filled in, it indicates that all
+     * @param { 'update' } type - indicates pasteboard content changed.
+     * @param { function } [callback] - the callback to remove. If this parameter is not filled in, it indicates that all
      * callbacks for this application will be cleared. Otherwise, it indicates that the specified callback will be cleared.
      * @throws { BusinessError } 401 - if type is not string or callback is not () => void.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -642,6 +1021,7 @@ declare namespace pasteboard {
      * @returns { boolean } True is remote data, else false.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
      * @since 11
      */
     isRemoteData(): boolean;
@@ -651,6 +1031,7 @@ declare namespace pasteboard {
      * @returns { string } data source.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
      * @since 11
      */
     getDataSource(): string;
@@ -662,6 +1043,7 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - if type is not string.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
      * @since 11
      */
     hasDataType(mimeType: string): boolean;
@@ -693,6 +1075,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Clears the pasteboard.
+     * @param { AsyncCallback<void> } callback - the callback of clearData.
+     * @throws { BusinessError } 401 - if callback is not AsyncCallback<void>.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     clearData(callback: AsyncCallback<void>): void;
 
     /**
@@ -701,12 +1091,20 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Clears the pasteboard.
+     * @returns { Promise<void> } the promise returned by the clearData.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     clearData(): Promise<void>;
 
     /**
      * Clears the pasteboard.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
      * @since 11
      */
     clearDataSync(): void;
@@ -739,6 +1137,15 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Gets pastedata from the system pasteboard.
+     * @param { AsyncCallback<PasteData> } callback - the callback of getData.
+     * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<PasteData>.
+     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     getData(callback: AsyncCallback<PasteData>): void;
 
     /**
@@ -748,6 +1155,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Gets pastedata from the system pasteboard.
+     * @returns { Promise<PasteData> } the promise returned by the getData.
+     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     getData(): Promise<PasteData>;
 
     /**
@@ -755,6 +1170,7 @@ declare namespace pasteboard {
      * @returns { PasteData }  a new PasteData.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
      * @since 11
      */
     getDataSync(): PasteData;
@@ -786,6 +1202,14 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Checks whether there is content in the system pasteboard.
+     * @param { AsyncCallback<boolean> } callback - the callback of hasData.
+     * @throws { BusinessError } 401 - if type of callback is not AsyncCallback<boolean>.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     hasData(callback: AsyncCallback<boolean>): void;
 
     /**
@@ -794,6 +1218,13 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Checks whether there is content in the system pasteboard.
+     * @returns { Promise<boolean> } the promise returned by the function.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     hasData(): Promise<boolean>;
 
     /**
@@ -801,6 +1232,7 @@ declare namespace pasteboard {
      * @returns { boolean } True exists, false does not exist.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
      * @since 11
      */
     hasDataSync(): boolean;
@@ -837,6 +1269,17 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Writes PasteData to the system pasteboard.
+     * @param { PasteData } data - PasteData will be written to the clipboard
+     * @param { AsyncCallback<void> } callback - the callback of setData.
+     * @throws { BusinessError } 401 - if type of data is not PasteData or type of callback is not AsyncCallback<void>.
+     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900004 - Replication is prohibited.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     setData(data: PasteData, callback: AsyncCallback<void>): void;
 
     /**
@@ -849,6 +1292,17 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 9
      */
+    /**
+     * Writes PasteData to the system pasteboard.
+     * @param { PasteData } data - PasteData will be written to the clipboard.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - if type of data is not PasteData.
+     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900004 - Replication is prohibited.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
     setData(data: PasteData): Promise<void>;
 
     /**
@@ -857,6 +1311,7 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - if type of data is not PasteData.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
      * @since 11
      */
     setDataSync(data: PasteData): void;

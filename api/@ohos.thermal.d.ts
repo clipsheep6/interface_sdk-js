@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit BasicServicesKit
+ */
+
 import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 
 /**
@@ -80,13 +85,21 @@ declare namespace thermal {
      */
     WARNING = 5,
     /**
-     * The device has entered the emergency state. You need to stop all services except those
-     * for the emergency help purposes.
+     * The device has entered the emergency state. The supply of equipment resources has been
+     * minimized, leaving only the basic functions available.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8
      */
-    EMERGENCY = 6
+    EMERGENCY = 6,
+    /**
+     * The device is about to enter a thermal escape state. All abilities will be forcibly 
+     * stopped, you need to implement escape measures.
+     *
+     * @syscap SystemCapability.PowerManager.ThermalManager
+     * @since 11
+     */
+    ESCAPE = 7
   }
 
   /**

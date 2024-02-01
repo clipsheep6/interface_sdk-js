@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
 
 /**
@@ -30,6 +35,15 @@ import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
  * @crossplatform
  * @since 10
  */
+/**
+ * configuration item.
+ *
+ * @typedef Configuration
+ * @syscap SystemCapability.Ability.AbilityBase
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export interface Configuration {
   /**
    * Indicates the current language of the application.
@@ -37,6 +51,14 @@ export interface Configuration {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
+   */
+  /**
+   * Indicates the current language of the application.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 11
    */
   language?: string;
 
@@ -55,6 +77,15 @@ export interface Configuration {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Indicates the current colorMode of the application.
+   *
+   * @type { ?ConfigurationConstant.ColorMode }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   colorMode?: ConfigurationConstant.ColorMode;
 
   /**
@@ -72,6 +103,15 @@ export interface Configuration {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Indicates the screen direction of the current device.
+   *
+   * @type { ?ConfigurationConstant.Direction }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   direction?: ConfigurationConstant.Direction;
 
   /**
@@ -80,6 +120,14 @@ export interface Configuration {
    * @type { ?ConfigurationConstant.ScreenDensity }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
+   */
+  /**
+   * Indicates the screen density of the current device.
+   *
+   * @type { ?ConfigurationConstant.ScreenDensity }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 11
    */
   screenDensity?: ConfigurationConstant.ScreenDensity;
 
@@ -90,6 +138,14 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
    */
+  /**
+   * Indicates the displayId of the current device.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 11
+   */
   displayId?: number;
 
   /**
@@ -98,6 +154,14 @@ export interface Configuration {
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 9
+   */
+  /**
+   * Indicates whether a pointer type device has connected.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @atomicservice
+   * @since 11
    */
   hasPointerDevice?: boolean;
 }

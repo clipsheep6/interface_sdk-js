@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import Ability from './@ohos.app.ability.Ability';
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import UIAbilityContext from './application/UIAbilityContext';
@@ -223,6 +228,16 @@ export interface Callee {
  * @crossplatform
  * @since 10
  */
+/**
+ * The class of a UI ability.
+ *
+ * @extends Ability
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export default class UIAbility extends Ability {
   /**
    * Indicates configuration information about an ability context.
@@ -241,6 +256,16 @@ export default class UIAbility extends Ability {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Indicates configuration information about an ability context.
+   *
+   * @type { UIAbilityContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   context: UIAbilityContext;
 
   /**
@@ -251,6 +276,15 @@ export default class UIAbility extends Ability {
    * @StageModelOnly
    * @since 9
    */
+  /**
+   * Indicates ability launch want.
+   *
+   * @type { Want }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   launchWant: Want;
 
   /**
@@ -260,6 +294,15 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Indicates ability last request want.
+   *
+   * @type { Want }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   lastRequestWant: Want;
 
@@ -292,6 +335,17 @@ export default class UIAbility extends Ability {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called back when an ability is started for initialization.
+   *
+   * @param { Want } want - Indicates the want info of the created ability.
+   * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch param.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
   /**
@@ -311,6 +365,16 @@ export default class UIAbility extends Ability {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called back when an ability window stage is created.
+   *
+   * @param { window.WindowStage } windowStage - Indicates the created WindowStage.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onWindowStageCreate(windowStage: window.WindowStage): void;
 
   /**
@@ -328,6 +392,15 @@ export default class UIAbility extends Ability {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called back when an ability window stage is destroyed.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onWindowStageDestroy(): void;
 
   /**
@@ -337,6 +410,15 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Called back when an ability window stage is restored.
+   *
+   * @param { window.WindowStage } windowStage - window stage to restore
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   onWindowStageRestore(windowStage: window.WindowStage): void;
 
@@ -357,6 +439,16 @@ export default class UIAbility extends Ability {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called back before an ability is destroyed.
+   *
+   * @returns { void | Promise<void> } the promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onDestroy(): void | Promise<void>;
 
   /**
@@ -373,6 +465,15 @@ export default class UIAbility extends Ability {
    * @StageModelOnly
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called back when the state of an ability changes to foreground.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   onForeground(): void;
 
@@ -391,6 +492,15 @@ export default class UIAbility extends Ability {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called back when the state of an ability changes to background.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onBackground(): void;
 
   /**
@@ -402,7 +512,17 @@ export default class UIAbility extends Ability {
    * @StageModelOnly
    * @since 9
    */
-  onContinue(wantParam: { [key: string]: Object }): AbilityConstant.OnContinueResult;
+  /**
+   * Called back when an ability prepares to continue.
+   *
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
+  onContinue(wantParam: Record<string, Object>): AbilityConstant.OnContinueResult;
 
   /**
    * Called when the launch mode of an ability is set to singleton.
@@ -425,6 +545,18 @@ export default class UIAbility extends Ability {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the launch mode of an ability is set to singleton.
+   * This happens when you re-launch an ability that has been at the top of the ability stack.
+   *
+   * @param { Want } want - Indicates the want info of ability.
+   * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch parameters.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
   /**
@@ -436,6 +568,17 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
+   */
+  /**
+   * Called when dump client information is required.
+   * It is recommended that developers don't DUMP sensitive information.
+   *
+   * @param { Array<string> } params - Indicates the params from command.
+   * @returns { Array<string> } Return the dump info array.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   onDump(params: Array<string>): Array<string>;
 
@@ -450,7 +593,19 @@ export default class UIAbility extends Ability {
    * @StageModelOnly
    * @since 9
    */
-  onSaveState(reason: AbilityConstant.StateType, wantParam: { [key: string]: Object }): AbilityConstant.OnSaveResult;
+  /**
+   * Called back when an ability prepares to save.
+   *
+   * @param { AbilityConstant.StateType } reason - state type when save.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @returns { AbilityConstant.OnSaveResult } agree with the current UIAbility status or not.return 0 if ability
+   *                                           agrees to save data successfully, otherwise errcode.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
+  onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, Object>): AbilityConstant.OnSaveResult;
 
   /**
    * Called back when an ability shares data.
@@ -460,7 +615,16 @@ export default class UIAbility extends Ability {
    * @StageModelOnly
    * @since 10
    */
-  onShare(wantParam: { [key: string]: Object }): void;
+  /**
+   * Called back when an ability shares data.
+   *
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
+  onShare(wantParam: Record<string, Object>): void;
 
   /**
    * Called back when an ability prepare to terminate.
@@ -472,6 +636,17 @@ export default class UIAbility extends Ability {
    * @StageModelOnly
    * @since 10
    */
+  /**
+   * Called back when an ability prepare to terminate.
+   *
+   * @permission ohos.permission.PREPARE_APP_TERMINATE
+   * @returns { boolean } Returns {@code true} if the ability need to top terminating; returns {@code false} if the
+   *          ability need to terminate.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
+   */
   onPrepareToTerminate(): boolean;
 
   /**
@@ -482,6 +657,16 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 10
+   */
+  /**
+   * Called back when back press is dispatched.
+   *
+   * @returns { boolean } Returns {@code true} means the ability will move to background when back is pressed;
+   *          Returns {@code false} means the ability will be destroyed when back is pressed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 11
    */
   onBackPressed(): boolean;
 }

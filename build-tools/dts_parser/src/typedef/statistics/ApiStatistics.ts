@@ -36,6 +36,8 @@ export class ApiStatisticsInfo {
   isForm: boolean = false;
   // @crossplatform标签--api是否支持跨平台
   isCrossPlatForm: boolean = false;
+  // @atomicservice标签--是否为高阶API
+  isAutomicService: boolean = false;
   hierarchicalRelations: string = '';
   apiName: string = '';
   deprecatedVersion: string = '';
@@ -46,6 +48,8 @@ export class ApiStatisticsInfo {
   isSystemapi: boolean = false;
   modelLimitation: string = '';
   decorators: Array<string> | undefined = [];
+  errorCodes: number[] = [];
+  kitInfo: string = '';
   setFilePath(fileFilePath: string): ApiStatisticsInfo {
     this.filePath = fileFilePath;
     this.packageName = FunctionUtils.getPackageName(fileFilePath);
@@ -119,6 +123,15 @@ export class ApiStatisticsInfo {
 
   getIsCrossPlatForm(): boolean {
     return this.isCrossPlatForm;
+  }
+
+  setIsAutomicService(isAutomicService: boolean): ApiStatisticsInfo {
+    this.isAutomicService = isAutomicService;
+    return this;
+  }
+
+  getIsAutomicService(): boolean {
+    return this.isAutomicService;
   }
 
   getApiType(): string {
@@ -206,6 +219,24 @@ export class ApiStatisticsInfo {
 
   getDecorators(): Array<string> | undefined {
     return this.decorators;
+  }
+
+  setErrorCodes(errorCodes: number[]): ApiStatisticsInfo {
+    this.errorCodes = errorCodes;
+    return this;
+  }
+
+  getErrorCodes(): number[] {
+    return this.errorCodes;
+  }
+
+  setKitInfo(kitInfo: string): ApiStatisticsInfo {
+    this.kitInfo = kitInfo;
+    return this;
+  }
+
+  getKitInfo(): string {
+    return this.kitInfo;
   }
 }
 

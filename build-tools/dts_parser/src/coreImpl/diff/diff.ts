@@ -16,7 +16,13 @@
 import _ from 'lodash';
 import ts from 'typescript';
 import { StringConstant } from '../../utils/Constant';
-import { ApiInfo, BasicApiInfo, ContainerApiInfo, containerApiTypes } from '../../typedef/parser/ApiInfoDefination';
+import {
+  ApiInfo,
+  ApiType,
+  BasicApiInfo,
+  ContainerApiInfo,
+  containerApiTypes,
+} from '../../typedef/parser/ApiInfoDefination';
 import { ApiDiffType, ApiStatusCode, BasicDiffInfo, DiffTypeInfo } from '../../typedef/diff/ApiInfoDiff';
 import { ApiInfosMap, FileInfoMap, FilesMap, Parser } from '../parser/parser';
 import { apiStatisticsType } from '../../typedef/statistics/ApiStatistics';
@@ -33,12 +39,13 @@ export class DiffHelper {
    * @param { FilesMap } newSDKApiMap 新版本SDK解析后的结果
    * @returns { BasicDiffInfo[] } 差异结果集
    */
-  static diffSDK(oldSDKApiMap: FilesMap, newSDKApiMap: FilesMap): BasicDiffInfo[] {
+  static diffSDK(oldSDKApiMap: FilesMap, newSDKApiMap: FilesMap, isCheck?: boolean): BasicDiffInfo[] {
     const clonedOldSDKApiMap: FilesMap = _.cloneDeep(oldSDKApiMap);
     const clonedNewSDKApiMap: FilesMap = _.cloneDeep(newSDKApiMap);
     const diffInfos: BasicDiffInfo[] = [];
-    const oldSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedOldSDKApiMap);
-    const newSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedNewSDKApiMap);
+    const oldSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedOldSDKApiMap, isCheck);
+    const newSDKApiLocations: Map<string, string[]> = DiffHelper.getApiLocations(clonedNewSDKApiMap, isCheck);
+    DiffHelper.diffKit(clonedOldSDKApiMap, clonedNewSDKApiMap, diffInfos);
     // 先以旧版本为基础进行对比
     for (const key of oldSDKApiLocations.keys()) {
       const apiLocation: string[] = oldSDKApiLocations.get(key) as string[];
@@ -58,7 +65,7 @@ export class DiffHelper {
       }
       // 新旧版本均存在，则进行对比
       const newApiInfos: ApiInfo[] = Parser.getApiInfo(apiLocation, clonedNewSDKApiMap) as ApiInfo[];
-      DiffHelper.diffApis(oldApiInfos, newApiInfos, diffInfos);
+      DiffHelper.diffApis(oldApiInfos, newApiInfos, diffInfos, isCheck);
       // 对比完则将新版本中的对应API进行删除
       newSDKApiLocations.delete(key);
     }
@@ -79,6 +86,63 @@ export class DiffHelper {
     return diffInfos;
   }
 
+  static diffKit(clonedOldSDKApiMap: FilesMap, clonedNewSDKApiMap: FilesMap, diffInfos: BasicDiffInfo[]): void {
+    for (const key of clonedOldSDKApiMap.keys()) {
+      const oldSourceFileInfo: ApiInfo | undefined = DiffHelper.getSourceFileInfo(clonedOldSDKApiMap.get(key));
+      oldSourceFileInfo?.setSyscap(DiffHelper.getSyscapField(oldSourceFileInfo));
+      const oldKitInfo: string | undefined = oldSourceFileInfo?.getLastJsDocInfo()?.getKit();
+      //文件在新版本中被删除
+      if (!clonedNewSDKApiMap.get(key) && oldKitInfo) {
+        diffInfos.push(
+          DiffProcessorHelper.wrapDiffInfo(
+            oldSourceFileInfo,
+            undefined,
+            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, oldKitInfo, 'NA')
+          )
+        );
+      } else if (clonedNewSDKApiMap.get(key)) {
+        const newSourceFileInfo: ApiInfo | undefined = DiffHelper.getSourceFileInfo(clonedNewSDKApiMap.get(key));
+        const newKitInfo: string | undefined = newSourceFileInfo?.getLastJsDocInfo()?.getKit();
+        if (oldKitInfo !== newKitInfo) {
+          diffInfos.push(
+            DiffProcessorHelper.wrapDiffInfo(
+              oldSourceFileInfo,
+              newSourceFileInfo,
+              new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, oldKitInfo, newKitInfo)
+            )
+          );
+        }
+      }
+    }
+
+    for (const key of clonedNewSDKApiMap.keys()) {
+      const newSourceFileInfo: ApiInfo | undefined = DiffHelper.getSourceFileInfo(clonedNewSDKApiMap.get(key));
+      const newKitInfo: string | undefined = newSourceFileInfo?.getLastJsDocInfo()?.getKit();
+      if (!clonedOldSDKApiMap.get(key) && newKitInfo) {
+        diffInfos.push(
+          DiffProcessorHelper.wrapDiffInfo(
+            undefined,
+            newSourceFileInfo,
+            new DiffTypeInfo(ApiStatusCode.KIT_CHANGE, ApiDiffType.KIT_CHANGE, 'NA', newKitInfo)
+          )
+        );
+      }
+    }
+  }
+
+  static getSourceFileInfo(fileMap: FileInfoMap | undefined): ApiInfo | undefined {
+    if (!fileMap) {
+      return undefined;
+    }
+    let sourceFileInfos: ApiInfo[] = [];
+    for (const apiKey of fileMap.keys()) {
+      if (apiKey === StringConstant.SELF) {
+        sourceFileInfos = fileMap.get(apiKey) as ApiInfo[];
+      }
+    }
+    return sourceFileInfos[0];
+  }
+
   /**
    * 对比新旧版本API差异，类型为数组是由于同名函数的存在，因此统一为数组方便处理
    *
@@ -86,7 +150,7 @@ export class DiffHelper {
    * @param { ApiInfo[] } newApiInfos 新版本API信息
    * @param { BasicDiffInfo[] } diffInfos api差异结果集
    */
-  static diffApis(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[], diffInfos: BasicDiffInfo[]): void {
+  static diffApis(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[], diffInfos: BasicDiffInfo[], isCheck?: boolean): void {
     const diffSets: Map<string, ApiInfo>[] = DiffHelper.getDiffSet(oldApiInfos, newApiInfos);
     const oldReduceNewMap: Map<string, ApiInfo> = diffSets[0];
     const newReduceOldMap: Map<string, ApiInfo> = diffSets[1];
@@ -114,16 +178,21 @@ export class DiffHelper {
       });
       return;
     }
-    DiffHelper.diffSameNumberFunction(oldApiInfos, newApiInfos, diffInfos);
+    DiffHelper.diffSameNumberFunction(oldApiInfos, newApiInfos, diffInfos, isCheck);
   }
 
-  static diffSameNumberFunction(oldApiInfos: ApiInfo[], newApiInfos: ApiInfo[], diffInfos: BasicDiffInfo[]): void {
+  static diffSameNumberFunction(
+    oldApiInfos: ApiInfo[],
+    newApiInfos: ApiInfo[],
+    diffInfos: BasicDiffInfo[],
+    isCheck?: boolean
+  ): void {
     if (oldApiInfos.length === newApiInfos.length) {
       const apiNumber: number = oldApiInfos.length;
       for (let i = 0; i < apiNumber; i++) {
         DiffProcessorHelper.JsDocDiffHelper.diffJsDocInfo(oldApiInfos[i], newApiInfos[i], diffInfos);
         DiffProcessorHelper.ApiDecoratorsDiffHelper.diffDecorator(oldApiInfos[i], newApiInfos[i], diffInfos);
-        DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldApiInfos[i], newApiInfos[i], diffInfos);
+        DiffProcessorHelper.ApiNodeDiffHelper.diffNodeInfo(oldApiInfos[i], newApiInfos[i], diffInfos, isCheck);
       }
     } else {
       const methodInfoMap: Map<string, ApiInfo> = DiffHelper.setmethodInfoMap(newApiInfos);
@@ -191,16 +260,16 @@ export class DiffHelper {
     });
   }
 
-  static getApiLocations(apiMap: FilesMap): Map<string, string[]> {
+  static getApiLocations(apiMap: FilesMap, isCheck?: boolean): Map<string, string[]> {
     const apiLocations: Map<string, string[]> = new Map();
     for (const filePath of apiMap.keys()) {
       const fileMap: FileInfoMap = apiMap.get(filePath) as FileInfoMap;
-      DiffHelper.processFileApiMap(fileMap, apiLocations);
+      DiffHelper.processFileApiMap(fileMap, apiLocations, isCheck);
     }
     return apiLocations;
   }
 
-  static processFileApiMap(fileMap: FileInfoMap, apiLocations: Map<string, string[]>): void {
+  static processFileApiMap(fileMap: FileInfoMap, apiLocations: Map<string, string[]>, isCheck?: boolean): void {
     for (const apiKey of fileMap.keys()) {
       if (apiKey === StringConstant.SELF) {
         continue;
@@ -208,12 +277,20 @@ export class DiffHelper {
       const apiInfoMap: ApiInfosMap = fileMap.get(apiKey) as ApiInfosMap;
       const apiInfos: BasicApiInfo[] = apiInfoMap.get(StringConstant.SELF) as BasicApiInfo[];
       apiInfos.forEach((apiInfo: BasicApiInfo) => {
-        DiffHelper.processApiInfo(apiInfo, apiLocations);
+        DiffHelper.processApiInfo(apiInfo, apiLocations, isCheck);
       });
     }
   }
 
-  static processApiInfo(basicApiInfo: BasicApiInfo, apiLocations: Map<string, string[]>): void {
+  static processApiInfo(basicApiInfo: BasicApiInfo, apiLocations: Map<string, string[]>, isCheck?: boolean): void {
+    const apiNode: ts.Node | undefined = basicApiInfo.getNode();
+    if (isCheck) {
+      const jsDocText: string | undefined = apiNode?.getFullText().replace(apiNode.getText(), '');
+      if (jsDocText) {
+        basicApiInfo.setJsDocText(jsDocText);
+      }
+    }
+
     basicApiInfo.setSyscap(DiffHelper.getSyscapField(basicApiInfo));
     basicApiInfo.setParentApi(undefined);
 
@@ -232,16 +309,30 @@ export class DiffHelper {
     }
     const containerApiInfo: ContainerApiInfo = apiInfo as ContainerApiInfo;
     containerApiInfo.getChildApis().forEach((childApiInfo: BasicApiInfo) => {
-      DiffHelper.processApiInfo(childApiInfo, apiLocations);
+      DiffHelper.processApiInfo(childApiInfo, apiLocations, isCheck);
     });
   }
 
   static getSyscapField(apiInfo: BasicApiInfo): string {
+    if (apiInfo.getApiType() === ApiType.SOURCE_FILE) {
+      const sourceFileContent: string = apiInfo.getNode()?.getFullText() as string;
+      let syscap = '';
+      if (/\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g.test(sourceFileContent)) {
+        sourceFileContent.replace(
+          /\@[S|s][Y|y][S|s][C|c][A|a][P|p]\s*((\w|\.|\/|\{|\@|\}|\s)+)/g,
+          (sysCapInfo: string, args:[]) => {
+            syscap = sysCapInfo.replace(/\@[S|s][Y|y][S|s][C|c][A|a][P|p]/g, '').trim();
+            return syscap;
+          }
+        );
+      }
+      return FunctionUtils.handleSyscap(syscap);
+    }
     if (notJsDocApiTypes.has(apiInfo.getApiType())) {
       return '';
     }
     const clonedApiInfo: ApiInfo = apiInfo as ApiInfo;
-    const latestJsDocInfo: Comment.JsDocInfo | undefined = clonedApiInfo.getLatestJsDocInfo();
+    const latestJsDocInfo: Comment.JsDocInfo | undefined = clonedApiInfo.getLastJsDocInfo();
     if (!latestJsDocInfo) {
       return DiffHelper.searchSyscapFieldInParent(clonedApiInfo);
     }

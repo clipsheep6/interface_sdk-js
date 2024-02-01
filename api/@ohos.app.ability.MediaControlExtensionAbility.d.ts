@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AVSessionKit
+ */
+
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
 
 /**

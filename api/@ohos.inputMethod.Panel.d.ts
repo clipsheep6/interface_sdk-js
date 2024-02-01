@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit IMEKit
+ */
+
+/**
  * Panel information.
  *
  * @typedef PanelInfo

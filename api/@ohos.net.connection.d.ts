@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit NetworkKit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type http from './@ohos.net.http';
 import type socket from './@ohos.net.socket';
@@ -30,15 +35,65 @@ import type socket from './@ohos.net.socket';
  * @crossplatform
  * @since 10
  */
+/**
+ * Provides interfaces to manage and use data networks.
+ * @namespace connection
+ * @syscap SystemCapability.Communication.NetManager.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare namespace connection {
+  /**
+   * Get an HTTP request task.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 8
+   */
+  /**
+   * Get an HTTP request task.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Get an HTTP request task.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   type HttpRequest = http.HttpRequest;
+
+  /**
+   * Get a TCPSocket object.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 8
+   */
+  /**
+   * Get a TCPSocket object.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 10
+   */
   type TCPSocket = socket.TCPSocket;
+
+  /**
+   * Get a UDPSocket object.
+   * @syscap SystemCapability.Communication.NetStack
+   * @since 8
+   */
+  /**
+   * Get a UDPSocket object.
+   * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
+   * @since 10
+   */
   type UDPSocket = socket.UDPSocket;
 
   /**
    * Create a network connection with optional netSpecifier and timeout.
-   * @param { NetSpecifier } netSpecifier - Indicates the network specifier. See {@link NetSpecifier}.
-   * @param { number } timeout - The time in milliseconds to attempt looking for a suitable network before
+   * @param { NetSpecifier } [netSpecifier] - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } [timeout] - The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -46,13 +101,24 @@ declare namespace connection {
    */
   /**
    * Create a network connection with optional netSpecifier and timeout.
-   * @param { NetSpecifier } netSpecifier - Indicates the network specifier. See {@link NetSpecifier}.
-   * @param { number } timeout - The time in milliseconds to attempt looking for a suitable network before
+   * @param { NetSpecifier } [netSpecifier] - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } [timeout] - The time in milliseconds to attempt looking for a suitable network before
    * {@link NetConnection#netUnavailable} is called.
    * @returns { NetConnection } the NetConnection of the NetSpecifier.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Create a network connection with optional netSpecifier and timeout.
+   * @param { NetSpecifier } [netSpecifier] - Indicates the network specifier. See {@link NetSpecifier}.
+   * @param { number } [timeout] - The time in milliseconds to attempt looking for a suitable network before
+   * {@link NetConnection#netUnavailable} is called.
+   * @returns { NetConnection } the NetConnection of the NetSpecifier.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function createNetConnection(netSpecifier?: NetSpecifier, timeout?: number): NetConnection;
 
@@ -68,6 +134,19 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8
    */
+  /**
+   * Obtains the data network that is activated by default.
+   * To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { AsyncCallback<NetHandle> } callback - the callback of getDefaultNet.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 11
+   */
   function getDefaultNet(callback: AsyncCallback<NetHandle>): void;
 
   /**
@@ -82,6 +161,19 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8
    */
+  /**
+   * Obtains the data network that is activated by default.
+   * To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns { Promise<NetHandle> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 11
+   */
   function getDefaultNet(): Promise<NetHandle>;
 
   /**
@@ -95,6 +187,19 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 9
+   */
+  /**
+   * Obtains the data network that is activated by default.
+   * To call this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns { NetHandle } if the default network is not activated.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 11
    */
   function getDefaultNetSync(): NetHandle;
 
@@ -202,6 +307,21 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8
    */
+  /**
+   * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
+   * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { NetHandle } netHandle - Indicates the handle. See {@link NetHandle}.
+   * @param { AsyncCallback<NetCapabilities> } callback - the callback of getNetCapabilities.{@link NetCapabilities}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 11
+   */
   function getNetCapabilities(netHandle: NetHandle, callback: AsyncCallback<NetCapabilities>): void;
 
   /**
@@ -218,6 +338,21 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8
    */
+  /**
+   * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
+   * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { NetHandle } netHandle - Indicates the handle. See {@link NetHandle}.
+   * @returns { Promise<NetCapabilities> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 11
+   */
   function getNetCapabilities(netHandle: NetHandle): Promise<NetCapabilities>;
 
   /**
@@ -233,6 +368,21 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
+   */
+  /**
+   * Obtains {@link NetCapabilities} of a {@link NetHandle} object.
+   * To invoke this method, you must have the {@code ohos.permission.GET_NETWORK_INFO} permission.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { NetHandle } netHandle - Indicates the handle. See {@link NetHandle}.
+   * @returns { NetCapabilities } Returns the connection capabilities of a network.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 11
    */
   function getNetCapabilitiesSync(netHandle: NetHandle): NetCapabilities;
 
@@ -566,6 +716,7 @@ declare namespace connection {
   /**
    * Obtains the default {@link HttpProxy} proxy settings.
    *
+   * If an application level proxy is set, the application level proxy parameters are returned.
    * If a global proxy is set, the global proxy parameters are returned.
    * If the process is bound to a {@link NetHandle} using {@link setAppNet}, the {@link NetHandle} proxy settings are returned.
    * In other cases, the proxy settings of default network are returned.
@@ -581,6 +732,7 @@ declare namespace connection {
   /**
    * Obtains the default {@link HttpProxy} proxy settings.
    *
+   * If an application level proxy is set, the application level proxy parameters are returned.
    * If a global proxy is set, the global proxy parameters are returned.
    * If the process is bound to a {@link NetHandle} using {@link setAppNet}, the {@link NetHandle} proxy settings are returned.
    * In other cases, the proxy settings of default network are returned.
@@ -620,6 +772,16 @@ declare namespace connection {
   function getGlobalHttpProxy(): Promise<HttpProxy>;
 
   /**
+   * Set application level http proxy {@link HttpProxy}.
+   * @param { HttpProxy } httpProxy - Indicates the application level proxy settings. For details, see {@link HttpProxy}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid http proxy.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function setAppHttpProxy(httpProxy: HttpProxy): void;
+
+  /**
    * Set a network independent global {@link HttpProxy} proxy settings.
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @param { HttpProxy } httpProxy - Indicates the global proxy settings. For details, see {@link HttpProxy}.
@@ -654,6 +816,113 @@ declare namespace connection {
   function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
 
   /**
+   * Add a custom {@link host} and corresponding {@link ip} mapping for current application.
+   * @permission ohos.permission.INTERNET
+   * @param { string } host - Indicates the host name or the domain.
+   * @param { Array<string> } ip - List of IP addresses mapped to the host name.
+   * @param { AsyncCallback<void> } callback - Returns the callback of addCustomDnsRule.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function addCustomDnsRule(host: string, ip: Array<string>, callback: AsyncCallback<void>): void;
+
+  /**
+   * Add a custom {@link host} and corresponding {@link ip} mapping for current application.
+   * @permission ohos.permission.INTERNET
+   * @param { string } host - Indicates the host name or the domain.
+   * @param { Array<string> } ip - List of IP addresses mapped to the host name.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function addCustomDnsRule(host: string, ip: Array<string>): Promise<void>;
+
+  /**
+   * Remove the custom DNS rule of the {@link host} for current application.
+   * @permission ohos.permission.INTERNET
+   * @param { string } host - Indicates the host name or the domain.
+   * @param { AsyncCallback<void> } callback - Returns the callback of removeCustomDnsRule.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function removeCustomDnsRule(host: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Remove the custom DNS rule of the {@link host} for current application.
+   * @permission ohos.permission.INTERNET
+   * @param { string } host - Indicates the host name or the domain.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function removeCustomDnsRule(host: string): Promise<void>;
+
+  /**
+   * Clear all custom DNS rules for current application.
+   * @permission ohos.permission.INTERNET
+   * @param { AsyncCallback<void> } callback - Returns the callback of clearCustomDnsRules.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function clearCustomDnsRules(callback: AsyncCallback<void>): void;
+
+  /**
+   * Clear all custom DNS rules for current application.
+   * @permission ohos.permission.INTERNET
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  function clearCustomDnsRules(): Promise<void>;
+
+  /**
+   * factory reset network settings
+   *
+   * To invoke this method, you must have the {@code ohos.permission.CONNECTIVITY_INTERNAL} permission.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
+   * @since 11
+   */
+  function factoryReset(): Promise<void>;
+
+  /**
    * Represents the network connection handle.
    * @interface NetConnection
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -665,6 +934,14 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Represents the network connection handle.
+   * @interface NetConnection
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   export interface NetConnection {
     /**
@@ -682,6 +959,15 @@ declare namespace connection {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Registers a listener for netAvailable events.
+     * @param { 'netAvailable' } type - Indicates Event name.
+     * @param { Callback<NetHandle> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
 
     /**
@@ -691,7 +977,14 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
-    on(type: 'netBlockStatusChange', callback: Callback<{ netHandle: NetHandle, blocked: boolean }>): void;
+    /**
+     * Registers a listener for netBlockStatusChange events.
+     * @param { 'netBlockStatusChange' } type - Indicates Event name.
+     * @param { Callback<NetBlockStatusInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
+     */
+    on(type: 'netBlockStatusChange', callback: Callback<NetBlockStatusInfo>): void;
 
     /**
      * Registers a listener for **netCapabilitiesChange** events.
@@ -707,6 +1000,15 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Registers a listener for **netCapabilitiesChange** events.
+     * @param { 'netCapabilitiesChange' } type - Indicates Event name.
+     * @param { Callback<NetCapabilityInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     on(type: 'netCapabilitiesChange', callback: Callback<NetCapabilityInfo>): void;
 
@@ -717,7 +1019,14 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
-    on(type: 'netConnectionPropertiesChange', callback: Callback<{ netHandle: NetHandle, connectionProperties: ConnectionProperties }>): void;
+    /**
+     * Registers a listener for netConnectionPropertiesChange events.
+     * @param { 'netConnectionPropertiesChange' } type - Indicates Event name.
+     * @param { Callback<NetConnectionPropertyInfo> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
+     */
+    on(type: 'netConnectionPropertiesChange', callback: Callback<NetConnectionPropertyInfo>): void;
 
     /**
      * Registers a listener for **netLost** events.
@@ -733,6 +1042,15 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Registers a listener for **netLost** events.
+     * @param { 'netLost' } type - Indicates Event name.
+     * @param { Callback<NetHandle> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     on(type: 'netLost', callback: Callback<NetHandle>): void;
 
@@ -750,6 +1068,15 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Registers a listener for netUnavailable events.
+     * @param { 'netUnavailable' } type - Indicates Event name.
+     * @param { Callback<void> } callback - the callback used to return the result.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     on(type: 'netUnavailable', callback: Callback<void>): void;
 
@@ -780,6 +1107,21 @@ declare namespace connection {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Receives status change notifications of a specified network.
+     * @permission ohos.permission.GET_NETWORK_INFO
+     * @param { AsyncCallback<void> } callback - the callback of register.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2100003 - System internal error.
+     * @throws { BusinessError } 2101008 - The same callback exists.
+     * @throws { BusinessError } 2101022 - The number of requests exceeded the maximum.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     register(callback: AsyncCallback<void>): void;
 
     /**
@@ -805,6 +1147,19 @@ declare namespace connection {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Cancels listening for network status changes.
+     * @param { AsyncCallback<void> } callback - the callback of unregister.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2100002 - Operation failed. Cannot connect to service.
+     * @throws { BusinessError } 2100003 - System internal error.
+     * @throws { BusinessError } 2101007 - The callback is not exists.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     unregister(callback: AsyncCallback<void>): void;
   }
 
@@ -814,12 +1169,26 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8
    */
+  /**
+   * Provides an instance that bear data network capabilities.
+   * @interface NetSpecifier
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 11
+   */
   export interface NetSpecifier {
     /**
      * The transmission capacity and support of the network's global proxy storage data network.
      * @type {NetCapabilities}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
+     */
+    /**
+     * The transmission capacity and support of the network's global proxy storage data network.
+     * @type {NetCapabilities}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
      */
     netCapabilities: NetCapabilities;
 
@@ -828,6 +1197,13 @@ declare namespace connection {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
+     */
+    /**
+     * Network identifier, the identifier for Wi Fi networks is "wifi", and the identifier for cellular networks is "simId1" (corresponding to SIM card 1).
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
      */
     bearerPrivateIdentifier?: string;
   }
@@ -839,6 +1215,14 @@ declare namespace connection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Receive information about changes in network capabilities.
+   * @interface NetCapabilityInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export interface NetCapabilityInfo {
     /**
      * Defines the handle of the data network.
@@ -846,6 +1230,14 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Defines the handle of the data network.
+     * @type { NetHandle }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     netHandle: NetHandle;
 
@@ -855,6 +1247,14 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Defines the network capability set.
+     * @type { NetCapabilities }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     netCap: NetCapabilities;
   }
@@ -872,6 +1272,14 @@ declare namespace connection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Defines the handle of the data network.
+   * @interface NetHandle
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export interface NetHandle {
     /**
      * Network ID, a value of 0 means that there is no default network, and the other values must be greater than or equal to 100.
@@ -885,6 +1293,14 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Network ID, a value of 0 means that there is no default network, and the other values must be greater than or equal to 100.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     netId: number;
 
@@ -992,6 +1408,14 @@ declare namespace connection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Defines the network capability set.
+   * @interface NetCapabilities
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export interface NetCapabilities {
     /**
      * Uplink (device-to-network) bandwidth.
@@ -1015,6 +1439,13 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
+    /**
+     * Network-specific capabilities.
+     * @type {?Array<NetCap>}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
+     */
     networkCap?: Array<NetCap>;
 
     /**
@@ -1030,7 +1461,61 @@ declare namespace connection {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Network type.
+     * @type {Array<NetBearType>}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     bearerTypes: Array<NetBearType>;
+  }
+
+  /**
+   * Get information about network connections.
+   * @interface NetConnectionPropertyInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  export interface NetConnectionPropertyInfo {
+    /**
+     * Defines the handle of the data network.
+     * @type { NetHandle }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
+     */
+    netHandle: NetHandle;
+    /**
+     * Defines the network connection properties.
+     * @type { ConnectionProperties }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
+     */
+    connectionProperties: ConnectionProperties;
+  }
+
+  /**
+   * Get network status information.
+   * @interface NetBlockStatusInfo
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 11
+   */
+  export interface NetBlockStatusInfo {
+    /**
+     * Defines the handle of the data network.
+     * @type { NetHandle }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
+     */
+    netHandle: NetHandle;
+    /**
+     * Check whether the current state is blocked.
+     * @type { boolean }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 11
+     */
+    blocked: boolean;
   }
 
   /**
@@ -1039,11 +1524,24 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8
    */
+  /**
+   * Defines the network capability.
+   * @enum {number}
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 11
+   */
   export enum NetCap {
     /**
      * Indicates that the network can access the carrier's MMSC to send and receive multimedia messages.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
+     */
+    /**
+     * Indicates that the network can access the carrier's MMSC to send and receive multimedia messages.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
      */
     NET_CAPABILITY_MMS = 0,
 
@@ -1052,12 +1550,24 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
+    /**
+     * Indicates that the network traffic is not metered.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
+     */
     NET_CAPABILITY_NOT_METERED = 11,
 
     /**
      * Indicates that the network can access the Internet.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
+     */
+    /**
+     * Indicates that the network can access the Internet.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
      */
     NET_CAPABILITY_INTERNET = 12,
 
@@ -1066,12 +1576,24 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
      */
+    /**
+     * Indicates that the network does not use a VPN.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
+     */
     NET_CAPABILITY_NOT_VPN = 15,
 
     /**
      * Indicates that the network is available.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
+     */
+    /**
+     * Indicates that the network is available.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
      */
     NET_CAPABILITY_VALIDATED = 16,
   }
@@ -1089,6 +1611,14 @@ declare namespace connection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Enumerates network types.
+   * @enum {number}
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export enum NetBearType {
     /**
      * Indicates that the network is based on a cellular network.
@@ -1100,6 +1630,13 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Indicates that the network is based on a cellular network.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     BEARER_CELLULAR = 0,
 
@@ -1114,12 +1651,25 @@ declare namespace connection {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Indicates that the network is based on a Wi-Fi network.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     BEARER_WIFI = 1,
 
     /**
      * Indicates that the network is an Ethernet network.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 8
+     */
+    /**
+     * Indicates that the network is an Ethernet network.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
      */
     BEARER_ETHERNET = 3,
   }
@@ -1287,12 +1837,26 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
+  /**
+   * Network Global Proxy Configuration Information.
+   * @interface HttpProxy
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @atomicservice
+   * @since 11
+   */
   export interface HttpProxy {
     /**
      * Proxy server host name.
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 10
+     */
+    /**
+     * Proxy server host name.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
      */
     host: string;
 
@@ -1302,6 +1866,13 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 10
      */
+    /**
+     * Host port.
+     * @type {number}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
+     */
     port: number;
 
     /**
@@ -1309,6 +1880,13 @@ declare namespace connection {
      * @type {Array<string>}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @since 10
+     */
+    /**
+     * Do not use a blocking list for proxy servers.
+     * @type {Array<string>}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @atomicservice
+     * @since 11
      */
     exclusionList: Array<string>;
   }

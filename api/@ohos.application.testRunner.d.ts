@@ -14,12 +14,26 @@
  */
 
 /**
+ * @file
+ * @kit TestKit
+ */
+
+/**
  * Base class for the test framework.
  * If you want to implement your own unit test framework, you must inherit this class and overrides all its methods.
  *
  * @interface TestRunner
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 8
+ */
+/**
+ * Base class for the test framework.
+ * If you want to implement your own unit test framework, you must inherit this class and overrides all its methods.
+ *
+ * @interface TestRunner
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 11
  */
 export interface TestRunner {
   /**
@@ -28,6 +42,13 @@ export interface TestRunner {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
    */
+  /**
+   * Prepare the unit testing environment for running test cases.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
+   */
   onPrepare(): void;
 
   /**
@@ -35,6 +56,13 @@ export interface TestRunner {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 8
+   */
+  /**
+   * Run all test cases.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
    */
   onRun(): void;
 }

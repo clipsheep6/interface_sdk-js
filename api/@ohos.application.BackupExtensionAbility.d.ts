@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit CoreFileKit
+ */
+
 import type ExtensionContext from './application/ExtensionContext';
 
 /**
@@ -25,7 +30,7 @@ import type ExtensionContext from './application/ExtensionContext';
  */
 export interface BundleVersion {
   /**
-   * Indicates bundle`s version code.
+   * Indicates bundle's version code.
    *
    * @type { number }
    * @syscap SystemCapability.FileManagement.StorageService.Backup
@@ -35,7 +40,7 @@ export interface BundleVersion {
   code: number;
 
   /**
-   * Indicates bundle`s version name.
+   * Indicates bundle's version name.
    *
    * @type { string }
    * @syscap SystemCapability.FileManagement.StorageService.Backup

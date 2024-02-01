@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AccessibilityKit
+ */
+
 import type accessibility from './@ohos.accessibility';
 import type { AsyncCallback, Callback } from './@ohos.base';
 
@@ -133,6 +138,14 @@ declare namespace config {
    */
   var shortkeyTarget: Config<string>;
   /**
+   * Indicates the configuration of short key multi targets.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  const shortkeyMultiTargets: Config<Array<string>>;
+  /**
    * Indicates the configuration of captions state.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -148,10 +161,35 @@ declare namespace config {
    * @since 9
    */
   var captionsStyle: Config<accessibility.CaptionsStyle>;
+  /**
+   * Indicates the configuration of click response time.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  const clickResponseTime: Config<ClickResponseTime>;
+  /**
+   * Indicates the configuration of ignore repeat click.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  const ignoreRepeatClick: Config<boolean>;
+  /**
+   * Indicates the configuration of ignore repeat click interval.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  const repeatClickInterval: Config<RepeatClickInterval>;
 
   /**
    * Enable the accessibility extension ability.
    *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
    * @param { string } name Indicates the accessibility extension name, in "bundleName/abilityName" format.
    * @param { Array<accessibility.Capability> } capability Indicates the ability.
    * @returns { Promise<void> }
@@ -169,6 +207,7 @@ declare namespace config {
   /**
    * Enable the accessibility extension ability.
    *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
    * @param { string } name Indicates the accessibility extension name, in "bundleName/abilityName" format.
    * @param { Array<accessibility.Capability> } capability Indicates the ability.
    * @param { AsyncCallback<void> } callback
@@ -190,6 +229,7 @@ declare namespace config {
   /**
    * Disable the accessibility extension ability.
    *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
    * @param { string } name Indicates the accessibility extension name, in "bundleName/abilityName" format.
    * @returns { Promise<void> }
    * @throws { BusinessError } 201 - Permission denied.
@@ -205,6 +245,7 @@ declare namespace config {
   /**
    * Disable the accessibility extension ability.
    *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
    * @param { string } name Indicates the accessibility extension name, in "bundleName/abilityName" format.
    * @param { AsyncCallback<void> } callback
    * @throws { BusinessError } 201 - Permission denied.
@@ -220,6 +261,7 @@ declare namespace config {
   /**
    * Register the listener that watches for changes in the enabled status of accessibility extensions.
    *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
    * @param { 'enabledAccessibilityExtensionListChange' } type Indicates the type of event.
    * @param { Callback<void> } callback Indicates the listener.
    * @throws { BusinessError } 202 - Not system App.
@@ -233,6 +275,7 @@ declare namespace config {
   /**
    * Unregister listener that watches for changes in the enabled status of accessibility extensions.
    *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
    * @param { 'enabledAccessibilityExtensionListChange' } type Indicates the type of event.
    * @param { Callback<void> } callback Indicates the listener.
    * @throws { BusinessError } 202 - Not system App.
@@ -255,6 +298,7 @@ declare namespace config {
     /**
      * Setting configuration value.
      *
+     * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
      * @param { T } value Indicates the value.
      * @returns { Promise<void> }
      * @throws { BusinessError } 201 - Permission denied.
@@ -269,6 +313,7 @@ declare namespace config {
     /**
      * Setting configuration value.
      *
+     * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
      * @param { T } value Indicates the value.
      * @param { AsyncCallback<void> } callback
      * @throws { BusinessError } 201 - Permission denied.
@@ -307,6 +352,7 @@ declare namespace config {
     /**
      * Register the listener to listen for configuration changes.
      *
+     * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
      * @param { Callback<T> } callback Indicates the listener.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
@@ -320,6 +366,7 @@ declare namespace config {
     /**
      * Unregister the listener to listen for configuration changes.
      *
+     * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
      * @param { Callback<T> } callback Indicates the listener.
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -337,5 +384,23 @@ declare namespace config {
    * @since 9
    */
   type DaltonizationColorFilter = 'Normal' | 'Protanomaly' | 'Deuteranomaly' | 'Tritanomaly';
+
+  /**
+   * Indicates the type of click response time.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  type ClickResponseTime = 'Short' | 'Medium' | 'Long';
+
+  /**
+   * Indicates the type of ignore repeat click interval.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 11
+   */
+  type RepeatClickInterval = 'Shortest' | 'Short' | 'Medium' | 'Long' | 'Longest';
 }
 export default config;
