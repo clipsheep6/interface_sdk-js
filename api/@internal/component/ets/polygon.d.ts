@@ -151,7 +151,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
    * Called when the vertex coordinate list of a polygon is set.
    *
-   * @param { Array<any> } value
+   * @param { Array<[number,number]> } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -159,7 +159,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
    * Called when the vertex coordinate list of a polygon is set.
    *
-   * @param { Array<any> } value
+   * @param { Array<[number,number]> } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -168,7 +168,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
    * Called when the vertex coordinate list of a polygon is set.
    *
-   * @param { Array<any> } value
+   * @param { Array<[number,number]> } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -178,7 +178,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
    * Called when the vertex coordinate list of a polygon is set.
    *
-   * @param { Array<any> } value
+   * @param { Array<[number,number]> } value
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -186,7 +186,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * @since 11
    * @form
    */
-  points(value: Array<any>): PolygonAttribute;
+  points(value: Array<[number,number]>): PolygonAttribute;
 }
 
 /**

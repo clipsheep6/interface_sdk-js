@@ -698,7 +698,7 @@ declare const Styles: MethodDecorator;
  * @since 11
  * @form
  */
-declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
+declare const Extend: MethodDecorator & ((value: Object) => MethodDecorator);
 
 /**
  * Define AnimatableExtend MethodDecorator
@@ -1401,7 +1401,7 @@ declare interface ExpectedFrameRateRange {
  * @since 11
  * @form
  */
-declare function $r(value: string, ...params: any[]): Resource;
+declare function $r(value: string, ...params: number[] | string[]): Resource;
 
 /**
  * global $rawfile function
@@ -9022,14 +9022,14 @@ declare interface StateStyles {
   /**
    * Defines normal state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines normal state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -9037,7 +9037,7 @@ declare interface StateStyles {
   /**
    * Defines normal state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9046,26 +9046,26 @@ declare interface StateStyles {
   /**
    * Defines normal state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    * @form
    */
-  normal?: any;
+  normal?: Object;
 
   /**
    * Defines pressed state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines pressed state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -9073,7 +9073,7 @@ declare interface StateStyles {
   /**
    * Defines pressed state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9082,26 +9082,26 @@ declare interface StateStyles {
   /**
    * Defines pressed state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    * @form
    */
-  pressed?: any;
+  pressed?: Object;
 
   /**
    * Defines disabled state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines disabled state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -9109,7 +9109,7 @@ declare interface StateStyles {
   /**
    * Defines disabled state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9118,26 +9118,26 @@ declare interface StateStyles {
   /**
    * Defines disabled state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    * @form
    */
-  disabled?: any;
+  disabled?: Object;
 
   /**
    * Defines focused state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines focused state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -9145,7 +9145,7 @@ declare interface StateStyles {
   /**
    * Defines focused state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9154,26 +9154,26 @@ declare interface StateStyles {
   /**
    * Defines focused state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    * @form
    */
-  focused?: any;
+  focused?: Object;
 
   /**
    * Defines clicked state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Defines clicked state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    * @form
@@ -9181,7 +9181,7 @@ declare interface StateStyles {
   /**
    * Defines clicked state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9190,14 +9190,14 @@ declare interface StateStyles {
   /**
    * Defines clicked state styles.
    *
-   * @type { ?any }
+   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    * @form
    */
-  clicked?: any;
+  clicked?: Object;
 
   /**
    * Defines selected state styles.
@@ -14735,7 +14735,7 @@ declare class CommonMethod<T> {
   linearGradient(value: {
     angle?: number | string;
     direction?: GradientDirection;
-    colors: Array<any>;
+    colors: Array<[ResourceColor, number]>;
     repeating?: boolean;
   }): T;
 
@@ -14806,11 +14806,11 @@ declare class CommonMethod<T> {
    * @form
    */
   sweepGradient(value: {
-    center: Array<any>;
+    center: Array<[number, number]>;
     start?: number | string;
     end?: number | string;
     rotation?: number | string;
-    colors: Array<any>;
+    colors: Array<[ResourceColor, number]>;
     repeating?: boolean;
   }): T;
 
@@ -14868,7 +14868,7 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  radialGradient(value: { center: Array<any>; radius: number | string; colors: Array<any>; repeating?: boolean }): T;
+  radialGradient(value: { center: Array<[number, number]>; radius: number | string; colors: Array<[ResourceColor, number]>; repeating?: boolean }): T;
 
   /**
    * Set the motion path of the component
@@ -15859,7 +15859,7 @@ declare const Common: CommonInterface;
  * @since 11
  * @form
  */
-declare type CustomBuilder = (() => any) | void;
+declare type CustomBuilder = (() => void) | void;
 
 /**
  * Defines the segment of blur.
@@ -16329,7 +16329,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * Sets the gap for the border.
    *
-   * @param { Array<any> } value
+   * @param { Array<Length> } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -16337,7 +16337,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * Sets the gap for the border.
    *
-   * @param { Array<any> } value
+   * @param { Array<Length> } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -16346,7 +16346,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * Sets the gap for the border.
    *
-   * @param { Array<any> } value
+   * @param { Array<Length> } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -16356,7 +16356,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * Sets the gap for the border.
    *
-   * @param { Array<any> } value
+   * @param { Array<Length> } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -16364,7 +16364,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @since 11
    * @form
    */
-  strokeDashArray(value: Array<any>): T;
+  strokeDashArray(value: Array<Length>): T;
 }
 
 /**
@@ -16394,7 +16394,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
 declare interface LinearGradient {
   angle?: number | string;
   direction?: GradientDirection;
-  colors: Array<any>;
+  colors: Array<[ResourceColor, number]>;
   repeating?: boolean;
 }
 

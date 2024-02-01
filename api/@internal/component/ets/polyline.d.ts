@@ -143,7 +143,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
    * Called when the polyline is set to pass through the coordinate point list.
    *
-   * @param { Array<any> } value
+   * @param { Array<[number, number]> } value
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -151,7 +151,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
    * Called when the polyline is set to pass through the coordinate point list.
    *
-   * @param { Array<any> } value
+   * @param { Array<[number, number]> } value
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -160,7 +160,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
    * Called when the polyline is set to pass through the coordinate point list.
    *
-   * @param { Array<any> } value
+   * @param { Array<[number, number]> } value
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -170,7 +170,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
    * Called when the polyline is set to pass through the coordinate point list.
    *
-   * @param { Array<any> } value
+   * @param { Array<[number, number]> } value
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -178,7 +178,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
    * @since 11
    * @form
    */
-  points(value: Array<any>): PolylineAttribute;
+  points(value: Array<[number, number]>): PolylineAttribute;
 }
 
 /**

@@ -30,7 +30,7 @@
  * @atomicservice
  * @since 11
  */
-declare interface RouteInfo {
+declare interface RouteInfo<T> {
   /**
    * The name of the route page.
    *
@@ -119,7 +119,7 @@ declare interface NavRouterInterface {
    * @atomicservice
    * @since 11
    */
-  (): NavRouterAttribute;
+  <T>(): NavRouterAttribute;
 
   /**
    * NavDestination Constructor.
@@ -140,7 +140,7 @@ declare interface NavRouterInterface {
    * @atomicservice
    * @since 11
    */
-  (value: RouteInfo): NavRouterAttribute;
+  <T>(value: RouteInfo<T>): NavRouterAttribute;
 }
 
 /**

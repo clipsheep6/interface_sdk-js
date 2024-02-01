@@ -577,7 +577,7 @@ declare interface PopInfo {
  * @atomicservice
  * @since 11
  */
-declare class NavPathInfo {
+declare class NavPathInfo<T> {
   /**
    * Creates an instance of NavPathInfo.
    *
@@ -598,7 +598,7 @@ declare class NavPathInfo {
    * @atomicservice
    * @since 11
    */
-  constructor(name: string, param: unknown, onPop?: import('../api/@ohos.base').Callback<PopInfo>);
+  constructor(name: string, param: T, onPop?: import('../api/@ohos.base').Callback<PopInfo>);
 
   /**
    * The name of route page.
@@ -664,7 +664,7 @@ declare class NavPathInfo {
  * @atomicservice
  * @since 11
  */
-declare class NavPathStack {
+declare class NavPathStack<T> {
   /**
    * Creates an instance of NavPathStack.
    *
@@ -700,7 +700,7 @@ declare class NavPathStack {
    * @atomicservice
    * @since 11
    */
-  pushPath(info: NavPathInfo, animated?: boolean): void;
+  pushPath(info: NavPathInfo<T>, animated?: boolean): void;
 
   /**
    * Pushes the route page into the stack.
@@ -738,7 +738,7 @@ declare class NavPathStack {
    * @atomicservice
    * @since 11
    */
-  pushPathByName(name: string, param: unknown, animated?: boolean): void;
+  pushPathByName(name: string, param: T, animated?: boolean): void;
 
   /**
    * Pushes the specified route page into the stack.
@@ -1016,7 +1016,7 @@ declare class NavPathStack {
    * Obtains the param of the specified route page.
    *
    * @param { number } index - Indicates the index of the route page.
-   * @returns { unknown | undefined } Returns the detailed parameter of the route page if it exists in the stack, otherwise returns undefined;
+   * @returns { T | undefined } Returns the detailed parameter of the route page if it exists in the stack, otherwise returns undefined;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1025,19 +1025,19 @@ declare class NavPathStack {
    * Obtains the param of the specified route page.
    *
    * @param { number } index - Indicates the index of the route page.
-   * @returns { unknown | undefined } Returns the detailed parameter of the route page if it exists in the stack, otherwise returns undefined;
+   * @returns { T | undefined } Returns the detailed parameter of the route page if it exists in the stack, otherwise returns undefined;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  getParamByIndex(index: number): unknown | undefined;
+  getParamByIndex(index: number): T | undefined;
 
   /**
    * Obtains the param of the specified route page.
    *
    * @param { string } name - Indicates the name of the route page.
-   * @returns { Array<unknown> } Returns the detailed parameter of all the route pages named name.
+   * @returns { Array<T> } Returns the detailed parameter of all the route pages named name.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -1046,13 +1046,13 @@ declare class NavPathStack {
    * Obtains the param of the specified route page.
    *
    * @param { string } name - Indicates the name of the route page.
-   * @returns { Array<unknown> } Returns the detailed parameter of all the route pages named name.
+   * @returns { Array<T> } Returns the detailed parameter of all the route pages named name.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  getParamByName(name: string): Array<unknown>;
+  getParamByName(name: string): Array<T>;
 
   /**
    * Obtains the index of the specified route page.
@@ -2003,7 +2003,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @atomicservice
    * @since 11
    */
-  navDestination(builder: (name: string, param: unknown) => void): NavigationAttribute;
+  navDestination(builder: (name: string, param: T) => void): NavigationAttribute;
 
   /**
    * Set custom navigation content transition animation.

@@ -62,7 +62,7 @@ declare interface CustomDialogControllerOptions {
    * @atomicservice
    * @since 11
    */
-  builder: any;
+  CustomBuilder: any;
 
   /**
    * Defines the cancel function.

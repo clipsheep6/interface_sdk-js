@@ -60,7 +60,7 @@ interface PluginComponentInterface {
    * @systemapi
    * @since 9
    */
-  (value: { template: PluginComponentTemplate; data: any }): PluginComponentAttribute;
+  (value: { template: PluginComponentTemplate; data: object }): PluginComponentAttribute;
 }
 
 /**

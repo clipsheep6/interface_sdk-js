@@ -91,7 +91,7 @@ interface RectInterface {
       {
         width?: number | string;
         height?: number | string;
-        radius?: number | string | Array<any>;
+        radius?: number | string | Array<string|number>;
       }
       | {
         width?: number | string;
@@ -104,7 +104,7 @@ interface RectInterface {
   /**
    * Called when a rectangle is created.
    *
-   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
+   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<string|number>;} |
   *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -113,7 +113,7 @@ interface RectInterface {
   /**
    * Called when a rectangle is created.
    *
-   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
+   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<string|number>;} |
   *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -123,7 +123,7 @@ interface RectInterface {
   /**
    * Called when a rectangle is created.
    *
-   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
+   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<string|number>;} |
    *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -134,7 +134,7 @@ interface RectInterface {
   /**
    * Called when a rectangle is created.
    *
-   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
+   * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<string|number>;} |
    *  {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;} } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -148,7 +148,7 @@ interface RectInterface {
       {
         width?: number | string;
         height?: number | string;
-        radius?: number | string | Array<any>;
+        radius?: number | string | Array<string|number>;
       }
       | {
         width?: number | string;
@@ -273,7 +273,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Called when the fillet size is set.
    *
-   * @param { number | string | Array<any> } value
+   * @param { number | string | Array<string|number> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -281,7 +281,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Called when the fillet size is set.
    *
-   * @param { number | string | Array<any> } value
+   * @param { number | string | Array<string|number> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -290,7 +290,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Called when the fillet size is set.
    *
-   * @param { number | string | Array<any> } value
+   * @param { number | string | Array<string|number> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -300,7 +300,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
    * Called when the fillet size is set.
    *
-   * @param { number | string | Array<any> } value
+   * @param { number | string | Array<string|number> } value
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -308,7 +308,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @since 11
    * @form
    */
-  radius(value: number | string | Array<any>): RectAttribute;
+  radius(value: number | string | Array<string|number>): RectAttribute;
 }
 
 /**

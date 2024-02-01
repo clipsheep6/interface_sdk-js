@@ -183,7 +183,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
    * Coordinate of the start point of the line (relative coordinate).
    *
-   * @param { Array<any> } value
+   * @param { Array<VP|FP|PX|LPX> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -191,7 +191,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
    * Coordinate of the start point of the line (relative coordinate).
    *
-   * @param { Array<any> } value
+   * @param { Array<VP|FP|PX|LPX> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -200,7 +200,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
    * Coordinate of the start point of the line (relative coordinate).
    *
-   * @param { Array<any> } value
+   * @param { Array<VP|FP|PX|LPX> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -210,7 +210,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
    * Coordinate of the start point of the line (relative coordinate).
    *
-   * @param { Array<any> } value
+   * @param { Array<VP|FP|PX|LPX> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -218,12 +218,12 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * @since 11
    * @form
    */
-  startPoint(value: Array<any>): LineAttribute;
+  startPoint(value: Array<VP|FP|PX|LPX>): LineAttribute;
 
   /**
    * Line end coordinates (relative coordinates).
    *
-   * @param { Array<any> } value
+   * @param { Array<VP|FP|PX|LPX> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -231,7 +231,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
    * Line end coordinates (relative coordinates).
    *
-   * @param { Array<any> } value
+   * @param { Array<VP|FP|PX|LPX> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -240,7 +240,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
    * Line end coordinates (relative coordinates).
    *
-   * @param { Array<any> } value
+   * @param { Array<VP|FP|PX|LPX> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -250,7 +250,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
    * Line end coordinates (relative coordinates).
    *
-   * @param { Array<any> } value
+   * @param { Array<VP|FP|PX|LPX> } value
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -258,7 +258,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * @since 11
    * @form
    */
-  endPoint(value: Array<any>): LineAttribute;
+  endPoint(value: Array<VP|FP|PX|LPX>): LineAttribute;
 }
 
 /**
