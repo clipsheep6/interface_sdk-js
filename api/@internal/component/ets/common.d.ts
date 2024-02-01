@@ -2760,6 +2760,47 @@ declare interface AlignRuleOption {
 }
 
 /**
+ * Defines the style of the chain in relative container.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare enum ChainStyle {
+  /**
+   * Elements of the chain will be spread out.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  SPREAD,
+
+  /**
+   * Elements except chain's head and tail will be spread out.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  SPREAD_INSIDE,
+
+  /**
+   * Elements of the chain will be packed together.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  PACKED,
+}
+
+/**
  * The param of rotate.
  *
  * @interface RotateOptions
@@ -14353,6 +14394,19 @@ declare class CommonMethod<T> {
   alignRules(value: AlignRuleOption): T;
 
   /**
+   * Specifies the direction and style of chain in relative container
+   *
+   * @param { Axis } value - indicates direction of the chain
+   * @param { ChainStyle } value - indicates style of the chain
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  chainMode(direction: Axis, style: ChainStyle): T;
+
+  /**
    * Specifies the aspect ratio of the current component.
    *
    * @param { number } value
@@ -15189,6 +15243,19 @@ declare class CommonMethod<T> {
    * @since 11
    */
   bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): T;
+
+  /**
+   * ContextMenu control
+   *
+   * @param { boolean } isShown - true means display content, false means hide content.
+   * @param { CustomBuilder } content - Indicates the content of context menu.
+   * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions): T;
 
   /**
    * Bind content cover
