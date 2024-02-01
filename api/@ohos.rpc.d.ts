@@ -25,7 +25,7 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace rpc
  * @syscap SystemCapability.Communication.IPC.Core
- * @since 11
+ * @since 7
  */
 declare namespace rpc {
   /**
