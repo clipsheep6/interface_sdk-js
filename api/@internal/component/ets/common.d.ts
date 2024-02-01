@@ -2760,6 +2760,47 @@ declare interface AlignRuleOption {
 }
 
 /**
+ * Defines the style of the chain in relative container.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare enum ChainStyle {
+  /**
+   * Elements of the chain will be spread out.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  SPREAD,
+
+  /**
+   * Elements except chain's head and tail will be spread out.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  SPREAD_INSIDE,
+
+  /**
+   * Elements of the chain will be packed together.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  PACKED,
+}
+
+/**
  * The param of rotate.
  *
  * @interface RotateOptions
@@ -14353,6 +14394,19 @@ declare class CommonMethod<T> {
   alignRules(value: AlignRuleOption): T;
 
   /**
+   * Specifies the direction and style of chain in relative container
+   *
+   * @param { Axis } value - indicates direction of the chain
+   * @param { ChainStyle } value - indicates style of the chain
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  chainMode(direction: Axis, style: ChainStyle): T;
+
+  /**
    * Specifies the aspect ratio of the current component.
    *
    * @param { number } value
@@ -15191,6 +15245,19 @@ declare class CommonMethod<T> {
   bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): T;
 
   /**
+   * ContextMenu control
+   *
+   * @param { boolean } isShown - true means display content, false means hide content.
+   * @param { CustomBuilder } content - Indicates the content of context menu.
+   * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions): T;
+
+  /**
    * Bind content cover
    *
    * @param { boolean } isShow - true means display content, false means hide content.
@@ -15695,6 +15762,40 @@ declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
  * @form
  */
 interface CommonInterface {
+  /**
+   * Constructor.
+   *
+   * @returns { CommonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 7
+   */
+  /**
+   * Constructor
+   * 
+   * @returns { CommonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Constructor
+   *
+   * @returns { CommonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  /**
+   * Constructor
+   * 
+   * @returns { CommonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (): CommonAttribute;
 }
 
@@ -16325,9 +16426,105 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
  * @since 11
  */
 declare interface LinearGradient {
+  /**
+   * Linear Gradient Angle
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Linear Gradient Angle
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Linear Gradient Angle
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   angle?: number | string;
+  /**
+   * Linear Gradient Direction
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Linear Gradient Direction
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Linear Gradient Direction
+   *
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   direction?: GradientDirection;
+  /**
+   * Linear Gradient Colors
+   *
+   * @type { Array<any> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Linear Gradient Colors
+   *
+   * @type { Array<any> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Linear Gradient Colors
+   *
+   * @type { Array<any> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   colors: Array<any>;
+  /**
+   * Linear Gradient Repeating
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   */
+  /**
+   * Linear Gradient Repeating
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Linear Gradient Repeating
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   repeating?: boolean;
 }
 
@@ -16840,7 +17037,22 @@ declare interface MeasureResult extends SizeResult {
  
 }
 
+/**
+ * The navigation destination information.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
+
+/**
+ * UIContext
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
 /**
