@@ -207,14 +207,6 @@ declare namespace AbilityConstant {
      * @StageModelOnly
      * @since 9
      */
-    /**
-     * Start ability through the startAbilityByCall interface.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
-     * @atomicservice
-     * @since 11
-     */
     CALL = 2,
 
     /**
