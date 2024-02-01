@@ -1,7 +1,6 @@
 {
   "SysCaps": [
     "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.ArkUI.ArkUI.Libuv",
     "SystemCapability.ArkUI.UiAppearance",
@@ -159,8 +158,6 @@
     "SystemCapability.USB.USBManager",
     "SystemCapability.Sensors.Sensor",
     "SystemCapability.Sensors.MiscDevice",
-    "SystemCapability.Sensors.Sensor.Lite",
-    "SystemCapability.Sensors.MiscDevice.Lite",
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.Startup.SystemInfo.Lite",
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
