@@ -186,6 +186,252 @@ declare namespace hidebug {
   function getServiceDump(serviceid: number, fd: number, args: Array<string>): void;
 
   /**
+   * Obtains the cpu usage of system.
+   *
+   * @returns { number } Returns the cpu usage of system.
+   * @throws { BusinessError } 11400104 - The status of the system cpu usage is abnormal
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getSysCpuUsage(): number;
+
+  /**
+   * Application CPU usage of all threads.
+   *
+   * @typedef ThreadCpuUsage
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  interface ThreadCpuUsage {
+    /**
+     * Thread id
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    threadId: number;
+    /**
+     * Cpu usage of thread
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    cpuUsage: number;
+  }
+
+  /**
+   * Get the CPU usage of all threads in the application.
+   *
+   * @returns { ThreadCpuUsage[] } Returns the CPU usage of all threads in the application.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getAppThreadCpuUsage(): ThreadCpuUsage[];
+
+  /**
+   * System memory information
+   *
+   * @typedef SysMemInfo
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  interface SysMemInfo {
+    /**
+     * Total system memory size, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    memTotal: bigint;
+    /**
+     * System free memory size, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    memFree: bigint;
+    /**
+     * System available memory size, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    memAvailable: bigint;
+  }
+
+  /**
+   * Obtains the system memory size.
+   *
+   * @returns { SysMemInfo } Returns system memory size.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getSysMemory(): SysMemInfo;
+
+  /**
+   * Application process native memory information.
+   *
+   * @typedef NativeMemInfo
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  interface NativeMemInfo {
+    /**
+     * Process proportional set size memory, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    pss: bigint;
+    /**
+     * Virtual set size memory, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    vss: bigint;
+    /**
+     * Resident set size, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    rss: bigint;
+    /**
+     * The size of the shared dirty memory, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    sharedDirty: bigint;
+    /**
+     * The size of the private dirty memroy, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    privateDirty: bigint;
+    /**
+     * The size of the shared clean memroy, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    sharedClean: bigint;
+    /**
+     * The size of the private clean memroy, in kibibytes
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    privateClean: bigint;
+  }
+
+  /**
+   * Obtains the memory information of application process.
+   *
+   * @returns { NativeMemInfo } Returns the native memory of a process.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getAppNativeMemory(): NativeMemInfo;
+
+  /**
+   * Application process memory limit
+   *
+   * @typedef MemoryLimit
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  interface MemoryLimit {
+    /**
+     * The limit of the application process's resident set, in kibibytes
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    rssLimit: bigint;
+    /**
+     * The limit of the application process's virtual memory, in kibibytes
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    vsLimit: bigint;
+    /**
+     * The limit of the js vm heap size of current virtual machine, in kibibytes
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    vmHeapLimit;
+  }
+
+  /**
+   * Obtains the memory limit of application process.
+   *
+   * @returns { MemoryLimit } Returns memory limit of application.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getAppMemoryLimit(): MemoryLimit;
+
+  /**
+   * The memory information of application virtual machine.
+   *
+   * @typedef VMMemoryInfo
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  interface VMMemoryInfo {
+    /**
+     * Heap total size of current virtual machine
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    heapTotal: bigint;
+    /**
+     * Heap used sieze of current virtual machine
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    heapUsed: bigint;
+    /**
+     * All array object size of current virtual machine
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    arraySize: bigint;
+  }
+
+  /**
+   * Obtains the memory information of application virtual machine.
+   *
+   * @returns { VMMemoryInfo } Returns memory informationof application virtual machine.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getAppVMMemoryInfo(): VMMemoryInfo;
+
+  /**
    * Enum for trace flag
    *
    * @enum { number }
