@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -2756,6 +2756,36 @@ declare namespace bundleManager {
    * @since 11
    */
   function deleteAbc(abcPath: string): Promise<void>;
+
+  /**
+   * Query BundleInfos according to the list of preset applications
+   *
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
+   * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function queryPreInstallApps(bundleFlags: number): Promise<Array<BundleInfo>>;
+
+  /**
+   * Query BundleInfos according to the list of preset applications
+   *
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
+   * @param { AsyncCallback<Array<BundleInfo>> } callback -  The callback of a list of BundleInfo objects. 
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function queryPreInstallApps(bundleFlags: number, callback: AsyncCallback<Array<BundleInfo>>): void;
 
   /**
    * Obtains configuration information about an application.
