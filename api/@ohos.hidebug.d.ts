@@ -314,7 +314,7 @@ declare namespace hidebug {
      */
     sharedDirty: bigint;
     /**
-     * The size of the private dirty memroy, in kibibytes
+     * The size of the private dirty memory, in kibibytes
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -322,7 +322,7 @@ declare namespace hidebug {
      */
     privateDirty: bigint;
     /**
-     * The size of the shared clean memroy, in kibibytes
+     * The size of the shared clean memory, in kibibytes
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -330,7 +330,7 @@ declare namespace hidebug {
      */
     sharedClean: bigint;
     /**
-     * The size of the private clean memroy, in kibibytes
+     * The size of the private clean memory, in kibibytes
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -359,6 +359,7 @@ declare namespace hidebug {
     /**
      * The limit of the application process's resident set, in kibibytes
      *
+     * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
@@ -366,17 +367,19 @@ declare namespace hidebug {
     /**
      * The limit of the application process's virtual memory, in kibibytes
      *
+     * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    vsLimit: bigint;
+    vssLimit: bigint;
     /**
      * The limit of the js vm heap size of current virtual machine, in kibibytes
      *
+     * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    vmHeapLimit;
+    vmHeapLimit: bigint;
   }
 
   /**
@@ -405,7 +408,7 @@ declare namespace hidebug {
      */
     heapTotal: bigint;
     /**
-     * Heap used sieze of current virtual machine
+     * Heap used size of current virtual machine
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -425,7 +428,7 @@ declare namespace hidebug {
   /**
    * Obtains the memory information of application virtual machine.
    *
-   * @returns { VMMemoryInfo } Returns memory informationof application virtual machine.
+   * @returns { VMMemoryInfo } Returns memory information of application virtual machine.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12
    */
