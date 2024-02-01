@@ -1,7 +1,6 @@
 {
   "SysCaps": [
     "SystemCapability.ArkUI.ArkUI.Full",
-    "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.ArkUI.ArkUI.Libuv",
     "SystemCapability.ArkUI.UiAppearance",
@@ -187,7 +186,6 @@
     "SystemCapability.Applications.settings.Core",
     "SystemCapability.Test.UiTest",
     "SystemCapability.Web.Webview.Core",
-    "SystemCapability.Cloud.AAID",
     "SystemCapability.Advertising.OAID",
     "SystemCapability.Advertising.Ads",
     "SystemCapability.Cloud.VAID",
