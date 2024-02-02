@@ -35,18 +35,16 @@ declare namespace bundleManager {
    *
    * @typedef InstallParam
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since 12
    */
   interface InstallParam {
     /**
      * Indicates the user id
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 12
      */
     userId?: number;
 
@@ -54,9 +52,8 @@ declare namespace bundleManager {
      * Indicates the install flag, which 0 for first install, 1 for cover install
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 12
      */
     installFlag?: number;
   }

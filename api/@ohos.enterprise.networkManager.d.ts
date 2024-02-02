@@ -37,18 +37,16 @@ declare namespace networkManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   enum AddMethod {
     /**
      * Append method
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     APPEND = 0,
 
@@ -56,9 +54,8 @@ declare namespace networkManager {
      * Insert method
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     INSERT = 1
   }
@@ -68,18 +65,16 @@ declare namespace networkManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   enum Direction {
     /**
      * Input direction
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     INPUT = 0,
 
@@ -87,9 +82,8 @@ declare namespace networkManager {
      * Output direction
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     OUTPUT = 1
   }
@@ -99,18 +93,16 @@ declare namespace networkManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   enum Action {
     /**
      * Action allow
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     ALLOW = 0,
 
@@ -118,9 +110,8 @@ declare namespace networkManager {
      * Action deny
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     DENY = 1
   }
@@ -130,18 +121,16 @@ declare namespace networkManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   enum Protocol {
     /**
      * Protocol all
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     ALL = 0,
 
@@ -149,9 +138,8 @@ declare namespace networkManager {
      * Protocol tcp
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     TCP = 1,
 
@@ -159,9 +147,8 @@ declare namespace networkManager {
      * Protocol udp
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     UDP = 2,
 
@@ -169,9 +156,8 @@ declare namespace networkManager {
      * Protocol icmp
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     ICMP = 3
   }
@@ -181,9 +167,8 @@ declare namespace networkManager {
    *
    * @typedef AddFilterRule
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   interface AddFilterRule {
     /**
@@ -191,9 +176,8 @@ declare namespace networkManager {
      *
      * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     ruleNo?: number;
 
@@ -202,9 +186,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     srcAddr?: string;
 
@@ -213,9 +196,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     destAddr?: string;
 
@@ -224,9 +206,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     srcPort?: string;
 
@@ -235,9 +216,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     destPort?: string;
 
@@ -246,9 +226,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     uid?: string;
 
@@ -257,9 +236,8 @@ declare namespace networkManager {
      *
      * @type { AddMethod }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     method: AddMethod;
 
@@ -268,9 +246,8 @@ declare namespace networkManager {
      *
      * @type { Direction }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     direction: Direction;
 
@@ -279,9 +256,8 @@ declare namespace networkManager {
      *
      * @type { Action }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     action: Action;
 
@@ -290,9 +266,8 @@ declare namespace networkManager {
      *
      * @type { ?Protocol }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     protocol?: Protocol;
   }
@@ -302,9 +277,8 @@ declare namespace networkManager {
    *
    * @typedef RemoveFilterRule
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   interface RemoveFilterRule {
     /**
@@ -312,9 +286,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     srcAddr?: string;
 
@@ -323,9 +296,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     destAddr?: string;
 
@@ -334,9 +306,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     srcPort?: string;
 
@@ -345,9 +316,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     destPort?: string;
 
@@ -356,9 +326,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     uid?: string;
 
@@ -367,9 +336,8 @@ declare namespace networkManager {
      *
      * @type { Direction }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     direction: Direction;
 
@@ -378,9 +346,8 @@ declare namespace networkManager {
      *
      * @type { ?Action }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     action?: Action;
 
@@ -389,9 +356,8 @@ declare namespace networkManager {
      *
      * @type { ?Protocol }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     protocol?: Protocol;
   }
@@ -401,9 +367,8 @@ declare namespace networkManager {
    *
    * @typedef FirewallRule
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   interface FirewallRule {
     /**
@@ -411,9 +376,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     srcAddr?: string;
 
@@ -422,9 +386,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     destAddr?: string;
 
@@ -433,9 +396,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     srcPort?: string;
 
@@ -444,9 +406,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     destPort?: string;
 
@@ -455,9 +416,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     appUid?: string;
 
@@ -466,9 +426,8 @@ declare namespace networkManager {
      *
      * @type { ?Direction }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     direction?: Direction;
 
@@ -477,9 +436,8 @@ declare namespace networkManager {
      *
      * @type { ?Action }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     action?: Action;
 
@@ -488,9 +446,8 @@ declare namespace networkManager {
      *
      * @type { ?Protocol }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     protocol?: Protocol;
   }
@@ -500,9 +457,8 @@ declare namespace networkManager {
    *
    * @typedef DomainFilterRule
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   interface DomainFilterRule {
     /**
@@ -510,9 +466,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     domainName?: string;
 
@@ -521,9 +476,8 @@ declare namespace networkManager {
      *
      * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     appUid?: string;
 
@@ -532,9 +486,8 @@ declare namespace networkManager {
      *
      * @type { ?Action }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     action?: Action;
   }
@@ -552,9 +505,8 @@ declare namespace networkManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   function getAllNetworkInterfaces(admin: Want, callback: AsyncCallback<Array<string>>): void;
 
@@ -571,9 +523,8 @@ declare namespace networkManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   function getAllNetworkInterfaces(admin: Want): Promise<Array<string>>;
 

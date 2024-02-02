@@ -35,18 +35,16 @@ declare namespace usbManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   export enum UsbPolicy {
     /**
      * Policy read write
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     READ_WRITE = 0,
 
@@ -54,9 +52,8 @@ declare namespace usbManager {
      * Policy read only
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     READ_ONLY = 1,
 
@@ -64,9 +61,8 @@ declare namespace usbManager {
      * Policy disabled
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     DISABLED = 2
   }
@@ -76,9 +72,8 @@ declare namespace usbManager {
    *
    * @typedef UsbDeviceId
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   export interface UsbDeviceId {
     /**
@@ -86,9 +81,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     vendorId: number;
 
@@ -97,9 +91,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     productId: number;
   }

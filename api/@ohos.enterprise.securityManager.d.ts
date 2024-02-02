@@ -35,18 +35,16 @@ declare namespace securityManager {
    *
    * @typedef DeviceEncryptionStatus
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   export interface DeviceEncryptionStatus {
     /**
      * True indicates device is encrypted.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     isEncrypted: boolean;
   }
