@@ -9810,6 +9810,26 @@ declare interface PopupOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Defines popup openAnimation
+   *
+   * @type { ?AnimateParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  openAnimation?: AnimateParam;
+
+  /**
+   * Defines popup closeAnimation
+   *
+   * @type { ?AnimateParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  closeAnimation?: AnimateParam;
 }
 
 /**
@@ -10221,6 +10241,26 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   focusable?: boolean;
+
+  /**
+   * Defines popup openAnimation
+   *
+   * @type { ?AnimateParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  openAnimation?: AnimateParam;
+
+  /**
+   * Defines popup closeAnimation
+   *
+   * @type { ?AnimateParam }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  closeAnimation?: AnimateParam;
 }
 
 /**
