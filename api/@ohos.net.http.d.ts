@@ -2047,7 +2047,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 12
      */
     RANGE_NOT_SATISFIABLE,
 
