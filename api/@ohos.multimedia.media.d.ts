@@ -2435,7 +2435,6 @@ declare namespace media {
      * Listens for recording audioCapturerChange events.
      * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
      * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
