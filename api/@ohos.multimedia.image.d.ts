@@ -2277,6 +2277,18 @@ declare namespace image {
   function createPixelMap(colors: ArrayBuffer, options: InitializationOptions): Promise<PixelMap>;
 
   /**
+   * Create pixelmap by data buffer.
+   *
+   * @param { ArrayBuffer } colors The image color buffer.
+   * @param { InitializationOptions } options Initialization options for pixelmap.
+   * @returns { PixelMap } the PixelMap object.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @since 12
+   */
+  function createPixelMapSync(colors: ArrayBuffer, options: InitializationOptions): PixelMap;
+
+  /**
    * Creates a PixelMap object based on MessageSequence parameter.
    *
    * @param { rpc.MessageSequence } sequence - rpc.MessageSequence parameter.
@@ -2746,6 +2758,17 @@ declare namespace image {
     readPixelsToBuffer(dst: ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
+     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
+     * a callback to return the result.
+     *
+     * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    readPixelsToBufferSync(dst: ArrayBuffer): void;
+
+    /**
      * Reads image pixel map data in an area. This method uses a promise to return the data read.
      *
      * @param { PositionArea } area Area from which the image pixel map data will be read.
@@ -2802,6 +2825,16 @@ declare namespace image {
      * @since 11
      */
     readPixels(area: PositionArea, callback: AsyncCallback<void>): void;
+
+    /**
+     * Reads image pixel map data in an area. This method uses a promise to return the data read.
+     *
+     * @param { PositionArea } area Area from which the image pixel map data will be read.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    readPixelsSync(area: PositionArea): void;
 
     /**
      * Writes image pixel map data to the specified area. This method uses a promise to return
@@ -2868,6 +2901,16 @@ declare namespace image {
     writePixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
     /**
+     * Writes image pixel map data to the specified area. This method uses a promise to return
+     * the operation result.
+     *
+     * @param { PositionArea } area Area to which the image pixel map data will be written.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    writePixelsSync(area: PositionArea): void;
+    /**
      * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
      * uses a promise to return the result.
      *
@@ -2932,6 +2975,17 @@ declare namespace image {
     writeBufferToPixels(src: ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
+     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object. This method
+     * uses a callback to return the result.
+     *
+     * @param { ArrayBuffer } src A buffer from which the image data will be read.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    writeBufferToPixelsSync(src: ArrayBuffer): void;
+
+    /**
      * Obtains pixel map information about this image. This method uses a promise to return the information.
      *
      * @returns { Promise<ImageInfo> } A Promise instance used to return the image pixel map information. If the operation fails, an error message is returned.
@@ -2985,6 +3039,17 @@ declare namespace image {
      * @since 11
      */
     getImageInfo(callback: AsyncCallback<ImageInfo>): void;
+
+    /**
+     * Get image information from image source.
+     *
+     * @returns { ImageInfo } the image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getImageInfoSync(): ImageInfo;
 
     /**
      * Obtains the number of bytes in each line of the image pixel map.
@@ -3123,6 +3188,15 @@ declare namespace image {
     opacity(rate: number): Promise<void>;
 
     /**
+     * Set the transparent rate of pixel map. This method uses a promise to return the result.
+     *
+     * @param { number } rate The value of transparent rate.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    opacitySync(rate: number): void;
+    /**
      * Obtains new pixel map with alpha information. This method uses a promise to return the information.
      *
      * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
@@ -3174,6 +3248,15 @@ declare namespace image {
      */
     createAlphaPixelmap(callback: AsyncCallback<PixelMap>): void;
 
+    /**
+     * Obtains new pixel map with alpha information. This method uses a promise to return the information.
+     *
+     * @returns { PixelMap } return the new image pixel map. If the operation fails, an error message is returned.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    createAlphaPixelmapSync(): PixelMap;
     /**
      * Image zoom in width and height. This method uses a callback to return the operation result.
      *
@@ -3237,6 +3320,17 @@ declare namespace image {
      * @since 11
      */
     scale(x: number, y: number): Promise<void>;
+
+    /**
+     * Image zoom in width and height. This method uses a promise to return the result.
+     *
+     * @param { number } x The zoom value of width.
+     * @param { number } y The zoom value of height.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    scaleSync(x: number, y: number): void;
 
     /**
      * Image position transformation. This method uses a callback to return the operation result.
@@ -3303,6 +3397,17 @@ declare namespace image {
     translate(x: number, y: number): Promise<void>;
 
     /**
+     * Image position transformation. This method uses a promise to return the result.
+     *
+     * @param { number } x The position value of width.
+     * @param { number } y The position value of height.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    translateSync(x: number, y: number): void;
+
+    /**
      * Image rotation. This method uses a callback to return the operation result.
      *
      * @param { number } angle The rotation angle.
@@ -3359,6 +3464,16 @@ declare namespace image {
      * @since 11
      */
     rotate(angle: number): Promise<void>;
+
+    /**
+     * Image rotation. This method uses a promise to return the result.
+     *
+     * @param { number } angle The rotation angle.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    rotateSync(angle: number): void;
 
     /**
      * Image flipping. This method uses a callback to return the operation result.
@@ -3425,6 +3540,17 @@ declare namespace image {
     flip(horizontal: boolean, vertical: boolean): Promise<void>;
 
     /**
+     * Image flipping. This method uses a promise to return the result.
+     *
+     * @param { boolean } horizontal Is flip in horizontal.
+     * @param { boolean } vertical Is flip in vertical.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    flipSync(horizontal: boolean, vertical: boolean): void;
+
+    /**
      * Crop the image. This method uses a callback to return the operation result.
      *
      * @param { Region } region The region to crop.
@@ -3481,6 +3607,16 @@ declare namespace image {
      * @since 11
      */
     crop(region: Region): Promise<void>;
+
+    /**
+     * Crop the image. This method uses a promise to return the result.
+     *
+     * @param { Region } region The region to crop.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    cropSync(region: Region): void;
 
     /**
      * Get color space of pixel map.
