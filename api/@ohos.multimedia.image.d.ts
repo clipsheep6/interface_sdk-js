@@ -4634,6 +4634,15 @@ declare namespace image {
      */
     readonly format: number;
 
+     /**
+     * Image timestamp.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 11
+     */
+    readonly timestamp: number;
+
     /**
      * Get component buffer from image and uses a callback to return the result.
      *
