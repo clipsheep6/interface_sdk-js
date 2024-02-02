@@ -2500,6 +2500,7 @@ declare namespace media {
     /**
      * Cancel Listens for recording audioCapturerChange events.
      * @param { 'audioCapturerChange' } type - Type of the audioCapturerChange event to listen for.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
      */
