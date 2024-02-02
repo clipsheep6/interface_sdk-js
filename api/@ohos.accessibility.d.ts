@@ -260,7 +260,7 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 12
    */
-    function getAccessibilityExtensionList(
+    function getAccessibilityExtensionListSync(
       abilityType: AbilityType,
       stateType: AbilityState,
     ): Array<AccessibilityAbilityInfo>;
