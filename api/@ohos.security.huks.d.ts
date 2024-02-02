@@ -70,16 +70,16 @@ declare namespace huks {
    * @param { AsyncCallback<void> } callback - the callback of generateKeyItem.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100013 - queried credential does not exist
+   * @throws { BusinessError } 28100014 - memory is insufficient
+   * @throws { BusinessError } 28100015 - call service failed
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
@@ -91,16 +91,16 @@ declare namespace huks {
    * @param { AsyncCallback<void> } callback - the callback of generateKeyItem.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100013 - queried credential does not exist
+   * @throws { BusinessError } 28100014 - memory is insufficient
+   * @throws { BusinessError } 28100015 - call service failed
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 11
@@ -115,16 +115,16 @@ declare namespace huks {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100013 - queried credential does not exist
+   * @throws { BusinessError } 28100014 - memory is insufficient
+   * @throws { BusinessError } 28100015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -136,16 +136,16 @@ declare namespace huks {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100013 - queried credential does not exist
+   * @throws { BusinessError } 28100014 - memory is insufficient
+   * @throws { BusinessError } 28100015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
@@ -186,11 +186,11 @@ declare namespace huks {
    * @param { AsyncCallback<void> } callback - the callback of deleteKeyItem.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
@@ -202,11 +202,11 @@ declare namespace huks {
    * @param { AsyncCallback<void> } callback - the callback of deleteKeyItem.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 11
@@ -221,11 +221,11 @@ declare namespace huks {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -237,11 +237,11 @@ declare namespace huks {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
@@ -282,17 +282,17 @@ declare namespace huks {
    * @param { AsyncCallback<void> } callback - the callback of importKeyItem.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100013 - queried credential does not exist
+   * @throws { BusinessError } 28100014 - memory is insufficient
+   * @throws { BusinessError } 28100015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -304,17 +304,17 @@ declare namespace huks {
    * @param { AsyncCallback<void> } callback - the callback of importKeyItem.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100013 - queried credential does not exist
+   * @throws { BusinessError } 28100014 - memory is insufficient
+   * @throws { BusinessError } 28100015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
@@ -329,17 +329,17 @@ declare namespace huks {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100013 - queried credential does not exist
+   * @throws { BusinessError } 28100014 - memory is insufficient
+   * @throws { BusinessError } 28100015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -351,17 +351,17 @@ declare namespace huks {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100013 - queried credential does not exist
+   * @throws { BusinessError } 28100014 - memory is insufficient
+   * @throws { BusinessError } 28100015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
@@ -377,17 +377,17 @@ declare namespace huks {
    * @param { AsyncCallback<void> } callback - the callback of importWrappedKeyItem.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100013 - queried credential does not exist
+   * @throws { BusinessError } 28100014 - memory is insufficient
+   * @throws { BusinessError } 28100015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -407,17 +407,17 @@ declare namespace huks {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - call service failed
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100013 - queried credential does not exist
+   * @throws { BusinessError } 28100014 - memory is insufficient
+   * @throws { BusinessError } 28100015 - call service failed
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -457,15 +457,15 @@ declare namespace huks {
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of exportKeyItem.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -479,15 +479,15 @@ declare namespace huks {
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -527,15 +527,15 @@ declare namespace huks {
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of getKeyItemProperties.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -553,15 +553,15 @@ declare namespace huks {
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -601,13 +601,13 @@ declare namespace huks {
    * @param { AsyncCallback<boolean> } callback - the callback of isKeyItemExist.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
@@ -621,13 +621,13 @@ declare namespace huks {
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -641,13 +641,13 @@ declare namespace huks {
    * @param { AsyncCallback<boolean> } callback - the callback of isKeyItemExist.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 11
@@ -662,13 +662,13 @@ declare namespace huks {
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
@@ -709,16 +709,16 @@ declare namespace huks {
    * @param { AsyncCallback<HuksSessionHandle> } callback - the callback of initSession.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000010 - the number of sessions has reached limit
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100010 - the number of sessions has reached limit
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
@@ -730,16 +730,16 @@ declare namespace huks {
    * @param { AsyncCallback<HuksSessionHandle> } callback - the callback of initSession.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000010 - the number of sessions has reached limit
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100010 - the number of sessions has reached limit
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 11
@@ -754,16 +754,16 @@ declare namespace huks {
    * @returns { Promise<HuksSessionHandle> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000010 - the number of sessions has reached limit
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100010 - the number of sessions has reached limit
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -775,16 +775,16 @@ declare namespace huks {
    * @returns { Promise<HuksSessionHandle> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000010 - the number of sessions has reached limit
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100010 - the number of sessions has reached limit
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
@@ -827,18 +827,18 @@ declare namespace huks {
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 28100008 - verify authtoken failed
+   * @throws { BusinessError } 28100009 - authtoken is already timeout
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
@@ -850,18 +850,18 @@ declare namespace huks {
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 28100008 - verify authtoken failed
+   * @throws { BusinessError } 28100009 - authtoken is already timeout
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 11
@@ -877,18 +877,18 @@ declare namespace huks {
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of updateSession.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 28100008 - verify authtoken failed
+   * @throws { BusinessError } 28100009 - authtoken is already timeout
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -908,18 +908,18 @@ declare namespace huks {
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 28100008 - verify authtoken failed
+   * @throws { BusinessError } 28100009 - authtoken is already timeout
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -932,18 +932,18 @@ declare namespace huks {
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 28100008 - verify authtoken failed
+   * @throws { BusinessError } 28100009 - authtoken is already timeout
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
@@ -984,18 +984,18 @@ declare namespace huks {
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 28100008 - verify authtoken failed
+   * @throws { BusinessError } 28100009 - authtoken is already timeout
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
@@ -1007,18 +1007,18 @@ declare namespace huks {
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 28100008 - verify authtoken failed
+   * @throws { BusinessError } 28100009 - authtoken is already timeout
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 11
@@ -1034,18 +1034,18 @@ declare namespace huks {
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of finishSession.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 28100008 - verify authtoken failed
+   * @throws { BusinessError } 28100009 - authtoken is already timeout
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -1065,18 +1065,18 @@ declare namespace huks {
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 28100008 - verify authtoken failed
+   * @throws { BusinessError } 28100009 - authtoken is already timeout
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -1089,18 +1089,18 @@ declare namespace huks {
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify authtoken failed
-   * @throws { BusinessError } 12000009 - authtoken is already timeout
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 28100008 - verify authtoken failed
+   * @throws { BusinessError } 28100009 - authtoken is already timeout
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
@@ -1141,11 +1141,11 @@ declare namespace huks {
    * @param { AsyncCallback<void> } callback - the callback of abortSession.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @since 9
    */
@@ -1157,11 +1157,11 @@ declare namespace huks {
    * @param { AsyncCallback<void> } callback - the callback of abortSession.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 11
@@ -1176,11 +1176,11 @@ declare namespace huks {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -1192,11 +1192,11 @@ declare namespace huks {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 11
@@ -1213,15 +1213,15 @@ declare namespace huks {
    * @throws { BusinessError } 201 - check permission failed
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -1237,15 +1237,15 @@ declare namespace huks {
    * @throws { BusinessError } 201 - check permission failed
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 9
    */
@@ -1259,15 +1259,15 @@ declare namespace huks {
    * @param { AsyncCallback<HuksReturnResult> } callback - the callback of attestKeyItem.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 11
    */
@@ -1281,15 +1281,15 @@ declare namespace huks {
    * @returns { Promise<HuksReturnResult> } the promise returned by the function.
    * @throws { BusinessError } 401 - argument is invalid
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occured in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - external error
-   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 28100001 - algorithm mode is not supported
+   * @throws { BusinessError } 28100002 - algorithm param is missing
+   * @throws { BusinessError } 28100003 - algorithm param is invalid
+   * @throws { BusinessError } 28100004 - operating file failed
+   * @throws { BusinessError } 28100005 - IPC communication failed
+   * @throws { BusinessError } 28100006 - error occured in crypto engine
+   * @throws { BusinessError } 28100011 - queried entity does not exist
+   * @throws { BusinessError } 28100012 - external error
+   * @throws { BusinessError } 28100014 - memory is insufficient
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 11
    */
@@ -1998,7 +1998,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED = 12000001,
+    HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED = 28100001,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2008,7 +2008,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT = 12000002,
+    HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT = 28100002,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2018,7 +2018,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT = 12000003,
+    HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT = 28100003,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2028,7 +2028,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_FILE_OPERATION_FAIL = 12000004,
+    HUKS_ERR_CODE_FILE_OPERATION_FAIL = 28100004,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2038,7 +2038,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_COMMUNICATION_FAIL = 12000005,
+    HUKS_ERR_CODE_COMMUNICATION_FAIL = 28100005,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2048,7 +2048,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_CRYPTO_FAIL = 12000006,
+    HUKS_ERR_CODE_CRYPTO_FAIL = 28100006,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2058,7 +2058,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED = 12000007,
+    HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED = 28100007,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2068,7 +2068,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED = 12000008,
+    HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED = 28100008,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2078,7 +2078,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_KEY_AUTH_TIME_OUT = 12000009,
+    HUKS_ERR_CODE_KEY_AUTH_TIME_OUT = 28100009,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2088,7 +2088,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_SESSION_LIMIT = 12000010,
+    HUKS_ERR_CODE_SESSION_LIMIT = 28100010,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2098,7 +2098,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_ITEM_NOT_EXIST = 12000011,
+    HUKS_ERR_CODE_ITEM_NOT_EXIST = 28100011,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2108,7 +2108,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_EXTERNAL_ERROR = 12000012,
+    HUKS_ERR_CODE_EXTERNAL_ERROR = 28100012,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2118,7 +2118,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST = 12000013,
+    HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST = 28100013,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2128,7 +2128,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_INSUFFICIENT_MEMORY = 12000014,
+    HUKS_ERR_CODE_INSUFFICIENT_MEMORY = 28100014,
     /**
      * @syscap SystemCapability.Security.Huks.Core
      * @since 9
@@ -2138,7 +2138,7 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_ERR_CODE_CALL_SERVICE_FAILED = 12000015,
+    HUKS_ERR_CODE_CALL_SERVICE_FAILED = 28100015,
     /**
      * Device password is required but not set.
      *
