@@ -252,6 +252,19 @@ declare namespace accessibility {
     callback: AsyncCallback<Array<AccessibilityAbilityInfo>>
   ): void;
 
+    /**
+   * Queries the list of accessibility abilities.
+   *
+   * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
+   * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 12
+   */
+    function getAccessibilityExtensionListSync(
+      abilityType: AbilityType,
+      stateType: AbilityState,
+    ): Array<AccessibilityAbilityInfo>;
+
   /**
    * Send accessibility Event.
    *
