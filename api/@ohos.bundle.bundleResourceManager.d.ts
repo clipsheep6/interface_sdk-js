@@ -75,7 +75,34 @@ declare namespace bundleResourceManager {
      * @systemapi
      * @since 11
      */
-    GET_RESOURCE_INFO_WITH_SORTED_BY_LABEL = 0x00000008
+    GET_RESOURCE_INFO_WITH_SORTED_BY_LABEL = 0x00000008,
+
+    /**
+     * Used to obtain bundle icon drawable descriptor.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+     * @systemapi
+     * @since 12
+     */
+    GET_RESOURCE_INFO_WITH_DRAWABLE_DESCRIPTOR = 0x00000010,
+
+    /**
+     * Used to obtain bundle icon resource.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+     * @systemapi
+     * @since 12
+     */
+    GET_RESOURCE_INFO_WITH_BUNDLE_ICON = 0x00000020,
+
+    /**
+     * Used to obtain bundle label resource.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+     * @systemapi
+     * @since 12
+     */
+    GET_RESOURCE_INFO_WITH_BUNDLE_LABEL = 0x00000040
   }
 
   /**
@@ -171,6 +198,27 @@ declare namespace bundleResourceManager {
    * @since 11
    */
   function getAllLauncherAbilityResourceInfo(resourceFlags: number): Promise<Array<LauncherAbilityResourceInfo>>;
+
+  /**
+   * Obtains the ability resourceInfo of a specified bundle. Default resourceFlag is GET_RESOURCE_INFO_ALL.
+   *
+   * @permission ohos.permission.GET_BUNDLE_RESOURCES
+   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { string } moduleName - Indicates the module name of the application.
+   * @param { string } abilityName - Indicates the ability name of the application.
+   * @param { number } [resourceFlags] - Indicates the flag used to specify information contained in the LauncherAbilityResourceInfo object that will be returned.
+   * @returns { LauncherAbilityResourceInfo } Returns the LauncherAbilityResourceInfo object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @throws { BusinessError } 17700003 - The specified abilityName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @since 12
+   */
+  function getAbilityResourceInfo(bundleName: string, moduleName: string, abilityName: string, resourceFlags?: number): LauncherAbilityResourceInfo
 
   /**
    * Obtains resource info of a bundle.

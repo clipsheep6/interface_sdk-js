@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
+
 /**
  * Obtains resource information about a launcher ability
  *
@@ -76,4 +78,15 @@ export interface LauncherAbilityResourceInfo {
    * @since 11
    */
   readonly label: string;
+
+  /**
+   * Indicates the drawableDescriptor of this ability icon
+   *
+   * @type { DrawableDescriptor }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @since 12
+   */
+  readonly drawableDescriptor: DrawableDescriptor;
 }
