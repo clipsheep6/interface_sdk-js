@@ -2043,7 +2043,7 @@ declare namespace http {
     UNSUPPORTED_TYPE,
 
     /**
-     * The server cannot serve the requested ranges.
+     * The server cannot process the requested data range.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
