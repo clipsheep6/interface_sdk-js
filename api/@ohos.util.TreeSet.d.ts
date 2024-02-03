@@ -59,7 +59,24 @@ declare class TreeSet<T> {
    * @crossplatform
    * @since 10
    */
-  constructor(comparator?: (firstValue: T, secondValue: T) => boolean);
+  /**
+   * A constructor used to create a TreeSet object.
+   *
+   * @param { (firstValue: T, secondValue: T) => number } comparator - comparison comparison
+   * comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
+   * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
+   * sorted in ascending order;If it returns secondValue minus firstValue, it returns an arraylist sorted in descending order;
+   * If this parameter is empty, it will default to ASCII sorting
+   * (Optional) User-defined comparison functions
+   * firstValue (Optional) previous element
+   * secondValue (Optional) next element
+   * @throws { BusinessError } 10200012 - The TreeSet's constructor cannot be directly invoked.
+   * @throws { BusinessError } 401 - The type of parameters are invalid.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @since 11
+   */
+  constructor(comparator?: (firstValue: T, secondValue: T) => number);
   /**
    * Gets the element number of the TreeSet.
    *
