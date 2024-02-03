@@ -467,70 +467,6 @@ declare namespace hidebug {
    */
   namespace tags {
     /**
-     * Ffrt tasks.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const FFRT: string;
-    /**
-     * Commonlibrary subsystem tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const COMMONLIBRARY: string;
-    /**
-     * HDF subsystem tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const HDF: string;
-    /**
-     * Net tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const NET: string;
-    /**
-     * NWeb tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const NWEB: string;
-    /**
-     * Distributed audio tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const DISTRIBUTED_AUDIO: string;
-    /**
-     * Filemanagement tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const FILEMANAGEMENT: string;
-    /**
-     * OHOS generic tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const OHOS: string;
-    /**
      * Ability Manager tag.
      *
      * @constant
@@ -538,54 +474,6 @@ declare namespace hidebug {
      * @since 12
      */
     const ABILITY_MANAGER: string;
-    /**
-     * Camera module tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const ZCAMERA: string;
-    /**
-     * Media module tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const ZMEDIA: string;
-    /**
-     * Image module tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const ZIMAGE: string;
-    /**
-     * Audio module tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const ZAUDIO: string;
-    /**
-     * Distributeddata manager module tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const DISTRIBUTEDDATA: string;
-    /**
-     * Graphic module tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const GRAPHIC_AGP: string;
     /**
      * ACE development framework tag.
      *
@@ -595,13 +483,133 @@ declare namespace hidebug {
      */
     const ACE: string;
     /**
-     * Notification module tag.
+     * ARK tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const NOTIFICATION: string;
+    const ARK: string;
+    /**
+     * Bluetooth tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const BLUETOOTH: string;
+    /**
+     * Common library subsystem tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const COMMON_LIBRARY: string;
+    /**
+     * Distributed hardware devicemanager tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DEVICE_MANAGER: string;
+    /**
+     * Distributed audio tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTED_AUDIO: string;
+    /**
+     * Distributed camera tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTED_CAMERA: string;
+    /**
+     * Distributed data manager module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTED_DATA: string;
+    /**
+     * Distributed hardware fwk tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTED_HARDWARE_FWK: string;
+    /**
+     * Distributed input tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTED_INPUT: string;
+    /**
+     * Distributed screen tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTED_SCREEN: string;
+    /**
+     * Distributed schedule tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTED_SCHEDULE: string;
+    /**
+     * Ffrt tasks.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const FFRT: string;
+    /**
+     * File management tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const FILE_MANAGEMENT: string;
+    /**
+     * Global resource manager tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const GLOBAL_RESMGR: string;
+    /**
+     * Graphic module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const GRAPHIC_AGP: string;
+    /**
+     * HDF subsystem tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const HDF: string;
     /**
      * Notification module tag.
      *
@@ -617,79 +625,39 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const MULTIMODALINPUT: string;
+    const MULTI_MODAL_INPUT: string;
     /**
-     * RPC and IPC tag.
+     * Net tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const RPC: string;
+    const NET: string;
     /**
-     * ARK tag.
+     * Notification module tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const ARK: string;
+    const NOTIFICATION: string;
     /**
-     * Window manager tag.
+     * NWeb tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const WINDOW_MANAGER: string;
+    const NWEB: string;
     /**
-     * Distributed screen tag.
+     * OHOS generic tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const DISTRIBUTED_SCREEN: string;
-    /**
-     * Distributed camera tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const DISTRIBUTED_CAMERA: string;
-    /**
-     * Distributed hardware fwk tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const DISTRIBUTED_HARDWARE_FWK: string;
-    /**
-     * Global resource manager tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const GLOBAL_RESMGR: string;
-    /**
-     * Distributed hardware devicemanager tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const DEVICE_MANAGER: string;
-    /**
-     * SA tag.
-     *
-     * @constant
-     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12
-     */
-    const SAMGR: string;
+    const OHOS: string;
     /**
      * Power manager tag.
      *
@@ -699,29 +667,61 @@ declare namespace hidebug {
      */
     const POWER: string;
     /**
-     * Distributed schedule tag.
+     * RPC and IPC tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const DISTRIBUTED_SCHEDULE: string;
+    const RPC: string;
     /**
-     * Distributed input tag.
+     * SA tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const DISTRIBUTED_INPUT: string;
+    const SAMGR: string;
     /**
-     * bluetooth tag.
+     * Window manager tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const BLUETOOTH: string;
+    const WINDOW_MANAGER: string;
+    /**
+     * Audio module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const ZAUDIO: string;
+    /**
+     * Camera module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const ZCAMERA: string;
+    /**
+     * Image module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const ZIMAGE: string;
+    /**
+     * Media module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const ZMEDIA: string;
   }
 
   /**
