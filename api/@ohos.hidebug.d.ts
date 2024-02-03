@@ -459,7 +459,7 @@ declare namespace hidebug {
   }
 
   /**
-   * tags
+   * Provide trace tags
    *
    * @namespace tags
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
