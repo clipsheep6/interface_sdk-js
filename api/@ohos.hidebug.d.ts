@@ -459,6 +459,272 @@ declare namespace hidebug {
   }
 
   /**
+   * tags
+   *
+   * @namespace tags
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  namespace tags {
+    /**
+     * Ffrt tasks.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const FFRT: string;
+    /**
+     * Commonlibrary subsystem tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const COMMONLIBRARY: string;
+    /**
+     * HDF subsystem tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const HDF: string;
+    /**
+     * Net tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const NET: string;
+    /**
+     * NWeb tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const NWEB: string;
+    /**
+     * Distributed audio tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTED_AUDIO: string;
+    /**
+     * Filemanagement tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const FILEMANAGEMENT: string;
+    /**
+     * OHOS generic tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const OHOS: string;
+    /**
+     * Ability Manager tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const ABILITY_MANAGER: string;
+    /**
+     * Camera module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const ZCAMERA: string;
+    /**
+     * Media module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const ZMEDIA: string;
+    /**
+     * Image module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const ZIMAGE: string;
+    /**
+     * Audio module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const ZAUDIO: string;
+    /**
+     * Distributeddata manager module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTEDDATA: string;
+    /**
+     * Graphic module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const GRAPHIC_AGP: string;
+    /**
+     * ACE development framework tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const ACE: string;
+    /**
+     * Notification module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const NOTIFICATION: string;
+    /**
+     * Notification module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const MISC: string;
+    /**
+     * Multi modal module tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const MULTIMODALINPUT: string;
+    /**
+     * RPC and IPC tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const RPC: string;
+    /**
+     * ARK tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const ARK: string;
+    /**
+     * Window manager tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const WINDOW_MANAGER: string;
+    /**
+     * Distributed screen tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTED_SCREEN: string;
+    /**
+     * Distributed camera tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTED_CAMERA: string;
+    /**
+     * Distributed hardware fwk tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTED_HARDWARE_FWK: string;
+    /**
+     * Global resource manager tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const GLOBAL_RESMGR: string;
+    /**
+     * Distributed hardware devicemanager tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DEVICE_MANAGER: string;
+    /**
+     * SA tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const SAMGR: string;
+    /**
+     * Power manager tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const POWER: string;
+    /**
+     * Distributed schedule tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTED_SCHEDULE: string;
+    /**
+     * Distributed input tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const DISTRIBUTED_INPUT: string;
+    /**
+     * bluetooth tag.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    const BLUETOOTH: string;
+  }
+
+  /**
    * Start capture application trace.
    *
    * @param { string[] } tags - Tag of trace.
