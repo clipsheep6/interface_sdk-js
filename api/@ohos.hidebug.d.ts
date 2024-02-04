@@ -57,6 +57,7 @@ declare namespace hidebug {
 
   /**
    * Get the virtual set size memory of the application process
+   *
    * @returns { bigint } Returns application process virtual set size memory information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 11
