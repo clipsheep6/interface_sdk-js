@@ -206,6 +206,7 @@
     "SystemCapability.Driver.ExternalDevice",
     "SystemCapability.Multimedia.Audio.Spatialization",
     "SystemCapability.Multimedia.AudioHaptic.Core",
-    "SystemCapability.Graphics.Drawing"
+    "SystemCapability.Graphics.Drawing",
+    "SystemCapability.Graphic.Graphic2D.NativeDrawing"
   ]
 }
