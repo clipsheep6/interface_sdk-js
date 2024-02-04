@@ -99,6 +99,15 @@ declare namespace hidebug {
   function getCpuUsage(): number;
 
   /**
+   * Obtains the cpu usage percent of a system.
+   *
+   * @returns { number } Returns the cpu usage of a system.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getSysCpuUsage(): number;
+
+  /**
    * Start CPU Profiling.
    * The input parameter is a user-defined file name, excluding the file suffix.
    * The generated file is in the files folder under the application directory.
