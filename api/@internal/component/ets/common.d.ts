@@ -9336,6 +9336,36 @@ declare enum DismissReason {
 }
 
 /**
+ * Component popup dismiss
+ *
+ * @interface DismissPopup
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DismissPopup {
+  /**
+   * Defines popup dismiss function
+   *
+   * @type { function  }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dismiss: () => void;
+
+  /**
+   * Defines popup dismiss reason
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reason: DismissReason;
+}
+
+/**
  * Defines the popup options.
  *
  * @interface PopupOptions
@@ -9867,6 +9897,16 @@ declare interface PopupOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Callback function when the popup interactive dismiss
+   *
+   * @type { ?(boolean | function) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDismiss?: boolean | ((dismissPopup: DismissPopup) => void);
 }
 
 /**
@@ -10278,6 +10318,16 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   focusable?: boolean;
+
+  /**
+   * Callback function when the popup interactive dismiss
+   *
+   * @type { ?(boolean | function) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+  */
+  onWillDismiss?: boolean | ((dismissPopup: DismissPopup) => void);
 }
 
 /**
