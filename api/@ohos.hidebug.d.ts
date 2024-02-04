@@ -60,6 +60,8 @@ declare namespace hidebug {
    * @returns { bigint } Returns application process virtual set size memory information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 11
+   * @deprecated since 12
+   * @useinstead ohos.hidebug/hidebug.getAppNativeMemInfo
    */
   function getVss(): bigint;
 
@@ -69,6 +71,8 @@ declare namespace hidebug {
    * @returns { bigint } Returns application process proportional set size memory information.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
+   * @deprecated since 12
+   * @useinstead ohos.hidebug/hidebug.getAppNativeMemInfo
    */
   function getPss(): bigint;
 
@@ -78,6 +82,8 @@ declare namespace hidebug {
    * @returns { bigint } Returns the size of the shared dirty memory.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 8
+   * @deprecated since 12
+   * @useinstead ohos.hidebug/hidebug.getAppNativeMemInfo
    */
   function getSharedDirty(): bigint;
 
@@ -86,6 +92,8 @@ declare namespace hidebug {
    * @returns { bigint } Returns the size of the private dirty memory.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.hidebug/hidebug.getAppNativeMemInfo
    */
   function getPrivateDirty(): bigint;
 
