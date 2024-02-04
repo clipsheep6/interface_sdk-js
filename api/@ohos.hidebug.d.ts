@@ -280,7 +280,7 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12
    */
-  function getSystemMemory(): SystemMemInfo;
+  function getSystemMemInfo(): SystemMemInfo;
 
   /**
    * Application process native memory information.
