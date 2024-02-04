@@ -332,6 +332,16 @@ declare const BuilderParam: PropertyDecorator;
 declare const State: PropertyDecorator;
 
 /**
+ * Defining state PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ * @form
+ */
+declare const state: PropertyDecorator;
+
+/**
  * Defining Track PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
