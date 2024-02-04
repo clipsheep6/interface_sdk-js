@@ -619,13 +619,13 @@ declare namespace hidebug {
      */
     const MISC: string;
     /**
-     * Multi modal module tag.
+     * Multimodal module tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const MULTI_MODAL_INPUT: string;
+    const MULTIMODAL_INPUT: string;
     /**
      * Net tag.
      *
