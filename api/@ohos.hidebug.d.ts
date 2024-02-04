@@ -202,7 +202,7 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12
    */
-  function getSysCpuUsage(): number;
+  function getSystemCpuUsage(): number;
 
   /**
    * Application CPU usage of all threads.
@@ -242,11 +242,11 @@ declare namespace hidebug {
   /**
    * System memory information
    *
-   * @typedef SysMemInfo
+   * @typedef SystemMemInfo
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12
    */
-  interface SysMemInfo {
+  interface SystemMemInfo {
     /**
      * Total system memory size, in kibibytes
      *
@@ -276,11 +276,11 @@ declare namespace hidebug {
   /**
    * Obtains the system memory size.
    *
-   * @returns { SysMemInfo } Returns system memory size.
+   * @returns { SystemMemInfo } Returns system memory size.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12
    */
-  function getSysMemory(): SysMemInfo;
+  function getSystemMemory(): SystemMemInfo;
 
   /**
    * Application process native memory information.
@@ -706,7 +706,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const ZAUDIO: string;
+    const AUDIO: string;
     /**
      * Camera module tag.
      *
@@ -714,7 +714,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const ZCAMERA: string;
+    const CAMERA: string;
     /**
      * Image module tag.
      *
@@ -722,7 +722,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const ZIMAGE: string;
+    const IMAGE: string;
     /**
      * Media module tag.
      *
@@ -730,7 +730,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const ZMEDIA: string;
+    const MEDIA: string;
   }
 
   /**
