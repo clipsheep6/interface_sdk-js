@@ -184,5 +184,111 @@ declare namespace hidebug {
    * @since 9
    */
   function getServiceDump(serviceid: number, fd: number, args: Array<string>): void;
+
+  /**
+   * Obtains the memory info of application virutal machine.
+   *
+   * @returns { VMMemoryInfo } Returns memory info of application virtual machine.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getAppVMMemoryInfo(): VMMemoryInfo;
+
+  /**
+ * Obtains cpu usage of application's all thread
+ *
+ * @returns { ThreadCpuUsage[] } Returns cpu usage of all thread
+ * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+ * @since 12
+ */
+  function getAppThreadCpuUsage(): ThreadCpuUsage[];
+
+  /**
+   * Start capture main thread trace
+   *
+   * @param { string } fileName - Absolute path under application path.
+   * @param { string[] } tags - tag of trace.
+   * @throws { BusinessError } 401 - Invalid argument
+   * @throws { BusinessError } 11400102 - Have Capture trace
+   * @throws { BusinessError } 11400103 - Without write permission on the file
+   * @throws { BusinessError } 11400104 - The status of the trace is abnormal
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function startCaptureMainThreadTrace(fileName: string, tags: string): void;
+
+  /**
+   * Stop capture main thread trace
+   *
+   * @throws { BusinessError } 11400104 - The status of the trace is abnormal
+   * @throws { BusinessError } 11400105 - No capture trace
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function stopCaptureMainThreadTrace(): void;
 }
+
+/**
+ * the memory info of application virtual machine.
+ *
+ * @typedef VMMemoryInfo
+ * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+ * @since 12
+ */
+interface VMMemoryInfo {
+  /**
+   * heap total size of current virutal machine
+   *
+   * @type { bigint }
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  heapTotal: bigint;
+
+  /**
+   * heap used size of current virutal machine
+   *
+   * @type { bigint }
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  heapUsed: bigint;
+
+  /**
+   * all array object size of current virutal machine
+   *
+   * @type { bigint }
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  arraySize: bigint;
+}
+
+/**
+ * the thread cpu usage of application.
+ *
+ * @typedef ThreadCpuUsage
+ * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+ * @since 12
+ */
+interface ThreadCpuUsage {
+  /**
+   * id of thread
+   *
+   * @type { number }
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  threadId: number;
+
+  /**
+   * cpu usage of thread
+   *
+   * @type { number }
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  cpuUsage: number;
+}
+
 export default hidebug;
