@@ -1277,5 +1277,4 @@ declare namespace hiAppEvent {
    */
   function removeProcessor(id: number): void;
 }
-
 export default hiAppEvent;
