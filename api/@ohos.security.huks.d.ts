@@ -2375,6 +2375,15 @@ declare namespace huks {
      * @since 8
      */
     HUKS_MODE_OFB = 4,
+
+    /**
+     * Cipher feedback mode.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @since 12
+     */
+    HUKS_MODE_CFB = 5,
+
     /**
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 8
