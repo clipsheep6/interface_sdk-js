@@ -595,6 +595,7 @@ declare namespace screen {
 
   /**
    * Screen orientation
+   * 
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
