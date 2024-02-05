@@ -224,7 +224,55 @@ declare namespace hiAppEvent {
      */
     const APP_FREEZE: string;
 
+	/**
+     * launch event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
     const APP_LAUNCH: string;
+
+	/**
+     * scroll jank event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const SCROLL_JANK: string;
+	
+	/**
+     * cpu usage abnormal event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const CPU_USAGE_ABNORMAL: string;
+	
+	/**
+     * cpu abnormal event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const POWER_USAGE_RATE: string;
+	
+	/**
+     * resource overlimit event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const RES_OVERLIMIT: string;	
   }
 
   /**
@@ -1182,6 +1230,26 @@ declare namespace hiAppEvent {
      * @since 11
      */
     eventConfigs?: AppEventReportConfig[];
+	
+	/**
+     * The processor ID.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    id?: number;
+	
+	/**
+     * The processor extend the config data.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    extendConfig?: string;
   }
 
   /**
