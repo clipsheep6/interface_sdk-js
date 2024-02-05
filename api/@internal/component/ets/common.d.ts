@@ -12484,6 +12484,7 @@ declare class CommonMethod<T> {
    * @param { function } event
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
