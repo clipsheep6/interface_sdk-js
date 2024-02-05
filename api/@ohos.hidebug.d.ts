@@ -610,7 +610,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const GRAPHIC_AGP: string;
+    const GRAPHIC: string;
     /**
      * HDF subsystem tag.
      *
@@ -620,7 +620,7 @@ declare namespace hidebug {
      */
     const HDF: string;
     /**
-     * Notification module tag.
+     * MISC module tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
