@@ -595,17 +595,41 @@ declare namespace screen {
 
   /**
    * Screen orientation
-   *
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9
    */
   enum Orientation {
+    /*
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     UNSPECIFIED = 0,
+    /*
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     VERTICAL = 1,
+    /*
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     HORIZONTAL = 2,
+    /*
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     REVERSE_VERTICAL = 3,
+    /*
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     REVERSE_HORIZONTAL = 4
   }
 
@@ -618,9 +642,29 @@ declare namespace screen {
    * @since 9
    */
   interface ScreenModeInfo {
+    /*
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     id: number;
+    /*
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     width: number;
+    /*
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     height: number;
+    /*
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 9
+     */
     refreshRate: number;
   }
 }
