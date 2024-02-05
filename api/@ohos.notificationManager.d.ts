@@ -43,6 +43,7 @@ import { NotificationSlot as _NotificationSlot } from './notification/notificati
 import { NotificationSorting as _NotificationSorting } from './notification/notificationSorting';
 import { NotificationTemplate as _NotificationTemplate } from './notification/notificationTemplate';
 import { NotificationUserInput as _NotificationUserInput } from './notification/notificationUserInput';
+import { NotificationControlFlagStatus as _NotificationControlFlagStatus } from './notification/notificationRequest';
 import type UIAbilityContext from './application/UIAbilityContext';
 
 /**
@@ -2330,6 +2331,15 @@ declare namespace notificationManager {
     CUSTOMER_SERVICE = 5,
 
     /**
+     * NotificationSlot for emergency information.
+     *
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    EMERGENCY_INFORMATION = 10,
+
+    /**
      * NotificationSlot for other purposes.
      *
      * @syscap SystemCapability.Notification.Notification
@@ -2823,6 +2833,15 @@ declare namespace notificationManager {
    * @since 11
    */
   export type NotificationProgress = _NotificationProgress;
+
+  /**
+   * Describes notification control flag status.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  export type NotificationControlFlagStatus = _NotificationControlFlagStatus;
 }
 
 export default notificationManager;
