@@ -223,6 +223,8 @@ declare namespace hiAppEvent {
      * @since 11
      */
     const APP_FREEZE: string;
+
+    const APP_LAUNCH: string;
   }
 
   /**
