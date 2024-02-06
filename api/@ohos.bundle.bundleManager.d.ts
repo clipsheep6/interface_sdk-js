@@ -2782,7 +2782,7 @@ declare namespace bundleManager {
   function canOpenLink(link: string): boolean;
 
   /**
-   * Query BundleInfos according to the list of preset applications
+   * Obtains BundleInfo of all bundles preinstalled in the system.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
@@ -2794,22 +2794,7 @@ declare namespace bundleManager {
    * @systemapi
    * @since 12
    */
-  function queryPreInstallApps(bundleFlags: number): Promise<Array<BundleInfo>>;
-
-  /**
-   * Query BundleInfos according to the list of preset applications
-   *
-   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
-   * @param { AsyncCallback<Array<BundleInfo>> } callback -  The callback of a list of BundleInfo objects. 
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 12
-   */
-  function queryPreInstallApps(bundleFlags: number, callback: AsyncCallback<Array<BundleInfo>>): void;
+  function getAllPreinstalledBundleInfo(bundleFlags: number): Promise<Array<BundleInfo>>;
 
   /**
    * Obtains configuration information about an application.
