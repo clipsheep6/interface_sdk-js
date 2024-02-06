@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,7 +20,6 @@
 
 import { AsyncCallback } from './@ohos.base';
 import { BundleOption as _BundleOption } from './notification/NotificationCommonDef';
-import { BundleNotificationStatus as _BundleNotificationStatus } from './notification/NotificationCommonDef';
 import { NotificationActionButton as _NotificationActionButton } from './notification/notificationActionButton';
 import { NotificationBasicContent as _NotificationBasicContent } from './notification/notificationContent';
 import { NotificationContent as _NotificationContent } from './notification/notificationContent';
@@ -41,8 +40,6 @@ import { DistributedOptions as _DistributedOptions } from './notification/notifi
 import type { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
 import type { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
 import type { UnifiedGroupInfo as _UnifiedGroupInfo } from './notification/notificationRequest';
-
-
 import { NotificationSlot as _NotificationSlot } from './notification/notificationSlot';
 import { NotificationSorting as _NotificationSorting } from './notification/notificationSorting';
 import { NotificationTemplate as _NotificationTemplate } from './notification/notificationTemplate';
@@ -427,8 +424,6 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
-  function cancelAsBundle(id: number, representativeBundle: string, userId: number): Promise<void>;
-
   /**
    * Cancel a representative notification.
    *
@@ -450,28 +445,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function cancelAsBundle(id: number, representativeBundle: string, userId: number, uid: number): Promise<void>;
-
-  /**
-   * Cancel a representative notification.
-   *
-   * @param { BundleOption } representativeBundle - BundleOption of the representative.
-   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
-   * @param { string } label - Label of the notification to cancel.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
-   * @throws { BusinessError } 1600008 - The user is not exist.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-    function cancelAsBundle(representativeBundle: BundleOption, id: number, label?: string): Promise<void>;
+  function cancelAsBundle(id: number, representativeBundle: string, userId: number, uid?: number): Promise<void>;
 
   /**
    * Cancel all notifications of the current application.
@@ -659,21 +633,6 @@ declare namespace notificationManager {
    * @since 9
    */
   function getSlots(): Promise<Array<NotificationSlot>>;
-
-  /**
-   * Obtains allow notification application list.
-   *
-   * @returns { Promise<Array<BundleNotificationStatus>> } Returns all enable notification applications.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  function getAllNotificationEnableStatus(): Promise<Array<BundleNotificationStatus>>;
 
   /**
    * Obtains allow notification application list by slot.
@@ -1769,7 +1728,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   *  @param { string } deviceType - The device type.
+   * @param { string } deviceType - The device type.
    * @param { boolean } enable - Set enable or not.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2202,6 +2161,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
+   * @systemapi
    * @since 12
    */
   function setBadgeNumberAsBundle(bundle: BundleOption, badgeNumber: number): Promise<void>;
@@ -2246,8 +2206,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { 'checkNotification' } type - Type of the callback to listen for.
-   * @param { function } [callback] - callback - The callback
-   *                                                                                     of check notifications.
+   * @param { function } [callback] - callback - The callback of check notifications.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -2948,15 +2907,6 @@ declare namespace notificationManager {
    * @since 9
    */
   export type BundleOption = _BundleOption;
-
-  /**
-   * Describes a bundleStatus in a notification.
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  export type BundleNotificationStatus = _BundleNotificationStatus;
 
   /**
    * Describes an action button displayed in a notification.

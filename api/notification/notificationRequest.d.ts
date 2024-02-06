@@ -50,7 +50,7 @@ export interface NotificationRequest {
    */
   id?: number;
 
-    /**
+  /**
    * Notification unified ID.
    *
    * @type { string }
@@ -414,15 +414,6 @@ export interface NotificationRequest {
    * @since 9
    */
   badgeNumber?: number;
-
-  /**
-   * BundleOption of the representative.
-   *
-   * @type { ?BundleOption }
-   * @syscap SystemCapability.Notification.Notification
-   * @since 12
-   */
-  representiveBundle?: BundleOption;
 
   /**
    * Unified aggregation of information across applications.
