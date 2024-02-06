@@ -337,6 +337,8 @@ declare namespace commonEventManager {
    * @StageModelOnly
    * @since 10
    */
+  function setStaticSubscriberState(enable: boolean): Promise<void>;
+
   /**
    * Set static subscriber state.
    *

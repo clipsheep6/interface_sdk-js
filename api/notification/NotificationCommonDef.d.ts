@@ -39,3 +39,33 @@ export interface BundleOption {
    */
   uid?: number;
 }
+
+/**
+ * Describes a BundleNotificationStatus.
+ *
+ * @typedef BundleNotificationStatus
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 12
+ */
+export interface BundleNotificationStatus {
+  /**
+   * Bundle option.
+   *
+   * @type { BundleOption }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  bundleOption: BundleOption;
+
+  /**
+   * Status of enable notification.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  status: boolean;
+}

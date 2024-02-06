@@ -186,12 +186,12 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
   /**
    * Update locally.
    *
-   * @type { Boolean }
+   * @type { boolean }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
    */
-  isOnlylocalUpdate?: Boolean;
+  isOnlylocalUpdate?: boolean;
 }
 
 /**
