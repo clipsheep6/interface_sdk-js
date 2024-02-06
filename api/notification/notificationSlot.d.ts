@@ -153,4 +153,26 @@ export interface NotificationSlot {
    * @since 11
    */
   readonly reminderMode?: number;
+
+  /**
+   * Obtains the notification reminder information of the current notification entry.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  readonly reminderFlags?: number;
+
+  /**
+   * Obtains channel information is authorized by the user.
+   *
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  readonly authorizedStatus?: number;
 }

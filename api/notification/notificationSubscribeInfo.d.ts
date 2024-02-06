@@ -41,4 +41,14 @@ export interface NotificationSubscribeInfo {
    * @since 7
    */
   userId?: number;
+
+  /**
+   * Specify which device type to subscribe to the notification from.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  deviceType?: string;
 }
