@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ConnectivityKit
+ */
+
 import { Callback } from './@ohos.base';
 
 /**
@@ -23,6 +28,13 @@ import { Callback } from './@ohos.base';
  * @since 7
  */
 declare namespace nfcController {
+  /**
+   * NFC changed states.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.NFC.Core
+   * @since 7
+   */
   enum NfcState {
     /** 
      * Indicates that NFC is disabled.

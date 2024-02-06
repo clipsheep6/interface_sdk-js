@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit CoreFileKit
+ */
+
+/**
  * This module provides the capability to parse file or device information.
  *
  * @namespace fileExtensionInfo
@@ -37,6 +42,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     DEVICE_LOCAL_DISK = 1,
@@ -46,6 +52,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     DEVICE_SHARED_DISK,
@@ -55,6 +62,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     DEVICE_SHARED_TERMINAL,
@@ -64,6 +72,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     DEVICE_NETWORK_NEIGHBORHOODS,
@@ -73,6 +82,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     DEVICE_EXTERNAL_MTP,
@@ -82,6 +92,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     DEVICE_EXTERNAL_USB,
@@ -91,6 +102,7 @@ declare namespace fileExtensionInfo {
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @systemapi
+     * @StageModelOnly
      * @since 9
      */
     DEVICE_EXTERNAL_CLOUD
@@ -106,7 +118,26 @@ declare namespace fileExtensionInfo {
    * @since 9
    */
   namespace DeviceFlag {
+    /**
+     * supports read.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
     const SUPPORTS_READ = 0b1;
+
+    /**
+     * supports write.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
     const SUPPORTS_WRITE = 0b10;
   }
 
@@ -120,9 +151,48 @@ declare namespace fileExtensionInfo {
    * @since 9
    */
   namespace DocumentFlag {
+    /**
+     * represents file.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
     const REPRESENTS_FILE = 0b1;
+
+    /**
+     * represents directory.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
     const REPRESENTS_DIR = 0b10;
+
+    /**
+     * supports read.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
     const SUPPORTS_READ = 0b100;
+
+    /**
+     * supports write.
+     *
+     * @constant
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @systemapi
+     * @StageModelOnly
+     * @since 9
+     */
     const SUPPORTS_WRITE = 0b1000;
   }
 }

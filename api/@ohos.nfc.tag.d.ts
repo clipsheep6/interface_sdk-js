@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ConnectivityKit
+ */
+
 import type { NfcATag as _NfcATag, NfcBTag as _NfcBTag, NfcFTag as _NfcFTag, NfcVTag as _NfcVTag } from './tag/nfctech';
 import {
   IsoDepTag as _IsoDepTag,
@@ -601,6 +606,39 @@ declare namespace tag {
   function unregisterForegroundDispatch(elementName: ElementName): void;
 
   /**
+   * Set reader mode enabled when the specific application is foreground. Dispatches to this application only if a tag discovered.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { 'readerMode' } type - The callback type to be registered.
+   * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
+   * @param { number[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100202 - The element state is invalid.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 11
+   */
+  function on(type: 'readerMode', elementName: ElementName, discTech: number[], callback: AsyncCallback<TagInfo>): void;
+
+  /**
+   * Disable foreground reader mode settings explicitly.
+   *
+   * @permission ohos.permission.NFC_TAG
+   * @param { 'readerMode' } type - The callback type to be unregistered.
+   * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
+   * @param { AsyncCallback<TagInfo> } [callback] - The callback to dispatched the TagInfo object for application.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 3100203 - The off() can be called only when the on() has been called.
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 11
+   */
+  function off(type: 'readerMode', elementName: ElementName, callback?: AsyncCallback<TagInfo>): void;
+
+  /**
    * Provides tag information.
    * <p>This class provides the technology a tag supports, for example, NFC-A. Applications can create
    * different tags based on the supported technology.
@@ -712,6 +750,13 @@ declare namespace tag {
     payload: number[];
   }
 
+  /**
+   * Provides methods for accessing NDEF tag.
+   *
+   * @namespace ndef
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @since 9
+   */
   namespace ndef {
     /**
      * Creates an NDEF record with uri data.
@@ -794,16 +839,92 @@ declare namespace tag {
     function messageToBytes(ndefMessage: NdefMessage): number[];
   }
 
+ /**
+  * Exports type NfcATag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 7
+  */
   export type NfcATag = _NfcATag;
+
+ /**
+  * Exports type NfcBTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 7
+  */
   export type NfcBTag = _NfcBTag;
+
+ /**
+  * Exports type NfcFTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 7
+  */
   export type NfcFTag = _NfcFTag;
+
+ /**
+  * Exports type NfcVTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 7
+  */
   export type NfcVTag = _NfcVTag;
+
+ /**
+  * Exports type IsoDepTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 9
+  */
   export type IsoDepTag = _IsoDepTag;
+
+ /**
+  * Exports type NdefTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 9
+  */
   export type NdefTag = _NdefTag;
+
+ /**
+  * Exports type MifareClassicTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 9
+  */
   export type MifareClassicTag = _MifareClassicTag;
+
+ /**
+  * Exports type MifareUltralightTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 9
+  */
   export type MifareUltralightTag = _MifareUltralightTag;
+
+ /**
+  * Exports type NdefFormatableTag.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 9
+  */
   export type NdefFormatableTag = _NdefFormatableTag;
+
+ /**
+  * Exports type NdefMessage.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 9
+  */
   export type NdefMessage = _NdefMessage;
+
+ /**
+  * Exports type TagSession.
+  *
+  * @syscap SystemCapability.Communication.NFC.Tag
+  * @since 7
+  */
   export type TagSession = _TagSession;
 }
 export default tag;

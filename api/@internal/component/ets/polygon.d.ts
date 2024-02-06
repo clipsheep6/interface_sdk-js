@@ -37,21 +37,45 @@
  * @since 10
  * @form
  */
+/**
+ * Provides the polygon drawing interface.
+ *
+ * @interface PolygonInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 interface PolygonInterface {
   /**
    * Uses new to create Polygon.
+   * 
    * @since 7
    */
   /**
    * Uses new to create Polygon.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
    * Uses new to create Polygon.
-   * @form
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 10
+   */
+  /**
+   * Uses new to create Polygon.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
    */
   new (value?: { width?: string | number; height?: string | number }): PolygonAttribute;
 
@@ -82,9 +106,54 @@ interface PolygonInterface {
    * @since 10
    * @form
    */
+  /**
+   * Called when drawing a polygon.
+   *
+   * @param { object } value
+   * @returns { PolygonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (value?: { width?: string | number; height?: string | number }): PolygonAttribute;
 }
 
+/**
+ * Provides attribute for Polygon.
+ *
+ * @extends CommonShapeMethod<PolygonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 7
+ */
+/**
+ * Provides attribute for Polygon.
+ *
+ * @extends CommonShapeMethod<PolygonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * Provides attribute for Polygon.
+ *
+ * @extends CommonShapeMethod<PolygonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+/**
+ * Provides attribute for Polygon.
+ *
+ * @extends CommonShapeMethod<PolygonAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
    * Called when the vertex coordinate list of a polygon is set.
@@ -113,6 +182,17 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the vertex coordinate list of a polygon is set.
+   *
+   * @param { Array<any> } value
+   * @returns { PolygonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   points(value: Array<any>): PolygonAttribute;
 }
 
@@ -137,6 +217,15 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines CheckboxGroup Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Polygon: PolygonInterface;
 
 /**
@@ -158,6 +247,15 @@ declare const Polygon: PolygonInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Polygon Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const PolygonInstance: PolygonAttribute;

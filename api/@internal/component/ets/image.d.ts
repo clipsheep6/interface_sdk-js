@@ -76,6 +76,15 @@ declare enum ImageRenderMode {
    * @since 10
    * @form
    */
+  /**
+   * Render according to the original image, including colors.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Original,
 
   /**
@@ -97,6 +106,15 @@ declare enum ImageRenderMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Render the image as a template image, ignoring the color information of the image.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Template,
@@ -150,6 +168,15 @@ declare enum ImageInterpolation {
    * @since 10
    * @form
    */
+  /**
+   * Do not use interpolated image data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   None,
 
   /**
@@ -171,6 +198,15 @@ declare enum ImageInterpolation {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Low usage of interpolated image data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Low,
@@ -196,6 +232,15 @@ declare enum ImageInterpolation {
    * @since 10
    * @form
    */
+  /**
+   * Interpolated image data is used moderately.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Medium,
 
   /**
@@ -217,6 +262,15 @@ declare enum ImageInterpolation {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * High usage of interpolated image data may affect the speed of image rendering.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   High,
@@ -851,6 +905,30 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   draggable(value: boolean): ImageAttribute;
 
   /**
+   * Defines the PointLight
+   *
+   * @param { PointLightStyle } value - The point light style.
+   * @returns { ImageAttribute } The attribute of the image.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  pointLight(value: PointLightStyle): ImageAttribute;
+
+  /**
+   * SVG anti-aliasing.
+   * The range of the parameter values is (0.333, 1.333].
+   * Default value is 0.0.
+   *
+   * @param { number } value - The degree of anti-aliasing.
+   * @returns { ImageAttribute } The attribute of the image.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  edgeAntialiasing(value: number): ImageAttribute;
+
+  /**
    * This callback is triggered when an image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
    *
@@ -894,82 +972,274 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   onComplete(
     callback: (event?: {
+      /**
+       * The width of the image source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 7
+       */
+      /**
+       * The width of the image source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 9
+       * @form
+       */
+      /**
+       * The width of the image source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @since 10
+       * @form
+       */
+      /**
+       * The width of the image source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @atomicservice
+       * @since 11
+       * @form
+       */
       width: number;
+      /**
+       * The height of the image source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 7
+       */
+      /**
+       * The height of the image source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 9
+       * @form
+       */
+      /**
+       * The height of the image source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @since 10
+       * @form
+       */
+      /**
+       * The height of the image source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @atomicservice
+       * @since 11
+       * @form
+       */
       height: number;
+      /**
+       * The width of the component source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 7
+       */
+      /**
+       * The width of the component source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 9
+       * @form
+       */
+      /**
+       * The width of the component source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @since 10
+       * @form
+       */
+      /**
+       * The width of the component source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @atomicservice
+       * @since 11
+       * @form
+       */
       componentWidth: number;
+      /**
+       * The height of the component source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 7
+       */
+      /**
+       * The height of the component source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 9
+       * @form
+       */
+      /**
+       * The height of the component source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @since 10
+       * @form
+       */
+      /**
+       * The height of the component source.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @atomicservice
+       * @since 11
+       * @form
+       */
       componentHeight: number;
+      /**
+       * The value of the status of the image being loaded successfully.
+       * If the returned status value is 0, the image data is successfully loaded.
+       * If the returned status value is 1, the image is successfully decoded.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 7
+       */
+      /**
+       * The value of the status of the image being loaded successfully.
+       * If the returned status value is 0, the image data is successfully loaded.
+       * If the returned status value is 1, the image is successfully decoded.
+       * 
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @since 9
+       * @form
+       */
+      /**
+       * The value of the status of the image being loaded successfully.
+       * If the returned status value is 0, the image data is successfully loaded.
+       * If the returned status value is 1, the image is successfully decoded.
+       * 
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @since 10
+       * @form
+       */
+      /**
+       * The value of the status of the image being loaded successfully.
+       * If the returned status value is 0, the image data is successfully loaded.
+       * If the returned status value is 1, the image is successfully decoded.
+       * 
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @atomicservice
+       * @since 11
+       * @form
+       */
       loadingStatus: number;
+      /**
+       * The width of the picture that is actually drawn.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @since 10
+       * @form
+       */
+      /**
+       * The width of the picture that is actually drawn.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @atomicservice
+       * @since 11
+       * @form
+       */
       contentWidth: number;
+      /**
+       * The height of the picture that is actually drawn.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @since 10
+       * @form
+       */
+      /**
+       * The height of the picture that is actually drawn.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @atomicservice
+       * @since 11
+       * @form
+       */
       contentHeight: number;
+      /**
+       * The actual draw is offset from the x-axis of the component itself.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @since 10
+       * @form
+       */
+      /**
+       * The actual draw is offset from the x-axis of the component itself.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @atomicservice
+       * @since 11
+       * @form
+       */
       contentOffsetX: number;
+      /**
+       * The actual draw is offset from the y-axis of the component itself.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @since 10
+       * @form
+       */
+      /**
+       * The actual draw is offset from the y-axis of the component itself.
+       *
+       * @type { number }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @atomicservice
+       * @since 11
+       * @form
+       */
       contentOffsetY: number;
     }) => void,
   ): ImageAttribute;
 
   /**
    * This callback is triggered when an exception occurs during image loading.
-   *
-   * @param { function } callback
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * This callback is triggered when an exception occurs during image loading.
-   *
-   * @param { function } callback
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   * @form
-   */
-  /**
-   * This callback is triggered when an exception occurs during image loading.
-   *
-   * @param { function } callback
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * This callback is triggered when an exception occurs during image loading.
-   *
-   * @param { function } callback
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   * @form
-   */
-  onError(callback: (event: {
-    /**
-     * Component width.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     * @form
-     */
-    componentWidth: number;
-
-    /**
-     * Component height.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     * @form
-     */
-    componentHeight: number
-  }) => void): ImageAttribute;
-
-  /**
-   * This callback is triggered when an exception occurs during image loading.
    * The field of "message" carries the detailed information of failed image loading.
    *
    * @param { function } callback
@@ -993,7 +1263,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * This callback is triggered when an exception occurs during image loading.
    * The field of "message" carries the detailed information of failed image loading.
    *
-   * @param { function } callback
+   * @param { ImageErrorCallback } callback
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1001,40 +1271,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    * @form
    */
-  onError(callback: (event: {
-    /**
-     * Component width.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     * @form
-     */
-    componentWidth: number;
-
-    /**
-     * Component height.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     * @form
-     */
-    componentHeight: number;
-
-    /**
-     * Message.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     * @form
-     */
-    message: string
-  }) => void): ImageAttribute;
+  onError(callback: ImageErrorCallback): ImageAttribute;
 
   /**
    * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
@@ -1079,6 +1316,38 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @form
    */
   onFinish(event: () => void): ImageAttribute;
+
+  /**
+   * Enable image analyzer.
+   *
+   * @param { boolean} config
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 11
+   */
+  enableAnalyzer(enable: boolean): ImageAttribute;
+
+  /**
+   * Set image analyzer with config.
+   *
+   * @param { ImageAnalyzerConfig } config
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 11
+   */
+  analyzerConfig(config: ImageAnalyzerConfig): ImageAttribute;
+
+  /**
+   * Set image resizable options.
+   *
+   * @param { ResizableOptions } value - Indicates the resizable options.
+   * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  resizable(value: ResizableOptions): ImageAttribute;
 }
 
 /**
@@ -1144,3 +1413,147 @@ declare const Image: ImageInterface;
  * @form
  */
 declare const ImageInstance: ImageAttribute;
+
+/**
+ * @type ImageErrorCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * @type ImageErrorCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+/**
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+type ImageErrorCallback = (error: ImageError) => void;
+
+/**
+ * @interface ImageError
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 9
+ * @form
+ */
+/**
+ * @interface ImageError
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 10
+ * @form
+ */
+/**
+ * @interface ImageError
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
+declare interface ImageError {
+  /**
+   * Component width.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Component width.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  /**
+   * Component width.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  componentWidth: number;
+
+  /**
+   * Component height.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 9
+   * @form
+   */
+  /**
+   * Component height.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  /**
+   * Component height.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  componentHeight: number;
+
+  /**
+   * Message.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   * @form
+   */
+  /**
+   * Message.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  message: string
+}
+
+/**
+ * Image resizable options
+ * 
+ * @interface ResizableOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+declare interface ResizableOptions {
+  /**
+   * Image slice widths.
+   *
+   * @type { ?EdgeWidths }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  slice?: EdgeWidths;
+}

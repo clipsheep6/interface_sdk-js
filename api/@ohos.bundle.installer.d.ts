@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AsyncCallback } from './@ohos.base';
 
 /**
@@ -171,6 +176,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
      * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
+     * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 11
@@ -275,6 +281,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
      * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
+     * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 11
@@ -385,6 +392,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
      * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
+     * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 11

@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The context of an application. It allows access to application-specific resources.
  *
  * @namespace contextConstant
@@ -81,7 +86,30 @@ declare namespace contextConstant {
      * @atomicservice
      * @since 11
      */
-    EL2 = 1
+    EL2 = 1,
+
+    /**
+     * User credential encryption area
+     * when screen locked, can read/write, and create file
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 11
+     */
+    EL3 = 2,
+
+    /**
+     * User credential encryption area
+     * when screen locked, FEB2.0 can read/write, FEB3.0 can't
+     * read/write, and all can't create file
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 11
+     */
+    EL4 = 3
   }
 }
 

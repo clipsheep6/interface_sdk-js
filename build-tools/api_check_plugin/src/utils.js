@@ -46,12 +46,15 @@ const commentNodeWhiteList = [
 exports.commentNodeWhiteList = commentNodeWhiteList;
 
 const tagsArrayOfOrder = [
-  'namespace', 'struct', 'extends', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type', 'param', 'default',
-  'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly', 'FAModelOnly',
-  'stagemodelonly', 'StageModelOnly', 'crossplatform', 'form', 'atomicservice', 'since', 'deprecated', 'useinstead',
-  'test', 'form', 'example'
+  'namespace', 'struct', 'extends', "implements", 'typedef', 'interface', 'permission', 'enum', 'constant', 'type',
+  'param', 'default', 'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly',
+  'FAModelOnly', 'stagemodelonly', 'StageModelOnly', 'crossplatform', 'form', 'atomicservice', 'since', 'deprecated',
+  'useinstead', 'test', 'form', 'example'
 ];
 exports.tagsArrayOfOrder = tagsArrayOfOrder;
+
+const fileTagOrder = ['file', 'kit'];
+exports.fileTagOrder = fileTagOrder;
 
 function getAPINote(node) {
   const apiLength = node.getText().length;
@@ -271,7 +274,7 @@ exports.getApiInfo = getApiInfo;
 function getApiVersion(node) {
   if (getApiInfo(node).humpVersion) {
     return getApiInfo(node).humpVersion;
-  } else if (node.parent) {
+  } else if (node.parent && !ts.isSourceFile(node.parent)) {
     return getApiVersion(node.parent);
   } else {
     return 'NA';
@@ -364,6 +367,7 @@ const ErrorValueInfo = {
   ERROR_CHANGES_JSDOC_CHANGE: 'Forbid changes: Previous JSDoc cannot be changed.',
   ERROR_CHANGES_JSDOC_TRROWS: 'Forbid changes: Throws tag cannot be created.',
   ERROR_CHANGES_JSDOC_PERMISSION: 'Forbid changes: Permission tag cannot be created or modified.',
+  ERROR_FILE_TAG_ORDER: 'File tags order is incorrect.',
 };
 exports.ErrorValueInfo = ErrorValueInfo;
 

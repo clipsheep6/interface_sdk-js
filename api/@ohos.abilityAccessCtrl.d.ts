@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AsyncCallback, Callback } from './@ohos.base';
 import { Permissions } from './permissions';
 import type _Context from './application/Context';
@@ -76,6 +81,17 @@ declare namespace abilityAccessCtrl {
      * Checks whether a specified application has been granted the given permission.
      *
      * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be verified. The Permissions type supports only valid permission names.
+     * @returns { Promise<GrantStatus> } Returns permission verify result.
+     * @syscap SystemCapability.Security.AccessToken
+     * @since 9
+     */
+    verifyAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
+
+    /**
+     * Checks whether a specified application has been granted the given permission.
+     *
+     * @param { number } tokenID - Token ID of the application.
      * @param { string } permissionName - Name of the permission to be verified.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @syscap SystemCapability.Security.AccessToken
@@ -86,27 +102,6 @@ declare namespace abilityAccessCtrl {
     verifyAccessToken(tokenID: number, permissionName: string): Promise<GrantStatus>;
 
     /**
-     * Checks whether a specified application has been granted the given permission.
-     *
-     * @param { number } tokenID - Token ID of the application.
-     * @param { Permissions } permissionName - Name of the permission to be verified. The Permissions type supports only valid permission names.
-     * @returns { Promise<GrantStatus> } Returns permission verify result.
-     * @syscap SystemCapability.Security.AccessToken
-     * @since 9
-     */
-    /**
-     * Checks whether a specified application has been granted the given permission.
-     *
-     * @param { number } tokenID - Token ID of the application.
-     * @param { Permissions } permissionName - Name of the permission to be verified. The Permissions type supports only valid permission names.
-     * @returns { Promise<GrantStatus> } Returns permission verify result.
-     * @syscap SystemCapability.Security.AccessToken
-     * @atomicservice
-     * @since 11
-     */
-    verifyAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
-
-    /**
      * Checks whether a specified application has been granted the given permission synchronously.
      *
      * @param { number } tokenID - Token ID of the application.
@@ -116,18 +111,6 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
      * @syscap SystemCapability.Security.AccessToken
      * @since 9
-     */
-    /**
-     * Checks whether a specified application has been granted the given permission synchronously.
-     *
-     * @param { number } tokenID - Token ID of the application.
-     * @param { Permissions } permissionName - Name of the permission to be verified.
-     * @returns { GrantStatus } Returns permission verify result.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
-     * @syscap SystemCapability.Security.AccessToken
-     * @atomicservice
-     * @since 11
      */
     verifyAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
 
@@ -183,6 +166,20 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Checks whether a specified application has been granted the given permission.
+     * On the cross-platform, this function can be used to check the permission grant status for the current application only.
+     *
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be verified.
+     * @returns { GrantStatus } Returns permission verify result.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256.
+     * @syscap SystemCapability.Security.AccessToken
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     checkAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
 
@@ -241,6 +238,20 @@ declare namespace abilityAccessCtrl {
      * @StageModelOnly
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Requests certain permissions from the user.
+     *
+     * @param { Context } context - The context that initiates the permission request.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be requested. This parameter cannot be null or empty.
+     * @returns { Promise<PermissionRequestResult> } Returns result of requesting permissions.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The context is invalid when it does not belong to the application itself.
+     * @syscap SystemCapability.Security.AccessToken
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>): Promise<PermissionRequestResult>;
 
@@ -467,6 +478,15 @@ declare namespace abilityAccessCtrl {
    * @crossplatform
    * @since 10
    */
+  /**
+   * GrantStatus.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.AccessToken
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   export enum GrantStatus {
     /**
      * access_token permission check fail
@@ -481,6 +501,14 @@ declare namespace abilityAccessCtrl {
      * @crossplatform
      * @since 10
      */
+    /**
+     * access_token permission check fail
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     PERMISSION_DENIED = -1,
     /**
      * access_token permission check success
@@ -494,6 +522,14 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @since 10
+     */
+    /**
+     * access_token permission check success
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     PERMISSION_GRANTED = 0
   }
@@ -569,5 +605,39 @@ declare namespace abilityAccessCtrl {
 
 export default abilityAccessCtrl;
 export { Permissions };
+/**
+ * PermissionRequestResult interface.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * PermissionRequestResult interface.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export type PermissionRequestResult = _PermissionRequestResult;
+/**
+ * Context interface.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @StageModelOnly
+ * @crossplatform
+ * @since 10
+ */
+/**
+ * Context interface.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 export type Context = _Context;

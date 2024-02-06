@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ConnectivityKit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
@@ -1798,6 +1803,15 @@ declare namespace bluetoothManager {
     isTetheringOn(): boolean;
   }
 
+  /**
+   * Provides methods to operate or manage Bluetooth.
+   *
+   * @namespace BLE
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ohos.bluetooth.ble/ble
+   */
   namespace BLE {
     /**
      * create a JavaScript Gatt server instance.

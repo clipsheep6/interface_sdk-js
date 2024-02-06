@@ -12,7 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
+/**
+ * @file
+ * @kit ArkTS
+ */
+
 /**
  * LinkedList is implemented based on the doubly linked list. Each node of the doubly linked list has
  * references pointing to the previous element and the next element. When querying an element,
@@ -230,7 +235,7 @@ declare class LinkedList<T> {
    */
   getIndexOf(element: T): number;
   /**
-   * Find the corresponding element according to the index,
+   * Find the corresponding element according to the index.
    *
    * @param { number } index - index index the index in the linkedlist
    * @returns { T } the T type ,returns undefined if linkedlist is empty,If the index is
@@ -242,7 +247,7 @@ declare class LinkedList<T> {
    * @since 8
    */
   /**
-   * Find the corresponding element according to the index,
+   * Find the corresponding element according to the index.
    *
    * @param { number } index - index index the index in the linkedlist
    * @returns { T } the T type ,returns undefined if linkedlist is empty,If the index is
@@ -426,14 +431,15 @@ declare class LinkedList<T> {
   /**
    * Replaces each element of this linkedlist with the result of applying the operator to that element.
    *
-   * @param { function } callbackFn - callbackFn callbackFn
-   * (required) A function that accepts up to four arguments.
-   * The function to be called for each element in the linkedlist,Returns the result of an operation
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
    * Value (required) current element
    * Index (Optional) The index value of the current element.
    * LinkedList (Optional) The linkedlist object to which the current element belongs.
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -442,14 +448,15 @@ declare class LinkedList<T> {
   /**
    * Replaces each element of this linkedlist with the result of applying the operator to that element.
    *
-   * @param { function } callbackFn - callbackFn callbackFn
-   * (required) A function that accepts up to four arguments.
-   * The function to be called for each element in the linkedlist,Returns the result of an operation
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
    * Value (required) current element
    * Index (Optional) The index value of the current element.
    * LinkedList (Optional) The linkedlist object to which the current element belongs.
-   * @param { Object } thisArg - thisArg thisArg (Optional) The value passed to the function generally uses the "this" value.
-   * If this parameter is empty, "undefined" will be passed to the "this" value
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang

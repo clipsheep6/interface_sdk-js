@@ -13,8 +13,22 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit BackgroundTasksKit
+ */
+
 import workScheduler from './@ohos.resourceschedule.workScheduler';
 import _WorkSchedulerExtensionContext from './application/WorkSchedulerExtensionContext';
+
+/**
+ * The context of work scheduler extension. It allows access to
+ * WorkSchedulerExtensionContext-specific resources.
+ *
+ * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+ * @StageModelOnly
+ * @since 10
+ */
 export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
 
 /**

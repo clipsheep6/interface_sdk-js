@@ -19,8 +19,10 @@ const {
   FileType,
   getApiVersion,
   getCheckApiVersion,
+  requireTypescriptModule
 } = require('./utils');
-const { addAPICheckErrorLogs } = require('./compile_info');
+const { addAPICheckErrorLogs, getParentkind } = require('./compile_info');
+const ts = requireTypescriptModule();
 const nameDictionary = require('./name_dictionary.json');
 const nameScenarioScope = require('./name_scenario_scope.json');
 
@@ -44,6 +46,11 @@ exports.checkNaming = checkNaming;
 
 function checkApiNaming(node, sourcefile, fileName) {
   const lowIdentifier = node.getText().toLowerCase();
+  const apiParentKind = [];
+  getParentkind(node, apiParentKind);
+  if (node.parent.kind === ts.SyntaxKind.TypeReference|| apiParentKind.includes('JSDoc')) {
+    return;
+  }
   checkApiNamingWords(node, sourcefile, fileName, lowIdentifier);
   checkApiNamingScenario(node, sourcefile, fileName, lowIdentifier);
 }
@@ -64,7 +71,7 @@ function checkApiNamingWords(node, sourcefile, fileName, lowIdentifier) {
       );
       break;
     } else {
-      const isIgnoreWord = checkIgnoreWord(lowercaseIgnoreWordArr, lowIdentifier);
+      const isIgnoreWord = checkIgnoreWord(lowercaseIgnoreWordArr, lowIdentifier, value.badWord);
       if (isIgnoreWord === false) {
         addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.NAMING_ERRORS, errorInfo, FileType.LOG_API,
           ErrorLevel.MIDDLE
@@ -74,13 +81,17 @@ function checkApiNamingWords(node, sourcefile, fileName, lowIdentifier) {
   }
 }
 
-function checkIgnoreWord(lowercaseIgnoreWordArr, lowIdentifier) {
+function checkIgnoreWord(lowercaseIgnoreWordArr, lowIdentifier, badWord) {
   let isIgnoreWord = false;
+  const isNamingFoot = lowIdentifier.substring(lowIdentifier.length - badWord.length, lowIdentifier.length) === badWord;
   for (let i = 0; i < lowercaseIgnoreWordArr.length; i++) {
     if (lowercaseIgnoreWordArr[i] && lowIdentifier.indexOf(lowercaseIgnoreWordArr[i]) !== -1) {
       isIgnoreWord = true;
       break;
     }
+  }
+  if (!isNamingFoot) {
+    isIgnoreWord = true;
   }
   return isIgnoreWord;
 }

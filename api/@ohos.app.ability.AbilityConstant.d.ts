@@ -14,11 +14,16 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * The definition of AbilityConstant.
  *
  * @namespace AbilityConstant
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 9
  */
 /**
@@ -26,7 +31,7 @@
  *
  * @namespace AbilityConstant
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -35,7 +40,7 @@
  *
  * @namespace AbilityConstant
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11
@@ -46,7 +51,7 @@ declare namespace AbilityConstant {
    *
    * @typedef LaunchParam
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -54,7 +59,7 @@ declare namespace AbilityConstant {
    *
    * @typedef LaunchParam
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -63,7 +68,7 @@ declare namespace AbilityConstant {
    *
    * @typedef LaunchParam
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -74,7 +79,7 @@ declare namespace AbilityConstant {
      *
      * @type { LaunchReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -82,7 +87,7 @@ declare namespace AbilityConstant {
      *
      * @type { LaunchReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -91,7 +96,7 @@ declare namespace AbilityConstant {
      *
      * @type { LaunchReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11
@@ -103,7 +108,7 @@ declare namespace AbilityConstant {
      *
      * @type { LastExitReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -111,7 +116,7 @@ declare namespace AbilityConstant {
      *
      * @type { LastExitReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -120,12 +125,23 @@ declare namespace AbilityConstant {
      *
      * @type { LastExitReason }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11
      */
     lastExitReason: LastExitReason;
+
+    /**
+     * Indicates last exit detailed reason.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 12
+     */
+    lastExitMessage: string;
   }
 
   /**
@@ -133,7 +149,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -141,7 +157,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -150,7 +166,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -160,18 +176,18 @@ declare namespace AbilityConstant {
      * Unknown reason.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
     /**
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11
@@ -182,14 +198,14 @@ declare namespace AbilityConstant {
      * Start ability through the startAbility interface.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Start ability through the startAbility interface.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -199,14 +215,14 @@ declare namespace AbilityConstant {
      * Start ability through the startAbilityByCall interface.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Start ability through the startAbilityByCall interface.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -216,14 +232,14 @@ declare namespace AbilityConstant {
      * Start ability through cross-end device migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Start ability through cross-end device migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -233,14 +249,14 @@ declare namespace AbilityConstant {
      * After the application is restored, the ability is automatically restored and started when the application fails.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * After the application is restored, the ability is automatically restored and started when the application fails.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -250,14 +266,14 @@ declare namespace AbilityConstant {
      * Start ability through the acquireShareData interface.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     /**
      * Start ability through the acquireShareData interface.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -267,10 +283,20 @@ declare namespace AbilityConstant {
      * Start ability by booting it up.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 11
      */
-    AUTO_STARTUP = 8
+    AUTO_STARTUP = 8,
+
+    /**
+     * Start ability through the insight intent interface.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 11
+     */
+    INSIGHT_INTENT = 9
   }
 
   /**
@@ -278,7 +304,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -286,7 +312,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -295,7 +321,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -306,7 +332,7 @@ declare namespace AbilityConstant {
      *               framework.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
@@ -314,7 +340,7 @@ declare namespace AbilityConstant {
      *               framework.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -323,7 +349,7 @@ declare namespace AbilityConstant {
      *               framework.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11
@@ -334,7 +360,7 @@ declare namespace AbilityConstant {
      * Exit reason : Ability is not responding.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      * @deprecated since 10
      * @useinstead AbilityConstant.LastExitReason#APP_FREEZE
@@ -345,14 +371,14 @@ declare namespace AbilityConstant {
      * Exit reason : normally. App exit due to user active close.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Exit reason : normally. App exit due to user active close.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -362,14 +388,14 @@ declare namespace AbilityConstant {
      * Exit reason : cpp crash. The app exit due to native exception signal.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     /**
      * Exit reason : cpp crash. The app exit due to native exception signal.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -379,14 +405,14 @@ declare namespace AbilityConstant {
      * Exit reason : js error. App exit due to js error.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     /**
      * Exit reason : js error. App exit due to js error.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -396,14 +422,14 @@ declare namespace AbilityConstant {
      * Exit reason : app freeze. App exit due to appFreeze error.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     /**
      * Exit reason : app freeze. App exit due to appFreeze error.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -413,14 +439,14 @@ declare namespace AbilityConstant {
      * Exit reason : performance control. App exit due to system performance issues, such as device low memory.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     /**
      * Exit reason : performance control. App exit due to system performance issues, such as device low memory.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -430,14 +456,14 @@ declare namespace AbilityConstant {
      * Exit reason : resource control. App exit due to resource usage violation, such as exceed cpu/io/memory usage.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     /**
      * Exit reason : resource control. App exit due to resource usage violation, such as exceed cpu/io/memory usage.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -447,14 +473,14 @@ declare namespace AbilityConstant {
      * Exit reason : upgrade. App exit due to upgrade.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     /**
      * Exit reason : upgrade. App exit due to upgrade.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -466,7 +492,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -474,7 +500,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -483,14 +509,14 @@ declare namespace AbilityConstant {
      * Agree to the result of Ability migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Agree to the result of Ability migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -500,14 +526,14 @@ declare namespace AbilityConstant {
      * Reject to the result of Ability migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Reject to the result of Ability migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -517,14 +543,14 @@ declare namespace AbilityConstant {
      * Mismatch to the result of Ability migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Mismatch to the result of Ability migration.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -536,7 +562,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -544,7 +570,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -553,14 +579,14 @@ declare namespace AbilityConstant {
      * Memory footprint is moderate.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Memory footprint is moderate.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -570,14 +596,14 @@ declare namespace AbilityConstant {
      * Low memory footprint.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Low memory footprint.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -587,14 +613,14 @@ declare namespace AbilityConstant {
      * High memory footprint.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * High memory footprint.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -607,7 +633,7 @@ declare namespace AbilityConstant {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   export enum WindowMode {
@@ -616,7 +642,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     WINDOW_MODE_UNDEFINED = 0,
@@ -626,7 +652,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     WINDOW_MODE_FULLSCREEN = 1,
@@ -637,7 +663,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     WINDOW_MODE_SPLIT_PRIMARY = 100,
@@ -648,7 +674,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     WINDOW_MODE_SPLIT_SECONDARY = 101,
@@ -658,7 +684,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     WINDOW_MODE_FLOATING = 102
@@ -669,7 +695,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -677,7 +703,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -686,14 +712,14 @@ declare namespace AbilityConstant {
      * Always agree to save the state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Always agree to save the state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -703,14 +729,14 @@ declare namespace AbilityConstant {
      * Refuse to migrate the saved state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Refuse to migrate the saved state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -720,14 +746,14 @@ declare namespace AbilityConstant {
      * Migration mismatch.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Migration mismatch.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -737,14 +763,14 @@ declare namespace AbilityConstant {
      * Agree to restore the saved state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Agree to restore the saved state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -754,14 +780,14 @@ declare namespace AbilityConstant {
      * Refuse to restore the saved state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Refuse to restore the saved state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -771,14 +797,14 @@ declare namespace AbilityConstant {
      * Always refuses to save the state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Always refuses to save the state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -790,7 +816,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 9
    */
   /**
@@ -798,7 +824,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -807,14 +833,14 @@ declare namespace AbilityConstant {
      * Migrate and save the state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * Migrate and save the state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -824,14 +850,14 @@ declare namespace AbilityConstant {
      * App recovery to restore the saved state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
      * App recovery to restore the saved state.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -843,7 +869,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -851,7 +877,7 @@ declare namespace AbilityConstant {
    *
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @atomicservice
    * @since 11
    */
@@ -860,14 +886,14 @@ declare namespace AbilityConstant {
      * Mission continuable active.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     /**
      * Mission continuable inactive.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */
@@ -877,14 +903,14 @@ declare namespace AbilityConstant {
      * Mission continuable inactive.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 10
      */
     /**
      * Mission continuable inactive.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @atomicservice
      * @since 11
      */

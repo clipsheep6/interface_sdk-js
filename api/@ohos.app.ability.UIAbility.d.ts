@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import Ability from './@ohos.app.ability.Ability';
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import UIAbilityContext from './application/UIAbilityContext';
@@ -28,16 +33,15 @@ import window from './@ohos.window';
  * @StageModelOnly
  * @since 9
  */
+export interface OnReleaseCallback {
 /**
- * The prototype of the listener function interface registered by the Caller.
+ * Defines the callback of OnRelease.
  *
- * @typedef OnReleaseCallback
+ * @param { string } msg - The notification event string listened to by the OnRelease.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
- * @atomicservice
- * @since 11
+ * @since 9
  */
-export interface OnReleaseCallback {
   (msg: string): void;
 }
 
@@ -49,16 +53,15 @@ export interface OnReleaseCallback {
  * @StageModelOnly
  * @since 10
  */
+export interface OnRemoteStateChangeCallback {
 /**
- * The prototype of the listener function interface registered by the Caller.
+ * Defines the callback of OnRemoteStateChange.
  *
- * @typedef OnRemoteStateChangeCallback
+ * @param { string } msg - The notification event string listened to by the OnRemoteStateChange.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
- * @atomicservice
- * @since 11
+ * @since 10
  */
-export interface OnRemoteStateChangeCallback {
   (msg: string): void;
 }
 
@@ -70,16 +73,16 @@ export interface OnRemoteStateChangeCallback {
  * @StageModelOnly
  * @since 9
  */
+export interface CalleeCallback {
 /**
- * The prototype of the message listener function interface registered by the Callee.
+ * Defines the callback of Callee.
  *
- * @typedef CalleeCallback
+ * @param { rpc.MessageSequence } indata - Notification indata to the callee.
+ * @returns { rpc.Parcelable } Returns the callee's notification result indata.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
- * @atomicservice
- * @since 11
+ * @since 9
  */
-export interface CalleeCallback {
   (indata: rpc.MessageSequence): rpc.Parcelable;
 }
 
@@ -90,15 +93,6 @@ export interface CalleeCallback {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
  * @since 9
- */
-/**
- * The interface of a Caller.
- *
- * @interface Caller
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
- * @atomicservice
- * @since 11
  */
 export interface Caller {
   /**
@@ -114,21 +108,6 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
-   */
-  /**
-   * Notify the server of Parcelable type data.
-   *
-   * @param { string } method - The notification event string listened to by the callee.
-   * @param { rpc.Parcelable } data - Notification data to the callee.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
    */
   call(method: string, data: rpc.Parcelable): Promise<void>;
 
@@ -146,21 +125,6 @@ export interface Caller {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Notify the server of Parcelable type data and return the notification result.
-   *
-   * @param { string } method - The notification event string listened to by the callee.
-   * @param { rpc.Parcelable } data - Notification data to the callee.
-   * @returns { Promise<rpc.MessageSequence> } Returns the callee's notification result data.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>;
 
   /**
@@ -171,16 +135,6 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
-   */
-  /**
-   * Register the generic component server Stub (stub) disconnect listening notification.
-   *
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @throws { BusinessError } 16200002 - Callee invalid. The callee does not exist.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
    */
   release(): void;
 
@@ -194,17 +148,6 @@ export interface Caller {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Register death listener notification callback.
-   *
-   * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   onRelease(callback: OnReleaseCallback): void;
 
   /**
@@ -216,17 +159,6 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 10
-   */
-  /**
-   * Register state changed listener notification callback of remote ability.
-   *
-   * @param { OnRemoteStateChangeCallback } callback - Register a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
    */
   onRemoteStateChange(callback: OnRemoteStateChangeCallback): void;
 
@@ -241,18 +173,6 @@ export interface Caller {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Register death listener notification callback.
-   *
-   * @param { 'release' } type - release.
-   * @param { OnReleaseCallback } callback - Register a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200001 - Caller released. The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   on(type: 'release', callback: OnReleaseCallback): void;
 
   /**
@@ -265,17 +185,6 @@ export interface Caller {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Unregister death listener notification callback.
-   *
-   * @param { 'release' } type - release.
-   * @param { OnReleaseCallback } callback - Unregister a callback function for listening for notifications.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   off(type: 'release', callback: OnReleaseCallback): void;
 
   /**
@@ -287,16 +196,6 @@ export interface Caller {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Unregister all death listener notification callback.
-   *
-   * @param { 'release' } type - release.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   off(type: 'release'): void;
 }
 
@@ -307,15 +206,6 @@ export interface Caller {
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @StageModelOnly
  * @since 9
- */
-/**
- * The interface of a Callee.
- *
- * @interface Callee
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @StageModelOnly
- * @atomicservice
- * @since 11
  */
 export interface Callee {
   /**
@@ -330,19 +220,6 @@ export interface Callee {
    * @StageModelOnly
    * @since 9
    */
-  /**
-   * Register data listener callback.
-   *
-   * @param { string } method - A string registered to listen for notification events.
-   * @param { CalleeCallback } callback - Register a callback function that listens for notification events.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200004 - Method registered. The method has registered.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
-   */
   on(method: string, callback: CalleeCallback): void;
 
   /**
@@ -355,18 +232,6 @@ export interface Callee {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
-   */
-  /**
-   * Unregister data listener callback.
-   *
-   * @param { string } method - A string registered to listen for notification events.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200005 - Method not registered. The method has not registered.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
    */
   off(method: string): void;
 }
@@ -473,15 +338,6 @@ export default class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @since 9
-   */
-  /**
-   * Call Service Stub Object.
-   *
-   * @type { Callee }
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11
    */
   callee: Callee;
 
@@ -684,14 +540,14 @@ export default class UIAbility extends Ability {
   /**
    * Called back when an ability prepares to continue.
    *
-   * @param { object } wantParam - Indicates the want parameter.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
    * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
    * @since 11
    */
-  onContinue(wantParam: { [key: string]: Object }): AbilityConstant.OnContinueResult;
+  onContinue(wantParam: Record<string, Object>): AbilityConstant.OnContinueResult;
 
   /**
    * Called when the launch mode of an ability is set to singleton.
@@ -766,7 +622,7 @@ export default class UIAbility extends Ability {
    * Called back when an ability prepares to save.
    *
    * @param { AbilityConstant.StateType } reason - state type when save.
-   * @param { object } wantParam - Indicates the want parameter.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
    * @returns { AbilityConstant.OnSaveResult } agree with the current UIAbility status or not.return 0 if ability
    *                                           agrees to save data successfully, otherwise errcode.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -774,7 +630,7 @@ export default class UIAbility extends Ability {
    * @atomicservice
    * @since 11
    */
-  onSaveState(reason: AbilityConstant.StateType, wantParam: { [key: string]: Object }): AbilityConstant.OnSaveResult;
+  onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, Object>): AbilityConstant.OnSaveResult;
 
   /**
    * Called back when an ability shares data.
@@ -787,13 +643,13 @@ export default class UIAbility extends Ability {
   /**
    * Called back when an ability shares data.
    *
-   * @param { object } wantParam - Indicates the want parameter.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
    * @since 11
    */
-  onShare(wantParam: { [key: string]: Object }): void;
+  onShare(wantParam: Record<string, Object>): void;
 
   /**
    * Called back when an ability prepare to terminate.

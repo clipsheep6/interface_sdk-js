@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit AbilityKit
+ */
+
+/**
  * interface of insightIntent.
  *
  * @namespace insightIntent
@@ -48,6 +53,7 @@ declare namespace insightIntent {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
+     * @atomicservice
      * @since 11
      */
     UI_ABILITY_BACKGROUND = 1,

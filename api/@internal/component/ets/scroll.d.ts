@@ -51,6 +51,14 @@ declare enum ScrollDirection {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Vertical scrolling is supported.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Vertical,
 
   /**
@@ -65,6 +73,14 @@ declare enum ScrollDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Horizontal scrolling is supported.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Horizontal,
 
@@ -89,6 +105,14 @@ declare enum ScrollDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Non-scrollable.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   None,
 }
@@ -186,6 +210,7 @@ declare enum ScrollAlign {
  * @interface OffsetResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare interface OffsetResult {
@@ -195,6 +220,7 @@ declare interface OffsetResult {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   xOffset: number;
@@ -205,19 +231,29 @@ declare interface OffsetResult {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   yOffset: number;
 }
 
 /**
+ * Scroller
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  */
 /**
+ * Scroller
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 /**
+ * Scroller
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
@@ -261,6 +297,15 @@ declare class Scroller {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Called when the setting slides to the specified position.
+   *
+   * @param { object } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   scrollTo(value: {
     /**
      * The X-axis offset.
@@ -269,6 +314,15 @@ declare class Scroller {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
+     */
+    /**
+     * The X-axis offset.
+     *
+     * @type { number | string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     xOffset: number | string;
 
@@ -280,6 +334,15 @@ declare class Scroller {
      * @crossplatform
      * @since 10
      */
+    /**
+     * The Y-axis offset.
+     *
+     * @type { number | string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     yOffset: number | string;
 
     /**
@@ -290,6 +353,16 @@ declare class Scroller {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Descriptive animation.
+     *
+     * @type { ?({ duration?: number; curve?: Curve | ICurve } | boolean) } The object type provides custom animation parameters
+     * and the boolean type enables default spring animation.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     animation?: { duration?: number; curve?: Curve | ICurve } | boolean;
   });
@@ -375,6 +448,7 @@ declare class Scroller {
    * @returns { OffsetResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   currentOffset() : OffsetResult;
@@ -397,6 +471,17 @@ declare class Scroller {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Called when sliding to the specified index.
+   *
+   * @param { number } value - Index to jump to.
+   * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
+   * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign);
 
@@ -462,10 +547,20 @@ declare class Scroller {
   getItemRect(index: number): RectResult;
 }
 
-/*
+/**
  * Define scroll snap options
+ * 
+ * @interface ScrollSnapOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ */
+/**
+ * Define scroll snap options
+ * 
+ * @interface ScrollSnapOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 11
  */
 declare interface ScrollSnapOptions {
   /**
@@ -620,13 +715,13 @@ interface ScrollInterface {
 /**
  * Defines the scroll attribute functions.
  *
- * @extends CommonMethod<ScrollAttribute>
+ * @extends ScrollableCommonMethod<ScrollAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
  */
-declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
+declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   /**
    * Called when the scroll method is slid.
    *
@@ -1010,6 +1105,17 @@ declare class ScrollAttribute extends CommonMethod<ScrollAttribute> {
    * @since 11
    */
   scrollSnap(value: ScrollSnapOptions): ScrollAttribute;
+
+  /**
+   * Determines whether the scroll view stops on multiples of the content size when the user scrolls.
+   *
+   * @param { boolean } value - A boolean value determines whether paging is enabled for scroll.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  enablePaging(value: boolean): ScrollAttribute;
 }
 
 /**

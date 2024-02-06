@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import type { AsyncCallback } from './@ohos.base';
 import type wantConstant from './@ohos.app.ability.wantConstant';
 
@@ -22,14 +27,6 @@ import type wantConstant from './@ohos.app.ability.wantConstant';
  * @namespace uriPermissionManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 10
- */
-/**
- * This module provides the capability to authorize URI.
- *
- * @namespace uriPermissionManager
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
- * @since 11
  */
 declare namespace uriPermissionManager {
   /**

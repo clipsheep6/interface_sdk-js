@@ -37,6 +37,16 @@
  * @since 10
  * @form
  */
+/**
+ * Declare the type of status button
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare enum ToggleType {
   /**
    * Checkbox
@@ -57,6 +67,15 @@ declare enum ToggleType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Checkbox
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Checkbox,
@@ -82,6 +101,15 @@ declare enum ToggleType {
    * @since 10
    * @form
    */
+  /**
+   * Switch
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   Switch,
 
   /**
@@ -103,6 +131,15 @@ declare enum ToggleType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Button
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   Button,
@@ -130,6 +167,16 @@ declare enum ToggleType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines the toggle interface.
+ *
+ * @interface ToggleInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 interface ToggleInterface {
@@ -160,6 +207,17 @@ interface ToggleInterface {
    * @since 10
    * @form
    */
+  /**
+   * Set parameters to obtain the toggle.
+   *
+   * @param { object } options
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   (options: { type: ToggleType; isOn?: boolean }): ToggleAttribute;
 }
 
@@ -167,12 +225,14 @@ interface ToggleInterface {
  * Defines the toggle attribute functions
  *
  * @extends CommonMethod<ToggleAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines the toggle attribute functions
  *
  * @extends CommonMethod<ToggleAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9
  * @form
  */
@@ -180,8 +240,19 @@ interface ToggleInterface {
  * Defines the toggle attribute functions
  *
  * @extends CommonMethod<ToggleAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines the toggle attribute functions
+ *
+ * @extends CommonMethod<ToggleAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
@@ -210,6 +281,17 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   * @form
+   */
+  /**
+   * Called when the selected state of the component changes.
+   *
+   * @param { function } callback
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    * @form
    */
   onChange(callback: (isOn: boolean) => void): ToggleAttribute;
@@ -241,6 +323,17 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the color of the selected button is set.
+   *
+   * @param { ResourceColor } value
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   selectedColor(value: ResourceColor): ToggleAttribute;
 
   /**
@@ -270,6 +363,17 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @since 10
    * @form
    */
+  /**
+   * Called when the color of the selected button is set.
+   *
+   * @param { ResourceColor } color
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
   switchPointColor(color: ResourceColor): ToggleAttribute;
 }
 
@@ -294,6 +398,15 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
  * @since 10
  * @form
  */
+/**
+ * Defines Toggle Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ * @form
+ */
 declare const Toggle: ToggleInterface;
 
 /**
@@ -315,6 +428,15 @@ declare const Toggle: ToggleInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ * @form
+ */
+/**
+ * Defines Toggle Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  * @form
  */
 declare const ToggleInstance: ToggleAttribute;

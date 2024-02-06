@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
@@ -32,11 +37,13 @@ export declare class SelectTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -44,12 +51,14 @@ export declare class SelectTitleBarMenuItem {
 
   /**
    * Whether to enable this menu item.
-   * @type { boolean }.
+   * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Whether to enable this menu item.
-   * @type { boolean }.
+   * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -57,12 +66,14 @@ export declare class SelectTitleBarMenuItem {
 
   /**
    * Callback function when click on this menu item.
-   * @type { () => void }.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Callback function when click on this menu item.
-   * @type { () => void }.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -86,12 +97,14 @@ export declare struct SelectTitleBar {
    * Selected index of the initial options in the drop-down menu. The index of the first item is 0.
    * If this attribute is not set, the default value is -1. Which means, no menu item is selected.
    * @type { number }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Selected index of the initial options in the drop-down menu. The index of the first item is 0.
    * If this attribute is not set, the default value is -1. Which means, no menu item is selected.
    * @type { number }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -100,11 +113,13 @@ export declare struct SelectTitleBar {
   /**
    * Options inside the drop-down list.
    * @type { Array<SelectOption> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Options inside the drop-down list.
    * @type { Array<SelectOption> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -112,12 +127,14 @@ export declare struct SelectTitleBar {
 
   /**
    * Menu items on the right side.
-   * @type { Array<SelectTitleBarMenuItem> }.
+   * @type { ?Array<SelectTitleBarMenuItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Menu items on the right side.
-   * @type { Array<SelectTitleBarMenuItem> }.
+   * @type { ?Array<SelectTitleBarMenuItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -125,12 +142,14 @@ export declare struct SelectTitleBar {
 
   /**
    * Sub-title of this title bar.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Sub-title of this title bar.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -138,12 +157,14 @@ export declare struct SelectTitleBar {
 
   /**
    * The number displayed in a badge.
-   * @type { number }.
+   * @type { ?number }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * The number displayed in a badge.
-   * @type { number }.
+   * @type { ?number }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -151,12 +172,14 @@ export declare struct SelectTitleBar {
 
   /**
    * Whether to hide the back arrow at the left side.
-   * @type { boolean }.
+   * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Whether to hide the back arrow at the left side.
-   * @type { boolean }.
+   * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -164,12 +187,14 @@ export declare struct SelectTitleBar {
 
   /**
    * Callback function when an option is selected
-   * @type { (index: number) => void }.
+   * @type { ?(index: number) => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Callback function when an option is selected
-   * @type { (index: number) => void }.
+   * @type { ?(index: number) => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */

@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
@@ -32,11 +37,13 @@ export declare class TabTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Icon resource for this menu item.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -44,12 +51,14 @@ export declare class TabTitleBarMenuItem {
 
   /**
    * Whether to enable this menu item.
-   * @type { boolean }.
+   * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Whether to enable this menu item.
-   * @type { boolean }.
+   * @type { ?boolean }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -57,12 +66,14 @@ export declare class TabTitleBarMenuItem {
 
   /**
    * Callback function when click on this menu item.
-   * @type { () => void }.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Callback function when click on this menu item.
-   * @type { () => void }.
+   * @type { ?() => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -84,11 +95,13 @@ export declare class TabTitleBarTabItem {
   /**
    * Text description for this tab item.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Text description for this tab item.
    * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -96,12 +109,14 @@ export declare class TabTitleBarTabItem {
 
   /**
    * Icon resource for this tab item.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Icon resource for this tab item.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -123,12 +138,14 @@ export declare class TabTitleBarTabItem {
 export declare struct TabTitleBar {
   /**
    * Tab items on the left side.
-   * @type { Array<TabTitleBarItem> }.
+   * @type { ?Array<TabTitleBarItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Tab items on the left side.
-   * @type { Array<TabTitleBarItem> }.
+   * @type { ?Array<TabTitleBarItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -136,12 +153,14 @@ export declare struct TabTitleBar {
 
   /**
    * Menu items on the right side.
-   * @type { Array<OperationOptions> }.
+   * @type { Array<TabTitleBarMenuItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Menu items on the right side.
-   * @type { Array<OperationOptions> }.
+   * @type { Array<TabTitleBarMenuItem> }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
@@ -151,12 +170,14 @@ export declare struct TabTitleBar {
    * Content builder. Each component corresponds to a tab item.
    * The builder needs to be transferred.
    * @type { () => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Content builder. Each component corresponds to a tab item.
    * The builder needs to be transferred.
    * @type { () => void }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */

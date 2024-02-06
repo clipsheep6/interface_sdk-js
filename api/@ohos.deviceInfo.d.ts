@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
  * A static class pertaining to the product information.
  *
  * @namespace deviceInfo
@@ -25,6 +30,7 @@
  *
  * @namespace deviceInfo
  * @syscap SystemCapability.Startup.SystemInfo
+ * @crossplatform
  * @atomicservice
  * @since 11
  */

@@ -13,7 +13,14 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
+import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
+import type hdrCapability from './@ohos.graphics.hdrCapability';
 
 /**
  * Interface of display manager.
@@ -29,6 +36,15 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @crossplatform
  * @since 10
+ */
+/**
+ * Interface of display manager.
+ *
+ * @namespace display
+ * @syscap SystemCapability.WindowManager.WindowManager.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare namespace display {
   /**
@@ -69,6 +85,16 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Obtain the default display.
+   *
+   * @returns { Display } the result of display
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   function getDefaultDisplaySync(): Display;
 
@@ -282,6 +308,20 @@ declare namespace display {
    * @since 10
    */
   function getCurrentFoldCreaseRegion(): FoldCreaseRegion;
+
+  /**
+   * set fold status locked or not.
+   *
+   * @param { boolean } locked - fold status is locked or not.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function setFoldStatusLocked(locked: boolean): void;
 
   /**
    * Enumerates the fold status.
@@ -620,6 +660,15 @@ declare namespace display {
    * @crossplatform
    * @since 10
    */
+  /**
+   * Define properties of the display. They cannot be updated automatically.
+   *
+   * @interface Display
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   interface Display {
     /**
      * Display ID.
@@ -674,6 +723,13 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
+    /**
+     * Rotation degrees of the display.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 11
+     */
     rotation: number;
 
     /**
@@ -688,6 +744,14 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
+     */
+    /**
+     * Display width, in pixels.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
      */
     width: number;
 
@@ -704,6 +768,14 @@ declare namespace display {
      * @crossplatform
      * @since 10
      */
+    /**
+     * Display height, in pixels.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     height: number;
 
     /**
@@ -711,6 +783,13 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * Display resolution.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     densityDPI: number;
 
@@ -729,6 +808,14 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
+    /**
+     * Display density, in pixels. The value for a low-resolution display is 1.0.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
     densityPixels: number;
 
     /**
@@ -736,6 +823,13 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
+     */
+    /**
+     * Text scale density of the display.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 11
      */
     scaledDensity: number;
 
@@ -754,6 +848,24 @@ declare namespace display {
      * @since 7
      */
     yDPI: number;
+
+    /**
+     * All supported color spaces.
+     *
+     * @type { Array<colorSpaceManager.ColorSpace> }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    colorSpaces: Array<colorSpaceManager.ColorSpace>;
+
+    /**
+     * All supported HDR formats.
+     *
+     * @type { Array<hdrCapability.HDRFormat> }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 11
+     */
+    hdrFormats: Array<hdrCapability.HDRFormat>;
 
     /**
      * Obtain the cutout info of the display.
@@ -800,6 +912,49 @@ declare namespace display {
      * @since 11
      */
     hasImmersiveWindow(): Promise<boolean>;
+
+    /**
+     * Obtain the available area of the display.
+     *
+     * @returns { Promise<Rect> }
+     * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 1400001 - Invalid display or screen.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 11
+     */
+    getAvailableArea(): Promise<Rect>;
+
+    /**
+    * Register the callback for available area changes.
+    *
+    * @param { 'availableAreaChange' } type - the event of available area changes
+    * @param { Callback<Rect> } callback - Callback used to return the available area
+    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+    * @throws { BusinessError } 401 - Parameter error.
+    * @throws { BusinessError } 801 - Capability not supported on this device.
+    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+    * @syscap SystemCapability.Window.SessionManager
+    * @systemapi Hide this for inner system use.
+    * @since 11
+    */
+    on(type: 'availableAreaChange', callback: Callback<Rect>): void;
+
+    /**
+    * Unregister the callback for available area changes.
+    *
+    * @param { 'availableAreaChange' } type - the event of available area changes
+    * @param { Callback<Rect> } [callback] - Callback used to return the available area
+    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+    * @throws { BusinessError } 401 - Parameter error.
+    * @throws { BusinessError } 801 - Capability not supported on this device.
+    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+    * @syscap SystemCapability.Window.SessionManager
+    * @systemapi Hide this for inner system use.
+    * @since 11
+    */
+    off(type: 'availableAreaChange', callback?: Callback<Rect>): void;
   }
 }
 

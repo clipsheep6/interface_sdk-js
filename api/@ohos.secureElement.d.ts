@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ConnectivityKit
+ */
+
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
@@ -20,6 +25,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * See "Open Mobile API Specification".
  *
  * @namespace omapi
+ * @syscap SystemCapability.Communication.SecureElement
  * @since 10
  */
 declare namespace omapi {

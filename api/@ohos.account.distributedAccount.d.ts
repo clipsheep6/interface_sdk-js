@@ -13,7 +13,12 @@
  * limitations under the License.
  */
 
-import { AsyncCallback } from './@ohos.base';
+/**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+import type { AsyncCallback } from './@ohos.base';
 
 /**
  * This module provides the capability to manage distributed accounts.
@@ -36,7 +41,6 @@ declare namespace distributedAccount {
    * Defines distributed account functions and interfaces.
    *
    * @interface DistributedAccountAbility
-   * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
    * @syscap SystemCapability.Account.OsAccount
    * @since 7
    */

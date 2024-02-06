@@ -20,7 +20,7 @@ import _ from 'lodash';
 
 import { NodeProcessorHelper } from './NodeProcessor';
 import { ResultsProcessHelper } from './ResultsProcess';
-import { ApiType, BasicApiInfo } from '../../typedef/parser/ApiInfoDefination';
+import { ApiType, BasicApiInfo, ApiInfo } from '../../typedef/parser/ApiInfoDefination';
 import { StringConstant } from '../../utils/Constant';
 import { FileUtils } from '../../utils/FileUtils';
 import * as ResultsInfo from '../../typedef/parser/ResultsInfo';
@@ -67,7 +67,7 @@ export class Parser {
       .replace(new RegExp(StringConstant.DTS_EXTENSION, 'g'), StringConstant.TS_EXTENSION)
       .replace(new RegExp(StringConstant.DETS_EXTENSION, 'g'), StringConstant.ETS_EXTENSION);
     const sourceFile: ts.SourceFile = ts.createSourceFile(fileName, fileContent, ts.ScriptTarget.ES2017, true);
-    const sourceFileInfo: BasicApiInfo = new BasicApiInfo(ApiType.SOURCE_FILE, sourceFile, undefined);
+    const sourceFileInfo: ApiInfo = new ApiInfo(ApiType.SOURCE_FILE, sourceFile, undefined);
     sourceFileInfo.setFilePath(relFilePath);
     sourceFileInfo.setApiName(relFilePath);
     sourceFileInfo.setIsStruct(filePath.endsWith(StringConstant.ETS_EXTENSION));
@@ -142,6 +142,23 @@ export class Parser {
       return JSON.stringify(sinceArr, null, 2);
     }
     return '';
+  }
+  
+  /**
+   * 获取解析结果的所有api
+   *
+   * @param {FilesMap} parseResult 解析结果
+   * @return  {BasicApiInfo[]} 遍历平铺所有api
+   */
+  static getAllBasicApi(parseResult: FilesMap): BasicApiInfo[] {
+    let apiInfos: BasicApiInfo[] = [];
+    // map的第一层key均为文件路径名
+    for (const filePath of parseResult.keys()) {
+      const fileMap: FileInfoMap = parseResult.get(filePath) as FileInfoMap;
+      const apis: BasicApiInfo[] = ResultsProcessHelper.processFileApiMapForGetBasicApi(fileMap);
+      apiInfos = apiInfos.concat(apis);
+    }
+    return apiInfos;
   }
 }
 

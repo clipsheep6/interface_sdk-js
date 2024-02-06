@@ -51,6 +51,14 @@ declare enum RefreshStatus {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The refresh status of the drop-down refresh.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Inactive,
 
   /**
@@ -65,6 +73,14 @@ declare enum RefreshStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Drop down, but the drop-down distance is less than the refresh distance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Drag,
 
@@ -81,6 +97,14 @@ declare enum RefreshStatus {
    * @crossplatform
    * @since 10
    */
+  /**
+   * The pull-down exceeds the refresh distance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   OverDrag,
 
   /**
@@ -96,6 +120,14 @@ declare enum RefreshStatus {
    * @crossplatform
    * @since 10
    */
+  /**
+   * After the pull-down, it rebounds to the refresh distance and enters the refresh state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
   Refresh,
 
   /**
@@ -110,6 +142,14 @@ declare enum RefreshStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
+   */
+  /**
+   * After refresh, return to the initial state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
    */
   Done,
 }
@@ -184,16 +224,7 @@ interface RefreshOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */
-  /**
-   * Distance to the top of the parent component from the component that
-   * comes to rest after a successful pull-down gesture. Default value: 16, in vp
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 11
    */
   offset?: number | string;
 
@@ -219,19 +250,7 @@ interface RefreshOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
-   */
-  /**
-   * Coefficient of friction, which indicates the component's sensitivity to the pull-down gesture.
-   * The value ranges from 0 to 100. Default value: 62
-   *   - 0 indicates that the component is not sensitive to the pull-down gesture.
-   *   - 100 indicates that the component is highly sensitive to the pull-down gesture.
-   *   - A larger value indicates a more sensitive response of the component to the pull-down gesture.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @deprecated since 11
    */
   friction?: number | string;
 
@@ -407,6 +426,14 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
  * @crossplatform
  * @since 10
  */
+/**
+ * Defines Refresh Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
 declare const Refresh: RefreshInterface;
 
 /**
@@ -421,5 +448,13 @@ declare const Refresh: RefreshInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
+ */
+/**
+ * Defines Refresh Component instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
  */
 declare const RefreshInstance: RefreshAttribute;
