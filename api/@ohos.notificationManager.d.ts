@@ -637,6 +637,7 @@ declare namespace notificationManager {
   /**
    * Obtains allow notification application list by slot.
    *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { SlotType } type - Type of the NotificationSlot.
    * @param { boolean } fliter - True : The enabled application. False : The created but disenabled application.
    * @returns { Promise<Array<BundleNotificationStatus>> } Returns all enable notification applications.
