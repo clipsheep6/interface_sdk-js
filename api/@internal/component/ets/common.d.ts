@@ -14383,15 +14383,15 @@ declare class CommonMethod<T> {
   /**
    * Specifies the direction and style of chain in relative container
    *
-   * @param { Axis } value - indicates direction of the chain
-   * @param { ChainStyle } value - indicates style of the chain
+   * @param { ChainStyle } value - indicates hotizontal style of the chain
+   * @param { ChainStyle } value - indicates vertical style of the chain
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 11
    */
-  chainMode(direction: Axis, style: ChainStyle): T;
+  chainMode(hotizontal ?: ChainStyle, vertical ?: ChainStyle): T;
 
   /**
    * Specifies the aspect ratio of the current component.
