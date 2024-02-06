@@ -309,8 +309,8 @@ declare namespace notificationManager {
    * Publishes a representative notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { NotificationRequest } request - a notification.
    * @param { BundleOption } representativeBundle - bundle option of the representative.
+   * @param { NotificationRequest } request - a notification.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -327,7 +327,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function publishAsBundle(request: NotificationRequest, representativeBundle: BundleOption): Promise<void>;
+  function publishAsBundle(representativeBundle: BundleOption, request: NotificationRequest): Promise<void>;
 
   /**
    * Cancel a notification with the specified ID.
@@ -427,10 +427,9 @@ declare namespace notificationManager {
 
   /**
    * Cancel a representative notification.
-   *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   
    * @param { BundleOption } representativeBundle - bundle option of the representative.
+   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -445,7 +444,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function cancelAsBundle(id: number, representativeBundle: BundleOption): Promise<void>;
+  function cancelAsBundle(representativeBundle: BundleOption, id: number): Promise<void>;
 
   /**
    * Cancel all notifications of the current application.
@@ -2163,6 +2162,7 @@ declare namespace notificationManager {
    * @param { BundleOption } bundle - The bundle option.
    * @param { number } badgeNumber - Badge number.
    * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
