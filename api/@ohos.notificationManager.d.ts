@@ -302,8 +302,6 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9
    */
-  function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number): Promise<void>;
-
   /**
    * Publishes a representative notification.
    *
@@ -328,7 +326,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number, uid: number): Promise<void>;
+  function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number, uid?: number): Promise<void>;
 
   /**
    * Cancel a notification with the specified ID.
