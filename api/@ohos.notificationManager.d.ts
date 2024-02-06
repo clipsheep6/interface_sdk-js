@@ -20,6 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import { BundleOption as _BundleOption } from './notification/NotificationCommonDef';
+import { BundleNotificationStatus as _BundleNotificationStatus } from './notification/NotificationCommonDef';
 import { NotificationActionButton as _NotificationActionButton } from './notification/notificationActionButton';
 import { NotificationBasicContent as _NotificationBasicContent } from './notification/notificationContent';
 import { NotificationContent as _NotificationContent } from './notification/notificationContent';
@@ -39,6 +40,9 @@ import { NotificationRequest as _NotificationRequest } from './notification/noti
 import { DistributedOptions as _DistributedOptions } from './notification/notificationRequest';
 import type { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
 import type { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
+import type { UnifiedGroupInfo as _UnifiedGroupInfo } from './notification/notificationRequest';
+
+
 import { NotificationSlot as _NotificationSlot } from './notification/notificationSlot';
 import { NotificationSorting as _NotificationSorting } from './notification/notificationSorting';
 import { NotificationTemplate as _NotificationTemplate } from './notification/notificationTemplate';
@@ -304,6 +308,32 @@ declare namespace notificationManager {
   function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number): Promise<void>;
 
   /**
+   * Publishes a representative notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { NotificationRequest } request - a notification.
+   * @param { string } representativeBundle - bundle name of the representative
+   * @param { number } userId - userid of the representative
+   * @param { number } uid - uid of the representative
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number, uid: number): Promise<void>;
+
+  /**
    * Cancel a notification with the specified ID.
    *
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
@@ -398,6 +428,50 @@ declare namespace notificationManager {
    * @since 9
    */
   function cancelAsBundle(id: number, representativeBundle: string, userId: number): Promise<void>;
+
+  /**
+   * Cancel a representative notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   * @param { string } representativeBundle - bundle name of the representative.
+   * @param { number } userId - userid of the representative.
+   * @param { number } uid - uid of the representative.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function cancelAsBundle(id: number, representativeBundle: string, userId: number, uid: number): Promise<void>;
+
+  /**
+   * Cancel a representative notification.
+   *
+   * @param { BundleOption } representativeBundle - BundleOption of the representative.
+   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   * @param { string } label - Label of the notification to cancel.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+    function cancelAsBundle(representativeBundle: BundleOption, id: number, label?: string): Promise<void>;
 
   /**
    * Cancel all notifications of the current application.
@@ -585,6 +659,38 @@ declare namespace notificationManager {
    * @since 9
    */
   function getSlots(): Promise<Array<NotificationSlot>>;
+
+  /**
+   * Obtains allow notification application list.
+   *
+   * @returns { Promise<Array<BundleNotificationStatus>> } Returns all enable notification applications.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function getAllNotificationEnableStatus(): Promise<Array<BundleNotificationStatus>>;
+
+  /**
+   * Obtains allow notification application list by slot.
+   *
+   * @param { SlotType } type - Type of the NotificationSlot.
+   * @param { boolean } Fliter - True : The enabled application. False : The created but disenabled application.
+   * @returns { Promise<Array<BundleNotificationStatus>> } Returns all enable notification applications.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function getAllBundleEnableStatusBySlot(type: SlotType, Fliter?: boolean): Promise<Array<BundleNotificationStatus>>;
 
   /**
    * Removes a NotificationSlot of the specified SlotType created by the current application.
@@ -933,6 +1039,26 @@ declare namespace notificationManager {
    * @since 9
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot): Promise<void>;
+
+  /**
+   * Get notification slot for the specified bundle.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { SlotType } type - Indicates the notification slot.
+   * @returns { Promise<NotificationSlot> } Returns the NotificationSlot.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function getSlotByBundle(bundle: BundleOption, type: SlotType): Promise<NotificationSlot>;
 
   /**
    * Obtains all notification slots belonging to the specified bundle.
@@ -1639,6 +1765,28 @@ declare namespace notificationManager {
   function setDistributedEnableByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
 
   /**
+   * Sets whether an application supports distributed notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   *  @param { string } deviceType - The device type.
+   * @param { boolean } enable - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function setDistributedEnableByBundle(bundle: BundleOption, deviceType: string, enable: boolean): Promise<void>;
+
+  /**
    * Obtains whether an application supports distributed notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -1678,6 +1826,68 @@ declare namespace notificationManager {
    * @since 9
    */
   function isDistributedEnabledByBundle(bundle: BundleOption): Promise<boolean>;
+
+  /**
+   * Obtains whether an application supports distributed notification.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { string } deviceType - The device type.
+   * @returns { Promise<boolean> } Returns whether the distributed notification is supported.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function isDistributedEnabledByBundle(bundle: BundleOption, deviceType: string): Promise<boolean>;
+
+  /**
+   * Sets whether an application supports smart reminders across devices.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } deviceType - The device type.
+   * @param { boolean } enable - Set enable or not.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function setSmartReminderEnable(deviceType: string, enable: boolean): Promise<void>;
+
+  /**
+   * Obtains whether an application supports smart reminders across devices.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } deviceType - The device type.
+   * @returns { Promise<void> } Returns whether the smart reminders across devices notification is supported.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600010 - Distributed operation failed.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function isSmartReminderEnable(deviceType: string): Promise<boolean>;
 
   /**
    * Obtains the remind modes of the notification.
@@ -1981,6 +2191,22 @@ declare namespace notificationManager {
   function setBadgeNumber(badgeNumber: number): Promise<void>;
 
   /**
+   * Set badge number by bundle.
+   *
+   * @param { BundleOption } bundle - The bundle option.
+   * @param { number } badgeNumber - Badge number.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 12
+   */
+  function setBadgeNumberAsBundle(bundle: BundleOption, badgeNumber: number): Promise<void>;
+
+  /**
    * Subscribe the callback for check notifications.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
@@ -2074,6 +2300,22 @@ declare namespace notificationManager {
   function subscribeSystemLiveView(subscriber: SystemLiveViewSubscriber): Promise<void>;
 
   /**
+   * Subscribe to local live view notifications
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function subscribeLocalLiveView(): Promise<void>;
+
+  /**
    * Set basic configurations of application-level notification channels.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -2111,6 +2353,40 @@ declare namespace notificationManager {
    * @since 11
    */
   function getSlotFlagsByBundle(bundle: BundleOption): Promise<number>;
+
+  /**
+   * Add do not disturb notification templates.
+   *
+   * @param { Array<DoNotDisturbProfile> } templates - The array of Notification templates.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function addDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
+
+  /**
+   * Remove do not disturb notification templates.
+   *
+   * @param { Array<DoNotDisturbProfile> } templates - The array of Notification templates.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function RemoveDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
   /**
    * Describes a button option for a triggering.
@@ -2543,6 +2819,46 @@ declare namespace notificationManager {
   }
 
   /**
+   * Describes a DoNotDisturbProfile instance.
+   *
+   * @typedef DoNotDisturbProfile
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  export interface DoNotDisturbProfile {
+    /**
+     * The template number of the Do Not disturb.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    id: number;
+
+    /**
+     * The template name of the Do Not disturb.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    name: string;
+
+    /**
+     * The whitelist of application.
+     *
+     * @type { Array<BundleOption> }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    whitelist?: Array<BundleOption>;
+  }
+
+  /**
    * The remind type of the notification.
    *
    * @enum { number }
@@ -2632,6 +2948,15 @@ declare namespace notificationManager {
    * @since 9
    */
   export type BundleOption = _BundleOption;
+
+  /**
+   * Describes a bundleStatus in a notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  export type BundleNotificationStatus = _BundleNotificationStatus;
 
   /**
    * Describes an action button displayed in a notification.
@@ -2741,6 +3066,15 @@ declare namespace notificationManager {
    * @since 11
    */
   export type NotificationCheckRequest = _NotificationCheckRequest;
+
+  /**
+   * Unified aggregation of information across applications.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  export type UnifiedGroupInfo = _UnifiedGroupInfo;
 
   /**
    * Describes distributed options.

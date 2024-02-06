@@ -256,7 +256,7 @@ declare namespace commonEventManager {
    * @since 9
    */
   /**
-   * Unsubscribe from an ordered, sticky, or standard common event.
+   * Unsubscribe from an ordered, sticky, or standard common event.?:
    *
    * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
    * @param { AsyncCallback<void> } [callback] - The callback of unsubscribe.
@@ -327,6 +327,7 @@ declare namespace commonEventManager {
    * Set static subscriber state.
    *
    * @param { boolean } enable - static subscribe event enable/disable state.
+   * @param { Array<string> } events - The events array.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - parameter error
@@ -337,7 +338,7 @@ declare namespace commonEventManager {
    * @StageModelOnly
    * @since 10
    */
-  function setStaticSubscriberState(enable: boolean): Promise<void>;
+  function setStaticSubscriberState(enable: boolean, events?: Array<string>): Promise<void>;
 
   /**
    * The event type that the commonEvent supported.

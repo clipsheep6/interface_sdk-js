@@ -182,6 +182,16 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @since 11
    */
   pictureInfo?: Record<string, Array<image.PixelMap>>;
+
+  /**
+   * Update locally.
+   *
+   * @type { Boolean }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  isOnlylocalUpdate?: Boolean;
 }
 
 /**
@@ -344,6 +354,16 @@ export interface NotificationCapsule {
    * @since 11
    */
   backgroundColor?: string;
+
+  /**
+   * Extended text of this capsule.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  content?: string;
 }
 
 /**
