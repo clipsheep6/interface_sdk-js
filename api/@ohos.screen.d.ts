@@ -105,7 +105,7 @@ declare namespace screen {
    * Stop expand screens
    *
    * @param { Array<number> } expandScreen IDs of expand screens to stop
-   * @param { AsyncCallback<number> } callback used to return the result
+   * @param { AsyncCallback<void> } callback used to return the result
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
