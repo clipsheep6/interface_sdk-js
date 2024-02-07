@@ -1244,12 +1244,12 @@ declare namespace hiAppEvent {
 	/**
      * The processor extend the config data.
      *
-     * @type { ?string }
+     * @type { ?Record<string, string> }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
      */
-    extendConfig?: string;
+    extendConfig?: Record<string, string>;
   }
 
   /**
