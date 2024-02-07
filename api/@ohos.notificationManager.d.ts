@@ -40,7 +40,6 @@ import { NotificationRequest as _NotificationRequest } from './notification/noti
 import { DistributedOptions as _DistributedOptions } from './notification/notificationRequest';
 import type { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
 import type { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
-import type { UnifiedGroupInfo as _UnifiedGroupInfo } from './notification/notificationRequest';
 import { NotificationSlot as _NotificationSlot } from './notification/notificationSlot';
 import { NotificationSorting as _NotificationSorting } from './notification/notificationSorting';
 import { NotificationTemplate as _NotificationTemplate } from './notification/notificationTemplate';
@@ -2158,7 +2157,6 @@ declare namespace notificationManager {
   /**
    * Set badge number by bundle.
    *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
    * @param { number } badgeNumber - Badge number.
    * @returns { Promise<void> } The promise returned by the function.
@@ -3023,15 +3021,6 @@ declare namespace notificationManager {
    * @since 11
    */
   export type NotificationCheckRequest = _NotificationCheckRequest;
-
-  /**
-   * Unified aggregation of information across applications.
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  export type UnifiedGroupInfo = _UnifiedGroupInfo;
 
   /**
    * Describes distributed options.
