@@ -636,7 +636,7 @@ declare namespace notificationManager {
    * Obtains allow notification application list by slot.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { SlotType } type - Type of the NotificationSlot.
+   * @param { SlotType } slottype - Type of the NotificationSlot.
    * @param { boolean } fliter - True : The enabled application. False : The created but disenabled application.
    * @returns { Promise<Array<BundleNotificationStatus>> } Returns all enable notification applications.
    * @throws { BusinessError } 201 - Permission denied.
@@ -649,7 +649,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function getAllBundleEnableStatusBySlot(type: SlotType, fliter?: boolean): Promise<Array<BundleNotificationStatus>>;
+  function getAllBundleEnableStatusBySlot(slottype: SlotType, fliter?: boolean): Promise<Array<BundleNotificationStatus>>;
 
   /**
    * Removes a NotificationSlot of the specified SlotType created by the current application.
@@ -1004,7 +1004,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @param { SlotType } type - Indicates the notification slot.
+   * @param { SlotType } slottype - Indicates the notification slot.
    * @returns { Promise<NotificationSlot> } Returns the NotificationSlot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -1018,7 +1018,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function getSlotByBundle(bundle: BundleOption, type: SlotType): Promise<NotificationSlot>;
+  function getSlotByBundle(bundle: BundleOption, slottype: SlotType): Promise<NotificationSlot>;
 
   /**
    * Obtains all notification slots belonging to the specified bundle.
