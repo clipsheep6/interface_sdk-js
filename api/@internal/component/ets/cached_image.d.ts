@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,16 +14,16 @@
  */
 
 /**
- * Defines the resource which can use Astc.
+ * Defines the resource which can use ASTC.
  *
- * @interface AstcResource
+ * @interface ASTCResource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
  */
-interface AstcResource {
+interface ASTCResource {
   /**
-   * Array of astc uri resources, indicating the range of astc data to be obtained.
+   * Array of ASTC uri resources, indicating the range of ASTC data to be obtained.
    * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -31,7 +31,7 @@ interface AstcResource {
    */
   sources: Array<string>;
   /**
-   * Column size, indicating the number of astc resources to splice per row.
+   * Column size, indicating the number of ASTC resources to splice per row.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -50,13 +50,13 @@ interface CachedImageInterface {
   /**
    * Image resource to be obtained.
    *
-   * @param { PixelMap | ResourceStr | DrawableDescriptor | AstcResource } src
+   * @param { PixelMap | ResourceStr | DrawableDescriptor | ASTCResource } src
    * @returns { CachedImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12
    */
-  (src: PixelMap | ResourceStr | DrawableDescriptor | AstcResource): CachedImageAttribute;
+  (src: PixelMap | ResourceStr | DrawableDescriptor | ASTCResource): CachedImageAttribute;
 }
 
 /**
