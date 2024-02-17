@@ -365,6 +365,17 @@ declare class Scroller {
      * @since 11
      */
     animation?: { duration?: number; curve?: Curve | ICurve } | boolean;
+
+    /**
+     * Determines whether can over the boundary.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    canOverScroll: boolean;
   });
 
   /**
