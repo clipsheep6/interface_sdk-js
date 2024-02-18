@@ -362,6 +362,17 @@ declare namespace formInfo {
     supportDimensions: Array<number>;
 
     /**
+     * Indicates whether the form can be resized in supportDimensions.
+     *
+     * @type { boolean }
+     * @default false
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    resizable: boolean;
+
+    /**
      * Obtains the custom data defined in this form.
      *
      * @type { object }

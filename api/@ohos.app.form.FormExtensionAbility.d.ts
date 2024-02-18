@@ -135,6 +135,18 @@ export default class FormExtensionAbility {
   onUpdateForm(formId: string, wantParams?: Record<string, Object>): void;
 
   /**
+   * Called when the form size changed.
+   *
+   * @param { string } formId - Indicates the ID of the form.
+   * @param { formInfo.FormDimension } dimension - The form size to be resized.
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  onFormSizeChanged?(formId: string, dimension: formInfo.FormDimension): void;
+
+  /**
    * Called when the form provider receives form events from the system.
    *
    * @param { object } newStatus - Indicates the form events occurred. The key in the {@code Map}
