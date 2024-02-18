@@ -14,6 +14,37 @@
  */
 
 /**
+ * Enum type, the shape of Radio component
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum RadioShape {
+  /**
+   * Circle shape.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  CIRCLE,
+
+  /**
+   * HOOK shape.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  HOOK,
+}
+
+/**
  * Input parameter for creating a radio box.
  *
  * @interface RadioOptions
@@ -119,6 +150,18 @@ declare interface RadioOptions {
    * @form
    */
   value: string;
+
+  /**
+   * Radio icon shape.
+   *
+   * @type { enmu }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  shape?: RadioShape;
 }
 
 /**
