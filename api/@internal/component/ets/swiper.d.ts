@@ -139,6 +139,19 @@ declare class SwiperController {
    * @form
    */
   finishAnimation(callback?: () => void);
+
+  /**
+   * Called when need to preload specified items.
+   *
+   * @param { Array<number> } indices - the indexes of items to be preloaded.
+   * @param { import('../api/@ohos.base').AsyncCallback<void> } callback - executed after preload is complete.
+   * @throws { BusinessError } 401 - if the preloaded indexes contains an invalid value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  preloadItems(indices: Array<number>, callback: import('../api/@ohos.base').AsyncCallback<void>);
 }
 
 /**
