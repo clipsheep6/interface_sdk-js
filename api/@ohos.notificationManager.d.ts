@@ -2341,7 +2341,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function RemoveDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
+  function removeDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
 
   /**
    * Describes a button option for a triggering.
