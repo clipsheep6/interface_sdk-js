@@ -9299,6 +9299,73 @@ declare interface PopupMessageOptions {
 }
 
 /**
+ * Dismiss reason.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum DismissReason {
+  /**
+   * Press back
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  PRESS_BACK = 0,
+
+  /**
+   * Touch component outside
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  TOUCH_OUTSIDE = 1,
+
+  /**
+   * Close button
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  CLOSE_BUTTON = 2
+}
+
+/**
+ * Component popup dismiss
+ *
+ * @interface DismissPopup
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DismissPopup {
+  /**
+   * Defines popup dismiss function
+   *
+   * @type { function  }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dismiss: () => void;
+
+  /**
+   * Defines popup dismiss reason
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reason: DismissReason;
+}
+
+/**
  * Defines the popup options.
  *
  * @interface PopupOptions
@@ -9830,6 +9897,16 @@ declare interface PopupOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Callback function when the popup interactive dismiss
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDismiss?: boolean | ((dismissPopup: DismissPopup) => void);
 }
 
 /**
@@ -10241,6 +10318,16 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   focusable?: boolean;
+
+  /**
+   * Callback function when the popup interactive dismiss
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+  */
+  onWillDismiss?: boolean | ((dismissPopup: DismissPopup) => void);
 }
 
 /**
