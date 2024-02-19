@@ -1957,7 +1957,7 @@ declare namespace call {
   /**
    * Control camera to open/close/switch camera by cameraId when video call.
    *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
+   * @permission ohos.permission.CAMERA
    * @param { number } callId - Indicates the identifier of the call.
    * @param { string } cameraId - Indicates the identifier of the camera id.
    * @returns { Promise<void> } The promise returned by the controlCamera.
