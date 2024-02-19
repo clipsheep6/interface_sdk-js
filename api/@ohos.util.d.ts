@@ -340,18 +340,6 @@ declare namespace util {
     /**
      * The textEncoder constructor.
      *
-     * @param { string } encoding - Decoding format
-     * @param { object } options - Options
-     * @syscap SystemCapability.Utils.Lang
-     * @since 7
-     * @deprecated since 9
-     * @useinstead ohos.util.TextDecoder.create
-     */
-    constructor(encoding?: string, options?: { fatal?: boolean; ignoreBOM?: boolean });
-
-    /**
-     * The textEncoder constructor.
-     *
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -363,6 +351,18 @@ declare namespace util {
      * @since 10
      */
     constructor();
+
+    /**
+     * The textEncoder constructor.
+     *
+     * @param { string } encoding - Decoding format
+     * @param { object } options - Options
+     * @syscap SystemCapability.Utils.Lang
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.util.TextDecoder.create
+     */
+    constructor(encoding?: string, options?: { fatal?: boolean; ignoreBOM?: boolean });
 
     /**
      * Replaces the original constructor to process arguments and return a textDecoder object.
