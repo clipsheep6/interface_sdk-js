@@ -57,6 +57,24 @@ declare class XComponentController {
     surfaceWidth: number;
     surfaceHeight: number;
   }): void;
+
+  /**
+   * lock the rotation of the surface created by XComponent.
+   *
+   * @param { boolean } value - If the value is true, the surface will not rotate with the XComponent. Otherwise, the surface will rotate with the XComponent. The default value is false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  lockSurfaceRotate(value: boolean): void;
+
+  /**
+   * lock the size of the surface created by XComponent.
+   *
+   * @param { boolean } value - If the value is true, the surface will not change size for any reason. Otherwise, the surface will change size. The default value is false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  lockSurfaceSize(value: boolean): void;
 }
 
 /**
