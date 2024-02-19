@@ -1100,6 +1100,45 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 11
    */
   type(value: SearchType): SearchAttribute;
+
+  /**
+   * Called when the text decoration of the text is set.
+   *
+   * @param { object } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  decoration(value: { type: TextDecorationType; color?: ResourceColor }): SearchAttribute;
+
+  /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | string } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  letterSpacing(value: number | string): SearchAttribute;
+
+  /**
+   * Called when the vertical center mode of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  lineHeight(value: number | string | Resource): SearchAttribute;
 }
 
 /**
