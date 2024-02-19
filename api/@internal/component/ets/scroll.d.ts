@@ -364,7 +364,17 @@ declare class Scroller {
      * @atomicservice
      * @since 11
      */
-    animation?: { duration?: number; curve?: Curve | ICurve } | boolean;
+    /**
+     * Descriptive animation.
+     *
+     * @type { ?({ duration?: number; curve?: Curve | ICurve; canOverScroll?: boolean } | boolean) } The object type provides custom animation parameters
+     * and the boolean type enables default spring animation.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    animation?: { duration?: number; curve?: Curve | ICurve; canOverScroll?: boolean } | boolean;
   });
 
   /**
