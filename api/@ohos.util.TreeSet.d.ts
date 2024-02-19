@@ -14,10 +14,14 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * TreeSet is implemented based on TreeMap. In TreeSet, only value objects are processed. 
  * TreeSet can be used to store values, each of which must be unique.
  *
- * @namespace TreeSet
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  */
@@ -25,7 +29,6 @@
  * TreeSet is implemented based on TreeMap. In TreeSet, only value objects are processed. 
  * TreeSet can be used to store values, each of which must be unique.
  *
- * @namespace TreeSet
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
@@ -34,10 +37,10 @@ declare class TreeSet<T> {
   /**
    * A constructor used to create a TreeSet object.
    *
-   * @param { (firstValue: T, secondValue: T) => boolean } comparator - comparison comparison
-   * (Optional) User-defined comparison functions
-   * firstValue (Optional) previous element
-   * secondValue (Optional) next element
+   * @param { function } [comparator] - comparator
+   * comparator (Optional) User-defined comparison functions.
+   * firstValue (required) previous element.
+   * secondValue (required) next element.
    * @throws { BusinessError } 10200012 - The TreeSet's constructor cannot be directly invoked.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -46,34 +49,17 @@ declare class TreeSet<T> {
   /**
    * A constructor used to create a TreeSet object.
    *
-   * @param { (firstValue: T, secondValue: T) => boolean } comparator - comparison comparison
-   * (Optional) User-defined comparison functions
-   * firstValue (Optional) previous element
-   * secondValue (Optional) next element
+   * @param { function } [comparator] - comparator
+   * comparator (Optional) User-defined comparison functions.
+   * firstValue (required) previous element.
+   * secondValue (required) next element.
    * @throws { BusinessError } 10200012 - The TreeSet's constructor cannot be directly invoked.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
    */
-  /**
-   * A constructor used to create a TreeSet object.
-   *
-   * @param { (firstValue: T, secondValue: T) => number } comparator - comparison comparison
-   * comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
-   * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
-   * sorted in ascending order;If it returns secondValue minus firstValue, it returns an arraylist sorted in descending order;
-   * If this parameter is empty, it will default to ASCII sorting
-   * (Optional) User-defined comparison functions
-   * firstValue (Optional) previous element
-   * secondValue (Optional) next element
-   * @throws { BusinessError } 10200012 - The TreeSet's constructor cannot be directly invoked.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 11
-   */
-  constructor(comparator?: (firstValue: T, secondValue: T) => number);
+  constructor(comparator?: (firstValue: T, secondValue: T) => boolean);
   /**
    * Gets the element number of the TreeSet.
    *
@@ -307,8 +293,12 @@ declare class TreeSet<T> {
   /**
    * Executes a provided function once for each value in the Set object.
    *
-   * @param { (value?: T, key?: T, set?: TreeSet<T>) => void } callbackFn - callbackFn callbackFn
-   * @param { Object } thisArg - thisArg thisArg
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -317,8 +307,12 @@ declare class TreeSet<T> {
   /**
    * Executes a provided function once for each value in the Set object.
    *
-   * @param { (value?: T, key?: T, set?: TreeSet<T>) => void } callbackFn - callbackFn callbackFn
-   * @param { Object } thisArg - thisArg thisArg
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang

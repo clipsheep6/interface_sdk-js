@@ -14,11 +14,15 @@
  */
 
 /**
+ * @file
+ * @kit ArkTS
+ */
+
+/**
  * TreeMap stores key-value (KV) pairs. Each key must be unique and have only one value.
  * TreeMap is implemented using a red-black tree, which is a binary search tree where keys 
  * are stored in sorted order for efficient insertion and removal.
  *
- * @namespace TreeMap
  * @syscap SystemCapability.Utils.Lang
  * @since 8
  */
@@ -27,7 +31,6 @@
  * TreeMap is implemented using a red-black tree, which is a binary search tree where keys 
  * are stored in sorted order for efficient insertion and removal.
  *
- * @namespace TreeMap
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @since 10
@@ -36,10 +39,10 @@ declare class TreeMap<K, V> {
   /**
    * A constructor used to create a TreeMap object.
    *
-   * @param { (firstValue: K, secondValue: K) => boolean } comparator - comparator comparator
-   *(Optional) User-defined comparison functions
-   * firstValue (Optional) previous element
-   * secondValue (Optional) next element
+   * @param { function } [comparator] - comparator
+   * comparator (Optional) User-defined comparison functions.
+   * firstValue (required) previous element.
+   * secondValue (required) next element.
    * @throws { BusinessError } 10200012 - The TreeMap's constructor cannot be directly invoked.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -48,34 +51,17 @@ declare class TreeMap<K, V> {
   /**
    * A constructor used to create a TreeMap object.
    *
-   * @param { (firstValue: K, secondValue: K) => boolean } comparator - comparator comparator
-   *(Optional) User-defined comparison functions
-   * firstValue (Optional) previous element
-   * secondValue (Optional) next element
+   * @param { function } [comparator] - comparator
+   * comparator (Optional) User-defined comparison functions.
+   * firstValue (required) previous element.
+   * secondValue (required) next element.
    * @throws { BusinessError } 10200012 - The TreeMap's constructor cannot be directly invoked.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
    */
-  /**
-   * A constructor used to create a TreeSet object.
-   *
-   * @param { (firstValue: T, secondValue: T) => number } comparator - comparison comparison
-   * comparator (Optional) A function that accepts up to two arguments.Specifies the sort order.
-   * Must be a function,return number type,If it returns firstValue minus secondValue, it returns an arraylist
-   * sorted in ascending order;If it returns secondValue minus firstValue, it returns an arraylist sorted in descending order;
-   * If this parameter is empty, it will default to ASCII sorting
-   * (Optional) User-defined comparison functions
-   * firstValue (Optional) previous element
-   * secondValue (Optional) next element
-   * @throws { BusinessError } 10200012 - The TreeMap's constructor cannot be directly invoked.
-   * @throws { BusinessError } 401 - The type of parameters are invalid.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @since 11
-   */
-  constructor(comparator?: (firstValue: K, secondValue: K) => number);
+  constructor(comparator?: (firstValue: K, secondValue: K) => boolean);
   /**
    * Gets the element number of the hashmap.
    *
@@ -149,19 +135,19 @@ declare class TreeMap<K, V> {
    */
   hasValue(value: V): boolean;
   /**
-   * Returns a specified element in a Map object, or null if there is no corresponding element
+   * Returns a specified element in a Map object, or undefined if there is no corresponding element
    *
    * @param { K } key - key key the index in TreeMap
-   * @returns { V } value or null
+   * @returns { V } value or undefined
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @since 8
    */
   /**
-   * Returns a specified element in a Map object, or null if there is no corresponding element
+   * Returns a specified element in a Map object, or undefined if there is no corresponding element
    *
    * @param { K } key - key key the index in TreeMap
-   * @returns { V } value or null
+   * @returns { V } value or undefined
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -394,8 +380,12 @@ declare class TreeMap<K, V> {
    * Executes the given callback function once for each real key in the map.
    * It does not perform functions on deleted keys
    *
-   * @param { (value?: V, key?: K, map?: TreeMap<K, V>) => void } callbackFn - callbackFn callbackFn
-   * @param { Object } thisArg - callbackFn callbackFn
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
@@ -405,8 +395,12 @@ declare class TreeMap<K, V> {
    * Executes the given callback function once for each real key in the map.
    * It does not perform functions on deleted keys
    *
-   * @param { (value?: V, key?: K, map?: TreeMap<K, V>) => void } callbackFn - callbackFn callbackFn
-   * @param { Object } thisArg - callbackFn callbackFn
+   * @param { function } callbackFn - callbackFn
+   * callbackFn (required) A function that accepts up to three arguments.
+   * The function to be called for each element.
+   * @param { Object } [thisArg] - thisArg
+   * thisArg (Optional) The value to be used as this value for when callbackFn is called.
+   * If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @throws { BusinessError } 401 - The type of parameters are invalid.
    * @syscap SystemCapability.Utils.Lang
