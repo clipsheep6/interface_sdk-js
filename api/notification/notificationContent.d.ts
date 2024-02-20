@@ -191,7 +191,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @systemapi
    * @since 12
    */
-  isOnlylocalUpdate?: boolean;
+  islocalUpdateOnly?: boolean;
 }
 
 /**

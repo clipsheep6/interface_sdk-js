@@ -20,7 +20,6 @@
 
 import { AsyncCallback } from './@ohos.base';
 import { BundleOption as _BundleOption } from './notification/NotificationCommonDef';
-import { BundleNotificationStatus as _BundleNotificationStatus } from './notification/NotificationCommonDef';
 import { NotificationActionButton as _NotificationActionButton } from './notification/notificationActionButton';
 import { NotificationBasicContent as _NotificationBasicContent } from './notification/notificationContent';
 import { NotificationContent as _NotificationContent } from './notification/notificationContent';
@@ -1748,7 +1747,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function setDistributedEnableByBundle(bundle: BundleOption, deviceType: string, enable: boolean): Promise<void>;
+  function setDistributedEnabledByBundle(bundle: BundleOption, deviceType: string, enable: boolean): Promise<void>;
 
   /**
    * Obtains whether an application supports distributed notification.
@@ -1833,7 +1832,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function setSmartReminderEnable(deviceType: string, enable: boolean): Promise<void>;
+  function setSmartReminderEnabled(deviceType: string, enable: boolean): Promise<void>;
 
   /**
    * Obtains whether an application supports smart reminders across devices.
@@ -1854,7 +1853,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function isSmartReminderEnable(deviceType: string): Promise<boolean>;
+  function isSmartReminderEnabled(deviceType: string): Promise<boolean>;
 
   /**
    * Obtains the remind modes of the notification.
@@ -2806,14 +2805,14 @@ declare namespace notificationManager {
     name: string;
 
     /**
-     * The whitelist of application.
+     * The filterlist of application.
      *
      * @type { Array<BundleOption> }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12
      */
-    whitelist?: Array<BundleOption>;
+    filterlist?: Array<BundleOption>;
   }
 
   /**
@@ -2906,15 +2905,6 @@ declare namespace notificationManager {
    * @since 9
    */
   export type BundleOption = _BundleOption;
-
-  /**
-   * Describes a bundleStatus in a notification.
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  export type BundleNotificationStatus = _BundleNotificationStatus;
 
   /**
    * Describes an action button displayed in a notification.
