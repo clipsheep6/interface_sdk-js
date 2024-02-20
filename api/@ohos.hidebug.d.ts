@@ -572,13 +572,13 @@ declare namespace hidebug {
      */
     const DISTRIBUTED_SCREEN: number;
     /**
-     * Distributed schedule tag.
+     * Distributed scheduler tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const DISTRIBUTED_SCHEDULE: number;
+    const DISTRIBUTED_SCHEDULER: number;
     /**
      * FFRT tasks.
      *
@@ -604,13 +604,13 @@ declare namespace hidebug {
      */
     const GLOBAL_RESOURCE_MANAGER: number;
     /**
-     * Graphic module tag.
+     * Graphics module tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const GRAPHIC: number;
+    const GRAPHICS: number;
     /**
      * HDF subsystem tag.
      *
@@ -747,7 +747,7 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12
    */
-  function startCaptureAppTrace(tags: number[], flag: TraceFlag, limitSize: number): string;
+  function startAppTraceCapture(tags: number[], flag: TraceFlag, limitSize: number): string;
 
   /**
    * Stop capture application trace.
@@ -757,6 +757,6 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12
    */
-  function stopCaptureAppTrace(): void;
+  function stopAppTraceCapture(): void;
 }
 export default hidebug;
