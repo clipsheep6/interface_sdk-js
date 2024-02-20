@@ -11218,6 +11218,15 @@ declare interface DragPreviewOptions {
   * @since 11
   */
   mode?: DragPreviewMode;
+
+  /**
+   * Drag preview blur style.
+   *
+   * @type { ?BlurStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  blurStyle?: BlurStyle;
 }
 
 /**
