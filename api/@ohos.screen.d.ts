@@ -595,7 +595,7 @@ declare namespace screen {
 
   /**
    * Screen orientation
-   *
+   * 
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -659,8 +659,7 @@ declare namespace screen {
   interface ScreenModeInfo {
     /**
      * Screen id
-     *
-     * @type { number }
+     * @type {number}
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -669,8 +668,7 @@ declare namespace screen {
 
     /**
      * Indicates the width of the screen
-     *
-     * @type { number }
+     * @type {number}
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -679,8 +677,7 @@ declare namespace screen {
 
    /**
      * Indicates the height of the screen
-     *
-     * @type { number }
+     * @type {number}
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
@@ -689,8 +686,7 @@ declare namespace screen {
 
     /**
      * Indicates the refreshRate of the screen
-     *
-     * @type { number }
+     * @type {number}
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
