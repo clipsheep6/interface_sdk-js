@@ -205,7 +205,7 @@ declare namespace hidebug {
   function getSystemCpuUsage(): number;
 
   /**
-   * Application CPU usage of all threads.
+   * Application CPU usage of threads.
    *
    * @typedef ThreadCpuUsage
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -254,7 +254,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    memTotal: bigint;
+    totalMem: bigint;
     /**
      * System free memory size, in kibibytes
      *
@@ -262,7 +262,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    memFree: bigint;
+    freeMem: bigint;
     /**
      * System available memory size, in kibibytes
      *
@@ -270,7 +270,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    memAvailable: bigint;
+    availableMem: bigint;
   }
 
   /**
@@ -409,21 +409,21 @@ declare namespace hidebug {
    */
   interface VMMemoryInfo {
     /**
-     * Heap total size of current virtual machine
+     * Total size of current virtual machine Heap
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    heapTotal: bigint;
+    totalHeap: bigint;
     /**
-     * Heap used size of current virtual machine
+     * Used size of current virtual machine Heap
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    heapUsed: bigint;
+    usedHeap: bigint;
     /**
      * All array object size of current virtual machine
      *
@@ -431,7 +431,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    arraySize: bigint;
+    allArraySize: bigint;
   }
 
   /**
@@ -482,7 +482,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const ABILITY_MANAGER: string;
+    const ABILITY_MANAGER: number;
     /**
      * ACE development framework tag.
      *
@@ -490,7 +490,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const ACE: string;
+    const ACE: number;
     /**
      * ARK tag.
      *
@@ -498,7 +498,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const ARK: string;
+    const ARK: number;
     /**
      * Bluetooth tag.
      *
@@ -506,7 +506,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const BLUETOOTH: string;
+    const BLUETOOTH: number;
     /**
      * Common library subsystem tag.
      *
@@ -514,15 +514,15 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const COMMON_LIBRARY: string;
+    const COMMON_LIBRARY: number;
     /**
-     * Distributed hardware devicemanager tag.
+     * Distributed hardware device manager tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const DEVICE_MANAGER: string;
+    const DISTRIBUTED_HARDWARE_DEVICE_MANAGER: number;
     /**
      * Distributed audio tag.
      *
@@ -530,7 +530,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const DISTRIBUTED_AUDIO: string;
+    const DISTRIBUTED_AUDIO: number;
     /**
      * Distributed camera tag.
      *
@@ -538,7 +538,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const DISTRIBUTED_CAMERA: string;
+    const DISTRIBUTED_CAMERA: number;
     /**
      * Distributed data manager module tag.
      *
@@ -546,7 +546,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const DISTRIBUTED_DATA: string;
+    const DISTRIBUTED_DATA: number;
     /**
      * Distributed hardware fwk tag.
      *
@@ -554,7 +554,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const DISTRIBUTED_HARDWARE_FWK: string;
+    const DISTRIBUTED_HARDWARE_FWK: number;
     /**
      * Distributed input tag.
      *
@@ -562,7 +562,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const DISTRIBUTED_INPUT: string;
+    const DISTRIBUTED_INPUT: number;
     /**
      * Distributed screen tag.
      *
@@ -570,7 +570,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const DISTRIBUTED_SCREEN: string;
+    const DISTRIBUTED_SCREEN: number;
     /**
      * Distributed schedule tag.
      *
@@ -578,15 +578,15 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const DISTRIBUTED_SCHEDULE: string;
+    const DISTRIBUTED_SCHEDULE: number;
     /**
-     * Ffrt tasks.
+     * FFRT tasks.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const FFRT: string;
+    const FFRT: number;
     /**
      * File management tag.
      *
@@ -594,7 +594,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const FILE_MANAGEMENT: string;
+    const FILE_MANAGEMENT: number;
     /**
      * Global resource manager tag.
      *
@@ -602,7 +602,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const GLOBAL_RESMGR: string;
+    const GLOBAL_RESOURCE_MANAGER: number;
     /**
      * Graphic module tag.
      *
@@ -610,7 +610,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const GRAPHIC: string;
+    const GRAPHIC: number;
     /**
      * HDF subsystem tag.
      *
@@ -618,7 +618,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const HDF: string;
+    const HDF: number;
     /**
      * MISC module tag.
      *
@@ -626,15 +626,15 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const MISC: string;
+    const MISC: number;
     /**
-     * Multimodal module tag.
+     * Multimodal input module tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const MULTIMODAL_INPUT: string;
+    const MULTIMODAL_INPUT: number;
     /**
      * Net tag.
      *
@@ -642,7 +642,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const NET: string;
+    const NET: number;
     /**
      * Notification module tag.
      *
@@ -650,7 +650,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const NOTIFICATION: string;
+    const NOTIFICATION: number;
     /**
      * NWeb tag.
      *
@@ -658,7 +658,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const NWEB: string;
+    const NWEB: number;
     /**
      * OHOS generic tag.
      *
@@ -666,7 +666,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const OHOS: string;
+    const OHOS: number;
     /**
      * Power manager tag.
      *
@@ -674,15 +674,15 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const POWER: string;
+    const POWER_MANAGER: number;
     /**
-     * RPC and IPC tag.
+     * RPC tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const RPC: string;
+    const RPC: number;
     /**
      * SA tag.
      *
@@ -690,7 +690,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const SAMGR: string;
+    const SAMGR: number;
     /**
      * Window manager tag.
      *
@@ -698,7 +698,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const WINDOW_MANAGER: string;
+    const WINDOW_MANAGER: number;
     /**
      * Audio module tag.
      *
@@ -706,7 +706,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const AUDIO: string;
+    const AUDIO: number;
     /**
      * Camera module tag.
      *
@@ -714,7 +714,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const CAMERA: string;
+    const CAMERA: number;
     /**
      * Image module tag.
      *
@@ -722,7 +722,7 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const IMAGE: string;
+    const IMAGE: number;
     /**
      * Media module tag.
      *
@@ -730,13 +730,13 @@ declare namespace hidebug {
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const MEDIA: string;
+    const MEDIA: number;
   }
 
   /**
    * Start capture application trace.
    *
-   * @param { string[] } tags - Tag of trace.
+   * @param { number[] } tags - Tag of trace.
    * @param { TraceFlag } flag - Trace flag.
    * @param { number } limitSize - Max size of trace file, in bytes, the max is 500MB.
    * @returns { string } Returns absolute path of the trace file.
@@ -747,7 +747,7 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12
    */
-  function startCaptureAppTrace(tags: string[], flag: TraceFlag, limitSize: number): string;
+  function startCaptureAppTrace(tags: number[], flag: TraceFlag, limitSize: number): string;
 
   /**
    * Stop capture application trace.
