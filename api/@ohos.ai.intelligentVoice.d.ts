@@ -83,6 +83,178 @@ declare namespace intelligentVoice {
   }
 
   /**
+   * Implements wakeup management.
+   * @typedef WakeupManager
+   * @syscap SystemCapability.AI.IntelligentVoice.Core
+   * @systemapi
+   * @since 12
+   */
+  interface WakeupManager {
+    /**
+     * Obtains files needed to upload. This method uses a promise to return the files needed to upload.
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+     * @param { number } maxCount - the maximum count of upload files.
+     * @returns { Promise<Array<UploadFile>> } the promise used to return the upload files.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 22700101 - No memory.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700107 - System error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    getUploadFiles (maxCount: number): Promise<Array<UploadFile>>;
+    /**
+     * Obtains clone files. This method uses a promise to return the clone files.
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+     * @returns { Promise<Array<CloneFile>> } the promise used to return the clone files.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 22700101 - No memory.
+     * @throws { BusinessError } 22700107 - System error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    getCloneFiles(): Promise<Array<CloneFile>>;
+    /**
+     * Clones for result. This method uses a promise to return the clone result.
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+     * @param { Array<CloneFile> } cloneFiles - the clone files to send.
+     * @param { string } cloneInfo - clone information.
+     * @returns { Promise<CloneResult> } the promise used to return the clone result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 22700101 - No memory.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700107 - System error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    cloneForResult(cloneFiles: Array<CloneFile>, cloneInfo: string): Promise<CloneResult>;
+    /**
+     * Clears user data.
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+     * @returns { Promise<void> } the promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 22700107 - System error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    clearUserData(): Promise<void>;
+  }
+
+  /**
+   * Enumerates upload file type.
+   * @enum {number}
+   * @syscap SystemCapability.AI.IntelligentVoice.Core
+   * @systemapi
+   * @since 12
+   */
+  enum UploadFileType {
+    /**
+     * Enroll file.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    ENROLL_FILE = 0,
+    /**
+     * Wakeup file.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    WAKEUP_FILE = 1,
+  }
+
+  /**
+   * Describes upload file information.
+   * @typedef UploadFile
+   * @syscap SystemCapability.AI.IntelligentVoice.Core
+   * @systemapi
+   * @since 12
+   */
+  interface UploadFile {
+    /**
+     * Report file type.
+     * @type { UploadFileType }
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    type: UploadFileType;
+    /**
+     * Files description.
+     * @type { string }
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    filesDescription: string;
+    /**
+     * Files content.
+     * @type { Array<ArrayBuffer> }
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    filesContent: Array<ArrayBuffer>;
+  }
+
+  /**
+   * Describes clone file information.
+   * @typedef CloneFile
+   * @syscap SystemCapability.AI.IntelligentVoice.Core
+   * @systemapi
+   * @since 12
+   */
+  interface CloneFile {
+    /**
+     * File path.
+     * @type { string }
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    filePath: string;
+    /**
+     * File content.
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    fileContent: ArrayBuffer
+  }
+
+  /**
+   * Enumerates clone result.
+   * @enum {number}
+   * @syscap SystemCapability.AI.IntelligentVoice.Core
+   * @systemapi
+   * @since 12
+   */
+  enum CloneResult {
+    /**
+     * Clone success.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    CLONE_SUCCESS = 0,
+    /**
+     * Clone failed.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    CLONE_FAILED = -1,
+  }
+
+  /**
    * Enumerates service change type.
    * @enum {number}
    * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -173,6 +345,153 @@ declare namespace intelligentVoice {
      */
     wakeupPhrase: string;
   }
+
+  /**
+   * Enumerates evaluation result code.
+   * @enum {number}
+   * @syscap SystemCapability.AI.IntelligentVoice.Core
+   * @systemapi
+   * @since 12
+   */
+  enum EvaluationResultCode {
+    /**
+     * Unknown.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+     UNKNOWN = 0,
+    /**
+     * Pass.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    PASS = 1,
+    /**
+     * Word is empty.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    WORD_EMPTY = 2,
+    /**
+     * Only support chinese.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    ONLY_SUPPORT_CHINESE = 3,
+    /**
+     * Invalid length.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    INVALID_LENGTH = 4,
+    /**
+     * Unusual word.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    UNUSUAL_WORD = 5,
+    /**
+     * Consecutive same word.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    CONSECUTIVE_SAME_WORD = 6,
+    /**
+     * Too few phones.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    TOO_FEW_PHONES = 7,
+    /**
+     * Too many phones.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    TOO_MANY_PHONES = 8,
+    /**
+     * Contain common construction.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    CONTAIN_COMMON_INSTRUCTION = 9,
+    /**
+     * Contain common spoken language.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    CONTAIN_COMMON_SPOKEN_LANGUAGE = 10,
+    /**
+     * Contain sensitive word.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    CONTAIN_SENSITIVE_WORD = 11,
+    /**
+     * Two consecutive words without initial consonant.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    NO_INITIAL_CONSONANT = 12,
+    /**
+     * Contain repeated phone.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    CONTAIN_REPEATED_PHONE = 13,
+  }
+
+  /**
+   * Describes evaluation result.
+   * @typedef EvaluationResult
+   * @syscap SystemCapability.AI.IntelligentVoice.Core
+   * @systemapi
+   * @since 12
+   */
+  interface EvaluationResult {
+    /**
+     * Evaluation score.
+     * @type { number }
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    score: number;
+    /**
+     * Describes evaluation result code.
+     * @type { EvaluationResultCode }
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    resultCode: EvaluationResultCode;
+  }
+
+  /**
+   * Obtains an {@link WakeupManager} instance.
+   * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+   * @returns { WakeupManager } this {@link WakeupManager} object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 22700101 - No memory.
+   * @throws { BusinessError } 22700107 - System error.
+   * @syscap SystemCapability.AI.IntelligentVoice.Core
+   * @systemapi
+   * @since 12
+   */
+  function getWakeupManager(): WakeupManager;
 
   /**
    * Obtains an {@link EnrollIntelligentVoiceEngine} instance. This method uses an asynchronous callback to return the EnrollIntelligentVoiceEngine instance.
@@ -377,6 +696,27 @@ declare namespace intelligentVoice {
      * @since 10
      */
     INTELLIGENT_VOICE_COMMIT_ENROLL_FAILED = 22700104,
+    /**
+     * Start capturer failed.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    INTELLIGENT_VOICE_START_CAPTURER_FAILED = 22700105,
+    /**
+     * Read failed.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    INTELLIGENT_VOICE_READ_FAILED = 22700106,
+    /**
+     * System error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    INTELLIGENT_VOICE_SYSTEM_ERROR = 22700107,
   }
 
   /**
@@ -443,6 +783,44 @@ declare namespace intelligentVoice {
      * @since 10
      */
     UNKNOWN_ERROR = -100,
+  }
+
+  /**
+   * Enumerates capturer channel.
+   * @enum {number}
+   * @syscap SystemCapability.AI.IntelligentVoice.Core
+   * @systemapi
+   * @since 12
+   */
+  enum CapturerChannel {
+    /**
+     * Capturer channel 1.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    CAPTURER_CHANNEL_1 = 0x1 << 0,
+    /**
+     * Capturer channel 2.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    CAPTURER_CHANNEL_2 = 0x1 << 1,
+    /**
+     * Capturer channel 3.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    CAPTURER_CHANNEL_3 = 0x1 << 2,
+    /**
+     * Capturer channel 4.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    CAPTURER_CHANNEL_4 = 0x1 << 3,
   }
 
   /**
@@ -734,6 +1112,19 @@ declare namespace intelligentVoice {
      */
     getParameter(key: string): Promise<string>;
     /**
+     * Evaluates for result, This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+     * @param { string } word - the word to evaluate.
+     * @returns { Promise<EvaluationResult> } the promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 22700107 - System error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    evaluateForResult(word: string): Promise<EvaluationResult>;
+    /**
      * Releases the engine, This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { AsyncCallback<void> } callback - the callback used to return the result.
@@ -889,6 +1280,57 @@ declare namespace intelligentVoice {
      * @since 10
      */
     getParameter(key: string): Promise<string>;
+    /**
+     * Gets pulse-code modulation audio. This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+     * @returns { Promise<ArrayBuffer> } the promise used to return the pulse-code modulation audio.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 22700101 - No memory.
+     * @throws { BusinessError } 22700107 - System error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    getPcm(): Promise<ArrayBuffer>;
+    /**
+     * Starts the capturer. This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+     * @param { number } channels - the channels needed in reading.
+     * @returns { Promise<void> } the promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700105 - Start capturer failed.
+     * @throws { BusinessError } 22700107 - System error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    startCapturer(channels: number): Promise<void>;
+    /**
+     * Reads the buffer from wakeup engine. This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+     * @returns { Promise<ArrayBuffer> } the promise used to return the buffer.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 22700101 - No memory.
+     * @throws { BusinessError } 22700106 - Read failed.
+     * @throws { BusinessError } 22700107 - System error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    read(): Promise<ArrayBuffer>;
+    /**
+     * Stops the capturer. This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+     * @returns { Promise<void> } the promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 22700107 - System error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    stopCapturer(): Promise<void>;
     /**
      * Releases the engine, This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
