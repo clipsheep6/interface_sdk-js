@@ -409,7 +409,7 @@ declare namespace hidebug {
    */
   interface VMMemoryInfo {
     /**
-     * Total size of current virtual machine Heap
+     * Total size of current virtual machine Heap, in kibibytes
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -417,7 +417,7 @@ declare namespace hidebug {
      */
     totalHeap: bigint;
     /**
-     * Used size of current virtual machine Heap
+     * Used size of current virtual machine Heap, in kibibytes
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -425,7 +425,7 @@ declare namespace hidebug {
      */
     usedHeap: bigint;
     /**
-     * All array object size of current virtual machine
+     * All array object size of current virtual machine, in kibibytes
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
