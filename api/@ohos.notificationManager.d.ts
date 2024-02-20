@@ -2173,7 +2173,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function setBadgeNumberAsBundle(bundle: BundleOption, badgeNumber: number): Promise<void>;
+  function setBadgeNumberByBundle(bundle: BundleOption, badgeNumber: number): Promise<void>;
 
   /**
    * Subscribe the callback for check notifications.
