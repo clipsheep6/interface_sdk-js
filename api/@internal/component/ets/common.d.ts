@@ -9830,6 +9830,17 @@ declare interface PopupOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Control whether popup is disabled for exit event response
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  interactiveDismissDisabled?: boolean;
 }
 
 /**
@@ -10241,6 +10252,17 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   focusable?: boolean;
+
+  /**
+   * Control whether popup is disabled for exit event response
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  interactiveDismissDisabled?: boolean;
 }
 
 /**
