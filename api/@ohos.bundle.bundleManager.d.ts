@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -225,7 +225,17 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
-    GET_BUNDLE_INFO_WITH_MENU = 0x00000100
+    GET_BUNDLE_INFO_WITH_MENU = 0x00000100,
+    /**
+     * Used to obtain the bundleInfo containing router map configuration in hapModuleInfo.
+     * The obtained bundleInfo does not contain the information of applicationInfo, extensionAbility, ability and permission.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 12
+     */
+    GET_BUNDLE_INFO_WITH_ROUTER_MAP = 0x00000200
   }
 
   /**
@@ -2756,6 +2766,20 @@ declare namespace bundleManager {
    * @since 11
    */
   function deleteAbc(abcPath: string): Promise<void>;
+
+  /**
+   * Check whether the link can be opened.
+   *
+   * @param { string } link - Indicates the link to be opened.
+   * @returns { boolean } Returns true if the link can be opened; returns false otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700055 - The specified link is invalid.
+   * @throws { BusinessError } 17700056 - The scheme of the specified link is not in the querySchemes.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  function canOpenLink(link: string): boolean;
 
   /**
    * Obtains configuration information about an application.
