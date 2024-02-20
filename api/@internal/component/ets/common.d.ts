@@ -11209,6 +11209,13 @@ declare enum DragPreviewMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
  */
+/**
+ * Defines the preview options.
+ *
+ * @interface DragPreviewOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
 declare interface DragPreviewOptions {
   /**
   * Drag preview mode.
@@ -11218,6 +11225,15 @@ declare interface DragPreviewOptions {
   * @since 11
   */
   mode?: DragPreviewMode;
+
+  /**
+   * The opacity value of drag preview.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  opacity?: number;
 }
 
 /**
