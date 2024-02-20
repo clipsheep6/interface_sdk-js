@@ -376,6 +376,27 @@ declare namespace notificationManager {
   function cancel(id: number, label?: string): Promise<void>;
 
   /**
+   * Cancel a notification with the representative and ID.
+   *
+   * @param { BundleOption } representativeBundle - bundle option of the representative.
+   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600008 - The user is not exist.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function cancel(representativeBundle: BundleOption, id: number): Promise<void>;
+
+  /**
    * Cancel a representative notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
@@ -426,7 +447,8 @@ declare namespace notificationManager {
 
   /**
    * Cancel a representative notification.
-   
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { BundleOption } representativeBundle - bundle option of the representative.
    * @param { number } id - ID of the notification to cancel, which must be unique in the application.
    * @returns { Promise<void> } The promise returned by the function.
@@ -631,25 +653,6 @@ declare namespace notificationManager {
    * @since 9
    */
   function getSlots(): Promise<Array<NotificationSlot>>;
-
-  /**
-   * Obtains allow notification application list by slot.
-   *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { SlotType } slottype - Type of the NotificationSlot.
-   * @param { boolean } fliter - True : The enabled application. False : The created but disenabled application.
-   * @returns { Promise<Array<BundleNotificationStatus>> } Returns all enable notification applications.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600012 - No memory space.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  function getAllBundleEnableStatusBySlot(slottype: SlotType, fliter?: boolean): Promise<Array<BundleNotificationStatus>>;
 
   /**
    * Removes a NotificationSlot of the specified SlotType created by the current application.

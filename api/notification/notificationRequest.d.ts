@@ -51,13 +51,13 @@ export interface NotificationRequest {
   id?: number;
 
   /**
-   * Notification unified ID.
+   * Globally unique notification message ID defined by application.
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
    * @since 12
    */
-  unifiedMessageId?: string;
+  appMessageId?: string;
 
   /**
    * Notification slot type.
