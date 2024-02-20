@@ -205,7 +205,7 @@ declare namespace hidebug {
   function getSystemCpuUsage(): number;
 
   /**
-   * Application CPU usage of threads.
+   * Application CPU usage of thread.
    *
    * @typedef ThreadCpuUsage
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
