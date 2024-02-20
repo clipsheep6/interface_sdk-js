@@ -245,24 +245,24 @@ declare namespace hiAppEvent {
     const SCROLL_JANK: string;
 	
 	/**
-     * cpu usage abnormal event.
+     * cpu usage high event.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
      */
-    const CPU_USAGE_ABNORMAL: string;
+    const CPU_USAGE_HIGH: string;
 	
 	/**
-     * cpu abnormal event.
+     * battery usage event.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12
      */
-    const POWER_USAGE_RATE: string;
+    const BATTERY_USAGE: string;
 	
 	/**
      * resource overlimit event.
@@ -272,7 +272,7 @@ declare namespace hiAppEvent {
      * @atomicservice
      * @since 12
      */
-    const RES_OVERLIMIT: string;	
+    const RESOURCE_OVERLIMIT: string;	
   }
 
   /**
