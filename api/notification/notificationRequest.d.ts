@@ -424,6 +424,16 @@ export interface NotificationRequest {
    * @since 12
    */
   readonly agentBundle?: BundleOption;
+
+  /**
+   * Unified aggregation of information across applications.
+   *
+   * @type { ?UnifiedGroupInfo }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  unifiedGroupInfo?: UnifiedGroupInfo;
 }
 
 /**
@@ -551,4 +561,64 @@ export interface NotificationCheckRequest {
    * @since 11
    */
   extraInfoKeys: Array<string>;
+}
+
+/**
+ * Unified aggregation of information across applications.
+ *
+ * @typedef UnifiedGroupInfo
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @since 12
+ */
+export interface UnifiedGroupInfo {
+  /**
+   * The key is aggregated across applications.
+   *
+   * @type { notificationManager.ContentType }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  key?: string;
+
+  /**
+   * The title is aggregated across applications.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  title?: string;
+
+  /**
+   * The content is aggregated across applications.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  content?: string;
+
+  /**
+   * Intelligent polymerization.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  scene?: string;
+  
+  /**
+   * Other information is aggregated across applications.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  extraInfo?: { [key: string]: any };
 }
