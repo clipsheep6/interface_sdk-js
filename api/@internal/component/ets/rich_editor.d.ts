@@ -2221,7 +2221,6 @@ declare class RichEditorController {
    * @param { SelectionOptions } options - Whether the menu pops up.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
    */
   setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
