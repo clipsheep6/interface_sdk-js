@@ -2213,12 +2213,12 @@ declare class RichEditorController {
   getSelection(): RichEditorSelection;
 
   /**
-   * Set the typing text style.
+   * Judge whether it is in editing state
    * 
    * @returns { boolean } - true is Edit state, false is non editing status
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
   isEditable(): boolean;
 }
@@ -2484,7 +2484,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   onEditingChange(callback: (isEditing: boolean) => void): RichEditorAttribute;
 }
