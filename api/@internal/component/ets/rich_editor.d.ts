@@ -2214,7 +2214,7 @@ declare class RichEditorController {
    * @crossplatform
    * @since 12
    */
-   setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
+  setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
    * Called when the content is selected.
