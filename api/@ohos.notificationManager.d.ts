@@ -2805,14 +2805,14 @@ declare namespace notificationManager {
     name: string;
 
     /**
-     * The filterlist of application.
+     * The trustlist of application.
      *
      * @type { Array<BundleOption> }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12
      */
-    filterlist?: Array<BundleOption>;
+    trustlist?: Array<BundleOption>;
   }
 
   /**
