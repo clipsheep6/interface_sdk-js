@@ -13797,6 +13797,10 @@ declare class CommonMethod<T> {
    */
   onAreaChange(event: (oldValue: Area, newValue: Area) => void): T;
 
+  onRectChange(event: (oldWidth: Length, oldHeight: Length, curWidth: Length, curHeight: Length) => void): T;
+
+  onPositionChange(event: (oldOffsetToWindow: Position, oldOffsetRelative: Position, curOffsetToWindow: Position, curOffsetRelative: Position) => void): T;
+
   /**
    * Controls the display or hide of the current component.
    *
