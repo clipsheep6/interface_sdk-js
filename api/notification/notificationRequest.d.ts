@@ -603,7 +603,7 @@ export interface UnifiedGroupInfo {
   content?: string;
 
   /**
-   * Intelligent polymerization.
+   * Scene name.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
@@ -611,7 +611,7 @@ export interface UnifiedGroupInfo {
    * @since 12
    */
   scene?: string;
-  
+
   /**
    * Other information is aggregated across applications.
    *
