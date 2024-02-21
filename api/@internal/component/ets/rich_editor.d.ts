@@ -2211,6 +2211,16 @@ declare class RichEditorController {
    * @since 11
    */
   getSelection(): RichEditorSelection;
+
+    /**
+   * Exit edit state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+    stopEditing(): void;
 }
 
 /**
@@ -2465,6 +2475,29 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 11
    */
   dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
+
+      /**
+   * Called when the type of soft keyboard input button is set.
+   *
+   * @param { EnterKeyType } value: the type of soft keyboard
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+      enterKeyType(value: EnterKeyType): RichEditorAttribute;
+
+      /**
+       * Called when submitted.
+       *
+       * @param { function } callback - callback of the listened event.
+       * @returns { RichEditorAttribute }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @crossplatform
+       * @atomicservice
+       * @since 12
+       */
+      onSubmit(callback: (enterKey: EnterKeyType, event: SubmitEvent) => void): RichEditorAttribute;
 }
 
 /**
