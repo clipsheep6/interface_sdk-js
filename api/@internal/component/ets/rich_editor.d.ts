@@ -2473,9 +2473,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
-   * @form
    */
   lineHeight(value: number | string | Resource): RichEditorAttribute;
 
@@ -2486,9 +2484,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
-   * @form
    */
   letterSpacing(value: number | string): RichEditorAttribute;
 
@@ -2499,9 +2495,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
-   * @form
    */
   decoration(value: { type: TextDecorationType; color?: ResourceColor }): RichEditorAttribute;
 }
