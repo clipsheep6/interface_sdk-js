@@ -1424,6 +1424,26 @@ declare interface RichEditorTextSpanOptions {
 }
 
 /**
+ * Defines the Keyboard options of RichEditor.
+ *
+ * @interface KeyboardOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface KeyboardOptions {
+  /**
+   * Indicates whether to support keyboard avoidance.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  supportAvoidance?: boolean;
+}
+
+/**
  * Defines the image span options of RichEditor.
  *
  * @interface RichEditorImageSpanOptions
@@ -2431,7 +2451,17 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @atomicservice
    * @since 11
    */
-  customKeyboard(value: CustomBuilder): RichEditorAttribute;
+  /**
+   * Define custom keyboard.
+   *
+   * @param { CustomBuilder } value
+   * @param { KeyboardOptions } options - Indicates the Keyboard options of RichEditor
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  customKeyboard(value: CustomBuilder, options?: KeyboardOptions): RichEditorAttribute;
 
   /**
     * Defines onPaste callback.
