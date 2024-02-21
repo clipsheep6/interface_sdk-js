@@ -603,14 +603,14 @@ export interface UnifiedGroupInfo {
   content?: string;
 
   /**
-   * Scene name.
+   * Aggregation scenario name.
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
    */
-  scene?: string;
+  sceneName?: string;
 
   /**
    * Other information is aggregated across applications.
