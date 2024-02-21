@@ -2209,9 +2209,19 @@ declare class RichEditorController {
    *
    * @param { number } selectionStart - The start position of the selected text.
    * @param { number } selectionEnd - The end position of the selected text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+   /**
+   * Text selection is achieved by specifying the start and end positions of the rich editor.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
    * @param { SelectionOptions } options - Whether the menu pops up.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
