@@ -2465,6 +2465,17 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 11
    */
   dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
+
+  /**
+   * Custom text selection status background color and handle color (including cursor).
+   *
+   * @param { ResourceColor } value - The value is Custom color types.
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  cursorColor(value: ResourceColor): RichEditorAttribute;
 }
 
 /**
