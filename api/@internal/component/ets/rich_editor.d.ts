@@ -1429,11 +1429,18 @@ declare interface RichEditorTextSpanOptions {
  * @interface SelectionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @atomicservice
  * @since 12
  */
 declare interface SelectionOptions {
-    isPopUpMenu: boolean;
+  /**
+   * Force a pop-up menu.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isForcePopUpMenu: boolean;
 }
 
 /**
