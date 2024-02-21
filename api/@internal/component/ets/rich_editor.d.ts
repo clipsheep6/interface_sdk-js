@@ -2465,6 +2465,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 11
    */
   dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
+
+  /**
+   * Set the word break type.
+   *
+   * @param { WordBreak } value - The word break type.
+   * @returns { RichEditorAttribute } The attribute of the RichEditor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  wordBreak(value: WordBreak): RichEditorAttribute;
 }
 
 /**
