@@ -181,6 +181,16 @@ export interface MeasureOptions {
    * @since 11
    */
   wordBreak?: WordBreak;
+
+  /**
+   * Set the line break type.
+   *
+   * @type { ?LineBreakStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineBreakStrategy?: LineBreakStrategy;
 }
 
 /**
