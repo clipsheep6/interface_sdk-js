@@ -1424,6 +1424,19 @@ declare interface RichEditorTextSpanOptions {
 }
 
 /**
+ * Defines the Selection options of RichEditor.
+ *
+ * @interface SelectionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface SelectionOptions {
+    isPopUpMenu: boolean;
+}
+
+/**
  * Defines the image span options of RichEditor.
  *
  * @interface RichEditorImageSpanOptions
@@ -2196,11 +2209,12 @@ declare class RichEditorController {
    *
    * @param { number } selectionStart - The start position of the selected text.
    * @param { number } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } options - Whether the menu pops up.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since 12
    */
-  setSelection(selectionStart: number, selectionEnd: number): void;
+   setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
    * Called when the content is selected.
