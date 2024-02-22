@@ -1429,7 +1429,6 @@ declare interface RichEditorTextSpanOptions {
  * @interface KeyboardOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @atomicservice
  * @since 12
  */
 declare interface KeyboardOption {
@@ -2452,7 +2451,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
    */
   customKeyboard(value: CustomBuilder, options: KeyboardOption): RichEditorAttribute;
