@@ -1432,7 +1432,15 @@ declare interface RichEditorTextSpanOptions {
  * @since 12
  */
 declare interface KeyboardOption {
-  isSupportAvoidance: boolean;
+  /**
+   * the offset that add a text span at.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isSupportAvoidance?: boolean;
 }
 
 /**
@@ -2453,7 +2461,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @crossplatform
    * @since 12
    */
-  customKeyboard(value: CustomBuilder, options: KeyboardOption): RichEditorAttribute;
+  customKeyboard(value: CustomBuilder, options?: KeyboardOption): RichEditorAttribute;
 
   /**
     * Defines onPaste callback.
