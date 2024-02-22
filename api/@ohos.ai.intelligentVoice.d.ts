@@ -246,12 +246,12 @@ declare namespace intelligentVoice {
      */
     CLONE_SUCCESS = 0,
     /**
-     * Clone failed.
+     * Clone failure.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 12
      */
-    CLONE_FAILED = -1,
+    CLONE_FAILURE = -1,
   }
 
   /**
@@ -376,12 +376,12 @@ declare namespace intelligentVoice {
      */
     WORD_EMPTY = 2,
     /**
-     * Only support chinese.
+     * Only chinese is supported.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 12
      */
-    ONLY_SUPPORT_CHINESE = 3,
+    CHINESE_ONLY = 3,
     /**
      * Invalid length.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -404,40 +404,40 @@ declare namespace intelligentVoice {
      */
     CONSECUTIVE_SAME_WORD = 6,
     /**
-     * Too few phones.
+     * Too few phonemes.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 12
      */
-    TOO_FEW_PHONES = 7,
+    TOO_FEW_PHONEMES = 7,
     /**
-     * Too many phones.
+     * Too many phonemes.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 12
      */
-    TOO_MANY_PHONES = 8,
+    TOO_MANY_PHONEMES = 8,
     /**
-     * Contain common construction.
+     * Contain common instruction.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 12
      */
-    CONTAIN_COMMON_INSTRUCTION = 9,
+    COMMON_INSTRUCTION = 9,
     /**
      * Contain common spoken language.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 12
      */
-    CONTAIN_COMMON_SPOKEN_LANGUAGE = 10,
+    COMMON_SPOKEN_LANGUAGE = 10,
     /**
      * Contain sensitive word.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 12
      */
-    CONTAIN_SENSITIVE_WORD = 11,
+    SENSITIVE_WORD = 11,
     /**
      * Two consecutive words without initial consonant.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
@@ -446,12 +446,12 @@ declare namespace intelligentVoice {
      */
     NO_INITIAL_CONSONANT = 12,
     /**
-     * Contain repeated phone.
+     * Contain repeated phoneme.
      * @syscap SystemCapability.AI.IntelligentVoice.Core
      * @systemapi
      * @since 12
      */
-    CONTAIN_REPEATED_PHONE = 13,
+    REPEATED_PHONEME = 13,
   }
 
   /**
