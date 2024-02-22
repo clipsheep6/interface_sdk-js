@@ -8808,6 +8808,47 @@ declare enum WordBreak {
 }
 
 /**
+ * Enum of break strategy
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+declare enum BreakStrategy {
+  /**
+   * By default, break strategy is GREEDY mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  GREEDY = 0,
+
+  /**
+   * break strategy is HIGH_QUALITY mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  HIGH_QUALITY = 1,
+
+  /**
+   * break strategy is BALANCED mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  BALANCED = 2,
+}
+
+/**
  * Enum of ellipsisMode
  *
  * @enum { number }
