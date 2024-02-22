@@ -227,7 +227,7 @@ declare namespace intelligentVoice {
      * @systemapi
      * @since 12
      */
-    fileContent: ArrayBuffer
+    fileContent: ArrayBuffer;
   }
 
   /**
