@@ -46,7 +46,7 @@ const commentNodeWhiteList = [
 exports.commentNodeWhiteList = commentNodeWhiteList;
 
 const tagsArrayOfOrder = [
-  'namespace', 'struct', 'extends', "implements", 'typedef', 'interface', 'permission', 'enum', 'constant', 'type',
+  'namespace', 'struct', 'typedef', 'interface', 'extends', "implements", 'permission', 'enum', 'constant', 'type',
   'param', 'default', 'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly',
   'FAModelOnly', 'stagemodelonly', 'StageModelOnly', 'crossplatform', 'form', 'atomicservice', 'since', 'deprecated',
   'useinstead', 'test', 'form', 'example'
