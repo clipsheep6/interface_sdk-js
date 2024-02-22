@@ -112,6 +112,43 @@ declare namespace cloudData {
   }
 
   /**
+   * Describes the statistic type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 12
+   */
+  enum StatisticType {
+    /**
+     * Indicates newly inserted data that has not been synchronized yet
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    INSERTED_DATA,
+
+    /**
+     * Indicates local modified data after synchronization
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    UPDATED_DATA,
+
+    /**
+     * Indicates local unmodified data after synchronization
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    CONSISTENT_DATA
+  }
+
+  /**
    * Provides methods to set CloudSync config.
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -430,6 +467,23 @@ declare namespace cloudData {
      * @since 11
      */
     static clear(accountId: string, appActions: Record<string, ClearAction>): Promise<void>;
+
+    /**
+     * deletes cloud information from local data.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
+     * @param { string } bundleName - Indicates the name of application.
+     * @returns { Promise<Record<StatisticType, number>> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    static querySyncStatistic(accountId: string, bundleName: string): Promise<Record<StatisticType, number>>;
   }
 
   /**
