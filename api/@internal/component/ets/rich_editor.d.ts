@@ -2467,9 +2467,9 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
 
   /**
-   * Data detector with config.
+   * set line break strategy type.
    *
-   * @param { LineBreakStrategy } config - The config of text data detector.
+   * @param { LineBreakStrategy } value - The type of break strategy.
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
