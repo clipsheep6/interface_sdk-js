@@ -1245,6 +1245,71 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     sendExtendAction(action: ExtendAction): Promise<void>;
+
+    /**
+     * Query whether current editor supports text previewing.
+     *
+     * @returns { boolean }
+     *     If true, current editor box supports the text previewing.
+     *     If false, current editor box doesn't support the text previewing.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    isTextPreviewingSupported(): boolean;
+
+    /**
+     * Get the range of the previewing text.
+     *
+     * @returns { Range } the range of the previewing text.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getPreviewingTextRange(): Range;
+
+    /**
+     * Get the pattern of the previewing text.
+     *
+     * @returns { TextPattern } the pattern of the previewing text.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getPreviewingTextPattern(): TextPattern;
+
+    /**
+     * Set the pattern of the previewing text.
+     *
+     * @param { TextPattern } pattern - the pattern of the previewing text.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    setPreviewingTextPattern(pattern: TextPattern): void;
+
+    /**
+     * Insert the text into editor box as previewing text.
+     *
+     * @param { string } text - the text to be previewing.
+     * @param { Range } range - the range of the previewing text.
+     * @param { TextPatterm } [pattern] - optional, the pattern of the previewing text.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    setPreviewingText(text: string, range: Range, pattern?: TextPattern): void;
+
+    /**
+     * Select text in editor by cursor movement.
+     *
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    stopPreviewingText(): void;
   }
 
   /**
