@@ -2483,7 +2483,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
    */
   onEditingChange(callback: (isEditing: boolean) => void): RichEditorAttribute;
