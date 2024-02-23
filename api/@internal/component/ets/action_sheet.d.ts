@@ -141,6 +141,15 @@ interface SheetInfo {
  * @atomicservice
  * @since 11
  */
+/**
+ * The options of ActionSheet.
+ *
+ * @interface ActionSheetOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 interface ActionSheetOptions
 {
   /**
@@ -538,6 +547,83 @@ interface ActionSheetOptions
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Corner radius of actionSheet.
+   *
+   * @type { ?(Dimension | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  cornerRadius?: Dimension | BorderRadiuses;
+
+  /**
+   * Defines the actionSheet's width.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  width?: Length;
+
+  /**
+   * Defines the actionSheet's height.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  height?: Length;
+
+  /**
+   * Border width of actionSheet.
+   *
+   * @param { ?(Length | EdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  borderWidth?: Length | EdgeWidths;
+
+  /**
+   * Border color of actionSheet.
+   *
+   * @param { ?(ResourceColor | EdgeColors) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  borderColor?: ResourceColor | EdgeColors;
+
+  /**
+   * Border style of actionSheet.
+   *
+   * @param { ?(BorderStyle | EdgeStyles) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  borderStyle?: BorderStyle | EdgeStyles;
+
+  /**
+   * The style of actionSheet Shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**
@@ -560,6 +646,14 @@ interface ActionSheetOptions
  * @crossplatform
  * @atomicservice
  * @since 11
+ */
+/**
+ * Declare the ActionSheet
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 declare class ActionSheet {
   /**
@@ -585,6 +679,15 @@ declare class ActionSheet {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Invoking method display.
+   *
+   * @param { ActionSheetOptions } value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   static show(value: ActionSheetOptions);
 }
