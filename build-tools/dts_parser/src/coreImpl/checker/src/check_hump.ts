@@ -100,11 +100,14 @@ export class CheckHump {
    */
   static checkAPINameOfHump(apiInfo: ApiInfo): void {
     const jsDocInfo: Comment.JsDocInfo | undefined = apiInfo.getLastJsDocInfo();
+    const firstJsDocInfo: Comment.JsDocInfo[] = apiInfo.getJsDocInfos();
     if (jsDocInfo) {
       if (jsDocInfo.getDeprecatedVersion() !== '-1') {
         return;
       }
-      if (jsDocInfo.getSince() !== String(CommonFunctions.getCheckApiVersion())) {
+    }
+    if (firstJsDocInfo.length > 0) {
+      if (firstJsDocInfo[0].getSince() !== String(CommonFunctions.getCheckApiVersion())) {
         return;
       }
     }
@@ -144,8 +147,8 @@ export class CheckHump {
         ErrorID.TS_SYNTAX_ERROR_ID,
         ErrorLevel.MIDDLE,
         filePath,
-        { line: -1, character: -1 },
-        ErrorType.MISSPELL_WORDS,
+        apiInfo.getPos(),
+        ErrorType.NAMING_ERRORS,
         LogType.LOG_API,
         -1,
         apiName,
@@ -204,7 +207,7 @@ export class CheckHump {
         ErrorLevel.MIDDLE,
         filePath,
         { line: -1, character: -1 },
-        ErrorType.MISSPELL_WORDS,
+        ErrorType.NAMING_ERRORS,
         LogType.LOG_API,
         -1,
         'NA',

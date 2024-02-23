@@ -107,14 +107,14 @@ export class Check {
       if (apiJsdoc === undefined) {
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.NO_JSDOC_ID,
-          ErrorLevel.MIDDLE,
+          ErrorLevel.LOW,
           singleApi.getFilePath(),
           singleApi.getPos(),
           ErrorType.NO_JSDOC,
           LogType.LOG_JSDOC,
           -1,
           singleApi.getApiName(),
-          singleApi.getDefinedText(),
+          singleApi.getJsDocText() + singleApi.getDefinedText(),
           ErrorMessage.ERROR_NO_JSDOC,
           compositiveResult,
           compositiveLocalResult
@@ -123,7 +123,7 @@ export class Check {
         // legality check
         const tagLegalityCheckResult: ErrorTagFormat[] = LegalityCheck.apiLegalityCheck(singleApi, apiJsdoc);
         // order check
-        const orderCheckResult: ErrorTagFormat = OrderCheck.orderCheck(apiJsdoc);
+        const orderCheckResult: ErrorTagFormat = OrderCheck.orderCheck(singleApi, apiJsdoc);
         // api naming check
         const namingCheckResult: ErrorTagFormat = ApiNamingCheck.namingCheck(singleApi);
         // tags name check
@@ -237,11 +237,11 @@ export class Check {
         tagValueCheckResult.forEach((valueResult) => {
           if (valueResult.state === false) {
             AddErrorLogs.addAPICheckErrorLogs(
-              ErrorID.WRONG_SCENE_ID,
+              ErrorID.WRONG_VALUE_ID,
               ErrorLevel.MIDDLE,
               singleApi.getFilePath(),
               singleApi.getPos(),
-              ErrorType.WRONG_SCENE,
+              ErrorType.WRONG_VALUE,
               LogType.LOG_JSDOC,
               toNumber(apiJsdoc.since),
               singleApi.getApiName(),

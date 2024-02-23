@@ -20,10 +20,14 @@ import {
   optionalTags,
   apiLegalityCheckTypeMap,
   permissionOptionalTags,
+  compositiveResult,
+  compositiveLocalResult,
 } from '../../../utils/checkUtils';
 import { Comment } from '../../../typedef/parser/Comment';
-import { ErrorTagFormat, ErrorMessage } from '../../../typedef/checker/result_type';
+import { ErrorTagFormat, ErrorMessage, ErrorID, ErrorLevel, ErrorType, LogType } from '../../../typedef/checker/result_type';
 import { CommonFunctions, conditionalOptionalTags } from '../../../utils/checkUtils';
+import { AddErrorLogs } from './compile_info';
+import { toNumber } from 'lodash';
 
 export class LegalityCheck {
   /**
@@ -36,13 +40,32 @@ export class LegalityCheck {
     const apiLegalityCheckResult: ErrorTagFormat[] = [];
     const nodeInfo: ts.Node = singleApi.getNode() as ts.Node;
     const apiLegalityTagsArray: string[] = apiLegalityCheckTypeMap.get(nodeInfo.kind) as string[];
+    const apiLegalityTagsSet: Set<string> = new Set(apiLegalityTagsArray);
+    const illegalTagsArray: string[] = LegalityCheck.getIllegalTagsArray(apiLegalityTagsArray);
+    let extendsApiValue = '';
+    let implementsApiValue = '';
+    if (singleApi.getApiType() === ApiType.CLASS || singleApi.getApiType() === ApiType.INTERFACE) {
+      extendsApiValue = CommonFunctions.getExtendsApiValue(singleApi);
+      implementsApiValue = CommonFunctions.getImplementsApiValue(singleApi);
+    }
+    if (extendsApiValue === '') {
+      apiLegalityTagsSet.delete('extends');
+      illegalTagsArray.push('extends');
+    }
+    if (implementsApiValue === '') {
+      apiLegalityTagsSet.delete('implements');
+      illegalTagsArray.push('implements');
+    }
 
     // 判断api的jsdoc中是否存在非法标签，是否缺失必选标签
     if (Array.isArray(apiLegalityTagsArray)) {
-      const apiLegalityTagsSet: Set<string> = new Set(apiLegalityTagsArray);
-      const illegalTagsArray = LegalityCheck.getIllegalTagsArray(apiLegalityTagsArray);
       const apiTags: Comment.CommentTag[] | undefined = apiJsdoc.tags;
       if (apiTags === undefined) {
+        const apiRedundantResultFormat: ErrorTagFormat = {
+          state: false,
+          errorInfo: ErrorMessage.ERROR_NO_JSDOC_TAG,
+        };
+        apiLegalityCheckResult.push(apiRedundantResultFormat);
         return apiLegalityCheckResult;
       }
 
@@ -52,13 +75,52 @@ export class LegalityCheck {
       apiTags.forEach((apiTag) => {
         paramTagNumber = apiTag.tag === 'param' ? paramTagNumber + 1 : paramTagNumber;
         const isUseinsteadLegalSituation: boolean = apiTag.tag === 'useinstead' && apiJsdoc.deprecatedVersion !== '-1';
+        // constant 
+        if (apiTag.tag === 'constant' && singleApi.getApiType() !== ApiType.CONSTANT) {
+          const apiRedundantResultFormat: ErrorTagFormat = {
+            state: false,
+            errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_USE, [apiTag.tag]),
+          };
+          AddErrorLogs.addAPICheckErrorLogs(
+            ErrorID.WRONG_SCENE_ID,
+            ErrorLevel.LOW,
+            singleApi.getFilePath(),
+            singleApi.getPos(),
+            ErrorType.WRONG_SCENE,
+            LogType.LOG_JSDOC,
+            toNumber(apiJsdoc.since),
+            singleApi.getApiName(),
+            singleApi.getDefinedText(),
+            apiRedundantResultFormat.errorInfo,
+            compositiveResult,
+            compositiveLocalResult
+          );
+        }
+        // others
         if (illegalTagsArray.includes(apiTag.tag)) {
           if (apiTag.tag !== 'useinstead' || !isUseinsteadLegalSituation) {
             const apiRedundantResultFormat: ErrorTagFormat = {
               state: false,
               errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_USE, [apiTag.tag]),
             };
-            apiLegalityCheckResult.push(apiRedundantResultFormat);
+            if (apiTag.tag === 'permission' || apiTag.tag === 'throws' || apiTag.tag === 'struct') {
+              AddErrorLogs.addAPICheckErrorLogs(
+                ErrorID.WRONG_SCENE_ID,
+                ErrorLevel.LOW,
+                singleApi.getFilePath(),
+                singleApi.getPos(),
+                ErrorType.WRONG_SCENE,
+                LogType.LOG_JSDOC,
+                toNumber(apiJsdoc.since),
+                singleApi.getApiName(),
+                singleApi.getDefinedText(),
+                apiRedundantResultFormat.errorInfo,
+                compositiveResult,
+                compositiveLocalResult
+              );
+            } else {
+              apiLegalityCheckResult.push(apiRedundantResultFormat);
+            }
           }
         }
         apiLegalityTagsSet.delete('param');
@@ -72,9 +134,6 @@ export class LegalityCheck {
         if (singleApi.getApiType() === ApiType.METHOD && (singleApi as MethodInfo).getReturnValue().length === 0) {
           apiLegalityTagsSet.delete('returns');
         }
-        if (apiLegalityTagsSet.has('extends') && (singleApi as ClassInfo).getParentClasses().length === 0) {
-          apiLegalityTagsSet.delete('extends');
-        }
       });
       // param合法性单独进行校验
       LegalityCheck.paramLegalityCheck(paramTagNumber, paramApiNumber, apiLegalityCheckResult);
@@ -87,16 +146,44 @@ export class LegalityCheck {
           apiLegalityTag === 'permission' && permissionOptionalTags.includes(nodeInfo.kind);
         const isExtendsRequireSituation: boolean =
           apiLegalityTag === 'extends' && (singleApi as ClassInfo).getParentClasses().length > 0;
+        const isConstentLegalSituation: boolean = apiLegalityTag === 'constant' &&
+          singleApi.getApiType() === ApiType.CONSTANT;
 
-        if (
-          !conditionalOptionalTags.includes(apiLegalityTag) &&
-          (!isSyacapOptionalSituation || !isPermissionOptionalSituation || isExtendsRequireSituation)
-        ) {
+        if (!conditionalOptionalTags.includes(apiLegalityTag) &&
+          (!isSyacapOptionalSituation || !isPermissionOptionalSituation || isExtendsRequireSituation ||
+            isConstentLegalSituation)) {
           const apiLostResultFormat: ErrorTagFormat = {
             state: false,
             errorInfo: CommonFunctions.createErrorInfo(ErrorMessage.ERROR_LOST_LABEL, [apiLegalityTag]),
           };
-          apiLegalityCheckResult.push(apiLostResultFormat);
+          const isSyscapParticularSituation: boolean =
+            apiLegalityTag === 'syscap' &&
+            (nodeInfo.kind === ts.SyntaxKind.ClassDeclaration || nodeInfo.kind === ts.SyntaxKind.ModuleDeclaration);
+          const isConstentLegalSituation: boolean = apiLegalityTag === 'constant' &&
+            singleApi.getApiType() === ApiType.CONSTANT;
+
+          if ((apiLegalityTag === 'extends' && singleApi.getApiType() === ApiType.INTERFACE) ||
+            apiLegalityTag === 'type' ||
+            isSyscapParticularSituation ||
+            isConstentLegalSituation ||
+            apiLegalityTag === 'struct') {
+            AddErrorLogs.addAPICheckErrorLogs(
+              ErrorID.WRONG_SCENE_ID,
+              ErrorLevel.LOW,
+              singleApi.getFilePath(),
+              singleApi.getPos(),
+              ErrorType.WRONG_SCENE,
+              LogType.LOG_JSDOC,
+              toNumber(apiJsdoc.since),
+              singleApi.getApiName(),
+              singleApi.getDefinedText(),
+              apiLostResultFormat.errorInfo,
+              compositiveResult,
+              compositiveLocalResult
+            );
+          } else {
+            apiLegalityCheckResult.push(apiLostResultFormat);
+          }
         }
       });
     }
@@ -139,8 +226,11 @@ export class LegalityCheck {
    */
   static getIllegalTagsArray(requiredTagsArray: string[]): string[] {
     const illegalTagsArray: string[] = [];
+
     tagsArrayOfOrder.forEach((tag) => {
-      if (!optionalTags.includes(tag) && !requiredTagsArray.includes(tag)) {
+      if (!optionalTags.includes(tag) && !Array.isArray(requiredTagsArray)) {
+        illegalTagsArray.push(tag);
+      } else if (!optionalTags.includes(tag) && !requiredTagsArray.includes(tag)) {
         illegalTagsArray.push(tag);
       }
     });

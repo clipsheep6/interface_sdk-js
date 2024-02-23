@@ -119,7 +119,7 @@ export class TsSyntaxCheck {
           const fileName: string = filePath.substring(filePath.indexOf('api'), filePath.length);
           AddErrorLogs.addAPICheckErrorLogs(
             ErrorID.TS_SYNTAX_ERROR_ID,
-            ErrorLevel.MIDDLE,
+            ErrorLevel.LOW,
             fileName,
             ts.getLineAndCharacterOfPosition(node.getSourceFile(), item.start as number),
             ErrorType.TS_SYNTAX_ERROR,
