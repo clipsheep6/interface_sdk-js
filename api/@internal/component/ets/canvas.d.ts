@@ -5061,6 +5061,24 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   toDataURL(type?: string, quality?: any): string;
 
   /**
+   * Start image analyzer.
+   * 
+   * @param { ImageAnalyzerConfig } config - Image analyzer config.
+   * @param { ImageAnalyzerCallback } callback - Image analyzer callback.
+   * @returns { boolean } The Image analyzer return value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  startImageAnalyzer(config: ImageAnalyzerConfig, callback: ImageAnalyzerCallback): boolean;
+
+  /**
+   * Stop image analyzer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  stopImageAnalyzer(): void;
+
+  /**
    * Constructor of the canvas drawing context object, which is used to create a drawing context object.
    *
    * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
@@ -5619,6 +5637,16 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @form
    */
   onReady(event: () => void): CanvasAttribute;
+
+  /**
+   * Enable image analyzer for Canvas.
+   *
+   * @param { boolean } enable
+   * @returns { CanvasAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  enableAnalyzer(enable: boolean): CanvasAttribute;
 }
 
 /**

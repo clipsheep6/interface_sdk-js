@@ -57,6 +57,24 @@ declare class XComponentController {
     surfaceWidth: number;
     surfaceHeight: number;
   }): void;
+
+  /**
+   * Start image analyzer.
+   * 
+   * @param { ImageAnalyzerConfig } config - Image analyzer config.
+   * @param { ImageAnalyzerCallback } callback - Image analyzer callback.
+   * @returns { boolean } The Image analyzer return value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  startImageAnalyzer(config: ImageAnalyzerConfig, callback: ImageAnalyzerCallback): boolean;
+
+  /**
+   * Stop image analyzer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  stopImageAnalyzer(): void;
 }
 
 /**
@@ -115,6 +133,16 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    * @since 8
    */
   onDestroy(event: () => void): XComponentAttribute;
+
+  /**
+   * Enable image analyzer for xcomponent.
+   *
+   * @param { boolean } enable
+   * @returns { XComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  enableAnalyzer(enable: boolean): XComponentAttribute;
 }
 
 /**

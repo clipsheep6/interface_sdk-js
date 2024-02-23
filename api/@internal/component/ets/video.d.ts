@@ -980,6 +980,27 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   }) => void): VideoAttribute;
 
   /**
+   * Enable image analyzer.
+   *
+   * @param { boolean} enable
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  enableAnalyzer(enable: boolean): VideoAttribute;
+
+  /**
+   * Set image analyzer with config.
+   *
+   * @param { ImageAnalyzerConfig } config - Image analyzer config
+   * @param { ImageAnalyzerCallback } callback - Image analyzer callback
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  analyzerConfig(config: ImageAnalyzerConfig, callback: ImageAnalyzerCallback): VideoAttribute;
+
+  /**
    * Called when the video preparation is complete.
    *
    * @param { function } callback

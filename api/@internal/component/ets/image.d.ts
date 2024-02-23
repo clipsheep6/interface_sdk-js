@@ -1336,7 +1336,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @systemapi
    * @since 11
    */
-  analyzerConfig(config: ImageAnalyzerConfig): ImageAttribute;
+  /**
+   * Set image analyzer with config.
+   *
+   * @param { ImageAnalyzerConfig } config
+   * @param { ImageAnalyzerCallback } callback
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  analyzerConfig(config: ImageAnalyzerConfig, callback: ImageAnalyzerCallback): ImageAttribute;
 
   /**
    * Set image resizable options.
