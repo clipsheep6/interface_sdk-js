@@ -47,6 +47,35 @@
  * @since 11
  * @form
  */
+/**
+ * Enum type, the shape of Radio component
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum RadioIndicator {
+  /**
+   * TICK shape.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  TICK,
+  /**
+   * Circle shape.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  DOT,
+}
 declare interface RadioOptions {
   /**
    * Radio group name.
@@ -119,6 +148,17 @@ declare interface RadioOptions {
    * @form
    */
   value: string;
+  /**
+   * Radio name.
+   *
+   * @type { RadioIndicator }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  indicator?: RadioIndicator;
 }
 
 /**
