@@ -1055,6 +1055,44 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 11
    */
   type(value: TextAreaType): TextAreaAttribute;
+
+  /**
+   * Called when the minimum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+   minFontSize(value: number | string | Resource): TextAreaAttribute;
+
+   /**
+    * Called when the maximum font size of the font is set.
+    *
+    * @param { number | string | Resource } value
+    * @returns { TextAreaAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    * @form
+    */
+   maxFontSize(value: number | string | Resource): TextAreaAttribute;
+ 
+   /**
+    * Called when the height adaptive policy is set.
+    *
+    * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
+    * @returns { TextAreaAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
+    heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextAreaAttribute;
 }
 
 /**
