@@ -51,6 +51,15 @@ export interface NotificationBasicContent {
    * @since 7
    */
   additionalText?: string;
+
+  /**
+   * Data image of the lock screen.
+   *
+   * @type { ?image.PixelMap }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 12
+   */
+  lockScreenPicture?: image.PixelMap;
 }
 
 /**

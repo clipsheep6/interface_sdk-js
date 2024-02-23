@@ -53,7 +53,7 @@ export interface NotificationRequest {
   /**
    * Globally unique notification message ID defined by application.
    *
-   * @type { string }
+   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @since 12
    */
