@@ -22,6 +22,176 @@ import { Callback } from './@ohos.base';
  * @since 10
  */
 declare namespace mindSporeLite {
+  export enum PerformanceMode {
+    /**
+     * No performance mode preference
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    PERFORMANCE_NONE = 0,
+    /**
+     * Low power consumption mode
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    PERFORMANCE_LOW = 1,
+    /**
+     * Medium performance mode
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    PERFORMANCE_MEDIUM = 2,
+    /**
+     * High performance mode
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    PERFORMANCE_HIGH = 3,
+    /**
+     * Ultimate performance mode
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    PERFORMANCE_EXTREME = 4,
+  }
+
+  export enum Priority {
+    /**
+     * No priority preference
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    PRIORITY_NONE = 0,
+    /**
+     * Low priority
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    PRIORITY_LOW = 1,
+    /**
+     * Medium priority
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    PRIORITY_MEDIUM = 2,
+    /**
+     * High priority
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    PRIORITY_HIGH = 3,
+  }
+
+  interface Extension {
+    /**
+     * Extension name
+     * @type {?string}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    name: String,
+    /**
+     * Extension array buffer
+     * @type {?ArrayBuffer}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    value: ArrayBuffer
+  }
+  export enum QuantizationType {
+    /**
+     * No quantization.
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    NO_QUANT = 0,
+    /**
+     * Weight quantization.
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    WEIGHT_QUANT = 1,
+    /**
+     * Full quantization.
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    FULL_QUANT = 2,
+  }
+  export enum OptimizationLevel {
+    /**
+     * Do not change
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    O0 = 0,
+    /**
+     * Cast network to float16, keep batchnorm and loss in float32
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    O2 = 2,
+    /**
+     * Cast network to float16, including batchnorm
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    O3 = 3,
+    /**
+     * Choose optimization based on device
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    AUTO = 4,
+  }
+
+  interface TrainCfg {
+    /**
+     * Array of loss name
+     * @type {?string[]}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    lossName?: string[],
+    /**
+     * Train optimization level
+     * @type {?OptimizationLevel}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    optimizationLevel?: OptimizationLevel,
+  }
+
+  export enum NNRTDeviceType {
+    /**
+     * Devices that are not CPU, GPU, or dedicated accelerator
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    NNRTDEVICE_OTHERS = 0,
+
+    /**
+     * CPU device
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    NNRTDEVICE_CPU = 1,
+
+    /**
+     * GPU device
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    NNRTDEVICE_GPU = 2,
+
+    /**
+     * Dedicated hardware accelerator
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    NNRTDEVICE_ACCELERATOR = 3,
+  }
+
   /**
    * Create a Model instance from file path
    * @param { string } model - model indicates model path to be loaded
@@ -134,6 +304,51 @@ declare namespace mindSporeLite {
     context: Context, callback: Callback<Model>): void;
 
   /**
+   * Load train model from file
+   * @param { string } model - model file path
+   * @param { TrainCfg } [trainCfg] - model train configuration
+   * @param { Context } [context] - model build context
+   * @returns { Promise<Model> } the promise of the built model
+   * @syscap SystemCapability.AI.MindSporeLite
+   * @stagemodelonly
+   * @since 12
+   */
+  function loadTrainModelFromFile(
+    model: string,
+    trainCfg?: TrainCfg,
+    context?: Context): Promise<Model>;
+
+  /**
+   * Load train model from buffer
+   * @param { ArrayBuffer } model - model buffer
+   * @param { TrainCfg } [trainCfg] - model train configuration
+   * @param { Context } [context] - model build context
+   * @returns { Promise<Model> } the promise of the built model
+   * @syscap SystemCapability.AI.MindSporeLite
+   * @stagemodelonly
+   * @since 12
+   */
+  function loadTrainModelFromBuffer(
+    model: ArrayBuffer,
+    trainCfg?: TrainCfg,
+    context?: Context): Promise<Model>;
+
+  /**
+   * Load train model from file description
+   * @param { number } model - model file description
+   * @param { TrainCfg } [trainCfg] - model train configuration
+   * @param { Context } [context] - model build context
+   * @returns { Promise<Model> } the promise of the built model
+   * @syscap SystemCapability.AI.MindSporeLite
+   * @stagemodelonly
+   * @since 12
+   */
+  function loadTrainModelFromFd(
+    model: number,
+    trainCfg?: TrainCfg,
+    context?: Context): Promise<Model>;
+
+  /**
    * Provides manages model function. Including get inputs, predict ,resize.
    * @typedef Model
    * @syscap SystemCapability.AI.MindSporeLite
@@ -141,6 +356,22 @@ declare namespace mindSporeLite {
    * @since 10
    */
   interface Model {
+    /**
+     * The learning rate of the training model
+     * @type {?number}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    learningRate?: number,
+
+    /**
+     * The running mode of the model
+     * @type {?boolean}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    trainMode?: boolean,
+
     /**
      * Get model input tensors.
      * @returns { MSTensor[] } the MSTensor array of the inputs.
@@ -180,6 +411,70 @@ declare namespace mindSporeLite {
      * @since 10
      */
     resize(inputs: MSTensor[], dims: Array<Array<number>>): boolean;
+    /**
+     * Obtain all weights of the model
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @returns { MSTensor[] } the weight tensors of the model
+     * @stagemodelonly
+     * @since 12
+     */
+    getWeights(): MSTensor[];
+
+    /**
+     * Update weights of the model
+     * @param { MSTensor[] } weights - indicates the MSTensor array of the inputs
+     * @returns { boolean } the boolean result if updating weights operation is successful
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 12
+     */
+    updateWeights(weights: MSTensor[]): boolean;
+
+    /**
+     * Setup training with virtual batches
+     * @param { number } virtualBatchMultiplier - virtual batch multiplier, use any number < 1 to disable
+     * @param { number } lr - learning rate to use for virtual batch, -1 for internal configuration
+     * @param { number } momentum - batch norm momentum to use for virtual batch, -1 for internal configuration
+     * @returns { boolean } the boolean result if the operation is successful
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 12
+     */
+    setupVirtualBatch(virtualBatchMultiplier: number, lr: number, momentum: number): boolean;
+
+    /**
+     * Export train model to file
+     * @param { string } modelFile - model file path.
+     * @param { QuantizationType } [quantizationType] - the quantization type, default NO_QUANT.
+     * @param { boolean } [exportInferenceOnly] - whether to export a inference only model, default true.
+     * @param { string[] } [outputTensorName] - the set of name of output tensor the exported inference model,
+     * @returns { boolean } - the boolean result if the operation is successful
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 12
+     */
+    exportModel(
+      modelFile: string,
+      quantizationType?: QuantizationType,
+      exportInferenceOnly?: boolean,
+      outputTensorName?: string[]): boolean;
+
+    /**
+     * Export model's weights, which can be used in micro only. Only valid for Lite Train
+     * @param { string } weightFile - weight file path
+     * @param { boolean } [isInference] - whether to export weights from inference model, only support this is `true` for now, default true
+     * @param { boolean } [enableFp16] - float-weight is whether to be saved in float16 format, default false
+     * @param { string[] } [changeableWeightsName] - changeable weights name
+     * @returns { boolean } the boolean result if the operation is successful
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 12
+     */
+    exportWeightsCollaborateWithMicro(
+      weightFile: string,
+      isInference?: boolean,
+      enableFp16?: boolean,
+      changeableWeightsName?: string[]): boolean;
   }
 
   /**
@@ -266,7 +561,70 @@ declare namespace mindSporeLite {
    * @since 10
    */
   interface NNRTDevice {
+    /**
+     * NNRT device id.
+     * @type {?bigint}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    deviceID?: bigint,
+    /**
+     * NNRT device performance mode.
+     * @type {?PerformanceMode}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    performanceMode?: PerformanceMode,
+    /**
+     * NNRT device priority.
+     * @type {?Priority}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    priority?: Priority,
+    /**
+     * NNRT device extension array.
+     * @type {?Extension[]}
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @since 12
+     */
+    extensions?: Extension[],
   }
+
+  interface NNRTDeviceDesc {
+    /**
+     * Get device id
+     * @returns { bigint } the number of device id
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 12
+     */
+    deviceID() : bigint;
+    /**
+     * Get device type.
+     * @returns { NNRTDeviceType } the device type
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 12
+     */
+    deviceType() : NNRTDeviceType;
+    /**
+     * Get device name.
+     * @returns { string } device name
+     * @syscap SystemCapability.AI.MindSporeLite
+     * @stagemodelonly
+     * @since 12
+     */
+    deviceName() : string;
+  }
+
+  /**
+   * Obtain the all device descriptions in NNRT.
+   * @syscap SystemCapability.AI.MindSporeLite
+   * @returns { NNRTDeviceDesc[] } the array of NNRTDeviceDecs
+   * @since 12
+   */
+  function getAllNNRTDeviceDescs() : NNRTDeviceDesc[];
 
   /**
    * Enum for provides CPU thread affinity mode
