@@ -2465,6 +2465,39 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 11
    */
   dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
+
+  /**
+   * Called when the vertical center mode of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight(value: number | string | Resource): RichEditorAttribute;
+
+  /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | string } value
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing(value: number | string): RichEditorAttribute;
+
+  /**
+   * Called when the text decoration of the RichEditor is set.
+   *
+   * @param { object } value
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  decoration(value: { type: TextDecorationType; color?: ResourceColor }): RichEditorAttribute;
 }
 
 /**
