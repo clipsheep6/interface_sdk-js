@@ -8814,36 +8814,36 @@ declare enum WordBreak {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 12
  */
 declare enum BreakStrategy {
   /**
-   * By default, break strategy is GREEDY mode.
+   * By default, line breaking uses greedy strategy, which tries to display as many words as possible in each line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   GREEDY = 0,
 
   /**
-   * break strategy is HIGH_QUALITY mode.
+   * Line breaking uses high-quality strategy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   HIGH_QUALITY = 1,
 
   /**
-   * break strategy is BALANCED mode.
+   * Line breaking strategy balances line lengths.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   BALANCED = 2,
 }

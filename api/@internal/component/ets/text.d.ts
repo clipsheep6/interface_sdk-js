@@ -868,12 +868,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Set the break strategy type.
    *
-   * @param { BreakStrategy } value - The word break type.
+   * @param { BreakStrategy } value - The break strategy type.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   breakStrategy(value: BreakStrategy): TextAttribute;
 
