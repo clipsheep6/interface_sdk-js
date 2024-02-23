@@ -8807,6 +8807,41 @@ declare enum WordBreak {
   BREAK_WORD = 2,
 }
 
+declare enum LineBreakStrategy  {
+  /**
+   * By default. Display as many characters as possible on each line until no more characters
+   * can be displayed on that line, and do not automatically add hyphens under this strategy
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  GREEDY = 0,
+
+  /**
+   * High quality folding. Optimize the layout of the entire text's line breaks and automatically
+   * add hyphens if necessary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  HIGHQUALITY  = 1,
+
+  /**
+   * Balanced folding. We will try our best to ensure that the width of each line in a paragraph
+   * is the same, and if necessary, we will add conjunctions
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  BALANCED  = 2,
+}
+
 /**
  * Enum of ellipsisMode
  *
