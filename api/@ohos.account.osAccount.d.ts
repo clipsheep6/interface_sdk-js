@@ -1070,6 +1070,56 @@ declare namespace osAccount {
     getActivatedOsAccountLocalIds(): Promise<Array<number>>;
 
     /**
+     * Gets the local ID of the foreground OS.
+     *
+     * @param { number } displayId - Indicates the display identifier.
+     * @returns { Promise<Array<number>> } Returns all activated accounts.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 12
+     */
+    getForegroundOsAccountLocalId(displayId?: number): Promise<number>;
+
+    /**
+     * Checks whether the current OS account is foreground.
+     *
+     * @returns { Promise<Array<number>> } Returns all activated accounts.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi  Hide this for inner system use.
+     * @since 12
+     */
+    isOsAccountForeground(): Promise<boolean>;
+
+    /**
+     * Checks whether the specified OS account is foreground.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @returns { Promise<Array<number>> } Returns all activated accounts.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi  Hide this for inner system use.
+     * @since 12
+     */
+    isOsAccountForeground(localId: number): Promise<boolean>;
+
+    /**
+     * Checks whether the specified OS account is foreground on the target display.
+     *
+     * @returns { Promise<Array<number>> } Returns all activated accounts.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi  Hide this for inner system use.
+     * @since 9
+     */
+    isOsAccountForeground(localId: number, displayId: number): Promise<boolean>;
+
+    /**
      * Creates an OS account using the local name and account type.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -1112,6 +1162,29 @@ declare namespace osAccount {
      * @since 7
      */
     createOsAccount(localName: string, type: OsAccountType): Promise<OsAccountInfo>;
+
+    /**
+     * Creates an OS account with the specified local name, type and options.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { string } localName - Indicates the local name of the OS account to create.
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid localName, type or options.
+     * @throws { BusinessError } 12300004 - Account already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    createOsAccount(localName: string, type: OsAccountType, options: CreateOsAccountOptions): Promise<OsAccountInfo>;
 
     /**
      * Creates an OS account using the account type and domain account info.
@@ -1709,6 +1782,32 @@ declare namespace osAccount {
     isMainOsAccount(): Promise<boolean>;
 
     /**
+     * Checks whether the current OS account is private.
+     *
+     * @returns { Promise<boolean> } Returns {@code true} if current process belongs to the private OS account;
+     *         returns {@code false} otherwise.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    isPrivateOsAccount(): Promise<boolean>;
+
+    /**
+     * Checks whether the specified OS account is private.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<boolean> } Returns {@code true} if the specified OS account is private;
+     *         returns {@code false} otherwise.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    isPrivateOsAccount(localId: number): Promise<boolean>;
+
+    /**
      * Gets a list of constraint source types for the specified os account.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -1777,6 +1876,16 @@ declare namespace osAccount {
      * @since 7
      */
     localName: string;
+
+    /**
+     * The short name of an OS account.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 12
+     */
+    shortName: string;
 
     /**
      * Include: ADMIN, Normal, GUEST.
@@ -1977,7 +2086,16 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @since 7
      */
-    GUEST
+    GUEST,
+
+    /**
+     * Indicates a private account.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 12
+     */
+    PRIVATE = 1024
   }
 
   /**
@@ -2780,6 +2898,8 @@ declare namespace osAccount {
      */
     static updateAccountToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array): Promise<void>;
 
+    static updateAccountInfo(oldAccountInfo: DomainAccountInfo, newAccountInfo: DomainAccountInfo): Promise<void>;
+
     /**
      * Gets the specified domain account information.
      *
@@ -3189,6 +3309,26 @@ declare namespace osAccount {
      * @since 8
      */
     onAcquireInfo?: (module: number, acquire: number, extraInfo: Uint8Array) => void;
+  }
+
+  /**
+   * Options for creating OS account.
+   *
+   * @interface CreateOsAccountOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  interface CreateOsAccountOptions {
+    /**
+     * Indicates the short name of the OS account.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    shortName: string;
   }
 
   /**
