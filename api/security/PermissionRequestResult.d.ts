@@ -92,4 +92,15 @@ export default class PermissionRequestResult {
    * @since 11
    */
   authResults: Array<number>;
+
+  /**
+   * The dialog window shown results for the corresponding request permissions. The value true indicates that dialog
+   * window has been shown, and the value false indicates hasn't.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @StageModelOnly
+   * @atomicservice
+   * @since 12
+   */
+  dialogShownResults: Array<boolean>;
 }
