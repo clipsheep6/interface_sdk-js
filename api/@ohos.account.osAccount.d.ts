@@ -2054,6 +2054,13 @@ declare namespace osAccount {
     GUEST
   }
 
+  interface RemoteAuthParam {
+    verifierNetWorkId?: string; // 认证器所在设备网络ID
+    collectorNetWorkId?: string; // 采集器所在设备网络ID
+    collectorTokenId?: number; // 采集器进程TokenId
+    // 后续可能拓展其他参数，如是否拉起控件
+  }
+
   /**
    * Provides the abilities for user authentication.
    *
@@ -2236,6 +2243,15 @@ declare namespace osAccount {
       authType: AuthType,
       authTrustLevel: AuthTrustLevel,
       callback: IUserAuthCallback
+    ): Uint8Array;
+
+    authUser(
+      userId: number,
+      challenge: Uint8Array,
+      authType: AuthType,
+      authTrustLevel: AuthTrustLevel,
+      callback: IUserAuthCallback,
+      remoteAuthParam?: RemoteAuthParam
     ): Uint8Array;
 
     /**
@@ -2976,6 +2992,9 @@ declare namespace osAccount {
      */
     openSession(callback: AsyncCallback<Uint8Array>): void;
 
+    // 支持录入指定本地账号的凭据
+    openSession(localId?: number, callback: AsyncCallback<Uint8Array>): void;
+
     /**
      * Opens session.
      * <p>
@@ -3014,6 +3033,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300109 - Operation is canceled.
      * @throws { BusinessError } 12300111 - Operation timeout.
      * @throws { BusinessError } 12300115 - The number of credentials reaches the upper limit.
+     * @throws { BusinessError } 12300116 - 口令复杂度校验失败.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3036,6 +3056,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300106 - Unsupported authType.
      * @throws { BusinessError } 12300109 - Operation is canceled.
      * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300116 - 口令复杂度校验失败.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
@@ -3055,6 +3076,9 @@ declare namespace osAccount {
      * @since 8
      */
     closeSession(): void;
+
+    // 支持录入指定本地账号的凭据
+    closeSession(localId?: number): void;
 
     /**
      * Cancels entry with a challenge value.
@@ -3163,6 +3187,13 @@ declare namespace osAccount {
      * @since 8
      */
     getAuthInfo(authType?: AuthType): Promise<Array<EnrolledCredInfo>>;
+
+    // 获取指定类型的enrolledId
+
+    /**
+     * Gets secure user information.
+     */
+    getEnrolledId(authType: AuthType): Promise<Uint8Array>;
   }
 
   /**
@@ -3203,7 +3234,7 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    onGetData: (authSubType: AuthSubType, callback: IInputData) => void;
+    onGetData: (authSubType: AuthSubType, callback: IInputData, challenge?: Uint8Array) => void;
   }
 
   /**
@@ -3443,6 +3474,40 @@ declare namespace osAccount {
      * @since 8
      */
     freezingTime?: number;
+
+    // 下一阶段冻结时长
+
+    /**
+     * Indicates next phase freeze time.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 8
+     */
+    nextPhaseFreezeTime?: number;
+
+    // 认证接口增加返回本地账号id
+
+    /**
+     * Indicates local id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 8
+     */
+    localId?: number;
+
+    /**
+     * Indicates the credential index.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 8
+     */
+    credentialId?: Uint8Array;
   }
 
   /**
@@ -3454,6 +3519,18 @@ declare namespace osAccount {
    * @since 8
    */
   interface CredentialInfo {
+    // 支持录入指定本地账号的凭据
+
+    /**
+     * Indicates the local id.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 8
+     */
+    localId?: number,
+
     /**
      * Indicates the credential type.
      *
@@ -3553,6 +3630,18 @@ declare namespace osAccount {
      * @since 8
      */
     templateId: Uint8Array;
+
+    // 新增凭据注册时间
+
+    /**
+     * Indicates the enrolled time stamp, accurate to the millisecond.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 8
+     */
+    enrolledTimeStamp: number;
   }
 
   /**
@@ -3607,7 +3696,18 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    SENSOR_INFO = 5
+    SENSOR_INFO = 5,
+
+    // 下一阶段冻结时长
+
+    /**
+     * Indicates next phase freeze time.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    NEXT_PHASE_FREEZE_TIME = 6
   }
 
   /**
@@ -3665,6 +3765,17 @@ declare namespace osAccount {
      */
     FINGERPRINT = 4,
 
+    // 恢复密钥类型
+
+    /**
+     * Indicates the RECOVERY_KEY authentication type.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    RECOVERY_KEY = 4,
+
     /**
      * Indicates the DOMAIN authentication type.
      *
@@ -3710,6 +3821,15 @@ declare namespace osAccount {
      * @since 8
      */
     PIN_MIXED = 10002,
+
+    /**
+     * Indicates the 4-digit credential.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 8
+     */
+    PIN_FOUR = 10003,
 
     /**
      * Indicates the 2D face credential.
