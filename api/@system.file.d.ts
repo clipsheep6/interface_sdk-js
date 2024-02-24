@@ -852,7 +852,7 @@ export interface FileRmdirOption {
  * @since 3
  * @deprecated since 10
  */
-export default class File {
+export default interface File {
   /**
    * Moves the source file to a specified location.
    *
@@ -873,7 +873,7 @@ export default class File {
    * @deprecated since 10
    * @useinstead ohos.file.fs.copyFile
    */
-  static copy(options: FileCopyOption): void;
+  copy(options: FileCopyOption): void;
 
   /**
    * Obtains the list of files in a specified directory.
@@ -884,7 +884,7 @@ export default class File {
    * @deprecated since 10
    * @useinstead ohos.file.fs.listFile
    */
-  static list(options: FileListOption): void;
+  list(options: FileListOption): void;
 
   /**
    * Obtains information about a local file.
@@ -895,7 +895,7 @@ export default class File {
    * @deprecated since 10
    * @useinstead ohos.file.fs.stat
    */
-  static get(options: FileGetOption): void;
+  get(options: FileGetOption): void;
 
   /**
    * Deletes local files.
@@ -906,7 +906,7 @@ export default class File {
    * @deprecated since 10
    * @useinstead ohos.file.fs.unlink
    */
-  static delete(options: FileDeleteOption): void;
+  delete(options: FileDeleteOption): void;
 
   /**
    * Writes texts into a file.
@@ -917,7 +917,7 @@ export default class File {
    * @deprecated since 10
    * @useinstead ohos.file.fs.write
    */
-  static writeText(options: FileWriteTextOption): void;
+  writeText(options: FileWriteTextOption): void;
 
   /**
    * Reads texts from a file.
@@ -928,7 +928,7 @@ export default class File {
    * @deprecated since 10
    * @useinstead ohos.file.fs.readText
    */
-  static readText(options: FileReadTextOption): void;
+  readText(options: FileReadTextOption): void;
 
   /**
    * Writes data from a buffer into a file.
@@ -939,7 +939,7 @@ export default class File {
    * @deprecated since 10
    * @useinstead ohos.file.fs.write
    */
-  static writeArrayBuffer(options: FileWriteArrayBufferOption): void;
+  writeArrayBuffer(options: FileWriteArrayBufferOption): void;
 
   /**
    * Reads buffer data from a file.
@@ -950,7 +950,7 @@ export default class File {
    * @deprecated since 10
    * @useinstead ohos.file.fs.read
    */
-  static readArrayBuffer(options: FileReadArrayBufferOption): void;
+  readArrayBuffer(options: FileReadArrayBufferOption): void;
 
   /**
    * Checks whether a file or directory exists.
@@ -961,7 +961,7 @@ export default class File {
    * @deprecated since 10
    * @useinstead ohos.file.fs.access
    */
-  static access(options: FileAccessOption): void;
+  access(options: FileAccessOption): void;
 
   /**
    * Creates a directory.
@@ -972,7 +972,7 @@ export default class File {
    * @deprecated since 10
    * @useinstead ohos.file.fs.mkdir
    */
-  static mkdir(options: FileMkdirOption): void;
+  mkdir(options: FileMkdirOption): void;
 
   /**
    * Deletes a directory.
@@ -983,5 +983,5 @@ export default class File {
    * @deprecated since 10
    * @useinstead ohos.file.fs.rmdir
    */
-  static rmdir(options: FileRmdirOption): void;
+  rmdir(options: FileRmdirOption): void;
 }
