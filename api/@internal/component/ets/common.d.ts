@@ -15702,6 +15702,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   monopolizeEvents(monopolize: boolean): T;
+
+  /**
+   * This callback is triggered when the size of this component change finished.
+   *
+   * @param { function } event - event callback.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onSizeChange(event: (oldValue: SizeOptions, newValue: SizeOptions) => void): T;
 }
 
 /**

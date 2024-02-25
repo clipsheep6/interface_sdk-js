@@ -1495,6 +1495,17 @@ export class UIContext {
    * @since 11
    */
   keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>): void;
+
+  /**
+   * Get FrameNode by node Id.
+   *
+   * @param { string } id - The node Id.
+   * @returns { FrameNode | null } The instance of framenode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getFrameNodeById(id: string): FrameNode | null;
 }
 
 /**
