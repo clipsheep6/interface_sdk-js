@@ -19,6 +19,7 @@
  */
 
 /// <reference path="../component/units.d.ts" />
+/// <reference path="./@ohos.web.netErrorCode.d.ts" />
 
 import { AsyncCallback } from './@ohos.base';
 import { Callback } from './@ohos.base';
@@ -449,6 +450,57 @@ declare namespace webview {
      * @since 11
      */
     isSupportFetch: boolean;
+
+    /**
+     * If isStandard is true, the scheme will be handled as a standard scheme. The standard
+     * schemes needs to comply with the URL normalization and parsing rules defined in Section 3.1 of RFC 1738,
+     * which can be found in the http://www.ietf.org/rfc/rfc1738.txt.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isStandard: boolean;
+
+    /**
+     * If isLocal is true, the same security rules as those applied to the "file" URL will be
+     * used to handle the scheme.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isLocal: boolean;
+
+    /**
+     * If isDisplayIsolated is true, then the scheme can only be displayed from other content
+     * hosted using the same scheme.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isDisplayIsolated: boolean;
+
+    /**
+     * If isSecure is true, the same security rules as those applied to the "https" URL will be
+     * used to handle the scheme.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isSecure: boolean;
+
+    /**
+     * If isCSPByPassing is true, then this scheme can bypass Content Security Policy (CSP)
+     * checks. In most cases, this value should not be true when isStandard is true.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isCSPByPassing: boolean;
   }
 
   /**
@@ -3611,6 +3663,15 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Register Web custom schemes.
+     * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100023 - Register custom schemes failed. 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
     static customizeSchemes(schemes: Array<WebCustomScheme>): void;
 
     /**
@@ -3784,7 +3845,6 @@ declare namespace webview {
      */
     setDownloadDelegate(delegate: WebDownloadDelegate): void;
 
-
     /**
      * Start a download.
      * @param { string } url - The download url.
@@ -3895,6 +3955,49 @@ declare namespace webview {
      * @since 12
      */
     getPrintBackground(): boolean;
+
+    /**
+     * Set web scheme handler for specific scheme. This is only used for related web component.
+     * 
+     * @param { string } scheme - String value for url scheme.
+     * @param { WebSchemeHandler } handler - Web scheme handler.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setWebSchemeHandler(scheme: string, handler: WebSchemeHandler): void;
+
+    /**
+     * Clear all web scheme handlers for related web component.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    clearWebSchemeHandler(): void;
+
+    /**
+     * Set web scheme handler for specific scheme. This is used for service worker.
+     * @param { string } scheme - String value for url scheme.
+     * @param { WebSchemeHandler } handler - Web scheme handler.
+     * @throws { BusinessError } 401 - Invalid input parameter. 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static setServiceWorkerWebSchemeHandler(scheme: string, handler: WebSchemeHandler): void;
+
+    /**
+     * Clear all web service worker scheme handlers.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static clearServiceWorkerWebSchemeHandler(): void;
   }
 
   /**
@@ -4439,6 +4542,424 @@ declare namespace webview {
      * @since 11
      */
     static resumeDownload(webDownloadItem: WebDownloadItem): void;
+  }
+
+  /**
+   * The post data stream of the request.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class WebPostDataStream {
+    /**
+     * Initialize post data stream.
+     * 
+     * @returns { Promise<void> } The promise of post data is initialized.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    initialize(): Promise<void>;
+    /**
+     * Initialize post data stream.
+     * 
+     * @param { Callback<void> } callback - The callback of post data is initialized.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    initialize(callback: AsyncCallback<void>);
+    /**
+     * Read the post data to the buffer.
+     * 
+     * @param { number } size - Read size.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @returns { Promise<ArrayBuffer> } The promise of post data is initialized.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    read(size: number): Promise<ArrayBuffer>;
+    /**
+     * Read the post data to the buffer.
+     * 
+     * @param { number } size - Read size.
+     * @param { AsyncCallback<ArrayBuffer> } callback - The callback of post data is initialized.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    read(size: number, callback: AsyncCallback<ArrayBuffer>): void;
+    /**
+     * Get the total size of the data stream. When data is chunked, always return zero.
+     * 
+     * @returns { number } Return size of post data size.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getSize(): number;
+    /**
+     * Get the current position of the data stream.
+     * 
+     * @returns { number } Return position in post data stream.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getPosition(): number;
+    /**
+     * Whether post data is chunked.
+     * 
+     * @returns { boolean } Whether post data is chunked.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isChunked(): boolean;
+    /**
+     * Whether all post data has been consumed. For chunked uploads,
+     * returns false until the first read attempt.
+     * 
+     * @returns { boolean } Whether post data has been consumed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isEof(): boolean;
+    /**
+     * Returns true if the upload data in the stream is entirely in memory, and all read requests will succeed
+     * synchronously. Expected to return false for chunked requests.
+     * 
+     * @returns { boolean } Whether post data is in memory.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isInMemory(): boolean;
+  }
+
+  /**
+   * Defines the Web resource request used for scheme handler.
+   * 
+   * @interface WebSchemeHandlerRequest
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class WebSchemeHandlerRequest {
+    /**
+     * Gets request headers.
+     *
+     * @returns { Array<WebHeader> } Return the request headers.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getHeader(): Array<WebHeader>;
+    /**
+     * Gets the request URL.
+     *
+     * @returns { string } Return the request URL.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getRequestUrl(): string;
+    /**
+     * Get request method.
+     *
+     * @returns { string } Return the request method.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getRequestMethod(): string;
+    /**
+     * Get referrer of request.
+     *
+     * @returns { string } Return referrer of request.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getReferrer(): string;
+    /**
+     * Check whether the request redirects.
+     *
+     * @returns { boolean } Whether request is redirect.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isRedirect(): boolean;
+    /**
+     * Check whether the request is for getting the main frame.
+     *
+     * @returns { boolean } Whether request is main frame.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isMainFrame(): boolean;
+    /**
+     * Check whether the request is associated with gesture.
+     *
+     * @returns { boolean } Whether request has user gesture.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    hasGesture(): boolean;
+    /**
+     * Get post data stream.
+     * 
+     * @returns { WebPostDataStream | null } Return post data stream. If request has no post data, return null.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getPostDataStream(): WebPostDataStream | null;
+  }
+
+  /**
+   * Defines the Web resource response used for scheme handler.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class WebSchemeHandlerResponse {
+    /**
+     * Constructor.
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    constructor();
+    /**
+     * Set the resolved URL after redirects or changed as a result of HSTS.
+     * 
+     * @param { string } url - Set response url for redirects.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setUrl(url: string): void;
+    /**
+     * Get the resolved URL after redirects or changed as a result of HSTS.
+     * 
+     * @returns { string } Return response url for redirects.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getUrl(): string;
+    /**
+     * Set net error code.
+     * @param { WebNetErrorCode } code - Set net error code.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setNetErrorCode(code: WebNetErrorCode): void;
+    /**
+     * Get net error code.
+     * 
+     * @returns { WebNetErrorCode } Return response error code.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getNetErrorCode(): WebNetErrorCode;
+    /**
+     * Set http status code.
+     * 
+     * @param { number } code - Http status code.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setStatus(code: number): void;
+    /**
+     * Get http status code.
+     * 
+     * @returns { number } Return http status code.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getStatus(): number;
+    /**
+     * Set status text.
+     * 
+     * @param { string } text - Status text.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setStatusText(text: string): void;
+    /**
+     * Get status text.
+     * 
+     * @returns { string } Return http status text.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getStatusText(): string;
+    /**
+     * Set mime type.
+     * 
+     * @param { string } type - Mime type.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setMimeType(type: string): void;
+    /**
+     * Get mime type.
+     * 
+     * @returns { string } Return mime type of response.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getMimeType(): string;
+    /**
+     * Set the response encoding.
+     * 
+     * @param { string } type - Encoding.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setEncoding(encoding: string): void;
+    /**
+     * Get the response encoding.
+     * 
+     * @returns { string } Return encoding of response.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getEncoding(): string;
+    /**
+     * Set response hander value by name. 
+     * 
+     * @param { string } name - Header name.
+     * @param { string } value - Header value.
+     * @param { boolean } name - Whether to overwrite.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    setHeaderByName(name: string, value: string, overwrite: boolean): void;
+    /**
+     * Get the header value by name from the response.
+     * 
+     * @returns { string } Return header value by name.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getHeaderByName(name: string): string
+  }
+
+  /**
+   * Used to intercept url requests. Response headers and body can be sent through
+   * WebResourceHandler.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class WebResourceHandler {
+    /**
+     * Pass response headers to intercepted requests.
+     * 
+     * @param { WebSchemeHandlerResponse } response - Set response header to intercept.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    didReceiveResponse(response: WebSchemeHandlerResponse): void;
+    /**
+     * Pass response body data to intercepted requests.
+     * 
+     * @param { ArrayBuffer } data - Set response body to intercept.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    didReceiveResponseBody(data: ArrayBuffer): void;
+    /**
+     * Notify that this request should be finished and there is no more data available.
+     * 
+     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    didFinish(): void;
+    /**
+     * Notify that this request should be failed.
+     * 
+     * @param { WebNetErrorCode } code - Set response error code to intercept.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 17100021 - Resource handler process failed.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    didFail(code: WebNetErrorCode): void;
+  }
+
+  /**
+   * This class is used to intercept requests for a specified scheme.
+   * 
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class WebSchemeHandler {
+    /**
+     * Callback for handling the request.
+     * 
+     * @param { function } callback - Callback of handling the request. If callback return false,
+     *                                it means no interception.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    onRequestStart(
+      callback: (request: WebSchemeHandlerRequest, handler: WebResourceHandler) => boolean): void;
+    
+    /**
+     * Callback when the request is completed.
+     * 
+     * @param { Callback<WebSchemeHandlerRequest> } callback - Callback of request is completed.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    onRequestStop(callback: Callback<WebSchemeHandlerRequest>): void;
   }
 }
 
