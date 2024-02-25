@@ -1370,7 +1370,7 @@ declare type LengthConstrain = {
  * @atomicservice
  * @since 12
  */
-declare type VoidCallback  = () => void;
+declare type VoidCallback = () => void;
 
 /**
  * Defines the font used for text.
