@@ -1012,7 +1012,7 @@ declare namespace image {
     SOFTWARE = 'Software',
 
     /**
-     * This tag records the name of the camera owner, photographer or image creator. The detailed format is not specified, but it is recommended that the information be written as in the example below for ease of Interoperability. When the field is left blank, it is treated as unknown.
+     * This tag records the name of the camera owner, photographer or image creator. The detailed format is not specified, but it is recommended that the information be written as in the example below for ease of Interoperability. When the field is left blank, it is treated as unknown. Ex.) "Camera owner, John Smith; Photographer, Michael Brown; Image creator, Ken James"
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1021,7 +1021,7 @@ declare namespace image {
     ARTIST = 'Artist',
 
     /**
-     * The chromaticity of the white point of the image. Normally this tag is not necessary, since color space is specified in the color space information tag (<ColorSpace>).
+     * The chromaticity of the white point of the image. Normally this tag is not necessary, since color space is specified in the colorspace information tag (<ColorSpace>).
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1030,7 +1030,7 @@ declare namespace image {
     WHITE_POINT = 'WhitePoint',
 
     /**
-     * The chromaticity of the three primary colors of the image. Normally this tag is not necessary, since color space is specified in the color space information tag (<ColorSpace>).
+     * The chromaticity of the three primary colors of the image. Normally this tag is not necessary, since colorspace is specified in the colorspace information tag (<ColorSpace>).
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1039,7 +1039,7 @@ declare namespace image {
     PRIMARY_CHROMATICITIES = 'PrimaryChromaticities',
 
     /**
-     * The matrix coefficients for transformation from RGB to YCbCr image data. No default is given in TIFF; but here the value given in "Color Space Guidelines", is used as the default. The color space is declared in a color space information tag, with the default being the value that gives the optimal image characteristics Interoperability this condition.
+     * The matrix coefficients for transformation from RGB to YCbCr image data. No default is given in TIFF; but here the value given in Appendix E, "Color Space Guidelines", is used as the default. The color space is declared in a color space information tag, with the default being the value that gives the optimal image characteristics Interoperability this condition.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1075,7 +1075,7 @@ declare namespace image {
     REFERENCE_BLACK_WHITE = 'ReferenceBlackWhite',
 
     /**
-     * Copyright information. In this standard the tag is used to indicate both the photographer and editor copyrights. It is the copyright notice of the person or organization claiming rights to the image. The Interoperability copyright statement including date and rights should be written in this field; e.g., "Copyright, John Smith, 19xx. All rights reserved.". In this standard the field records both the photographer and editor copyrights, with each recorded in a separate part of the statement. When there is a clear distinction between the photographer and editor copyrights, these are to be written in the order of photographer followed by editor copyright, separated by NULL (in this case, since the statement also ends with a NULL, there are two NULL codes) (see example 1). When only the photographer is given, it is terminated by one NULL code (see example 2). When only the editor copyright is given, the photographer copyright part consists of one space followed by a terminating NULL code, then the editor copyright is given (see example 3). When the field is left blank, it is treated as unknown.
+     * Copyright information. In this standard the tag is used to indicate both the photographer and editor copyrights. It is the copyright notice of the person or organization claiming rights to the image. The Interoperability copyright statement including date and rights should be written in this field; e.g., "Copyright, John Smith, 19xx. All rights reserved.". In this standard the field records both the photographer and editor copyrights, with each recorded in a separate part of the statement. When there is a clear distinction between the photographer and editor copyrights, these are to be written in the order of photographer followed by editor copyright, separated by NULL (in this case since the statement also ends with a NULL, there are two NULL codes). When only the photographer copyright is given, it is terminated by one NULL code. When only the editor copyright is given, the photographer copyright part consists of one space followed by a terminating NULL code, then the editor copyright is given. When the field is left blank, it is treated as unknown.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1111,7 +1111,7 @@ declare namespace image {
     EXPOSURE_PROGRAM = 'ExposureProgram',
 
     /**
-     * Indicates the spectral sensitivity of each channel of the camera used. The tag value is an ASCII string compatible with the standard developed by the ASTM Technical Committee.
+     * Indicates the spectral sensitivity of each channel of the camera used.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1120,7 +1120,7 @@ declare namespace image {
     SPECTRAL_SENSITIVITY = 'SpectralSensitivity',
 
     /**
-     * Indicates the Opto-Electronic Conversion Function (OECF) specified in ISO 14524. <OECF> is the relationship between the camera optical input and the image values.
+     * Indicates the Opto-Electric Conversion Function (OECF) specified in ISO 14524.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1156,7 +1156,7 @@ declare namespace image {
     COMPONENTS_CONFIGURATION = 'ComponentsConfiguration',
 
     /**
-     * Shutter speed. The unit is the APEX (Additive System of Photographic Exposure) setting.
+     * Shutter speed.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1165,7 +1165,7 @@ declare namespace image {
     SHUTTER_SPEED_VALUE = 'ShutterSpeedValue',
 
     /**
-     * The value of brightness. The unit is the APEX value. Ordinarily it is given in the range of -99.99 to 99.99.
+     * The value of brightness.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1174,7 +1174,7 @@ declare namespace image {
     BRIGHTNESS_VALUE = 'BrightnessValue',
 
     /**
-     * The smallest F number of the lens. The unit is the APEX value. Ordinarily it is given in the range of 00.00 to 99.99, but it is not limited to this range.
+     * The smallest F number of the lens.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1246,7 +1246,7 @@ declare namespace image {
     FLASHPIX_VERSION = 'FlashpixVersion',
 
     /**
-     * The color space information tag is always recorded as the color space specifier. Normally sRGB (=1) is used to define the color space based on the PC monitor conditions and environment. If a color space other than sRGB is used, Uncalibrated (=FFFF.H) is set. Image data recorded as Uncalibrated can be treated as sRGB when it is converted to FlashPix.
+     * The color space information tag is always recorded as the color space specifier. Normally sRGB is used to define the color space based on the PC monitor conditions and environment. If a color space other than sRGB is used, Uncalibrated is set. Image data recorded as Uncalibrated can be treated as sRGB when it is converted to FlashPix.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1255,7 +1255,7 @@ declare namespace image {
     COLOR_SPACE = 'ColorSpace',
 
     /**
-     * This tag is used to record the name of an audio file related to the image data. The only relational information recorded here is the Exif audio file name and extension (an ASCII string consisting of 8 characters + '.' + 3 characters). The path is not recorded. Stipulations on audio and file naming conventions are defined in the specification. When using this tag, audio files must be recorded in conformance to the Exif audio format. Writers are also allowed to store the data such as Audio within APP2 as FlashPix extension stream data. The mapping of Exif image files and audio files is done in any of three ways, [1], [2] and [3]. If multiple files are mapped to one file as in [2] or [3], the above format is used to record just one audio file name. If there are multiple audio files, the first recorded file is given. In the case of [3], for example, for the Exif image file "DSC00001.JPG" only  "SND00001.WAV" is given as the related Exif audio file. When there are three Exif audio files "SND00001.WAV", "SND00002.WAV" and "SND00003.WAV", the Exif image file name for each of them, "DSC00001.JPG", is indicated. By combining multiple relational information, a variety of playback possibilities can be supported. The method of using relational information is left to the implementation on the playback side. Since this information is an ASCII character string, it is terminated by NULL. When this tag is used to map audio files, the relation of the audio file to image data must also be indicated on the audio file end.
+     * This tag is used to record the name of an audio file related to the image data. The only relational information recorded here is the Exif audio file name and extension (an ASCII string consisting of 8 characters + '.' + 3 characters). The path is not recorded.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1264,7 +1264,7 @@ declare namespace image {
     RELATED_SOUND_FILE = 'RelatedSoundFile',
 
     /**
-     * Indicates the strobe energy at the time the image is captured, as measured in Beam Candle Power Seconds (BCPS).
+     * Amount of flash energy (BCPS).
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1273,7 +1273,7 @@ declare namespace image {
     FLASH_ENERGY = 'FlashEnergy',
 
     /**
-     * This tag records the camera or input device spatial frequency table and SFR values in the direction of image width, image height, and diagonal direction, as specified in ISO 12233.
+     * SFR of the camera.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1282,7 +1282,7 @@ declare namespace image {
     SPATIAL_FREQUENCY_RESPONSE = 'SpatialFrequencyResponse',
 
     /**
-     * Indicates the number of pixels in the image width (X) direction per <FocalPlaneResolutionUnit> on the camera focal plane.
+     * Number of pixels per FocalPlaneResolutionUnit (37392) in ImageWidth direction for main image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1291,7 +1291,7 @@ declare namespace image {
     FOCAL_PLANE_X_RESOLUTION = 'FocalPlaneXResolution',
 
     /**
-     * Indicates the number of pixels in the image height (V) direction per <FocalPlaneResolutionUnit> on the camera focal plane.
+     * Number of pixels per FocalPlaneResolutionUnit (37392) in ImageLength direction for main image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1300,7 +1300,7 @@ declare namespace image {
     FOCAL_PLANE_Y_RESOLUTION = 'FocalPlaneYResolution',
 
     /**
-     * Indicates the unit for measuring <FocalPlaneXResolution> and <FocalPlaneYResolution>. This value is the same as the <ResolutionUnit>.
+     * Unit of measurement for FocalPlaneXResolution(37390) and FocalPlaneYResolution(37391).
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1309,7 +1309,7 @@ declare namespace image {
     FOCAL_PLANE_RESOLUTION_UNIT = 'FocalPlaneResolutionUnit',
 
     /**
-     * Indicates the location of the main subject in the scene. The value of this tag represents the pixel at the center of the main subject relative to the left edge, prior to rotation processing as per the <Rotation> tag. The first value indicates the X column number and the second indicates the Y row number.
+     * Indicates the location and area of the main subject in the overall scene.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1318,7 +1318,7 @@ declare namespace image {
     SUBJECT_LOCATION = 'SubjectLocation',
 
     /**
-     * Indicates the exposure index selected on the camera or input device at the time the image is captured.
+     * Encodes the camera exposure index setting when image was captured.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1327,7 +1327,7 @@ declare namespace image {
     EXPOSURE_INDEX = 'ExposureIndex',
 
     /**
-     * Indicates the image sensor type on the camera or input device.
+     * Type of image sensor.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1336,7 +1336,7 @@ declare namespace image {
     SENSING_METHOD = 'SensingMethod',
 
     /**
-     * Indicates the image source. If a DSC recorded the image, the tag value of this tag always be set to 3, indicating that the image was recorded on a DSC.
+     * Indicates the image source. If a DSC recorded the image, this tag value of this tag always be set to 3, indicating that the image was recorded on a DSC.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1345,7 +1345,7 @@ declare namespace image {
     FILE_SOURCE = 'FileSource',
 
     /**
-     * Indicates the color filter array (CFA) geometric pattern of the image sensor when a one-chip color area sensor is used. It does not apply to all sensing methods.
+     * Indicates the color filter array (CFA) geometric pattern of the image sensor when a one-chip color area sensor is used. It does not apply to all sensing methods
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1381,7 +1381,7 @@ declare namespace image {
     DIGITAL_ZOOM_RATIO = 'DigitalZoomRatio',
 
     /**
-     * This tag indicates the type of scene that was shot. It can also be used to record the mode in which the image was shot. Note that this differs from the scene type <SceneType> tag.
+     * This tag indicates the type of scene that was shot. It can also be used to record the mode in which the image was shot. Note that this differs from the <SceneType> tag.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1462,7 +1462,7 @@ declare namespace image {
     GPS_VERSION_I_D = 'GPSVersionID',
 
     /**
-     * Indicates the altitude used as the reference altitude. If the reference is sea level and the altitude is above sea level, 0 is given. If the altitude is below sea level, a value of 1 is given and the altitude is indicated as an absolute value in the GPSAltitude tag. The reference unit is meters. Note that this tag is BYTE type, unlike other reference tags.
+     * Indicates the altitude used as the reference altitude. If the reference is sea level and the altitude is above sea level, 0 is given. If the altitude is below sea level, a value of 1 is given and the altitude is indicated as an absolute value in the GSPAltitude tag. The reference unit is meters. Note that this tag is BYTE type, unlike other reference tags.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1480,7 +1480,7 @@ declare namespace image {
     GPS_ALTITUDE = 'GPSAltitude',
 
     /**
-     * Indicates the GPS satellites used for measurements. This tag can be used to describe the number of satellites, their ID number, angle of elevation, azimuth, SNR and other information in ASCII notation. The format is not specified. If the GPS receiver is incapable of taking measurements, value of the tag shall be set to NULL.
+     * Indicates the GPS satellites used for measurements. This tag can be used to describe the number of satellites, their ID number, angle of elevation, azimuth, SNR and other information in ASCII notation. The format is not specified. If the GPS receiver is incapable of taking measurements, value of the tag is set to NULL.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1489,7 +1489,7 @@ declare namespace image {
     GPS_SATELLITES = 'GPSSatellites',
 
     /**
-     * Indicates the status of the GPS receiver when the image is recorded. 'A' means measurement is in progress, and 'V' means the measurement is Interoperability.
+     * Indicates the status of the GPS receiver when the image is recorded. "A" means measurement is in progress, and "V" means the measurement is Interoperability.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1498,7 +1498,7 @@ declare namespace image {
     GPS_STATUS = 'GPSStatus',
 
     /**
-     * Indicates the GPS measurement mode. '2' means two-dimensional measurement and '3' means three-dimensional measurement is in progress.
+     * Indicates the GPS measurement mode. "2" means two-dimensional measurement and "3" means three-dimensional measurement is in progress.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1516,7 +1516,7 @@ declare namespace image {
     GPS_DOP = 'GPSDOP',
 
     /**
-     * Indicates the unit used to express the GPS receiver speed of movement. 'K', 'M' and 'N' represent kilometers per hour, miles per hour, and knots.
+     * Indicates the unit used to express the GPS receiver speed of movement. "K" "M" and "N" represents kilometers per hour, miles per hour, and knots.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1534,7 +1534,7 @@ declare namespace image {
     GPS_SPEED = 'GPSSpeed',
 
     /**
-     * Indicates the reference for giving the direction of GPS receiver movement. 'T' denotes true direction and 'M' is magnetic direction.
+     * Indicates the reference for giving the direction of GPS receiver movement. "T" denotes true direction and "M" is magnetic direction.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1552,7 +1552,7 @@ declare namespace image {
     GPS_TRACK = 'GPSTrack',
 
     /**
-     * Indicates the reference for giving the direction of the image when it is captured. 'T' denotes true direction and 'M' is magnetic direction.
+     * Indicates the reference for giving the direction of the image when it is captured. "T" denotes true direction and "M" is magnetic direction.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1570,7 +1570,7 @@ declare namespace image {
     GPS_IMG_DIRECTION = 'GPSImgDirection',
 
     /**
-     * Indicates the geodetic survey data used by the GPS receiver. If the survey data is restricted to Japan, the value of this tag is 'TOKYO' or 'WGS-84'. If a GPS Info tag is recorded, it is strongly recommended that this tag be recorded.
+     * Indicates the geodetic survey data used by the GPS receiver. If the survey data is restricted to Japan, the value of this tag is "TOKYO" or "WGS-84".
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1579,7 +1579,7 @@ declare namespace image {
     GPS_MAP_DATUM = 'GPSMapDatum',
 
     /**
-     * Indicates whether the latitude of the destination point is north or south latitude. The ASCII value 'N' indicates north latitude, and 'S' is south latitude.
+     * Indicates whether the latitude of the destination point is north or south latitude. The ASCII value "N" indicates north latitude, and "S" is south latitude.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1597,7 +1597,7 @@ declare namespace image {
     GPS_DEST_LATITUDE = 'GPSDestLatitude',
 
     /**
-     * Indicates whether the longitude of the destination point is east or west longitude. ASCII 'E' indicates east longitude, and 'W' is west longitude.
+     * Indicates whether the longitude of the destination point is east or west longitude. ASCII "E" indicates east longitude, and "W" is west longitude.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1615,7 +1615,7 @@ declare namespace image {
     GPS_DEST_LONGITUDE = 'GPSDestLongitude',
 
     /**
-     * Indicates the reference used for giving the bearing to the destination point. 'T' denotes true direction and 'M' is magnetic direction.
+     * Indicates the reference used for giving the bearing to the destination point. "T" denotes true direction and "M" is magnetic direction.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1633,7 +1633,7 @@ declare namespace image {
     GPS_DEST_BEARING = 'GPSDestBearing',
 
     /**
-     * Indicates the unit used to express the distance to the destination point. 'K', 'M' and 'N' represent kilometers, miles and nautical miles.
+     * Indicates the unit used to express the distance to the destination point. "K", "M" and "N" represent kilometers, miles and knots.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1651,7 +1651,7 @@ declare namespace image {
     GPS_DEST_DISTANCE = 'GPSDestDistance',
 
     /**
-     * A character string recording the name of the method used for location finding. The first byte indicates the character code used, and this is followed by the name of the method. Since the Type is not ASCII, NULL termination is not necessary.
+     * A character string recording the name of the method used for location finding. The string encoding is defined using the same scheme as UserComment.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1660,7 +1660,7 @@ declare namespace image {
     GPS_PROCESSING_METHOD = 'GPSProcessingMethod',
 
     /**
-     * A character string recording the name of the GPS area. The first byte indicates the character code used, and this is followed by the name of the GPS area. Since the Type is not ASCII, NULL termination is not necessary.
+     * A character string recording the name of the GPS area.The string encoding is defined using the same scheme as UserComment.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1678,7 +1678,7 @@ declare namespace image {
     GPS_DIFFERENTIAL = 'GPSDifferential',
 
     /**
-     * This tag indicates the serial number of the body of the camera
+     * This tag records the serial number of the body of the camera that was used in photography as an ASCII string.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1687,7 +1687,7 @@ declare namespace image {
     BODY_SERIAL_NUMBER = 'BodySerialNumber',
 
     /**
-     * This tag indicates the name of the camera owner, photographer or image creator.
+     * This tag records the owner of a camera used in photography as an ASCII string.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1696,7 +1696,7 @@ declare namespace image {
     CAMERA_OWNER_NAME = 'CameraOwnerName',
 
     /**
-     * This tag indicates whether this image was composed from multiple images
+     * Indicates whether the recorded image is a composite image or not.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1705,7 +1705,7 @@ declare namespace image {
     COMPOSITE_IMAGE = 'CompositeImage',
 
     /**
-     * Information specific to compressed data. The compression mode used for a compressed image is indicated in unit bits per pixel.
+     * Specific to compressed data; states the compressed bits per pixel.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1714,7 +1714,7 @@ declare namespace image {
     COMPRESSED_BITS_PER_PIXEL = 'CompressedBitsPerPixel',
 
     /**
-     * D N G Version
+     * This tag encodes the DNG four-tier version number. For files compliant with version 1.1.0.0 of the DNG specification, this tag should contain the bytes: 1, 1, 0, 0.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1723,7 +1723,7 @@ declare namespace image {
     DNG_VERSION = 'DNGVersion',
 
     /**
-     * Default Crop Size
+     * Raw images often store extra pixels around the edges of the final image. These extra pixels help prevent interpolation artifacts near the edges of the final image. DefaultCropSize specifies the size of the final image area, in raw image coordinates (i.e., before the DefaultScale has been applied).
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1732,7 +1732,7 @@ declare namespace image {
     DEFAULT_CROP_SIZE = 'DefaultCropSize',
 
     /**
-     * Indicates the value of coefficient gamma.
+     * Indicates the value of coefficient gamma. The formula of transfer function used for image reproduction is expressed as follows: (reproduced value) = (input value)^gamma. Both reproduced value and input value indicate normalized value, whose minimum value is 0 and maximum value is 1.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1741,7 +1741,7 @@ declare namespace image {
     GAMMA = 'Gamma',
 
     /**
-     * I S O Speed Latitudeyyy
+     * This tag indicates the ISO speed latitude yyy value of a camera or input device that is defined in ISO 12232. However, this tag shall not be recorded without ISOSpeed and ISOSpeedLatitudezzz.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1750,7 +1750,7 @@ declare namespace image {
     ISO_SPEED_LATITUDEYYY = 'ISOSpeedLatitudeyyy',
 
     /**
-     * I S O Speed Latitudezzz
+     * This tag indicates the ISO speed latitude zzz value of a camera or input device that is defined in ISO 12232. However, this tag shall not be recorded without ISOSpeed and ISOSpeedLatitudeyyy.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1759,7 +1759,7 @@ declare namespace image {
     ISO_SPEED_LATITUDEZZZ = 'ISOSpeedLatitudezzz',
 
     /**
-     * This tag indicates the lens manufacturer.
+     * This tag records the lens manufactor as an ASCII string.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1768,7 +1768,7 @@ declare namespace image {
     LENS_MAKE = 'LensMake',
 
     /**
-     * This tag indicates the lens' model name and model number.
+     * This tag records the lens's model name and model number as an ASCII string.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1777,7 +1777,7 @@ declare namespace image {
     LENS_MODEL = 'LensModel',
 
     /**
-     * This tag indicates the serial number of the interchangeable lens.
+     * This tag records the serial number of the interchangeable lens that was used in photography as an ASCII string.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1786,7 +1786,7 @@ declare namespace image {
     LENS_SERIAL_NUMBER = 'LensSerialNumber',
 
     /**
-     * This tag indicates minimum focal length, maximum focal length, minimum F number in the minimum focal length, and minimum F number in the maximum focal length.
+     * This tag notes minimum focal length, maximum focal length, minimum F number in the minimum focal length, and minimum F number in the maximum focal length, which are specification information for the lens that was used in photography. When the minimum F number is unknown, the notation is 0/0
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1804,7 +1804,7 @@ declare namespace image {
     NEW_SUBFILE_TYPE = 'NewSubfileType',
 
     /**
-     * A tag used to record the offset from UTC (the time difference from Universal Time Coordinated including daylight saving time) of the time of DateTime tag. The format when recording the offset is "+|-HH:MM". The part of "+|-" shall be recorded as "+" or "-". When the offset are unknown, all the character spaces except colons (":")should be filled with blank characters, or else the Interoperability field should be filled with blank characters. The character string length is 7 Bytes including NULL for termination. When the field is left blank, it is treated as unknown.
+     * Time difference from Universal Time Coordinated including daylight saving time of DateTime tag.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1813,7 +1813,7 @@ declare namespace image {
     OFFSET_TIME = 'OffsetTime',
 
     /**
-     * A tag used to record the offset from UTC (the time difference from Universal Time Coordinated including daylight  saving  time)  of  the time  of  DateTimeDigitized  tag.  The  format  when  recording  the  offset  is "+|-HH:MM". The part of "+|-" shall be recorded as "+" or "-". When the offset are unknown, all the character spaces except colons (":")should be filled with blank characters, or else the Interoperability field should be filled with blank characters. The character string length is 7 Bytes including NULL for termination. When the field is left blank, it is treated as unknown.
+     * Time difference from Universal Time Coordinated including daylight saving time of DateTimeDigitized tag.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1822,7 +1822,7 @@ declare namespace image {
     OFFSET_TIME_DIGITIZED = 'OffsetTimeDigitized',
 
     /**
-     * A tag used to record the offset from UTC (the time difference from Universal Time Coordinated including daylight saving  time)  of  the time  of  DateTimeOriginal  tag.  The  format  when  recording  the  offset  is "+|-HH:MM". The part of "+|-" shall be recorded as "+" or "-". When the offset are unknown, all the character spaces except colons (":")should be filled with blank characters, or else the Interoperability field should be filled with blank characters. The character string length is 7 Bytes including NULL for termination. When the field is left blank, it is treated as unknown.
+     * Time difference from Universal Time Coordinated including daylight saving time of DateTimeOriginal tag.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1831,7 +1831,7 @@ declare namespace image {
     OFFSET_TIME_ORIGINAL = 'OffsetTimeOriginal',
 
     /**
-     * This tag indicates the exposure times of the source images of this image
+     * For a composite image, records the parameters relating exposure time of the exposures for generating the said composite image, such as respective exposure times of captured source images (tentatively recorded images).
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1840,7 +1840,7 @@ declare namespace image {
     SOURCE_EXPOSURE_TIMES_OF_COMPOSITE_IMAGE = 'SourceExposureTimesOfCompositeImage',
 
     /**
-     * This tag indicates how many images are included and used in the composition of this image
+     * Indicates the number of the source images (tentatively recorded images) captured for a composite Image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1849,7 +1849,7 @@ declare namespace image {
     SOURCE_IMAGE_NUMBER_OF_COMPOSITE_IMAGE = 'SourceImageNumberOfCompositeImage',
 
     /**
-     * Subfile Type
+     * A general indication of the kind of data contained in this subfile. This field is deprecated. The NewSubfileType field should be used instead.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1858,7 +1858,7 @@ declare namespace image {
     SUBFILE_TYPE = 'SubfileType',
 
     /**
-     * Indicates the horizontal positioning errors in meters. This is expressed as one RATIONAL value.
+     * This tag indicates horizontal positioning errors in meters.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1946,15 +1946,6 @@ declare namespace image {
      * @since 12
      */
     FACE_VERSION = 'HwMnoteFaceVersion',
-
-    /**
-     * Focus Mode
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    FOCUS_MODE = 'HwMnoteFocusMode',
 
     /**
      * Front Camera
