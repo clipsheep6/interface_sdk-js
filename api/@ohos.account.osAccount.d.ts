@@ -97,6 +97,24 @@ declare namespace osAccount {
     activateOsAccount(localId: number): Promise<void>;
 
     /**
+     * Deactivates a specified OS account.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    deactivateOsAccount(localId: number): Promise<void>;
+
+    /**
      * Checks whether the function of supporting multiple OS accounts is enabled.
      *
      * @param { AsyncCallback<boolean> } callback - Returns {@code true} if this function is enabled; returns {@code false} otherwise.
@@ -919,6 +937,18 @@ declare namespace osAccount {
     queryMaxOsAccountNumber(): Promise<number>;
 
     /**
+     * Queries the maximum number of OS accounts that can be activated on a device.
+     *
+     * @returns { Promise<number> } Returns the maximum number of OS accounts that can be activated.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    queryMaxActivatedOsAccountNumber(): Promise<number>;
+
+    /**
      * Obtains all constraints of an OS account based on its local ID.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -1070,6 +1100,18 @@ declare namespace osAccount {
     getActivatedOsAccountLocalIds(): Promise<Array<number>>;
 
     /**
+     * Gets the local ID of the foreground OS account.
+     *
+     * @returns { Promise<number> } Returns local ID of the foreground OS account.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    getForegroundOsAccountLocalId(): Promise<number>;
+
+    /**
      * Creates an OS account using the local name and account type.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -1205,7 +1247,30 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    createOsAccountForDomain(type: OsAccountType, domainInfo: DomainAccountInfo): Promise<OsAccountInfo>;
+    /**
+     * Creates an OS account using the account type, domain account info and options.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { OsAccountType } type - Indicates the type of the OS account to create.
+     *        {@link OsAccountType} specifies the account types available in the system.
+     * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
+     * @param { CreateOsAccountOptions } [options] - Indicates the options for creating an OS account.
+     * @returns { Promise<OsAccountInfo> } Returns information about the created OS account; returns {@code null} if the creation fails.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
+     * @throws { BusinessError } 12300004 - Account already exists.
+     * @throws { BusinessError } 12300005 - Multi-user not supported.
+     * @throws { BusinessError } 12300006 - Unsupported account type.
+     * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
+     * @throws { BusinessError } 12300015 - Short name already exists.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    createOsAccountForDomain(type: OsAccountType, domainInfo: DomainAccountInfo, options?: CreateOsAccountOptions): Promise<OsAccountInfo>;
 
     /**
      * Queries information about the current OS account.
@@ -1380,6 +1445,19 @@ declare namespace osAccount {
      * @since 9
      */
     getOsAccountType(): Promise<OsAccountType>;
+
+    /**
+     * Gets the type of the specified OS account.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @returns { Promise<OsAccountType> } Returns the OS account type.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 9
+     */
+    getOsAccountType(localId: number): Promise<OsAccountType>;
 
     /**
      * Obtains the distributed virtual device ID (DVID).
@@ -2051,7 +2129,16 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @since 7
      */
-    GUEST
+    GUEST,
+
+    /**
+     * Indicates a private account.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    PRIVATE = 1024
   }
 
   /**
@@ -2200,6 +2287,41 @@ declare namespace osAccount {
       challenge: Uint8Array,
       authType: AuthType,
       authTrustLevel: AuthTrustLevel,
+      callback: IUserAuthCallback
+    ): Uint8Array;
+
+    /**
+     * Executes authentication.
+     *
+     * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+     * @param { Uint8Array } challenge - Indicates the challenge value.
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { AuthTrustLevel } authTrustLevel - Indicates the trust level of authentication result.
+     * @param { AuthOptions } options - Indicates authentication options.
+     * @param { IUserAuthCallback } callback - Indicates the callback to get result and acquireInfo.
+     * @returns { Uint8Array } Returns a context ID for cancellation.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid challenge, authType or authTrustLevel.
+     * @throws { BusinessError } 12300101 - Credential is incorrect.
+     * @throws { BusinessError } 12300102 - Credential not enrolled.
+     * @throws { BusinessError } 12300105 - Unsupported authTrustLevel.
+     * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300109 - Authentication is canceled.
+     * @throws { BusinessError } 12300110 - Authentication is locked.
+     * @throws { BusinessError } 12300111 - Authentication timeout.
+     * @throws { BusinessError } 12300112 - Authentication service is busy.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    auth(
+      challenge: Uint8Array,
+      authType: AuthType,
+      authTrustLevel: AuthTrustLevel,
+      options: AuthOptions,
       callback: IUserAuthCallback
     ): Uint8Array;
 
@@ -2855,6 +2977,26 @@ declare namespace osAccount {
     static updateAccountToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array): Promise<void>;
 
     /**
+     * Updates the information of the specified domain account.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { DomainAccountInfo } oldAccountInfo - Indicates the old domain account information.
+     * @param { DomainAccountInfo } newAccountInfo - Indicates the new domain account information.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - The new account info is invalid.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    static updateAccountInfo(oldAccountInfo: DomainAccountInfo, newAccountInfo: DomainAccountInfo): Promise<void>;
+
+    /**
      * Gets the specified domain account information.
      *
      * @permission ohos.permission.GET_DOMAIN_ACCOUNTS
@@ -2992,7 +3134,25 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    openSession(): Promise<Uint8Array>;
+    /**
+     * Opens session.
+     * <p>
+     * Start an IDM operation to obtain challenge value.
+     * A challenge value of 0 indicates that opensession failed.
+     *
+     * @permission ohos.permission.MANAGE_USER_IDM
+     * @param { number } [localId] - Indicates the local ID of the OS account.
+     * @returns { Promise<Uint8Array> } Returns a challenge value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    openSession(localId?: number): Promise<Uint8Array>;
 
     /**
      * Adds credential.
@@ -3018,6 +3178,31 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
+    /**
+     * Adds credential.
+     * <p>
+     * Add user credential information, pass in credential addition method and credential information
+     * (credential type, subclass, if adding user's non password credentials, pass in password authentication token),
+     * and get the result / acquireInfo callback.
+     *
+     * @permission ohos.permission.MANAGE_USER_IDM
+     * @param { CredentialInfo } credentialInfo - Indicates the credential information.
+     * @param { IIdmCallback } callback - Indicates the callback to get results and acquireInfo.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType.
+     * @throws { BusinessError } 12300101 - Token is invalid.
+     * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300109 - Operation is canceled.
+     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300115 - The number of credentials reaches the upper limit.
+     * @throws { BusinessError } 12300116 - Password complexity verification failed.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
     addCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
 
     /**
@@ -3040,6 +3225,27 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
+    /**
+     * Updates credential.
+     *
+     * @permission ohos.permission.MANAGE_USER_IDM
+     * @param { CredentialInfo } credentialInfo - Indicates the credential information.
+     * @param { IIdmCallback } callback - Indicates the callback to get results and acquireInfo.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid credentialInfo, i.e. authType or authSubType.
+     * @throws { BusinessError } 12300101 - Token is invalid.
+     * @throws { BusinessError } 12300102 - Credential not enrolled.
+     * @throws { BusinessError } 12300106 - Unsupported authType.
+     * @throws { BusinessError } 12300109 - Operation is canceled.
+     * @throws { BusinessError } 12300111 - Operation timeout.
+     * @throws { BusinessError } 12300116 - Password complexity verification failed.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
     updateCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
 
     /**
@@ -3054,7 +3260,21 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    closeSession(): void;
+    /**
+     * Closes session.
+     * <p>
+     * End an IDM operation.
+     *
+     * @permission ohos.permission.MANAGE_USER_IDM
+     * @param { number } [localId] - Indicates the local ID of the OS account.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    closeSession(localId?: number): void;
 
     /**
      * Cancels entry with a challenge value.
@@ -3163,6 +3383,122 @@ declare namespace osAccount {
      * @since 8
      */
     getAuthInfo(authType?: AuthType): Promise<Array<EnrolledCredInfo>>;
+
+    /**
+     * Gets enrollment identifier.
+     *
+     * @permission ohos.permission.USE_USER_IDM
+     * @param { AuthType } authType - Indicates the authentication type.
+     * @param { number } [localId] - Indicates the local ID of the OS Account.
+     * @returns { Promise<Uint8Array> } Returns the enrolled identifier of the specified authentication type
+     * for the context OS account or the specified OS account.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    getEnrollmentId(authType: AuthType, localId?: number): Promise<Uint8Array>;
+  }
+
+  /**
+   * Indicates the enumeration of the authentication intent.
+   *
+   * @enum { number } ResultCode
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 12
+   */
+  enum AuthIntent {
+    /**
+     * Indicates the intent to unlock screen.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 12
+     */
+    UNLOCK_SCREEN = 0
+  }
+
+  /**
+   * Options for remote authentication.
+   *
+   * @interface RemoteAuthOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 12
+   */
+  interface RemoteAuthOptions {
+    /**
+     * Indicates the verifier network identifier.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 12
+     */
+    verifierNetworkId?: string;
+
+    /**
+     * Indicates the collector network identifier.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 12
+     */
+    collectorNetworkId?: string;
+
+    /**
+     * Indicates the collector token identifier.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 12
+     */
+    collectorTokenId?: number;
+  }
+
+  /**
+   * Options for authentication.
+   *
+   * @interface AuthOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 12
+   */
+  interface AuthOptions {
+    /**
+     * Indicates the local ID of the OS Account to be authenticated.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 12
+     */
+    localId?: number;
+
+    /**
+     * Indicates the authentication intent.
+     *
+     * @type { ?AuthIntent }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 12
+     */
+    authIntent?: AuthIntent;
+
+    /**
+     * Indicates the remote authentication options.
+     *
+     * @type { ?RemoteAuthOptions }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 12
+     */
+    remoteAuthOptions?: RemoteAuthOptions;
   }
 
   /**
@@ -3188,6 +3524,26 @@ declare namespace osAccount {
   }
 
   /**
+   * Options for getting input data.
+   *
+   * @interface GetInputDataOptions
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  interface GetInputDataOptions {
+    /**
+     * Indicates the challenge.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    challenge?: Uint8Array;
+  }
+
+  /**
    * Password input box callback.
    *
    * @interface IInputer
@@ -3203,7 +3559,7 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 8
      */
-    onGetData: (authSubType: AuthSubType, callback: IInputData) => void;
+    onGetData: (authSubType: AuthSubType, callback: IInputData, options: GetInputDataOptions) => void;
   }
 
   /**
@@ -3443,6 +3799,36 @@ declare namespace osAccount {
      * @since 8
      */
     freezingTime?: number;
+  
+    /**
+     * Indicates next phase freezing time.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    nextPhaseFreezingTime?: number;
+
+    /**
+     * Indicates the credential ID.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    credentialId?: Uint8Array;
+
+    /**
+     * Indicates local ID of the OS account to which the authentication result belongs.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    localId?: number;
   }
 
   /**
@@ -3553,6 +3939,16 @@ declare namespace osAccount {
      * @since 8
      */
     templateId: Uint8Array;
+
+    /**
+     * Indicates the enrollment timestamp, accurate to milliseconds.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    enrollmentTimestamp?: number;
   }
 
   /**
@@ -3607,7 +4003,16 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    SENSOR_INFO = 5
+    SENSOR_INFO = 5,
+
+    /**
+     * Indicates next phase freeze time.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    NEXT_PHASE_FREEZING_TIME = 6
   }
 
   /**
@@ -3664,6 +4069,15 @@ declare namespace osAccount {
      * @since 10
      */
     FINGERPRINT = 4,
+
+    /**
+     * Indicates the RECOVERY_KEY authentication type.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 10
+     */
+    RECOVERY_KEY = 8,
 
     /**
      * Indicates the DOMAIN authentication type.
