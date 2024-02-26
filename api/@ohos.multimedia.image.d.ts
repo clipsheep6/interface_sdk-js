@@ -1450,7 +1450,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    IMAGE_UNIQUE_I_D = 'ImageUniqueID',
+    IMAGE_UNIQUE_ID = 'ImageUniqueID',
 
     /**
      * Indicates the version of <GPSInfoIFD>. The version is given as 2.0.0.0. This tag is mandatory when <GPSInfo> tag is present. (Note: The <GPSVersionID> tag is given in bytes, unlike the <ExifVersion> tag. When the version is 2.0.0.0, the tag value is 02000000.H).
@@ -1459,7 +1459,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    GPS_VERSION_I_D = 'GPSVersionID',
+    GPS_VERSION_ID = 'GPSVersionID',
 
     /**
      * Indicates the altitude used as the reference altitude. If the reference is sea level and the altitude is above sea level, 0 is given. If the altitude is below sea level, a value of 1 is given and the altitude is indicated as an absolute value in the GSPAltitude tag. The reference unit is meters. Note that this tag is BYTE type, unlike other reference tags.
