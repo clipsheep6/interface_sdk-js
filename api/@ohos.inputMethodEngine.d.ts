@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1250,8 +1250,8 @@ declare namespace inputMethodEngine {
      * Query whether current editor supports text previewing.
      *
      * @returns { boolean }
-     *     If true, current editor box supports the text previewing.
-     *     If false, current editor box doesn't support the text previewing.
+     *     If true, current editor box supports text previewing.
+     *     If false, current editor box doesn't support text previewing.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1303,7 +1303,7 @@ declare namespace inputMethodEngine {
     setPreviewingText(text: string, range: Range, pattern?: TextPattern): void;
 
     /**
-     * Select text in editor by cursor movement.
+     * Stop text previewing.
      *
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1660,6 +1660,16 @@ declare namespace inputMethodEngine {
      * @since 11
      */
     setPrivacyMode(isPrivacyMode: boolean): void;
+
+    /**
+     * Get the split-screen mode of the window to which the input field belongs.
+     *
+     * @returns { SplitScreenMode } the split-screen mode of the window to which the input field belongs.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getInputFieldWindowSplitScreenMode(): SplitScreenMode;
   }
 
   /**
@@ -1941,6 +1951,37 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     PASTE = 5
+  }
+
+  /**
+   * Enumerates the split-screen mode.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  export enum SplitScreenMode {
+    /**
+     * Not in split-window mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    INVALID = -1,
+    /**
+     * The window is on a left-right split-screen mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    LEFT_RIGHT,
+    /**
+     * The window is on a top-bottom split-screen mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    TOP_BOTTOM
   }
 }
 
