@@ -1039,6 +1039,33 @@ declare namespace image {
     PRIMARY_CHROMATICITIES = 'PrimaryChromaticities',
 
     /**
+     * The matrix coefficients for transformation from RGB to YCbCr image data. No default is given in TIFF; but here the value given in "Color Space Guidelines", is used as the default. The color space is declared in a color space information tag, with the default being the value that gives the optimal image characteristics Interoperability this condition.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    YCBCR_COEFFICIENTS = 'YCbCrCoefficients',
+
+    /**
+     * The sampling ratio of chrominance components in relation to the luminance component. In JPEG compressed data a JPEG marker is used instead of this tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    YCBCR_SUB_SAMPLING = 'YCbCrSubSampling',
+
+    /**
+     * The position of chrominance components in relation to the luminance component. This field is designated only for JPEG compressed data or uncompressed YCbCr data. The TIFF default is 1 (centered); but when Y:Cb:Cr = 4:2:2 it is recommended in this standard that 2 (co-sited) be used to record data, in order to improve the image quality when viewed on TV systems. When this field does not exist, the reader shall assume the TIFF default. In the case of Y:Cb:Cr = 4:2:0, the TIFF default (centered) is recommended. If the reader does not have the capability of supporting both kinds of <YCbCrPositioning>, it shall follow the TIFF default regardless of the value in this field. It is preferable that readers be able to support both centered and co-sited positioning.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    YCBCR_POSITIONING = 'YCbCrPositioning',
+
+    /**
      * The reference black point value and reference white point value. No defaults are given in TIFF, but the values below are given as defaults here. The color space is declared in a color space information tag, with the default being the value that gives the optimal image characteristics Interoperability these conditions.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -1189,7 +1216,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    SUB_SEC_TIME = 'SubsecTime',
+    SUB_SEC_TIME = 'SubSecTime',
 
     /**
      * A tag used to record fractions of seconds for the <DateTimeOriginal> tag.
@@ -1216,7 +1243,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    FLASH_PIX_VERSION = 'FlashpixVersion',
+    FLASHPIX_VERSION = 'FlashpixVersion',
 
     /**
      * The color space information tag is always recorded as the color space specifier. Normally sRGB (=1) is used to define the color space based on the PC monitor conditions and environment. If a color space other than sRGB is used, Uncalibrated (=FFFF.H) is set. Image data recorded as Uncalibrated can be treated as sRGB when it is converted to FlashPix.
@@ -1324,7 +1351,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    NEW_CFA_PATTERN = 'CFAPattern',
+    CFA_PATTERN = 'CFAPattern',
 
     /**
      * This tag indicates the use of special processing on image data, such as rendering geared to output. When special processing is performed, the reader is expected to disable or minimize any further processing.
@@ -1423,7 +1450,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    IMAGE_UNIQUE_ID = 'ImageUniqueID',
+    IMAGE_UNIQUE_I_D = 'ImageUniqueID',
 
     /**
      * Indicates the version of <GPSInfoIFD>. The version is given as 2.0.0.0. This tag is mandatory when <GPSInfo> tag is present. (Note: The <GPSVersionID> tag is given in bytes, unlike the <ExifVersion> tag. When the version is 2.0.0.0, the tag value is 02000000.H).
@@ -1432,7 +1459,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    GPS_VERSION_ID = 'GPSVersionID',
+    GPS_VERSION_I_D = 'GPSVersionID',
 
     /**
      * Indicates the altitude used as the reference altitude. If the reference is sea level and the altitude is above sea level, 0 is given. If the altitude is below sea level, a value of 1 is given and the altitude is indicated as an absolute value in the GPSAltitude tag. The reference unit is meters. Note that this tag is BYTE type, unlike other reference tags.
@@ -1651,31 +1678,31 @@ declare namespace image {
     GPS_DIFFERENTIAL = 'GPSDifferential',
 
     /**
-     * The matrix coefficients for transformation from RGB to YCbCr image data. No default is given in TIFF; but here the value given in "Color Space Guidelines", is used as the default. The color space is declared in a color space information tag, with the default being the value that gives the optimal image characteristics Interoperability this condition.
+     * This tag indicates the serial number of the body of the camera
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 12
      */
-    YCBCR_COEFFICIENTS = 'YCbCrCoefficients',
+    BODY_SERIAL_NUMBER = 'BodySerialNumber',
 
     /**
-     * The sampling ratio of chrominance components in relation to the luminance component. In JPEG compressed data a JPEG marker is used instead of this tag.
+     * This tag indicates the name of the camera owner, photographer or image creator.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 12
      */
-    YCBCR_SUB_SAMPLING = 'YCbCrSubSampling',
+    CAMERA_OWNER_NAME = 'CameraOwnerName',
 
     /**
-     * The position of chrominance components in relation to the luminance component. This field is designated only for JPEG compressed data or uncompressed YCbCr data. The TIFF default is 1 (centered); but when Y:Cb:Cr = 4:2:2 it is recommended in this standard that 2 (co-sited) be used to record data, in order to improve the image quality when viewed on TV systems. When this field does not exist, the reader shall assume the TIFF default. In the case of Y:Cb:Cr = 4:2:0, the TIFF default (centered) is recommended. If the reader does not have the capability of supporting both kinds of <YCbCrPositioning>, it shall follow the TIFF default regardless of the value in this field. It is preferable that readers be able to support both centered and co-sited positioning.
+     * This tag indicates whether this image was composed from multiple images
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 12
      */
-    YCBCR_POSITIONING = 'YCbCrPositioning',
+    COMPOSITE_IMAGE = 'CompositeImage',
 
     /**
      * Information specific to compressed data. The compression mode used for a compressed image is indicated in unit bits per pixel.
@@ -1687,49 +1714,157 @@ declare namespace image {
     COMPRESSED_BITS_PER_PIXEL = 'CompressedBitsPerPixel',
 
     /**
-     * 
+     * D N G Version
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 12
      */
-    JPEGPROC = 'JPEGProc',
+    DNG_VERSION = 'DNGVersion',
 
     /**
-     * Front Camera
+     * Default Crop Size
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 12
      */
-    FRONT_CAMERA = 'HwMnoteFrontCamera',
+    DEFAULT_CROP_SIZE = 'DefaultCropSize',
 
     /**
-     * Scene Version
+     * Indicates the value of coefficient gamma.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 12
      */
-    SCENE_VERSION = 'HwMnoteSceneVersion',
+    GAMMA = 'Gamma',
 
     /**
-     * Scene Pointer
+     * I S O Speed Latitudeyyy
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 12
      */
-    SCENE_POINTER = 'HwMnoteScenePointer',
+    ISO_SPEED_LATITUDEYYY = 'ISOSpeedLatitudeyyy',
 
     /**
-     * Face Pointer
+     * I S O Speed Latitudezzz
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 12
      */
-    FACE_POINTER = 'HwMnoteFacePointer',
+    ISO_SPEED_LATITUDEZZZ = 'ISOSpeedLatitudezzz',
+
+    /**
+     * This tag indicates the lens manufacturer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    LENS_MAKE = 'LensMake',
+
+    /**
+     * This tag indicates the lens' model name and model number.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    LENS_MODEL = 'LensModel',
+
+    /**
+     * This tag indicates the serial number of the interchangeable lens.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    LENS_SERIAL_NUMBER = 'LensSerialNumber',
+
+    /**
+     * This tag indicates minimum focal length, maximum focal length, minimum F number in the minimum focal length, and minimum F number in the maximum focal length.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    LENS_SPECIFICATION = 'LensSpecification',
+
+    /**
+     * A general indication of the kind of data contained in this subfile.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    NEW_SUBFILE_TYPE = 'NewSubfileType',
+
+    /**
+     * A tag used to record the offset from UTC (the time difference from Universal Time Coordinated including daylight saving time) of the time of DateTime tag. The format when recording the offset is "+|-HH:MM". The part of "+|-" shall be recorded as "+" or "-". When the offset are unknown, all the character spaces except colons (":")should be filled with blank characters, or else the Interoperability field should be filled with blank characters. The character string length is 7 Bytes including NULL for termination. When the field is left blank, it is treated as unknown.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    OFFSET_TIME = 'OffsetTime',
+
+    /**
+     * A tag used to record the offset from UTC (the time difference from Universal Time Coordinated including daylight  saving  time)  of  the time  of  DateTimeDigitized  tag.  The  format  when  recording  the  offset  is "+|-HH:MM". The part of "+|-" shall be recorded as "+" or "-". When the offset are unknown, all the character spaces except colons (":")should be filled with blank characters, or else the Interoperability field should be filled with blank characters. The character string length is 7 Bytes including NULL for termination. When the field is left blank, it is treated as unknown.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    OFFSET_TIME_DIGITIZED = 'OffsetTimeDigitized',
+
+    /**
+     * A tag used to record the offset from UTC (the time difference from Universal Time Coordinated including daylight saving  time)  of  the time  of  DateTimeOriginal  tag.  The  format  when  recording  the  offset  is "+|-HH:MM". The part of "+|-" shall be recorded as "+" or "-". When the offset are unknown, all the character spaces except colons (":")should be filled with blank characters, or else the Interoperability field should be filled with blank characters. The character string length is 7 Bytes including NULL for termination. When the field is left blank, it is treated as unknown.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    OFFSET_TIME_ORIGINAL = 'OffsetTimeOriginal',
+
+    /**
+     * This tag indicates the exposure times of the source images of this image
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SOURCE_EXPOSURE_TIMES_OF_COMPOSITE_IMAGE = 'SourceExposureTimesOfCompositeImage',
+
+    /**
+     * This tag indicates how many images are included and used in the composition of this image
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SOURCE_IMAGE_NUMBER_OF_COMPOSITE_IMAGE = 'SourceImageNumberOfCompositeImage',
+
+    /**
+     * Subfile Type
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SUBFILE_TYPE = 'SubfileType',
+
+    /**
+     * Indicates the horizontal positioning errors in meters. This is expressed as one RATIONAL value.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_H_POSITIONING_ERROR = 'GPSHPositioningError',
 
     /**
      * Burst Number
@@ -1741,15 +1876,6 @@ declare namespace image {
     BURST_NUMBER = 'HwMnoteBurstNumber',
 
     /**
-     * Face Version
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    FACE_VERSION = 'HwMnoteFaceVersion',
-
-    /**
      * Face Conf
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -1759,40 +1885,13 @@ declare namespace image {
     FACE_CONF = 'HwMnoteFaceConf',
 
     /**
-     * Face Smile Score
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    FACE_SMILE_SCORE = 'HwMnoteFaceSmileScore',
-
-    /**
-     * Face Rect
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    FACE_RECT = 'HwMnoteFaceRect',
-
-    /**
      * Face Leye Center
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 12
      */
-    FACE_LEYE_CERTER = 'HwMnoteFaceLeyeCenter',
-
-    /**
-     * Face Reye Center
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    FACE_REYE_CENTER = 'HwMnoteFaceReyeCenter',
+    FACE_LEYE_CENTER = 'HwMnoteFaceLeyeCenter',
 
     /**
      * Face Mouth Center
@@ -1804,58 +1903,13 @@ declare namespace image {
     FACE_MOUTH_CENTER = 'HwMnoteFaceMouthCenter',
 
     /**
-     * Burst Number
+     * Face Pointer
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 12
      */
-    HW_BURST_NUMBER = 'HwBurstNumber',
-
-    /**
-     * Capture Mode
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_CAPTURE_MODE = 'HwCaptureMode',
-
-    /**
-     * Face Conf
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_FACE_CONF = 'HwFaceConf',
-
-    /**
-     * Face Count
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_FACE_COUNT = 'HwFaceCount',
-
-    /**
-     * Face Leye Center
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_FACE_LEYE_CENTER = 'HwFaceLeyeCenter',
-
-    /**
-     * Face Mouth Center
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_FACE_MOUTH_CENTER = 'HwFaceMouthCenter',
+    FACE_POINTER = 'HwMnoteFacePointer',
 
     /**
      * Face Rect
@@ -1864,7 +1918,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    HW_FACE_RECT = 'HwFaceRect',
+    FACE_RECT = 'HwMnoteFaceRect',
 
     /**
      * Face Reye Center
@@ -1873,7 +1927,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    HW_FACE_REYE_CENTER = 'HwFaceReyeCenter',
+    FACE_REYE_CENTER = 'HwMnoteFaceReyeCenter',
 
     /**
      * Face Smile Score
@@ -1882,7 +1936,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    HW_FACE_SMILE_SCORE = 'HwFaceSmileScore',
+    FACE_SMILE_SCORE = 'HwMnoteFaceSmileScore',
 
     /**
      * Face Version
@@ -1891,7 +1945,16 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    HW_FACE_VERSION = 'HwFaceVersion',
+    FACE_VERSION = 'HwMnoteFaceVersion',
+
+    /**
+     * Focus Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FOCUS_MODE = 'HwMnoteFocusMode',
 
     /**
      * Front Camera
@@ -1900,124 +1963,16 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    HW_FRONT_CAMERA = 'HwFrontCamera',
+    FRONT_CAMERA = 'HwMnoteFrontCamera',
 
     /**
-     * Physical Aperture
+     * Scene Pointer
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 12
      */
-    HW_PHYSICAL_APERTURE = 'HwPhysicalAperture',
-
-    /**
-     * Pitch Angle
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_PITCH_ANGLE = 'HwPitchAngle',
-
-    /**
-     * Roll Angle
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_ROLL_ANGLE = 'HwRollAngle',
-
-    /**
-     * Scene Beach Conf
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_SCENE_BEACH_CONF = 'HwSceneBeachConf',
-
-    /**
-     * Scene Bluesky Conf
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_SCENE_BLUESKY_CONF = 'HwSceneBlueskyConf',
-
-    /**
-     * Scene Flowers Conf
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_SCENE_FLOWERS_CONF = 'HwSceneFlowersConf',
-
-    /**
-     * Scene Food Conf
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_SCENE_FOOD_CONF = 'HwSceneFoodConf',
-
-    /**
-     * Scene Greenplant Conf
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_SCENE_GREENPLANT_CONF = 'HwSceneGreenplantConf',
-
-    /**
-     * Scene Night Conf
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_SCENE_NIGHT_CONF = 'HwSceneNightConf',
-
-    /**
-     * Scene Snow Conf
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_SCENE_SNOW_CONF = 'HwSceneSnowConf',
-
-    /**
-     * Scene Stage Conf
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_SCENE_STAGE_CONF = 'HwSceneStageConf',
-
-    /**
-     * Scene Sunset Conf
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_SCENE_SUNSET_CONF = 'HwSceneSunsetConf',
-
-    /**
-     * Scene Text Conf
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 12
-     */
-    HW_SCENE_TEXT_CONF = 'HwSceneTextConf',
+    SCENE_POINTER = 'HwMnoteScenePointer',
 
     /**
      * Scene Version
@@ -2026,7 +1981,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    HW_SCENE_VERSION = 'HwSceneVersion'
+    SCENE_VERSION = 'HwMnoteSceneVersion'
   }
 
   /**
