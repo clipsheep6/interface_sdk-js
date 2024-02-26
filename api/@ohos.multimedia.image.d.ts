@@ -901,7 +901,1132 @@ declare namespace image {
      * @crossplatform
      * @since 11
      */
-    FOCUS_MODE = 'HwMnoteFocusMode'
+    FOCUS_MODE = 'HwMnoteFocusMode',
+  
+    /**
+     * The compression scheme used for the image data. When a primary image is JPEG compressed, this designation is not necessary and is omitted. When thumbnails use JPEG compression, this tag value is set to 6.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    COMPRESSION = 'Compression',
+
+    /**
+     * The pixel composition. In JPEG compressed data a JPEG marker is used instead of this tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    PHOTOMETRIC_INTERPRETATION = 'PhotometricInterpretation',
+
+    /**
+     * For each strip, the byte offset of that strip. It is recommended that this be selected so the number of strip bytes does not exceed 64 Kbytes. With JPEG compressed data this designation is not needed and is omitted. See also <RowsPerStrip> and <StripByteCounts>.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    STRIP_OFFSETS = 'StripOffsets',
+
+    /**
+     * The number of components per pixel. Since this standard applies to RGB and YCbCr images, the value set for this tag is 3. In JPEG compressed data a JPEG marker is used instead of this tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SAMPLES_PER_PIXEL = 'SamplesPerPixel',
+
+    /**
+     * The number of rows per strip. This is the number of rows in the image of one strip when an image is divided into strips. With JPEG compressed data this designation is not needed and is omitted. See also <StripOffsets> and <StripByteCounts>.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    ROWS_PER_STRIP = 'RowsPerStrip',
+
+    /**
+     * The total number of bytes in each strip. With JPEG compressed data this designation is not needed and is omitted.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    STRIP_BYTE_COUNTS = 'StripByteCounts',
+
+    /**
+     * The number of pixels per <ResolutionUnit> in the <ImageWidth> direction. When the image resolution is unknown, 72 [dpi] is designated.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    X_RESOLUTION = 'XResolution',
+
+    /**
+     * The number of pixels per <ResolutionUnit> in the <ImageLength> direction. The same value as <XResolution> is designated.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    Y_RESOLUTION = 'YResolution',
+
+    /**
+     * Indicates whether pixel components are recorded in a chunky or planar format. In JPEG compressed files a JPEG marker is used instead of this tag. If this field does not exist, the TIFF default of 1 (chunky) is assumed.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    PLANAR_CONFIGURATION = 'PlanarConfiguration',
+
+    /**
+     * The unit for measuring <XResolution> and <YResolution>. The same unit is used for both <XResolution> and <YResolution>. If the image resolution is unknown, 2 (inches) is designated.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    RESOLUTION_UNIT = 'ResolutionUnit',
+
+    /**
+     * A transfer function for the image, described in tabular style. Normally this tag is not necessary, since color space is specified in the color space information tag (<ColorSpace>).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    TRANSFER_FUNCTION = 'TransferFunction',
+
+    /**
+     * This tag records the name and version of the software or firmware of the camera or image input device used to generate the image. The detailed format is not specified, but it is recommended that the example shown below be followed. When the field is left blank, it is treated as unknown.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SOFTWARE = 'Software',
+
+    /**
+     * This tag records the name of the camera owner, photographer or image creator. The detailed format is not specified, but it is recommended that the information be written as in the example below for ease of Interoperability. When the field is left blank, it is treated as unknown.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    ARTIST = 'Artist',
+
+    /**
+     * The chromaticity of the white point of the image. Normally this tag is not necessary, since color space is specified in the color space information tag (<ColorSpace>).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    WHITE_POINT = 'WhitePoint',
+
+    /**
+     * The chromaticity of the three primary colors of the image. Normally this tag is not necessary, since color space is specified in the color space information tag (<ColorSpace>).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    PRIMARY_CHROMATICITIES = 'PrimaryChromaticities',
+
+    /**
+     * The reference black point value and reference white point value. No defaults are given in TIFF, but the values below are given as defaults here. The color space is declared in a color space information tag, with the default being the value that gives the optimal image characteristics Interoperability these conditions.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    REFERENCE_BLACK_WHITE = 'ReferenceBlackWhite',
+
+    /**
+     * Copyright information. In this standard the tag is used to indicate both the photographer and editor copyrights. It is the copyright notice of the person or organization claiming rights to the image. The Interoperability copyright statement including date and rights should be written in this field; e.g., "Copyright, John Smith, 19xx. All rights reserved.". In this standard the field records both the photographer and editor copyrights, with each recorded in a separate part of the statement. When there is a clear distinction between the photographer and editor copyrights, these are to be written in the order of photographer followed by editor copyright, separated by NULL (in this case, since the statement also ends with a NULL, there are two NULL codes) (see example 1). When only the photographer is given, it is terminated by one NULL code (see example 2). When only the editor copyright is given, the photographer copyright part consists of one space followed by a terminating NULL code, then the editor copyright is given (see example 3). When the field is left blank, it is treated as unknown.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    COPYRIGHT = 'Copyright',
+
+    /**
+     * The offset to the start byte (SOI) of JPEG compressed thumbnail data. This is not used for primary image JPEG data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    JPEG_INTERCHANGE_FORMAT = 'JPEGInterchangeFormat',
+
+    /**
+     * The number of bytes of JPEG compressed thumbnail data. This is not used for primary image JPEG data. JPEG thumbnails are not divided but are recorded as a continuous JPEG bitstream from SOI to EOI. Appn and COM markers should not be recorded. Compressed thumbnails must be recorded in no more than 64 Kbytes, including all other data to be recorded in APP1.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    JPEG_INTERCHANGE_FORMAT_LENGTH = 'JPEGInterchangeFormatLength',
+
+    /**
+     * The class of the program used by the camera to set exposure when the picture is taken.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    EXPOSURE_PROGRAM = 'ExposureProgram',
+
+    /**
+     * Indicates the spectral sensitivity of each channel of the camera used. The tag value is an ASCII string compatible with the standard developed by the ASTM Technical Committee.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SPECTRAL_SENSITIVITY = 'SpectralSensitivity',
+
+    /**
+     * Indicates the Opto-Electronic Conversion Function (OECF) specified in ISO 14524. <OECF> is the relationship between the camera optical input and the image values.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    OECF = 'OECF',
+
+    /**
+     * The version of this standard supported. Nonexistence of this field is taken to mean nonconformance to the standard.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    EXIF_VERSION = 'ExifVersion',
+
+    /**
+     * The date and time when the image was stored as digital data.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    DATE_TIME_DIGITIZED = 'DateTimeDigitized',
+
+    /**
+     * Information specific to compressed data. The channels of each component are arranged in order from the 1st component to the 4th. For uncompressed data the data arrangement is given in the <PhotometricInterpretation> tag. However, since <PhotometricInterpretation> can only express the order of Y, Cb and Cr, this tag is provided for cases when compressed data uses components other than Y, Cb, and Cr and to enable support of other sequences.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    COMPONENTS_CONFIGURATION = 'ComponentsConfiguration',
+
+    /**
+     * Shutter speed. The unit is the APEX (Additive System of Photographic Exposure) setting.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SHUTTER_SPEED_VALUE = 'ShutterSpeedValue',
+
+    /**
+     * The value of brightness. The unit is the APEX value. Ordinarily it is given in the range of -99.99 to 99.99.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    BRIGHTNESS_VALUE = 'BrightnessValue',
+
+    /**
+     * The smallest F number of the lens. The unit is the APEX value. Ordinarily it is given in the range of 00.00 to 99.99, but it is not limited to this range.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    MAX_APERTURE_VALUE = 'MaxApertureValue',
+
+    /**
+     * The distance to the subject, given in meters.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SUBJECT_DISTANCE = 'SubjectDistance',
+
+    /**
+     * This tag indicates the location and area of the main subject in the overall scene.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SUBJECT_AREA = 'SubjectArea',
+
+    /**
+     * A tag for manufacturers of Exif writers to record any desired information. The contents are up to the manufacturer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    MAKER_NOTE = 'MakerNote',
+
+    /**
+     * A tag used to record fractions of seconds for the <DateTime> tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SUB_SEC_TIME = 'SubsecTime',
+
+    /**
+     * A tag used to record fractions of seconds for the <DateTimeOriginal> tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SUB_SEC_TIME_ORIGINAL = 'SubSecTimeOriginal',
+
+    /**
+     * A tag used to record fractions of seconds for the <DateTimeDigitized> tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SUB_SEC_TIME_DIGITIZED = 'SubSecTimeDigitized',
+
+    /**
+     * The FlashPix format version supported by a FPXR file.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FLASH_PIX_VERSION = 'FlashpixVersion',
+
+    /**
+     * The color space information tag is always recorded as the color space specifier. Normally sRGB (=1) is used to define the color space based on the PC monitor conditions and environment. If a color space other than sRGB is used, Uncalibrated (=FFFF.H) is set. Image data recorded as Uncalibrated can be treated as sRGB when it is converted to FlashPix.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    COLOR_SPACE = 'ColorSpace',
+
+    /**
+     * This tag is used to record the name of an audio file related to the image data. The only relational information recorded here is the Exif audio file name and extension (an ASCII string consisting of 8 characters + '.' + 3 characters). The path is not recorded. Stipulations on audio and file naming conventions are defined in the specification. When using this tag, audio files must be recorded in conformance to the Exif audio format. Writers are also allowed to store the data such as Audio within APP2 as FlashPix extension stream data. The mapping of Exif image files and audio files is done in any of three ways, [1], [2] and [3]. If multiple files are mapped to one file as in [2] or [3], the above format is used to record just one audio file name. If there are multiple audio files, the first recorded file is given. In the case of [3], for example, for the Exif image file "DSC00001.JPG" only  "SND00001.WAV" is given as the related Exif audio file. When there are three Exif audio files "SND00001.WAV", "SND00002.WAV" and "SND00003.WAV", the Exif image file name for each of them, "DSC00001.JPG", is indicated. By combining multiple relational information, a variety of playback possibilities can be supported. The method of using relational information is left to the implementation on the playback side. Since this information is an ASCII character string, it is terminated by NULL. When this tag is used to map audio files, the relation of the audio file to image data must also be indicated on the audio file end.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    RELATED_SOUND_FILE = 'RelatedSoundFile',
+
+    /**
+     * Indicates the strobe energy at the time the image is captured, as measured in Beam Candle Power Seconds (BCPS).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FLASH_ENERGY = 'FlashEnergy',
+
+    /**
+     * This tag records the camera or input device spatial frequency table and SFR values in the direction of image width, image height, and diagonal direction, as specified in ISO 12233.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SPATIAL_FREQUENCY_RESPONSE = 'SpatialFrequencyResponse',
+
+    /**
+     * Indicates the number of pixels in the image width (X) direction per <FocalPlaneResolutionUnit> on the camera focal plane.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FOCAL_PLANE_X_RESOLUTION = 'FocalPlaneXResolution',
+
+    /**
+     * Indicates the number of pixels in the image height (V) direction per <FocalPlaneResolutionUnit> on the camera focal plane.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FOCAL_PLANE_Y_RESOLUTION = 'FocalPlaneYResolution',
+
+    /**
+     * Indicates the unit for measuring <FocalPlaneXResolution> and <FocalPlaneYResolution>. This value is the same as the <ResolutionUnit>.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FOCAL_PLANE_RESOLUTION_UNIT = 'FocalPlaneResolutionUnit',
+
+    /**
+     * Indicates the location of the main subject in the scene. The value of this tag represents the pixel at the center of the main subject relative to the left edge, prior to rotation processing as per the <Rotation> tag. The first value indicates the X column number and the second indicates the Y row number.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SUBJECT_LOCATION = 'SubjectLocation',
+
+    /**
+     * Indicates the exposure index selected on the camera or input device at the time the image is captured.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    EXPOSURE_INDEX = 'ExposureIndex',
+
+    /**
+     * Indicates the image sensor type on the camera or input device.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SENSING_METHOD = 'SensingMethod',
+
+    /**
+     * Indicates the image source. If a DSC recorded the image, the tag value of this tag always be set to 3, indicating that the image was recorded on a DSC.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FILE_SOURCE = 'FileSource',
+
+    /**
+     * Indicates the color filter array (CFA) geometric pattern of the image sensor when a one-chip color area sensor is used. It does not apply to all sensing methods.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    NEW_CFA_PATTERN = 'CFAPattern',
+
+    /**
+     * This tag indicates the use of special processing on image data, such as rendering geared to output. When special processing is performed, the reader is expected to disable or minimize any further processing.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    CUSTOM_RENDERED = 'CustomRendered',
+
+    /**
+     * This tag indicates the exposure mode set when the image was shot. In auto-bracketing mode, the camera shoots a series of frames of the same scene at different exposure settings.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    EXPOSURE_MODE = 'ExposureMode',
+
+    /**
+     * This tag indicates the digital zoom ratio when the image was shot. If the numerator of the recorded value is 0, this indicates that digital zoom was not used.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    DIGITAL_ZOOM_RATIO = 'DigitalZoomRatio',
+
+    /**
+     * This tag indicates the type of scene that was shot. It can also be used to record the mode in which the image was shot. Note that this differs from the scene type <SceneType> tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SCENE_CAPTURE_TYPE = 'SceneCaptureType',
+
+    /**
+     * This tag indicates the degree of overall image gain adjustment.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GAIN_CONTROL = 'GainControl',
+
+    /**
+     * This tag indicates the direction of contrast processing applied by the camera when the image was shot.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    CONTRAST = 'Contrast',
+
+    /**
+     * This tag indicates the direction of saturation processing applied by the camera when the image was shot.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SATURATION = 'Saturation',
+
+    /**
+     * This tag indicates the direction of sharpness processing applied by the camera when the image was shot.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SHARPNESS = 'Sharpness',
+
+    /**
+     * This tag indicates information on the picture-taking conditions of a particular camera model. The tag is used only to indicate the picture-taking conditions in the reader.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    DEVICE_SETTING_DESCRIPTION = 'DeviceSettingDescription',
+
+    /**
+     * This tag indicates the distance to the subject.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SUBJECT_DISTANCE_RANGE = 'SubjectDistanceRange',
+
+    /**
+     * This tag indicates an identifier assigned uniquely to each image. It is recorded as an ASCII string equivalent to hexadecimal notation and 128-bit fixed length.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    IMAGE_UNIQUE_ID = 'ImageUniqueID',
+
+    /**
+     * Indicates the version of <GPSInfoIFD>. The version is given as 2.0.0.0. This tag is mandatory when <GPSInfo> tag is present. (Note: The <GPSVersionID> tag is given in bytes, unlike the <ExifVersion> tag. When the version is 2.0.0.0, the tag value is 02000000.H).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_VERSION_ID = 'GPSVersionID',
+
+    /**
+     * Indicates the altitude used as the reference altitude. If the reference is sea level and the altitude is above sea level, 0 is given. If the altitude is below sea level, a value of 1 is given and the altitude is indicated as an absolute value in the GPSAltitude tag. The reference unit is meters. Note that this tag is BYTE type, unlike other reference tags.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_ALTITUDE_REF = 'GPSAltitudeRef',
+
+    /**
+     * Indicates the altitude based on the reference in GPSAltitudeRef. Altitude is expressed as one RATIONAL value. The reference unit is meters.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_ALTITUDE = 'GPSAltitude',
+
+    /**
+     * Indicates the GPS satellites used for measurements. This tag can be used to describe the number of satellites, their ID number, angle of elevation, azimuth, SNR and other information in ASCII notation. The format is not specified. If the GPS receiver is incapable of taking measurements, value of the tag shall be set to NULL.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_SATELLITES = 'GPSSatellites',
+
+    /**
+     * Indicates the status of the GPS receiver when the image is recorded. 'A' means measurement is in progress, and 'V' means the measurement is Interoperability.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_STATUS = 'GPSStatus',
+
+    /**
+     * Indicates the GPS measurement mode. '2' means two-dimensional measurement and '3' means three-dimensional measurement is in progress.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_MEASURE_MODE = 'GPSMeasureMode',
+
+    /**
+     * Indicates the GPS DOP (data degree of precision). An HDOP value is written during two-dimensional measurement, and PDOP during three-dimensional measurement.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_DOP = 'GPSDOP',
+
+    /**
+     * Indicates the unit used to express the GPS receiver speed of movement. 'K', 'M' and 'N' represent kilometers per hour, miles per hour, and knots.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_SPEED_REF = 'GPSSpeedRef',
+
+    /**
+     * Indicates the speed of GPS receiver movement.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_SPEED = 'GPSSpeed',
+
+    /**
+     * Indicates the reference for giving the direction of GPS receiver movement. 'T' denotes true direction and 'M' is magnetic direction.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_TRACK_REF = 'GPSTrackRef',
+
+    /**
+     * Indicates the direction of GPS receiver movement. The range of values is from 0.00 to 359.99.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_TRACK = 'GPSTrack',
+
+    /**
+     * Indicates the reference for giving the direction of the image when it is captured. 'T' denotes true direction and 'M' is magnetic direction.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_IMG_DIRECTION_REF = 'GPSImgDirectionRef',
+
+    /**
+     * Indicates the direction of the image when it was captured. The range of values is from 0.00 to 359.99.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_IMG_DIRECTION = 'GPSImgDirection',
+
+    /**
+     * Indicates the geodetic survey data used by the GPS receiver. If the survey data is restricted to Japan, the value of this tag is 'TOKYO' or 'WGS-84'. If a GPS Info tag is recorded, it is strongly recommended that this tag be recorded.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_MAP_DATUM = 'GPSMapDatum',
+
+    /**
+     * Indicates whether the latitude of the destination point is north or south latitude. The ASCII value 'N' indicates north latitude, and 'S' is south latitude.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_DEST_LATITUDE_REF = 'GPSDestLatitudeRef',
+
+    /**
+     * Indicates the latitude of the destination point. The latitude is expressed as three RATIONAL values giving the degrees, minutes, and seconds, respectively. If latitude is expressed as degrees, minutes and seconds, a typical format would be dd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_DEST_LATITUDE = 'GPSDestLatitude',
+
+    /**
+     * Indicates whether the longitude of the destination point is east or west longitude. ASCII 'E' indicates east longitude, and 'W' is west longitude.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_DEST_LONGITUDE_REF = 'GPSDestLongitudeRef',
+
+    /**
+     * Indicates the longitude of the destination point. The longitude is expressed as three RATIONAL values giving the degrees, minutes, and seconds, respectively. If longitude is expressed as degrees, minutes and seconds, a typical format would be ddd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes are given up to two decimal places, the format would be ddd/1,mmmm/100,0/1.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_DEST_LONGITUDE = 'GPSDestLongitude',
+
+    /**
+     * Indicates the reference used for giving the bearing to the destination point. 'T' denotes true direction and 'M' is magnetic direction.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_DEST_BEARING_REF = 'GPSDestBearingRef',
+
+    /**
+     * Indicates the bearing to the destination point. The range of values is from 0.00 to 359.99.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_DEST_BEARING = 'GPSDestBearing',
+
+    /**
+     * Indicates the unit used to express the distance to the destination point. 'K', 'M' and 'N' represent kilometers, miles and nautical miles.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_DEST_DISTANCE_REF = 'GPSDestDistanceRef',
+
+    /**
+     * Indicates the distance to the destination point.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_DEST_DISTANCE = 'GPSDestDistance',
+
+    /**
+     * A character string recording the name of the method used for location finding. The first byte indicates the character code used, and this is followed by the name of the method. Since the Type is not ASCII, NULL termination is not necessary.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_PROCESSING_METHOD = 'GPSProcessingMethod',
+
+    /**
+     * A character string recording the name of the GPS area. The first byte indicates the character code used, and this is followed by the name of the GPS area. Since the Type is not ASCII, NULL termination is not necessary.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_AREA_INFORMATION = 'GPSAreaInformation',
+
+    /**
+     * Indicates whether differential correction is applied to the GPS receiver.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    GPS_DIFFERENTIAL = 'GPSDifferential',
+
+    /**
+     * The matrix coefficients for transformation from RGB to YCbCr image data. No default is given in TIFF; but here the value given in "Color Space Guidelines", is used as the default. The color space is declared in a color space information tag, with the default being the value that gives the optimal image characteristics Interoperability this condition.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    YCBCR_COEFFICIENTS = 'YCbCrCoefficients',
+
+    /**
+     * The sampling ratio of chrominance components in relation to the luminance component. In JPEG compressed data a JPEG marker is used instead of this tag.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    YCBCR_SUB_SAMPLING = 'YCbCrSubSampling',
+
+    /**
+     * The position of chrominance components in relation to the luminance component. This field is designated only for JPEG compressed data or uncompressed YCbCr data. The TIFF default is 1 (centered); but when Y:Cb:Cr = 4:2:2 it is recommended in this standard that 2 (co-sited) be used to record data, in order to improve the image quality when viewed on TV systems. When this field does not exist, the reader shall assume the TIFF default. In the case of Y:Cb:Cr = 4:2:0, the TIFF default (centered) is recommended. If the reader does not have the capability of supporting both kinds of <YCbCrPositioning>, it shall follow the TIFF default regardless of the value in this field. It is preferable that readers be able to support both centered and co-sited positioning.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    YCBCR_POSITIONING = 'YCbCrPositioning',
+
+    /**
+     * Information specific to compressed data. The compression mode used for a compressed image is indicated in unit bits per pixel.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    COMPRESSED_BITS_PER_PIXEL = 'CompressedBitsPerPixel',
+
+    /**
+     * 
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    JPEGPROC = 'JPEGProc',
+
+    /**
+     * Front Camera
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FRONT_CAMERA = 'HwMnoteFrontCamera',
+
+    /**
+     * Scene Version
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SCENE_VERSION = 'HwMnoteSceneVersion',
+
+    /**
+     * Scene Pointer
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    SCENE_POINTER = 'HwMnoteScenePointer',
+
+    /**
+     * Face Pointer
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FACE_POINTER = 'HwMnoteFacePointer',
+
+    /**
+     * Burst Number
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    BURST_NUMBER = 'HwMnoteBurstNumber',
+
+    /**
+     * Face Version
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FACE_VERSION = 'HwMnoteFaceVersion',
+
+    /**
+     * Face Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FACE_CONF = 'HwMnoteFaceConf',
+
+    /**
+     * Face Smile Score
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FACE_SMILE_SCORE = 'HwMnoteFaceSmileScore',
+
+    /**
+     * Face Rect
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FACE_RECT = 'HwMnoteFaceRect',
+
+    /**
+     * Face Leye Center
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FACE_LEYE_CERTER = 'HwMnoteFaceLeyeCenter',
+
+    /**
+     * Face Reye Center
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FACE_REYE_CENTER = 'HwMnoteFaceReyeCenter',
+
+    /**
+     * Face Mouth Center
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    FACE_MOUTH_CENTER = 'HwMnoteFaceMouthCenter',
+
+    /**
+     * Burst Number
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_BURST_NUMBER = 'HwBurstNumber',
+
+    /**
+     * Capture Mode
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_CAPTURE_MODE = 'HwCaptureMode',
+
+    /**
+     * Face Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_FACE_CONF = 'HwFaceConf',
+
+    /**
+     * Face Count
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_FACE_COUNT = 'HwFaceCount',
+
+    /**
+     * Face Leye Center
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_FACE_LEYE_CENTER = 'HwFaceLeyeCenter',
+
+    /**
+     * Face Mouth Center
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_FACE_MOUTH_CENTER = 'HwFaceMouthCenter',
+
+    /**
+     * Face Rect
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_FACE_RECT = 'HwFaceRect',
+
+    /**
+     * Face Reye Center
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_FACE_REYE_CENTER = 'HwFaceReyeCenter',
+
+    /**
+     * Face Smile Score
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_FACE_SMILE_SCORE = 'HwFaceSmileScore',
+
+    /**
+     * Face Version
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_FACE_VERSION = 'HwFaceVersion',
+
+    /**
+     * Front Camera
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_FRONT_CAMERA = 'HwFrontCamera',
+
+    /**
+     * Physical Aperture
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_PHYSICAL_APERTURE = 'HwPhysicalAperture',
+
+    /**
+     * Pitch Angle
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_PITCH_ANGLE = 'HwPitchAngle',
+
+    /**
+     * Roll Angle
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_ROLL_ANGLE = 'HwRollAngle',
+
+    /**
+     * Scene Beach Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_SCENE_BEACH_CONF = 'HwSceneBeachConf',
+
+    /**
+     * Scene Bluesky Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_SCENE_BLUESKY_CONF = 'HwSceneBlueskyConf',
+
+    /**
+     * Scene Flowers Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_SCENE_FLOWERS_CONF = 'HwSceneFlowersConf',
+
+    /**
+     * Scene Food Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_SCENE_FOOD_CONF = 'HwSceneFoodConf',
+
+    /**
+     * Scene Greenplant Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_SCENE_GREENPLANT_CONF = 'HwSceneGreenplantConf',
+
+    /**
+     * Scene Night Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_SCENE_NIGHT_CONF = 'HwSceneNightConf',
+
+    /**
+     * Scene Snow Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_SCENE_SNOW_CONF = 'HwSceneSnowConf',
+
+    /**
+     * Scene Stage Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_SCENE_STAGE_CONF = 'HwSceneStageConf',
+
+    /**
+     * Scene Sunset Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_SCENE_SUNSET_CONF = 'HwSceneSunsetConf',
+
+    /**
+     * Scene Text Conf
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_SCENE_TEXT_CONF = 'HwSceneTextConf',
+
+    /**
+     * Scene Version
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    HW_SCENE_VERSION = 'HwSceneVersion'
   }
 
   /**
