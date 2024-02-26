@@ -2220,7 +2220,7 @@ declare class RichEditorController {
    * @crossplatform
    * @since 11
    */
-   /**
+  /**
    * Text selection is achieved by specifying the start and end positions of the rich editor.
    *
    * @param { number } selectionStart - The start position of the selected text.
