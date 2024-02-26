@@ -324,6 +324,35 @@ declare namespace display {
   function setFoldStatusLocked(locked: boolean): void;
 
   /**
+   * set fold status locked and get callback fold status.
+   *
+   * @param { number } displayMode - display mode.
+   * @param { Callback<FoldStatus> } callback - Callback used to return the fold status.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function setFoldStatusLocked(displayMode: number, callback: Callback<FoldStatus>): void;
+
+  /**
+   * set fold status unlocked.
+   *
+   * @param { number } displaymode - display mode.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 11
+   */
+  function setFoldStatusUnlocked(displayMode: number): void;
+
+  /**
    * Enumerates the fold status.
    *
    * @enum { number }
