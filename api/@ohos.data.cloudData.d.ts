@@ -20,6 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import type relationalStore from './@ohos.data.relationalStore';
+import commonType from '@ohos.data.commonType';
 
 /**
  * Provides methods for cloud capabilities.
@@ -112,40 +113,45 @@ declare namespace cloudData {
   }
 
   /**
-   * Describes the statistic type.
+   * Describes the strategy of cloud sync.
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-   * @systemapi
    * @since 12
    */
-  enum StatisticType {
-    /**
-     * Indicates newly inserted data that has not been synchronized yet
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 12
-     */
-    INSERTED_DATA,
+  enum CloudStrategyType {
 
     /**
-     * Indicates local modified data after synchronization
+     * Indicates that synchronization is not allowed when using both WiFi and CELLULAR.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
      * @since 12
      */
-    UPDATED_DATA,
+    NO_SYNC = 0,
 
     /**
-     * Indicates local unmodified data after synchronization
+     * Indicates that synchronization is allowed when using WiFi.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
      * @since 12
      */
-    CONSISTENT_DATA
+    WIFI = 1,
+
+    /**
+     * Indicates that synchronization is allowed when using CELLULAR.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @since 12
+     */
+    CELLULAR = 2,
+
+    /**
+     * Indicates that synchronization is allowed when using CELLULAR or WIFI.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @since 12
+     */
+    CELLULAR_OR_WIFI = 3
   }
 
   /**
@@ -469,21 +475,18 @@ declare namespace cloudData {
     static clear(accountId: string, appActions: Record<string, ClearAction>): Promise<void>;
 
     /**
-     * deletes cloud information from local data.
+     * Set cloud sync strategy.
      *
-     * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing the information of specific opened cloud.
-     * @param { string } bundleName - Indicates the name of application.
-     * @returns { Promise<Record<StatisticType, number>> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @param { CloudStrategyType } strategy - Indicates the CloudStrategyType.
+     * @param { Record<string, commonType.ValueType> } param - Indicates the param of strategy.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
      * @since 12
      */
-    static querySyncStatistic(accountId: string, bundleName: string): Promise<Record<StatisticType, number>>;
+    static setCloudStrategy(strategy: CloudStrategyType, param?: Record<string, commonType.ValueType>):
+      Promise<void>;
   }
 
   /**
