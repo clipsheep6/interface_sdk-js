@@ -4913,6 +4913,14 @@ declare namespace image {
      * @param { PixelMap } srcPixelMap PixelMap instance in YUV format.
      * @param { PixelMapFormat } destPixelFormat The pixel format of the converted target PixelMap instance.
      * @returns { Promise<PixelMap> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 62980115 - Invalid input parameter.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980274 - The conversion failed.
+     * @throws { BusinessError } 62980276 - The type to be converted is an unsupported type.
+     * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+     * @throws { BusinessError } 62980115 - The pass parameter pixelmap is the null pointer.
+     * @throws { BusinessError } 62980273 - Failed to create a c++ conversion class object.
+     * @throws { BusinessError } 62980136 - The c++ conversion class object pointer is empty when converting.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
@@ -4925,6 +4933,14 @@ declare namespace image {
      * @param { PixelMap } srcPixelMap PixelMap instance in RGB format.
      * @param { PixelMapFormat } destPixelFormat The pixel format of the converted target PixelMap instance.
      * @returns { Promise<PixelMap> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 62980115 - Invalid input parameter.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980274 - The conversion failed.
+     * @throws { BusinessError } 62980276 - The type to be converted is an unsupported type.
+     * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+     * @throws { BusinessError } 62980115 - The pass parameter pixelmap is the null pointer.
+     * @throws { BusinessError } 62980273 - Failed to create a c++ conversion class object.
+     * @throws { BusinessError } 62980136 - The c++ conversion class object pointer is empty when converting.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12
      */
