@@ -284,25 +284,7 @@ declare namespace image {
      * @crossplatform
      * @since 10
      */
-    NV12 = 9,
-
-    /**
-     * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
-     */
-    YU12 = 14,
-
-    /**
-     * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
-     */
-    YV12 = 15
+    NV12 = 9
   }
 
   /**
