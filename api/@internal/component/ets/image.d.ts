@@ -341,7 +341,17 @@ interface ImageInterface {
    * @since 11
    * @form
    */
-  (src: PixelMap | ResourceStr | DrawableDescriptor): ImageAttribute;
+  /**
+   * Set src to obtain images
+   *
+   * @param { PixelMap | ResourceStr | DrawableDescriptor | Array<PixelMap> } src
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  (src: PixelMap | ResourceStr | DrawableDescriptor | Array<PixelMap>): ImageAttribute;
 }
 
 /**
@@ -1348,6 +1358,30 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   resizable(value: ResizableOptions): ImageAttribute;
+
+  /**
+   * The unit is millisecond.
+   *
+   * @param { number } value
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  animationDuration(value: number): ImageAttribute;
+
+  /**
+   * Played once by default
+   *
+   * @param { number } value
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  animationIterations(value: number): ImageAttribute;
 }
 
 /**
