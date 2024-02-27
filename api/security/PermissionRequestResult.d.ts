@@ -92,4 +92,15 @@ export default class PermissionRequestResult {
    * @since 11
    */
   authResults: Array<number>;
+
+  /**
+   * Specifies whether a dialog box is shown for each requested permission.
+   * The value true means that a dialog box is shown, and false means the opposite.
+   *
+   * @syscap SystemCapability.Security.AccessToken
+   * @StageModelOnly
+   * @atomicservice
+   * @since 12
+   */
+  dialogShownResults?: Array<boolean>;
 }

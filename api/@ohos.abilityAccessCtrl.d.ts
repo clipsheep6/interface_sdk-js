@@ -22,6 +22,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
 import { Permissions } from './permissions';
 import type _Context from './application/Context';
 import type _PermissionRequestResult from './security/PermissionRequestResult';
+import type _PermissionState from './security/PermissionState';
 
 /**
  * @namespace abilityAccessCtrl
@@ -394,6 +395,27 @@ declare namespace abilityAccessCtrl {
     getVersion(): Promise<number>;
 
     /**
+     * Get states for the corresponding permissions.
+     *
+     * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be queried. This parameter cannot be null or empty.
+     * @returns { Promise<PermissionState> } Return permission states.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the string size of permissionName is larger than 256,
+     *  or the flags value is invalid.
+     * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 12
+     */
+    GetPermissionsState(tokenID: number, permissionList: Array<Permissions>): Promise<PermissionState>;
+
+    /**
      * Registers a permission state callback so that the application can be notified upon specified permission state of specified applications changes.
      *
      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
@@ -623,6 +645,15 @@ export { Permissions };
  * @since 11
  */
 export type PermissionRequestResult = _PermissionRequestResult;
+/**
+ * PermissionState interface.
+ *
+ * @syscap SystemCapability.Security.AccessToken
+ * @StageModelOnly
+ * @atomicservice
+ * @since 12
+ */
+export type PermissionState = _PermissionState;
 /**
  * Context interface.
  *
