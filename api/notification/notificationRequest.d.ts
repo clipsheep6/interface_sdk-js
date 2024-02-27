@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -414,7 +414,7 @@ export interface NotificationRequest {
    * @systemapi
    * @since 12
    */
-  notificationControlFlags?:number;
+  notificationControlFlags?: number;
 }
 
 /**
@@ -542,62 +542,4 @@ export interface NotificationCheckRequest {
    * @since 11
    */
   extraInfoKeys: Array<string>;
-}
-
-/**
- * Enum for notification control flag status.
- *
- * @enum { number }
- * @syscap SystemCapability.Notification.Notification
- * @systemapi
- * @since 12
- */
-export enum NotificationControlFlagStatus {
-  /**
-   * Manipulating of the enumeration by bitwise-or operation represents the closing of ringtone.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  NOTIFICATION_CLOSE_SOUND_STATUS = 1 << 0,
-
-  /**
-   * Manipulating of the enumeration by bitwise-or operation represents the closing of lock screnn.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  NOTIFICATION_CLOSE_LOCKSCREEN_STATUS = 1 << 1,
-
-  /**
-   * Manipulating of the enumeration by bitwise-or operation represents the closing of banner.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  NOTIFICATION_CLOSE_BANNER_STATUS = 1 << 2,
-
-  /**
-   * Manipulating of the enumeration by bitwise-or operation represents the closing of light screen.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  NOTIFICATION_CLOSE_LIGHTSCREEN_STATUS = 1 << 3,
-
-  /**
-   * Manipulating of the enumeration by bitwise-or operation represents the closing of vibration.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  NOTIFICATION_CLOSE_VIBRATION_STATUS = 1 << 4,
-
-  /**
-   * Manipulating of the enumeration by bitwise-or operation represents the closing of status bar icon.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  NOTIFICATION_CLOSE_STATUSBAR_ICON_STATUS = 1 << 5
 }

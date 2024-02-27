@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -43,7 +43,6 @@ import { NotificationSlot as _NotificationSlot } from './notification/notificati
 import { NotificationSorting as _NotificationSorting } from './notification/notificationSorting';
 import { NotificationTemplate as _NotificationTemplate } from './notification/notificationTemplate';
 import { NotificationUserInput as _NotificationUserInput } from './notification/notificationUserInput';
-import { NotificationControlFlagStatus as _NotificationControlFlagStatus } from './notification/notificationRequest';
 import type UIAbilityContext from './application/UIAbilityContext';
 
 /**
@@ -2636,6 +2635,64 @@ declare namespace notificationManager {
   }
 
   /**
+   * Enum for notification control flag status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  export enum NotificationControlFlagStatus {
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of ringtone.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_SOUND = 1 << 0,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of lock screen.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_LOCKSCREEN = 1 << 1,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of banner.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_BANNER = 1 << 2,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of light screen.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_LIGHTSCREEN = 1 << 3,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of vibration.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_VIBRATION = 1 << 4,
+
+    /**
+     * Manipulating of the enumeration by bitwise-or operation represents the closing of status bar icon.
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    NOTIFICATION_STATUS_CLOSE_STATUSBAR_ICON = 1 << 5
+  }
+
+  /**
    * Describes a bundleOption in a notification.
    *
    * @syscap SystemCapability.Notification.Notification
@@ -2833,15 +2890,6 @@ declare namespace notificationManager {
    * @since 11
    */
   export type NotificationProgress = _NotificationProgress;
-
-  /**
-   * Describes notification control flag status.
-   *
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  export type NotificationControlFlagStatus = _NotificationControlFlagStatus;
 }
 
 export default notificationManager;
