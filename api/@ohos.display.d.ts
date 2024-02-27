@@ -341,7 +341,7 @@ declare namespace display {
   /**
    * set fold status unlocked.
    *
-   * @param { number } displaymode - display mode.
+   * @param { number } displayMode - display mode.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported on this device.
