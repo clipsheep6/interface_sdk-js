@@ -26,7 +26,6 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace adminManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @systemapi
  * @since 9
  */
 declare namespace adminManager {
@@ -249,7 +248,7 @@ declare namespace adminManager {
   function disableAdmin(admin: Want, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Disables a current normal administrator ability.
+   * Disables a current administrator ability.
    * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
@@ -258,12 +257,10 @@ declare namespace adminManager {
    * @returns { Promise<void> } the promise returned by the disableAdmin.
    * @throws { BusinessError } 9200005 - failed to disable the administrator application of the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 12
    */
   function disableAdmin(admin: Want, userId?: number): Promise<void>;
 
@@ -558,6 +555,50 @@ declare namespace adminManager {
    * @since 10
    */
   function authorizeAdmin(admin: Want, bundleName: string): Promise<void>;
+
+  /**
+   * Get whether the ability is enabled as super device administrator.
+   *
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Promise<Want> } promise contained the want indicates the super administrator of the device.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function getSuperAdmin(admin: Want): Promise<Want>;
+
+  /**
+   * Subscribes the managed event of admin.
+   *
+   * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function subscribeManagedEventSync(admin: Want, managedEvents: Array<ManagedEvent>): void;
+
+  /**
+   * Unsubscribes the managed event of admin.
+   *
+   * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200008 - the specified system events enum is invalid.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): void;
 }
 
 export default adminManager;

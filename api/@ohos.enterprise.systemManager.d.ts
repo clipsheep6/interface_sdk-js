@@ -25,7 +25,6 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace systemManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @systemapi
  * @stagemodelonly
  * @since 11
  */
@@ -75,6 +74,123 @@ declare namespace systemManager {
   }
 
   /**
+   * System update policy.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  enum UpdatePolicy {
+    /**
+     * Default update policy
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    DEFAULT = 0,
+
+    /**
+     * Prohibit update policy
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    PROHIBIT = 1,
+
+    /**
+     * Update to specific software version policy
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    UPDATE_TO_SPECIFIC_VERSION = 2
+  }
+
+  /**
+   * Software update time.
+   *
+   * @typedef UpdateTime
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  export interface UpdateTime {
+    /**
+     * Time of the last software version.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    lastUpdateTime: number;
+
+    /**
+     * Installation begin time.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    installBeginTime: number;
+
+    /**
+     * Installation end time.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    installEndTime: number;
+  }
+
+  /**
+   * OTA update policy.
+   *
+   * @typedef OTAUpdatePolicy
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  export interface OTAUpdatePolicy {
+    /**
+     * Software update type.
+     *
+     * @type { UpdatePolicy }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    updateType: UpdatePolicy;
+
+    /**
+     * Software version.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    version: string;
+
+    /**
+     * Time when the software version is installed.
+     *
+     * @type { UpdateTime }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    installTime: UpdateTime;
+  }
+
+  /**
    * Sets NTP server.
    * This function can be called by a super administrator.
    *
@@ -84,12 +200,10 @@ declare namespace systemManager {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function setNTPServer(admin: Want, server: string): void;
 
@@ -103,14 +217,46 @@ declare namespace systemManager {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getNTPServer(admin: Want): string;
+
+  /**
+   * Sets device OTA update policy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { OTAUpdatePolicy } policy - OTA update policy.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setOTAUpdatePolicy(admin: Want, policy: OTAUpdatePolicy): void;
+
+  /**
+   * Gets device OTA update policy.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { OTAUpdatePolicy } OTA update policy.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getOTAUpdatePolicy(admin: Want): OTAUpdatePolicy;
 }
 
 export default systemManager;

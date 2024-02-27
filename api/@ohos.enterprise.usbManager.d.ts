@@ -26,7 +26,6 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace usbManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @systemapi
  * @since 10
  */
 declare namespace usbManager {
@@ -35,18 +34,16 @@ declare namespace usbManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   export enum UsbPolicy {
     /**
      * Policy read write
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     READ_WRITE = 0,
 
@@ -54,9 +51,8 @@ declare namespace usbManager {
      * Policy read only
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     READ_ONLY = 1,
 
@@ -64,9 +60,8 @@ declare namespace usbManager {
      * Policy disabled
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     DISABLED = 2
   }
@@ -76,9 +71,8 @@ declare namespace usbManager {
    *
    * @typedef UsbDeviceId
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   export interface UsbDeviceId {
     /**
@@ -86,9 +80,8 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     vendorId: number;
 
@@ -97,11 +90,50 @@ declare namespace usbManager {
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     productId: number;
+  }
+
+  /**
+   * USB device Type.
+   *
+   * @typedef UsbDeviceType
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  export interface UsbDeviceType {
+    /**
+     * The base class.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    baseClass: string;
+
+    /**
+     * The subClass.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    subClass: string;
+
+    /**
+     * The protocol.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    protocol: string;
   }
 
   /**
@@ -121,6 +153,8 @@ declare namespace usbManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 12
+   * @useinstead usbManager#setUsbStorageDeviceAccessPolicy
    */
   function setUsbPolicy(admin: Want, usbPolicy: UsbPolicy, callback: AsyncCallback<void>): void;
 
@@ -141,6 +175,8 @@ declare namespace usbManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 12
+   * @useinstead usbManager#setUsbStorageDeviceAccessPolicy
    */
   function setUsbPolicy(admin: Want, usbPolicy: UsbPolicy): Promise<void>;
 
@@ -194,12 +230,10 @@ declare namespace usbManager {
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - a conflicting policy has been configured.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function addAllowedUsbDevices(admin: Want, usbDeviceIds: Array<UsbDeviceId>): void;
 
@@ -213,12 +247,10 @@ declare namespace usbManager {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function removeAllowedUsbDevices(admin: Want, usbDeviceIds: Array<UsbDeviceId>): void;
 
@@ -232,12 +264,10 @@ declare namespace usbManager {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getAllowedUsbDevices(admin: Want): Array<UsbDeviceId>;
 
@@ -252,12 +282,10 @@ declare namespace usbManager {
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - a conflicting policy has been configured.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function setUsbStorageDeviceAccessPolicy(admin: Want, usbPolicy: UsbPolicy): void;
 
@@ -271,14 +299,64 @@ declare namespace usbManager {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
-   * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getUsbStorageDeviceAccessPolicy(admin: Want): UsbPolicy;
+
+  /**
+   * Adds disallowed USB devices by {@link UsbDeviceType} array.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<UsbDeviceType> } usbDevices - list of USB device types.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - a conflicting policy has been configured.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function addDisallowedUsbDevices(admin: Want, usbDevices: Array<UsbDeviceType>): void;
+
+  /**
+   * Removes disallowed USB devices by {@link usbDeviceType}.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { Array<UsbDeviceType> } usbDevices - list of USB device types.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function removeDisallowedUsbDevices(admin: Want, usbDevices: Array<UsbDeviceType>): void;
+
+  /**
+   * Gets the available USB device trust list.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { Array<UsbDeviceType> } USB device types that are disallowed.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getDisallowedUsbDevices(admin: Want): Array<UsbDeviceType>;
 }
 
 export default usbManager;

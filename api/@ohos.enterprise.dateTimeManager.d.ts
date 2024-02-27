@@ -26,7 +26,6 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace dateTimeManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @systemapi
  * @since 9
  */
 declare namespace dateTimeManager {
@@ -69,6 +68,23 @@ declare namespace dateTimeManager {
    * @since 9
    */
   function setDateTime(admin: Want, time: number): Promise<void>;
+
+  /**
+   * Sets the system time.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_DATETIME
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { number } time - time indicates the target time stamp (ms).
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function setDateTimeSync(admin: Want, time: number): void;
 
   /**
    * Disallow modify the system time.

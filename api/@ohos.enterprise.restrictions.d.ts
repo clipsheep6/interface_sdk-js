@@ -26,7 +26,6 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace restrictions
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
- * @systemapi
  * @since 10
  */
 declare namespace restrictions {
@@ -257,6 +256,94 @@ declare namespace restrictions {
    * @since 11
    */
   function isFingerprintAuthDisabled(admin: Want): boolean;
+
+  /**
+   * Disallows the specific feature of the device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } feature - feature indicates the specific feature to be disallowed or allowed.
+   * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setDisallowedPolicy(admin: Want, feature: string, disallow: boolean): void;
+
+  /**
+   * Queries whether the specific feature of the device is disallowed.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } feature - feature indicates the specific feature to be queried.
+   * @returns { boolean } true if the specific feature of device is disallowed, otherwise false.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getDisallowedPolicy(admin: Want, feature: string): boolean;
+
+  /**
+   * Adds applications or bundles or other contents to the list to restrict them from using a specific feature.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } feature - feature indicates the specific feature to be disallowed.
+   * @param { Array<string> } list - list of restricted applications or bundles or other contents.
+   * @param { number } accountId - indicates the account ID.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function addDisallowedListForAccount(admin: Want, feature: string, list: Array<string>, accountId: number): void;
+
+  /**
+   * Removes applications or bundles or other contents from the list to unblock them from using a specific feature.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } feature - feature indicates the specific feature to be disallowed.
+   * @param { Array<string> } list - list of unblock applications or bundles or other contents.
+   * @param { number } accountId - indicates the account ID.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function addDisallowedListForAccount(admin: Want, feature: string, list: Array<string>, accountId: number): void;
+
+  /**
+   * Gets the list of applications or bundles or other contents that are restrict from using a specific feature.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } feature - feature indicates the specific feature to be disallowed.
+   * @param { number } accountId - indicates the account ID.
+   * @returns { Array<string> } list - list of applications or bundles or other contents.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function getDisallowedListForAccount(admin: Want, feature: string, accountId: number): Array<string>;
 }
 
 export default restrictions;
