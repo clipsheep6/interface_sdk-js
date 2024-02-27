@@ -475,9 +475,8 @@ declare namespace adminManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 12
    */
   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 
@@ -513,9 +512,8 @@ declare namespace adminManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 12
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 

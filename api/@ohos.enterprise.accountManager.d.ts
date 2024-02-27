@@ -132,6 +132,44 @@ declare namespace accountManager {
    * @since 11
    */
   function addOsAccount(admin: Want, name: string, type: osAccount.OsAccountType): osAccount.OsAccountInfo;
+
+  /**
+   * Disallows the account or all accounts to add an OS account.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { boolean } disallow - true if the specific account or all accounts are not allowed to add an OS account.
+   * @param { number } [accountId] - indicates the account ID.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function disallowAddOsAccount(admin: Want, disallow: boolean, accountId?: number): void;
+
+  /**
+   * Queries whether the account or all accounts is disallowed to add an OS account.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { number } [accountId] - indicates the account ID.
+   * @returns { boolean } true if the specific account or all accounts are not allowed to add an OS account.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function isAddOsAccountDisallowed(admin: Want, accountId?: number): boolean;
 }
 
 export default accountManager;

@@ -45,9 +45,8 @@ declare namespace deviceSettings {
      *
      * @type { PowerPolicyAction }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     powerPolicyAction: PowerPolicyAction;
 
@@ -56,9 +55,8 @@ declare namespace deviceSettings {
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     delayTime: number;
   }
@@ -68,17 +66,15 @@ declare namespace deviceSettings {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   enum PowerPolicyAction {
     /**
      * Performs no action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     NONE = 0,
 
@@ -86,9 +82,8 @@ declare namespace deviceSettings {
      * Performs auto suspend action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     AUTO_SUSPEND,
 
@@ -96,9 +91,8 @@ declare namespace deviceSettings {
      * Performs force suspend action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     FORCE_SUSPEND,
 
@@ -106,9 +100,8 @@ declare namespace deviceSettings {
      * Performs hibernate action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     HIBERNATE,
 
@@ -116,9 +109,8 @@ declare namespace deviceSettings {
      * Performs shutdown action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     SHUTDOWN
   }
@@ -128,17 +120,15 @@ declare namespace deviceSettings {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   enum PowerScene {
     /**
      * Time out scene
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     TIME_OUT = 0
   }
@@ -148,9 +138,8 @@ declare namespace deviceSettings {
    *
    * @typedef CertBlob
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   export interface CertBlob {
     /**
@@ -158,9 +147,8 @@ declare namespace deviceSettings {
      *
      * @type { Uint8Array }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     inData: Uint8Array;
 
@@ -169,9 +157,8 @@ declare namespace deviceSettings {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     alias: string;
   }
@@ -189,9 +176,8 @@ declare namespace deviceSettings {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function setScreenOffTime(admin: Want, time: number): void;
 
@@ -234,6 +220,24 @@ declare namespace deviceSettings {
   function getScreenOffTime(admin: Want): Promise<number>;
 
   /**
+   * Gets the device screen off time.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_SETTINGS
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @returns { number } screen off time.
+   * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 401 - invalid input parameter.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @StageModelOnly
+   * @since 12
+   */
+  function getScreenOffTimeSync(admin: Want): number;
+
+  /**
    * Install user certificate.
    * This function can be called by a super administrator.
    *
@@ -269,9 +273,8 @@ declare namespace deviceSettings {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   function installUserCertificate(admin: Want, certificate: CertBlob): Promise<string>;
 
@@ -311,9 +314,8 @@ declare namespace deviceSettings {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since 12
    */
   function uninstallUserCertificate(admin: Want, certUri: string): Promise<void>;
 
@@ -331,9 +333,8 @@ declare namespace deviceSettings {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function setPowerPolicy(admin: Want, powerScene: PowerScene, powerPolicy: PowerPolicy): void;
 
@@ -351,9 +352,8 @@ declare namespace deviceSettings {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getPowerPolicy(admin: Want, powerScene: PowerScene): PowerPolicy;
 }

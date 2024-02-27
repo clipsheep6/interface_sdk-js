@@ -35,18 +35,16 @@ declare namespace locationManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   export enum LocationPolicy {
     /**
      * Default location service.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     DEFAULT_LOCATION_SERVICE = 0,
 
@@ -54,9 +52,8 @@ declare namespace locationManager {
      * Disallows open location service.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     DISALLOW_LOCATION_SERVICE = 1,
 
@@ -64,9 +61,8 @@ declare namespace locationManager {
      * Force open the location service.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     FORCE_OPEN_LOCATION_SERVICE = 2,
   }
@@ -84,9 +80,8 @@ declare namespace locationManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function setLocationPolicy(admin: Want, policy: LocationPolicy): void;
 
@@ -103,9 +98,8 @@ declare namespace locationManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getLocationPolicy(admin: Want): LocationPolicy;
 }

@@ -37,9 +37,8 @@ declare namespace bluetoothManager {
    *
    * @typedef BluetoothInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   export interface BluetoothInfo {
     /**
@@ -47,9 +46,8 @@ declare namespace bluetoothManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     name: string;
 
@@ -58,9 +56,8 @@ declare namespace bluetoothManager {
      *
      * @type { access.BluetoothState }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     state: access.BluetoothState;
 
@@ -69,9 +66,8 @@ declare namespace bluetoothManager {
      *
      * @type { constant.ProfileConnectionState }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since 12
      */
     connectionState: constant.ProfileConnectionState;
   }
@@ -89,9 +85,8 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function getBluetoothInfo(admin: Want): BluetoothInfo;
 
@@ -108,9 +103,8 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function setBluetoothDisabled(admin: Want, disabled: boolean): void;
 
@@ -127,9 +121,8 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 12
    */
   function isBluetoothDisabled(admin: Want): boolean;
 }
