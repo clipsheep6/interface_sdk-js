@@ -440,6 +440,48 @@ declare interface PasteEvent {
 }
 
 /**
+ * Defines the cust event.
+ *
+ * @interface CutEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface CutEvent {
+  /**
+   * Override system cut event.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  preventDefault?: () => void;
+}
+
+/**
+ * Defines the copy event.
+ *
+ * @interface CopyEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface CopyEvent {
+  /**
+   * Override system copy event.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  preventDefault?: () => void;
+}
+
+/**
  * Defines the text span.
  *
  * @interface RichEditorTextSpan
@@ -1896,6 +1938,36 @@ declare interface RichEditorDeleteValue {
    */
   richEditorDeleteSpans: Array<RichEditorTextSpanResult | RichEditorImageSpanResult>;
 }
+
+/**
+ * Provides an interface for change value from text.
+ *
+ * @interface RichEditorChangeValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface RichEditorChangeValue {
+ /**
+   * The changed span object.
+   *
+   * @type { Array<RichEditorTextSpanResult> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+ changeSpans: Array<RichEditorTextSpanResult>;
+
+ /**
+   * The replace span object.
+   *
+   * @type { String }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  replacementText: String;
+}
 /**
  * Defines the options of RichEditor.
  *
@@ -2509,6 +2581,50 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 12
    */
   placeholder(value: ResourceStr, style?: PlaceholderStyle): RichEditorAttribute;
+
+  /**
+   * Get text value information before about to change.
+   *
+   * @param { function } callback - The triggered function before text content is about to change.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  aboutToChangeText(callback: (value: RichEditorChangeValue ) => boolean) : RichEditorAttribute;
+
+  /**
+   * Get text value information after about to change.
+   *
+   * @param { function } callback - The triggered function after text content is about to change.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onTextChangeComplete(callback: (value: RichEditorTextSpanResult ) => void) : RichEditorAttribute;
+
+  /**
+    * Defines onCut callback.
+    *
+    * @param { function } callback Executed when a paste operation is performed.
+    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  onCut(callback: (event?: CutEvent) => void): RichEditorAttribute;
+
+  /**
+    * Defines onCut callback.
+    *
+    * @param { function } callback Executed when a paste operation is performed.
+    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @since 12
+    */
+  onCopy(callback: (event?: CopyEvent) => void): RichEditorAttribute;
 }
 
 /**
