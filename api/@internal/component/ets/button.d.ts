@@ -331,8 +331,8 @@ declare interface ButtonOptions {
    * @default ButtonStyleMode.EMPHASIZED
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
    * @form
+   * @since 11
    */
   buttonStyle?: ButtonStyleMode;
 
