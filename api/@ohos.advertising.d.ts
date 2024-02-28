@@ -228,6 +228,21 @@ declare namespace advertising {
     nonPersonalizedAd?: number;
 
     /**
+     * allowMobileTraffic ad settings.
+     * @type { ?number }
+     * @syscap SystemCapability.Advertising.Ads
+     * @since 11
+     */
+    /**
+     * allowMobileTraffic ad settings.
+     * @type { ?number }
+     * @syscap SystemCapability.Advertising.Ads
+     * @atomicservice
+     * @since 12
+     */
+    allowMobileTraffic?: number;
+
+    /**
      * The extended attributes for ad options.
      * @type { number | boolean | string | undefined }
      * @syscap SystemCapability.Advertising.Ads
