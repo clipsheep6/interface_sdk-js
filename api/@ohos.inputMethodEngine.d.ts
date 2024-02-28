@@ -1260,7 +1260,7 @@ declare namespace inputMethodEngine {
      * Insert the provided text as previewing text.
      *
      * @param { string } text - the text to be previewing.
-     * @param { Range } range - the range of the previewing text.
+     * @param { Range } range - the range of the text to be replaced by the previewing text.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1278,9 +1278,9 @@ declare namespace inputMethodEngine {
     stopPreviewingText(): void;
 
     /**
-     * Get the split-screen mode of the window to which the input field belongs.
+     * Get the split-screen mode of the host window to which the current edit box belongs.
      *
-     * @returns { SplitScreenMode } the split-screen mode of the window to which the input field belongs.
+     * @returns { SplitScreenMode } the split-screen mode of the host window to which the current edit box belongs.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
@@ -1659,6 +1659,15 @@ declare namespace inputMethodEngine {
      * @since 8
      */
     readonly enterKeyType: number;
+
+    /**
+     * Indicates whether the editor supports the text previewing.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    isTextPreviewingSupported: boolean;
   }
 
   /**
