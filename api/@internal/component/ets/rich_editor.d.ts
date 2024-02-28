@@ -2521,7 +2521,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
-   * @form
    */
   fontFeature(value: string): RichEditorAttribute;
 }
