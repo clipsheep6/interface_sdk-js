@@ -1247,18 +1247,6 @@ declare namespace inputMethodEngine {
     sendExtendAction(action: ExtendAction): Promise<void>;
 
     /**
-     * Query whether current editor supports text previewing.
-     *
-     * @returns { boolean }
-     *     If true, current editor box supports text previewing.
-     *     If false, current editor box doesn't support text previewing.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    isTextPreviewingSupported(): boolean;
-
-    /**
      * Get the range of the previewing text.
      *
      * @returns { Range } the range of the previewing text.
@@ -1269,38 +1257,16 @@ declare namespace inputMethodEngine {
     getPreviewingTextRange(): Range;
 
     /**
-     * Get the pattern of the previewing text.
-     *
-     * @returns { TextPattern } the pattern of the previewing text.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    getPreviewingTextPattern(): TextPattern;
-
-    /**
-     * Set the pattern of the previewing text.
-     *
-     * @param { TextPattern } pattern - the pattern of the previewing text.
-     * @throws { BusinessError } 401 - parameter error.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    setPreviewingTextPattern(pattern: TextPattern): void;
-
-    /**
-     * Insert the text into editor box as previewing text.
+     * Insert the provided text as previewing text.
      *
      * @param { string } text - the text to be previewing.
      * @param { Range } range - the range of the previewing text.
-     * @param { TextPatterm } [pattern] - optional, the pattern of the previewing text.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    setPreviewingText(text: string, range: Range, pattern?: TextPattern): void;
+    setPreviewingText(text: string, range: Range): void;
 
     /**
      * Stop text previewing.
@@ -1310,6 +1276,16 @@ declare namespace inputMethodEngine {
      * @since 12
      */
     stopPreviewingText(): void;
+
+    /**
+     * Get the split-screen mode of the window to which the input field belongs.
+     *
+     * @returns { SplitScreenMode } the split-screen mode of the window to which the input field belongs.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getHostWindowSplitScreenMode(): SplitScreenMode;
   }
 
   /**
@@ -1660,16 +1636,6 @@ declare namespace inputMethodEngine {
      * @since 11
      */
     setPrivacyMode(isPrivacyMode: boolean): void;
-
-    /**
-     * Get the split-screen mode of the window to which the input field belongs.
-     *
-     * @returns { SplitScreenMode } the split-screen mode of the window to which the input field belongs.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    getInputFieldWindowSplitScreenMode(): SplitScreenMode;
   }
 
   /**
@@ -1951,37 +1917,6 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     PASTE = 5
-  }
-
-  /**
-   * Enumerates the split-screen mode.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 12
-   */
-  export enum SplitScreenMode {
-    /**
-     * Not in split-window mode.
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    INVALID = -1,
-    /**
-     * The window is on a left-right split-screen mode.
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    LEFT_RIGHT,
-    /**
-     * The window is on a top-bottom split-screen mode.
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    TOP_BOTTOM
   }
 }
 
