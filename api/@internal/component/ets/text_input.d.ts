@@ -1845,6 +1845,42 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   passwordRules(value: string): TextInputAttribute;
+
+  /**
+   * Called when the overflow mode of the font is set.
+   *
+   * @param { object } value
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  textOverflow(value: { overflow: TextOverflow }): TextInputAttribute;
+
+  /**
+   * Called when the baseline offset is set.
+   *
+   * @param { number | string } value
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+    baselineOffset(value: number | string): TextInputAttribute;
+
+    /**
+     * Specify the indentation of the first line in a text-block.
+     *
+     * @param { Length } value - The length of text indent.
+     * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    textIndent(value: Length): TextInputAttribute;
 }
 
 /**
