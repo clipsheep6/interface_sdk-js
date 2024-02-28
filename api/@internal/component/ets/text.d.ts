@@ -958,7 +958,6 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
-   * @form
    */
   fontFeature(value: string): TextAttribute;
 }
