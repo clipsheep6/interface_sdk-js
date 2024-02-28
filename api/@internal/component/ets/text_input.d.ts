@@ -390,6 +390,26 @@ declare interface SubmitEvent {
 }
 
 /**
+ * Defines the Keyboard options of TextInput.
+ *
+ * @interface KeyboardOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface KeyboardOption {
+  /**
+   * the offset that add a text span at.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isSupportAvoidance?: boolean;
+}
+
+/**
  * Provides the method of switching the cursor position.
  *
  * @extends TextContentControllerBase
@@ -1846,6 +1866,18 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    */
   passwordRules(value: string): TextInputAttribute;
 }
+
+/**
+   * Define custom keyboard.
+   *
+   * @param { CustomBuilder } value
+   * @param { KeyboardOption } options
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+customKeyboard(value: CustomBuilder, options?: KeyboardOption): TextInputAttribute;
 
 /**
  * Defines TextInput Component.

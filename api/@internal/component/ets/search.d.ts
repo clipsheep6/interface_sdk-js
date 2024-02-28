@@ -352,6 +352,26 @@ interface SearchInterface {
 }
 
 /**
+ * Defines the Keyboard options of Search.
+ *
+ * @interface KeyboardOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface KeyboardOption {
+  /**
+   * the offset that add a text span at.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isSupportAvoidance?: boolean;
+}
+
+/**
  * Defines the icon options
  *
  * @interface IconOptions
@@ -1101,6 +1121,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    */
   type(value: SearchType): SearchAttribute;
 }
+
+/**
+   * Define custom keyboard.
+   *
+   * @param { CustomBuilder } value
+   * @param { KeyboardOption } options
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+customKeyboard(value: CustomBuilder, options?: KeyboardOption): SearchAttribute;
 
 /**
  * Defines Search Component.
