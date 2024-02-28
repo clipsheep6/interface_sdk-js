@@ -167,6 +167,43 @@ declare enum RichEditorResponseType {
 }
 
 /**
+ * Enum of menuPolicy
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum MenuPolicy {
+  /**
+   * Default value. The default logic of whether to pop up a menu depends on the scene.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * Never pop up the menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  NONE = 1,
+
+  /**
+   * Always pop up the menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  ALAWYS = 2,
+}
+
+/**
  * Defines the span position.
  *
  * @interface RichEditorSpanPosition
@@ -1433,14 +1470,14 @@ declare interface RichEditorTextSpanOptions {
  */
 declare interface SelectionOptions {
   /**
-   * Indicates whether to forcibly pop up the text selection menu.
+   * Indicates whether to pop up the text selection menu.
    *
-   * @type { ?boolean }
+   * @type { ?MenuPolicy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  isForcePopUpMenu?: boolean;
+  isForcePopUpMenu?: MenuPolicy;
 }
 
 /**
@@ -2227,12 +2264,12 @@ declare class RichEditorController {
    *
    * @param { number } selectionStart - The start position of the selected text.
    * @param { number } selectionEnd - The end position of the selected text.
-   * @param { SelectionOptions } [options] - Indicates the options of selection.
+   * @param { SelectionOptions } options - Indicates the options of selection.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
+  setSelection(selectionStart: number, selectionEnd: number, options: SelectionOptions): void;
 
   /**
    * Called when the content is selected.
