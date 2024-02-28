@@ -1433,14 +1433,14 @@ declare interface RichEditorTextSpanOptions {
  */
 declare interface SelectionOptions {
   /**
-   * Force a pop-up menu.
+   * Indicates whether to forcibly pop up the text selection menu.
    *
-   * @type { boolean }
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  isForcePopUpMenu: boolean;
+  isForcePopUpMenu?: boolean;
 }
 
 /**
@@ -2227,7 +2227,7 @@ declare class RichEditorController {
    *
    * @param { number } selectionStart - The start position of the selected text.
    * @param { number } selectionEnd - The end position of the selected text.
-   * @param { SelectionOptions } [options] - Whether the menu pops up.
+   * @param { SelectionOptions } [options] - Indicates the options of selection.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
