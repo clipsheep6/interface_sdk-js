@@ -60,7 +60,7 @@ export interface NotificationBasicContent {
    * @since 12
    */
   lockscreenPicture?: image.PixelMap;
-}
+}.
 
 /**
  * Describes a long text notification.
@@ -193,7 +193,7 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
   pictureInfo?: Record<string, Array<image.PixelMap>>;
 
   /**
-   * Update locally.
+   * Whether to update locally.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification

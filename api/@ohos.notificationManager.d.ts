@@ -1006,7 +1006,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @param { SlotType } slottype - Indicates the notification slot.
+   * @param { SlotType } slotType - Indicates the notification slot.
    * @returns { Promise<NotificationSlot> } Returns the NotificationSlot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -1020,7 +1020,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function getSlotByBundle(bundle: BundleOption, slottype: SlotType): Promise<NotificationSlot>;
+  function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot>;
 
   /**
    * Obtains all notification slots belonging to the specified bundle.
@@ -1839,7 +1839,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { string } deviceType - The device type.
-   * @returns { Promise<void> } Returns whether the smart reminders across devices notification is supported.
+   * @returns { Promise<boolean> } Returns whether the smart reminders across devices notification is supported.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
@@ -2807,7 +2807,7 @@ declare namespace notificationManager {
     /**
      * The trustlist of application.
      *
-     * @type { Array<BundleOption> }
+     * @type { ?Array<BundleOption> }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12
