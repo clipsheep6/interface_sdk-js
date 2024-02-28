@@ -59,7 +59,7 @@ export interface NotificationBasicContent {
    * @syscap SystemCapability.Notification.Notification
    * @since 12
    */
-  lockScreenPicture?: image.PixelMap;
+  lockscreenPicture?: image.PixelMap;
 }
 
 /**
