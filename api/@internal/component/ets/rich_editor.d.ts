@@ -2480,7 +2480,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * Called when edit status is change
    *
    * @param { function } callback - The triggered function when change edit status.
-   * @returns { RichEditorAttribute }
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
