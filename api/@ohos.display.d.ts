@@ -326,6 +326,7 @@ declare namespace display {
   /**
    * set fold status locked and get callback fold status.
    *
+   * @permission ohos.permission.CHANGE_DISPLAYMODE
    * @param { number } displayMode - display mode.
    * @param { Callback<FoldStatus> } callback - Callback used to return the fold status.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
@@ -341,6 +342,7 @@ declare namespace display {
   /**
    * set fold status unlocked.
    *
+   * @permission ohos.permission.CHANGE_DISPLAYMODE
    * @param { number } displayMode - display mode.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error.
