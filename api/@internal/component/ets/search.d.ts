@@ -1112,7 +1112,6 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
-   * @form
    */
   fontFeature(value: string): SearchAttribute;
 }
