@@ -1310,6 +1310,21 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   fontFamily(value: ResourceStr): TextInputAttribute;
 
   /**
+   * Called when the text fontFeature is set.
+   *
+   * @param { string } value - The fontFeature.
+   * normal | <feature-tag-value>, 
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  fontFeature(value: string): TextInputAttribute;
+
+  /**
    * Called when the inputFilter of text is set.
    *
    * @param { ResourceStr } value
