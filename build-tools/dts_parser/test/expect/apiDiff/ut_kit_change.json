@@ -1,0 +1,34 @@
+[
+  {
+    "apiType": "SourceFile",
+    "statusCode": 26,
+    "oldApiDefinedText": "",
+    "newApiDefinedText": "",
+    "oldApiName": "ut_kit_change.d.ts",
+    "newApiName": "ut_kit_change.d.ts",
+    "oldDtsName": "ut_kit_change.d.ts",
+    "newDtsName": "ut_kit_change.d.ts",
+    "diffType": 68,
+    "diffMessage": "kit变更",
+    "changeLogUrl": "",
+    "changeLogs": [],
+    "isCompatible": true,
+    "oldHierarchicalRelations": [
+      "ut_kit_change.d.ts"
+    ],
+    "newHierarchicalRelations": [
+      "ut_kit_change.d.ts"
+    ],
+    "oldPos": {
+      "line": 24,
+      "character": 1
+    },
+    "newPos": {
+      "line": 24,
+      "character": 1
+    },
+    "oldDescription": "AbilityKit",
+    "newDescription": "AccessibilityKit",
+    "newSyscapField": ""
+  }
+]
