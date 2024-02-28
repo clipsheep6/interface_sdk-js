@@ -331,6 +331,26 @@ declare enum TextAreaType {
 }
 
 /**
+ * Defines the Keyboard options of TextArea.
+ *
+ * @interface KeyboardOption
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface KeyboardOption {
+  /**
+   * the offset that add a text span at.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isSupportAvoidance?: boolean;
+}
+
+/**
  * Defines the attribute functions of TextArea.
  *
  * @extends CommonMethod<TextAreaAttribute>
@@ -1056,6 +1076,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    */
   type(value: TextAreaType): TextAreaAttribute;
 }
+
+/**
+   * Define custom keyboard.
+   *
+   * @param { CustomBuilder } value
+   * @param { KeyboardOption } options
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+customKeyboard(value: CustomBuilder, options?: KeyboardOption): TextAreaAttribute;
 
 /**
  * Defines TextArea Component.
