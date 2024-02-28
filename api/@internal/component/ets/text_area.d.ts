@@ -331,6 +331,26 @@ declare enum TextAreaType {
 }
 
 /**
+ * Defines the Keyboard options of TextArea.
+ *
+ * @interface KeyboardOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface KeyboardOptions {
+  /**
+   * Indicates whether to support keyboard avoidance.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  supportAvoidance?: boolean;
+}
+
+/**
  * Defines the attribute functions of TextArea.
  *
  * @extends CommonMethod<TextAreaAttribute>
@@ -1043,7 +1063,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @atomicservice
    * @since 11
    */
-  customKeyboard(value: CustomBuilder): TextAreaAttribute;
+
+  /**
+   * Define custom keyboard.
+   *
+   * @param { CustomBuilder } value - Set up a custom keyboard of TextArea
+   * @param { KeyboardOptions } [options] - Indicates the Keyboard options of TextArea
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  customKeyboard(value: CustomBuilder, options?: KeyboardOptions): TextAreaAttribute;
   
   /**
    * Called when the input type is set.
