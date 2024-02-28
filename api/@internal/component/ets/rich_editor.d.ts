@@ -1508,6 +1508,38 @@ declare interface RichEditorBuilderSpanOptions {
 }
 
 /**
+ * Defines the placeholder style.
+ *
+ * @interface PlaceholderStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface PlaceholderStyle {
+  /**
+   * font.
+   *
+   * @type { ?Font }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  font?: Font;
+
+  /**
+   * fontColor.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  fontColor?: ResourceColor;
+}
+
+/**
  * Defines span style option of RichEditor.
  *
  * @interface RichEditorSpanStyleOptions
