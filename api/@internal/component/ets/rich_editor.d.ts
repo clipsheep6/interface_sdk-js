@@ -354,6 +354,16 @@ declare interface RichEditorTextStyle {
    * @since 11
    */
   textShadow?: ShadowOptions | Array<ShadowOptions>;
+
+  /**
+   * font feature
+   *
+   * @type { ?string } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature?: string;
 }
 
 
@@ -807,6 +817,16 @@ declare interface RichEditorTextStyleResult {
    * @since 11
    */
   decoration: { type: TextDecorationType; color: ResourceColor; };
+  
+  /**
+   * font feature
+   *
+   * @type { ?string } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature?: string;
 }
 
 /**
