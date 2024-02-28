@@ -16822,7 +16822,7 @@ declare interface LayoutChild {
    * @deprecated since 10
    * @form
    */
-  measure(childConstraint: ConstraintSizeOptions),
+  measure(childConstraint: ConstraintSizeOptions): void,
 
   /**
    * Call this layout method in onLayout callback to assign layout info to sub component.
@@ -16833,7 +16833,7 @@ declare interface LayoutChild {
    * @deprecated since 10
    * @form
    */
-  layout(childLayoutInfo: LayoutInfo),
+  layout(childLayoutInfo: LayoutInfo): void,
 }
 
 /**
