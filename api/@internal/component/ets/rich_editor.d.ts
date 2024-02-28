@@ -2515,7 +2515,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    *
    * @param { string } value - The fontFeature.
    * normal | <feature-tag-value>, 
-   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0,
    * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
