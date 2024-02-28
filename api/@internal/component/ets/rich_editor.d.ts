@@ -2249,7 +2249,6 @@ declare class RichEditorController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
    */
   stopEditing(): void;
@@ -2537,8 +2536,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
+   * @crossplatform 
    * @since 12
    */
   onSubmit(callback: (enterKey: EnterKeyType, event: SubmitEvent) => void): RichEditorAttribute;
