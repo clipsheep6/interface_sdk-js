@@ -454,6 +454,38 @@ declare namespace resourceManager {
   }
 
   /**
+   * Enumerates color mode types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  export enum ColorMode {
+
+    /**
+     * Indicates dark mode.
+     *
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    DARK = 0,
+
+    /**
+     * Indicates light mode.
+     *
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    LIGHT = 1
+  }
+
+  /**
    * Provides the device configuration.
    *
    * @syscap SystemCapability.Global.ResourceManager
@@ -520,6 +552,56 @@ declare namespace resourceManager {
      * @since 11
      */
     locale: string;
+
+    /**
+     * Indicates the device type.
+     *
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    deviceType: DeviceType;
+
+    /**
+     * Indicates the screen density.
+     *
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    screenDensity: ScreenDensity;
+
+    /**
+     * Indicates the color mode.
+     *
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    colorMode: ColorMode;
+
+    /**
+     * Indicates the mcc.
+     *
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    mcc : number;
+
+    /**
+     * Indicates the mnc.
+     *
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    mnc : number;
   }
 
   /**
@@ -4447,6 +4529,57 @@ declare namespace resourceManager {
      * @since 11
      */
     getSymbolByName(resName: string) : number;
+
+    /**
+     * Get the override ResourceManager object related to the specified Configuration.
+     * 
+     * @param { Configuration } [configuration] - Indicates the override Configuration{@link Configuration}
+     * @returns { ResourceManager } The ResourceManager object is returned.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getOverrideResourceManager(configuration?: Configuration): ResourceManager;
+
+    /**
+     * Get the current override Configuration related to the specified override ResourceManager.
+     *
+     * @returns { Configuration } The Configuration object is returned.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+
+     getOverrideConfiguration(): Configuration;
+
+    /**
+     * Update the current override Configuration.
+     *
+     * @param { Configuration } configuration - Indicates the override Configuration{@link Configuration}
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+     updateOverrideConfiguration(configuration: Configuration): void;
+
+    /**
+     * Whether the rawfile resource is a directory or not.
+     *
+     * @param { string } path - Indicates the rawfile resource relative path.
+     * @returns { boolean } True means the file path is directory, else false.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001005 - If the resource not found by path.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+     isRawDir(path: string): boolean;
   }
 
   /**
