@@ -575,7 +575,7 @@ export interface UnifiedGroupInfo {
   /**
    * The key is aggregated across applications.
    *
-   * @type { notificationManager.ContentType }
+   * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
