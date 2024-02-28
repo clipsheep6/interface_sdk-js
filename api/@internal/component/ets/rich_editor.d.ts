@@ -200,7 +200,7 @@ declare enum MenuPolicy {
    * @crossplatform
    * @since 12
    */
-  ALAWYS = 2,
+  ALWAYS = 2,
 }
 
 /**
