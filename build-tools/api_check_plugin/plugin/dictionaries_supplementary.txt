@@ -446,6 +446,7 @@ logoff
 longitudinally
 lowercased
 lightens
+lightscreen
 lightupEffect
 lpx
 lru
