@@ -1251,6 +1251,7 @@ declare namespace inputMethodEngine {
      *
      * @returns { Range } the range of the previewing text.
      * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800011 - text previewing is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -1263,6 +1264,7 @@ declare namespace inputMethodEngine {
      * @param { Range } range - the range of the text to be replaced by the previewing text.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800011 - text previewing is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -1272,20 +1274,21 @@ declare namespace inputMethodEngine {
      * Stop text previewing.
      *
      * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800011 - text previewing is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
     stopPreviewingText(): void;
 
     /**
-     * Get the split-screen mode of the host window to which the current edit box belongs.
+     * Get the split screen state of the host window of the current edit box.
      *
-     * @returns { SplitScreenMode } the split-screen mode of the host window to which the current edit box belongs.
+     * @returns { SplitScreenMode } the split screen state of the host window of the current edit box.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    getHostWindowSplitScreenMode(): SplitScreenMode;
+    getHostWindowSplitScreenState(): SplitScreenState;
   }
 
   /**
@@ -1926,6 +1929,55 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     PASTE = 5
+  }
+
+  /**
+   * Enumerates the split screen state.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  export enum SplitScreenState {
+    /**
+     * Not in split window mode.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    NONE = 0,
+
+    /**
+     * Screen is vertically split, the window is on the left.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    VERTICAL_SPLIT_LEFT,
+
+    /**
+     * Screen is vertically split, the window is on the right.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    VERTICAL_SPLIT_RIGHT,
+
+    /**
+     * Screen is horizontally split, the window is at the top.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    HORIZONTAL_SPLIT_TOP,
+
+    /**
+     * Screen is horizontally split, the window is at the bottom.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    HORIZONTAL_SPLIT_BOTTOM
   }
 }
 
