@@ -18,11 +18,11 @@
  * @kit ArkData
  */
 
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './@ohos.base';
 import Context from './application/Context';
 import DataShareResultSet from './@ohos.data.DataShareResultSet';
 import dataSharePredicates from './@ohos.data.dataSharePredicates';
-import { ValuesBucket } from './@ohos.data.ValuesBucket';
+import { ValuesBucket, ValueType } from './@ohos.data.ValuesBucket';
 
 /**
  * This module provides the dataShare capability for consumer.
@@ -375,6 +375,74 @@ declare namespace dataShare {
      */
     result: number;
   }
+
+  interface InsertOperation {
+    /**
+     * Batch inserted column names.
+     * 
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    cols: Array<string>;
+
+    /**
+     * The set of values corresponding to each column.
+     * 
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    values: Array<Array<ValueType | Uint8Array | null>>;
+  }
+
+  interface UpdateOperation {
+    /**
+     * Indicates the data to update. This parameter can be null.
+     * 
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    updates: ValuesBucket;
+
+    /**
+     * Indicates filter criteria.
+     * You should define the processing logic when this parameter is null.
+     * 
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    condation: dataSharePredicates.DataSharePredicates;
+  }
+
+  interface DelOperation {
+    /**
+     * Indicates filter criteria.
+     * You should define the processing logic when this parameter is null.
+     * 
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    condation: dataSharePredicates.DataSharePredicates;
+  }
+
+  /**
+   * Set of related parameters for operating the database.
+   *
+   * @typedef Operation
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @stagemodelonly
+   * @since 12
+   */
+  type Operation = InsertOperation | UpdateOperation | DelOperation
 
   /**
    * DataShareHelper
@@ -776,6 +844,35 @@ declare namespace dataShare {
      * @since 9
      */
     batchInsert(uri: string, values: Array<ValuesBucket>): Promise<number>;
+
+    /**
+     * Batch operation database
+     *
+     * @param { Record<string, Array<Operation>> } operations - Batch operations corresponding to uri.
+     * @param { AsyncCallback<Record<string, Array<number>>> } callback - The result set of batch operations.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    executeBatch(
+      operations: Record<string, Array<Operation>>,
+      callback: AsyncCallback<Record<string, Array<number>>>
+    ): void;
+
+    /**
+     * Batch operation database
+     *
+     * @param { Record<string, Array<Operation>> } operations - Batch operations corresponding to uri.
+     * @returns {Promise<Record<string, Array<number>>>} {Record<string, Array<number>>}: The result set of batch operations.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    executeBatch(operations: Record<string, Array<Operation>>): Promise<Record<string, Array<number>>>;
 
     /**
      * Converts the given {@code uri} that refers to the DataShare into a normalized {@link ohos.utils.net.Uri}.
