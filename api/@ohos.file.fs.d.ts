@@ -112,6 +112,8 @@ declare namespace fileIo {
   export { Stream };
   export { Watcher };
   export { WhenceType };
+  export { TaskSignal };
+  export { ConflictResolution };
   export type { Progress };
   export type { CopyOptions };
   export type { ProgressListener };
@@ -5687,6 +5689,85 @@ interface Progress {
 }
 
 /**
+ * Task signal.
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 12
+ */
+class TaskSignal {
+
+  /**
+   * Cancel the task.
+   *
+   * @throws { BusinessError } 13900043 - No task can be canceled.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  cancel(): void;
+  
+  /**
+   * Pause the task.
+   *
+   * @throws { BusinessError } 13900044 - No task can be paused.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  pause(): void;
+  
+  /**
+   * Recover the task.
+   *
+   * @throws { BusinessError } 13900045 - No task can be recovered.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  resume(): void;
+
+  /**
+   * Subscribe cancel event of current task.
+   *
+   * @param { Callback<string> } callback - callback of cancel event.
+   *        The last file copied is provided for this callback.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  onCancel(callback: Callback<string>);
+
+  /**
+   * Subscribe pause event of current task.
+   *
+   * @param { Callback<string> } callback - callback of pause event.
+   *        The last file copied is provided for this callback.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  onPause(callback: Callback<string>);
+  
+  /**
+   * Subscribe recover event of current task.
+   *
+   * @param { Callback<void> } callback - callback of recover event.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  onResume(callback: Callback<void>);
+  
+  /**
+   * Subscribe conflict event of current task.
+   *
+   * @param { (fileName: string) => ConflictResolution } callback - callback of conflict event.
+   *        The conflict file name is provided for this callback.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  onConflict(callback: (fileName: string) => ConflictResolution);
+}
+
+/**
  * Get options of copy
  *
  * @typedef CopyOptions
@@ -5695,13 +5776,31 @@ interface Progress {
  */
 interface CopyOptions {
   /**
-   * Listener of copy progress
+   * Listener of copy progress.
    *
    * @type { ?ProgressListener }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 11
    */
   progressListener?: ProgressListener;
+
+  /**
+   * Cancel signal of copy.
+   *
+   * @type { ?TaskSignal }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  copySignal?: TaskSignal;
+  
+  /**
+   * Copy mode.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  mode?: number;
 }
 
 /**
@@ -5711,6 +5810,31 @@ interface CopyOptions {
  * @since 11
  */
 type ProgressListener = (progress: Progress) => void;
+
+/**
+ * Enumeration of different resolution of conflict.
+ *
+ * @enum { number } resolution type of conflict.
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @since 12
+ */
+declare enum ConflictResolution {
+  /**
+   * Skip the conflict file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  SKIP = 0,
+
+  /**
+   * Cover the conflict file.
+   *
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  COVER = 1,
+}
 
 /**
  * File object.
