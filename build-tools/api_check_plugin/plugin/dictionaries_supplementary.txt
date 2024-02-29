@@ -470,6 +470,7 @@ mmax
 mmi
 mmicode
 mnc
+mns
 moderately
 moitor
 mplink
@@ -554,6 +555,7 @@ pastedata
 patchlevel
 pbap
 pbo
+pce
 pda
 pdu
 peap
@@ -563,6 +565,7 @@ perso
 personalisation
 pertaining
 pgo
+phonebook
 photographing
 pickers
 pixelmap
@@ -605,6 +608,7 @@ promisify
 provisioned
 proxyed
 psc
+pse
 psk
 psrc
 pss
