@@ -1102,7 +1102,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   type(value: SearchType): SearchAttribute;
 
   /**
-   * Called when the text fontFeature is set.
+   * Set font feature.
    *
    * @param { string } value - The fontFeature.
    * normal | <feature-tag-value>, 
