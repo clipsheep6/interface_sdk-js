@@ -2260,7 +2260,7 @@ declare class RichEditorController {
   setSelection(selectionStart: number, selectionEnd: number): void;
   
   /**
-   * Text selection is achieved by specifying the start and end positions of the rich editor.
+   * Specify the start and end positions to select a range of content.
    *
    * @param { number } selectionStart - The start position of the selected text.
    * @param { number } selectionEnd - The end position of the selected text.
