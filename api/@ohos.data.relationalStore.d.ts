@@ -334,6 +334,16 @@ declare namespace relationalStore {
      * @since 11
      */
     isSearchable?: boolean;
+
+    /**
+     * Indicates the ID of user, the database will be created under the specified user.
+     * This parameter only effective for single app.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    userId?: number;
   }
 
   /**

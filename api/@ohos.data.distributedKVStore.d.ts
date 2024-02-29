@@ -475,6 +475,16 @@ declare namespace distributedKVStore {
      * @since 9
      */
     schema?: Schema;
+
+    /**
+     * Indicates the ID of user, the database will be created under the specified user.
+     * This parameter only effective for single app.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
+     * @since 12
+     */
+    userId?: number;
   }
 
   /**
