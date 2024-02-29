@@ -167,7 +167,7 @@ declare enum RichEditorResponseType {
 }
 
 /**
- * Enum of menuPolicy
+ * Define the menu pop-up policy
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -185,7 +185,7 @@ declare enum MenuPolicy {
   DEFAULT = 0,
 
   /**
-   * Never pop up the menu.
+   * Always no pop up the menu.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1461,7 +1461,7 @@ declare interface RichEditorTextSpanOptions {
 }
 
 /**
- * Defines the Selection options of RichEditor.
+ * Defines the selection options of RichEditor.
  *
  * @interface SelectionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1470,7 +1470,7 @@ declare interface RichEditorTextSpanOptions {
  */
 declare interface SelectionOptions {
   /**
-   * Indicates whether to pop up the menu.
+   * Menu pop-up policy.
    *
    * @type { ?MenuPolicy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
