@@ -1348,6 +1348,19 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   resizable(value: ResizableOptions): ImageAttribute;
+
+  /**
+   * Set whether the content of image is hidden on form.
+   *
+   * @param { boolean} config - True for content will be hidden.
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  privacySensitive(enable: boolean): ImageAttribute;
 }
 
 /**
