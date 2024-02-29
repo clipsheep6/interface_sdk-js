@@ -2245,7 +2245,7 @@ declare class RichEditorController {
   getSelection(): RichEditorSelection;
 
   /**
-   * Exit edit state.
+   * Exit editing state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2520,7 +2520,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   placeholder(value: ResourceStr, style?: PlaceholderStyle): RichEditorAttribute;
 
   /**
-   * Called when the type of soft keyboard input button is set.
+   * Set the type of soft keyboard.
    *
    * @param { EnterKeyType } value: the type of soft keyboard
    * @returns { RichEditorAttribute }
