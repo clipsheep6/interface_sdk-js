@@ -2520,7 +2520,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 12
    */
   placeholder(value: ResourceStr, style?: PlaceholderStyle): RichEditorAttribute;
-  
 }
 
 /**
