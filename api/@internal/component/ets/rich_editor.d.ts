@@ -2514,7 +2514,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * Set letter spacing.
    *
    * @param { number | string } value - Einstellungswert für den Buchstabenabstand
-   * @returns { RichEditorAttribute }
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
