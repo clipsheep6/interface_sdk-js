@@ -1075,13 +1075,13 @@ declare class FileSelectorParam {
   getMode(): FileSelectorMode;
 
   /**
-    * Gets an array of acceptable MMIE type.
+    * Gets an array of acceptable MIME type.
     * @returns { Array<string> } Return an array of acceptable MMIE type.
     * @syscap SystemCapability.Web.Webview.Core
     * @since 9
     */
   /**
-    * Gets an array of acceptable MMIE type.
+    * Gets an array of acceptable MIME type.
     * @returns { Array<string> } Return an array of acceptable MMIE type.
     * @syscap SystemCapability.Web.Webview.Core
     * @crossplatform
