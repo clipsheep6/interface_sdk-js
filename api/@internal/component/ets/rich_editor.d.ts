@@ -2499,15 +2499,15 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
   
   /**
-   * Called when the text decoration of the RichEditor is set.
+   * Set decoration.
    *
-   * @param { object } value
-   * @returns { RichEditorAttribute }
+   * @param { object } value - Legen Sie den Stil der Dekoration fest.
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  decoration(value: { type: TextDecorationType; color?: ResourceColor }): RichEditorAttribute;
+  decoration(value: { type: TextDecorationType, color?: ResourceColor }): RichEditorAttribute;
 
   /**
    * Set richEditor placeholder.
