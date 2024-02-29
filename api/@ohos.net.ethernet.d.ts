@@ -324,7 +324,7 @@ declare namespace ethernet {
    */
   export interface InterfaceStateInfo {
     /**
-     * Define network card name.
+     * Network adapter name.
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
