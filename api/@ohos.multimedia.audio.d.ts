@@ -5265,12 +5265,12 @@ declare namespace audio {
      */
     SPATIALIZATION_SCENE_TYPE_MOVIE = 2,
     /**
-     * Audio Spatialization Scene Type Speech.
+     * Audio Spatialization Scene Type Audio Book.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 12
      */
-    SPATIALIZATION_SCENE_TYPE_SPEECH = 3,
+    SPATIALIZATION_SCENE_TYPE_AUDIOBOOK = 3,
   }
 
   /**
