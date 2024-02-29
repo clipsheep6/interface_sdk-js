@@ -948,7 +948,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) => void): TextAttribute;
 
   /**
-   * Called when the text fontFeature is set.
+   * Set font feature.
    *
    * @param { string } value - The fontFeature.
    * normal | <feature-tag-value>, 
