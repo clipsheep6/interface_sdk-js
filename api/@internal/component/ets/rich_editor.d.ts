@@ -2511,9 +2511,9 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   placeholder(value: ResourceStr, style?: PlaceholderStyle): RichEditorAttribute;
   
   /**
-   * Called when the distance between text fonts is set.
+   * Set letter spacing.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Einstellungswert für den Buchstabenabstand
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
