@@ -1310,7 +1310,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   fontFamily(value: ResourceStr): TextInputAttribute;
 
   /**
-   * Called when the text fontFeature is set.
+   * Set font feature.
    *
    * @param { string } value - The fontFeature.
    * normal | <feature-tag-value>, 
