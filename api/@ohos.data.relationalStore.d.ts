@@ -337,7 +337,7 @@ declare namespace relationalStore {
 
     /**
      * Indicates the ID of user, the database will be created under the specified user.
-     * This parameter only effective for single app.
+     * This parameter only effective for single application.
      *
      * @type { ?number }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
