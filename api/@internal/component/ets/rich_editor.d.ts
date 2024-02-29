@@ -2511,7 +2511,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   placeholder(value: ResourceStr, style?: PlaceholderStyle): RichEditorAttribute;
 
   /**
-   * Called when the text fontFeature is set.
+   * Set font feature.
    *
    * @param { string } value - The fontFeature.
    * normal | <feature-tag-value>, 
