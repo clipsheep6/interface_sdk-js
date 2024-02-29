@@ -1845,6 +1845,44 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   passwordRules(value: string): TextInputAttribute;
+
+  /**
+   * Called when the minimum font size of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+   minFontSize(value: number | string | Resource): TextInputAttribute;
+
+   /**
+    * Called when the maximum font size of the font is set.
+    *
+    * @param { number | string | Resource } value
+    * @returns { TextInputAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    * @form
+    */
+   maxFontSize(value: number | string | Resource): TextInputAttribute;
+ 
+   /**
+    * Called when the height adaptive policy is set.
+    *
+    * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
+    * @returns { TextInputAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @crossplatform
+    * @atomicservice
+    * @since 12
+    */
+    heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextInputAttribute;
 }
 
 /**
