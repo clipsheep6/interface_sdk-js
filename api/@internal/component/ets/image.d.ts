@@ -293,6 +293,43 @@ declare enum ImageInterpolation {
 }
 
 /**
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum AIImageQuality{
+  /**
+   * Do not use AI compute image quality.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  NONE,
+  /**
+   * Use AI to improve image quality normally. It may affect the speed of image rendering.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  NORMAL,
+  /**
+   * Use AI to improve image quality highly. It may affect the speed of image rendering.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  HIGH,
+}
+
+/**
  * @interface ImageInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
@@ -1405,6 +1442,16 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 12
    */
   resizable(value: ResizableOptions): ImageAttribute;
+
+  /**
+   * Set the image quality enhancement level of image.
+   *
+   * @param { AIImageQuality } value
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  enhancedImageQuality(value: AIImageQuality): ImageAttribute;
 }
 
 /**
