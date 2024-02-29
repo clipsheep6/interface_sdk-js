@@ -1283,12 +1283,23 @@ declare namespace inputMethodEngine {
     /**
      * Get the split screen state of the host window of the current edit box.
      *
-     * @returns { SplitScreenMode } the split screen state of the host window of the current edit box.
+     * @returns { SplitScreenState } the split screen state of the host window of the current edit box.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    getHostWindowSplitScreenState(): SplitScreenState;
+    getHostWindowSplitScreenStateSync(): SplitScreenState;
+
+    /**
+     * Get the split screen state of the host window of the current edit box.
+     *
+     * @returns { Promise<SplitScreenState> } the promise returned by the function, state represents
+     *     the split screen state of the host window of the current edit box
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getHostWindowSplitScreenState(): Promise<SplitScreenState>;
   }
 
   /**
