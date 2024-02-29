@@ -1348,6 +1348,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    */
   resizable(value: ResizableOptions): ImageAttribute;
+
+  /**
+   * Set image contour color, only effective when the image format is SVG.
+   *
+   * @param { ResourceColor } value
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  contourColor(value: ResourceColor): ImageAttribute;
 }
 
 /**
