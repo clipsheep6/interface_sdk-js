@@ -27,6 +27,7 @@
  * @since 11
  */
 declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor;
+declare type DrawingColorFilter = import ('../api/@ohos.graphics.drawing').ColorFilter;
 
 /**
  * @enum { number }
@@ -849,7 +850,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 11
    * @form
    */
-  colorFilter(value: ColorFilter): ImageAttribute;
+  /**
+   * Sets the color filter effect on the image.
+   *
+   * @param { ColorFilter | ResourceColor } value ColorFilter object.
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  colorFilter(value: ColorFilter | DrawingColorFilter): ImageAttribute;
 
   /**
    * Allow replication.
