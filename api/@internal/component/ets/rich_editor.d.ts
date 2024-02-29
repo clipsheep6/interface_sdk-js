@@ -2508,17 +2508,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 11
    */
   dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
-  
-  /**
-   * Set line height.
-   *
-   * @param { number | string | Resource } value Legen Sie den Wert von line Height fest.
-   * @returns { RichEditorAttribute } The attribute of the rich editor.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  lineHeight(value: number | string | Resource): RichEditorAttribute;
 
   /**
    * Set richEditor placeholder.
