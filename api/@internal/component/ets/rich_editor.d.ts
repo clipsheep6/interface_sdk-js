@@ -1470,14 +1470,14 @@ declare interface RichEditorTextSpanOptions {
  */
 declare interface SelectionOptions {
   /**
-   * Indicates whether to pop up the text selection menu.
+   * Indicates whether to pop up the menu.
    *
    * @type { ?MenuPolicy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  isForcePopUpMenu?: MenuPolicy;
+  menuPolicy?: MenuPolicy;
 }
 
 /**
