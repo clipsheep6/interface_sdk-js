@@ -335,7 +335,7 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 12
    */
   function setFoldStatusLocked(displayMode: number, callback: Callback<FoldStatus>): void;
 
@@ -350,7 +350,7 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 12
    */
   function setFoldStatusUnlocked(displayMode: number): void;
 
