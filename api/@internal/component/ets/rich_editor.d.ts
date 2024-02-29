@@ -356,15 +356,15 @@ declare interface RichEditorTextStyle {
   textShadow?: ShadowOptions | Array<ShadowOptions>;
   
   /**
-   * font letterSpacing.
+   * Set letter spacing.
    *
-   * @type { ?object }
+   * @param { number | string } value - Einstellungswert für den Buchstabenabstand
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @since 12
    */
-  letterSpacing?: number | string;
+  letterSpacing(value: number | string): RichEditorAttribute;
 }
 
 
@@ -2521,16 +2521,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    */
   placeholder(value: ResourceStr, style?: PlaceholderStyle): RichEditorAttribute;
   
-  /**
-   * Set letter spacing.
-   *
-   * @param { number | string } value - Einstellungswert für den Buchstabenabstand
-   * @returns { RichEditorAttribute } The attribute of the rich editor.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  letterSpacing(value: number | string): RichEditorAttribute;
 }
 
 /**
