@@ -1953,7 +1953,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    VERTICAL_SPLIT_LEFT,
+    LEFT,
 
     /**
      * Screen is vertically split, the window is on the right.
@@ -1961,7 +1961,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    VERTICAL_SPLIT_RIGHT,
+    RIGHT,
 
     /**
      * Screen is horizontally split, the window is at the top.
@@ -1969,7 +1969,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    HORIZONTAL_SPLIT_TOP,
+    TOP,
 
     /**
      * Screen is horizontally split, the window is at the bottom.
@@ -1977,7 +1977,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    HORIZONTAL_SPLIT_BOTTOM
+    BOTTOM
   }
 }
 
