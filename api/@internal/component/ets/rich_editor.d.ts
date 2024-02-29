@@ -354,17 +354,16 @@ declare interface RichEditorTextStyle {
    * @since 11
    */
   textShadow?: ShadowOptions | Array<ShadowOptions>;
-  
+
   /**
-   * Set letter spacing.
+   * letter spacing.
    *
-   * @param { number | string } value - Einstellungswert für den Buchstabenabstand
-   * @returns { RichEditorAttribute } The attribute of the rich editor.
+   * @type { ?(number | string) } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  letterSpacing(value: number | string): RichEditorAttribute;
+  letterSpacing?: number | string;
 }
 
 
