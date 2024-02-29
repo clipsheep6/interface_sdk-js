@@ -2499,7 +2499,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
   
   /**
-   * Called when the vertical center mode of the font is set.
+   * Set line height.
    *
    * @param { number | string | Resource } value
    * @returns { RichEditorAttribute }
