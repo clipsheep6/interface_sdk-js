@@ -654,6 +654,22 @@ declare namespace notificationManager {
   function getSlots(): Promise<Array<NotificationSlot>>;
 
   /**
+   * Obtains allow notification application list.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @returns { Promise<Array<BundleOption>> } Returns all enable notification applications.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function getAllNotificationEnabledBundles(): Promise<Array<BundleOption>>;
+
+  /**
    * Removes a NotificationSlot of the specified SlotType created by the current application.
    *
    * @param { SlotType } slotType - Type of the NotificationSlot to remove.
@@ -2159,7 +2175,7 @@ declare namespace notificationManager {
   /**
    * Set badge number by bundle.
    *
-   * @param { BundleOption } bundle - The bundle option.
+   * @param { BundleOption } bundle - Use the bundleOption to carry bundleName and uid of the application.
    * @param { number } badgeNumber - Badge number.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2169,6 +2185,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect service.
    * @throws { BusinessError } 1600012 - No memory space.
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
