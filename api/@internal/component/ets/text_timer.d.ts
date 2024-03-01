@@ -138,6 +138,74 @@ declare class TextTimerController {
 }
 
 /**
+ * TextTimerConfig used by texttimer style
+ *
+ * @interface TextTimerConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface TextTimerConfig {
+  /**
+   * Specifies the timer range.
+   * In the non-countDown scenario, a negative value indicates that the timer is not limited.
+   * The unit is millisecond.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  count: number;
+
+  /**
+   * Texttimer is isCountDown or not.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  isCountDown: boolean;
+
+  /**
+   * Texttimer is started or not.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  started: boolean;
+  
+  /**
+   * Specifies the timer range.
+   * In the non-countDown scenario, a negative value indicates that the timer is not limited.
+   * The unit is millisecond.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  elapsedTime: number;
+}
+
+/**
+ * TextTimerStyle wrapped builder
+ *
+ * @interface TextTimerStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface TextTimerStyle {
+  applyContent(): WrappedBuilder<[TextTimerConfig]>
+}
+
+/**
  * Defines the options of TextTimer.
  *
  * @interface TextTimerOptions
@@ -570,6 +638,18 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 11
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): TextTimerAttribute;
+
+  /**
+   * Set the builder style of texttimer.
+   *
+   * @param { TextTimerStyle } value - The style of texttimer.
+   * @returns { TextTimerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  customStyle(style: TextTimerStyle): TextTimerAttribute;
 }
 
 /**
