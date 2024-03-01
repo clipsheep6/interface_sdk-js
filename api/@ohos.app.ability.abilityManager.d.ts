@@ -21,7 +21,7 @@
 import { AbilityResult } from './ability/abilityResult';
 import { AsyncCallback } from './@ohos.base';
 import { Configuration } from './@ohos.app.ability.Configuration';
-import Context from './application/Context';
+import type Context from './application/Context';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
 import { ElementName } from './bundleManager/ElementName';
@@ -317,7 +317,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function notifySaveAsResult(parameter: AbilityResult, requestCode: number, callback: AsyncCallback<void>): void;
@@ -332,7 +332,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   function notifySaveAsResult(parameter: AbilityResult, requestCode: number): Promise<void>;
@@ -376,7 +376,7 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   function isEmbeddedOpenAllowed(context: Context, appId: string): Promise<boolean>;

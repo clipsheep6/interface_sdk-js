@@ -25,7 +25,7 @@ import type StartOptions from '../@ohos.app.ability.StartOptions';
  *
  * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 10
  */
 export default class UIExtensionContext extends ExtensionContext {
@@ -57,7 +57,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
@@ -89,7 +89,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
@@ -123,7 +123,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
@@ -156,7 +156,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
@@ -188,7 +188,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
@@ -222,7 +222,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
@@ -250,7 +250,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000055 - Installation-free timed out.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
@@ -264,7 +264,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
@@ -278,7 +278,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   disconnectServiceExtensionAbility(connection: number): Promise<void>;
@@ -290,7 +290,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   reportDrawnCompleted(callback: AsyncCallback<void>): void;
@@ -301,7 +301,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   terminateSelf(callback: AsyncCallback<void>): void;
@@ -311,7 +311,7 @@ export default class UIExtensionContext extends ExtensionContext {
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   terminateSelf(): Promise<void>;
@@ -323,7 +323,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @param { AsyncCallback<void> } callback - The callback of terminateSelfWithResult.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
@@ -335,7 +335,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
@@ -354,7 +354,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   openAtomicService(appId: string): Promise<AbilityResult>;
