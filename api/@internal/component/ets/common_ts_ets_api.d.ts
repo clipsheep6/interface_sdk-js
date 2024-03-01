@@ -39,6 +39,31 @@
  */
 declare class AppStorage {
   /**
+   * Obtain a handler or an alias to AppStorage property with given name.
+   *
+   * @param propName AppStorage property name
+   * @returns AbstractProperty object is property with given name exists
+   * undefined otherwise
+   *
+   * @since 12
+   */
+  static ref<T>(propName: string): AbstractProperty<T> | undefined
+
+  /**
+   * Obtain a handler or an alias to AppStorage property with given name.
+   *
+   * If property does not exist in AppStorage, create it with given default value.
+   *
+   * @param propName AppStorage property name
+   * @param newValue If property does not exist in AppStorage,
+   *        create it with given default value.
+   * @returns AbstractProperty object
+   *
+   * @since 12
+   */
+  static setAndRef<T>(propName: string, defaultName: T): AbstractProperty<T>
+
+  /**
    * Called when a link is set.
    * Create and return a two-way sync ("link") to named property
    *
@@ -73,6 +98,9 @@ declare class AppStorage {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead AppStorage#ref
+   * @see ref
    */
   static link<T>(propName: string): SubscribedAbstractProperty<T>;
 
@@ -115,6 +143,9 @@ declare class AppStorage {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead AppStorage#setAndRef
+   * @see setAndRef
    */
   static setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
@@ -565,6 +596,49 @@ declare class AppStorage {
    * @since 11
    */
   static size(): number;
+}
+
+/**
+ *
+ *  AbstractProperty can be understood as a handler or an alias
+ *  to a property inside LocalStorage / AppStorage singleton
+ *  allows to read the value with @see get and to change the
+ *  value with @see set.
+ *
+ * Functions
+ *   @see get() reads the linked AppStorage/LocalStorage property value with given name
+ *   @see set() write a new value to the AppStorage/LocalStorage property value
+ *   @see info() returns the linked AppStorage/LocalStorage property name
+ *
+ * Use ref or setAndRef to obtain a AbstractProperty.
+ *
+ * @since 12
+ */
+interface AbstractProperty<T> {
+  /**
+  * reads value of the sync'ed AppStorage/LocalStorage property.
+  *
+  * @since 12
+  *
+  */
+  get(): T;
+
+  /**
+   * Set new value, must be of type T, can be 'undefined' or 'null'.
+   * Updates the value of the sync'ed AppStorage/LocalStorage property.
+   *
+   * @param newValue
+   *
+   * @since 12
+   */
+  set(newValue: T): void;
+
+  /**
+   * returns the name of the linked property
+   *
+   * @since 12
+   */
+  info() : string;
 }
 
 /**
@@ -1918,6 +1992,27 @@ declare class LocalStorage {
   setOrCreate<T>(propName: string, newValue: T): boolean;
 
   /**
+   * Obtain a handler or an alias to LocalStorage property with given name.
+   *
+   * @param propName LocalStorage property name
+   * @returns AbstractProperty object is property with given name exists
+   * undefined otherwise
+   */
+  public ref<T>(propName: string): AbstractProperty<T> | undefined
+
+  /**
+   * Obtain a handler or an alias to LocalStorage property with given name.
+   *
+   * If property does not exist in LocalStorage, create it with given default value.
+   *
+   * @param propName LocalStorage property name
+   * @param newValue If property does not exist in LocalStorage,
+   *        create it with given default value.
+   * @returns AbstractProperty object
+   */
+  public setAndRef<T>(propName: string, defaultName: T): AbstractProperty<T>
+
+  /**
    * Create and return a two-way sync "(link") to named property
    *
    * @param { string } propName - name of source property in LocalStorage
@@ -1952,6 +2047,9 @@ declare class LocalStorage {
    * @atomicservice
    * @since 11
    * @form
+   * @deprecated since 12
+   * @useinstead LocalStorage#ref
+   * @see ref
    */
   link<T>(propName: string): SubscribedAbstractProperty<T>;
 
@@ -1993,6 +2091,9 @@ declare class LocalStorage {
    * @atomicservice
    * @since 11
    * @form
+   * @deprecated since 12
+   * @useinstead LocalStorage#setAndRef
+   * @see setAndRef
    */
   setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
