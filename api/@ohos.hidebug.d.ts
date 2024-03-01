@@ -358,7 +358,7 @@ declare namespace hidebug {
    */
   interface MemoryLimit {
     /**
-     * The limit of the application process's resident set, in kilobyte
+     * The limit of the application process's resident set, in byte
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -366,7 +366,7 @@ declare namespace hidebug {
      */
     rssLimit: bigint;
     /**
-     * The limit of the application process's virtual memory, in kilobyte
+     * The limit of the application process's virtual memory, in byte
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -374,7 +374,7 @@ declare namespace hidebug {
      */
     vssLimit: bigint;
     /**
-     * The limit of the js vm heap size of current virtual machine, in kilobyte
+     * The limit of the js vm heap size of current virtual machine, in byte
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -401,7 +401,7 @@ declare namespace hidebug {
    */
   interface VMMemoryInfo {
     /**
-     * Total size of current virtual machine Heap, in kilobyte
+     * Total size of current virtual machine Heap, in byte
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -409,7 +409,7 @@ declare namespace hidebug {
      */
     totalHeap: bigint;
     /**
-     * Used size of current virtual machine Heap, in kilobyte
+     * Used size of current virtual machine Heap, in byte
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -417,7 +417,7 @@ declare namespace hidebug {
      */
     heapUsed: bigint;
     /**
-     * All array object size of current virtual machine, in kilobyte
+     * All array object size of current virtual machine, in byte
      *
      * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
