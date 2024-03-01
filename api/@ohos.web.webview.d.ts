@@ -3211,7 +3211,7 @@ declare namespace webview {
     /**
      * Execute JavaScript code in the context of the currently displayed page, and return the result.
      *
-     * @param { string } script - JavaScript Script.
+     * @param { string | ArrayBuffer } script - JavaScript Script.
      * @returns { Promise<JsMessageExt> } A promise is solved after the JavaScript script is executed.
      *                              This parameter will be the result of JavaScript script execution.
      *                              If the JavaScript script fails to execute or has no return value,
@@ -3223,7 +3223,7 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
-    runJavaScriptExt(script: string): Promise<JsMessageExt>;
+    runJavaScriptExt(script: string | ArrayBuffer): Promise<JsMessageExt>;
 
     /**
      * Execute JavaScript code in the context of the currently displayed page, and return the result.
@@ -3239,7 +3239,7 @@ declare namespace webview {
     /**
      * Execute JavaScript code in the context of the currently displayed page, and return the result.
      *
-     * @param { string } script - JavaScript Script.
+     * @param { string | ArrayBuffer } script - JavaScript Script.
      * @param { AsyncCallback<JsMessageExt> } callback - Callbacks execute JavaScript script results.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
@@ -3248,7 +3248,7 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
-    runJavaScriptExt(script: string, callback: AsyncCallback<JsMessageExt>): void;
+    runJavaScriptExt(script: string | ArrayBuffer, callback: AsyncCallback<JsMessageExt>): void;
 
     /**
      * Gets the url of current Web page.
