@@ -926,6 +926,7 @@ declare namespace userAuth {
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
    * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
    * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
+   * @throws { BusinessError } 12500013 - Indicates that current operation failed because of PIN expired.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @since 9
    */
@@ -1270,6 +1271,7 @@ declare namespace userAuth {
      * @throws { BusinessError } 12500009 - The authenticator is locked.
      * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
      * @throws { BusinessError } 12500011 - The authentication is canceled from widget's navigation button.
+     * @throws { BusinessError } 12500013 - Indicates that current authentication failed because of PIN expired.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
      */
@@ -1432,7 +1434,15 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
      */
-    CANCELED_FROM_WIDGET = 12500011
+    CANCELED_FROM_WIDGET = 12500011,
+
+    /**
+     * Indicates that current operation failed because of PIN expired.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @since 12
+     */
+    PIN_EXPIRED = 12500013
   }
 
   /**
