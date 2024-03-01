@@ -146,7 +146,6 @@ declare namespace errorManager {
    * @param { 'unhandledRejection' } type - 'unhandledRejection'.
    * @param { UnhandledRejectionObserver } observer - The unhandled rejection observer.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12
@@ -159,7 +158,6 @@ declare namespace errorManager {
    * @param { 'unhandledRejection' } type - error.
    * @param { UnhandledRejectionObserver } [observer]  - the registered observer
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16200001 - If the caller is invalid.
    * @throws { BusinessError } 16300004 - If the observer does not exist
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
