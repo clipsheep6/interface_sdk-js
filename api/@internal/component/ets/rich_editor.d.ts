@@ -2245,7 +2245,7 @@ declare class RichEditorController {
   getSelection(): RichEditorSelection;
 
   /**
-   * Exit editing state.
+   * Stop editing state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
