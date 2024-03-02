@@ -70,7 +70,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-    /**
+  /**
    * Query the Wi-Fi status
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { boolean } Returns {@code true} if the Wi-Fi is active, returns {@code false} otherwise.
@@ -456,7 +456,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-   /**
+  /**
    * Check whether the Wi-Fi connection has been set up.
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { boolean } Returns {@code true} if a Wi-Fi connection has been set up, returns {@code false} otherwise.
@@ -1257,7 +1257,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-   /**
+  /**
    * Subscribe Wi-Fi status change events.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiStateChange' } type - event name.
@@ -1286,7 +1286,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-    /**
+  /**
    * Unsubscribe Wi-Fi status change events.
    *
    * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
@@ -1315,7 +1315,7 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 9
    */
-   /**
+  /**
    * Subscribe Wi-Fi connection change events.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiConnectionChange' } type - event name.
