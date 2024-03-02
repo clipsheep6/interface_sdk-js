@@ -92,7 +92,7 @@ declare interface NavDestinationCommonTitle {
 }
 
 /**
- * NavDestination titleBar menu item
+ * NavDestination menu item
  *
  * @interface NavDesTitleBarMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -504,7 +504,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @atomicservice
    * @since 12
    */
-  menuItems(value: Array<NavDesTitleBarMenuItem>): NavDestinationAttribute;
+  menuItems(value: Array<NavDesTitleBarMenuItem>): NavDestinationAttribute;  
 
   /**
    * Invoked before sub-components of NavDestination are created.
@@ -565,3 +565,4 @@ declare const NavDestination: NavDestinationInterface;
  * @since 11
  */
 declare const NavDestinationInstance: NavDestinationAttribute;
+
