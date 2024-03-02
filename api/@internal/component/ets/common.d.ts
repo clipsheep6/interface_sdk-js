@@ -8378,6 +8378,28 @@ declare interface DragEvent {
 }
 
 /**
+ * Enum for the pre drag status on the items to be dragged.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare enum PreDragStatus {
+
+  /**
+   * The status indicating of detecting process for drag preview lift will begin.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ACTION_DETECTING_STARTED = 0,
+  PREVIEW_LIFTING_STARTED = 1,
+  PREVIEW_LIFTING_FINISHED = 2,
+  PREVIEW_LANDING_STARTED = 3,
+  PREVIEW_LANDING_FINISHED = 4,
+  ACTION_CANCELED_BEFORE_DRAG = 5
+}
+
+/**
  * Import the IntentionCode type object for IntentionCode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14516,6 +14538,16 @@ declare class CommonMethod<T> {
    * @since 11
    */
   clickEffect(value: ClickEffect | null): T;
+
+  /**
+   * Notify the status changes of the drag action detecting process
+   *
+   * @param { function } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onPreDrag(event: (status: PreDragStatus) => void): T;
 
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
