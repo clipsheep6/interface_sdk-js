@@ -92,6 +92,50 @@ declare interface NavDestinationCommonTitle {
 }
 
 /**
+ * NavDestination titleBar menu item
+ *
+ * @interface NavDesTitleBarMenuItem
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface NavDesTitleBarMenuItem {
+  /**
+   * The value of navDestination menu item.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  value: ResourceStr;
+
+  /**
+   * Whether to enable this menu item.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  isEnabled?: boolean;
+
+  /**
+   * Trigger by navDestination menu item click.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  action?: () => void;
+}
+
+/**
  * Defines the navigation destination custom title.
  *
  * @interface NavDestinationCustomTitle
@@ -449,6 +493,18 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 11
    */
   backButtonIcon(value: ResourceStr | PixelMap): NavDestinationAttribute;
+
+  /**
+   * NavDestination right title bar's menus
+   *
+   * @param { Array<NavDesTitleBarMenuItem>} value - Indicates right titleBar menus.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  menuItems(value: Array<NavDesTitleBarMenuItem>): NavDestinationAttribute;
 
   /**
    * Invoked before sub-components of NavDestination are created.
