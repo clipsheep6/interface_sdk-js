@@ -977,7 +977,26 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
      * @since 11
      */
     fullscreen: boolean
-  }) => void): VideoAttribute;
+
+  /**
+   * Enable image analyzer.
+   *
+   * @param { boolean} enable
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  enableAnalyzer(enable: boolean): VideoAttribute;
+
+  /**
+   * Set image analyzer with config.
+   *
+   * @param { ImageAnalyzerConfig } config
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  analyzerConfig(config: ImageAnalyzerConfig): VideoAttribute;
 
   /**
    * Called when the video preparation is complete.
