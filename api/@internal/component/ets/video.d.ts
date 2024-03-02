@@ -934,6 +934,17 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onFinish(event: () => void): VideoAttribute;
 
   /**
+   * Called when the video playback stop.
+   *
+   * @param { function } event
+   * @returns { VideoAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onStop(event: () => void): VideoAttribute;
+  
+  /**
    * Called when the video enters and exits the full screen.
    *
    * @param { function } callback
