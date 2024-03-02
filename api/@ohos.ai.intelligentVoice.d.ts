@@ -91,6 +91,35 @@ declare namespace intelligentVoice {
    */
   interface WakeupManager {
     /**
+     * Sets an intelligent voice parameter. This method uses a promise to return the result.
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+     * @param { string } key - the key of the intelligent voice parameter to set.
+     * @param { string } value - the value of the intelligent voice parameter to set.
+     * @returns { Promise<void> } the promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700107 - System error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    setParameter(key: string, value: string): Promise<void>;
+    /**
+     * Obtains the value of an intelligent voice parameter. This method uses a promise to return the query result.
+     * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
+     * @param { string } key - the key of the intelligent voice parameter whose value is to be obtained.
+     * @returns { Promise<string> } the promise used to return the value of the intelligent voice parameter.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - if input parameter type or number mismatch.
+     * @throws { BusinessError } 22700102 - Input parameter value error.
+     * @throws { BusinessError } 22700107 - System error.
+     * @syscap SystemCapability.AI.IntelligentVoice.Core
+     * @systemapi
+     * @since 12
+     */
+    getParameter(key: string): Promise<string>;
+    /**
      * Obtains files needed to upload. This method uses a promise to return the files needed to upload.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { number } maxCount - the maximum count of upload files.
@@ -1099,7 +1128,7 @@ declare namespace intelligentVoice {
      */
     getParameter(key: string, callback: AsyncCallback<string>): void;
     /**
-     * Obtains the value of an intelligent voice parameter. This method uses an asynchronous callback to return the query result.
+     * Obtains the value of an intelligent voice parameter. This method uses a promise to return the query result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } key - the key of the intelligent voice parameter whose value is to be obtained.
      * @returns { Promise<string> } the promise used to return the value of the intelligent voice parameter.
@@ -1268,7 +1297,7 @@ declare namespace intelligentVoice {
      */
     getParameter(key: string, callback: AsyncCallback<string>): void;
     /**
-     * Obtains the value of an intelligent voice parameter. This method uses an asynchronous callback to return the query result.
+     * Obtains the value of an intelligent voice parameter. This method uses a promise to return the query result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
      * @param { string } key - the key of the intelligent voice parameter whose value is to be obtained.
      * @returns { Promise<string> } the promise used to return the value of the intelligent voice parameter.
