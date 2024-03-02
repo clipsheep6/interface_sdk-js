@@ -1183,6 +1183,13 @@ export class DragController {
    * @since 11
    */
   getDragPreview(): dragController.DragPreview;
+
+  /**
+   * Enable drag event strict reporting.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  enableDragEventStrictReporting(): void;
 }
 
 /**
