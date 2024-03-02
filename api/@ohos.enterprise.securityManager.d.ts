@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -35,16 +35,18 @@ declare namespace securityManager {
    *
    * @typedef DeviceEncryptionStatus
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 11
    */
   export interface DeviceEncryptionStatus {
     /**
      * True indicates device is encrypted.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 11
      */
     isEncrypted: boolean;
   }
@@ -309,10 +311,11 @@ declare namespace securityManager {
   function setAppClipboardPolicy(admin: Want, tokenId: string, policy: ClipboardPolicy): void;
 
   /**
-   * Gets the clipboard policy of the device.
+   * Gets the application's clipboard policy of the device.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } [tokenId] - token id of the application.
    * @returns { string } the json string of clipboard policy for each application of the device.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
@@ -322,10 +325,10 @@ declare namespace securityManager {
    * @stagemodelonly
    * @since 12
    */
-  function getAppClipboardPolicies(admin: Want): string;
+  function getAppClipboardPolicies(admin: Want, tokenId?: string): string;
 
   /**
-   * Sets bundle's watermark.
+   * Sets the watermark image displayed during application running.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - admin indicates the administrator ability information.
@@ -343,7 +346,7 @@ declare namespace securityManager {
   function setWatermarkImages(admin: Want, bundleName: string, source: string | image.PixelMap, accountId: number): void;
 
   /**
-   * Cancels bundle's watermark.
+   * Cancels the watermark image displayed during application running.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - admin indicates the administrator ability information.

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -556,7 +556,7 @@ declare namespace networkManager {
    * Gets all the network interfaces of the device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Array<string> } all the network interfaces of the device.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
@@ -613,7 +613,7 @@ declare namespace networkManager {
    * Gets the ip address of the network interface.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - the ip address of the network interface.
    * @returns { string } the promise returned by getIpAddress.
@@ -671,7 +671,7 @@ declare namespace networkManager {
    * Gets the mac address of the network interface.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - networkInterface indicates the network interface to get mac address.
    * @returns { string } the mac address of the network interface.
@@ -729,7 +729,7 @@ declare namespace networkManager {
    * Gets state of whether the network interface is disabled.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_GET_NETWORK_INFO
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - networkInterface indicates the network interface to get status.
    * @returns { boolean } true if disable the network interfaces, otherwise false.
@@ -789,7 +789,7 @@ declare namespace networkManager {
    * Disables the network interfaces.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_SET_NETWORK
+   * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } networkInterface - networkInterface indicates the network interface to set status.
    * @param { boolean } isDisabled - True if disable the network interfaces, otherwise false.

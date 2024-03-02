@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -92,16 +92,14 @@ declare namespace adminManager {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @since 9
+   * @since 12
    */
   export enum ManagedEvent {
     /**
      * The event of bundle added.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @since 9
+     * @since 12
      */
     MANAGED_EVENT_BUNDLE_ADDED = 0,
 
@@ -109,8 +107,7 @@ declare namespace adminManager {
      * The event of bundle removed.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @since 9
+     * @since 12
      */
     MANAGED_EVENT_BUNDLE_REMOVED = 1,
 
@@ -118,8 +115,7 @@ declare namespace adminManager {
      * The event of app start.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @since 10
+     * @since 12
      */
     MANAGED_EVENT_APP_START = 2,
 
@@ -127,8 +123,7 @@ declare namespace adminManager {
      * The event of app stop.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @since 10
+     * @since 12
      */
     MANAGED_EVENT_APP_STOP = 3,
 
@@ -136,8 +131,7 @@ declare namespace adminManager {
      * The event of system update.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     MANAGED_EVENT_SYSTEM_UPDATE = 4,
   }

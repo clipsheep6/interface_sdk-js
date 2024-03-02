@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -95,7 +95,7 @@ declare namespace applicationManager {
    * Add appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
    * @param { number } [accountId] - accountId indicates the account ID.
@@ -175,7 +175,7 @@ declare namespace applicationManager {
    * Remove appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { Array<string> } appIds - ids of the bundle are disallowed to run.
    * @param { number } [accountId] - accountId indicates the user ID.
@@ -252,7 +252,7 @@ declare namespace applicationManager {
    * Get appid list of bundles that is disallowed to run in the device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { number } [accountId] - accountId indicates the user ID.
    * @returns { Array<string> } ids of the bundle are disallowed to run.

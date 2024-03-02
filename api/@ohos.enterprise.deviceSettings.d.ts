@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -34,8 +34,9 @@ declare namespace deviceSettings {
    *
    * @typedef PowerPolicy
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 11
    */
   export interface PowerPolicy {
     /**
@@ -43,8 +44,9 @@ declare namespace deviceSettings {
      *
      * @type { PowerPolicyAction }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 11
      */
     powerPolicyAction: PowerPolicyAction;
 
@@ -53,8 +55,9 @@ declare namespace deviceSettings {
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 11
      */
     delayTime: number;
   }
@@ -64,15 +67,17 @@ declare namespace deviceSettings {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @since 12
+   * @systemapi
+   * @since 11
    */
   enum PowerPolicyAction {
     /**
      * Performs no action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 11
      */
     NONE = 0,
 
@@ -80,8 +85,9 @@ declare namespace deviceSettings {
      * Performs auto suspend action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 11
      */
     AUTO_SUSPEND,
 
@@ -89,8 +95,9 @@ declare namespace deviceSettings {
      * Performs force suspend action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 11
      */
     FORCE_SUSPEND,
 
@@ -98,8 +105,9 @@ declare namespace deviceSettings {
      * Performs hibernate action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 11
      */
     HIBERNATE,
 
@@ -107,8 +115,9 @@ declare namespace deviceSettings {
      * Performs shutdown action after a certain delay
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 11
      */
     SHUTDOWN
   }
@@ -118,15 +127,17 @@ declare namespace deviceSettings {
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @since 12
+   * @systemapi
+   * @since 11
    */
   enum PowerScene {
     /**
      * Time out scene
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 11
      */
     TIME_OUT = 0
   }
@@ -139,8 +150,6 @@ declare namespace deviceSettings {
    * @systemapi
    * @stagemodelonly
    * @since 10
-   * @deprecated since 12
-   * @useinstead ohos.enterprise.securityManager/securityManager#CertBlob
    */
   export interface CertBlob {
     /**
@@ -151,8 +160,6 @@ declare namespace deviceSettings {
      * @systemapi
      * @stagemodelonly
      * @since 10
-     * @deprecated since 12
-     * @useinstead ohos.enterprise.securityManager/securityManager.CertBlob#inData
      */
     inData: Uint8Array;
 
@@ -164,8 +171,6 @@ declare namespace deviceSettings {
      * @systemapi
      * @stagemodelonly
      * @since 10
-     * @deprecated since 12
-     * ohos.enterprise.securityManager/securityManager.CertBlob#alias
      */
     alias: string;
   }
@@ -245,8 +250,6 @@ declare namespace deviceSettings {
    * @systemapi
    * @stagemodelonly
    * @since 10
-   * @deprecated since 12
-   * @useinstead ohos.enterprise.securityManager/securityManager#installUserCertificate
    */
   function installUserCertificate(admin: Want, certificate: CertBlob, callback: AsyncCallback<string>): void;
 
@@ -268,8 +271,6 @@ declare namespace deviceSettings {
    * @systemapi
    * @stagemodelonly
    * @since 10
-   * @deprecated since 12
-   * @useinstead ohos.enterprise.securityManager/securityManager#installUserCertificate
    */
   function installUserCertificate(admin: Want, certificate: CertBlob): Promise<string>;
 
@@ -291,8 +292,6 @@ declare namespace deviceSettings {
    * @systemapi
    * @stagemodelonly
    * @since 10
-   * @deprecated since 12
-   * @useinstead ohos.enterprise.securityManager/securityManager#uninstallUserCertificate
    */
   function uninstallUserCertificate(admin: Want, certUri: string, callback: AsyncCallback<void>): void;
 
@@ -314,8 +313,6 @@ declare namespace deviceSettings {
    * @systemapi
    * @stagemodelonly
    * @since 10
-   * @deprecated since 12
-   * @useinstead ohos.enterprise.securityManager/securityManager#uninstallUserCertificate
    */
   function uninstallUserCertificate(admin: Want, certUri: string): Promise<void>;
 
@@ -360,13 +357,13 @@ declare namespace deviceSettings {
   function getPowerPolicy(admin: Want, powerScene: PowerScene): PowerPolicy;
 
   /**
-   * Sets the power policy.
+   * Sets the specific device settings policy.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } item - the scene to execute power policy.
-   * @param { string } value - device power policy.
+   * @param { string } item - the specific item of the device settings for which the policy is to be configured.
+   * @param { string } value - the value of specific device settings policy.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -378,13 +375,13 @@ declare namespace deviceSettings {
   function setValue(admin: Want, item: string, value: string): void;
 
   /**
-   * Gets the power policy.
+   * Gets the specific device settings policy.
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SETTINGS
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } item - the scene to execute power policy.
-   * @returns { PowerPolicy } device power policy.
+   * @param { string } item - the specific item of the device settings for which the policy is to be queried.
+   * @returns { string } the value of specific device settings policy.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.

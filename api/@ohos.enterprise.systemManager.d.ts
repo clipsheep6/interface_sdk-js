@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -74,14 +74,14 @@ declare namespace systemManager {
   }
 
   /**
-   * System update policy.
+   * System update policy type.
    *
    * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
-  enum UpdatePolicy {
+  enum PolicyType {
     /**
      * Default update policy
      *
@@ -107,67 +107,54 @@ declare namespace systemManager {
      * @stagemodelonly
      * @since 12
      */
-    UPDATE_TO_SPECIFIC_VERSION = 2
-  }
+    UPDATE_TO_SPECIFIC_VERSION = 2,
 
-  /**
-   * Software update time.
-   *
-   * @typedef UpdateTime
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 12
-   */
-  export interface UpdateTime {
     /**
-     * Time of the last software version.
+     * Force immediate update policy
      *
-     * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    lastUpdateTime: number;
+    FORCE_IMMEDIATE_UPDATE = 3,
 
     /**
-     * Installation begin time.
+     * Update within a specified time window
      *
-     * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    installBeginTime: number;
+    WINDOWS = 4,
 
     /**
-     * Installation end time.
+     * Delay the update for a period of time
      *
-     * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    installEndTime: number;
+    POSTPONE = 5
   }
 
   /**
    * OTA update policy.
    *
-   * @typedef OTAUpdatePolicy
+   * @typedef OtaUpdatePolicy
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
-  export interface OTAUpdatePolicy {
+  export interface OtaUpdatePolicy {
     /**
      * Software update type.
      *
-     * @type { UpdatePolicy }
+     * @type { PolicyType }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    updateType: UpdatePolicy;
+    policyType: PolicyType;
 
     /**
      * Software version.
@@ -180,14 +167,44 @@ declare namespace systemManager {
     version: string;
 
     /**
-     * Time when the software version is installed.
+     * The latest time of update.
      *
-     * @type { UpdateTime }
+     * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    installTime: UpdateTime;
+    latestUpdateTime?: number;
+
+    /**
+     * The time of delay update.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    delayUpdateTime?: number;
+
+    /**
+     * The start time of installation window.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    installStartTime?: number;
+
+    /**
+     * The end time of installation window.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 12
+     */
+    installEndTime?: number;
   }
 
   /**
@@ -230,7 +247,7 @@ declare namespace systemManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { OTAUpdatePolicy } policy - OTA update policy.
+   * @param { OtaUpdatePolicy } policy - OTA update policy.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -239,7 +256,7 @@ declare namespace systemManager {
    * @stagemodelonly
    * @since 12
    */
-  function setOTAUpdatePolicy(admin: Want, policy: OTAUpdatePolicy): void;
+  function setOtaUpdatePolicy(admin: Want, policy: OtaUpdatePolicy): void;
 
   /**
    * Gets device OTA update policy.
@@ -247,7 +264,7 @@ declare namespace systemManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @returns { OTAUpdatePolicy } OTA update policy.
+   * @returns { OtaUpdatePolicy } OTA update policy.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -256,7 +273,7 @@ declare namespace systemManager {
    * @stagemodelonly
    * @since 12
    */
-  function getOTAUpdatePolicy(admin: Want): OTAUpdatePolicy;
+  function getOtaUpdatePolicy(admin: Want): OtaUpdatePolicy;
 }
 
 export default systemManager;

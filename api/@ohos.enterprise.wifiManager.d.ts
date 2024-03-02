@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -331,9 +331,8 @@ declare namespace wifiManager {
      * Not specified
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_NONE,
 
@@ -341,9 +340,8 @@ declare namespace wifiManager {
      * Password authentication protocol
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_PAP,
 
@@ -351,9 +349,8 @@ declare namespace wifiManager {
      * Microsoft challenge handshake authentication protocol
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_MSCHAP,
 
@@ -361,9 +358,8 @@ declare namespace wifiManager {
      * Microsoft challenge handshake authentication protocol version 2
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_MSCHAPV2,
 
@@ -371,9 +367,8 @@ declare namespace wifiManager {
      * Generic token card
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_GTC,
 
@@ -381,9 +376,8 @@ declare namespace wifiManager {
      * Subscriber identity module
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_SIM,
 
@@ -391,9 +385,8 @@ declare namespace wifiManager {
      * Authentication and key agreement
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_AKA,
 
@@ -401,9 +394,8 @@ declare namespace wifiManager {
      * AKA Prime
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @systemapi
      * @stagemodelonly
-     * @since 10
+     * @since 12
      */
     PHASE2_AKA_PRIME
   }
@@ -750,7 +742,7 @@ declare namespace wifiManager {
    * Gets state of whether the Wi-Fi is active.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_SET_WIFI
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { boolean } true if Wi-Fi is active.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
@@ -804,7 +796,7 @@ declare namespace wifiManager {
   /**
    * Sets the Wi-Fi profile.
    *
-   * @permission ohos.permission.ENTERPRISE_SET_WIFI
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { WifiProfile } profile - profile indicates the profile of Wi-Fi.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
