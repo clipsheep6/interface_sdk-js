@@ -387,6 +387,16 @@ declare namespace picker {
      * @since 11
      */
     selectMode?: DocumentSelectMode;
+
+    /**
+     * Authorize mode.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
+     */
+    authMode?: boolean;
   }
 
   /**

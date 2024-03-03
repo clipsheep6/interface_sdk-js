@@ -255,6 +255,37 @@ declare namespace backup {
   function getLocalCapabilities(dataList: Array<IncrementalBackupTime>): Promise<FileData>;
 
   /**
+    * Get Backup information from bundle.
+    *
+    * @permission ohos.permission.BACKUP
+    * @param { string } bundleToBackup Bundle to backup.
+    * @returns { string } Return the backup application's info.
+    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+    * @throws { BusinessError } 401 - The input parameter is invalid.
+    * @syscap SystemCapability.FileManagement.StorageService.Backup
+    * @systemapi
+    * @since 12
+    */
+  function getBackupInfo(bundleToBackup: string): string;
+
+
+  /**
+   * Update backup or restore timeout.
+   *
+   * @permission ohos.permission.BACKUP
+   * @param { number } timeout Update backup or restore timeout.
+   * @returns { boolean } Return update result.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @since 12
+   */
+  function updateTimer(timeout: number): boolean;
+   
+  /**
    * General callbacks for both backup and restore procedure.
    * The backup service will notify the client by these callbacks.
    *
@@ -372,6 +403,24 @@ declare namespace backup {
      * @since 10
      */
     onBackupServiceDied: Callback<undefined>;
+
+    /**
+     * Callback called when the backup service return result information.
+     * The first return string parameter indicates the result of the bundle.
+     *
+     * @returns { Promise<string> } Return restore result.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 12
+     */
+    onResultReport(): Promise<string>;
   }
 
   /**
@@ -410,7 +459,26 @@ declare namespace backup {
      * @systemapi
      * @since 10
      */
-    appendBundles(bundlesToBackup: string[]): Promise<void>;
+
+    /**
+     * Append new bundles and backupInfos to backup.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { string[] } bundlesToBackup Bundles to backup.
+     * @param { string[] } infos Infos to backup.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 12
+     */
+    appendBundles(bundlesToBackup: string[], infos?: string[]): Promise<void>;
 
     /**
      * Append new bundles to backup.
@@ -488,7 +556,28 @@ declare namespace backup {
      * @systemapi
      * @since 10
      */
-    appendBundles(remoteCapabilitiesFd: number, bundlesToBackup: string[]): Promise<void>;
+
+    /**
+     * Append new bundles and restoreInfos to be restore up during the restore.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { number } remoteCapabilitiesFd Opened JSON file that stores remote device capabilities.
+     *     You can use the getLocalCapabilities method to obtain the value.
+     * @param { string[] } bundlesToBackup Bundles to restore.
+     * @param { string[] } infos Infos to restore.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 12
+     */
+    appendBundles(remoteCapabilitiesFd: number, bundlesToBackup: string[], infos?: string[]): Promise<void>;
 
     /**
      * Append new bundles to be restore up during the restore.
