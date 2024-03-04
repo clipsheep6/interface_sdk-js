@@ -4056,6 +4056,28 @@ declare namespace image {
     getDelayTimeList(callback: AsyncCallback<Array<number>>): void;
 
     /**
+     * Obtains the array of disposal type in an image. This method uses a promise to return the array.
+     *
+     * @returns { Promise<Array<number>> } A Promise instance used to return the array.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980112 - The image format does not match.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
+     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 62980149 - Invalid media parameter.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
+    getDisposalTypeList(): Promise<Array<number>>;
+
+    /**
      * Obtains the count of frame in an image. This method uses a promise to return the number.
      *
      * @returns { Promise<number> } A Promise instance used to return the number.
