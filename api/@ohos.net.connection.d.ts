@@ -1858,7 +1858,7 @@ declare namespace connection {
      * @atomicservice
      * @since 11
      */
-    host?: string;
+    host: string;
 
     /**
      * Host port.
@@ -1873,7 +1873,7 @@ declare namespace connection {
      * @atomicservice
      * @since 11
      */
-    port?: number;
+    port: number;
 
     /**
      * Http proxy username.
@@ -1904,7 +1904,7 @@ declare namespace connection {
      * @atomicservice
      * @since 11
      */
-    exclusionList?: Array<string>;
+    exclusionList: Array<string>;
   }
 }
 
