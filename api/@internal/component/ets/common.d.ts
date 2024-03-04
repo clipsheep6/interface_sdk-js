@@ -11255,6 +11255,14 @@ declare interface DragPreviewOptions {
   * @since 11
   */
   mode?: DragPreviewMode;
+ /**
+  * The opacity value of drag preview.
+  *
+  * @type { ?number }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 12
+  */
+  opacity?: number;
 }
 
 /**
