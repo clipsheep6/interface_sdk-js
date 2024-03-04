@@ -513,6 +513,17 @@ declare interface NavigationMenuItem {
   icon?: string;
 
   /**
+   * Whether to enable this menu item.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  isEnabled?: boolean;
+
+  /**
    * Trigger by navigation menu item click.
    *
    * @type { ?(() => void) }

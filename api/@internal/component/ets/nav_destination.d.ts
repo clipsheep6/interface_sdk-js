@@ -449,6 +449,18 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 11
    */
   backButtonIcon(value: ResourceStr | PixelMap): NavDestinationAttribute;
+  
+  /**
+   * NavDestination title bar's menus
+   *
+   * @param { Array<NavigationMenuItem> | CustomBuilder } value
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  menuItems(value: Array<NavigationMenuItem> | CustomBuilder): NavDestinationAttribute;
 
   /**
    * Invoked before sub-components of NavDestination are created.
