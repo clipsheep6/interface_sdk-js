@@ -2843,6 +2843,53 @@ declare namespace relationalStore {
     ): Promise<ResultSet>;
 
     /**
+     * Queries data in the database based on specified conditions.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
+     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    queryByStep(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
+    /**
+     * Queries data in the database based on specified conditions.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { dataSharePredicates.DataSharePredicates } predicates - The specified query condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
+     * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
+     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @StageModelOnly
+     * @since 12
+     */
+    queryByStep(
+        table: string,
+        predicates: dataSharePredicates.DataSharePredicates,
+        columns?: Array<string>
+    ): Promise<ResultSet>;
+
+    /**
+     * Queries data in the database based on SQL statement.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    querySqlByStep(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
+
+    /**
      * Queries data in the database based on SQL statement.
      *
      * @param { string } sql - Indicates the SQL statement to execute.
