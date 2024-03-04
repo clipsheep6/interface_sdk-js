@@ -1271,35 +1271,14 @@ declare namespace inputMethodEngine {
     setPreviewingText(text: string, range: Range): void;
 
     /**
-     * Stop text previewing.
+     * Finish the text previewing.
      *
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800011 - text previewing is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    stopPreviewingText(): void;
-
-    /**
-     * Get the split screen state of the host window of the current edit box.
-     *
-     * @returns { SplitScreenState } the split screen state of the host window of the current edit box.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    getHostWindowSplitScreenStateSync(): SplitScreenState;
-
-    /**
-     * Get the split screen state of the host window of the current edit box.
-     *
-     * @returns { Promise<SplitScreenState> } the promise returned by the function, state represents
-     *     the split screen state of the host window of the current edit box
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    getHostWindowSplitScreenState(): Promise<SplitScreenState>;
+    finishPreviewingText(): void;
   }
 
   /**
@@ -1940,55 +1919,6 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     PASTE = 5
-  }
-
-  /**
-   * Enumerates the split screen state.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 12
-   */
-  export enum SplitScreenState {
-    /**
-     * Not in split window mode.
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    NONE = 0,
-
-    /**
-     * Screen is vertically split, the window is on the left.
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    LEFT,
-
-    /**
-     * Screen is vertically split, the window is on the right.
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    RIGHT,
-
-    /**
-     * Screen is horizontally split, the window is at the top.
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    TOP,
-
-    /**
-     * Screen is horizontally split, the window is at the bottom.
-     *
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    BOTTOM
   }
 }
 
