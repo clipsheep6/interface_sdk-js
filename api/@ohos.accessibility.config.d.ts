@@ -185,14 +185,6 @@ declare namespace config {
    * @since 11
    */
   const repeatClickInterval: Config<RepeatClickInterval>;
-  /**
-   * Indicates the configuration of screen magnification.
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @systemapi
-   * @since 12
-   */
-  const screenMagnification: Config<boolean>;
 
   /**
    * Enable the accessibility extension ability.
