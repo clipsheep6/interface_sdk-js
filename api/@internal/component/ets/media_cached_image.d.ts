@@ -67,7 +67,18 @@ interface MediaCachedImageInterface {
  * @systemapi
  * @since 12
  */
-declare class MediaCachedImageAttribute extends ImageAttribute {}
+declare class MediaCachedImageAttribute extends ImageAttribute {
+  /**
+   * Set src to obtain cachedImage
+   *
+   * @param { ResourceStr | ASTCResource } value
+   * @returns { MediaCachedImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  src(value: ResourceStr | ASTCResource): MediaCachedImageAttribute;
+}
 
 /**
  * MediaCachedImage component.
