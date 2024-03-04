@@ -2816,6 +2816,22 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
+    /**
+     * Creates and obtains a KVStore database by specifying {@code Options} and {@code storeId}.
+     *
+     * @param { string } storeId - Identifies the KVStore database. The value of this parameter must be unique
+     * for the same application, and different applications can share the same value. The storeId can consist
+     * of only letters, digits, and underscores (_), and cannot exceed 128 characters.
+     * @param { Options } options - Indicates the {@code Options} object used for creating and
+     * obtaining the KVStore database.
+     * @returns { Promise<T> } {T}: the {@code SingleKVStore} or {@code DeviceKVStore} instance.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 15100002 - Open existed database with changed options.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     * @since 12
+     */
     getKVStore<T>(storeId: string, options: Options): Promise<T>;
 
     /**
@@ -2852,8 +2868,6 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
-    closeKVStore(appId: string, storeId: string): Promise<void>;
-
     /**
      * Closes the KVStore database.
      * <p>Warning: This method is not thread-safe. If you call this method to stop a KVStore database that is running, your
@@ -2865,13 +2879,14 @@ declare namespace distributedKVStore {
      * @param { string } appId - Identifies the application that the database belong to.
      * @param { string } storeId - Identifies the KVStore database to close. The storeId can consist of only letters, digits,
      * and underscores (_), and cannot exceed 128 characters.
-     * @param { Options } options - Indicates the {@code Options} object used for closing the KVStore database.
+     * @param { Options } [options] - Indicates the {@code Options} object used for closing the KVStore database.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 12
      */
-    closeKVStore(appId: string, storeId: string, options: Options): Promise<void>;
+    closeKVStore(appId: string, storeId: string, options?: Options): Promise<void>;
 
     /**
      * Deletes the KVStore database identified by storeId.
@@ -2905,8 +2920,6 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
-    deleteKVStore(appId: string, storeId: string): Promise<void>;
-
     /**
      * Deletes the KVStore database identified by storeId.
      * <p>Before using this method, close all KVStore instances in use that are identified by the same storeId.
@@ -2919,11 +2932,12 @@ declare namespace distributedKVStore {
      * @param { Options } options - Indicates the {@code Options} object used for deleting the KVStore database.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 15100004 - Not found.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 12
      */
-    deleteKVStore(appId: string, storeId: string, options: Options): Promise<void>;
+    deleteKVStore(appId: string, storeId: string, options?: Options): Promise<void>;
 
     /**
      * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not deleted by
@@ -2947,8 +2961,6 @@ declare namespace distributedKVStore {
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 9
      */
-    getAllKVStoreId(appId: string): Promise<string[]>;
-
     /**
      * Obtains the storeId of all KVStore databases that are created by using the {@code getKVStore} method and not deleted by
      * calling the {@code deleteKVStore} method.
@@ -2957,10 +2969,11 @@ declare namespace distributedKVStore {
      * @param { number } [userId] - Indicates the ID of user under that the databases will be obtained.
      * @returns { Promise<string[]> } {string[]}: the storeId of all created KVStore databases.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 12
      */
-    getAllKVStoreId(appId: string, userId?: number): Promise<string[]>;
+    getAllKVStoreId(appId: string, userId?: number): Promise<Array<string>>;
 
     /**
      * Register a death callback to get notification when the data manager service is terminated.
