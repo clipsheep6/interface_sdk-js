@@ -1316,7 +1316,9 @@ export default class ServiceExtensionContext extends ExtensionContext {
   startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Requests the Modal UIExtensionAbility.
+   * Request the specified foreground application to start the UIExtensionAbility of the corresponding type.
+   * The bundleName of the foreground application and the type of the UIExtensionAbility are configured in parameters of Want,
+   * and the UIExtensionAbility is determined by the bundleName, abilityName and moduleName in Want.
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
@@ -1338,7 +1340,9 @@ export default class ServiceExtensionContext extends ExtensionContext {
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Requests the Modal UIExtensionAbility.
+   * Request the specified foreground application to start the UIExtensionAbility of the corresponding type.
+   * The bundleName of the foreground application and the type of the UIExtensionAbility are configured in parameters of Want,
+   * and the UIExtensionAbility is determined by the bundleName, abilityName and moduleName in Want.
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
