@@ -65,6 +65,7 @@ declare interface InputCounterOptions {
    * @since 11
    */
   highlightBorder?: boolean;
+  highlightBorder1?: boolean;
 }
 
 /**
