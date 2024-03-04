@@ -3834,6 +3834,18 @@ declare namespace image {
     getImageInfo(index?: number): Promise<ImageInfo>;
 
     /**
+     * Get image information from image source.
+     *
+     * @param { number } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
+     * @returns { ImageInfo } Return the image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getImageInfoSync(index?: number): ImageInfo;
+
+    /**
      * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
      * return the object.
      *
@@ -3922,6 +3934,18 @@ declare namespace image {
      * @since 11
      */
     createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap>): void;
+
+    /**
+     * Creates a PixelMap object based on image decoding parameters.
+     *
+     * @param { DecodingOptions } options Image decoding parameters.
+     * @returns { PixelMap } Returns the PixelMap.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    createPixelMapSync(options?: DecodingOptions): PixelMap;
 
     /**
      * Creates a PixelMap array based on image decoding parameters. This method uses a promise to
