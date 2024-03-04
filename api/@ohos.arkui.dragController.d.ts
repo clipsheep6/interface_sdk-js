@@ -172,6 +172,15 @@ declare namespace dragController {
      * @since 11
      */
     previewOptions?: DragPreviewOptions;
+
+    /**
+     * Defines the drag activity related configurations.
+     *
+     * @interface DragActionOptions
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 12
+     */
+    actionOptions?: DragActionOptions;
   }
 
   /**

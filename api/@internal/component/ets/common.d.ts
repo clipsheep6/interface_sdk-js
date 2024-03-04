@@ -11258,6 +11258,25 @@ declare interface DragPreviewOptions {
 }
 
 /**
+ * Defines the drag activity related configurations.
+ *
+ * @interface DragActionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface DragActionOptions {
+  /**
+   * Define the drag action to remote is allowed or not
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  disableRemote?: boolean;
+}
+
+/**
  * Define the options of invert
  *
  * @interface InvertOptions
@@ -14697,6 +14716,16 @@ declare class CommonMethod<T> {
   dragPreviewOptions(value: DragPreviewOptions): T;
 
   /**
+   * Set the drag activity options.
+   *
+   * @param { DragActionOptions } actionOptions - drag activity options value.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  dragOptions(actionOptions: DragActionOptions): T;
+
+  /**
    * Add mask text to the current component. The layout is the same as that of the current component.
    *
    * @param { string | CustomBuilder } value
@@ -17943,7 +17972,7 @@ declare module "AnimateToParam" {
 declare module 'DragControllerParam' {
   module 'DragControllerParam' {
     // @ts-ignore
-    export type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions };
+    export type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions, DragActionOptions };
   }
 }
 
