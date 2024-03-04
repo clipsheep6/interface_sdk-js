@@ -227,6 +227,8 @@ declare namespace relationalStore {
   /**
    * The type of the priority key can be number or string
    *
+   *
+   *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 10
    */
