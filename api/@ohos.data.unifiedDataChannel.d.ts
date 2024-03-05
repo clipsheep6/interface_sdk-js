@@ -37,6 +37,93 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace unifiedDataChannel {
   /**
+   * Types of scope that UnifiedData can be used.
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum ShareOption {
+    /**
+     * INAPP indicates that only use in the same app is allowed.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    INAPP,
+    /**
+     * LOCALDEVICE indicates that use in any app in this device is allowed.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    LOCALDEVICE,
+    /**
+     * CROSSDEVICE indicates that use in any app across devices is allowed.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    CROSSDEVICE
+  }
+
+  /**
+   * UnifiedData property.
+   * @interface UnifiedDataProperty
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @atomicservice
+   * @since 12
+   */
+  interface UnifiedDataProperty {
+    /**
+     * additional property data. key-value pairs.
+     * @type { object }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    additions: {
+      [key: string]: object
+    }
+
+    /**
+     * non-repeating types of all records in UnifiedData.
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    readonly types: Array<string>;
+    /**
+     * the user-defined tag of a UnifiedData object.
+     * @type { string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    tag: string;
+    /**
+     * a timestamp, which indicates when data is written.
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    readonly timestamp: number;
+    /**
+     * Indicates the scope of clipboard data which can be used.
+     * If it is not set or is incorrectly set, The default value is CrossDevice.
+     * @type { ShareOption }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    shareOption: ShareOption;
+  }
+
+  /**
    * Describe the unified data.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -127,14 +214,62 @@ declare namespace unifiedDataChannel {
     /**
      * Replaces a specified record with a new one.
      * @param { number } index - indicates the record index in UnifiedData.
-     * @param { UnifiedDataRecord } record - the content of a new record.
-     * @throws { BusinessError } 401 - if type of index is not number or type of record is not UnifiedDataRecord.
+     * @param { UnifiedRecord } record - the content of a new record.
+     * @throws { BusinessError } 401 - if type of index is not number or type of record is not UnifiedRecord.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
      */
-    replaceRecord(index: number, record: UnifiedDataRecord): void;
+    replaceRecord(index: number, record: UnifiedRecord): void;
+
+    /**
+     * the user-defined tag of a UnifiedData object.
+     * @returns { string } type of tag
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    getTag(): string;
+
+    /**
+     * Checks whether there is a specified MIME type of data in DataProperty.
+     * @param { string } mimeType - indicates to query data type.
+     * @returns { boolean } if having mimeType in UnifiedData returns true, else returns false.
+     * @throws { BusinessError } 401 - if type of path is not string.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    hasType(mimeType: string): boolean;
+
+    /**
+     * UTD types of all content in the UnifiedData.
+     * @returns { Array<string> } type of array
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    getMimeTypes(): Array<string>;
+
+    /**
+     * DataProperty of a UnifiedData object.
+     * @returns { UnifiedDataProperty } UnifiedDataProperty type of UnifiedDataProperty
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    getProperty(): UnifiedDataProperty;
+    
+    /**
+     * Sets UnifiedDataProperty to a UnifiedData object, Modifying shareOption is supported only.
+     * @param { UnifiedDataProperty } property - save property to UnifiedData object.
+     * @throws { BusinessError } 401 - if type of property is not UnifiedDataProperty.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    setProperty(property: UnifiedDataProperty): void;
   }
 
   /**
