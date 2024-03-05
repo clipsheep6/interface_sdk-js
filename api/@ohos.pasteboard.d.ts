@@ -1174,7 +1174,6 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 11
      */
-
     getDataSync(): PasteData;
     /**
      * Gets unifiedData from the system pasteboard.

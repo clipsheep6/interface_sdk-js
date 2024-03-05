@@ -234,14 +234,14 @@ declare namespace unifiedDataChannel {
 
     /**
      * Checks whether there is a specified MIME type of data in DataProperty.
-     * @param { string } mimeType - indicates to query data type.
+     * @param { string } type - indicates to query data type.
      * @returns { boolean } if having mimeType in UnifiedData returns true, else returns false.
      * @throws { BusinessError } 401 - if type of path is not string.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
      */
-    hasType(mimeType: string): boolean;
+    hasType(type: string): boolean;
 
     /**
      * UTD types of all content in the UnifiedData.
@@ -250,7 +250,7 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 12
      */
-    getMimeTypes(): Array<string>;
+    getTypes(): Array<string>;
 
     /**
      * DataProperty of a UnifiedData object.
