@@ -665,8 +665,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @since 12
    * @form
    */
-  
- costomStyle(style: DataPanelStyle) : DataPanelAttribute
+  costomStyle(style: DataPanelStyle) : DataPanelAttribute
 }
 
 /**
