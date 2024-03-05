@@ -21,6 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
+import utc, {UnifiedRecord} from './@ohos.data.unifiedDataChannel';
 
 /**
  * systemPasteboard
@@ -378,6 +379,108 @@ declare namespace pasteboard {
      * @since 11
      */
     readonly mimeTypes: Array<string>;
+    /**
+     * the user-defined tag of a PasteData object.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 7
+     */
+    /**
+     * the user-defined tag of a PasteData object.
+     * @type { string }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
+    tag: string;
+    /**
+     * a timestamp, which indicates when data is written to the system pasteboard.
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 7
+     */
+    /**
+     * a timestamp, which indicates when data is written to the system pasteboard.
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
+    readonly timestamp: number;
+    /**
+     * Checks whether PasteData is set for local access only.
+     * @type { boolean }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 7
+     */
+    /**
+     * Checks whether PasteData is set for local access only.
+     * @type { boolean }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
+    localOnly: boolean;
+    /**
+     * Indicates the scope of clipboard data which can be pasted.
+     * If it is not set or is incorrectly set, The default value is CrossDevice.
+     * @type { ShareOption }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 9
+     */
+    /**
+     * Indicates the scope of clipboard data which can be pasted.
+     * If it is not set or is incorrectly set, The default value is CrossDevice.
+     * @type { ShareOption }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
+    shareOption: ShareOption;
+  }
+
+  /**
+   * Paste data property.
+   * @interface PasteDataProperty
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 12
+   */
+  interface UnifiedRecordProperty {
+    /**
+     * additional property data. key-value pairs.
+     * @type { object }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 7
+     */
+    /**
+     * additional property data. key-value pairs.
+     * @type { object }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
+    additions: {
+      [key: string]: object
+    }
+    /**
+     * non-repeating MIME types of all records in PasteData.
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 7
+     */
+    /**
+     * non-repeating MIME types of all records in PasteData.
+     * @type { Array<string> }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 11
+     */
+    readonly types: Array<string>;
     /**
      * the user-defined tag of a PasteData object.
      * @type { string }
@@ -1173,7 +1276,27 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 11
      */
+
     getDataSync(): PasteData;
+    /**
+     * Gets unifiedData from the system pasteboard.
+     * @returns { Promise<UnifiedData> } the promise returned by the getData.
+     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
+    getData(): Promise<utc.UnifiedData>;
+
+    /**
+     * Gets unifiedData from the system pasteboard.
+     * @returns { UnifiedData }  a new UnifiedData.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
+    getDataSync(): utc.UnifiedData;
 
     /**
      * Checks whether there is content in the pasteboard.
@@ -1315,6 +1438,30 @@ declare namespace pasteboard {
      * @since 11
      */
     setDataSync(data: PasteData): void;
+
+    /**
+     * Writes UnifiedData to the system pasteboard.
+     * @param { UnifiedData } data - UnifiedData will be written to the clipboard.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - if type of data is not PasteData.
+     * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
+     * @throws { BusinessError } 12900004 - Replication is prohibited.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
+    setData(data: utc.UnifiedData): Promise<void>;
+
+    /**
+     * Writes UnifiedData to the system pasteboard.
+     * @param { UnifiedData } data - PasteData will be written to the clipboard.
+     * @throws { BusinessError } 401 - if type of data is not PasteData.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
+    setDataSync(data: utc.UnifiedData): void;
   }
 }
 

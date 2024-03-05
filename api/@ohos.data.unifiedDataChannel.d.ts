@@ -19,6 +19,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import {UnifiedDataRecord} from "./@ohos.pasteboard";
 
 /**
  * Provide methods for sharing data between different applications across unified data channels.
@@ -102,6 +103,39 @@ declare namespace unifiedDataChannel {
      * @since 11
      */
     getRecords(): Array<UnifiedRecord>;
+    /**
+     * Gets record by index in UnifiedData.
+     * @param { number } index - indicates the record index in UnifiedData.
+     * @returns { UnifiedRecord } the record in UnifiedData with index.
+     * @throws { BusinessError } 401 - if type of index is not number.
+     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    getRecord(index: number): UnifiedRecord;
+    /**
+     * Removes a Record based on a specified index.
+     * @param { number } index - indicates the record index in UnifiedData.
+     * @throws { BusinessError } 401 - if type of index is not number.
+     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    removeRecord(index: number): void;
+
+    /**
+     * Replaces a specified record with a new one.
+     * @param { number } index - indicates the record index in UnifiedData.
+     * @param { UnifiedDataRecord } record - the content of a new record.
+     * @throws { BusinessError } 401 - if type of index is not number or type of record is not UnifiedDataRecord.
+     * @throws { BusinessError } 12900001 - The index is out of the record.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    replaceRecord(index: number, record: UnifiedDataRecord): void;
   }
 
   /**
