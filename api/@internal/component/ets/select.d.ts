@@ -91,6 +91,11 @@ declare interface SelectOption {
   icon?: ResourceStr;
 }
 
+declare enum SelectStyleEx {
+  Normal = 'Normal',
+  Small = 'Small'
+}
+
 /**
  * Provides the select interface.
  *
@@ -288,6 +293,8 @@ declare enum MenuAlignType {
  * @since 11
  */
 declare class SelectAttribute extends CommonMethod<SelectAttribute> {
+  selectStyleEx(value: SelectStyleEx): SelectAttribute;
+
   /**
    * Sets the serial number of the select item, starting from 0.
    *
