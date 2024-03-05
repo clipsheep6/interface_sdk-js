@@ -14,17 +14,272 @@
  */
 
 /**
+ * Defines the attribute base span.
+ *
+ * @interface AttributeBaseSpan
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface AttributeBaseSpan {}
+
+/**
+ * Defines FontSpan interface.
+ *
+ * @interface FontSpan
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface FontSpan extends AttributeBaseSpan{
+    /**
+      *
+      * @type { ?ResourceColor }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    fontColor?: ResourceColor;
+
+    /**
+      *
+      * @type { ?Dimension }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    fontSize?: Dimension;
+
+    /**
+      *
+      * @type { ?number | FontWeight | string }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    fontWeight?: number | FontWeight | string;
+
+    /**
+      *
+      * @type { ?ResourceStr }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    fontFamily?: ResourceStr;
+
+    /**
+      *
+      * @type { ?FontStyle }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    fontStyle?: FontStyle;
+}
+
+/**
+ * Defines DecorationSpan interface.
+ *
+ * @interface DecorationSpan
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface DecorationSpan extends AttributeBaseSpan {
+    /**
+      *
+      * @type { TextDecorationType }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    type: TextDecorationType;
+
+    /**
+      *
+      * @type { ?ResourceColor }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    decorationColor?: ResourceColor;
+}
+
+/**
+ * Defines BaselineOffsetSpan interface.
+ *
+ * @interface BaselineOffsetSpan
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface BaselineOffsetSpan extends AttributeBaseSpan {
+   
+    /**
+      *
+      * @type { number | string }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    baselineOffset: number | string;
+}
+
+/**
+ * Defines LetterSpacingSpan interface.
+ *
+ * @interface LetterSpacingSpan
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface LetterSpacingSpan extends AttributeBaseSpan {
+    /**
+      *
+      * @type { number | string }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    letterSpace: number | string;
+}
+
+/**
+ * Defines TextShadowSpan interface.
+ *
+ * @interface TextShadowSpan
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface TextShadowSpan extends AttributeBaseSpan {
+    /**
+      *
+      * @type { ShadowOptions | Array<ShadowOptions> }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    textShadow: ShadowOptions | Array<ShadowOptions>;
+}
+
+/**
+ * Defines ParagraphStyleSpan interface.
+ *
+ * @interface ParagraphStyleSpanInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface ParagraphStyleSpan extends AttributeBaseSpan {
+    /**
+      *
+      * @type { ?TextAlign }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    textAlign?: TextAlign;
+
+    /**
+      *
+      * @type { ?Length }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    textIndent?: Length;
+
+    /**
+      *
+      * @type { ?Dimension }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    lineHeight?: Dimension;
+
+    /**
+      *
+      * @type { ?number }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    maxLines?: number;
+
+    /**
+      *
+      * @type { ?TextOverflow }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    overflow?: TextOverflow;
+}
+
+/**
+ * Defines BackgroundColorSpan interface.
+ *
+ * @interface BackgroundColorSpan
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface BackgroundColorSpan extends AttributeBaseSpan {
+
+    /**
+      *
+      * @type { ResourceColor }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    backgroundColor: ResourceColor;
+}
+
+/**
+ * Defines GestureSpan interface.
+ *
+ * @interface GestureSpan
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface GestureSpan extends AttributeBaseSpan {
+
+    /**
+      *
+      * @type { ?object }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    onClick?: (event: ClickEvent) => void ;
+
+    /**
+      *
+      * @type { ?object }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @since 12
+      */
+    onLongPress?: (event: GestureEvent) => void;
+}
+
+/**
  * SpanString
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class SpanString {
+declare class SpanString<T extends AttributeBaseSpan> {
     /**
      * constructor.
      *
-     * @param { string } text - indicates the current value of the spanString.
+     * @param { ?string } text - indicates the current value of the spanString.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -54,13 +309,13 @@ declare class SpanString {
     /**
      * Judge if two attribute strings are equal.
      *
-     * @param { SpanString } other - another SpanString.
+     * @param { SpanString<T> } other - another SpanString.
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    isEqualToSpanString(other: SpanString): boolean;
+    isEqualToSpanString(other: SpanString<T>): boolean;
 
     /**
      * Get the substring of the spanString.
@@ -72,7 +327,7 @@ declare class SpanString {
      * @crossplatform
      * @since 12
      */
-    getSubSpanString(start: number, length: number): SpanString;
+    getSubSpanString(start: number, length: number): SpanString<T>;
 
     /**
      * Get the attribute object of the subSpanString.
@@ -84,7 +339,7 @@ declare class SpanString {
      * @crossplatform
      * @since 12
      */
-    getSpans(start: number, length: number): Array<SpanItem>;
+    getSpans(start: number, length: number): Array<SpanItem<T>>;
 
     /**
      * Get the attribute object of the subSpanString.
@@ -97,7 +352,7 @@ declare class SpanString {
      * @crossplatform
      * @since 12
      */
-    getSpan(start: number, length: number, spanKey: SpanStringKey): SpanItem;
+    getSpan(start: number, length: number, spanKey: SpanStringKey): SpanItem<T>;
 
     /**
      * Get the index of the subSpanString.
@@ -124,23 +379,24 @@ declare class SpanString {
       * the spanString init with style objects.
       *
       * @param { string } content - init style content.
-      * @param { Array<{ spanKey: SpanStringKey, type: SpanObjectType }> } spans - span objects.
+      * @param { Array<{ spanKey: SpanStringKey, type: T }> } spans - span objects.
       * @param { ?number } start - the start index of the content with styles.
       * @param { ?number } length - the length of the content with styles.
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
       * @since 12
       */
-    bindWithSpans(content: string, spans: Array<{ spanKey: SpanStringKey, type: SpanObjectType }>, start?: number, length?: number): void;
+    bindWithSpans(content: string, spans: Array<{ spanKey: SpanStringKey, type: T }>, start?: number, length?: number): void;
 }
 /**
  * SpanItem
  *
+ * @interface SpanItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare interface SpanItem {
+declare interface SpanItem<T extends AttributeBaseSpan> {
     /**
      * The start position of the SpanItem.
      *
@@ -174,184 +430,13 @@ declare interface SpanItem {
     /**
      * The literal content of the spanItem.
      *
-     * @type { SpanObjectType }
+     * @type { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    value: SpanObjectType;
+    value: T;
 }
-
-/**
- * Defines FontSpan.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare class FontSpan {
-
-    /**
-     * constructor.
-     *
-     * @param { ?object } value - text property - color/size/weight/family/style included.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    constructor(value?: {
-        color?: ResourceColor; size?: Dimension; weight?: number | FontWeight | string;
-        family?: ResourceStr; style?: FontStyle
-    });
-}
-
-/**
- * Defines DecorationSpan.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare class DecorationSpan {
-
-    /**
-     * constructor.
-     *
-     * @param { object } value - text decoration value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    constructor(value: { type: TextDecorationType; color?: ResourceColor });
-}
-
-/**
- * Defines BaselineOffsetSpan.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare class BaselineOffsetSpan {
-    
-    /**
-     * constructor.
-     *
-     * @param { number | string } value - baseline offset value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    constructor(value: number | string);
-}
-
-/**
- * Defines LetterSpacingSpan.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare class LetterSpacingSpan {
-   
-    /**
-     * constructor.
-     *
-     * @param { number | string } value - letter space value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    constructor(value: number | string);
-}
-
-/**
- * Defines TextShadowSpan.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare class TextShadowSpan {
-   
-    /**
-     * constructor.
-     *
-     * @param { ShadowOptions | Array<ShadowOptions> } value - text shadow value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    constructor(value: ShadowOptions | Array<ShadowOptions>);
-}
-
-/**
- * Defines ParagraphStyleSpan.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare class ParagraphStyleSpan {
-    /**
-     * 
-     * @param { object } value - The text paragraph style, textAlign/textIndent/lineHeight/wordBreak/maxLines/textOverflow included.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    constructor(value: {
-        textAlign?: TextAlign; textIndent?: Length; lineHeight?: Dimension; maxLines?: number;
-        overflow?: TextOverflow;
-    });
-}
-
-/**
- * Defines BackgroundColorSpan.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare class BackgroundColorSpan {
-    /**
-     * 
-     * @param { ResourceColor } value - background color value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    constructor(value: ResourceColor);
-}
-
-/**
- * Defines GestureSpan.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare class GestureSpan {
-    /**
-     * 
-     * @param { object } value - Gesture Event.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    constructor(value: { onClick?: (event: ClickEvent) => void; onLongPress?: (event: GestureEvent) => void; });
-}
-
-/**
- * Defines the Span Type.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 12
- */
-declare type SpanObjectType =
-    FontSpan | DecorationSpan | BaselineOffsetSpan | LetterSpacingSpan
-    | TextShadowSpan | ParagraphStyleSpan | BackgroundColorSpan | GestureSpan;
 
 /**
  * MutableSpanString
@@ -360,7 +445,7 @@ declare type SpanObjectType =
  * @crossplatform
  * @since 12
  */
-declare class MutableSpanString extends SpanString {
+declare class MutableSpanString<T extends AttributeBaseSpan> extends SpanString<AttributeBaseSpan> {
     /**
      * Replace the string of the specified range.
      *
@@ -401,12 +486,12 @@ declare class MutableSpanString extends SpanString {
      * @param { number } start - the start position of the replacedAttributeSpanString.
      * @param { number } length - the length of the replacedAttributeSpanString.
      * @param { SpanStringKey } spanKey - the specified attribute type.
-     * @param { SpanObjectType } SpanObjectType - the specified attribute type object.
+     * @param { T } SpanObjectType - the specified attribute type object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    replaceSpan(start: number, length: number, spanKey: SpanStringKey, SpanObjectType: SpanObjectType): void;
+    replaceSpan(start: number, length: number, spanKey: SpanStringKey, SpanObjectType: T): void;
 
     /**
      * Add attributes to the specified range string.
@@ -414,12 +499,12 @@ declare class MutableSpanString extends SpanString {
      * @param { number } start - the start position of the addedAttributeSpanString.
      * @param { number } length - the length of the addedAttributeSpanString.
      * @param { SpanStringKey } spanKey - the specified attribute type's key.
-     * @param { SpanObjectType } spanType - the specified attribute type object.
+     * @param { T } spanType - the specified attribute type object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    addSpan(start: number, length: number, spanKey: SpanStringKey, spanType: SpanObjectType): void;
+    addSpan(start: number, length: number, spanKey: SpanStringKey, spanType: T): void;
 
     /**
      * Delete the specified type attributes for the specified range string.
@@ -463,7 +548,7 @@ declare class MutableSpanString extends SpanString {
      * @crossplatform
      * @since 12
      */
-    replaceSpanString(start: number, length: number, other: SpanString): void;
+    replaceSpanString(start: number, length: number, other: SpanString<T>): void;
 
     /**
      * Insert new spanString at the specified location.
@@ -474,7 +559,7 @@ declare class MutableSpanString extends SpanString {
      * @crossplatform
      * @since 12
      */
-    insertSpanString(start: number, other: SpanString): void;
+    insertSpanString(start: number, other: SpanString<T>): void;
 
     /**
      * Append new spanString at the end.
@@ -485,7 +570,7 @@ declare class MutableSpanString extends SpanString {
      * @crossplatform
      * @since 12
      */
-    appendSpanString(other: SpanString): void;
+    appendSpanString(other: SpanString<T>): void;
 }
 
 
@@ -575,6 +660,7 @@ declare enum SpanStringKey {
 /**
  * Defines the AttachmentImage.
  *
+ * @interface AttachmentImage
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
