@@ -138,6 +138,39 @@ declare interface GaugeIndicatorOptions {
    * @since 11
    */
   space?: Dimension;
+
+  /**
+   * Current data value.
+   * 
+   * @type { ?number } data value - the current data value.
+   * @default 8
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  value?: number;
+
+  /**
+   * Current Segment Minimum Value.
+   * 
+   * @type { ?number } segment minumum value - the current segment minumum value.
+   * @default 8
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  min?: number;
+
+  /**
+   * Current Segment Maximum Value.
+   * 
+   * @type { ?number } segment maximum value - the current segment maximum value.
+   * @default 8
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  max?: number;
 }
 
 /**
