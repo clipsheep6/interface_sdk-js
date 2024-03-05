@@ -49,4 +49,16 @@ export default class InputMethodExtensionContext extends ExtensionContext {
    * @since 9
    */
   destroy(): Promise<void>;
+
+  /**
+   * Start a specific ability.
+   *
+   * @param { Want } want - the ability to start.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - parameter error.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @stagemodelonly
+   * @since 12
+   */
+  startAbility(want: Want): Promise<void>;
 }
