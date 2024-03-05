@@ -203,6 +203,56 @@ declare class FontSpan {
         color?: ResourceColor; size?: Dimension; weight?: number | FontWeight | string;
         family?: ResourceStr; style?: FontStyle
     });
+
+    /**
+     * Get the fontColor of the spanString.
+     *
+     * @returns { ResourceColor } - the fontColor of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getColor(): ResourceColor;
+
+    /**
+     * Get the fontSize of the spanString.
+     *
+     * @returns { Dimension } - the fontSize of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getSize(): Dimension;
+
+    /**
+     * Get the fontWeight of the spanString.
+     *
+     * @returns { number } - the fontWeight of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getWeight(): number;
+
+    /**
+     * Get the fontFamily of the spanString.
+     *
+     * @returns { number } - the fontFamily of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getFamily(): string;
+
+    /**
+     * Get the fontStyle of the spanString.
+     *
+     * @returns { FontStyle } - the fontStyle of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getStyle(): FontStyle;
 }
 
 /**
@@ -223,6 +273,26 @@ declare class DecorationSpan {
      * @since 12
      */
     constructor(value: { type: TextDecorationType; color?: ResourceColor });
+
+    /**
+     * Get the text decoration type of the spanString.
+     *
+     * @returns { TextDecorationType } - the fontStyle of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getType(): TextDecorationType;
+
+    /**
+     * Get the decorationColor of the spanString.
+     *
+     * @returns { ResourceColor } - the decorationColor of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getColor(): ResourceColor;
 }
 
 /**
@@ -243,6 +313,16 @@ declare class BaselineOffsetSpan {
      * @since 12
      */
     constructor(value: number | string);
+
+    /**
+     * Get the baselineOffset value of the spanString.
+     *
+     * @returns { number } - the baselineOffset value of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getOffset(): number;
 }
 
 /**
@@ -263,6 +343,16 @@ declare class LetterSpacingSpan {
      * @since 12
      */
     constructor(value: number | string);
+
+    /**
+     * Get the letterSpacing value of the spanString.
+     *
+     * @returns { number } - the letterSpacing value of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getValue(): number;
 }
 
 /**
@@ -283,6 +373,16 @@ declare class TextShadowSpan {
      * @since 12
      */
     constructor(value: ShadowOptions | Array<ShadowOptions>);
+
+    /**
+     * Get the textShadow value of the spanString.
+     *
+     * @returns { Array<ShadowOptions> } - the letterSpacing value of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getValue(): Array<ShadowOptions>;
 }
 
 /**
@@ -304,6 +404,56 @@ declare class ParagraphStyleSpan {
         textAlign?: TextAlign; textIndent?: Length; lineHeight?: Dimension; maxLines?: number;
         overflow?: TextOverflow;
     });
+
+    /**
+     * Get the textAlign value of the spanString.
+     *
+     * @returns { TextAlign } - the textAlign value of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getTextAlignValue(): TextAlign;
+
+    /**
+     * Get the textIndent value of the spanString.
+     *
+     * @returns { Length } - the textIndent value of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getTextIndentValue(): Length;
+
+    /**
+     * Get the lineHeight value of the spanString.
+     *
+     * @returns { Length } - the lineHeight value of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getLineHeightValue(): Dimension;
+
+    /**
+     * Get the maxLines value of the spanString.
+     *
+     * @returns { number } - the maxLines value of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getMaxLinesValue(): number;
+
+    /**
+     * Get the maxLines value of the spanString.
+     *
+     * @returns { TextOverflow } - the maxLines value of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getOverflowValue(): TextOverflow;
 }
 
 /**
@@ -322,6 +472,16 @@ declare class BackgroundColorSpan {
      * @since 12
      */
     constructor(value: ResourceColor);
+
+    /**
+     * Get the backgroundColor of the spanString.
+     *
+     * @returns { ResourceColor } - the backgroundColor of the spanString
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    getColor(): ResourceColor;
 }
 
 /**
