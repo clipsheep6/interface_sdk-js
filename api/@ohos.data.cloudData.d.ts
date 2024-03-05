@@ -113,45 +113,103 @@ declare namespace cloudData {
   }
 
   /**
-   * Describes the strategy of cloud sync.
+   * Additional data for querying data statistics information.
    *
-   * @enum { number }
+   * @interface StatisticInfo
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
    * @since 12
    */
-  enum CloudStrategyType {
-
+  interface StatisticInfo {
     /**
-     * Indicates that synchronization is not allowed when using both WiFi and CELLULAR.
+     * Cloud table name.
      *
+     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
      * @since 12
      */
-    NO_SYNC = 0,
+    table: string;
 
     /**
-     * Indicates that synchronization is allowed when using WiFi.
+     * Number of records to be inserted to the cloud.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
      * @since 12
      */
-    WIFI = 1,
+    inserted: number;
 
     /**
-     * Indicates that synchronization is allowed when using CELLULAR.
+     * Number of inconsistent records between the local device and the cloud.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
      * @since 12
      */
-    CELLULAR = 2,
+    updated: number;
 
     /**
-     * Indicates that synchronization is allowed when using CELLULAR or WIFI.
+     * Number of consistent records between the local device and the cloud.
      *
+     * @type { number }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
      * @since 12
      */
-    CELLULAR_OR_WIFI = 3
+    normal: number;
+  }
+
+  /**
+   * Indicated sync info.
+   *
+   * @interface SyncInfo
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @since 12
+   */
+  interface SyncInfo {
+    /**
+     * Sync start time.
+     *
+     * @type { Date }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    startTime: Date;
+
+    /**
+     * Sync finish time.
+     *
+     * @type { Date }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    finishTime: Date;
+
+    /**
+     * Sync status.
+     *
+     * @type { ProgressCode }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    code: relationalStore.ProgressCode;
+
+    /**
+     * Sync table names.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    tables: Array<string>;
   }
 
   /**
@@ -407,6 +465,96 @@ declare namespace cloudData {
     static notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
 
     /**
+     * Queries statistics of the cloud records.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { string } bundleName - Indicates the name of application.
+     * @param { string } [storeId] - Indicates the store ID.
+     * @returns { Promise<Record<string, Array<StatisticInfo>>> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission denied. The application is not a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    static queryStatistics(
+        accountId: string,
+        bundleName: string,
+        storeId?: string
+    ): Promise<Record<string, Array<StatisticInfo>>>;
+
+    /**
+     * query last sync information.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { string } bundleName - Indicates the name of application.
+     * @param { string } [storeId] - Indicates the store ID.
+     * @returns { Promise<Record<string, Array<StatisticInfo>>> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission denied. The application is not a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    static queryLastSyncInfo(
+        accountId: string,
+        bundleName: string,
+        storeId?: string
+    ): Promise<Record<string, Array<SyncInfo>>>;
+
+    /**
+     * query last sync information.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { number } period - Indicates the grace period, with a range of values from 0 to 300, measured in seconds.
+     * @param { string } bundleName - Indicates the name of application.
+     * @returns { Promise<Date> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission denied. The application is not a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    static setStrategyGracePeriod(
+        accountId: string,
+        period: number,
+        bundleName?: string,
+    ): Promise<Date>;
+
+    /**
+     * Ignoring sync strategy to force sync.
+     *
+     * @permission ohos.permission.CLOUDDATA_CONFIG
+     * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
+     * @param { string } bundleName - Indicates the name of application.
+     * @param { string } storeId - Indicates the name of store.
+     * @param { Array<string> } tables - Indicates the table names.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission denied. The application is not a system application.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
+     * @since 12
+     */
+    static forceSync(
+        accountId: string,
+        bundleName: string,
+        storeId?: string,
+        tables?: Array<string>,
+    ): Promise<void>;
+
+    /**
      * deletes cloud information from local data.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
@@ -473,21 +621,91 @@ declare namespace cloudData {
      * @since 11
      */
     static clear(accountId: string, appActions: Record<string, ClearAction>): Promise<void>;
+  }
+
+  /**
+   * Enumerates the strategy types of cloud sync.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 12
+   */
+  enum StrategyType {
 
     /**
-     * Set cloud sync strategy.
+     * Indicates network strategy.
      *
-     * @param { CloudStrategyType } strategy - Indicates the CloudStrategyType.
-     * @param { Record<string, commonType.ValueType> } param - Indicates the param of strategy.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
-    static setCloudStrategy(strategy: CloudStrategyType, param?: Record<string, commonType.ValueType>):
-      Promise<void>;
+    NETWORK,
+
+    /**
+     * Indicates battery strategy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    BATTERY,
+
+    /**
+     * Indicates asset strategy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    ASSET
   }
+
+  /**
+   * Enumerates the types of cloud sync via the network.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 12
+   */
+  enum NetWorkStrategy {
+
+    /**
+     * Sync using WiFi.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    WIFI = 1,
+
+    /**
+     * Sync using the cellular network.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    CELLULAR = 2,
+  }
+
+  /**
+   * Enumerates the types of cloud sync via the battery.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 12
+   */
+  enum BatteryStrategy {
+
+  }
+
+  /**
+   * Sets cloud sync strategy.
+   *
+   * @param { StrategyType } strategy - Indicates the strategy type of the cloud sync.
+   * @param { Array<commonType.ValueType> } param - Indicates specific strategy of the cloud sync.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 12
+   */
+  function setCloudStrategy(strategy: StrategyType, param?: Array<commonType.ValueType>): Promise<void>;
 
   /**
    * Provides methods to implement cloud sharing.

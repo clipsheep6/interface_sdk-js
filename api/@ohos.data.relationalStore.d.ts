@@ -497,7 +497,31 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    NO_SPACE_FOR_ASSET
+    NO_SPACE_FOR_ASSET,
+
+    /**
+     * BLOCKED_BY_NETWORK_STRATEGY: means the sync blocked by network strategy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    BLOCKED_BY_NETWORK_STRATEGY,
+
+    /**
+     * BLOCKED_BY_ASSET_STRATEGY: means the sync of asset blocked by Asset strategy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    BLOCKED_BY_ASSET_STRATEGY,
+
+    /**
+     * BLOCKED_BY_BATTERY_STRATEGY: means the sync blocked by BATTERY strategy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    BLOCKED_BY_BATTERY_STRATEGY
   }
 
   /**
@@ -3516,6 +3540,48 @@ declare namespace relationalStore {
      * @since 11
      */
     cloudSync(mode: SyncMode, predicates: RdbPredicates, progress: Callback<ProgressDetails>): Promise<void>;
+
+    /**
+     * Lock data to prevent sync.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @returns { Promise<boolean> } -The promise returned by the function.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    lockData(predicates: RdbPredicates): Promise<boolean>;
+
+    /**
+     * Unlock data to enable sync.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @returns { Promise<boolean> } -The promise returned by the function.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    unlockData(predicates: RdbPredicates): Promise<boolean>;
+
+    /**
+     * Unlock data to enable sync.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { Array<string> } [columns] - The specified columns to query.
+     * @returns { Promise<ResultSet> } -The promise returned by the function.
+     * {@link ResultSet} is query result.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    queryLockData(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
 
     /**
      * Queries remote data in the database based on specified conditions before Synchronizing Data.
