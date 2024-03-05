@@ -14644,8 +14644,17 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @since 10
    */
-  
-    /**
+  /**
+   * Allowed drop uniformData type for this node.
+   *
+   * @param { Array<UniformDataType> } value - the uniformData type for this node.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
    * Allowed drop uniformData type for this node.
    *
    * @param { Array<UniformDataType> | null } value - the uniformData type for this node.
