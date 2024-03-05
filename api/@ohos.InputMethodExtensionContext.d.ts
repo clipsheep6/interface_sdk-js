@@ -20,6 +20,7 @@
 
 import { AsyncCallback } from './@ohos.base';
 import ExtensionContext from './application/ExtensionContext';
+import Want from './@ohos.app.ability.Want';
 
 /**
  * The extension context class of input method.
