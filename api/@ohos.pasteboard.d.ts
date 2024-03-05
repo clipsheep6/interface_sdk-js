@@ -21,7 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
-import utc, {UnifiedRecord} from './@ohos.data.unifiedDataChannel';
+import utc from './@ohos.data.unifiedDataChannel';
 
 /**
  * systemPasteboard
@@ -453,46 +453,28 @@ declare namespace pasteboard {
      * additional property data. key-value pairs.
      * @type { object }
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * additional property data. key-value pairs.
-     * @type { object }
-     * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11
+     * @since 12
      */
     additions: {
       [key: string]: object
     }
+
     /**
-     * non-repeating MIME types of all records in PasteData.
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * non-repeating MIME types of all records in PasteData.
+     * non-repeating types of all records in UnifiedData.
      * @type { Array<string> }
      * @readonly
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11
+     * @since 12
      */
     readonly types: Array<string>;
     /**
-     * the user-defined tag of a PasteData object.
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * the user-defined tag of a PasteData object.
+     * the user-defined tag of a UnifiedData object.
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11
+     * @since 12
      */
     tag: string;
     /**
@@ -500,29 +482,16 @@ declare namespace pasteboard {
      * @type { number }
      * @readonly
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * a timestamp, which indicates when data is written to the system pasteboard.
-     * @type { number }
-     * @readonly
-     * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11
+     * @since 12
      */
     readonly timestamp: number;
     /**
-     * Checks whether PasteData is set for local access only.
-     * @type { boolean }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * Checks whether PasteData is set for local access only.
+     * Checks whether UnifiedData is set for local access only.
      * @type { boolean }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11
+     * @since 12
      */
     localOnly: boolean;
     /**
@@ -530,15 +499,8 @@ declare namespace pasteboard {
      * If it is not set or is incorrectly set, The default value is CrossDevice.
      * @type { ShareOption }
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Indicates the scope of clipboard data which can be pasted.
-     * If it is not set or is incorrectly set, The default value is CrossDevice.
-     * @type { ShareOption }
-     * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11
+     * @since 12
      */
     shareOption: ShareOption;
   }

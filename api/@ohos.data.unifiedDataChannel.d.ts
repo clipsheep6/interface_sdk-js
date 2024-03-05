@@ -19,7 +19,6 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import {UnifiedDataRecord} from "./@ohos.pasteboard";
 
 /**
  * Provide methods for sharing data between different applications across unified data channels.
