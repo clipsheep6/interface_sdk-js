@@ -141,6 +141,59 @@ declare interface GaugeIndicatorOptions {
 }
 
 /**
+ * GaugeConfig used by gauge style
+ *
+ * @interface GaugeConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface GaugeConfig {
+  /**
+   * Current data value.
+   * 
+   * @type { ?number } data value - the current data value.
+   * @default 8
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  value?: number;
+
+  /**
+   * Current Segment Minimum Value.
+   * 
+   * @type { ?number } segment minumum value - the current segment minumum value.
+   * @default 8
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  min?: number;
+
+  /**
+   * Current Segment Maximum Value.
+   * 
+   * @type { ?number } segment maximum value - the current segment maximum value.
+   * @default 8
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  max?: number;
+}
+
+/**
+ * GaugeStyle wrapped builder
+ *
+ * @interface GaugeStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface GaugeStyle {
+  applyContent(): WrappedBuilder<[GaugeConfig]>
+}
+
+/**
  * @extends CommonMethod<GaugeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
@@ -464,4 +517,19 @@ declare const Gauge: GaugeInterface;
  * @form
  */
 declare const GaugeInstance: GaugeAttribute;
+  
+declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
+	...
+  /**
+   * Set the custom builder style of gauge.
+   *
+   * @param { GaugeStyle } value - The style of gauge.
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  customStyle(style: GaugeStyle) : GaugeAttribute
+}
 
