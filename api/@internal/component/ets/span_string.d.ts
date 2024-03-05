@@ -136,6 +136,7 @@ declare class SpanString {
 /**
  * SpanItem
  *
+ * @interface SpanItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
@@ -735,6 +736,7 @@ declare enum SpanStringKey {
 /**
  * Defines the AttachmentImage.
  *
+ * @interface AttachmentImage
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
