@@ -2929,7 +2929,7 @@ declare namespace distributedKVStore {
      * @param { string } appId - Identifies the application that the database belong to.
      * @param { string } storeId - Identifies the KVStore database to delete. The storeId can consist of only letters, digits,
      * and underscores (_), and cannot exceed 128 characters.
-     * @param { Options } options - Indicates the {@code Options} object used for deleting the KVStore database.
+     * @param { Options } [options] - Indicates the {@code Options} object used for deleting the KVStore database.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -2967,7 +2967,7 @@ declare namespace distributedKVStore {
      *
      * @param { string } appId - Identifies the application that obtains the databases.
      * @param { number } [userId] - Indicates the ID of user under that the databases will be obtained.
-     * @returns { Promise<string[]> } {string[]}: the storeId of all created KVStore databases.
+     * @returns { Promise<Array<string>> } {Array<string>}: the storeId of all created KVStore databases.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
