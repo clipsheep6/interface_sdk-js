@@ -638,7 +638,7 @@ declare namespace relationalStore {
     SYNC_MODE_PULL = 1,
 
     /**
-     * Indicates the data is pulled from remote device to local device.
+     * Indicates the data with the same primary key will be retained according to the latest timestamp.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -646,7 +646,7 @@ declare namespace relationalStore {
     SYNC_MODE_TIME_FIRST,
 
     /**
-     * Indicates force push the native data to the cloud.
+     * Indicates the data with the same primary key will be retained local data.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -654,12 +654,20 @@ declare namespace relationalStore {
     SYNC_MODE_NATIVE_FIRST,
 
     /**
-     * Indicates the data is pulled from cloud to local device.
+     Indicates the data with the same primary key will be retained cloud data.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SYNC_MODE_CLOUD_FIRST
+    SYNC_MODE_CLOUD_FIRST,
+
+    /**
+     * Indicates force sync, the data with the same primary key will be retained according to the latest timestamp.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    FORCE_SYNC_MODE_TIME_FIRST,
   }
 
   /**
@@ -3549,10 +3557,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
-    lockData(predicates: RdbPredicates): Promise<boolean>;
+    lockRow(predicates: RdbPredicates): Promise<void>;
 
     /**
      * Unlock data to enable sync.
@@ -3562,10 +3571,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
-    unlockData(predicates: RdbPredicates): Promise<boolean>;
+    unlockRow(predicates: RdbPredicates): Promise<void>;
 
     /**
      * Unlock data to enable sync.
@@ -3577,10 +3587,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
-    queryLockData(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+    queryLockRow(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
 
     /**

@@ -200,16 +200,6 @@ declare namespace cloudData {
      * @since 12
      */
     code: relationalStore.ProgressCode;
-
-    /**
-     * Sync table names.
-     *
-     * @type { Array<string> }
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
-     * @systemapi
-     * @since 12
-     */
-    tables: Array<string>;
   }
 
   /**
@@ -481,9 +471,9 @@ declare namespace cloudData {
      * @since 12
      */
     static queryStatistics(
-        accountId: string,
-        bundleName: string,
-        storeId?: string
+      accountId: string,
+      bundleName: string,
+      storeId?: string
     ): Promise<Record<string, Array<StatisticInfo>>>;
 
     /**
@@ -493,7 +483,7 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
      * @param { string } bundleName - Indicates the name of application.
      * @param { string } [storeId] - Indicates the store ID.
-     * @returns { Promise<Record<string, Array<StatisticInfo>>> } Promise used to return the result.
+     * @returns { Promise<Record<string, SyncInfo>> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission denied. The application is not a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -503,17 +493,17 @@ declare namespace cloudData {
      * @since 12
      */
     static queryLastSyncInfo(
-        accountId: string,
-        bundleName: string,
-        storeId?: string
-    ): Promise<Record<string, Array<SyncInfo>>>;
+      accountId: string,
+      bundleName: string,
+      storeId?: string
+    ): Promise<Record<string, SyncInfo>>;
 
     /**
-     * query last sync information.
+     * Set strategy grace period.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { number } period - Indicates the grace period, with a range of values from 0 to 300, measured in seconds.
+     * @param { number } period - Indicates the grace period, with a range of values from 0 to 60, measured in seconds.
      * @param { string } bundleName - Indicates the name of application.
      * @returns { Promise<Date> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
@@ -525,9 +515,9 @@ declare namespace cloudData {
      * @since 12
      */
     static setStrategyGracePeriod(
-        accountId: string,
-        period: number,
-        bundleName?: string,
+      accountId: string,
+      period: number,
+      bundleName?: string,
     ): Promise<Date>;
 
     /**
@@ -537,8 +527,7 @@ declare namespace cloudData {
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
      * @param { string } bundleName - Indicates the name of application.
      * @param { string } storeId - Indicates the name of store.
-     * @param { Array<string> } tables - Indicates the table names.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @returns { Promise<Record<string, SyncInfo>> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission denied. The application is not a system application.
      * @throws { BusinessError } 401 - Parameter error.
@@ -548,11 +537,10 @@ declare namespace cloudData {
      * @since 12
      */
     static forceSync(
-        accountId: string,
-        bundleName: string,
-        storeId?: string,
-        tables?: Array<string>,
-    ): Promise<void>;
+      accountId: string,
+      bundleName: string,
+      storeId?: string
+    ): Promise<Record<string, SyncInfo>>;
 
     /**
      * deletes cloud information from local data.
@@ -692,6 +680,13 @@ declare namespace cloudData {
    */
   enum BatteryStrategy {
 
+    /**
+     * Allowed sync when in low level battery.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    LOW_LEVEL,
   }
 
   /**
