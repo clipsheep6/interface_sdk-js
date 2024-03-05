@@ -1316,7 +1316,11 @@ export default class ServiceExtensionContext extends ExtensionContext {
   startRecentAbility(want: Want, options?: StartOptions): Promise<void>;
 
   /**
-   * Requests the Modal UIExtensionAbility.
+   * Requests the specified foreground application to start the UIExtensionAbility of the corresponding type. The foreground
+   * application is specified by bundleName in want.parameters. If bundleName is left unspecified, or if the application
+   * specified by bundleName is not running in the foreground or does not exist, the UIExtensionAbility is directly started
+   * on the system interface. The UIExtensionAbility to start is determined by the combination of the bundleName, abilityName,
+   * and moduleName fields in want, and its type is determined by the ability.want.params.uiExtensionType field in want.parameters.
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
@@ -1338,7 +1342,11 @@ export default class ServiceExtensionContext extends ExtensionContext {
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Requests the Modal UIExtensionAbility.
+   * Requests the specified foreground application to start the UIExtensionAbility of the corresponding type. The foreground
+   * application is specified by bundleName in want.parameters. If bundleName is left unspecified, or if the application
+   * specified by bundleName is not running in the foreground or does not exist, the UIExtensionAbility is directly started
+   * on the system interface. The UIExtensionAbility to start is determined by the combination of the bundleName, abilityName,
+   * and moduleName fields in want, and its type is determined by the ability.want.params.uiExtensionType field in want.parameters.
    * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
    * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
    *
