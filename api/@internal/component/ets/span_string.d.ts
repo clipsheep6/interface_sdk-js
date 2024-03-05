@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -116,7 +116,6 @@ declare class SpanString {
       * @param { AttachmentImage } value - Attached objects.
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
-      * @atomicservice
       * @since 12
       */
     bindAttachment(value: AttachmentImage): void;
@@ -130,7 +129,6 @@ declare class SpanString {
       * @param { ?number } length - the length of the content with styles.
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @crossplatform
-      * @atomicservice
       * @since 12
       */
     bindWithSpans(content: string, spans: Array<{ spanKey: SpanStringKey, type: SpanObjectType }>, start?: number, length?: number): void;
@@ -297,7 +295,6 @@ declare class TextShadowSpan {
 declare class ParagraphStyleSpan {
     /**
      * 
-     *
      * @param { object } value - The text paragraph style, textAlign/textIndent/lineHeight/wordBreak/maxLines/textOverflow included.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -319,7 +316,6 @@ declare class ParagraphStyleSpan {
 declare class BackgroundColorSpan {
     /**
      * 
-     *
      * @param { ResourceColor } value - background color value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -338,7 +334,6 @@ declare class BackgroundColorSpan {
 declare class GestureSpan {
     /**
      * 
-     *
      * @param { object } value - Gesture Event.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -582,7 +577,6 @@ declare enum SpanStringKey {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @atomicservice
  * @since 12
  */
 declare interface AttachmentImage {
@@ -592,7 +586,6 @@ declare interface AttachmentImage {
      * @type { PixelMap | ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @atomicservice
      * @since 12
      */
     value: PixelMap | ResourceStr;
@@ -603,7 +596,6 @@ declare interface AttachmentImage {
      * @type { ?[Dimension, Dimension] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @atomicservice
      * @since 12
      */
     size?: [Dimension, Dimension];
@@ -614,7 +606,6 @@ declare interface AttachmentImage {
      * @type { ?ImageSpanAlignment }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @atomicservice
      * @since 12
      */
     verticalAlign?: ImageSpanAlignment;
@@ -625,7 +616,6 @@ declare interface AttachmentImage {
      * @type { ?ImageFit }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @atomicservice
      * @since 12
      */
     objectFit?: ImageFit;
@@ -636,7 +626,6 @@ declare interface AttachmentImage {
      * @type { ?AttachmentImageLayoutStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @atomicservice
      * @since 12
      */
     layoutStyle?: AttachmentImageLayoutStyle;
@@ -647,7 +636,6 @@ declare interface AttachmentImage {
      * @type { ?AttachmentImageGesture }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @atomicservice
      * @since 12
      */
     gesture?: AttachmentImageGesture;
@@ -659,7 +647,6 @@ declare interface AttachmentImage {
  * @interface AttachmentImageLayoutStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @atomicservice
  * @since 12
  */
 declare interface AttachmentImageLayoutStyle {
@@ -669,7 +656,6 @@ declare interface AttachmentImageLayoutStyle {
      * @type { ?(Dimension | Margin) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @atomicservice
      * @since 12
      */
     margin?: Dimension | Margin;
@@ -680,7 +666,6 @@ declare interface AttachmentImageLayoutStyle {
      * @type { ?(Padding | Length) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @atomicservice
      * @since 12
      */
     padding?: Padding | Length;
@@ -691,7 +676,6 @@ declare interface AttachmentImageLayoutStyle {
      * @type { ?(Dimension | BorderRadiuses) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
-     * @atomicservice
      * @since 12
      */
     borderRadius?: Dimension | BorderRadiuses;

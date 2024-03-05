@@ -90,7 +90,7 @@ interface TextInterface {
    /**
    * Called when writing text.
    *
-   * @param { string | Resource | SpanString | MutableSpanString} content
+   * @param { TextContent} content
    * @param { TextOptions } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -99,8 +99,19 @@ interface TextInterface {
    * @since 12
    * @form
    */
-  (content?: string | Resource | SpanString | MutableSpanString, value?: TextOptions): TextAttribute;
+  (content?: TextContent, value?: TextOptions): TextAttribute;
 }
+
+/**
+ * Defines the length property with string, number and resource unit.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
+declare type TextContent = string | Resource | SpanString | MutableSpanString;
 
 /**
  * @extends CommonMethod<TextAttribute>
