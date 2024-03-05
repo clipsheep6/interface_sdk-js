@@ -46,6 +46,35 @@ declare type WebviewController = import('../api/@ohos.web.webview').default.Webv
 type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDetails) => void;
 
 /**
+ * The callback of onOverrideUrlLoading.
+ * Should not call WebviewController.loadUrl with the request's URL and then return true.
+ * Returning true causes the current Web to abort loading the URL, false causes the Web to continue loading the url as usual.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => boolean;
+
+/**
+ * The callback of Intelligent Tracking Prevention.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPreventionDetails) => void;
+
+/**
+ * The callback when the web component enter full screen mode.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
+
+/**
  * The callback of largestContentfulPaint.
  *
  * @typedef OnLargestContentfulPaintCallback
@@ -64,6 +93,71 @@ type OnLargestContentfulPaintCallback = (largestContentfulPaint: LargestContentf
  * @since 12
  */
 type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPaint) => void;
+
+/**
+ * Defines the Intelligent Tracking Prevention details.
+ *
+ * @interface IntelligentTrackingPreventionDetails
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface IntelligentTrackingPreventionDetails {
+  /**
+   * The host of website url.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  host: string;
+
+  /**
+   * The host of tracker url.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  trackerHost: string;
+}
+
+/**
+ * Defines the event details when the web component enter full screen mode.
+ *
+ * @interface FullScreenEnterEvent
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare interface FullScreenEnterEvent {
+  /**
+   * A function handle to exit full-screen mode.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  handler: FullScreenExitHandler;
+  /**
+   * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  videoWidth?: number;
+  /**
+   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  videoHeight?: number;
+}
 
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
@@ -4033,6 +4127,25 @@ declare interface NativeEmbedInfo {
    * @since 11
    */
   url?: string;
+
+  /**
+   * The embed tag name.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  tag?: string;
+  /**
+   * The embed param list information used by object tag.
+   *
+   * @type { ?Map<string, string> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  params?: Map<string, string>;
 }
 
 /**
@@ -6714,6 +6827,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableNativeEmbedMode(mode: boolean): WebAttribute;
 
   /**
+   * Register native pattern with specific tag and type.
+   *
+   * @param { string } tag - Tag name used by html webpage.
+   * @param { string } type - Type of the tag.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  registerNativeEmbedRule(tag: string, type:string): WebAttribute;
+
+  /**
    * Triggered when embed lifecycle changes.
    *
    * @param { function } callback - Function Triggered when embed lifecycle changes.
@@ -6745,6 +6870,29 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   copyOptions(value: CopyOptions): WebAttribute;
+
+  /**
+   * When the URL is about to be loaded into the current Web, it gives the application the opportunity to take control.
+   * This will not called for POST requests, may be called for subframes and with non-HTTP(S) schemes.
+   *
+   * @param { OnOverrideUrlLoadingCallback } callback - The callback for onOverrideUrlLoading.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
+
+  /**
+   * Called when tracker's cookie is prevented.
+   *
+   * @param { OnIntelligentTrackingPreventionCallback } callback - Callback triggered when tracker's cookie is prevented.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onIntelligentTrackingPreventionResult(callback: OnIntelligentTrackingPreventionCallback): WebAttribute;
 }
 
 /**
