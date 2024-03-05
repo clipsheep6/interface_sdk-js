@@ -14654,7 +14654,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-    allowDrop(value: Array<UniformDataType>): T;
+  allowDrop(value: Array<UniformDataType>): T;
 
   /**
    * Enable the selectable area can be dragged.
