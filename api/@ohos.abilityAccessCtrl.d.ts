@@ -394,6 +394,25 @@ declare namespace abilityAccessCtrl {
     getVersion(): Promise<number>;
 
     /**
+     * Queries permissions status of the given application.
+     *
+     * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
+     * @param { number } tokenID - Token ID of the application.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permissions to be queried. This parameter cannot be null or empty.
+     * @returns { Promise<Permissionstatus> } Return permission status.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 12100001 - The parameter is invalid. The tokenID is 0, or the permissionList is empty.
+     * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
+     * @throws { BusinessError } 12100007 - Service is abnormal.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 12
+     */
+    getPermissionsStatus(tokenID: number, permissionList: Array<Permissions>): Promise<Array<PermissionStatus>>;
+
+    /**
      * Registers a permission state callback so that the application can be notified upon specified permission state of specified applications changes.
      *
      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
@@ -600,6 +619,57 @@ declare namespace abilityAccessCtrl {
      * @since 9
      */
     permissionName: Permissions;
+  }
+
+  /**
+   * PermissionStatus.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.AccessToken
+   * @atomicservice
+   * @since 12
+   */
+  export enum PermissionStatus {
+    /**
+     * permission has been denied, only can change it in settings
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @atomicservice
+     * @since 12
+     */
+    DENIED = -1,
+    /**
+     * permission has been granted
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @atomicservice
+     * @since 12
+     */
+    GRANTED = 0,
+    /**
+     * initialization status
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @atomicservice
+     * @since 12
+     */
+    NOT_DETERMINED = 1,
+    /**
+     * permission is invalid
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @atomicservice
+     * @since 12
+     */
+    INVALID = 2,
+    /**
+     * permission has been restricted
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @atomicservice
+     * @since 12
+     */
+    RESTRICTED = 3
   }
 }
 
