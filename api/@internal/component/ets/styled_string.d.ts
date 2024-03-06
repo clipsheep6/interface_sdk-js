@@ -14,27 +14,28 @@
  */
 
 /**
- * SpanString
+ * StyledString
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class SpanString {
+declare class StyledString {
     /**
      * constructor.
      *
-     * @param { string } text - indicates the current value of the spanString.
+     * @param { ResourceStr | AttachmentImage } value - indicates the current object value of the StyledString.
+     * @param { ?Partial<SpanStyle>[] } styles - indicates the SpanStyle objects.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    constructor(text?: string);
+    constructor(value: ResourceStr | AttachmentImage, styles?:Partial<SpanStyle>[]);
 
     /**
-    * Get the literal content of the spanString.
+    * Get the literal content of the StyledString.
     *
-    * @returns { string } - the literal content of the spanString
+    * @returns { string } - the literal content of the StyledString
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @since 12
@@ -42,9 +43,9 @@ declare class SpanString {
     getString(): string;
 
     /**
-     * Get the length of the spanString.
+     * Get the length of the StyledString's characters.
      *
-     * @returns { number } - the length of the spanString
+     * @returns { number } - the length of the StyledString's characters
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -54,96 +55,61 @@ declare class SpanString {
     /**
      * Judge if two attribute strings are equal.
      *
-     * @param { SpanString } other - another SpanString.
+     * @param { StyledString } other - another StyledString.
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    isEqualToSpanString(other: SpanString): boolean;
+    equals(other: StyledString): boolean;
 
     /**
-     * Get the substring of the spanString.
+     * Get the substring of the StyledString.
      *
-     * @param { number } start - the start position of the subSpanString.
-     * @param { number } length - the length of the subSpanString.
-     * @returns { SpanString }
+     * @param { number } start - the start position of the subStyledString.
+     * @param { number } length - the length of the subStyledString's characters.
+     * @returns { StyledString }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    getSubSpanString(start: number, length: number): SpanString;
+    getSubStyledString(start: number, length: number): StyledString;
 
     /**
-     * Get the attribute object of the subSpanString.
+     * Get the attribute objects of the subStyledString.
      *
-     * @param { number } start - the start position of the subSpanString.
-     * @param { number } length - the length of the subSpanString.
-     * @returns { Array<SpanItem> } - all spanKeys SpanItem list.
+     * @param { number } start - the start position of the subStyledString.
+     * @param { number } length - the length of the subStyledString's characters.
+     * @param { ?StyleStringKey } styleKey - the specified type.
+     * @returns { Array<SpanStyle> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    getSpans(start: number, length: number): Array<SpanItem>;
+    getStyles(start: number, length: number, styleKey?: StyleStringKey): Array<SpanStyle>;
 
     /**
-     * Get the attribute object of the subSpanString.
+     * Get the index of the subStyledString.
      *
-     * @param { number } start - the start position of the subSpanString.
-     * @param { number } length - the length of the subSpanString.
-     * @param { SpanStringKey } spanKey - the specified type.
-     * @returns { SpanItem }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    getSpan(start: number, length: number, spanKey: SpanStringKey): SpanItem;
-
-    /**
-     * Get the index of the subSpanString.
-     *
-     * @param { string } subString - the content of the subSpanString.
-     * @returns { number } - the start index of the subSpanString.
+     * @param { string } subString - the content of the subStyledString.
+     * @returns { number } - the start index of the subStyledString.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
     getIndex(subString: string): number;
-
-    /**
-      * the spanString bind new object.
-      *
-      * @param { AttachmentImage } value - Attached objects.
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @crossplatform
-      * @since 12
-      */
-    bindAttachment(value: AttachmentImage): void;
-
-    /**
-      * the spanString init with style objects.
-      *
-      * @param { string } content - init style content.
-      * @param { Array<{ spanKey: SpanStringKey, type: SpanObjectType }> } spans - span objects.
-      * @param { ?number } start - the start index of the content with styles.
-      * @param { ?number } length - the length of the content with styles.
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @crossplatform
-      * @since 12
-      */
-    bindWithSpans(content: string, spans: Array<{ spanKey: SpanStringKey, type: SpanObjectType }>, start?: number, length?: number): void;
 }
 /**
- * SpanItem
+ * SpanStyle
  *
- * @interface SpanItem
+ * @interface SpanStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare interface SpanItem {
+declare interface SpanStyle {
     /**
-     * The start position of the SpanItem.
+     * The start position of the SpanStyle.
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -153,7 +119,7 @@ declare interface SpanItem {
     start: number;
 
     /**
-     * The length of the SpanItem's string.
+     * The length of the modifiedStyledString's characters.
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -163,24 +129,24 @@ declare interface SpanItem {
     length: number;
 
     /**
-     * The attribute key of the SpanItem.
+     * The attribute key of the SpanStyle.
      *
-     * @type { SpanStringKey }
+     * @type { StyleStringKey }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    spanKey: SpanStringKey;
+    styleKey: StyleStringKey;
 
     /**
-     * The literal content of the spanItem.
+     * The attribute value of the SpanStyle.
      *
-     * @type { SpanObjectType }
+     * @type { StyleStringValue }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    value: SpanObjectType;
+    styleValue: StyleStringValue;
 }
 
 /**
@@ -206,9 +172,9 @@ declare class FontSpan {
     });
 
     /**
-     * Get the fontColor of the spanString.
+     * Get the fontColor of the StyledString.
      *
-     * @returns { ResourceColor } - the fontColor of the spanString
+     * @returns { ResourceColor } - the fontColor of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -216,9 +182,9 @@ declare class FontSpan {
     getColor(): ResourceColor;
 
     /**
-     * Get the fontSize of the spanString.
+     * Get the fontSize of the StyledString.
      *
-     * @returns { Dimension } - the fontSize of the spanString
+     * @returns { Dimension } - the fontSize of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -226,9 +192,9 @@ declare class FontSpan {
     getSize(): Dimension;
 
     /**
-     * Get the fontWeight of the spanString.
+     * Get the fontWeight of the StyledString.
      *
-     * @returns { number } - the fontWeight of the spanString
+     * @returns { number } - the fontWeight of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -236,9 +202,9 @@ declare class FontSpan {
     getWeight(): number;
 
     /**
-     * Get the fontFamily of the spanString.
+     * Get the fontFamily of the StyledString.
      *
-     * @returns { number } - the fontFamily of the spanString
+     * @returns { number } - the fontFamily of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -246,9 +212,9 @@ declare class FontSpan {
     getFamily(): string;
 
     /**
-     * Get the fontStyle of the spanString.
+     * Get the fontStyle of the StyledString.
      *
-     * @returns { FontStyle } - the fontStyle of the spanString
+     * @returns { FontStyle } - the fontStyle of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -276,9 +242,9 @@ declare class DecorationSpan {
     constructor(value: { type: TextDecorationType; color?: ResourceColor });
 
     /**
-     * Get the text decoration type of the spanString.
+     * Get the text decoration type of the StyledString.
      *
-     * @returns { TextDecorationType } - the fontStyle of the spanString
+     * @returns { TextDecorationType } - the fontStyle of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -286,9 +252,9 @@ declare class DecorationSpan {
     getType(): TextDecorationType;
 
     /**
-     * Get the decorationColor of the spanString.
+     * Get the decorationColor of the StyledString.
      *
-     * @returns { ResourceColor } - the decorationColor of the spanString
+     * @returns { ResourceColor } - the decorationColor of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -316,9 +282,9 @@ declare class BaselineOffsetSpan {
     constructor(value: number | string);
 
     /**
-     * Get the baselineOffset value of the spanString.
+     * Get the baselineOffset value of the StyledString.
      *
-     * @returns { number } - the baselineOffset value of the spanString
+     * @returns { number } - the baselineOffset value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -346,9 +312,9 @@ declare class LetterSpacingSpan {
     constructor(value: number | string);
 
     /**
-     * Get the letterSpacing value of the spanString.
+     * Get the letterSpacing value of the StyledString.
      *
-     * @returns { number } - the letterSpacing value of the spanString
+     * @returns { number } - the letterSpacing value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -376,9 +342,9 @@ declare class TextShadowSpan {
     constructor(value: ShadowOptions | Array<ShadowOptions>);
 
     /**
-     * Get the textShadow value of the spanString.
+     * Get the textShadow value of the StyledString.
      *
-     * @returns { Array<ShadowOptions> } - the letterSpacing value of the spanString
+     * @returns { Array<ShadowOptions> } - the letterSpacing value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -407,9 +373,9 @@ declare class ParagraphStyleSpan {
     });
 
     /**
-     * Get the textAlign value of the spanString.
+     * Get the textAlign value of the StyledString.
      *
-     * @returns { TextAlign } - the textAlign value of the spanString
+     * @returns { TextAlign } - the textAlign value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -417,9 +383,9 @@ declare class ParagraphStyleSpan {
     getTextAlignValue(): TextAlign;
 
     /**
-     * Get the textIndent value of the spanString.
+     * Get the textIndent value of the StyledString.
      *
-     * @returns { Length } - the textIndent value of the spanString
+     * @returns { Length } - the textIndent value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -427,9 +393,9 @@ declare class ParagraphStyleSpan {
     getTextIndentValue(): Length;
 
     /**
-     * Get the lineHeight value of the spanString.
+     * Get the lineHeight value of the StyledString.
      *
-     * @returns { Length } - the lineHeight value of the spanString
+     * @returns { Length } - the lineHeight value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -437,9 +403,9 @@ declare class ParagraphStyleSpan {
     getLineHeightValue(): Dimension;
 
     /**
-     * Get the maxLines value of the spanString.
+     * Get the maxLines value of the StyledString.
      *
-     * @returns { number } - the maxLines value of the spanString
+     * @returns { number } - the maxLines value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -447,9 +413,9 @@ declare class ParagraphStyleSpan {
     getMaxLinesValue(): number;
 
     /**
-     * Get the maxLines value of the spanString.
+     * Get the maxLines value of the StyledString.
      *
-     * @returns { TextOverflow } - the maxLines value of the spanString
+     * @returns { TextOverflow } - the maxLines value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -475,9 +441,9 @@ declare class BackgroundColorSpan {
     constructor(value: ResourceColor);
 
     /**
-     * Get the backgroundColor of the spanString.
+     * Get the backgroundColor of the StyledString.
      *
-     * @returns { ResourceColor } - the backgroundColor of the spanString
+     * @returns { ResourceColor } - the backgroundColor of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -510,23 +476,23 @@ declare class GestureSpan {
  * @crossplatform
  * @since 12
  */
-declare type SpanObjectType =
+declare type StyleStringValue =
     FontSpan | DecorationSpan | BaselineOffsetSpan | LetterSpacingSpan
     | TextShadowSpan | ParagraphStyleSpan | BackgroundColorSpan | GestureSpan;
 
 /**
- * MutableSpanString
+ * MutableStyledString
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class MutableSpanString extends SpanString {
+declare class MutableStyledString extends StyledString {
     /**
      * Replace the string of the specified range.
      *
      * @param { number } start - the start position of the replacedString.
-     * @param { number } length - the length of the replacedString.
+     * @param { number } length - the length of the replacedString's characters.
      * @param { string } other - must be unicode string.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -549,7 +515,7 @@ declare class MutableSpanString extends SpanString {
     * Remove the string of the specified range.
     *
     * @param { number } start - the start position of the removedString.
-    * @param { number } length - the length of the removedString.
+    * @param { number } length - the length of the removedString's characters.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @since 12
@@ -559,51 +525,45 @@ declare class MutableSpanString extends SpanString {
     /**
      * Replace the specified range string attribute.
      *
-     * @param { number } start - the start position of the replacedAttributeSpanString.
-     * @param { number } length - the length of the replacedAttributeSpanString.
-     * @param { SpanStringKey } spanKey - the specified attribute type.
-     * @param { SpanObjectType } SpanObjectType - the specified attribute type object.
+     * @param { SpanStyle } spanStyle - the SpanStyle Object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    replaceSpan(start: number, length: number, spanKey: SpanStringKey, SpanObjectType: SpanObjectType): void;
+    replaceStyle(spanStyle: SpanStyle): void;
 
     /**
      * Add attributes to the specified range string.
      *
-     * @param { number } start - the start position of the addedAttributeSpanString.
-     * @param { number } length - the length of the addedAttributeSpanString.
-     * @param { SpanStringKey } spanKey - the specified attribute type's key.
-     * @param { SpanObjectType } spanType - the specified attribute type object.
+     * @param { SpanStyle } spanStyle - the SpanStyle Object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    addSpan(start: number, length: number, spanKey: SpanStringKey, spanType: SpanObjectType): void;
+    setStyle(spanStyle: SpanStyle): void;
 
     /**
      * Delete the specified type attributes for the specified range string.
      *
-     * @param { number } start - the start position of the removedAttributeSpanString.
-     * @param { number } length - the length of the removedAttributeSpanString.
-     * @param { SpanStringKey } spanKey - the specified attribute type's key.
+     * @param { number } start - the start position of the removedAttributeStyledString.
+     * @param { number } length - the length of the removedAttributeStyledString's characters.
+     * @param { StyleStringKey } styleKey - the specified attribute type's key.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    removeSpan(start: number, length: number, spanKey: SpanStringKey): void;
+    removeStyle(start: number, length: number, styleKey: StyleStringKey): void;
 
     /**
-     * Delete all attributes for the specified range string.
+     * Delete all attributes for the specified range styledString.
      *
-     * @param { number } start - the start position of the removedAttributeSpans.
-     * @param { number } length - the length of the removedAttributeSpans.
+     * @param { number } start - the start position of the attributeRemovedStyledString's characters.
+     * @param { number } length - the length of the attributeRemovedStyledString's characters.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    removeSpans(start: number, length: number): void;
+    removeStyles(start: number, length: number): void;
 
     /**
      * Delete all attributes.
@@ -612,53 +572,52 @@ declare class MutableSpanString extends SpanString {
      * @crossplatform
      * @since 12
      */
-    clearSpans(): void;
+    clearStyles(): void;
 
     /**
-     * Replace the spanString of the specified range.
+     * Replace the StyledString of the specified range.
      *
-     * @param { number } start - the start position of the replacedSpanString.
-     * @param { number } length - the length of the replacedSpanString.
-     * @param { SpanString } other - new SpanString.
+     * @param { number } start - the start position of the replacedStyledString.
+     * @param { number } length - the length of the replacedStyledString's characters.
+     * @param { StyledString } other - new StyledString.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    replaceSpanString(start: number, length: number, other: SpanString): void;
+    replaceStyledString(start: number, length: number, other: StyledString): void;
 
     /**
-     * Insert new spanString at the specified location.
+     * Insert new StyledString at the specified location.
      *
-     * @param { number } start - the start position of the insertedSpanString.
-     * @param { SpanString } other - new SpanString.
+     * @param { number } start - the start position of the insertedStyledString.
+     * @param { StyledString } other - new StyledString.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    insertSpanString(start: number, other: SpanString): void;
+    insertStyledString(start: number, other: StyledString): void;
 
     /**
-     * Append new spanString at the end.
+     * Append new StyledString at the end.
      *
-     * @param { number } start - the start position of the insertedSpanString.
-     * @param { SpanString } other - new SpanString.
+     * @param { StyledString } other - new StyledString.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    appendSpanString(other: SpanString): void;
+    appendStyledString(other: StyledString): void;
 }
 
 
 /**
- * the attribute type of the SpanString
+ * the attribute type of the StyledString
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare enum SpanStringKey {
+declare enum StyleStringKey {
     /**
      * Font property settings-fontColor/fontSize/fontWeight/fontFamily/fontStyle included.
      *
