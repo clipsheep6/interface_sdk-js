@@ -111,7 +111,7 @@ interface TextInterface {
  * @since 12
  * @form
  */
-declare type TextContent = string | Resource | SpanString | MutableSpanString;
+declare type TextContent = string | Resource | StyledString | MutableStyledString;
 
 /**
  * @extends CommonMethod<TextAttribute>

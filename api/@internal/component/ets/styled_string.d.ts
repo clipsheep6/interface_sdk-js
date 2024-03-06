@@ -150,13 +150,13 @@ declare interface SpanStyle {
 }
 
 /**
- * Defines FontSpan.
+ * Defines FontStyles.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class FontSpan {
+declare class FontStyles {
 
     /**
      * constructor.
@@ -223,13 +223,13 @@ declare class FontSpan {
 }
 
 /**
- * Defines DecorationSpan.
+ * Defines DecorationStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class DecorationSpan {
+declare class DecorationStyle {
 
     /**
      * constructor.
@@ -244,7 +244,7 @@ declare class DecorationSpan {
     /**
      * Get the text decoration type of the StyledString.
      *
-     * @returns { TextDecorationType } - the fontStyle of the StyledString
+     * @returns { TextDecorationType } - the decoration type of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -263,13 +263,13 @@ declare class DecorationSpan {
 }
 
 /**
- * Defines BaselineOffsetSpan.
+ * Defines BaselineOffsetStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class BaselineOffsetSpan {
+declare class BaselineOffsetStyle {
     
     /**
      * constructor.
@@ -293,13 +293,13 @@ declare class BaselineOffsetSpan {
 }
 
 /**
- * Defines LetterSpacingSpan.
+ * Defines LetterSpacingStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class LetterSpacingSpan {
+declare class LetterSpacingStyle {
    
     /**
      * constructor.
@@ -323,13 +323,13 @@ declare class LetterSpacingSpan {
 }
 
 /**
- * Defines TextShadowSpan.
+ * Defines TextShadowStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class TextShadowSpan {
+declare class TextShadowStyle {
    
     /**
      * constructor.
@@ -353,13 +353,13 @@ declare class TextShadowSpan {
 }
 
 /**
- * Defines ParagraphStyleSpan.
+ * Defines ParagraphStyles.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class ParagraphStyleSpan {
+declare class ParagraphStyles {
     /**
      * 
      * @param { object } value - The text paragraph style, textAlign/textIndent/lineHeight/wordBreak/maxLines/textOverflow included.
@@ -424,13 +424,13 @@ declare class ParagraphStyleSpan {
 }
 
 /**
- * Defines BackgroundColorSpan.
+ * Defines BackgroundColorStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class BackgroundColorSpan {
+declare class BackgroundColorStyle {
     /**
      * 
      * @param { ResourceColor } value - background color value.
@@ -452,13 +452,13 @@ declare class BackgroundColorSpan {
 }
 
 /**
- * Defines GestureSpan.
+ * Defines GestureStyles.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class GestureSpan {
+declare class GestureStyles {
     /**
      * 
      * @param { object } value - Gesture Event.
@@ -477,8 +477,8 @@ declare class GestureSpan {
  * @since 12
  */
 declare type StyleStringValue =
-    FontSpan | DecorationSpan | BaselineOffsetSpan | LetterSpacingSpan
-    | TextShadowSpan | ParagraphStyleSpan | BackgroundColorSpan | GestureSpan;
+    FontStyles | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle
+    | TextShadowStyle | ParagraphStyles | BackgroundColorStyle | GestureStyles;
 
 /**
  * MutableStyledString
