@@ -654,7 +654,7 @@ declare namespace relationalStore {
     SYNC_MODE_NATIVE_FIRST,
 
     /**
-     Indicates the data with the same primary key will be retained cloud data.
+     * Indicates the data with the same primary key will be retained cloud data.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
