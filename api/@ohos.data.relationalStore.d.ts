@@ -508,7 +508,7 @@ declare namespace relationalStore {
     BLOCKED_BY_NETWORK_STRATEGY,
 
     /**
-     * BLOCKED_BY_ASSET_STRATEGY: means the sync of asset blocked by Asset strategy.
+     * BLOCKED_BY_ASSET_STRATEGY: means the asset sync blocked by asset strategy.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -516,7 +516,7 @@ declare namespace relationalStore {
     BLOCKED_BY_ASSET_STRATEGY,
 
     /**
-     * BLOCKED_BY_BATTERY_STRATEGY: means the sync blocked by BATTERY strategy.
+     * BLOCKED_BY_BATTERY_STRATEGY: means the sync blocked by battery strategy.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -638,7 +638,7 @@ declare namespace relationalStore {
     SYNC_MODE_PULL = 1,
 
     /**
-     * Indicates the data with the same primary key will be retained according to the latest timestamp.
+     * Indicates sync data according to the latest timestamp for the data with the same primary key.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -662,12 +662,12 @@ declare namespace relationalStore {
     SYNC_MODE_CLOUD_FIRST,
 
     /**
-     * Indicates force sync, the data with the same primary key will be retained according to the latest timestamp.
+     * Indicates forcibly sync data according to the latest timestamp for the data with the same primary key.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
-    FORCE_SYNC_MODE_TIME_FIRST,
+    SYNC_MODE_FORCE_TIME_FIRST
   }
 
   /**
@@ -3550,10 +3550,10 @@ declare namespace relationalStore {
     cloudSync(mode: SyncMode, predicates: RdbPredicates, progress: Callback<ProgressDetails>): Promise<void>;
 
     /**
-     * Lock data to prevent sync.
+     * Locks data to prevent sync.
      *
-     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
-     * @returns { Promise<boolean> } -The promise returned by the function.
+     * @param { RdbPredicates } predicates - {@link RdbPredicates} object that specifies the data to be locked.
+     * @returns { Promise<void> } -The promise returned by the function.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -3564,10 +3564,10 @@ declare namespace relationalStore {
     lockRow(predicates: RdbPredicates): Promise<void>;
 
     /**
-     * Unlock data to enable sync.
+     * Unlocks data to enable sync.
      *
-     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
-     * @returns { Promise<boolean> } -The promise returned by the function.
+     * @param { RdbPredicates } predicates - {@link RdbPredicates} object that specifies the data to be unlocked.
+     * @returns { Promise<void> } -The promise returned by the function.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -3578,12 +3578,11 @@ declare namespace relationalStore {
     unlockRow(predicates: RdbPredicates): Promise<void>;
 
     /**
-     * Unlock data to enable sync.
+     * Queries the locked data.
      *
-     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { RdbPredicates } predicates - {@link RdbPredicates} object that specifies the query conditions.
      * @param { Array<string> } [columns] - The specified columns to query.
-     * @returns { Promise<ResultSet> } -The promise returned by the function.
-     * {@link ResultSet} is query result.
+     * @returns { Promise<ResultSet> } - Promise used to return {@link ResultSet} obtained.
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -3591,7 +3590,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
-    queryLockRow(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+    queryLockedRow(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
 
     /**

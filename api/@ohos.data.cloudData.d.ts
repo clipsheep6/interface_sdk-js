@@ -163,7 +163,7 @@ declare namespace cloudData {
   }
 
   /**
-   * Indicated sync info.
+   * Sync information.
    *
    * @interface SyncInfo
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -192,7 +192,7 @@ declare namespace cloudData {
     finishTime: Date;
 
     /**
-     * Sync status.
+     * Sync progress.
      *
      * @type { ProgressCode }
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -477,7 +477,7 @@ declare namespace cloudData {
     ): Promise<Record<string, Array<StatisticInfo>>>;
 
     /**
-     * query last sync information.
+     * Queries last sync information.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
@@ -499,11 +499,11 @@ declare namespace cloudData {
     ): Promise<Record<string, SyncInfo>>;
 
     /**
-     * Set strategy grace period.
+     * Sets the strategy grace period.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
-     * @param { number } period - Indicates the grace period, with a range of values from 0 to 60, measured in seconds.
+     * @param { number } period - Indicates the grace period, with a range of 0 to 60 seconds.
      * @param { string } [bundleName] - Indicates the name of application.
      * @returns { Promise<Date> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
@@ -521,7 +521,7 @@ declare namespace cloudData {
     ): Promise<Date>;
 
     /**
-     * Force sync. Ignoring the sync strategies.
+     * Performs forced sync regardless of the sync strategies.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
@@ -621,7 +621,7 @@ declare namespace cloudData {
   enum StrategyType {
 
     /**
-     * Indicates network strategy.
+     * Network strategy.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
@@ -629,7 +629,7 @@ declare namespace cloudData {
     NETWORK,
 
     /**
-     * Indicates battery strategy.
+     * Battery strategy.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
@@ -637,7 +637,7 @@ declare namespace cloudData {
     BATTERY,
 
     /**
-     * Indicates asset strategy.
+     * Asset strategy.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
@@ -672,7 +672,7 @@ declare namespace cloudData {
   }
 
   /**
-   * Enumerates the types of cloud sync via the battery.
+   * Enumerates the types of cloud sync based on the battery status.
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
@@ -681,7 +681,7 @@ declare namespace cloudData {
   enum BatteryStrategy {
 
     /**
-     * Allowed sync when in low level battery.
+     * Allow sync even when the battery is in low level.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
