@@ -504,7 +504,7 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
      * @param { number } period - Indicates the grace period, with a range of values from 0 to 60, measured in seconds.
-     * @param { string } bundleName - Indicates the name of application.
+     * @param { string } [bundleName] - Indicates the name of application.
      * @returns { Promise<Date> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission denied. The application is not a system application.
@@ -521,12 +521,12 @@ declare namespace cloudData {
     ): Promise<Date>;
 
     /**
-     * Ignoring sync strategy to force sync.
+     * Force sync. Ignoring the sync strategies.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - Indicates the account ID. The account ID is required by hashing cloud account.
      * @param { string } bundleName - Indicates the name of application.
-     * @param { string } storeId - Indicates the name of store.
+     * @param { string } [storeId] - Indicates the store ID.
      * @returns { Promise<Record<string, SyncInfo>> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission denied. The application is not a system application.
