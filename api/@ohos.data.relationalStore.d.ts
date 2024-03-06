@@ -1015,6 +1015,31 @@ declare namespace relationalStore {
   }
 
   /**
+   * Enumerates the type of rebuild.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 12
+   */
+  enum RebuildType {
+    /**
+     * The database is not rebuilt.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    NONE,
+
+    /**
+     * The database is rebuilt.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    REBUILT
+  }
+
+  /**
    * Manages relational database configurations.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -1962,20 +1987,6 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
-    /**
-     * Go to the specified row of the result set forwards or backwards by an offset relative to its current position.
-     * A positive offset indicates moving backwards, and a negative offset indicates moving forwards.
-     *
-     * @param { number } offset - Indicates the offset relative to the current position.
-     * @returns { boolean } True if the result set is moved successfully and does not go beyond the range;
-     *                   Returns false otherwise.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
-     */
     goTo(offset: number): boolean;
 
     /**
@@ -1999,18 +2010,6 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
-    /**
-     * Go to the specified row of the result set.
-     *
-     * @param { number } position - Indicates the index of the specified row, which starts from 0.
-     * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
-     */
     goToRow(position: number): boolean;
 
     /**
@@ -2031,17 +2030,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
-     */
-    /**
-     * Go to the first row of the result set.
-     *
-     * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is empty.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
      */
     goToFirstRow(): boolean;
 
@@ -2064,17 +2052,6 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
-    /**
-     * Go to the last row of the result set.
-     *
-     * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is empty.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
-     */
     goToLastRow(): boolean;
 
     /**
@@ -2096,17 +2073,6 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
-    /**
-     * Go to the next row of the result set.
-     *
-     * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is already in the last row.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
-     */
     goToNextRow(): boolean;
 
     /**
@@ -2127,17 +2093,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
-     */
-    /**
-     * Go to the previous row of the result set.
-     *
-     * @returns { boolean } True if the result set is moved successfully;
-     *                    Returns false otherwise, for example, if the result set is already in the first row.
-     * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
-     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
      */
     goToPreviousRow(): boolean;
 
@@ -2176,6 +2131,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - The store is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2217,6 +2173,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - The store is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2258,6 +2215,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - The store is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2299,6 +2257,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - The store is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2328,6 +2287,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - The store is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2357,6 +2317,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - The store is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2378,6 +2339,7 @@ declare namespace relationalStore {
      * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - The store is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2416,6 +2378,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - The store is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2480,15 +2443,13 @@ declare namespace relationalStore {
     version: number;
 
     /**
-     * Set whether the database is rebuilt. The version number must be an integer greater than 0.
-     * Obtains the RdbStore version.
+     * Set whether the database is rebuilt.
      *
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 12
      */
-    rebuilt: boolean;
+    rebuilt: RebuildType;
 
     /**
      * Inserts a row of data into the target table.
@@ -3635,17 +3596,6 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
-    /**
-     * BeginTransaction before execute your sql.
-     *
-     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
-     */
     beginTransaction(): void;
 
     /**
@@ -3663,15 +3613,6 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 10
      */
-    /**
-     * Commit the the sql you have executed.
-     *
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
-     */
     commit(): void;
 
     /**
@@ -3688,15 +3629,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
-     */
-    /**
-     * Roll back the sql you have already executed.
-     *
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 12
      */
     rollBack(): void;
 
@@ -4220,16 +4152,15 @@ declare namespace relationalStore {
     emit(event: string): void;
 
     /**
-     * Rebuild an empty database.
-     * All tables and data in the database are lost, but can be restored from a backup.
+     * Close the RdbStore and all resultSets.
      *
-     * @returns { Promise<boolean> } True if the store is rebuilt successfully; Returns false otherwise.
+     * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
-    rebuild(): Promise<boolean>;
+    close(): Promise<void>;
   }
 
   /**
@@ -4264,6 +4195,26 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10
+   */
+  /**
+   * Obtains a RDB store.
+   * You can set parameters of the RDB store as required. In general, this method is recommended
+   * to obtain a rdb store.
+   *
+   * @param { Context } context - Indicates the context of an application or ability.
+   * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+   * @param { AsyncCallback<RdbStore> } callback - The RDB store {@link RdbStore}.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @throws { BusinessError } 14800010 - Failed to open or delete database by invalid database path.
+   * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+   * @throws { BusinessError } 14800017 - Failed to open database by invalid config changed.
+   * {@link StoreConfig.securityLevel} and {@link StoreConfig.encrypt} should not be changed.
+   * @throws { BusinessError } 14801001 - Only supported in stage mode.
+   * @throws { BusinessError } 14801002 - The data group id is not valid.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 12
    */
   function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
