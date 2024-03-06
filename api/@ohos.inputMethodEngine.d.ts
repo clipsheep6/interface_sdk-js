@@ -43,11 +43,11 @@ declare namespace inputMethodEngine {
   type PanelSize = window.Size;
 
   /**
-   * The size and position of a window.
+   * Size and position of a window.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12
    */
-  type Rect = window.Rect;
+  type WindowRect = window.Rect;
 
   /**
    * When "enter" key is pressed, there is no action
@@ -1303,7 +1303,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    getHostWindowRect(): Rect;
+    getHostWindowRect(): WindowRect;
   }
 
   /**
