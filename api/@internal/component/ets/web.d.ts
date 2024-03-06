@@ -6745,6 +6745,32 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   copyOptions(value: CopyOptions): WebAttribute;
+
+  /**
+   * Triggered when the first screen image rendering of web page.
+   *
+   * @param { function } callback
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onFirstScreenImagePaint(callback: (event?: { navigationStartTick: number,
+    loadTime: number, renderTime: number }) => void): WebAttribute;
+
+  /**
+   * Triggered when the first screen text  rendering of web page.
+   *
+   * @param { function } callback
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onFirstScreenTextPaint(callback: (event?: { navigationStartTick: number,
+    renderTime: number }) => void): WebAttribute;
+
+
 }
 
 /**
