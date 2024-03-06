@@ -223,6 +223,56 @@ declare namespace hiAppEvent {
      * @since 11
      */
     const APP_FREEZE: string;
+
+	/**
+     * launch event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const APP_LAUNCH: string;
+
+	/**
+     * scroll jank event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const SCROLL_JANK: string;
+	
+	/**
+     * cpu usage high event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const CPU_USAGE_HIGH: string;
+	
+	/**
+     * battery usage event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const BATTERY_USAGE: string;
+	
+	/**
+     * resource overlimit event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const RESOURCE_OVERLIMIT: string;	
   }
 
   /**
@@ -1180,6 +1230,26 @@ declare namespace hiAppEvent {
      * @since 11
      */
     eventConfigs?: AppEventReportConfig[];
+	
+	/**
+     * The processor ID.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    id?: number;
+	
+	/**
+     * The processor set custom config data.
+     *
+     * @type { ?Record<string, string> }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    customConfig?: Record<string, string>;
   }
 
   /**
