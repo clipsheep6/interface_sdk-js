@@ -2257,19 +2257,17 @@ declare class RichEditorController {
    * @crossplatform
    * @since 11
    */
-  setSelection(selectionStart: number, selectionEnd: number): void;
-  
   /**
    * Specify the start and end positions to select a range of content.
    *
    * @param { number } selectionStart - The start position of the selected text.
    * @param { number } selectionEnd - The end position of the selected text.
-   * @param { SelectionOptions } options - Indicates the options of selection.
+   * @param { SelectionOptions } [options] - Indicates the options of selection.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  setSelection(selectionStart: number, selectionEnd: number, options: SelectionOptions): void;
+  setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
    * Called when the content is selected.
