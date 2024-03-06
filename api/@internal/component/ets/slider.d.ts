@@ -830,6 +830,15 @@ interface SliderInterface {
 }
 
 /**
+ * Defines the sliding range of start and end property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type SlidingRange = [from: number, to: number];
+
+/**
  * Defines the attribute functions of Slider.
  *
  * @extends CommonMethod<SliderAttribute>
@@ -1363,6 +1372,17 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 12
    */
   minResponsiveDistance(value: number): SliderAttribute;
+
+  /**
+   * Called when the valid sliding range is set.
+   *
+   * @param { SlidingRange } value - the valid sliding range.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  validSlidingRange(value: SlidingRange): SliderAttribute;
 }
 
 /**
