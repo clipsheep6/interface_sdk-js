@@ -25,6 +25,7 @@ import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import type { LocalStorage } from 'StateManagement';
 import BaseContext from './application/BaseContext';
+import window from './@ohos.window';
 
 /**
  * Input method engine
@@ -34,6 +35,20 @@ import BaseContext from './application/BaseContext';
  * @since 8
  */
 declare namespace inputMethodEngine {
+  /**
+   * Input method panel size.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  type PanelSize = window.Size;
+
+  /**
+   * The size and position of a window.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  type Rect = window.Rect;
+
   /**
    * When "enter" key is pressed, there is no action
    *
@@ -1279,6 +1294,16 @@ declare namespace inputMethodEngine {
      * @since 12
      */
     finishTextPreview(): void;
+
+    /**
+     * Get the position and size of the host window of the current edit box.
+     *
+     * @returns { Rect } the size and position of the host window.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getHostWindowRect(): Rect;
   }
 
   /**
@@ -1526,6 +1551,19 @@ declare namespace inputMethodEngine {
     moveTo(x: number, y: number): Promise<void>;
 
     /**
+     * Set the height of keyboard separately for landscape and portrait orientations.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     *
+     * @param { number } landscapeHeight - the keyboard height for landscape orientation.
+     * @param { number } portraitHeight - the keyboard height for portrait orientation.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    setKeyboardHeight(landscapeHeight: number, portraitHeight: number): Promise<void>;
+
+    /**
      * Shows panel.
      *
      * @param { AsyncCallback<void> } callback - the callback of show.
@@ -1604,6 +1642,28 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     off(type: 'hide', callback?: () => void): void;
+
+    /**
+     * Subscribe 'panelSizeChange' event.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     *
+     * @param { 'panelSizeChange' } type - the type of subscribe event.
+     * @param { Callback<PanelSize> } callback - the callback of on('panelSizeChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    on(type: 'panelSizeChange', callback: Callback<PanelSize>): void;
+
+    /**
+     * Unsubscribe 'panelSizeChange' event.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     *
+     * @param { 'panelSizeChange' } type - the type of unsubscribe event.
+     * @param { Callback<PanelSize> } [callback] - optional, the callback of off('panelSizeChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    off(type: 'panelSizeChange', callback?: Callback<PanelSize>): void;
 
     /**
      * Changes panel flag.
