@@ -1247,38 +1247,38 @@ declare namespace inputMethodEngine {
     sendExtendAction(action: ExtendAction): Promise<void>;
 
     /**
-     * Get the range of the previewing text.
+     * Get the range of the preview text.
      *
-     * @returns { Range } the range of the previewing text.
+     * @returns { Range } the range of the preview text.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800011 - text previewing is not supported.
+     * @throws { BusinessError } 12800011 - text preview is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    getPreviewingTextRange(): Range;
+    getPreviewTextRange(): Range;
 
     /**
-     * Insert the provided text as previewing text.
+     * Insert the provided text as preview text.
      *
-     * @param { string } text - the text to be previewing.
-     * @param { Range } range - the range of the text to be replaced by the previewing text.
+     * @param { string } text - the text to be previewed.
+     * @param { Range } range - the range of the text to be replaced by the preview text.
      * @throws { BusinessError } 401 - parameter error.
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800011 - text previewing is not supported.
+     * @throws { BusinessError } 12800011 - text preview is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    setPreviewingText(text: string, range: Range): void;
+    setPreviewText(text: string, range: Range): void;
 
     /**
-     * Finish the text previewing.
+     * Finish the text preview.
      *
      * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800011 - text previewing is not supported.
+     * @throws { BusinessError } 12800011 - text preview is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    finishPreviewingText(): void;
+    finishTextPreview(): void;
   }
 
   /**
@@ -1654,13 +1654,13 @@ declare namespace inputMethodEngine {
     readonly enterKeyType: number;
 
     /**
-     * Indicates whether the editor supports the text previewing.
+     * Indicates whether the editor supports the text preview.
      *
      * @type { boolean }
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    isTextPreviewingSupported: boolean;
+    isTextPreviewSupported: boolean;
   }
 
   /**
