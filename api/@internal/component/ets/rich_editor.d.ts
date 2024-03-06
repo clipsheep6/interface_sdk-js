@@ -185,7 +185,7 @@ declare enum MenuPolicy {
   DEFAULT = 0,
 
   /**
-   * Never pop up menu.
+   * Not pop up menu.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
