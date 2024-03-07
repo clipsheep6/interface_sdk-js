@@ -498,6 +498,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   textOverflow(value: { overflow: TextOverflow }): TextAttribute;
 
   /**
+   * Marquee scrolling strategy after text update.
+   *
+   * @param { boolean } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  marqueeUpdateStrategy(value: MarqueeUpdateStrategy): TextAttribute;
+
+  /**
    * Called when the font list of text is set.
    *
    * @param { string | Resource } value
