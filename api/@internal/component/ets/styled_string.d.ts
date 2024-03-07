@@ -24,13 +24,13 @@ declare class StyledString {
     /**
      * constructor.
      *
-     * @param { ResourceStr | AttachmentImage } value - indicates the current object value of the StyledString.
+     * @param { string | AttachmentImage } value - indicates the current object value of the StyledString.
      * @param { ?Partial<SpanStyle>[] } styles - indicates the SpanStyle objects.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    constructor(value: ResourceStr | AttachmentImage, styles?:Partial<SpanStyle>[]);
+    constructor(value: string | AttachmentImage, styles?:Partial<SpanStyle>[]);
 
     /**
     * Get the literal content of the StyledString.
@@ -670,16 +670,7 @@ declare enum StyleStringKey {
      * @crossplatform
      * @since 12
      */
-    PARAGRAPH_STYLE = 5,
-
-    /**
-     * The background color.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 12
-     */
-    BACKGROUND_COLOR = 6,
+    PARAGRAPH_STYLE = 100,
 
     /**
      * Gesture events.
@@ -688,7 +679,17 @@ declare enum StyleStringKey {
      * @crossplatform
      * @since 12
      */
-    GESTURE = 7,
+    GESTURE = 200,
+
+    /**
+     * The background color.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    BACKGROUND_COLOR = 300,
+
 }
 
 
