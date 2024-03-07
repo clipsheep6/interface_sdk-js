@@ -103,7 +103,7 @@ interface TextInterface {
 }
 
 /**
- * Defines the length property with string, number and resource unit.
+ * Defines the text content with string, resource, StyledString and MutableStyledString unit.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
