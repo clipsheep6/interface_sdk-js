@@ -49,7 +49,7 @@ declare namespace inputMethodEngine {
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12
    */
-  type WindowRect = window.Rect;
+  type Rect = window.Rect;
 
   /**
    * When "enter" key is pressed, there is no action
@@ -1305,7 +1305,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    getHostWindowRect(): WindowRect;
+    getHostWindowRect(): Rect;
   }
 
   /**
