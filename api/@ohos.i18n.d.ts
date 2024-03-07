@@ -105,7 +105,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 12
    */
-  enum PreferenceOptions {
+  export enum PreferenceOptions {
     /**
      * Temperature prference option
      *
@@ -129,7 +129,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 12
    */
-  enum TemperatureUnitKeys {
+  export enum TemperatureUnitKeys {
     /**
      * Celsius key
      *
@@ -153,7 +153,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @since 12
    */
-  enum WeekDayKeys {
+  export enum WeekDayKeys {
     /**
      * Monday key
      *
