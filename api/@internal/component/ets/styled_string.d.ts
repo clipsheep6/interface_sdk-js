@@ -150,13 +150,13 @@ declare interface SpanStyle {
 }
 
 /**
- * Defines FontStyles.
+ * Defines TextStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class FontStyles {
+declare class TextStyle {
 
     /**
      * constructor.
@@ -477,7 +477,7 @@ declare class GestureStyles {
  * @since 12
  */
 declare type StyleStringValue =
-    FontStyles | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle
+    TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle
     | TextShadowStyle | ParagraphStyles | BackgroundColorStyle | GestureStyles;
 
 /**
