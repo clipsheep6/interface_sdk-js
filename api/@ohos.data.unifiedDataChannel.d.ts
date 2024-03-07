@@ -57,14 +57,7 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 12
      */
-    LOCALDEVICE,
-    /**
-     * CROSSDEVICE indicates that use in any app across devices is allowed.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    CROSSDEVICE
+    LOCALDEVICE
   }
 
   /**
@@ -82,7 +75,7 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 12
      */
-    additions: {
+    extras: {
       [key: string]: object
     }
 

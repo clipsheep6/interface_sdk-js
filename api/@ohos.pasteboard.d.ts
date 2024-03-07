@@ -21,7 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
-import utc from './@ohos.data.unifiedDataChannel';
+import udc from './@ohos.data.unifiedDataChannel';
 
 /**
  * systemPasteboard
@@ -1183,7 +1183,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 12
      */
-    getData(): Promise<utc.UnifiedData>;
+    getData(): Promise<udc.UnifiedData>;
 
     /**
      * Gets unifiedData from the system pasteboard.
@@ -1193,7 +1193,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 12
      */
-    getDataSync(): utc.UnifiedData;
+    getDataSync(): udc.UnifiedData;
 
     /**
      * Checks whether there is content in the pasteboard.
@@ -1347,7 +1347,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 12
      */
-    setData(data: utc.UnifiedData): Promise<void>;
+    setData(data: udc.UnifiedData): Promise<void>;
 
     /**
      * Writes UnifiedData to the system pasteboard.
@@ -1358,7 +1358,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 12
      */
-    setDataSync(data: utc.UnifiedData): void;
+    setDataSync(data: udc.UnifiedData): void;
   }
 }
 
