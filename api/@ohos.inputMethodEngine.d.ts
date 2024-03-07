@@ -1553,7 +1553,7 @@ declare namespace inputMethodEngine {
     moveTo(x: number, y: number): Promise<void>;
 
     /**
-     * Config the height of keyboard separately for landscape and portrait orientations.
+     * Config the height of keyboard for landscape and portrait orientations.
      * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
      *
      * @param { number } landscapeHeight - the keyboard height for landscape orientation.
