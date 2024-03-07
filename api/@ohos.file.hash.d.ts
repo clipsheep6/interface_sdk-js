@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,6 +19,7 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
+import stream from './@ohos.util.stream';
 
 /**
  * Hash
@@ -85,6 +86,39 @@ declare namespace hash {
    * @since 11
    */
   function hash(path: string, algorithm: string, callback: AsyncCallback<string>): void;
+
+  /**
+   * Hash Stream.
+   * 
+   * @extends stream.Transform
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  class Hash extends stream.Transform {
+    /**
+     * Calculate the digest of all of the data passed to be hashed.
+     *
+     * @returns { string } Returns the hexadecimal data string of the hash result.
+     * @throws { BusinessError } 401 - Parameter error
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 12
+     */
+    digest(): string;
+
+    /**
+     * Update the hash content with the given data.
+     *
+     * @param { ArrayBuffer } data - updated data.
+     * @throws { BusinessError } 401 - Parameter error
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.File.FileIO
+     * @since 12
+     */
+    update(data: ArrayBuffer): void;
+  }
+
+  function createHash(algorithm: string): Hash;
 }
 
 export default hash;
