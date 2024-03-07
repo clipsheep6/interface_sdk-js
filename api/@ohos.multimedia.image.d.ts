@@ -3089,6 +3089,28 @@ declare namespace image {
     getPixelBytesNumber(): number;
 
     /**
+     * Obtains the number of bytes in each line of the image pixel map.
+     *
+     * @returns { number } Number of bytes in each line.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    getAllocRowBytes(): number;
+
+    /**
+     * Obtains the total number of bytes of the image pixel map.
+     *
+     * @returns { number } Total number of bytes.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+     getAllocByteCount(): number;
+
+    /**
      * Obtains the density of the image pixel map.
      *
      * @returns { number } The number of density.
