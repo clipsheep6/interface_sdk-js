@@ -1481,6 +1481,44 @@ declare namespace notificationManager {
   function getDoNotDisturbDate(userId: number): Promise<DoNotDisturbDate>;
 
   /**
+   * Add Do Not Disturb profiles.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<DoNotDisturbProfile> } params - The array of Do Not Disturb profiles to add.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function addDoNotDisturbProfiles(profiles: Array<DoNotDisturbProfile>): Promise<void>;
+    
+  /**
+   * Remove Do Not Disturb profiles.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<DoNotDisturbProfile> } params - The array of Do Not Disturb profiles to remove.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  function removeDoNotDisturbProfiles(profiles: Array<DoNotDisturbProfile>): Promise<void>;
+
+  /**
    * Obtains whether to support the Do Not Disturb mode.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -2422,6 +2460,50 @@ declare namespace notificationManager {
      * @since 11
      */
     onResponse?: (notificationId: number, buttonOptions: ButtonOptions) => void;
+  }
+
+  /**
+   * Describes a DoNotDisturbProfile instance.
+   *
+   * @typedef DoNotDisturbProfile
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 12
+   */
+  export interface DoNotDisturbProfile {
+    /**
+     * The id of the Do Not Disturb profile.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER
+     * @type { Number }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    id: Number;
+
+    /**
+     * The name of the Do Not Disturb profile.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    name?: string;
+
+    /**
+     * The application whitelist of the Do Not Disturb profile.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER
+     * @type { ?Array<BundleOption> }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 12
+     */
+    whitelist?: Array<BundleOption>;
   }
 
   /**
