@@ -419,7 +419,7 @@ declare interface RichEditorParagraphStyle {
   /**
    * Set word break type.
    *
-   * @type { ?(WordBreak) }
+   * @type { ?WordBreak }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
