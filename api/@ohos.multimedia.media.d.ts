@@ -178,7 +178,7 @@ declare namespace media {
   function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
 
   /**
-   * report user choice back to AVScreenCapture server
+   * Report user choice back to AVScreenCapture server
    *
    * @param {number} sessionId The AVScreenCapture server session ID.
    * @param {string} choice Content chosen by user.
