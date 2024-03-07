@@ -37,6 +37,7 @@ import window from './@ohos.window';
 declare namespace inputMethodEngine {
   /**
    * Input method panel size.
+   *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12
    */
@@ -44,6 +45,7 @@ declare namespace inputMethodEngine {
 
   /**
    * Size and position of a window.
+   *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12
    */
