@@ -1558,7 +1558,6 @@ declare namespace inputMethodEngine {
      *
      * @param { number } landscapeHeight - the keyboard height for landscape orientation.
      * @param { number } portraitHeight - the keyboard height for portrait orientation.
-     * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - parameter error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
