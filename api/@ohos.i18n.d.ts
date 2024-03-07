@@ -99,7 +99,7 @@ declare namespace i18n {
   export function getSystemLocale(): string;
 
   /**
-   * Enumeration of user prefercen options.
+   * Enumeration of user preference options.
    *
    * @enum { string } PreferenceOptions
    * @syscap SystemCapability.Global.I18n
@@ -107,14 +107,14 @@ declare namespace i18n {
    */
   export enum PreferenceOptions {
     /**
-     * Temperature prference option
+     * Temperature preference option
      *
      * @syscap SystemCapability.Global.I18n
      * @since 12
      */
-    TEMPERATURE_PRFERENCE = 'temperature_prference',
+    TEMPERATURE_PRFERENCE = 'temperature_preference',
     /**
-     * First day of week prference
+     * First day of week preference
      *
      * @syscap SystemCapability.Global.I18n
      * @since 12
@@ -545,7 +545,7 @@ declare namespace i18n {
      *
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { string } language - the language to be set.
-     * @param { string } app - the pacakage name of the app.
+     * @param { string } app - the package name of the app.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 890001 - param value not valid
@@ -591,8 +591,8 @@ declare namespace i18n {
      * Set user preference for i18n apis.
      *
      * @permission ohos.permission.UPDATE_CONFIGURATION
-     * @param { PreferenceOptions } preferce - a variable represents whice preferce would be set
-     * @param { string } value - a string variable represents the preferce value
+     * @param { PreferenceOptions } preference - a variable represents which preference would be set
+     * @param { string } value - a string variable represents the preference value
      * @throws { BusinessError } 201 - the application does not have permission to call this function
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 890001 - param value not valid
@@ -600,19 +600,19 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    static setUserPreference(preferce: PreferenceOptions, value: string): void;
+    static setUserPreference(preference: PreferenceOptions, value: string): void;
 
     /**
      * Get user preference for i18n apis.
      *
-     * @param { PreferenceOptions } preferce - a variable represents whice preferce would be get
-     * @returns { string } a string represent the preferce value
+     * @param { PreferenceOptions } preference - a variable represents which preference would be get
+     * @returns { string } a string represent the preference value
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @since 12
      */
-    static getUserPreference(preferce: PreferenceOptions): string;
+    static getUserPreference(preference: PreferenceOptions): string;
   }
 
   /**
