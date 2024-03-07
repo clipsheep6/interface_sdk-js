@@ -1298,14 +1298,14 @@ declare namespace inputMethodEngine {
     finishTextPreview(): void;
 
     /**
-     * Get the position and size of the host window of the current edit box.
+     * Get the position and size of the calling window of the current edit box.
      *
-     * @returns { Rect } the size and position of the host window.
+     * @returns { Rect } the size and position of the calling window.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    getHostWindowRect(): Rect;
+    getCallingWindowRect(): Rect;
   }
 
   /**
@@ -1553,7 +1553,7 @@ declare namespace inputMethodEngine {
     moveTo(x: number, y: number): Promise<void>;
 
     /**
-     * Set the height of keyboard separately for landscape and portrait orientations.
+     * Config the height of keyboard separately for landscape and portrait orientations.
      * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
      *
      * @param { number } landscapeHeight - the keyboard height for landscape orientation.
@@ -1563,7 +1563,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    setKeyboardHeight(landscapeHeight: number, portraitHeight: number): Promise<void>;
+    configKeyboardHeight(landscapeHeight: number, portraitHeight: number): void;
 
     /**
      * Shows panel.
