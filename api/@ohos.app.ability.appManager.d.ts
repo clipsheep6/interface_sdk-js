@@ -736,6 +736,40 @@ declare namespace appManager {
   function isApplicationRunning(bundleName: string, callback: AsyncCallback<boolean>): void;
 
   /**
+   * Set the resident status of a process enable or disable.
+   * If the resident process not started when set enable, start the resident process.
+   * The caller application can only set the resident status of the configured process.
+   * 
+   * @param { string } bundleName - The process bundle name.
+   * @param { boolean } enable - The status of resident process. 
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function setResidentProcessStatus(bundleName: string, enable: boolean): Promise<void>;
+
+  /**
+   * Set the resident status of a process disable.
+   * The caller application can only set the resident status of the configured process.
+   * 
+   * @param { string } bundleName - The process bundle name.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function setProcessResidentStatusDisableByBundleName(bundleName: string): Promise<void>;
+
+  /**
    * The ability or extension state data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
