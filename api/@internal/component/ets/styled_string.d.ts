@@ -184,12 +184,12 @@ declare class TextStyle {
     /**
      * Get the fontSize of the StyledString.
      *
-     * @returns { Dimension } - the fontSize of the StyledString
+     * @returns { number } - the fontSize of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    getSize(): Dimension;
+    getSize(): number;
 
     /**
      * Get the fontWeight of the StyledString.
@@ -204,7 +204,7 @@ declare class TextStyle {
     /**
      * Get the fontFamily of the StyledString.
      *
-     * @returns { number } - the fontFamily of the StyledString
+     * @returns { string } - the fontFamily of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
@@ -385,22 +385,22 @@ declare class ParagraphStyles {
     /**
      * Get the textIndent value of the StyledString.
      *
-     * @returns { Length } - the textIndent value of the StyledString
+     * @returns { number } - the textIndent value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    getTextIndentValue(): Length;
+    getTextIndentValue(): number;
 
     /**
      * Get the lineHeight value of the StyledString.
      *
-     * @returns { Length } - the lineHeight value of the StyledString
+     * @returns { number } - the lineHeight value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    getLineHeightValue(): Dimension;
+    getLineHeightValue(): number;
 
     /**
      * Get the maxLines value of the StyledString.
