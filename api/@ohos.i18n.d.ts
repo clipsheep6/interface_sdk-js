@@ -112,14 +112,14 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 12
      */
-    TEMPERATURE_PRFERENCE = 'temperature_preference',
+    TEMPERATURE_PREFERENCE = 'temperature_preference',
     /**
      * First day of week preference
      *
      * @syscap SystemCapability.Global.I18n
      * @since 12
      */
-    FIRST_DAY_OF_WEEK_PRFERENCE = 'first_day_of_week_prference'
+    FIRST_DAY_OF_WEEK_PREFERENCE = 'first_day_of_week_preference'
   }
 
   /**
