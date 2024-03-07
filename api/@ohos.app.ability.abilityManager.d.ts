@@ -381,6 +381,71 @@ declare namespace abilityManager {
    */
   function isEmbeddedOpenAllowed(context: Context, appId: string): Promise<boolean>;
 
+  
+  /**
+   * Start a resident process and set the resident status of the process enable. 
+   * The caller application can only set the resident status of the configured process.
+   * 
+   * @param { string } bundleName - The process bundle name.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function startResidentProcessByBundleName(bundleName: string): Promise<void>;
+
+  /**
+   * Start a resident process and set the resident status of the process enable.
+   * The caller application can only set the resident status of the configured process.
+   * 
+   * @param { string } bundleName - The process bundle name.
+   * @param { AsyncCallback<void> } callback - The callback of startResidentProcessByBundleName.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function startResidentProcessByBundleName(bundleName: string, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the resident status of a process disable.
+   * The caller application can only set the resident status of the configured process.
+   * 
+   * @param { string } bundleName - The process bundle name.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function setProcessResidentStatusDisableByBundleName(bundleName: string): Promise<void>;
+
+  /**
+   * Set the resident status of a process diable.
+   * The caller application can only set the resident status of the configured process.
+   * 
+   * @param { string } bundleName - The process bundle name.
+   * @param { AsyncCallback<void> } callback - The callback of startResidentProcessByBundleName.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function setProcessResidentStatusDisableByBundleName(bundleName: string, callback: AsyncCallback<void>): void;
+
   /**
    * The class of an ability running information.
    *
