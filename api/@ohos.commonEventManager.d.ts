@@ -1640,7 +1640,7 @@ declare namespace commonEventManager {
      * Users can register this event to listen to the pre change of the airplane mode status of the device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since 13
+     * @since 12
      */
     COMMON_EVENT_PRE_AIRPLANE_MODE_CHANGED = 'usual.event.PRE_AIRPLANE_MODE',
 
