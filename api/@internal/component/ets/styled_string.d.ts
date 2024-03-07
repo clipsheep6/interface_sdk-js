@@ -24,13 +24,13 @@ declare class StyledString {
     /**
      * constructor.
      *
-     * @param { string | AttachmentImage } value - indicates the current object value of the StyledString.
+     * @param { string | ImageAttachment } value - indicates the current object value of the StyledString.
      * @param { ?Partial<SpanStyle>[] } styles - indicates the SpanStyle objects.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    constructor(value: string | AttachmentImage, styles?:Partial<SpanStyle>[]);
+    constructor(value: string | ImageAttachment, styles?:Partial<SpanStyle>[]);
 
     /**
     * Get the literal content of the StyledString.
@@ -183,6 +183,7 @@ declare class TextStyle {
 
     /**
      * Get the fontSize of the StyledString.
+     * The unit is px.
      *
      * @returns { number } - the fontSize of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -193,6 +194,7 @@ declare class TextStyle {
 
     /**
      * Get the fontWeight of the StyledString.
+     * The unit is px.
      *
      * @returns { number } - the fontWeight of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -283,6 +285,7 @@ declare class BaselineOffsetStyle {
 
     /**
      * Get the baselineOffset value of the StyledString.
+     * The unit is px.
      *
      * @returns { number } - the baselineOffset value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -313,7 +316,8 @@ declare class LetterSpacingStyle {
 
     /**
      * Get the letterSpacing value of the StyledString.
-     *
+     * The unit is px.
+     * 
      * @returns { number } - the letterSpacing value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -384,6 +388,7 @@ declare class ParagraphStyles {
 
     /**
      * Get the textIndent value of the StyledString.
+     * The unit is px.
      *
      * @returns { number } - the textIndent value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -394,6 +399,7 @@ declare class ParagraphStyles {
 
     /**
      * Get the lineHeight value of the StyledString.
+     * The unit is px.
      *
      * @returns { number } - the lineHeight value of the StyledString
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -694,16 +700,16 @@ declare enum StyleStringKey {
 
 
 /**
- * Defines the AttachmentImage.
+ * Defines the ImageAttachment.
  *
- * @interface AttachmentImage
+ * @interface ImageAttachment
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare interface AttachmentImage {
+declare interface ImageAttachment {
     /**
-     * The content of the AttachmentImage.
+     * The content of the ImageAttachment.
      *
      * @type { PixelMap | ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -745,33 +751,33 @@ declare interface AttachmentImage {
     /**
      * the Image Layout Style.
      *
-     * @type { ?AttachmentImageLayoutStyle }
+     * @type { ?ImageAttachmentLayoutStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    layoutStyle?: AttachmentImageLayoutStyle;
+    layoutStyle?: ImageAttachmentLayoutStyle;
 
     /**
-     * AttachmentImage gesture.
+     * ImageAttachment gesture.
      *
-     * @type { ?AttachmentImageGesture }
+     * @type { ?ImageAttachmentGesture }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    gesture?: AttachmentImageGesture;
+    gesture?: ImageAttachmentGesture;
 }
 
 /**
- * Defines the  AttachmentImage Layout Style.
+ * Defines the  ImageAttachment Layout Style.
  *
- * @interface AttachmentImageLayoutStyle
+ * @interface ImageAttachmentLayoutStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare interface AttachmentImageLayoutStyle {
+declare interface ImageAttachmentLayoutStyle {
     /**
      * Outer Margin.
      *
@@ -804,14 +810,14 @@ declare interface AttachmentImageLayoutStyle {
 }
 
 /**
- * Defines the AttachmentImage Gestures.
+ * Defines the ImageAttachment Gestures.
  *
- * @interface AttachmentImageGesture
+ * @interface ImageAttachmentGesture
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare interface AttachmentImageGesture {
+declare interface ImageAttachmentGesture {
     /**
      * Trigger a click event when a click is clicked.
      *
