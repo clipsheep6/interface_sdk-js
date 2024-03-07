@@ -541,7 +541,7 @@ declare namespace i18n {
     static setAppPreferredLanguage(language: string): void;
 
     /**
-     * Set the preferred language of the speicified App.
+     * Set the preferred language of the specified App.
      *
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { string } language - the language to be set.
