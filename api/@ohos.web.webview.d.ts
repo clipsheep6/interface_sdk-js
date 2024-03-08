@@ -2310,6 +2310,130 @@ declare namespace webview {
   }
 
   /**
+   * Enum type supplied to {@link OfflineResourceMap} for indicating the type of resource.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum OfflineResourceType {
+    /**
+     * Image resource
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    Image,
+
+    /**
+     * CSS resource
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    CSS,
+
+    /**
+     * Classic javascript resource
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    CLASSIC_JS,
+
+    /**
+     * Module javascript resource
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    MODULE_JS
+  }
+
+  /**
+   * Define offline resource's content and info.
+   * @interface OfflineResourceMap
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  interface OfflineResourceMap {
+    /**
+     * Url list of resource.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    urlList: Array<string>,
+
+    /**
+     * Arraybuffer of resource.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    resource: Uint8Array,
+
+    /**
+     * Response headers of resource.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    responseHeaders: Array<WebHeader>,
+
+    /**
+     * Resource type
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    type: OfflineResourceType
+  }
+
+  /**
+   * Define generate code cache option
+   * @interface CacheOption
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  interface CacheOption {
+    /**
+     * Response headers of cache.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    responseHeaders: Array<WebHeader>;
+
+    /**
+     * The flag indicates whether the javascript is module type.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isModule?: boolean;
+
+    /**
+     * The flag indicates whether use top-level compile.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isTopLevel?: boolean;
+  }
+
+  /**
    * Provides methods for controlling the web controller.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -4246,6 +4370,28 @@ declare namespace webview {
      * @since 12
      */
     static clearIntelligentTrackingPreventionBypassingList(): void;
+
+    
+    /**
+     * Inject offline resource into cache.
+     *
+     * @param { Array<OfflineResourceMap> } resourceMap - array of offline resource object.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    injectOfflineResource(resourceMap: Array<OfflineResourceMap>): void;
+
+    /**
+     * Compile javascript and generate code cache.
+     * @param { string } url -  Url of the javascript.
+     * @param { string | Uint8Array } script -  javascript source code.
+     * @param { CacheOption } cacheOption -  generate code cache option.
+     * @returns { Promise<number> } - the promise returned by the function
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 11
+     */
+    preCompileJavaScript(url: string, script: string | Uint8Array, cacheOption: CacheOption): Promise<number>;
   }
 
   /**
