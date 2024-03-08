@@ -5047,7 +5047,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    setSubWindowModal(isVisible: boolean, callback: AsyncCallback<void>): void;
+    setSubWindowModal(isModal: boolean, callback: AsyncCallback<void>): void;
 
     /**
      * Set the modality of the window.
@@ -5060,7 +5060,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
-    setSubWindowModal(isVisible: boolean): Promise<void>;
+    setSubWindowModal(isModal: boolean): Promise<void>;
 	
     /**
      * Set the height of the window decor.
