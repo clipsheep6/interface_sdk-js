@@ -354,6 +354,16 @@ declare interface RichEditorTextStyle {
    * @since 11
    */
   textShadow?: ShadowOptions | Array<ShadowOptions>;
+
+  /**
+   * letter spacing.
+   *
+   * @type { ?(number | string) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing?: number | string;
 }
 
 
