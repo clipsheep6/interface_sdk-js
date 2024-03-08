@@ -11391,6 +11391,15 @@ declare interface DragPreviewOptions {
   * @since 11
   */
   mode?: DragPreviewMode;
+
+  /**
+  * The round corners of the drag preview.
+  *
+  * @type { ?Dimension }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 12
+  */
+  radius?: Dimension;
 }
 
 /**
