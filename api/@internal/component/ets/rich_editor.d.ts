@@ -817,6 +817,16 @@ declare interface RichEditorTextStyleResult {
    * @since 11
    */
   decoration: { type: TextDecorationType; color: ResourceColor; };
+  
+  /**
+   * font letterspacing.
+   *
+   * @type { (number | string | Resource) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterspacing: number | string | Resource;
 }
 
 /**
