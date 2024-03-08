@@ -354,6 +354,16 @@ declare interface RichEditorTextStyle {
    * @since 11
    */
   textShadow?: ShadowOptions | Array<ShadowOptions>;
+
+ /**
+   * line height.
+   *
+   * @type { ? (number | string | Resource) } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight?: number | string | Resource;
 }
 
 
