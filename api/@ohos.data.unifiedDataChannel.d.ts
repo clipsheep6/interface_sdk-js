@@ -45,75 +45,74 @@ declare namespace unifiedDataChannel {
    */
   enum ShareOption {
     /**
-     * INAPP indicates that only use in the same app is allowed.
+     * IN_APP indicates that only use in the same app is allowed.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
      */
-    INAPP,
+    IN_APP,
     /**
-     * LOCALDEVICE indicates that use in any app in this device is allowed.
+     * CROSS_APP indicates that use in any app in this device is allowed.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
      */
-    LOCALDEVICE
+    CROSS_APP
   }
 
   /**
-   * UnifiedData property.
-   * @interface UnifiedDataProperty
+   * UnifiedData properties.
+   * @interface UnifiedDataProperties
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12
    */
-  interface UnifiedDataProperty {
+  interface UnifiedDataProperties {
     /**
      * additional property data. key-value pairs.
-     * @type { object }
+     * @type { ?object }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
      */
-    extras: {
+    extras?: {
       [key: string]: object
     }
 
     /**
-     * non-repeating types of all records in UnifiedData.
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly types: Array<string>;
-    /**
      * the user-defined tag of a UnifiedData object.
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
      */
-    tag: string;
+    tag?: string;
     /**
      * a timestamp, which indicates when data is written.
-     * @type { number }
+     * @type { ?Date }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
      */
-    readonly timestamp: number;
+    timestamp?: Date;
     /**
      * Indicates the scope of clipboard data which can be used.
      * If it is not set or is incorrectly set, The default value is CrossDevice.
-     * @type { ShareOption }
+     * @type { ?ShareOption }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
      */
-    shareOption: ShareOption;
+    shareOption?: ShareOption;
+
+    /**
+     * Indicated delay get UnifiedData
+     * @type { ?function }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 12
+     */
+    getDelayData?: (string) => UnifiedData;
   }
 
   /**
@@ -182,39 +181,6 @@ declare namespace unifiedDataChannel {
      * @since 11
      */
     getRecords(): Array<UnifiedRecord>;
-    /**
-     * Gets record by index in UnifiedData.
-     * @param { number } index - indicates the record index in UnifiedData.
-     * @returns { UnifiedRecord } the record in UnifiedData with index.
-     * @throws { BusinessError } 401 - if type of index is not number.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    getRecord(index: number): UnifiedRecord;
-    /**
-     * Removes a Record based on a specified index.
-     * @param { number } index - indicates the record index in UnifiedData.
-     * @throws { BusinessError } 401 - if type of index is not number.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    removeRecord(index: number): void;
-
-    /**
-     * Replaces a specified record with a new one.
-     * @param { number } index - indicates the record index in UnifiedData.
-     * @param { UnifiedRecord } record - the content of a new record.
-     * @throws { BusinessError } 401 - if type of index is not number or type of record is not UnifiedRecord.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    replaceRecord(index: number, record: UnifiedRecord): void;
 
     /**
      * the user-defined tag of a UnifiedData object.
@@ -226,7 +192,7 @@ declare namespace unifiedDataChannel {
     getTag(): string;
 
     /**
-     * Checks whether there is a specified MIME type of data in DataProperty.
+     * Checks whether there is a specified type of data in DataProperties.
      * @param { string } type - indicates to query data type.
      * @returns { boolean } if having mimeType in UnifiedData returns true, else returns false.
      * @throws { BusinessError } 401 - if type of path is not string.
@@ -246,23 +212,32 @@ declare namespace unifiedDataChannel {
     getTypes(): Array<string>;
 
     /**
-     * DataProperty of a UnifiedData object.
-     * @returns { UnifiedDataProperty } UnifiedDataProperty type of UnifiedDataProperty
+     * DataProperties of a UnifiedData object.
+     * @returns { UnifiedDataProperties } UnifiedDataProperties type of UnifiedDataProperties
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
      */
-    getProperty(): UnifiedDataProperty;
+    getProperties(): UnifiedDataProperties;
     
     /**
-     * Sets UnifiedDataProperty to a UnifiedData object, Modifying shareOption is supported only.
-     * @param { UnifiedDataProperty } property - save property to UnifiedData object.
-     * @throws { BusinessError } 401 - if type of property is not UnifiedDataProperty.
+     * Sets UnifiedDataProperties to a UnifiedData object, Modifying shareOption is supported only.
+     * @param { UnifiedDataProperties } properties - save properties to UnifiedData object.
+     * @throws { BusinessError } 401 - if type of properties is not UnifiedDataProperties.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
      */
-    setProperty(property: UnifiedDataProperty): void;
+    setProperties(properties: UnifiedDataProperties): void;
+
+    /**
+     * UnifiedData properties.
+     * @type { UnifiedDataProperties }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    properties: UnifiedDataProperties;
   }
 
   /**
