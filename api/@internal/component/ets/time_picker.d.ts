@@ -373,6 +373,28 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
 
   /**
+   * Defines Whether pre-0 is displayed For 24 hours.
+   *
+   * @param { boolean } value
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  useTwentyFourZeroPrefix(value: boolean): TimePickerAttribute;
+
+  /**
+   * Defines Whether pre-0 is displayed For 12 hours.
+   *
+   * @param { boolean } value
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  useTwelveZeroPrefix(value: boolean): TimePickerAttribute;
+
+  /**
    * This event is triggered when a TimePicker time is selected.
    *
    * @param { function } callback
