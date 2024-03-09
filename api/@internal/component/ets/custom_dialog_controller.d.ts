@@ -373,6 +373,17 @@ declare interface CustomDialogControllerOptions {
    * @since 12
    */
   onWillDismiss?: (dismissDialog: DismissDialog) => void;
+
+  /**
+   * Defines the customDialog's background blur style
+   *
+   * @type { ?BlurStyle }
+   * @default BlurStyle.COMPONENT_ULTRA_THICK
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  backgroundBlurStyle?: BlurStyle;
 }
 
 /**
