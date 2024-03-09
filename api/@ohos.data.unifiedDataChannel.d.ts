@@ -183,15 +183,6 @@ declare namespace unifiedDataChannel {
     getRecords(): Array<UnifiedRecord>;
 
     /**
-     * the user-defined tag of a UnifiedData object.
-     * @returns { string } type of tag
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    getTag(): string;
-
-    /**
      * Checks whether there is a specified type of data in DataProperties.
      * @param { string } type - indicates to query data type.
      * @returns { boolean } if having mimeType in UnifiedData returns true, else returns false.
