@@ -565,21 +565,21 @@ declare namespace hiAppEvent {
   function write(info: AppEventInfo, callback: AsyncCallback<void>): void;
 
   /**
-   * It is used to set custom parameter keys for events, including both system-subscribed events and custom events.
-   * Existing parameter keys will be overwritten, and non-existing parameter names will be created.
+   * It is used to set custom parameters for events, including both system-subscribed events and custom events.
+   * Existing parameter will be overwritten, and non-existing parameter will be created.
    *
-   * @param { Record<string, number | string | boolean | Array<string> } customKeys The parameters of the event.
+   * @param { Record<string, number | string | boolean | Array<string> } params The parameters of the event.
    * @param { string } domain The domain of the event.
    * @param { ?string } name The name of the event.
    * @returns { Promise<void> } Return Promise.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 11101007 - The number of parameters exceeds the limit.
+   * @throws { BusinessError } 11101007 - The number of parameter keys exceeds the limit.
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 12
    */
-  function setEventParam(customKeys: Record<string, number | string | boolean | Array<string>, domain: string,
+  function setEventParam(params: Record<string, number | string | boolean | Array<string>, domain: string,
       name?: string): Promise<void>;
   
   /**
