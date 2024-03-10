@@ -571,6 +571,7 @@ declare namespace hiAppEvent {
    * @param { Record<string, number | string | boolean | Array<string> } param The param of the event.
    * @param { string } domain The domain of the event.
    * @param { ?string } name The name of the event.
+   * @returns { Promise<void> } Return Promise.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 11101007 - The number of parameters exceeds the limit.
    * @static
