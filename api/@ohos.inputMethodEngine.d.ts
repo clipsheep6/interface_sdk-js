@@ -36,22 +36,6 @@ import window from './@ohos.window';
  */
 declare namespace inputMethodEngine {
   /**
-   * Rectangle.
-   *
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 12
-   */
-  type Rect = window.Rect;
-
-  /**
-   * Window status type.
-   *
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 12
-   */
-  type WindowStatusType = window.WindowStatusType;
-
-  /**
    * When "enter" key is pressed, there is no action
    *
    * @constant
@@ -1264,24 +1248,14 @@ declare namespace inputMethodEngine {
     sendExtendAction(action: ExtendAction): Promise<void>;
 
     /**
-     * Get the position and size of the calling window.
+     * Get info of the calling window.
      *
-     * @returns { Promise<Rect> } the promise returned by the function.
+     * @returns { Promise<WindowInfo> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    getCallingWindowRect(): Promise<Rect>;
-
-    /**
-     * Get status type of the calling window.
-     *
-     * @returns { Promise<WindowStatusType> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    getCallingWindowStatusType(): Promise<WindowStatusType>;
+    getCallingWindowInfo(): Promise<WindowInfo>;
   }
 
   /**
@@ -1913,6 +1887,33 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     PASTE = 5
+  }
+
+  /**
+   * Window info.
+   *
+   * @interface WindowInfo
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  export interface WindowInfo {
+    /**
+     * Rectangle.
+     *
+     * @type { window.Rect }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    rect: window.Rect;
+
+    /**
+     * Window status.
+     *
+     * @type { window.WindowStatusType }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    status: window.WindowStatusType;
   }
 }
 
