@@ -137,3 +137,4 @@
 /// <reference path="./component3d.d.ts" />
 /// <reference path="./container_span.d.ts" />
 /// <reference path="./embedded_component.d.ts" />
+/// <reference path="./span_string.d.ts" />
