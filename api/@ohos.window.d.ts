@@ -5047,19 +5047,6 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    setSubWindowModal(isModal: boolean, callback: AsyncCallback<void>): void;
-
-    /**
-     * Set the modality of the window.
-     *
-     * @param { boolean } - Enable the window modal if true, otherwise means the opposite.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 12
-     */
     setSubWindowModal(isModal: boolean): Promise<void>;
 	
     /**
