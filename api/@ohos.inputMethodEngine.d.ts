@@ -25,7 +25,6 @@ import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import type { LocalStorage } from 'StateManagement';
 import BaseContext from './application/BaseContext';
-import window from './@ohos.window';
 
 /**
  * Input method engine
@@ -35,30 +34,6 @@ import window from './@ohos.window';
  * @since 8
  */
 declare namespace inputMethodEngine {
-  /**
-   * Window size.
-   *
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 12
-   */
-  type WindowSize = window.Size;
-
-  /**
-   * Rectangle.
-   *
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 12
-   */
-  type Rect = window.Rect;
-
-  /**
-   * Window status type.
-   *
-   * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 12
-   */
-  type WindowStatusType = window.WindowStatusType;
-
   /**
    * When "enter" key is pressed, there is no action
    *
@@ -1340,46 +1315,6 @@ declare namespace inputMethodEngine {
      * @since 12
      */
     finishTextPreviewSync(): void;
-
-    /**
-     * Get the position and size of the calling window.
-     *
-     * @returns { Promise<Rect> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    getCallingWindowRect(): Promise<Rect>;
-
-    /**
-     * Get the position and size of the calling window.
-     *
-     * @returns { Rect } the size and position of the calling window.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    getCallingWindowRectSync(): Rect;
-
-    /**
-     * Get status type of the calling window.
-     *
-     * @returns { Promise<WindowStatusType> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    getCallingWindowStatusType(): Promise<WindowStatusType>;
-
-    /**
-     * Get status type of the calling window.
-     *
-     * @returns { WindowStatusType } the status type of the calling window.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    getCallingWindowStatusTypeSync(): WindowStatusType;
   }
 
   /**
@@ -1627,18 +1562,6 @@ declare namespace inputMethodEngine {
     moveTo(x: number, y: number): Promise<void>;
 
     /**
-     * Config the height of keyboard for landscape and portrait orientations.
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
-     *
-     * @param { number } landscapeHeight - the keyboard height for landscape orientation.
-     * @param { number } portraitHeight - the keyboard height for portrait orientation.
-     * @throws { BusinessError } 401 - parameter error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    configKeyboardHeight(landscapeHeight: number, portraitHeight: number): void;
-
-    /**
      * Shows panel.
      *
      * @param { AsyncCallback<void> } callback - the callback of show.
@@ -1717,28 +1640,6 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     off(type: 'hide', callback?: () => void): void;
-
-    /**
-     * Subscribe 'panelSizeChange' event.
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
-     *
-     * @param { 'panelSizeChange' } type - the type of subscribe event.
-     * @param { Callback<WindowSize> } callback - the callback of on('panelSizeChange').
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    on(type: 'panelSizeChange', callback: Callback<WindowSize>): void;
-
-    /**
-     * Unsubscribe 'panelSizeChange' event.
-     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
-     *
-     * @param { 'panelSizeChange' } type - the type of unsubscribe event.
-     * @param { Callback<WindowSize> } [callback] - optional, the callback of off('panelSizeChange').
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    off(type: 'panelSizeChange', callback?: Callback<WindowSize>): void;
 
     /**
      * Changes panel flag.
