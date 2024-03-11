@@ -176,6 +176,16 @@ declare namespace systemSoundManager {
      * @since 12
      */
     custType: ToneCustType;
+
+    /**
+     * Tone type.
+     * Type of ringtone is 1. Type of text message tone is 2. Type of notification tone is 4. Type of alarm tone is 8.
+     * One tone can be both a notificaiton tone or a text message tone. In this case, this type is 2|4.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    type: number;
   }
 
   /**
@@ -439,6 +449,22 @@ declare namespace systemSoundManager {
     getDefaultAlarmToneAttrs(context: BaseContext): Promise<ToneAttrs>;
 
     /**
+     * Sets uri of the current alarm tone.
+     *
+     * @param { BaseContext } context - Current application context.
+     * @param { string } uri - Alarm tone uri.
+     * @returns { Promise<ToneAttrs> } Promise used to return attributes of the defalut alarm tone.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 20700001 - Tone type mismatch, e.g. tone of input uri is not an alarm tone.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    setAlarmToneUri(context: BaseContext, uri: string): Promise<void>;
+
+    /**
      * Gets uri of the current alarm tone.
      *
      * @param { BaseContext } context - Current application context.
@@ -492,6 +518,39 @@ declare namespace systemSoundManager {
      * @since 12
      */
     closeAlarmTone(context: BaseContext, fd: number): void;
+
+    /**
+     * Add customised tone into ringtone library.
+     * @permission ohos.permission.WRITE_RINGTONE
+     * @param { BaseContext } context - Current application context.
+     * @param { ToneAttrs } toneAttr - Tone attributes.
+     * @returns { Promise<string> } Tone uri after adding into ringtone library.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    addCustomisedTone(context: BaseContext, toneAttr: ToneAttrs): Promise<string>;
+
+    /**
+     * Remove customised tone in ringtone library.
+     * @permission ohos.permission.WRITE_RINGTONE
+     * @param { BaseContext } context - Current application context.
+     * @param { string } uri - Tone uri.
+     * @returns { Promise<void> } Promise used to return removing result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 401 - The parameters check failed.
+     * @throws { BusinessError } 5400102 - Operation is not allowed, e.g. ringtone of this uri is not customised.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 12
+     */
+    removeCustomisedTone(context: BaseContext, uri:string): Promise<void>;
   }
 
   /**
