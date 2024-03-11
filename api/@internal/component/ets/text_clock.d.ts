@@ -108,6 +108,61 @@ declare class TextClockController {
 }
 
 /**
+ * TextClockConfig used by textclock style
+ *
+ * @interface TextClockConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface TextClockConfig {
+  /**
+   * Specifies the current time zone.
+   * The valid value is an integer ranging from - 14 to 12,
+   * Where a negative value indicates the eastern time zone, for example, -8.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  timeZoneOffset: number;
+
+  /**
+   * TextClock is started or not.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  started: boolean;
+
+  /**
+   * The time is displayed by TextClock.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  timeValue: number;
+}
+
+/**
+ * TextClockStyle wrapped builder
+ *
+ * @interface TextClockStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface TextClockStyle {
+  applyContent(): WrappedBuilder<[TextClockConfig]>
+}
+
+/**
  * TextClock component, which provides the text clock capability.
  *
  * @interface TextClockInterface
@@ -464,6 +519,18 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @form
    */
   fontFeature(value: string): TextClockAttribute;
+
+  /**
+   * Set the builder style of textclock.
+   *
+   * @param { TextClockStyle } style - The style of textclock.
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  customStyle(style: TextClockStyle): TextClockAttribute
 }
 
 /**
