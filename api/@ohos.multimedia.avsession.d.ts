@@ -959,7 +959,7 @@ declare namespace avSession {
      * If the avsession is not under casting state, the controller will return null.
      * @param { AsyncCallback<AVCastController> } callback - async callback for the AVCastController.
      * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} - session does not exist
-     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600109 - remote connection does not exist
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -970,7 +970,7 @@ declare namespace avSession {
      * If the avsession is not under casting state, the controller will return null.
      * @returns { Promise<AVCastController> } Promise for the AVCastController
      * @throws {BusinessError} 6600102 - {@link #ERR_CODE_SESSION_NOT_EXIST} session does not exist
-     * @throws {BusinessError} 6600110 - 6600109 - remote connection does not exist
+     * @throws {BusinessError} 6600109 - remote connection does not exist
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 10
      */
@@ -3374,8 +3374,8 @@ declare namespace avSession {
     /**
      * Get output device information
      * @param { AsyncCallback<OutputDeviceInfo> } callback - The triggered asyncCallback when (getOutputDevice).
-     * @throws { BusinessError } 600101 - Session service exception.
-     * @throws { BusinessError } 600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -3384,8 +3384,8 @@ declare namespace avSession {
     /**
      * Get output device information
      * @returns { Promise<OutputDeviceInfo> } (OutputDeviceInfo) returned through promise
-     * @throws { BusinessError } 600101 - Session service exception.
-     * @throws { BusinessError } 600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -3406,11 +3406,11 @@ declare namespace avSession {
      * @param { KeyEvent } event - The KeyEvent
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 600101 - Session service exception.
-     * @throws { BusinessError } 600102 - The session does not exist.
-     * @throws { BusinessError } 600103 - The session controller does not exist.
-     * @throws { BusinessError } 600105 - Invalid session command.
-     * @throws { BusinessError } 600106 - The session is not activated.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600106 - The session is not activated.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
@@ -3421,11 +3421,11 @@ declare namespace avSession {
      * @param { KeyEvent } event - The KeyEvent
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed
-     * @throws { BusinessError } 600101 - Session service exception.
-     * @throws { BusinessError } 600102 - The session does not exist.
-     * @throws { BusinessError } 600103 - The session controller does not exist.
-     * @throws { BusinessError } 600105 - Invalid session command.
-     * @throws { BusinessError } 600106 - The session is not activated.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600106 - The session is not activated.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10
      */
