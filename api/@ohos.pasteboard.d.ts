@@ -201,6 +201,14 @@ declare namespace pasteboard {
   function createData(mimeType: string, value: ValueType): PasteData;
 
   /**
+   * Creates a PasteData object.
+   * @returns { PasteData } a new PasteData object.
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 12
+   */
+  function createData(): PasteData;
+
+  /**
    * Creates a Record object for PasteData#MIMETYPE_TEXT_HTML.
    * @param { string } htmlText - To save the Html text content.
    * @returns { PasteDataRecord } The content of a new record
@@ -438,6 +446,14 @@ declare namespace pasteboard {
      * @since 11
      */
     shareOption: ShareOption;
+
+    /**
+     * Indicated delay get pasteData
+     * @type { ?function }
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 12
+     */
+    callback?: (string) => PasteData;
   }
 
   /**
