@@ -1247,28 +1247,6 @@ declare namespace inputMethodEngine {
     sendExtendAction(action: ExtendAction): Promise<void>;
 
     /**
-     * Get the range of the preview text.
-     *
-     * @returns { Promise<Range> } the promise returned by the function.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800011 - text preview is not supported.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    getPreviewTextRange(): Promise<Range>;
-
-    /**
-     * Get the range of the preview text.
-     *
-     * @returns { Range } the range of the preview text.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @throws { BusinessError } 12800011 - text preview is not supported.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    getPreviewTextRangeSync(): Range;
-
-    /**
      * Insert the provided text as preview text.
      *
      * @param { string } text - the text to be previewed.
