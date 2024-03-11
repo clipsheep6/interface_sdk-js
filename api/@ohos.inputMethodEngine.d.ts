@@ -1606,6 +1606,40 @@ declare namespace inputMethodEngine {
      * @since 11
      */
     setPrivacyMode(isPrivacyMode: boolean): void;
+
+    /**
+     * Config the height of keyboard for landscape and portrait orientations.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     *
+     * @param { number } landscapeHeight - the keyboard height for landscape orientation.
+     * @param { number } portraitHeight - the keyboard height for portrait orientation.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    configKeyboardHeight(landscapeHeight: number, portraitHeight: number): void;
+
+    /**
+     * Subscribe 'panelSizeChange' event.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     *
+     * @param { 'panelSizeChange' } type - the type of subscribe event.
+     * @param { Callback<window.Size> } callback - the callback of on('panelSizeChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    on(type: 'panelSizeChange', callback: Callback<window.Size>): void;
+
+    /**
+     * Unsubscribe 'panelSizeChange' event.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     *
+     * @param { 'panelSizeChange' } type - the type of unsubscribe event.
+     * @param { Callback<window.Size> } [callback] - optional, the callback of off('panelSizeChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    off(type: 'panelSizeChange', callback?: Callback<window.Size>): void;
   }
 
   /**
