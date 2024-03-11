@@ -6858,7 +6858,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @atomicservice
    * @since 12
    */
-   enableSmoothWindowDragging(mode: boolean): WebAttribute;
+   enableSmoothDragResize(mode: boolean): WebAttribute;
 }
 
 /**
