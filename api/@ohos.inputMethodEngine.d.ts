@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,6 +25,7 @@ import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import type { LocalStorage } from 'StateManagement';
 import BaseContext from './application/BaseContext';
+import window from './@ohos.window';
 
 /**
  * Input method engine
@@ -34,6 +35,22 @@ import BaseContext from './application/BaseContext';
  * @since 8
  */
 declare namespace inputMethodEngine {
+  /**
+   * Rectangle.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  type Rect = window.Rect;
+
+  /**
+   * Window status type.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  type WindowStatusType = window.WindowStatusType;
+
   /**
    * When "enter" key is pressed, there is no action
    *
@@ -1245,6 +1262,46 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     sendExtendAction(action: ExtendAction): Promise<void>;
+
+    /**
+     * Get the position and size of the calling window.
+     *
+     * @returns { Promise<Rect> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getCallingWindowRect(): Promise<Rect>;
+
+    /**
+     * Get the position and size of the calling window.
+     *
+     * @returns { Rect } the size and position of the calling window.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getCallingWindowRectSync(): Rect;
+
+    /**
+     * Get status type of the calling window.
+     *
+     * @returns { Promise<WindowStatusType> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getCallingWindowStatusType(): Promise<WindowStatusType>;
+
+    /**
+     * Get status type of the calling window.
+     *
+     * @returns { WindowStatusType } the status type of the calling window.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getCallingWindowStatusTypeSync(): WindowStatusType;
   }
 
   /**
