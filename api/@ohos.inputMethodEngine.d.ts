@@ -52,6 +52,14 @@ declare namespace inputMethodEngine {
   type Rect = window.Rect;
 
   /**
+   * Status type of a window.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  type WindowStatusType = window.WindowStatusType;
+
+  /**
    * When "enter" key is pressed, there is no action
    *
    * @constant
@@ -1266,13 +1274,38 @@ declare namespace inputMethodEngine {
     /**
      * Get the range of the preview text.
      *
+     * @returns { Promise<Range> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getPreviewTextRange(): Promise<Range>;
+
+    /**
+     * Get the range of the preview text.
+     *
      * @returns { Range } the range of the preview text.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800011 - text preview is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    getPreviewTextRange(): Range;
+    getPreviewTextRangeSync(): Range;
+
+    /**
+     * Insert the provided text as preview text.
+     *
+     * @param { string } text - the text to be previewed.
+     * @param { Range } range - the range of the text to be replaced by the preview text.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    setPreviewText(text: string, range: Range): Promise<void>;
 
     /**
      * Insert the provided text as preview text.
@@ -1285,7 +1318,18 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    setPreviewText(text: string, range: Range): void;
+    setPreviewTextSync(text: string, range: Range): void;
+
+    /**
+     * Finish the text preview.
+     *
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    finishTextPreview(): Promise<void>;
 
     /**
      * Finish the text preview.
@@ -1295,17 +1339,47 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    finishTextPreview(): void;
+    finishTextPreviewSync(): void;
 
     /**
-     * Get the position and size of the calling window of the current edit box.
+     * Get the position and size of the calling window.
+     *
+     * @returns { Promise<Rect> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getCallingWindowRect(): Promise<Rect>;
+
+    /**
+     * Get the position and size of the calling window.
      *
      * @returns { Rect } the size and position of the calling window.
      * @throws { BusinessError } 12800003 - input method client error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    getCallingWindowRect(): Rect;
+    getCallingWindowRectSync(): Rect;
+
+    /**
+     * Get status type of the calling window.
+     *
+     * @returns { Promise<WindowStatusType> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getCallingWindowStatusType(): Promise<WindowStatusType>;
+
+    /**
+     * Get status type of the calling window.
+     *
+     * @returns { WindowStatusType } the status type of the calling window.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getCallingWindowStatusTypeSync(): WindowStatusType;
   }
 
   /**
