@@ -36,15 +36,15 @@ import window from './@ohos.window';
  */
 declare namespace inputMethodEngine {
   /**
-   * Input method panel size.
+   * Window size.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12
    */
-  type PanelSize = window.Size;
+  type WindowSize = window.Size;
 
   /**
-   * Size and position of a window.
+   * Rectangle.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12
@@ -52,7 +52,7 @@ declare namespace inputMethodEngine {
   type Rect = window.Rect;
 
   /**
-   * Status type of a window.
+   * Window status type.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 12
@@ -1723,22 +1723,22 @@ declare namespace inputMethodEngine {
      * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
      *
      * @param { 'panelSizeChange' } type - the type of subscribe event.
-     * @param { Callback<PanelSize> } callback - the callback of on('panelSizeChange').
+     * @param { Callback<WindowSize> } callback - the callback of on('panelSizeChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    on(type: 'panelSizeChange', callback: Callback<PanelSize>): void;
+    on(type: 'panelSizeChange', callback: Callback<WindowSize>): void;
 
     /**
      * Unsubscribe 'panelSizeChange' event.
      * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
      *
      * @param { 'panelSizeChange' } type - the type of unsubscribe event.
-     * @param { Callback<PanelSize> } [callback] - optional, the callback of off('panelSizeChange').
+     * @param { Callback<WindowSize> } [callback] - optional, the callback of off('panelSizeChange').
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    off(type: 'panelSizeChange', callback?: Callback<PanelSize>): void;
+    off(type: 'panelSizeChange', callback?: Callback<WindowSize>): void;
 
     /**
      * Changes panel flag.
