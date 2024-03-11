@@ -5045,7 +5045,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 11
+     * @since 12
      */
     setSubWindowModal(isModal: boolean, callback: AsyncCallback<void>): void;
 
@@ -5058,7 +5058,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 11
+     * @since 12
      */
     setSubWindowModal(isModal: boolean): Promise<void>;
 	
@@ -5300,7 +5300,7 @@ declare namespace window {
      * 
      * @type { boolean }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 11
+     * @since 12
      */
     isModal: boolean;
   }
