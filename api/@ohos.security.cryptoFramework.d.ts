@@ -5182,12 +5182,12 @@ declare namespace cryptoFramework {
   /**
    * Specifies the HKDF parameters.
    *
-   * @typedef HkdfSpec
+   * @typedef HKDFSpec
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform
    * @since 12
    */
-  interface HkdfSpec extends KdfSpec {
+  interface HKDFSpec extends KdfSpec {
     /**
      * Indicates the key parameter of HKDF.
      *
