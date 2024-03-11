@@ -1274,16 +1274,6 @@ declare namespace inputMethodEngine {
     getCallingWindowRect(): Promise<Rect>;
 
     /**
-     * Get the position and size of the calling window.
-     *
-     * @returns { Rect } the size and position of the calling window.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    getCallingWindowRectSync(): Rect;
-
-    /**
      * Get status type of the calling window.
      *
      * @returns { Promise<WindowStatusType> } the promise returned by the function.
@@ -1292,16 +1282,6 @@ declare namespace inputMethodEngine {
      * @since 12
      */
     getCallingWindowStatusType(): Promise<WindowStatusType>;
-
-    /**
-     * Get status type of the calling window.
-     *
-     * @returns { WindowStatusType } the status type of the calling window.
-     * @throws { BusinessError } 12800003 - input method client error.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @since 12
-     */
-    getCallingWindowStatusTypeSync(): WindowStatusType;
   }
 
   /**
