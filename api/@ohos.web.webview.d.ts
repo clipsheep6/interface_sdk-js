@@ -4246,6 +4246,34 @@ declare namespace webview {
      * @since 12
      */
     static clearIntelligentTrackingPreventionBypassingList(): void;
+
+    /**
+     * Enable the ability to block Ads, default disabled.
+     * @param { boolean } enable {@code true} enable Ads block; {@code false) otherwise.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    enableAdsBlock(enable : boolean) : void;
+
+    /**
+     * Get whether Ads block is enabled.
+     * @returns { boolean } True if the ability of AdsBlock is enabled; else false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isAdsBlockEnabled() : boolean;
+
+    /**
+     * Get whether Ads block is enabled for current Webpage
+     * @returns { boolean } True if the ability of AdsBlock is enabled for current Webpage; else false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isAdsBlockEnabledForCurPage() : boolean;
   }
 
   /**
@@ -5180,6 +5208,83 @@ declare namespace webview {
      * @since 12
      */
     onRequestStop(callback: Callback<WebSchemeHandlerRequest>): void;
+  }
+
+  /**
+   * This class is used to set adblock config.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  class AdsBlockManager {
+    /**
+     * set Ads Block ruleset file, containing easylist rules.
+     * @param {string} rulesFile: absolute file path contains app customized ads block rules.
+     * @param {boolean} replace: (@code true)replace internal rules;(@code false) add to internal rules.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static setAdsBlockRules(rulesFile: string, replace: boolean): void;
+
+    /**
+     * Add items to Ads Block Disallow list.
+     * @param {Array<string>} domainSuffixes: list of domain suffix, if web page url matches someone in the list,
+     * Ads Block will be disallowed for the web page.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static addAdsBlockDisallowList(domainSuffixes: Array<string>): void;
+
+    /**
+     * Add items to Ads Block Allow list.
+     * By default, ads block is allowed for all pages unless they are added to the
+     * disallow list. The priority of allowlist is higher than the disallowlist. It is
+     * used to re-enable ads block on the page that matches disallow list.
+     * @param {Array<string>} domainSuffixes: list of domain suffix, if web page url matches someone in the list,
+     * Ads Block will be allowed for the web page.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static addAdsBlockAllowList(domainSuffixes: Array<string>): void;
+
+    /**
+     * remove items from Ads Block Disallowed list.
+     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from disallow list
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static removeAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
+
+    /**
+     * remove items from Ads Block Allowed list.
+     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from allow list
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static removeAdsBlockAllowedList(domainSuffixes: Array<string>): void;
+
+    /**
+     * remove items from Ads Block Allowed list.
+     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from allow list
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static clearAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
+
+    /**
+     * remove items from Ads Block Allowed list.
+     * @param {Array<string>} domainSuffixes: list of domain suffix needed be removed from allow list
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static clearAdsBlockAllowedList(domainSuffixes: Array<string>): void;
   }
 }
 
