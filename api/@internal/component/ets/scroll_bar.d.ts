@@ -244,6 +244,8 @@ interface ScrollBarInterface {
   (value: ScrollBarOptions): ScrollBarAttribute;
 }
 
+type OnScrollFrameBeginHandler = (offset: number, state: ScrollState) => { offsetRemain: number };
+
 /**
  * Defines the scrollbar attribute functions.
  *
@@ -268,7 +270,19 @@ interface ScrollBarInterface {
  * @atomicservice
  * @since 11
  */
-declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {}
+declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
+
+    /**
+     * Called when scrolling begin each frame.
+     *
+     * @param { function } handler
+     * @returns { ScrollBarAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    onScrollFrameBegin(handler: Optional<OnScrollFrameBeginHandler>): ScrollBarAttribute;
+  }
 
 /**
  * Defines ScrollBar Component.
