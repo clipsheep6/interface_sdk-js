@@ -162,7 +162,7 @@ declare interface GaugeConfig {
   /**
    * Current Segment Minimum Value.
    * 
-   * @type { ?number } segment minumum value - the current segment minumum value.
+   * @type { ?number } segment minimum value - the current segment minumum value.
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
