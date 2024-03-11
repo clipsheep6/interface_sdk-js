@@ -203,25 +203,6 @@ declare namespace unifiedDataChannel {
     getTypes(): Array<string>;
 
     /**
-     * DataProperties of a UnifiedData object.
-     * @returns { UnifiedDataProperties } UnifiedDataProperties type of UnifiedDataProperties
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    getProperties(): UnifiedDataProperties;
-    
-    /**
-     * Sets UnifiedDataProperties to a UnifiedData object, Modifying shareOption is supported only.
-     * @param { UnifiedDataProperties } properties - save properties to UnifiedData object.
-     * @throws { BusinessError } 401 - if type of properties is not UnifiedDataProperties.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 12
-     */
-    setProperties(properties: UnifiedDataProperties): void;
-
-    /**
      * UnifiedData properties.
      * @type { UnifiedDataProperties }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
