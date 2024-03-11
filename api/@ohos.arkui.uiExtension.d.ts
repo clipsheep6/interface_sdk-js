@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,121 +23,112 @@
 import { Callback } from './@ohos.base';
 import window from './@ohos.window';
 /**
- * uiExtensionHost.
+ * uiExtension.
  *
- * @namespace uiExtensionHost
+ * @namespace uiExtension
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 11
+ * @since 12
  */
-declare namespace uiExtensionHost {
+declare namespace uiExtension {
   /**
-   * Transition Controller
+   * The proxy of the UIExtension window.
    *
-   * @interface UIExtensionHostWindowProxy
+   * @interface WindowProxy
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
-  interface UIExtensionHostWindowProxy {
+  interface WindowProxy {
     /**
-     * Get the avoid area
+     * Get the avoid area.
      *
-     * @param { window.AvoidAreaType } type - Type of the area
+     * @param { window.AvoidAreaType } type - Type of the avoid area.
      * @returns { window.AvoidArea } Area where the window cannot be displayed.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea;
 
     /**
-     * Register the callback of avoidAreaChange
+     * Register the callback of avoidAreaChange.
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
-     * @param { Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }> } callback - Callback used to return the area.
+     * @param { Callback<AvoidAreaInfo> } callback - Callback used to return the avoid area information.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 11
+     * @since 12
      */
-    on(type: 'avoidAreaChange', callback: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
+    on(type: 'avoidAreaChange', callback: Callback<AvoidAreaInfo>): void;
 
     /**
-     * Unregister the callback of avoidAreaChange
+     * Unregister the callback of avoidAreaChange.
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
-     * @param { Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }> } callback - Callback used to return the area.
+     * @param { Callback<AvoidAreaInfo> } callback - Callback used to return the avoid area information.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 11
+     * @since 12
      */
-    off(type: 'avoidAreaChange', callback?: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
+    off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaInfo>): void;
 
     /**
-     * Register the callback of windowSizeChange
+     * Register the callback of windowSizeChange.
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<window.Size> } callback - Callback used to return the window size.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
 
     /**
-     * Unregister the callback of windowSizeChange
+     * Unregister the callback of windowSizeChange.
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange', indicating the window size change event.
      * @param { Callback<window.Size> } callback - Callback used to return the window size.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 11
+     * @since 12
      */
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
 
     /**
-     * The properties of the UIExtension window
+     * The properties of the UIExtension window.
      *
-     * @type { UIExtensionHostWindowProxyProperties } 
+     * @type { WindowProxyProperties }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 11
+     * @since 12
      */
-    properties: UIExtensionHostWindowProxyProperties;
+    properties: WindowProxyProperties;
 
     /**
-     * Hide the non-secure windows
+     * Hide the non-secure windows.
      *
      * @param { boolean } shouldHide - Hide the non-secure windows if true, otherwise means the opposite.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 12
      */
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
 
     /**
      * Create sub window.
      *
-     * @param { string } name - window name of sub window
-     * @param { window.SubWindowOptions } subWindowOptions - options of sub window creation
+     * @param { string } name - window name of sub window.
+     * @param { window.SubWindowOptions } subWindowOptions - options of sub window creation.
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window proxy is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
      * @StageModelOnly
      * @since 12
      */
-     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
+    createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
 
     /**
      * Set the watermark flag on the UIExtension window
@@ -155,24 +146,49 @@ declare namespace uiExtensionHost {
   }
 
   /**
-   * Properties of UIExtension window
+   * Defines the avoid area information.
    *
-   * @interface UIExtensionHostWindowProxyProperties
+   * @interface AvoidAreaInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
-  interface UIExtensionHostWindowProxyProperties {
+  interface AvoidAreaInfo {
     /**
-     * The position and size of the UIExtension window
+     * Describes the type of avoid area.
      *
-     * @type { window.Rect } 
+     * @type { window.AvoidAreaType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @since 11
+     * @since 12
      */
-    uiExtensionHostWindowProxyRect: window.Rect;
+    type: window.AvoidAreaType;
+
+    /**
+     * Describes the position and size of avoid area.
+     *
+     * @type { window.AvoidArea }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 12
+     */
+    area: window.AvoidArea;
+  }
+
+  /**
+   * Properties of UIExtension window.
+   *
+   * @interface WindowProxyProperties
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  interface WindowProxyProperties {
+    /**
+     * The position and size of the UIExtension window.
+     *
+     * @type { window.Rect }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 12
+     */
+    windowProxyRect: window.Rect;
   }
 }
 
-export default uiExtensionHost;
+export default uiExtension;
