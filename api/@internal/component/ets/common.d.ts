@@ -11402,6 +11402,15 @@ declare interface DragPreviewOptions {
   * @since 11
   */
   mode?: DragPreviewMode;
+
+  /**
+  * Enable multi selection drag preview aggregation effect.
+  *
+  * @type { ?boolean }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 12
+  */
+  aggregation?: boolean;
 }
 
 /**
