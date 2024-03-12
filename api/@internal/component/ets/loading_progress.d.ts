@@ -312,6 +312,52 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @since 11
    */
   enableLoading(value: boolean): LoadingProgressAttribute;
+
+  /**
+   * Set the builder style of loadingProgress.
+   *
+   * @param { LoadingProgressStyle } value - The style of loadingProgress.
+   * @returns { LoadingProgressAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  customStyle(style: LoadingProgressBuilderStyle): LoadingProgressAttribute;
+}
+
+/**
+ * LoadingProgressConfig used by LoadingProgress style
+ *
+ * @interface LoadingProgressConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface LoadingProgressConfig {
+    /**
+   * Load the color of the progress bar.
+   *
+   * @param { boolean } value
+   * @returns { LoadingProgressAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+    enableLoading(value: boolean): LoadingProgressAttribute;
+}
+  
+  /**
+   * LoadingProgressBuilderStyle wrapped builder
+   *
+   * @interface LoadingProgressBuilderStyle
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+declare interface LoadingProgressBuilderStyle {
+    applyContent(): WrappedBuilder<[LoadingProgressConfig]>
 }
 
 /**
