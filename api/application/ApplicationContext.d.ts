@@ -452,9 +452,10 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
+   * @atomicservice
    * @since 12
    */
-  requestTerminateProcess(): Promise<void>;
+  terminateProcess(): Promise<void>;
 
   /**
    * Requesting normal scheduling exit from the application,
@@ -464,9 +465,10 @@ export default class ApplicationContext extends Context {
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
+   * @atomicservice
    * @since 12
    */
-  requestTerminateApplication(): Promise<void>;
+  terminateApplication(): Promise<void>;
 
   /**
    * Kill the application and does not call back the onDestroy method, then start UIAbility.
