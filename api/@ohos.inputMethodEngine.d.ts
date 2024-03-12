@@ -1252,6 +1252,7 @@ declare namespace inputMethodEngine {
      *
      * @returns { Promise<WindowInfo> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800012 - input method panel doesn't exist.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
