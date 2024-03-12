@@ -839,6 +839,343 @@ declare namespace certificateManager {
    * @since 11
    */
   function abort(handle: Uint8Array): Promise<void>;
+
+  /**
+   * Get a list of normal application certificates.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { AsyncCallback<CMResult> } callback - the callback of getAllPublicCertificates.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function getAllPublicCertificates(callback: AsyncCallback<CMResult>): void;
+
+  /**
+   * Get a list of normal application certificates.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @returns { Promise<CMResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function getAllPublicCertificates(): Promise<CMResult>;
+
+  /**
+   * Get the detail of normal application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } keyUri - Indicates the key's name.
+   * @param { AsyncCallback<CMResult> } callback - the callback of getPublicCertificate.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function getPublicCertificate(keyUri: string, callback: AsyncCallback<CMResult>): void;
+
+  /**
+   * Get the detail of normal application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } keyUri - Indicates the key's name.
+   * @returns { Promise<CMResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function getPublicCertificate(keyUri: string): Promise<CMResult>;
+
+  /**
+   * Install normal application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
+   * @param { string } keystorePwd - Indicates the password of keystore file.
+   * @param { string } certAlias - Indicates the certificate name inputted by the user.
+   * @param { AsyncCallback<CMResult> } callback - the callback of installPublicCertificate.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function installPublicCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, callback: AsyncCallback<CMResult>): void;
+
+  /**
+   * Install normal application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { Uint8Array } keystore - Indicates the keystore file with key pair and certificate.
+   * @param { string } keystorePwd - Indicates the password of keystore file.
+   * @param { string } certAlias - Indicates the certificate name inputted by the user.
+   * @returns { Promise<CMResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function installPublicCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string): Promise<CMResult>;
+
+  /**
+   * Get the list of applications authorized by the specified certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } keyUri - Indicates key's name.
+   * @param { AsyncCallback<CMResult> } callback - the callback of getAuthorizedAppList.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function getAuthorizedAppList(keyUri: string, callback: AsyncCallback<CMResult>): void;
+
+  /**
+   * Get the list of applications authorized by the specified certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } keyUri - Indicates key's name.
+   * @returns { Promise<CMResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function getAuthorizedAppList(keyUri: string): Promise<CMResult>;
+
+  /**
+   * Authorize the specified application certificate for the specified application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } keyUri - Indicates key's name.
+   * @param { string } clientAppUid - Indicates the uid of the authorized application.
+   * @param { AsyncCallback<CMResult> } callback - the callback of grantPublicCertificate.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function grantPublicCertificate(keyUri: string, clientAppUid: string, callback: AsyncCallback<CMResult>): void;
+
+  /**
+   * Authorize the specified application certificate for the specified application.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } keyUri - Indicates key's name.
+   * @param { string } clientAppUid - Indicates key's name.
+   * @returns { Promise<CMResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function grantPublicCertificate(keyUri: string, clientAppUid: string): Promise<CMResult>;
+
+  /**
+   * Whether the current application is authorized by the specified application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } keyUri - Indicates key's name.
+   * @param { AsyncCallback<boolean> } callback - the callback of isAuthorizedApp.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function isAuthorizedApp(keyUri: string, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Whether the current application is authorized by the specified application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } keyUri - Indicates key's name.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function isAuthorizedApp(keyUri: string): Promise<boolean>;
+
+  /**
+   * Deauthorize the specified application from the specified application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } keyUri - Indicates key's name.
+   * @param { string } clientAppUid - Indicates the uid of the authorized application.
+   * @param { AsyncCallback<boolean> } callback - the callback of removeGrantedPublicCertificate.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function removeGrantedPublicCertificate(keyUri: string, clientAppUid: string, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Deauthorize the specified application from the specified application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } keyUri - Indicates key's name.
+   * @param { string } clientAppUid - Indicates the uid of the authorized application.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function removeGrantedPublicCertificate(keyUri: string, clientAppUid: string): Promise<boolean>;
+
+  /**
+   * Uninstall all application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { AsyncCallback<boolean> } callback - the callback of uninstallAllAppCertificate.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function uninstallAllAppCertificate(callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Uninstall all application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function uninstallAllAppCertificate(): Promise<boolean>;
+
+  /**
+   * Uninstall the specified normal application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } keyUri - Indicates key's name.
+   * @param { AsyncCallback<boolean> } callback - the callback of uninstallPublicCertificate.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function uninstallPublicCertificate(keyUri: string, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Uninstall the specified normal application certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
+   * @param { string } keyUri - Indicates key's name.
+   * @returns { Promise<boolean> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @systemapi
+   * @since 12
+   */
+  function uninstallPublicCertificate(keyUri: string): Promise<boolean>;
+
+  /**
+   * Get a list of user root certificates.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { AsyncCallback<CMResult> } callback - the callback of getAllUserTrustedCertificates.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function getAllUserTrustedCertificates(callback: AsyncCallback<CMResult>): void;
+
+  /**
+   * Get a list of user root certificates.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @returns { Promise<CMResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function getAllUserTrustedCertificates(): Promise<CMResult>;
+
+  /**
+   * Get the detail of user root certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } certUri - Indicates the certificate's name.
+   * @param { AsyncCallback<CMResult> } callback - the callback of getUserTrustedCertificate.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function getUserTrustedCertificate(certUri: string, callback: AsyncCallback<CMResult>): void;
+
+  /**
+   * Get the detail of user root certificate.
+   *
+   * @permission ohos.permission.ACCESS_CERT_MANAGER
+   * @param { string } certUri - Indicates the certificate's name.
+   * @returns { Promise<CMResult> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application has no permission to call the API.
+   * @throws { BusinessError } 401 - the parameter check failed.
+   * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
+   * @syscap SystemCapability.Security.CertificateManager
+   * @since 12
+   */
+  function getUserTrustedCertificate(certUri: string): Promise<CMResult>;
 }
 
 export default certificateManager;
