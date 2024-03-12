@@ -202,6 +202,85 @@ declare namespace cloudData {
     code: relationalStore.ProgressCode;
   }
 
+
+  /**
+   * Enumerates the strategy types of cloud sync.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 12
+   */
+  enum StrategyType {
+
+    /**
+     * Network strategy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    NETWORK,
+
+    /**
+     * Battery strategy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    BATTERY,
+
+    /**
+     * Asset strategy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    ASSET
+  }
+
+  /**
+   * Enumerates the types of cloud sync via the network.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 12
+   */
+  enum NetWorkStrategy {
+
+    /**
+     * Sync using WiFi.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    WIFI = 1,
+
+    /**
+     * Sync using the cellular network.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    CELLULAR = 2,
+  }
+
+  /**
+   * Enumerates the types of cloud sync based on the battery status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+   * @since 12
+   */
+  enum BatteryStrategy {
+
+    /**
+     * Allow sync even when the battery is in low level.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    LOW_LEVEL,
+  }
+
   /**
    * Provides methods to set CloudSync config.
    *
@@ -609,84 +688,22 @@ declare namespace cloudData {
      * @since 11
      */
     static clear(accountId: string, appActions: Record<string, ClearAction>): Promise<void>;
-  }
-
-  /**
-   * Enumerates the strategy types of cloud sync.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-   * @since 12
-   */
-  enum StrategyType {
-
+    
     /**
-     * Network strategy.
+     * Sets global cloud sync strategy.
      *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @param { StrategyType } strategy - Indicates the strategy type of the cloud sync.
+     * @param { Array<commonType.ValueType> } param - Indicates specific strategy of the cloud sync.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+     * @systemapi
      * @since 12
      */
-    NETWORK,
-
-    /**
-     * Battery strategy.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12
-     */
-    BATTERY,
-
-    /**
-     * Asset strategy.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12
-     */
-    ASSET
-  }
-
-  /**
-   * Enumerates the types of cloud sync via the network.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-   * @since 12
-   */
-  enum NetWorkStrategy {
-
-    /**
-     * Sync using WiFi.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12
-     */
-    WIFI = 1,
-
-    /**
-     * Sync using the cellular network.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12
-     */
-    CELLULAR = 2,
-  }
-
-  /**
-   * Enumerates the types of cloud sync based on the battery status.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-   * @since 12
-   */
-  enum BatteryStrategy {
-
-    /**
-     * Allow sync even when the battery is in low level.
-     *
-     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 12
-     */
-    LOW_LEVEL,
+    static setGlobalCloudStrategy(strategy: StrategyType, param?: Array<commonType.ValueType>): Promise<void>;
   }
 
   /**
