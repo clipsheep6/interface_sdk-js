@@ -323,6 +323,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    * @form
    */

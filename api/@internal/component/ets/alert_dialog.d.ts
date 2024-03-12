@@ -747,6 +747,7 @@ declare interface AlertDialogParam {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   showInSubWindow?: boolean;
@@ -757,6 +758,7 @@ declare interface AlertDialogParam {
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   isModal?: boolean;
@@ -768,6 +770,7 @@ declare interface AlertDialogParam {
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   backgroundColor?: ResourceColor;
@@ -779,6 +782,7 @@ declare interface AlertDialogParam {
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;

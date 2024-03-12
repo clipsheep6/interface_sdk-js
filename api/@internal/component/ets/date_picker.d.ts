@@ -742,6 +742,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   backgroundColor?: ResourceColor;
@@ -753,6 +754,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
