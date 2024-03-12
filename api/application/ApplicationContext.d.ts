@@ -451,20 +451,10 @@ export default class ApplicationContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
    * @since 12
    */
   requestTerminateProcess(): Promise<void>;
-
-  /**
-   * Requesting normal scheduling exit from the process, will only exit the current process
-   *
-   * @param { AsyncCallback<void> } callback - The callback of requestTerminateProcess.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 12
-   */
-   requestTerminateProcess(callback: AsyncCallback<void>);
 
   /**
    * Requesting normal scheduling exit from the application,
@@ -473,21 +463,10 @@ export default class ApplicationContext extends Context {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
    * @since 12
    */
   requestTerminateApplication(): Promise<void>;
-
-  /**
-   * Requesting normal scheduling exit from the application,
-   * All processes under the application will exit
-   *
-   * @param { AsyncCallback<void> } callback - The callback of requestTerminateApplication.
-   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 12
-   */
-  requestTerminateApplication(callback: AsyncCallback<void>);
 
   /**
    * Kill the application and does not call back the onDestroy method, then start UIAbility.
