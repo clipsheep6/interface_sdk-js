@@ -224,6 +224,24 @@ declare enum SlideEffect {
    * @since 11
    */
   Bottom,
+
+    /**
+   * Swipe start.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  START,
+
+    /**
+   * Swipe end.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  END 
 }
 
 /**
