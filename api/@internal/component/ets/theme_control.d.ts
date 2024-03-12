@@ -31,9 +31,7 @@ declare class ThemeControl {
     /**
      * Sets the Theme base data at the UI Ability level.
      * @param colors 
-     * @param shapes 
-     * @param typography 
      */
     // @ts-ignore
-    static setThemeBasis(colors: CustomColors, shapes: CustomShapes = {}, typography: CustomTypography = {}): void;
+    static setThemeBasis(colors: CustomColors): void;
 }

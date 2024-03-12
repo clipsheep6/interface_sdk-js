@@ -1,3 +1,9 @@
+declare interface Theme {
+    colors: Colors
+    shapes: Shapes
+    typography: Typography
+}
+
 declare interface Colors {
     brand: ResourceColor
     brandThin: ResourceColor
@@ -146,10 +152,4 @@ declare interface Typography {
     caption_L: TypographyStyle
     caption_M: TypographyStyle
     caption_S: TypographyStyle
-}
-
-declare interface Theme {
-    shapes: Shapes
-    colors: Colors
-    typography: Typography
 }
