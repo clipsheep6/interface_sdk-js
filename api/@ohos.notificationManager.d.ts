@@ -2347,10 +2347,10 @@ declare namespace notificationManager {
   function getSlotFlagsByBundle(bundle: BundleOption): Promise<number>;
 
   /**
-   * Add do not disturb notification templates.
+   * Add Do Not Disturb profiles.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<DoNotDisturbProfile> } templates - The array of Notification templates.
+   * @param { Array<DoNotDisturbProfile> } profiles - The array of Do Not Disturb profiles to add.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -2363,13 +2363,13 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function addDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
+  function addDoNotDisturbProfiles(profiles: Array<DoNotDisturbProfile>): Promise<void>;
 
   /**
-   * Remove do not disturb notification templates.
+   * Remove Do Not Disturb profiles.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<DoNotDisturbProfile> } templates - The array of Notification templates.
+   * @param { Array<DoNotDisturbProfile> } profiles - The array of Do Not Disturb profiles to remove.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -2382,7 +2382,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 12
    */
-  function removeDoNotDisturbProfile(templates: Array<DoNotDisturbProfile>): Promise<void>;
+  function removeDoNotDisturbProfiles(profiles: Array<DoNotDisturbProfile>): Promise<void>;
 
   /**
    * Describes a button option for a triggering.
@@ -2827,6 +2827,7 @@ declare namespace notificationManager {
    * Describes a DoNotDisturbProfile instance.
    *
    * @typedef DoNotDisturbProfile
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
@@ -2835,6 +2836,7 @@ declare namespace notificationManager {
     /**
      * The profile id of the Do Not disturb.
      *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER
      * @type { number }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
@@ -2843,24 +2845,26 @@ declare namespace notificationManager {
     id: number;
 
     /**
-     * The profile name of the Do Not disturb.
+     * The name of the Do Not Disturb profile.
      *
-     * @type { string }
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER
+     * @type { ?string }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12
      */
-    name: string;
+    name?: string;
 
     /**
-     * The trustlist of application.
+     * The application whitelist of the Do Not Disturb profile.
      *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER
      * @type { ?Array<BundleOption> }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 12
      */
-    trustlist?: Array<BundleOption>;
+    whitelist?: Array<BundleOption>;
   }
 
   /**
