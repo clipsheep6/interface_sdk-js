@@ -27,6 +27,7 @@ declare type WindowMode = import('../api/@ohos.window').WindowMode;
  * @interface FolderStackInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 
@@ -38,6 +39,7 @@ interface FolderStackInterface {
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   (value?: { upperItems?: Array<string> }): FolderStackAttribute;
@@ -48,6 +50,7 @@ interface FolderStackInterface {
  * @extends CommonMethod<FolderStackAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
@@ -58,6 +61,7 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   alignContent(value: Alignment): FolderStackAttribute;
@@ -69,6 +73,7 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
 * @returns { FolderStackAttribute }
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
+* @atomicservice
 * @since 11
 */
   onFolderStateChange(callback: (event: {
@@ -101,6 +106,7 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   enableAnimation(value: boolean): FolderStackAttribute;
@@ -112,6 +118,7 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
    * @returns { FolderStackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   autoHalfFold(value: boolean): FolderStackAttribute;
@@ -166,6 +173,7 @@ declare interface HoverEventParam {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare const FolderStack: FolderStackInterface;
@@ -175,6 +183,7 @@ declare const FolderStack: FolderStackInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare const FolderStackInstance: FolderStackAttribute;

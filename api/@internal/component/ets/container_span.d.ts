@@ -19,6 +19,7 @@
  * @interface ContainerSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 interface ContainerSpanInterface {
@@ -28,6 +29,7 @@ interface ContainerSpanInterface {
    * @returns { ContainerSpanAttribute } The attribute of the container span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   (): ContainerSpanAttribute;
@@ -38,6 +40,7 @@ interface ContainerSpanInterface {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare class ContainerSpanAttribute {
@@ -48,6 +51,7 @@ declare class ContainerSpanAttribute {
    * @returns { ContainerSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   textBackgroundStyle(style: TextBackgroundStyle): ContainerSpanAttribute;
@@ -58,6 +62,7 @@ declare class ContainerSpanAttribute {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare const ContainerSpan: ContainerSpanInterface;
@@ -67,6 +72,7 @@ declare const ContainerSpan: ContainerSpanInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare const ContainerSpanInstance: ContainerSpanAttribute;

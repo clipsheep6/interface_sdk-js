@@ -103,6 +103,7 @@ interface GaugeInterface {
  * @interface GaugeShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare interface GaugeShadowOptions extends MultiShadowOptions {}
@@ -113,6 +114,7 @@ declare interface GaugeShadowOptions extends MultiShadowOptions {}
  * @interface GaugeIndicatorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare interface GaugeIndicatorOptions {
@@ -124,6 +126,7 @@ declare interface GaugeIndicatorOptions {
    * @default system style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   icon?: ResourceStr;
@@ -135,6 +138,7 @@ declare interface GaugeIndicatorOptions {
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   space?: Dimension;
@@ -374,6 +378,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   description(value: CustomBuilder): GaugeAttribute;
@@ -385,6 +390,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   trackShadow(value: GaugeShadowOptions): GaugeAttribute;
@@ -396,6 +402,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   indicator(value: GaugeIndicatorOptions): GaugeAttribute;

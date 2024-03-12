@@ -533,6 +533,7 @@ interface ActionSheetOptions
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   showInSubWindow?: boolean;
@@ -543,6 +544,7 @@ interface ActionSheetOptions
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   isModal?: boolean;
@@ -554,6 +556,7 @@ interface ActionSheetOptions
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   backgroundColor?: ResourceColor;
@@ -565,6 +568,7 @@ interface ActionSheetOptions
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;

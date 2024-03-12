@@ -360,6 +360,7 @@ declare interface CustomDialogControllerOptions {
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   isModal?: boolean;  
