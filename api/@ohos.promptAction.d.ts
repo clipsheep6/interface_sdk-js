@@ -173,6 +173,16 @@ declare namespace promptAction {
      * @since 12
      */
     offset?: Offset;
+
+    /**
+     * Defines the toast's shadow.
+     *
+     * @type { ?(ShadowOptions | ShadowStyle) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    shadow?: ShadowOptions | ShadowStyle;
   }
 
   /**
@@ -502,6 +512,16 @@ declare namespace promptAction {
      * @since 11
      */
     isModal?: boolean;
+
+    /**
+     * Defines the dialog's shadow.
+     *
+     * @type { ?(ShadowOptions | ShadowStyle) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    shadow?: ShadowOptions | ShadowStyle;
   }
 
   /**
@@ -734,7 +754,17 @@ declare namespace promptAction {
      * @crossplatform
      * @since 11
      */
-    isModal?: boolean;         
+    isModal?: boolean;
+    
+    /**
+     * Defines the dialog box's shadow.
+     *
+     * @type { ?(ShadowOptions | ShadowStyle) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    shadow?: ShadowOptions | ShadowStyle;
   }
 
   /**
