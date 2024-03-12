@@ -354,7 +354,7 @@ declare namespace commonEventManager {
    * @StageModelOnly
    * @since 12
    */
-  function setStaticSubscriberState(enable: boolean, events?: Array<string>): Promise<void>;
+  function setStaticSubscriberState(enable: boolean, events: Array<string>): Promise<void>;
 
   /**
    * The event type that the commonEvent supported.
