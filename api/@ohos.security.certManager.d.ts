@@ -890,7 +890,7 @@ declare namespace certificateManager {
    * @param { string } keyUri - Indicates the key's name.
    * @returns { Promise<CMResult> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application has no permission to call the API.
-   * @throws { BusinessError } 202 - the application is not system app.
+   * @throws { BusinessError } 401 - the parameter check failed.
    * @throws { BusinessError } 17500001 - there is an generic error occurred when calling the API.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 12
