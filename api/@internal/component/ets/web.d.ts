@@ -6859,6 +6859,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
+
+  /**
+   * Sets the enable window drag smooth for web.
+   *
+   * @param { boolean } mode - True if it needs to enable window drag smooth.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+   enableSmoothDragResize(mode: boolean): WebAttribute;
 }
 
 /**
