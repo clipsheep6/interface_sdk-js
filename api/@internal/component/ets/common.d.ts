@@ -11441,6 +11441,15 @@ declare interface DragPreviewOptions {
   * @since 11
   */
   mode?: DragPreviewMode;
+  
+  /**
+  * Control whether cross device dragging is allowed.
+  *
+  * @type { ?boolean }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 12
+  */
+  remoteAllowed?: boolean;
 }
 
 /**
