@@ -18360,6 +18360,7 @@ declare interface LightSource {
  * @returns { WrappedBuilder<Args> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
@@ -18368,6 +18369,7 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
  * Defines the WrappedBuilder class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 declare class WrappedBuilder<Args extends Object[]> {
@@ -18375,6 +18377,7 @@ declare class WrappedBuilder<Args extends Object[]> {
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   builder: (...args: Args) => void;
@@ -18383,6 +18386,7 @@ declare class WrappedBuilder<Args extends Object[]> {
    * @param { function } builder
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   constructor(builder: (...args: Args) => void);
