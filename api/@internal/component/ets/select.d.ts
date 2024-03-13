@@ -143,7 +143,17 @@ interface SelectInterface {
    * @atomicservice
    * @since 11
    */
-  (options: Array<SelectOption>): SelectAttribute;
+  /**
+   * Called when the select is set.
+   *
+   * @param { Array<SelectOption> | Array<CustomBuilder> } options
+   * @returns { SelectAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  (options: Array<SelectOption> | Array<CustomBuilder>): SelectAttribute;
 }
 
 /**
@@ -714,6 +724,69 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 11
    */
   menuBackgroundBlurStyle(value: BlurStyle): SelectAttribute;
+
+  /**
+   * Set the content modifier of select.
+   *
+   * @param { ContentModifier<SelectConfiguration> } value - The content modifier of select.
+   * @returns { SelectAttribute } the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier(modifier: ContentModifier<SelectConfiguration>): SelectAttribute;
+}
+
+declare interface SelectConfiguration extends CommonMethod<CommonConfiguration>{
+  /**
+   * Option string.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  value: ResourceStr;
+
+  /**
+   * Option icon.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  icon?: ResourceStr;
+
+  /**
+   * Indicates whether the menu is selected.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selected: boolean;
+
+  /**
+   * Trigger menu select change.
+   *
+   * @type { Callback<boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  triggerChange: Callback<boolean>;
+
+  /**
+   * Select content modifier.
+   *
+   * @type { ContentModifier<SelectConfiguration> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier: ContentModifier<SelectConfiguration>;
 }
 
 /**
