@@ -86,6 +86,17 @@ type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => 
 type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPreventionDetails) => void;
 
 /**
+ * The callback of ads block.
+ *
+ * @param {url} string The url of webpage.
+ * @param {adBlocked} Array<string> The ads' url. If the URL is filtered multiple times, duplicate elements may occur.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type OnAdsBlockedCallback = (url: string, adsBlocked: Array<string>) => void;
+
+/**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  *
  * @enum { number }
@@ -6859,6 +6870,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
+
+  /**
+   * Called when received website security risk check result.
+   *
+   * @param { function } callback Function Triggered if there are ads blocked for current webpage.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onAdsBlocked(callback: OnAdsBlockedCallback): WebAttribute;
 }
 
 /**
