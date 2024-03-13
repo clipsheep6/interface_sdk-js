@@ -128,6 +128,39 @@ declare enum TimePickerFormat {
 }
 
 /**
+ *  Hour pre-zero of the TimePicker that need to be displayed.
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum HourZeroPrefixFormat {
+  /**
+   * pre-zero are not displayed in 12 hours and are displayed in 24 hours
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  Auto = 0,
+
+  /**
+   * pre-zero are displayed at both 12 and 24 hours
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  Off = 1,
+
+  /**
+   * pre-zero is not displayed in 12 hours or 24 hours
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  On = 2,
+}
+
+/**
  * Defines the options of TimePicker.
  *
  * @interface TimePickerOptions
@@ -371,6 +404,17 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 11
    */
   selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
+
+  /**
+   * Defines Whether pre-0 is displayed For 12 or 24 hours.
+   *
+   * @param { boolean } value
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  usePrefixZero(value: HourZeroPrefixFormat): TimePickerAttribute;
 
   /**
    * This event is triggered when a TimePicker time is selected.
