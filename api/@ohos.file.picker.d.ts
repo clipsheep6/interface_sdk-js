@@ -64,6 +64,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
+     * @deprecated since 11
      */
     IMAGE_TYPE = 'image/*',
 
@@ -79,6 +80,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
+     * @deprecated since 11
      */
     VIDEO_TYPE = 'video/*',
 
@@ -94,6 +96,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
+     * @deprecated since 11
      */
     IMAGE_VIDEO_TYPE = '*/*'
   }
@@ -110,6 +113,7 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
    * @since 11
+   * @deprecated since 11
    */
   class PhotoSelectOptions {
     /**
@@ -126,6 +130,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
+     * @deprecated since 11
      */
     MIMEType?: PhotoViewMIMETypes;
 
@@ -143,6 +148,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
+     * @deprecated since 11
      */
     maxSelectNumber?: number;
   }
@@ -159,6 +165,7 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @atomicservice
    * @since 11
+   * @deprecated since 11
    */
   class PhotoSelectResult {
     /**
@@ -175,6 +182,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
+     * @deprecated since 11
      */
     photoUris: Array<string>;
 
@@ -192,6 +200,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
+     * @deprecated since 11
      */
     isOriginalPhoto: boolean;
   }
@@ -243,6 +252,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
+     * @deprecated since 11
      */
     select(option?: PhotoSelectOptions): Promise<PhotoSelectResult>;
 
@@ -262,6 +272,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
+     * @deprecated since 11
      */
     select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
 
@@ -279,6 +290,7 @@ declare namespace picker {
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
      * @since 11
+     * @deprecated since 11
      */
     select(callback: AsyncCallback<PhotoSelectResult>): void;
 
