@@ -17,7 +17,7 @@ import { UIContext } from '../@ohos.arkui.UIContext';
 import { RenderNode } from './RenderNode';
 import { UICommonEvent } from 'commonEvent';
 import { CommonAttribute } from 'commonAttribute';
-
+import { Position } from './Graphics';
 /**
  * Defines FrameNode.
  *
