@@ -126,6 +126,67 @@ declare namespace dataShare {
   ): Promise<DataShareHelper>;
 
   /**
+   * Describes the change type of data
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  enum ChangeType {
+    /**
+     * LOCAL_DATA: means the changing data comes from the cloud.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @crossplatform
+     * @since 12
+     */
+    LOCAL_DATA,
+
+    /**
+     * CLOUD_DATA: means the changing data comes from the native device.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @crossplatform
+     * @since 12
+     */
+    CLOUD_DATA,
+  }
+
+  /**
+   * Enables the feature, which launch the ability of the uri when the data be changed.
+   *
+   * @param { string } uri - Indicates the uri of the ability which will be auto launch.
+   * @param { ChangeType } type - Indicates the type of changed data.
+   * @param { Record<string, Array<string>> } storeInfo - Indicates the optional stores and tables of the changed data.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15700011 - The uri is not exist.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function enableAutoLaunch(uri: string, type: ChangeType, storeInfo?: Record<string, Array<string>>): Promise<void>;
+
+  /**
+   * Disables the feature, which launch the ability of the uri when the data be changed.
+   *
+   * @param { string } uri - Indicates the uri of the ability which will be auto launch.
+   * @param { ChangeType } type - Indicates the type of changed data.
+   * @param { Record<string, Array<string>> } storeInfo - Indicates the optional stores and tables of the changed data.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 15700011 - The uri is not exist.
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function disableAutoLaunch(uri: string, type: ChangeType, storeInfo?: Record<string, Array<string>>): Promise<void>;
+
+  /**
    * Enables silent access dynamically.
    *
    * @param { Context } context - Indicates the application context.

@@ -3853,6 +3853,109 @@ declare namespace relationalStore {
    * @since 10
    */
   function deleteRdbStore(context: Context, config: StoreConfig): Promise<void>;
+
+  /**
+   * Enables the sql statistics feature.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 12
+   */
+  function enableStatistics(): Promise<void>;
+
+  /**
+   * Enables the sql statistics feature.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 12
+   */
+  function disableStatistics(): Promise<void>;
+
+  /**
+   * Records information about execute sql.
+   *
+   * @interface SqlExeInfo
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 10
+   */
+  interface SqlExeInfo {
+    /**
+     * The times of the sql be executed.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
+    count:number;
+    /**
+     * The count of records queried by the sql.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
+    recordsCount?:number;
+    /**
+     * The average time to read the records queried by the sql.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
+    recordsAvgTime?:number;
+    /**
+     * The total time of all the sql executions;
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
+    totalTime:number;
+    /**
+     * The average time of all the sql executions.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
+    avgTime:number;
+    /**
+     * The longest execution time among all the sql executions
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
+    longestTime:number;
+    /**
+     * The shortest execution time among all the sql executions
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
+    shortestTime:number;
+  }
+  /**
+   * Query the sql statistics information.
+   *
+   * @param { string } storeName - Indicates the name in the {StoreConfig}.
+   * @param { string } sqlPrefix - Indicates the prefix of the executed sql.
+   * @param { number } offset - Indicates the start position of the executed sql.
+   * @param { number } count - Indicates the count of the executed sql in this time.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 14800000 - Inner error.
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 12
+   */
+  function queryStatistics(storeName: string, sqlPrefix: string, offset: number, count: number): Promise<Record<string, SqlExeInfo>>;
 }
 
 export default relationalStore;

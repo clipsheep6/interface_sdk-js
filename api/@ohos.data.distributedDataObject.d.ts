@@ -119,6 +119,17 @@ declare namespace distributedDataObject {
   function genSessionId(): string;
 
   /**
+   * In the multi-instance scenario, when different instances between multiple devices are bound to the same ID, they
+   * can communicate with each other.
+   *
+   * @param { string } bindId - Indicates the bindId is used to bind different instances between devices.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @since 12
+   */
+  function bindInstance(bindId: string) : Promise<void>;
+
+  /**
    * The response of save.
    * Contains the parameter information of the save object.
    *
