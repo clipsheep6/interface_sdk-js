@@ -1000,4 +1000,3 @@ beidou
 qzss
 glonass
 sbas
-
