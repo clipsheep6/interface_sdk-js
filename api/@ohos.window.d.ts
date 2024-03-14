@@ -5095,6 +5095,19 @@ declare namespace window {
      * @since 11
      */
     off(type: 'windowTitleButtonRectChange', callback?: Callback<TitleButtonRect>): void;
+
+    /**
+     * Set gray scale of window.
+     *
+     * @param { number } grayScale  The value of gray scale
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - The window manager service work abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    setWindowGrayScale(grayScale: number): Promise<void>;
   }
   /**
    * Window stage callback event type
