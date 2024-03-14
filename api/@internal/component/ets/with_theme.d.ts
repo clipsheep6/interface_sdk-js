@@ -1,5 +1,10 @@
+declare interface WithThemeOptions {
+    theme?: CustomTheme
+    colorMode?: ThemeColorMode
+}
+
 interface WithThemeInterface {
-    (theme: CustomTheme): WithThemeAttribute
+    (options: WithThemeOptions): WithThemeAttribute
 }
 
 declare class WithThemeAttribute {
