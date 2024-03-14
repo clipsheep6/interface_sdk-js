@@ -1636,6 +1636,15 @@ declare namespace commonEventManager {
     COMMON_EVENT_FOUNDATION_READY = 'common.event.FOUNDATION_READY',
 
     /**
+     * Indicates the common event Action indicating that the airplane mode status of the device pre changes.
+     * Users can register this event to listen to the pre change of the airplane mode status of the device.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 12
+     */
+    COMMON_EVENT_PRE_AIRPLANE_MODE_CHANGED = 'usual.event.PRE_AIRPLANE_MODE',
+
+    /**
      * Indicates the common event Action indicating that the airplane mode status of the device changes.
      * Users can register this event to listen to the change of the airplane mode status of the device.
      *
