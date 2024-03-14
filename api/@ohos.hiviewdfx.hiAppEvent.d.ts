@@ -565,10 +565,19 @@ declare namespace hiAppEvent {
   function write(info: AppEventInfo, callback: AsyncCallback<void>): void;
 
   /**
+   * Indicates possible parameter types.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 12
+   */
+  type ParamType = number | string | boolean | Array<string>;
+
+  /**
    * It is used to set custom parameters for events, including both system-subscribed events and custom events.
    * Existing parameter will be overwritten, and non-existing parameter will be created.
    *
-   * @param { Record<string, number | string | boolean | Array<string> } params The parameters of the event.
+   * @param { Record<string, ParamType> } params The parameters of the event.
    * @param { string } domain The domain of the event.
    * @param { ?string } name The name of the event.
    * @returns { Promise<void> } Return Promise.
@@ -579,7 +588,7 @@ declare namespace hiAppEvent {
    * @atomicservice
    * @since 12
    */
-  function setEventParam(params: Record<string, number | string | boolean | Array<string>, domain: string,
+  function setEventParam(params: Record<string, ParamType>, domain: string,
       name?: string): Promise<void>;
   
   /**
