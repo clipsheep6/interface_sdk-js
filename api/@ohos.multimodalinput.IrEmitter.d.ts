@@ -14,60 +14,61 @@
  */
 
 /**
- * Declares interfaces related to ir emitter attributes.
+ * 声明与红外发射器属性相关的接口。
  *
  * @namespace IrEmitter
  * @syscap
- * @since 11
+ * @since 12
  */
 declare namespace IrEmitter {
   /**
-   * Carrier frequency.
+   * 表示红外发射器可以发射的载波频率范围。
    *
    * @interface CarrierFrequency
    * @syscap
-   * @systemapi hide for inner use
-   * @since 11
+   * @systemapi
+   * @since 12
    */
   interface CarrierFrequency {
     /**
-     * Max.
+     * 载波频率最大值。
      *
      * @type { number }
      * @syscap
-     * @systemapi hide for inner use
-     * @since 11
+     * @systemapi
+     * @since 12
      */
     max: number;
 
     /**
-     * Min.
+     * 载波频率最小值。
      *
      * @type { number }
      * @syscap
-     * @systemapi hide for inner use
-     * @since 11
+     * @systemapi
+     * @since 12
      */
     min: number;
   }
 
   /**
-   * Transmit ir emitter.
+   * 传输红外信号。
    *
-   * @param { number } carrierFrequency
-   * @param { Array<number> } pattern
+   * @param { number } carrierFrequency - 红外载波频率（以赫兹为单位）
+   * @param { Array<number> } pattern - 以微秒为单位的交替开/关模式进行传输
    * @syscap
-   * @systemapi hide for inner use
-   * @since 11
+   * @systemapi
+   * @since 12
    */
   function transmit(carrierFrequency: number, pattern: Array<number>): void;
 
   /**
-   * Get carrier frequencies.
+   * 查询红外发射器支持的载波频率。
    *
+   * 返回值：ConsumerIrManager.CarrierFrequencyRange 对象的数组，表示发射器可以支持的范围
    * @syscap
-   * @systemapi hide for inner use
-   * @since 11
+   * @systemapi
+   * @since 12
    */
   function getCarrierFrequencies(): Array<CarrierFrequency>;
 }
