@@ -126,7 +126,7 @@ declare namespace dataShare {
   ): Promise<DataShareHelper>;
 
   /**
-   * Describes the change type of data
+   * Describes the origin of the changing data
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -134,24 +134,24 @@ declare namespace dataShare {
    * @stagemodelonly
    * @since 12
    */
-  enum ChangeType {
+  enum DataOrigin {
     /**
-     * LOCAL_DATA: means the changing data comes from the cloud.
+     * FROM_NATIVE: means the changing data comes from the native device.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @since 12
      */
-    LOCAL_DATA,
+    FROM_NATIVE,
 
     /**
-     * CLOUD_DATA: means the changing data comes from the native device.
+     * FROM_CLOUD: means the changing data comes from the cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @since 12
      */
-    CLOUD_DATA,
+    FROM_CLOUD,
   }
 
   /**
@@ -168,7 +168,7 @@ declare namespace dataShare {
    * @stagemodelonly
    * @since 12
    */
-  function enableAutoLaunch(uri: string, type: ChangeType, storeInfo?: Record<string, Array<string>>): Promise<void>;
+  function enableAutoLaunch(uri: string, type: DataOrigin, storeInfo?: Record<string, Array<string>>): Promise<void>;
 
   /**
    * Disables the feature, which launch the ability of the uri when the data be changed.
@@ -184,7 +184,7 @@ declare namespace dataShare {
    * @stagemodelonly
    * @since 12
    */
-  function disableAutoLaunch(uri: string, type: ChangeType, storeInfo?: Record<string, Array<string>>): Promise<void>;
+  function disableAutoLaunch(uri: string, type: DataOrigin, storeInfo?: Record<string, Array<string>>): Promise<void>;
 
   /**
    * Enables silent access dynamically.
