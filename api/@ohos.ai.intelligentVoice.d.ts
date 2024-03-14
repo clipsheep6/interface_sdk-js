@@ -135,9 +135,9 @@ declare namespace intelligentVoice {
      */
     getUploadFiles (maxCount: number): Promise<Array<UploadFile>>;
     /**
-     * Obtains clone files. This method uses a promise to return the clone files.
+     * Obtains wakeup source files. This method uses a promise to return the wakeup source files.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
-     * @returns { Promise<Array<CloneFile>> } the promise used to return the clone files.
+     * @returns { Promise<Array<WakeupSourceFile>> } the promise used to return the wakeup source files.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 22700101 - No memory.
      * @throws { BusinessError } 22700107 - System error.
@@ -145,13 +145,13 @@ declare namespace intelligentVoice {
      * @systemapi
      * @since 12
      */
-    getCloneFiles(): Promise<Array<CloneFile>>;
+    getWakeupSourceFiles(): Promise<Array<WakeupSourceFile>>;
     /**
-     * Clones for result. This method uses a promise to return the clone result.
+     * Enrolls with wakeup files for result. This method uses a promise to return the enroll result.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
-     * @param { Array<CloneFile> } cloneFiles - the clone files to send.
-     * @param { string } cloneInfo - clone information.
-     * @returns { Promise<CloneResult> } the promise used to return the clone result.
+     * @param { Array<WakeupSourceFile> } wakeupFiles - the wakeup source files needed.
+     * @param { string } wakeupInfo - wakeup information.
+     * @returns { Promise<EnrollResult> } the promise used to return the enroll result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - if input parameter type or number mismatch.
      * @throws { BusinessError } 22700101 - No memory.
@@ -161,7 +161,7 @@ declare namespace intelligentVoice {
      * @systemapi
      * @since 12
      */
-    cloneForResult(cloneFiles: Array<CloneFile>, cloneInfo: string): Promise<CloneResult>;
+    enrollWithWakeupFilesForResult(wakeupFiles: Array<WakeupSourceFile>, wakeupInfo: string): Promise<EnrollResult>;
     /**
      * Clears user data.
      * @permission ohos.permission.MANAGE_INTELLIGENT_VOICE
@@ -234,13 +234,13 @@ declare namespace intelligentVoice {
   }
 
   /**
-   * Describes clone file information.
-   * @typedef CloneFile
+   * Describes wakeup source file information.
+   * @typedef WakeupSourceFile
    * @syscap SystemCapability.AI.IntelligentVoice.Core
    * @systemapi
    * @since 12
    */
-  interface CloneFile {
+  interface WakeupSourceFile {
     /**
      * File path.
      * @type { string }
@@ -257,30 +257,6 @@ declare namespace intelligentVoice {
      * @since 12
      */
     fileContent: ArrayBuffer;
-  }
-
-  /**
-   * Enumerates clone result.
-   * @enum {number}
-   * @syscap SystemCapability.AI.IntelligentVoice.Core
-   * @systemapi
-   * @since 12
-   */
-  enum CloneResult {
-    /**
-     * Clone success.
-     * @syscap SystemCapability.AI.IntelligentVoice.Core
-     * @systemapi
-     * @since 12
-     */
-    CLONE_SUCCESS = 0,
-    /**
-     * Clone failure.
-     * @syscap SystemCapability.AI.IntelligentVoice.Core
-     * @systemapi
-     * @since 12
-     */
-    CLONE_FAILURE = -1,
   }
 
   /**
