@@ -15,6 +15,7 @@
 
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { RenderNode } from './RenderNode';
+import { Position } from './Graphics'
 /**
  * Defines FrameNode.
  *
