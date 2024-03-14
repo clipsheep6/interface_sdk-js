@@ -1253,6 +1253,7 @@ declare namespace inputMethodEngine {
      * @returns { Promise<WindowInfo> } the promise returned by the function.
      * @throws { BusinessError } 12800003 - input method client error.
      * @throws { BusinessError } 12800012 - input method panel doesn't exist.
+     * @throws { BusinessError } 12800013 - window manager service error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
@@ -1609,16 +1610,16 @@ declare namespace inputMethodEngine {
     setPrivacyMode(isPrivacyMode: boolean): void;
 
     /**
-     * Config the height of keyboard for landscape and portrait orientations.
+     * Preset the height of panel for landscape and portrait orientations.
      * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
      *
-     * @param { number } landscapeHeight - the keyboard height for landscape orientation.
-     * @param { number } portraitHeight - the keyboard height for portrait orientation.
+     * @param { number } landscapeHeight - the panel height for landscape orientation.
+     * @param { number } portraitHeight - the panel height for portrait orientation.
      * @throws { BusinessError } 401 - parameter error.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 12
      */
-    configKeyboardHeight(landscapeHeight: number, portraitHeight: number): void;
+    presetPanelHeight(landscapeHeight: number, portraitHeight: number): void;
 
     /**
      * Subscribe 'panelSizeChange' event.
