@@ -139,7 +139,7 @@ declare namespace dataShare {
      * LOCAL_DATA: means the changing data comes from the cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-     * @crossplatform
+     * @systemapi
      * @since 12
      */
     LOCAL_DATA,
@@ -148,7 +148,7 @@ declare namespace dataShare {
      * CLOUD_DATA: means the changing data comes from the native device.
      *
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-     * @crossplatform
+     * @systemapi
      * @since 12
      */
     CLOUD_DATA,

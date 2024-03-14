@@ -3882,7 +3882,7 @@ declare namespace relationalStore {
    * @interface SqlExeInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
+   * @since 12
    */
   interface SqlExeInfo {
     /**
