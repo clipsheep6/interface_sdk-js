@@ -2630,7 +2630,6 @@ declare namespace image {
    * @since 11
    */
   function createImageCreator(size: Size, format: ImageFormat, capacity: number): ImageCreator;
-
   /**
    * PixelMap instance.
    *
