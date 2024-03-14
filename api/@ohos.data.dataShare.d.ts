@@ -125,7 +125,7 @@ declare namespace dataShare {
     options?: DataShareHelperOptions
   ): Promise<DataShareHelper>;
 
-   /**
+  /**
    * Enables silent access dynamically.
    *
    * @param { Context } context - Indicates the application context.
