@@ -1183,7 +1183,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 12
      */
-    getData(): Promise<udc.UnifiedData>;
+    getUnifiedData(): Promise<udc.UnifiedData>;
 
     /**
      * Gets unifiedData from the system pasteboard.
@@ -1193,7 +1193,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 12
      */
-    getDataSync(): udc.UnifiedData;
+    getUnifiedDataSync(): udc.UnifiedData;
 
     /**
      * Checks whether there is content in the pasteboard.
@@ -1347,7 +1347,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 12
      */
-    setData(data: udc.UnifiedData): Promise<void>;
+    setUnifiedData(data: udc.UnifiedData): Promise<void>;
 
     /**
      * Writes UnifiedData to the system pasteboard.
@@ -1358,7 +1358,7 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 12
      */
-    setDataSync(data: udc.UnifiedData): void;
+    setUnifiedDataSync(data: udc.UnifiedData): void;
   }
 }
 
