@@ -31,7 +31,7 @@ declare namespace IrEmitter {
    */
   interface CarrierFrequency {
     /**
-     * 载波频率最大值。
+     * 最大频率。
      *
      * @type { number }
      * @syscap
@@ -41,7 +41,7 @@ declare namespace IrEmitter {
     max: number;
 
     /**
-     * 载波频率最小值。
+     * 最小频率。
      *
      * @type { number }
      * @syscap
