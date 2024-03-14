@@ -401,11 +401,6 @@ declare enum ButtonStyleEx {
   SmallText = 'SmallText',
 }
 
-declare enum ButtonRole {
-  Normal = 'Normal',
-  Warning = 'Warning',
-}
-
 /**
  * Defines the Button Component.
  *
