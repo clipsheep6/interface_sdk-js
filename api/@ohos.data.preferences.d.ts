@@ -68,7 +68,7 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array;
+  type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object;
 
   /**
    * Indicates the maximum length of a key (80 characters).
@@ -1562,6 +1562,19 @@ declare namespace preferences {
     on(type: 'multiProcessChange', callback: Callback<string>): void;
 
     /**
+     * Registers an observer to listen for changes to the {@ link Preferences} object.
+     *
+     * @param { 'dataChange' } type - Indicates the type of the event to observe.
+     * @param { Array<string> } keys - Indicates one or more keys to listen for.
+     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback used to return the data change.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @atomicservice
+     * @since 12
+     */
+    on(event: 'dataChange', keys: Array<string>, callback: Callback<Record<string, ValueType>>);
+
+    /**
      * Unregisters an existing observer.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
@@ -1613,6 +1626,19 @@ declare namespace preferences {
      * @since 11
      */
     off(type: 'multiProcessChange', callback?: Callback<string>): void;
+
+    /**
+     * Unregisters an observer for changes to the {@ link Preferences} object.
+     *
+     * @param { 'dataChange' } type - Indicates the event type.
+     * @param { Array<string> } keys - Indicates the data whose changes are not observed.
+     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback to unregister.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @atomicservice
+     * @since 12
+     */
+    off(type: 'dataChange', keys: Array<string>, callback?: Callback<Record<string, ValueType>>): void;
   }
 }
 
