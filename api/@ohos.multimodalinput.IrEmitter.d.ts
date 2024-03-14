@@ -52,7 +52,7 @@ declare namespace IrEmitter {
   }
 
   /**
-   * 传输红外信号。
+   * 发送红外信号。
    *
    * @param { number } carrierFrequency - 红外载波频率（以赫兹为单位）
    * @param { Array<number> } pattern - 以微秒为单位的交替开/关模式进行传输
