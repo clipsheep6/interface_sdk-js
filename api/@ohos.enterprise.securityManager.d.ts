@@ -93,17 +93,17 @@ declare namespace securityManager {
     /**
      * The regex of complexity
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    complexityReg?: string;
+    complexityRegex?: string;
 
     /**
      * Period of validity
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -113,7 +113,7 @@ declare namespace securityManager {
     /**
      * Other supplementary description
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -325,7 +325,7 @@ declare namespace securityManager {
    * @stagemodelonly
    * @since 12
    */
-  function getAppClipboardPolicies(admin: Want, tokenId?: string): string;
+  function getAppClipboardPolicy(admin: Want, tokenId?: string): string;
 
   /**
    * Sets the watermark image displayed during application running.
@@ -343,7 +343,7 @@ declare namespace securityManager {
    * @stagemodelonly
    * @since 12
    */
-  function setWatermarkImages(admin: Want, bundleName: string, source: string | image.PixelMap, accountId: number): void;
+  function setWatermarkImage(admin: Want, bundleName: string, source: string | image.PixelMap, accountId: number): void;
 
   /**
    * Cancels the watermark image displayed during application running.
@@ -360,7 +360,7 @@ declare namespace securityManager {
    * @stagemodelonly
    * @since 12
    */
-  function cancelWatermarkImages(admin: Want, bundleName: string, accountId: number): void;
+  function cancelWatermarkImage(admin: Want, bundleName: string, accountId: number): void;
 }
 
 export default securityManager;

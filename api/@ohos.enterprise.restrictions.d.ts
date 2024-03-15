@@ -266,7 +266,6 @@ declare namespace restrictions {
    * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200010 - a conflicting policy has been configured.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager

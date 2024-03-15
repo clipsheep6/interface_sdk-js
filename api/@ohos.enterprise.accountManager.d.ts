@@ -148,7 +148,7 @@ declare namespace accountManager {
    * @stagemodelonly
    * @since 12
    */
-  function disallowAddOsAccount(admin: Want, disallow: boolean, accountId?: number): void;
+  function disallowOsAccountAddition(admin: Want, disallow: boolean, accountId?: number): void;
 
   /**
    * Queries whether the account or all accounts is disallowed to add an OS account.
@@ -166,7 +166,7 @@ declare namespace accountManager {
    * @stagemodelonly
    * @since 12
    */
-  function isAddOsAccountDisallowed(admin: Want, accountId?: number): boolean;
+  function isOsAccountAdditionDisallowed(admin: Want, accountId?: number): boolean;
 
   /**
    * Adds an OS account using the name and account type.

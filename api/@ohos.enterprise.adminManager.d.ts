@@ -551,16 +551,16 @@ declare namespace adminManager {
   function authorizeAdmin(admin: Want, bundleName: string): Promise<void>;
 
   /**
-   * Get whether the ability is enabled as super device administrator.
+   * Get the super administrator of device.
    *
-   * @param { Want } admin - admin indicates the administrator ability information.
    * @returns { Promise<Want> } promise contained the want indicates the super administrator of the device.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
    * @StageModelOnly
    * @since 12
    */
-  function getSuperAdmin(admin: Want): Promise<Want>;
+  function getSuperAdmin(): Promise<Want>;
 
   /**
    * Subscribes the managed event of admin.
@@ -592,7 +592,7 @@ declare namespace adminManager {
    * @StageModelOnly
    * @since 12
    */
-  function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): void;
+  function unsubscribeManagedEventSync(admin: Want, managedEvents: Array<ManagedEvent>): void;
 }
 
 export default adminManager;

@@ -3301,6 +3301,55 @@ declare type TransitionEffects = {
 };
 
 /**
+ * Defined the draw modifier of node. Provides draw callbacks for the associated Node.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class DrawModifier {
+  /**
+   * drawBehind Method. Executed before drawing associated Node.
+   *
+   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  drawBehind?(drawContext: DrawContext): void;
+
+  /**
+   * drawContent Method. Executed when associated Node is drawing, the default drawContent method will be replaced 
+   * if this method is set.
+   *
+   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  drawContent?(drawContext: DrawContext): void;
+  
+  /**
+   * drawFront Method. Executed after drawing associated Node.
+   *
+   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  drawFront?(drawContext: DrawContext): void;
+  
+  /**
+   * Invalidate the component, which will cause a re-render of the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  invalidate(): void;
+}
+
+/**
  * Defines the transition effect
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3919,6 +3968,71 @@ declare interface ItemDragInfo {
    * @since 11
    */
   y: number;
+}
+
+/**
+ * Defines the drag status before drag action.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare enum PreDragStatus {
+  /**
+   * Define the status for user prepare to start long press gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ACTION_DETECTING_STATUS = 0,
+
+  /**
+   * Define the status for user can start drag action.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  READY_TO_TRIGGER_DRAG_ACTION = 1,
+
+  /**
+   * Define the status for dragItem lift animation started.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  PREVIEW_LIFT_STARTED = 2,
+
+  /**
+   * Define the status for dragItem lift animation finished.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  PREVIEW_LIFT_FINISHED = 3,
+
+  /**
+   * Define the status for dragItem landing animation started.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  PREVIEW_LANDING_STARTED = 4,
+
+  /**
+   * Define the status for dragItem landing animation finished.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  PREVIEW_LANDING_FINISHED = 5,
+
+  /**
+   * Define the status for user cancel drag action.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ACTION_CANCELED_BEFORE_DRAG = 6,
 }
 
 /**
@@ -7526,6 +7640,17 @@ declare interface TouchEvent extends BaseEvent {
 }
 
 /**
+ * Defines the callback type used in onSizeChange.
+ * The value of oldValue is last size of the component.
+ * The value of newValue is new size of the component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) => void;
+
+/**
  * Defines the PixelMap type object for ui component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8722,6 +8847,58 @@ declare interface BindOptions {
    * @since 11
    */
   onDisappear?: () => void;
+
+  /**
+   * Callback function before overlay animation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillAppear?: () => void;
+
+  /**
+   * Callback function before overlay popAnimation starts.
+   *
+   * @type { ?function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillDisappear?: () => void;
+}
+
+/**
+ * Component content cover dismiss
+ *
+ * @interface DismissContentCoverAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DismissContentCoverAction {
+  /**
+   * Defines content cover dismiss function
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dismiss: Callback<void>;
+
+  /**
+   * Defines content cover dismiss reason
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reason: DismissReason;
 }
 
 /**
@@ -8762,6 +8939,26 @@ declare interface ContentCoverOptions extends BindOptions {
    * @since 11
    */
   modalTransition?: ModalTransition,
+
+  /**
+   * Callback function when the content cover interactive dismiss
+   *
+   * @type { ?Callback<DismissContentCoverAction> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDismiss?: Callback<DismissContentCoverAction>;
+
+  /**
+   * Defines transition effect param
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
@@ -9867,6 +10064,16 @@ declare interface PopupOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Defines the transition effect of popup opening and closing
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
@@ -10278,6 +10485,16 @@ declare interface CustomPopupOptions {
    * @since 11
    */
   focusable?: boolean;
+
+  /**
+   * Defines the transition effect of popup opening and closing
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
@@ -10335,6 +10552,15 @@ interface ContextMenuAnimationOptions {
    * @since 11
    */
   scale?: AnimationRange<number>;
+  /**
+   * Defines the transition effect of menu preview opening and closing.
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
@@ -10537,6 +10763,16 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Defines the transition effect of menu opening and closing.
+   *
+   * @type { ?TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  transition?: TransitionEffect;
 }
 
 /**
@@ -11434,6 +11670,17 @@ declare class CommonMethod<T> {
    * @form
    */
   height(value: Length): T;
+  
+  /**
+   * Sets the drawModifier of the current component.
+   *
+   * @param { DrawModifier | undefined } modifier - drawModifier used to draw, or undefined if it is not available.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  drawModifier(modifier: DrawModifier | undefined): T;
 
   /**
    * Expands the safe area.
@@ -12585,6 +12832,17 @@ declare class CommonMethod<T> {
   onKeyEvent(event: (event: KeyEvent) => void): T;
 
   /**
+   * Handle keyboard events before input method events.
+   *
+   * @param { Callback<KeyEvent, boolean> } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onKeyPreIme(event: Callback<KeyEvent, boolean>): T;
+
+  /**
    * Set focusable.
    *
    * @param { boolean } value
@@ -13502,6 +13760,18 @@ declare class CommonMethod<T> {
    * @since 11
    */
   renderGroup(value: boolean): T;
+
+  /**
+   * Sets whether the component should remain stationary, reusing the results of the current frame's off-screen rendering.
+   * If the input parameter is true, the component and subcomponent changes do not affect the display.
+   *
+   * @param { boolean } value - true means the component should remain stationary.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  freeze(value: boolean): T;
 
   /**
    * Sets the translation effect during page transition.
@@ -14654,7 +14924,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  allowDrop(value: Array<UniformDataType>): T;
+  /**
+   * Allowed drop uniformData type for this node.
+   *
+   * @param { Array<UniformDataType> | null } value - the uniformData type for this node.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  allowDrop(value: Array<UniformDataType> | null): T;
 
   /**
    * Enable the selectable area can be dragged.
@@ -14684,7 +14964,15 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
-  dragPreview(value: CustomBuilder | DragItemInfo): T;
+  /**
+   * Set preview of the component for dragging process
+   *
+   * @param { CustomBuilder | DragItemInfo | string } value - preview of the component for dragging process
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  dragPreview(value: CustomBuilder | DragItemInfo | string): T;
 
   /**
    * Set the selectable area drag preview options.
@@ -14695,6 +14983,16 @@ declare class CommonMethod<T> {
    * @since 11
    */
   dragPreviewOptions(value: DragPreviewOptions): T;
+
+  /**
+   * After binding, a callback is triggered when the preDrag status change finished.
+   *
+   * @param { Callback<PreDragStatus> } callback callback - The callback will be triggered when the preDrag status change.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onPreDrag(callback: Callback<PreDragStatus>): T;
 
   /**
    * Add mask text to the current component. The layout is the same as that of the current component.
@@ -15739,6 +16037,28 @@ declare class CommonMethod<T> {
    * @since 11
    */
   monopolizeEvents(monopolize: boolean): T;
+
+  /**
+   * When the component does a touch test, a user-defined callback is triggered.
+   *
+   * @param { Callback<TouchEvent, HitTestMode> } callback - A callback instance used when the component does a touch test.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onTouchIntercept(callback: Callback<TouchEvent, HitTestMode>): T;
+
+  /**
+   * This callback is triggered when the size of this component change finished.
+   *
+   * @param { SizeChangeCallback } event - event callback.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onSizeChange(event: SizeChangeCallback): T;
 }
 
 /**
@@ -17106,6 +17426,15 @@ declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
 /**
+ * DrawContext
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type DrawContext = import('../api/arkui/Graphics').DrawContext;
+
+/**
  * Custom Component
  *
  * @extends CommonAttribute
@@ -18222,4 +18551,25 @@ declare module 'touchEvent'{
     // @ts-ignore
     export { TouchEvent };
   }
+}
+
+/**
+ * Defines the basic callback.
+ *
+ * @typedef Callback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface Callback<T, V = void> {
+  /**
+   * Defines the callback info.
+   *
+   * @param { T } data - the data will be used in the callback.
+   * @returns { V } - Returns result of the callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  (data: T): V;
 }

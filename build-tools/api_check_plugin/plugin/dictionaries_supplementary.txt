@@ -62,6 +62,7 @@ audios
 authenticates
 authinfo
 autocorrect
+autosizing
 averr
 avoidareachange
 avrcp
@@ -100,6 +101,7 @@ bundlename
 bundlestat
 buttonconfig
 bypassed
+bypassing
 bytrace
 callbackfn
 camped
@@ -401,6 +403,7 @@ isim
 issuers
 ivi
 iwlan
+jank
 jis
 judged
 kaihong
@@ -478,6 +481,7 @@ minibar
 minimizing
 mirrored
 misconfigured
+mismatches
 missions
 mkdtemp
 mmax
@@ -516,6 +520,9 @@ nmea
 nnrt
 nopadding
 mori
+nodownload
+nofullscreen
+noremoteplayback
 normalizer
 notifies
 notifying
@@ -551,6 +558,7 @@ osd
 ott
 ounted
 overheated
+overlimit
 overline
 owningproperties
 ows
@@ -573,11 +581,13 @@ pdu
 peap
 persion
 persistable
+persistently
 perso
 personalisation
 pertaining
 pgo
 photographing
+phy
 pickers
 pixelmap
 playpause
@@ -986,3 +996,9 @@ sar
 adapts
 followx
 precomposited
+refresher
+irnss
+beidou
+qzss
+glonass
+sbas
