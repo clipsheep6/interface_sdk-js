@@ -1349,16 +1349,6 @@ declare namespace pasteboard {
      */
     setUnifiedData(data: udc.UnifiedData): Promise<void>;
 
-    /**
-     * Writes UnifiedData to the system pasteboard.
-     * @param { UnifiedData } data - PasteData will be written to the clipboard.
-     * @throws { BusinessError } 401 - if type of data is not PasteData.
-     * @throws { BusinessError } 12900005 - Request time out.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 12
-     */
-    setUnifiedDataSync(data: udc.UnifiedData): void;
   }
 }
 
