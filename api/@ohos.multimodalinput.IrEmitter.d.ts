@@ -14,7 +14,7 @@
  */
 
 /**
- * 声明与红外发射器属性相关的接口。
+ * Declares the APIs for configuring attributes of the IR emitter.
  *
  * @namespace IrEmitter
  * @syscap
@@ -22,7 +22,7 @@
  */
 declare namespace IrEmitter {
   /**
-   * 表示红外发射器可以发射的载波频率范围。
+   * Carrier frequency range supported by the IR emitter.
    *
    * @interface CarrierFrequency
    * @syscap
@@ -31,7 +31,7 @@ declare namespace IrEmitter {
    */
   interface CarrierFrequency {
     /**
-     * 最大频率。
+     * Maximum frequency.
      *
      * @type { number }
      * @syscap
@@ -41,7 +41,7 @@ declare namespace IrEmitter {
     max: number;
 
     /**
-     * 最小频率。
+     * Minimum frequency.
      *
      * @type { number }
      * @syscap
@@ -52,10 +52,10 @@ declare namespace IrEmitter {
   }
 
   /**
-   * 发送红外信号。
+   * Transmitted IR signal.
    *
-   * @param { number } carrierFrequency - 红外载波频率（以赫兹为单位）
-   * @param { Array<number> } pattern - 以微秒为单位的交替开/关模式进行传输
+   * @param { number} carrierFrequency IR carrier frequency, in Hz.
+   * @param { Array<number>} pattern Pattern of signal transmission in alternate on/off mode, in microseconds.
    * @syscap
    * @systemapi
    * @since 12
@@ -63,9 +63,9 @@ declare namespace IrEmitter {
   function transmit(carrierFrequency: number, pattern: Array<number>): void;
 
   /**
-   * 查询红外发射器支持的载波频率。
+   * Queries the carrier frequency supported by the IR emitter.
    *
-   * 返回值：ConsumerIrManager.CarrierFrequencyRange 对象的数组，表示发射器可以支持的范围
+   * The return value is an array of ConsumerIrManager.CarrierFrequencyRange objects, indicating the carrier frequency ranges supported by the IR emitter.
    * @syscap
    * @systemapi
    * @since 12
