@@ -17,7 +17,7 @@
  * Declares the APIs for configuring attributes of the IR emitter.
  *
  * @namespace IrEmitter
- * @syscap
+ * @syscap SystemCapability.MultimodalInput.Input.IrEmitter
  * @since 12
  */
 declare namespace IrEmitter {
@@ -25,8 +25,8 @@ declare namespace IrEmitter {
    * Carrier frequency range supported by the IR emitter.
    *
    * @interface CarrierFrequency
-   * @syscap
-   * @systemapi
+   * @syscap SystemCapability.MultimodalInput.Input.IrEmitter
+   * @systemapi hide for inner use
    * @since 12
    */
   interface CarrierFrequency {
@@ -34,8 +34,8 @@ declare namespace IrEmitter {
      * Maximum frequency.
      *
      * @type { number }
-     * @syscap
-     * @systemapi
+     * @syscap SystemCapability.MultimodalInput.Input.IrEmitter
+     * @systemapi hide for inner use
      * @since 12
      */
     max: number;
@@ -44,8 +44,8 @@ declare namespace IrEmitter {
      * Minimum frequency.
      *
      * @type { number }
-     * @syscap
-     * @systemapi
+     * @syscap SystemCapability.MultimodalInput.Input.IrEmitter
+     * @systemapi hide for inner use
      * @since 12
      */
     min: number;
@@ -54,10 +54,11 @@ declare namespace IrEmitter {
   /**
    * Transmitted IR signal.
    *
+   * @permission ohos.permission.INPUT_IREMITTE
    * @param { number} carrierFrequency IR carrier frequency, in Hz.
    * @param { Array<number>} pattern Pattern of signal transmission in alternate on/off mode, in microseconds.
-   * @syscap
-   * @systemapi
+   * @syscap SystemCapability.MultimodalInput.Input.IrEmitter
+   * @systemapi hide for inner use
    * @since 12
    */
   function transmit(carrierFrequency: number, pattern: Array<number>): void;
@@ -65,9 +66,9 @@ declare namespace IrEmitter {
   /**
    * Queries the carrier frequency supported by the IR emitter.
    *
-   * The return value is an array of ConsumerIrManager.CarrierFrequencyRange objects, indicating the carrier frequency ranges supported by the IR emitter.
-   * @syscap
-   * @systemapi
+   * @returns { Array<CarrierFrequency> } The return value is an array of ConsumerIrManager.CarrierFrequencyRange objects, indicating the carrier frequency ranges supported by the IR emitter.
+   * @syscap SystemCapability.MultimodalInput.Input.IrEmitter
+   * @systemapi hide for inner use
    * @since 12
    */
   function getCarrierFrequencies(): Array<CarrierFrequency>;
