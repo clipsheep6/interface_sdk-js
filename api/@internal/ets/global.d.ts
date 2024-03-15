@@ -16,6 +16,7 @@
 /// <reference path="../../../component/common.d.ts" />
 
 import { TouchObject, KeyEvent, MouseEvent } from 'SpecialEvent';
+import { InspectorConfig } from 'InspectorInfo';
 
 /**
  * Defines the console info.
@@ -627,6 +628,32 @@ export declare function getInspectorByKey(id: string): string;
  * @test
  */
 export declare function getInspectorTree(): Object;
+
+/**
+ * Obtains specify attributes of the component.
+ *
+ * @param { InspectorConfig } config - config of the component tree to be obtained.
+ * @returns { Object }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare function getInspectorTree(config: InspectorConfig): Object;
+
+/**
+ * Obtains specify attributes of the component tree with the specified ID.
+ *
+ * @param { string } id - ID of the specified component tree to be obtained..
+ * @param { number } [depth] - depth of the component tree to be obtained.
+ * @param { InspectorConfig } [config] - config of the component tree to be obtained.
+ * @returns { Object }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export declare function getInspectorTreeByKey(id: string, depth?: number, config?: InspectorConfig): Object;
 
 /**
  * Sends an event to the component with the specified ID.

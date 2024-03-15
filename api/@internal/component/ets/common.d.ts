@@ -46,7 +46,7 @@ declare interface ComponentOptions {
  */
 declare interface InputCounterOptions {
   /**
-   * It is the numerator bit of the percentage and used as a threshold. If the number of characters input 
+   * It is the numerator bit of the percentage and used as a threshold. If the number of characters input
    * reaches the maximum number of characters multiplied by this threshold, the counter is displayed.
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -54,7 +54,7 @@ declare interface InputCounterOptions {
    * @since 11
    */
   thresholdPercentage?: number;
-  
+
   /**
    * If the current input character count reaches the maximum character count and users want to exceed the
    * normal input, the border will turn red. If this parameter is true, the red border displayed.
@@ -1377,6 +1377,24 @@ declare interface ExpectedFrameRateRange {
    * @since 11
   */
   expected: number,
+}
+
+/**
+ * Interface for InspectorConfig.
+ *
+ * @interface InspectorConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare class InspectorConfig {
+  /**
+   * Component tree configuration information, used to specify which information to obtain on the component.
+   * @type { function }
+   * @returns { FormComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+  */
+  addConfig(configKey: string):InspectorConfig
 }
 
 /**
@@ -3302,7 +3320,7 @@ declare type TransitionEffects = {
 
 /**
  * Defined the draw modifier of node. Provides draw callbacks for the associated Node.
- * 
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
@@ -3319,7 +3337,7 @@ declare class DrawModifier {
   drawBehind?(drawContext: DrawContext): void;
 
   /**
-   * drawContent Method. Executed when associated Node is drawing, the default drawContent method will be replaced 
+   * drawContent Method. Executed when associated Node is drawing, the default drawContent method will be replaced
    * if this method is set.
    *
    * @param { DrawContext } drawContext - The drawContext used to draw.
@@ -3328,7 +3346,7 @@ declare class DrawModifier {
    * @since 12
    */
   drawContent?(drawContext: DrawContext): void;
-  
+
   /**
    * drawFront Method. Executed after drawing associated Node.
    *
@@ -3338,7 +3356,7 @@ declare class DrawModifier {
    * @since 12
    */
   drawFront?(drawContext: DrawContext): void;
-  
+
   /**
    * Invalidate the component, which will cause a re-render of the component.
    *
@@ -5071,8 +5089,8 @@ declare enum BlurStyle {
    * @atomicservice
    * @since 11
    * @form
-   */  
-  NONE,    
+   */
+  NONE,
 
   /**
    * Defines the ultra thin component material.
@@ -6000,7 +6018,7 @@ declare enum ShadowStyle {
 declare interface MultiShadowOptions {
   /**
    * Current shadow radius.
-   * 
+   *
    * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6009,7 +6027,7 @@ declare interface MultiShadowOptions {
    */
   /**
    * Current shadow radius.
-   * 
+   *
    * @type { ?(number | Resource) }
    * @default 20
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6021,7 +6039,7 @@ declare interface MultiShadowOptions {
 
   /**
    * Current shadow offsetX.
-   * 
+   *
    * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6030,7 +6048,7 @@ declare interface MultiShadowOptions {
    */
   /**
    * Current shadow offsetX.
-   * 
+   *
    * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6042,7 +6060,7 @@ declare interface MultiShadowOptions {
 
   /**
    * Current shadow offsetY
-   * 
+   *
    * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6051,7 +6069,7 @@ declare interface MultiShadowOptions {
    */
   /**
    * Current shadow offsetY
-   * 
+   *
    * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7875,7 +7893,7 @@ declare enum DragResult {
 
 /**
  * Enum for BlendMode.
- * Blend modes for compositing current component 
+ * Blend modes for compositing current component
  * with overlapping content. Use overlapping content
  * as dst, current component as src.
  *
@@ -9006,7 +9024,7 @@ declare enum SheetType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   */   
+   */
   BOTTOM = 0,
 
   /**
@@ -9110,7 +9128,7 @@ declare interface SheetOptions extends BindOptions {
 
   /**
    * Defines sheet maskColor
-   * 
+   *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -9118,7 +9136,7 @@ declare interface SheetOptions extends BindOptions {
    */
   /**
    * Defines sheet maskColor
-   * 
+   *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -9139,7 +9157,7 @@ declare interface SheetOptions extends BindOptions {
 
   /**
    * Defines sheet background blur Style
-   * 
+   *
    * @type { ?BlurStyle }
    * @default BlurStyle.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9503,7 +9521,7 @@ declare interface PopupMessageOptions {
  * @crossplatform
  * @since 12
  */
-declare enum DismissReason {  
+declare enum DismissReason {
   /**
   * Press back
   *
@@ -10512,7 +10530,7 @@ declare enum MenuPreviewMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
-   */   
+   */
   NONE = 0,
   /**
    * Defines image type preview content.
@@ -10662,10 +10680,10 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   arrowOffset?: Length;
-  
+
   /**
    * The preview content of context menu.
-   * 
+   *
    * @type { ?(MenuPreviewMode | CustomBuilder) }
    * @default MenuPreviewMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10731,7 +10749,7 @@ declare interface ContextMenuOptions {
    * @since 11
    */
   aboutToDisappear?: () => void;
-  
+
   /**
    * The preview animator options.
    *
@@ -11351,7 +11369,7 @@ declare interface MenuElement {
 
 /**
  * Defines the attribute modifier.
- * 
+ *
  * @interface AttributeModifier<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -11361,7 +11379,7 @@ declare interface AttributeModifier<T> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11371,7 +11389,7 @@ declare interface AttributeModifier<T> {
 
   /**
    * Defines the pressed update attribute function.
-   * 
+   *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11381,7 +11399,7 @@ declare interface AttributeModifier<T> {
 
   /**
    * Defines the focused update attribute function.
-   * 
+   *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11391,7 +11409,7 @@ declare interface AttributeModifier<T> {
 
   /**
    * Defines the disabled update attribute function.
-   * 
+   *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11401,7 +11419,7 @@ declare interface AttributeModifier<T> {
 
   /**
    * Defines the selected update attribute function.
-   * 
+   *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11504,7 +11522,7 @@ declare interface InvertOptions {
 
   /**
    * Defines the low value of threshold
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11514,7 +11532,7 @@ declare interface InvertOptions {
 
   /**
   * Defines the high value of threshold
-  * 
+  *
   * @type { number }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
@@ -11524,17 +11542,17 @@ declare interface InvertOptions {
 
   /**
    * Defines the threshold
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   threshold: number;
-  
+
   /**
    *Defines the threshold range
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11670,7 +11688,7 @@ declare class CommonMethod<T> {
    * @form
    */
   height(value: Length): T;
-  
+
   /**
    * Sets the drawModifier of the current component.
    *
@@ -13045,7 +13063,7 @@ declare class CommonMethod<T> {
    */
   focusOnTouch(value: boolean): T;
 
-  /**git 
+  /**git
    * animation
    *
    * @param { AnimateParam } value
@@ -15291,7 +15309,7 @@ declare class CommonMethod<T> {
 
   /**
    * Add a blendMode effect to the current component
-   * 
+   *
    * @param { BlendMode } value - Different hybrid modes
    * @param { BlendApplyType } [type] - Different blend apply type
    * @returns { T }
@@ -16131,7 +16149,7 @@ interface CommonInterface {
    */
   /**
    * Constructor
-   * 
+   *
    * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
@@ -16148,7 +16166,7 @@ interface CommonInterface {
    */
   /**
    * Constructor
-   * 
+   *
    * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -17394,7 +17412,7 @@ declare interface SizeResult {
  * @since 11
  */
 declare interface MeasureResult extends SizeResult {
- 
+
 }
 
 /**
@@ -17965,7 +17983,7 @@ declare interface CaretOffset {
    * @since 11
    */
   x: number;
-  
+
   /**
    * Get the y of the relative position.
    *
@@ -18091,7 +18109,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * Edge scrolling effect.
    *
    * @param { EdgeEffect } value - edge scrolling effect.
-   * @param { EdgeEffectOptions } options - edge scrolling effect options. 
+   * @param { EdgeEffectOptions } options - edge scrolling effect options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -18104,7 +18122,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * Nested scrolling options.
    *
    * @param { NestedScrollOptions } value - options for nested scrolling.
-   * @returns { T } 
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18116,7 +18134,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * Whether to support scroll gestures by finger or mouse.
    *
    * @param { boolean } value - Whether to support scroll gestures by finger or mouse.
-   * @returns { T } 
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18128,7 +18146,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * Friction coefficient.
    *
    * @param { number | Resource } value - friction coefficient.
-   * @returns { T } 
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18270,6 +18288,13 @@ declare module 'ExpectedFrameRateRange' {
   module 'ExpectedFrameRateRange' {
     // @ts-ignore
     export type { ExpectedFrameRateRange };
+  }
+}
+
+declare module 'InspectorInfo' {
+  module 'InspectorInfo' {
+    // @ts-ignore
+    export type { InspectorConfig };
   }
 }
 
