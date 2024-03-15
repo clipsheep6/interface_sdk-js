@@ -270,6 +270,19 @@ declare namespace dragController {
    * @since 11
    */
   function getDragPreview(): DragPreview;
+
+  /**
+   * add new item drag data.
+   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts
+   * displayed when the objects are dragged.
+   * @param { DragInfo } dragInfo - Information about the drag event.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - if the parameters checking failed.
+   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  function addItemDragData(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo): Promise<void>;
 }
 
 export default dragController;
