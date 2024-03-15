@@ -16,16 +16,16 @@
 /**
  * Declares the APIs for configuring attributes of the IR emitter.
  *
- * @namespace IrEmitter
- * @syscap SystemCapability.MultimodalInput.Input.IrEmitter
+ * @namespace InfraredEmitter
+ * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
  * @since 12
  */
-declare namespace IrEmitter {
+declare namespace InfraredEmitter {
   /**
    * Carrier frequency range supported by the IR emitter.
    *
    * @interface CarrierFrequency
-   * @syscap SystemCapability.MultimodalInput.Input.IrEmitter
+   * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @systemapi hide for inner use
    * @since 12
    */
@@ -34,7 +34,7 @@ declare namespace IrEmitter {
      * Maximum frequency.
      *
      * @type { number }
-     * @syscap SystemCapability.MultimodalInput.Input.IrEmitter
+     * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
      * @systemapi hide for inner use
      * @since 12
      */
@@ -44,7 +44,7 @@ declare namespace IrEmitter {
      * Minimum frequency.
      *
      * @type { number }
-     * @syscap SystemCapability.MultimodalInput.Input.IrEmitter
+     * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
      * @systemapi hide for inner use
      * @since 12
      */
@@ -57,21 +57,21 @@ declare namespace IrEmitter {
    * @permission ohos.permission.INPUT_IREMITTE
    * @param { number} carrierFrequency IR carrier frequency, in Hz.
    * @param { Array<number>} pattern Pattern of signal transmission in alternate on/off mode, in microseconds.
-   * @syscap SystemCapability.MultimodalInput.Input.IrEmitter
+   * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @systemapi hide for inner use
    * @since 12
    */
-  function transmit(carrierFrequency: number, pattern: Array<number>): void;
+  function transmitInfrared(carrierFrequency: number, pattern: Array<number>): void;
 
   /**
    * Queries the carrier frequency supported by the IR emitter.
    *
-   * @returns { Array<CarrierFrequency> } The return value is an array of ConsumerIrManager.CarrierFrequencyRange objects, indicating the carrier frequency ranges supported by the IR emitter.
-   * @syscap SystemCapability.MultimodalInput.Input.IrEmitter
+   * @returns { Array<CarrierFrequency> } The return value is an array of CarrierFrequency objects, indicating the carrier frequency ranges supported by the IR emitter.
+   * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @systemapi hide for inner use
    * @since 12
    */
-  function getCarrierFrequencies(): Array<CarrierFrequency>;
+  function getInfraredFrequencies(): Array<CarrierFrequency>;
 }
 
-export default IrEmitter;
+export default InfraredEmitter;
