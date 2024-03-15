@@ -1254,6 +1254,14 @@ export class DragController {
    * @since 11
    */
   getDragPreview(): dragController.DragPreview;
+
+   /**
+   * Enable drag event strict reporting.
+   * @param { boolean } enable - Indicating enable drag event strict reporting or not.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  setDragEventStrictReportingEnabled(enable: boolean): void;
 }
 
 /**
