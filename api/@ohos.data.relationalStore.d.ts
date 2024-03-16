@@ -497,7 +497,31 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
-    NO_SPACE_FOR_ASSET
+    NO_SPACE_FOR_ASSET,
+
+    /**
+     * BLOCKED_BY_NETWORK_STRATEGY: means the sync blocked by network strategy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    BLOCKED_BY_NETWORK_STRATEGY,
+
+    /**
+     * BLOCKED_BY_ASSET_STRATEGY: means the asset sync blocked by asset strategy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    BLOCKED_BY_ASSET_STRATEGY,
+
+    /**
+     * BLOCKED_BY_BATTERY_STRATEGY: means the sync blocked by battery strategy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    BLOCKED_BY_BATTERY_STRATEGY
   }
 
   /**
@@ -614,7 +638,7 @@ declare namespace relationalStore {
     SYNC_MODE_PULL = 1,
 
     /**
-     * Indicates the data is pulled from remote device to local device.
+     * Indicates sync data according to the latest timestamp for the data with the same primary key.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -622,7 +646,7 @@ declare namespace relationalStore {
     SYNC_MODE_TIME_FIRST,
 
     /**
-     * Indicates force push the native data to the cloud.
+     * Indicates the data with the same primary key will be retained local data.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
@@ -630,12 +654,20 @@ declare namespace relationalStore {
     SYNC_MODE_NATIVE_FIRST,
 
     /**
-     * Indicates the data is pulled from cloud to local device.
+     * Indicates the data with the same primary key will be retained cloud data.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10
      */
-    SYNC_MODE_CLOUD_FIRST
+    SYNC_MODE_CLOUD_FIRST,
+
+    /**
+     * Indicates forcibly sync data according to the latest timestamp for the data with the same primary key.
+     *
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    SYNC_MODE_FORCE_TIME_FIRST
   }
 
   /**
@@ -3516,6 +3548,50 @@ declare namespace relationalStore {
      * @since 11
      */
     cloudSync(mode: SyncMode, predicates: RdbPredicates, progress: Callback<ProgressDetails>): Promise<void>;
+
+    /**
+     * Locks data to prevent sync.
+     *
+     * @param { RdbPredicates } predicates - {@link RdbPredicates} object that specifies the data to be locked.
+     * @returns { Promise<void> } -The promise returned by the function.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    lockRow(predicates: RdbPredicates): Promise<void>;
+
+    /**
+     * Unlocks data to enable sync.
+     *
+     * @param { RdbPredicates } predicates - {@link RdbPredicates} object that specifies the data to be unlocked.
+     * @returns { Promise<void> } -The promise returned by the function.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    unlockRow(predicates: RdbPredicates): Promise<void>;
+
+    /**
+     * Queries the locked data.
+     *
+     * @param { RdbPredicates } predicates - {@link RdbPredicates} object that specifies the query conditions.
+     * @param { Array<string> } [columns] - The specified columns to query.
+     * @returns { Promise<ResultSet> } - Promise used to return {@link ResultSet} obtained.
+     * @throws { BusinessError } 401 - if the parameter type is incorrect.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
+     * @since 12
+     */
+    queryLockedRow(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
+
 
     /**
      * Queries remote data in the database based on specified conditions before Synchronizing Data.
