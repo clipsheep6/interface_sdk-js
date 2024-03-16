@@ -4098,6 +4098,22 @@ declare namespace window {
     setBrightness(brightness: number, callback: AsyncCallback<void>): void;
 
     /**
+     * Sets whether the main window is top most.
+     *
+     * @param { boolean } topMost main window is top most if true.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi
+     * @since 12
+     */
+    setTopMost(topMost: boolean): Promise<void>;
+
+    /**
      * Sets the brightness of window.
      *
      * @param { number } brightness the specified brightness value.
