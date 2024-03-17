@@ -87,8 +87,31 @@ interface TextInterface {
    * @since 11
    * @form
    */
-  (content?: string | Resource, value?: TextOptions): TextAttribute;
+   /**
+   * Called when writing text.
+   *
+   * @param { TextContent} content
+   * @param { TextOptions } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  (content?: TextContent, value?: TextOptions): TextAttribute;
 }
+
+/**
+ * Defines the text content with string, resource, StyledString and MutableStyledString unit.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
+declare type TextContent = string | Resource | StyledString | MutableStyledString;
 
 /**
  * @extends CommonMethod<TextAttribute>
