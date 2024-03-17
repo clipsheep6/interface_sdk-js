@@ -28,6 +28,7 @@ import { ProcessInformation as _ProcessInformation } from './application/Process
 import * as _AbilityFirstFrameStateObserver from './application/AbilityFirstFrameStateObserver';
 import * as _AbilityFirstFrameStateData from './application/AbilityFirstFrameStateData';
 import bundleManager from './@ohos.bundle.bundleManager';
+import { RunningMultiAppInfo as _RunningMultiAppInfo } from './application/RunningMultiAppInfo';
 
 /**
  * This module provides the function of app manager service.
@@ -866,6 +867,61 @@ declare namespace appManager {
   function preloadApplication(bundleName: string, userId: number, mode: PreloadMode, appIndex?: number): Promise<void>;
 
   /**
+   * Get all running multi app info by bundleName
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO
+   * @returns { RunningMultiAppInfo } Returns the {@link RunningMultiAppInfo} for given bundle.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000072 - App clone or multi-instance is not supported.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+   function getRunningMultiAppInfo(bundleName: string): Promise<RunningMultiAppInfo>;
+
+  /**
+   * Clear up application data by bundle name
+   *
+   * @permission ohos.permission.CLEAN_APPLICATION_DATA
+   * @param { string } bundleName - bundle name.
+   * @param { number } [appCloneIndex] - app clone index
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000073 - The app clone index does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+   function clearUpApplicationData(bundleName: string, appCloneIndex?: number): Promise<void>;
+
+   /**
+   * Check whether the bundle is running.
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO
+   * @param { string } bundleName - Indicates the bundle name of the bundle.
+   * @param { number } [appCloneIndex] - app clone index
+   * @returns { Promise<boolean> } Returns the bundle running result. The result is true if running, false otherwise.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000073 - The app clone index does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function isApplicationRunning(bundleName: string, appCloneIndex?: number): Promise<boolean>;
+
+  /**
    * The ability or extension state data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -943,6 +999,16 @@ declare namespace appManager {
    * @since 12
    */
   export type AbilityFirstFrameStateData = _AbilityFirstFrameStateData.default;
+
+  /**
+   * The class of running multi app infomation.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @atomicservice
+   * @since 12
+   */
+   export type RunningMultiAppInfo = _RunningMultiAppInfo;
 }
 
 export default appManager;

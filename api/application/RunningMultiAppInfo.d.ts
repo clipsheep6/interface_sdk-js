@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,69 +18,55 @@
  * @kit AbilityKit
  */
 
+import { MultiAppMode } from './MultiAppMode';
+import { RunningMultiInstanceInfo } from './RunningMultiInstanceInfo';
+import { RunningAppClone } from './RunningAppClone';
+
 /**
- * The class of auto startup info.
+ * The class of running multi app information.
  *
- * @typedef AutoStartupInfo
+ * @typedef RunningMultiAppInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @StageModelOnly
- * @since 11
+ * @since 12
  */
-export interface AutoStartupInfo {
+export interface RunningMultiAppInfo {
   /**
-   * Bundle name
-   *
    * @type { string }
+   * @default the name of the bundle
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
-   * @since 11
+   * @since 12
    */
   bundleName: string;
 
   /**
-   * Module name
+   * The app multi mode.
    *
-   * @type { ?string }
+   * @type { MultiAppMode }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
-   * @since 11
-   */
-  moduleName?: string;
-
-  /**
-   * Ability Name
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
-   * @since 11
-   */
-  abilityName: string;
-
-  /**
-   * Ability Type Name
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
-   * @since 11
-   */
-  abilityTypeName?: string;
-
-  /**
-   * The app clone index of ability instance.
-   * @type { ?number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
    * @since 12
    */
-   appCloneIndex?: number;
-}
+  mode: MultiAppMode;
 
-export default AutoStartupInfo;
+  /**
+   * All running instance info for bundle if mode is {@link MULTI_INSTANCE}.
+   *
+   * @type { ?Array<RunningMultiInstanceInfo> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  runningMultiInstances?: Array<RunningMultiInstanceInfo>;
+
+  /**
+   * All running app info for bundle if mode is {@link APP_CLONE}.
+   *
+   * @type { ?Array<RunningAppClone> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  runningAppClones?: Array<RunningAppClone>;
+}

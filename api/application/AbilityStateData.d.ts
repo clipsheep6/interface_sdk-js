@@ -105,4 +105,13 @@ export default class AbilityStateData {
    * @since 12
    */
   isAtomicService: boolean;
+
+  /**
+   * The app clone index of ability instance.
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+   appCloneIndex?: number;
 }
