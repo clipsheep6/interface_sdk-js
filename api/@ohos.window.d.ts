@@ -518,22 +518,6 @@ declare namespace window {
      * @since 8
      */
     navigationBarContentColor?: string;
-	
-	/**
-     * The animation of the status bar.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 12
-     */
-    statusBarAnim?: boolean;
-	
-	/**
-     * The animation of the status bar.
-     *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 12
-     */
-    navigationBarAnim?: boolean;
   }
 
   /**
@@ -3043,19 +3027,6 @@ declare namespace window {
      * @since 10
      */
     setWindowSystemBarEnable(names: Array<'status' | 'navigation'>, callback: AsyncCallback<void>): void;
-    /**
-     * Set the system bar to have visible.
-     *
-     * @param { Array<'status' | 'navigation'> } names - The set of system bar
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 12
-     */
-    setWindowSystemBarEnable(names: Array<'status' | 'navigation' | 'status_anim' | 'navigation_anim'>, callback: AsyncCallback<void>): Promise<void>;
 
     /**
      * Set the system bar to have visible.
@@ -3081,19 +3052,6 @@ declare namespace window {
      * @since 10
      */
     setWindowSystemBarEnable(names: Array<'status' | 'navigation'>): Promise<void>;
-    /**
-     * Set the system bar to have visible.
-     *
-     * @param { Array<'status' | 'navigation'> } names - The set of system bar
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform
-     * @since 12
-     */
-    setWindowSystemBarEnable(names: Array<'status' | 'navigation' | 'status_anim' | 'navigation_anim'>): Promise<void>;
 
     /**
      * Set specific system bar to have visible.
