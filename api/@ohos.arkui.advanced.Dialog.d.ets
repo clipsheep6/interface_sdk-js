@@ -656,6 +656,14 @@ export declare struct CustomContentDialog {
    */
   @BuilderParam contentBuilder: () => void;
   /**
+   * Sets the CustomContentDialog content area padding.
+   * @type { ?Padding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentAreaPadding?: Padding;
+  /**
    * Sets the CustomContentDialog buttons.
    * @type { ?ButtonOptions[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
