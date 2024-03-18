@@ -4207,7 +4207,7 @@ declare namespace image {
      * of records.
      *
      * @param { Array<PropertyKey> } key - Name of the properties whose value is to be obtained.
-     * @returns { Promise<Array<Record<PropertyKey, string|null>>> } Array of Records instance used to return the
+     * @returns { Promise<Record<PropertyKey, string|null>> } Array of Records instance used to return the
      * property values. If the operation fails, the default value is returned.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - The operation failed.
@@ -4224,7 +4224,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    getImageProperties(key: Array<PropertyKey>): Promise<Array<Record<PropertyKey, string|null>>>;
+    getImageProperties(key: Array<PropertyKey>): Promise<Record<PropertyKey, string|null>>;
 
     /**
      * Modify the value of a property in an image with the specified key. This method uses a
@@ -4301,7 +4301,7 @@ declare namespace image {
     /**
      * Modify the value of a properties in an image with the specified keys.
      *
-     * @param { Array<Record<PropertyKey, string|null>> } records - Array of the property Records whose values are to
+     * @param { Record<PropertyKey, string|null> } records - Array of the property Records whose values are to
      * be modified.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
      * error message is returned.
@@ -4314,7 +4314,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    modifyImageProperties(records: Array<Record<PropertyKey, string|null>>): Promise<void>;
+    modifyImageProperties(records: Record<PropertyKey, string|null>): Promise<void>;
 
     /**
      * Update the data in the incremental ImageSource.
