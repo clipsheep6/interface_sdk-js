@@ -328,7 +328,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 11
+   * @since 12
    */
   function on(type: 'fingerprint', receiver: Callback<FingerprintEvent>): void;
 
@@ -344,7 +344,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 11
+   * @since 12
    */
   function off(type: 'fingerprint', receiver?: Callback<FingerprintEvent>): void;
 
