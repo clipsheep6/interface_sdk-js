@@ -22,14 +22,14 @@
  */
 declare namespace InfraredEmitter {
   /**
-   * Carrier frequency range supported by the IR emitter.
+   * infrared frequency range supported by the IR emitter.
    *
-   * @interface CarrierFrequency
+   * @interface InfraredFrequency
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @systemapi hide for inner use
    * @since 12
    */
-  interface CarrierFrequency {
+  interface InfraredFrequency {
     /**
      * Maximum frequency.
      *
@@ -55,23 +55,25 @@ declare namespace InfraredEmitter {
    * Transmitted IR signal.
    *
    * @permission ohos.permission.INPUT_IREMITTE
-   * @param { number} carrierFrequency IR carrier frequency, in Hz.
+   * @param { number} infraredFrequency IR infrared frequency, in Hz.
    * @param { Array<number>} pattern Pattern of signal transmission in alternate on/off mode, in microseconds.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @systemapi hide for inner use
    * @since 12
    */
-  function transmitInfrared(carrierFrequency: number, pattern: Array<number>): void;
+  function transmitInfrared(infraredFrequency: number, pattern: Array<number>): void;
 
   /**
-   * Queries the carrier frequency supported by the IR emitter.
+   * Queries the infrared frequency supported by the IR emitter.
    *
-   * @returns { Array<CarrierFrequency> } The return value is an array of CarrierFrequency objects, indicating the carrier frequency ranges supported by the IR emitter.
+   * @returns { Array<InfraredFrequency> } The return value is an array of InfraredFrequency objects, indicating the infrared frequency ranges supported by the IR emitter.
+   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @systemapi hide for inner use
    * @since 12
    */
-  function getInfraredFrequencies(): Array<CarrierFrequency>;
+  function getInfraredFrequencies(): Array<InfraredFrequency>;
 }
 
 export default InfraredEmitter;
