@@ -69,6 +69,7 @@ declare namespace InfraredEmitter {
   /**
    * Queries the infrared frequency supported by the IR emitter.
    *
+   * @permission ohos.permission.INPUT_INFRARED_EMITTE
    * @returns { Array<InfraredFrequency> } The return value is an array of InfraredFrequency objects, indicating the infrared frequency ranges supported by the IR emitter.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
