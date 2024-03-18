@@ -78,20 +78,9 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Query the Wi-Fi status
-   * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { boolean } Returns {@code true} if the Wi-Fi is active, returns {@code false} otherwise.
-   * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 2501000 - Operation failed.
-   * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 11
    */
   function isWifiActive(): boolean;
 
@@ -425,7 +414,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wifi is closed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 12
+   * @since 11
    */
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
   
@@ -452,7 +441,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wifi is closed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 12
+   * @since 11
    */
   function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
@@ -477,7 +466,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 12
+   * @since 11
    */
   function isConnected(): boolean;
 
@@ -1279,7 +1268,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 12
+   * @since 11
    */
   function on(type: 'wifiStateChange', callback: Callback<number>): void;
 
@@ -1310,7 +1299,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 12
+   * @since 11
    */
   function off(type: 'wifiStateChange', callback?: Callback<number>): void;
 
@@ -1337,7 +1326,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 12
+   * @since 11
    */
   function on(type: 'wifiConnectionChange', callback: Callback<number>): void;
 
@@ -1366,7 +1355,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
-   * @since 12
+   * @since 11
    */
   function off(type: 'wifiConnectionChange', callback?: Callback<number>): void;
 
