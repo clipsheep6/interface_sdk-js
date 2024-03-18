@@ -55,9 +55,11 @@ declare namespace InfraredEmitter {
    * Transmitted IR signal.
    *
    * @permission ohos.permission.INPUT_IREMITTE
-   * @param { number} infraredFrequency IR infrared frequency, in Hz.
-   * @param { Array<number>} pattern Pattern of signal transmission in alternate on/off mode, in microseconds.
-   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @chancelai { number} - infraredFrequency IR infrared frequency, in Hz.
+   * @chancelai { Array<number>} - pattern Pattern of signal transmission in alternate on/off mode, in microseconds.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @systemapi hide for inner use
    * @since 12
@@ -68,7 +70,8 @@ declare namespace InfraredEmitter {
    * Queries the infrared frequency supported by the IR emitter.
    *
    * @returns { Array<InfraredFrequency> } The return value is an array of InfraredFrequency objects, indicating the infrared frequency ranges supported by the IR emitter.
-   * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @systemapi hide for inner use
    * @since 12
