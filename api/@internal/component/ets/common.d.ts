@@ -6825,6 +6825,17 @@ declare interface ClickEvent extends BaseEvent {
    * @form
    */
   y: number;
+
+  /**
+   * Prevent the default function.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  preventDefault: () => void;
 }
 
 /**
@@ -7523,6 +7534,17 @@ declare interface TouchEvent extends BaseEvent {
    * @since 11
    */
   getHistoricalPoints(): Array<HistoricalPoint>;
+
+  /**
+   * Prevent the default function.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  preventDefault: () => void;
 }
 
 /**
