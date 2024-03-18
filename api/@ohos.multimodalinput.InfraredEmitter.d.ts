@@ -22,7 +22,7 @@
  */
 declare namespace InfraredEmitter {
   /**
-   * infrared frequency range supported by the IR emitter.
+   * Infrared frequency range supported by the IR emitter.
    *
    * @interface InfraredFrequency
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
