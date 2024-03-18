@@ -403,6 +403,16 @@ export default class UIAbility extends Ability {
   onWindowStageCreate(windowStage: window.WindowStage): void;
 
   /**
+   * Called back when an ability window stage will destroy.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 12
+   */
+   onWindowStageWillDestroy(): void;
+
+  /**
    * Called back when an ability window stage is destroyed.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
