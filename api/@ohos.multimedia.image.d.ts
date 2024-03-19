@@ -4085,7 +4085,7 @@ declare namespace image {
      * @throws { BusinessError } 62980096 - The operation failed.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980137 - Invalid media operation.
-     * @throws { BusinessError } 62980149 - Invalid media parameter.
+     * @throws { BusinessError } 62980149 - Invalid image source mime type.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12
