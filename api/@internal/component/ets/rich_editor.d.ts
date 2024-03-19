@@ -411,6 +411,16 @@ declare interface RichEditorTextStyle {
    * @since 12
    */
   lineHeight?: number | string | Resource;
+
+  /**
+   * font feature
+   *
+   * @type { ?string } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature?: string;
 }
 
 
@@ -894,6 +904,16 @@ declare interface RichEditorTextStyleResult {
    * @since 12
    */
   lineHeight?: number;
+
+  /**
+   * font feature
+   *
+   * @type { ?string } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fontFeature?: string;
 }
 
 /**
