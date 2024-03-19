@@ -9049,6 +9049,34 @@ declare enum EmbeddedType {
   EMBEDDED_UI_EXTENSION = 0,
 }
 
+/**
+ * Enum of the visual effect type
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 12
+ */
+declare enum EffectType {
+  /**
+   * Point light
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  POINT_LIGHT = 0,
+
+  /**
+   * Dimming
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  DIMMING = 1,
+}
+
 declare module 'borderStyle' {
   module 'borderStyle' {
     // @ts-ignore
