@@ -2380,6 +2380,16 @@ declare class RichEditorController {
    * @since 11
    */
   getSelection(): RichEditorSelection;
+ 
+  /**
+   * Judge whether is in editing state
+   * 
+   * @returns { boolean } - true is Edit state, false is non editing status
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isEditing(): boolean;
 }
 
 /**
@@ -2668,6 +2678,17 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 12
    */
   selectedBackgroundColor(value: ResourceColor): RichEditorAttribute;
+  
+  /**
+   * Called when edit status is changed
+   *
+   * @param { function } callback - The triggered function when change edit status.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onEditingChange(callback: (isEditing: boolean) => void): RichEditorAttribute; 
 }
 
 /**
