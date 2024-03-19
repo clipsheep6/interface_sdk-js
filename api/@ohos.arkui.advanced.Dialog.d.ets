@@ -512,6 +512,22 @@ export declare struct AlertDialog {
    * @since 11
    */
   controller: CustomDialogController;
+    /**
+   * Sets the AlertDialog title.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  primaryTitle?: ResourceStr;
+  /**
+   * Sets the AlertDialog secondary title.
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  secondaryTitle?: ResourceStr;
   /**
    * Sets the AlertDialog content.
    * @type { ResourceStr }.
@@ -639,6 +655,14 @@ export declare struct CustomContentDialog {
    * @since 12
    */
   @BuilderParam contentBuilder: () => void;
+  /**
+   * Sets the CustomContentDialog content area padding.
+   * @type { ?Padding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentAreaPadding?: Padding;
   /**
    * Sets the CustomContentDialog buttons.
    * @type { ?ButtonOptions[] }
