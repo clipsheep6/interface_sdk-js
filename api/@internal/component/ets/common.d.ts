@@ -11461,6 +11461,47 @@ declare interface AttributeModifier<T> {
 }
 
 /**
+ * Defines a modifier implements state management.
+ *
+ * @implements AttributeModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class StateAttributeModifier<T> implements AttributeModifier<T> {
+
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  applyNormalAttribute?(instance: T) : void;
+
+  /**
+   * Defines a function for initialization.
+   * 
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  initializeModifier(instance: T) : void;
+
+  /**
+   * Get attributes of the modifier.
+   *
+   * @returns { T } The attributes of the modifier.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get attributes(): T | undefined;
+}
+
+/**
  * Outline Style
  *
  * @enum { number }
