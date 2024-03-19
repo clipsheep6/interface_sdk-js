@@ -1504,7 +1504,7 @@ declare namespace image {
     alphaType: AlphaType;
 
     /**
-     * Indicates image mimeType.
+     * Indicates image mime type.
      *
      * @type { string }
      * @syscap SystemCapability.Multimedia.Image.Core
