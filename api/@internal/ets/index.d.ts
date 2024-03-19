@@ -16,3 +16,5 @@
 export * from './featureability';
 export * from './global';
 export * from './lifecycle';
+export * from './collection';
+export * from './collection_d';
