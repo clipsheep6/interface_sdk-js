@@ -564,3 +564,11 @@ export { VideoModifier } from './arkui/VideoModifier';
  * @since 12
  */
 export { WaterFlowModifier } from './arkui/WaterFlowModifier';
+
+/**
+ * Export StateAttributeModifier, which is used to set attribute to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export { StateAttributeModifier } from './arkui/StateAttributeModifier';
