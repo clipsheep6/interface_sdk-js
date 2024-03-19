@@ -232,6 +232,47 @@ declare interface FlexOptions {
    * @form
    */
   alignContent?: FlexAlign;
+
+  /**
+   * Set the value.
+   * useAlign:Use a custom alignment.
+   * space: Main and Cross layout element spacing.
+   *
+   * @type { ?FlexSpaceOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  space?: FlexSpaceOptions;
+}
+
+/**
+ * Defines flex.
+ *
+ * @interface FlexSpaceOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+
+declare interface FlexSpaceOptions {
+ /**
+   * Defines the mainSpace property.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  mainSpace?: Length;
+/**
+   * Defines the crossSpace property.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  crossSpace?: Length;
 }
 
 /**
