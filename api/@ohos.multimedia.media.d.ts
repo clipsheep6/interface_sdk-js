@@ -178,6 +178,19 @@ declare namespace media {
   function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
 
   /**
+   * Report user choice back to AVScreenCapture server
+   *
+   * @param {number} sessionId The AVScreenCapture server session ID.
+   * @param {string} choice Content chosen by user.
+   * @throws { BusinessError } 401 - Input parameter invalid. Return by promise.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @systemapi
+   * @since 12
+   */
+  function reportAVScreenCaptureUserChoice(sessionId: number, choice: string): Promise<void>;
+
+  /**
    * Manages and plays sound. Before calling an SoundPool method, you must use createSoundPool()
    * to create an SoundPool instance.
    *
