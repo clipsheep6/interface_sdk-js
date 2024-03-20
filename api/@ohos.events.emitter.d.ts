@@ -293,6 +293,16 @@ declare namespace emitter {
      */
     priority?: EventPriority;
   }
+  
+  /**
+   * Describes an intra-process event callback
+   * @extends Callback<EventData>
+   * @syscap SystemCapability.Notification.Emitter
+   * @since 11
+   *
+   * @typedef InnerCallback
+   */
+  export interface InnerCallback extends Callback<EventData> {}
 
   /**
    * Indicates the emit priority of the event.
