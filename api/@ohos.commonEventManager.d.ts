@@ -2038,6 +2038,14 @@ declare namespace commonEventManager {
      * @since 12
      */
     COMMON_EVENT_PACKAGE_INSTALLATION_STARTED = 'usual.event.PACKAGE_INSTALLATION_STARTED',
+
+    /**
+     * This commonEvent means when a new uiability complete it's first frame drawing.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 12
+     */
+    COMMON_EVENT_FIRST_FRAME_DRAWING_COMPLETE = 'usual.event.FIRST_FRAME_COMPLETED',
   }
 
   /**
