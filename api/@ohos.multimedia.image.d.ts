@@ -2353,7 +2353,7 @@ function createPremultiplyPixelMap(src: PixelMap, dst: PixelMap, callback: Async
    * @crossplatform
    * @since 12
    */
-function createUnPremultiplyPixelMap(src: PixelMap, dst: PixelMap): Promise<void>;
+function createPremultiplyPixelMap(src: PixelMap, dst: PixelMap): Promise<void>;
 
   /**
    * Transforms pixelmap from premultiplied alpha format to nonpremultiplied alpha format.
