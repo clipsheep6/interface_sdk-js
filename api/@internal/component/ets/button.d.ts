@@ -392,15 +392,6 @@ declare interface ButtonOptions {
     role?: ButtonRole;
 }
 
-declare enum ButtonStyleEx {
-  Default = 'Default',
-  Emphasize = 'Emphasize',
-  Text = 'Text',
-  SmallDefault = 'SmallDefault',
-  SmallEmphasize = 'SmallEmphasize',
-  SmallText = 'SmallText',
-}
-
 /**
  * Defines the Button Component.
  *
@@ -725,10 +716,6 @@ declare interface LabelStyle {
  * @form
  */
 declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
-  buttonStyleEx(value: ButtonStyleEx): ButtonAttribute;
-
-  buttonRole(value: ButtonRole): ButtonAttribute;
-
   /**
    * Describes the button style.
    *
