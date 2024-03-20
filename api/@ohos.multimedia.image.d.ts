@@ -3862,7 +3862,6 @@ declare namespace image {
      * @returns { ImageInfo } The image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @atomicservice
      * @since 12
      */
     getImageInfoSync(index?: number): ImageInfo;
@@ -3964,7 +3963,6 @@ declare namespace image {
      * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @atomicservice
      * @since 12
      */
     createPixelMapSync(options?: DecodingOptions): PixelMap;
