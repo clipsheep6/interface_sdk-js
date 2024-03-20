@@ -4230,18 +4230,12 @@ declare namespace image {
      *
      * @param { Array<PropertyKey> } key - Name of the properties whose value is to be obtained.
      * @returns { Promise<Record<PropertyKey, string|null>> } Array of Records instance used to return the
-     * property values. If the operation fails, the default value is returned.
+     * property values. If the operation fails, the null is returned.
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 62980096 - The operation failed.
-     * @throws { BusinessError } 62980103 - The image data is not supported.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
-     * @throws { BusinessError } 62980111 - The image source data is incomplete.
-     * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
-     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12
