@@ -170,7 +170,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 12
    */
-  function createMediaSourceWithFD(fdSrc: AVFileDescriptor): MediaSource;
+  function createMediaSourceWithFd(fdSrc: AVFileDescriptor): MediaSource;
 
     /**
    * Create MediaSource from data source descriptor.
@@ -728,7 +728,7 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 12
    */
-  enum HDRType {
+  enum HdrType {
     /**
      * This option is used to mark none HDR type.
      * @syscap SystemCapability.Multimedia.Media.core
@@ -1410,7 +1410,7 @@ declare namespace media {
     /**
      * Select specific track to play.
      * @param { number } index : Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
-     * @throws { BusinessError } 401 - Theparameter check failed. Return by promise.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
@@ -1420,7 +1420,7 @@ declare namespace media {
     /**
      * Deselect specific track to play.
      * @param { number } index : Track index returned by getTrackDescription#MD_KEY_TRACK_INDEX
-     * @throws { BusinessError } 401 - Theparameter check failed. Return by promise.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
@@ -1431,7 +1431,7 @@ declare namespace media {
      * Add subtitle resource represented by url to the player. After the Promise returns,
      * subtitle info can be obtained by @getTrackDescription
      * @param { string } url : Address of external subtitle file.
-     * @throws { BusinessError } 401 - Theparameter check failed. Return by promise.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
@@ -1446,23 +1446,23 @@ declare namespace media {
      * By default, the offset is zero.
      * @param { number } length : The length in bytes of the data to be read.
      * By default, the length is the rest of bytes in the file from the offset.
-     * @throws { BusinessError } 401 - Theparameter check failed. Return by promise.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
      */
-    addSubtitleFromFD(fd: number, offset?: number, length?: number): Promise<void>;
+    addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise<void>;
 
     /**
      * Set MediaSource to AVPlayer, this interface is exclusive with fd/url/dataSrc assign.
      * @param { MediaSource } src : MediaSource instance to be set to the avplayer instance.
-     * @param { PlayStrategy } strategy : Play stragegy of the media source.
-     * @throws { BusinessError } 401 - Theparameter check failed. Return by promise.
+     * @param { PlaybackStrategy } strategy : Play stragegy of the media source.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
      */
-    setMediaSource(src: MediaSource, strategy?: PlayStrategy): Promise<void>;
+    setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>;
 
     /**
      * Media URI. Mainstream media formats are supported.
@@ -2096,11 +2096,11 @@ declare namespace media {
   /**
    * Provides preferred playback settings for player.
    *
-   * @typedef PlayStrategy
+   * @typedef PlaybackStrategy
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 12
    */
-  interface PlayStrategy {
+  interface PlaybackStrategy {
     /**
      * Choose a stream with width close to it.
      * @syscap SystemCapability.Multimedia.Media.Core
@@ -2758,13 +2758,13 @@ declare namespace media {
      * @param { number } rotation : Rotation angle, should be [0, 90, 180, 270].
      * @returns { Promise<void> } A promise instance used to return when the function is finished.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
-     * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12
      */
-    updateRecordRotation(rotation: number): Promise<void>;
+    updateRotation(rotation: number): Promise<void>;
 
     /**
      * Start AVRecorder, it will to started state.
