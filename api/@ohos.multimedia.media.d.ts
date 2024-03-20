@@ -801,7 +801,8 @@ declare namespace media {
     fdSrc ?: AVFileDescriptor;
 
     /**
-     * It will fetch a picture at @timeUs from the given video resource.
+     * It will decode the given video source. Then fetch a picture
+     * at @timeUs according to the given @options and @param.
      * @param { number } timeUs - The time expected to fetch picture from the video resource.
      * The unit is microsecond(us).
      * @param { AVImageQueryOptions } options - The time options about the relationship
@@ -809,8 +810,9 @@ declare namespace media {
      * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams .
      * @param { AsyncCallback<image.PixelMap> } callback - A callback instance used
      * to return when fetchFrameByTime completed.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
-     * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by callback.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12
      */
@@ -827,8 +829,9 @@ declare namespace media {
      * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams .
      * @returns { Promise<image.PixelMap> } A Promise instance used to return the pixel map
      * when fetchFrameByTime completed.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
-     * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12
      */
