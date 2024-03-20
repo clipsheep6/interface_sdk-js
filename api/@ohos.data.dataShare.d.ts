@@ -375,6 +375,46 @@ declare namespace dataShare {
      */
     result: number;
   }
+ /**
+  * Define the changeType of data.
+  *
+  * @enum { number }
+  * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+  * @systemapi
+  * @stagemodelonly
+  * @since 12
+  */
+  declare enum changeType {
+    /**
+     *  INSERT:means the type of dataChange is insert.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    INSERT = 0,
+
+    /**
+     * DELETE: means the type of dataChange is delete.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    DELETE,
+
+    /**
+     * UPDATE means the type of dataChange is update.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    UPDATE,
+    }
 
   /**
    * Struct for a batch update operation.
@@ -442,6 +482,45 @@ declare namespace dataShare {
      * @since 9
      */
     off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
+
+    /**
+     * Registers an observer to observe data specified by the given uri.
+     *
+     * @param { 'Change' } type - Type must be 'Change'.
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { AsyncCallback<changeType, string, Array<ValuesBucket>> } callback - The callback of on.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    on(type: 'Change', uri: string, callback: AsyncCallback<changeType, string, Array<ValuesBucket>>): void;
+
+    /**
+     * Deregisters an observer used for monitoring data specified by the given uri.
+     *
+     * @param { 'Change' } type - Type must be 'dataChange'.
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { AsyncCallback<changeType, string, Array<ValuesBucket>> } callback - The callback of off.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    off(type: 'Change', uri: string, callback?: AsyncCallback<changeType, string, Array<ValuesBucket>>): void;
+
+    /**
+     * Notifies the registered observers of a change to the data resource specified by Uri.
+     *
+     * @param { 'changeType' } type - Indicates the operation type of data.
+     * @param { string } uri - Indicates the path of the data to operate.
+     * @param { Array<ValuesBucket> } values - The specific change of value.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    emit(type: changeType, uri: string, values: Array<ValuesBucket>)
 
     /**
      * Adds a template of {@link #on(string, Array<string>, TemplateId, AsyncCallback<ChangeNode>)}.
