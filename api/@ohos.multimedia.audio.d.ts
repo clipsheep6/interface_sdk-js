@@ -5267,28 +5267,28 @@ declare namespace audio {
      * @systemapi
      * @since 12
      */
-    SPATIALIZATION_SCENE_TYPE_DEFAULT = 0,
+    DEFAULT = 0,
     /**
      * Audio Spatialization Scene Type Music.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 12
      */
-    SPATIALIZATION_SCENE_TYPE_MUSIC = 1,
+    MUSIC = 1,
     /**
      * Audio Spatialization Scene Type Movie.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 12
      */
-    SPATIALIZATION_SCENE_TYPE_MOVIE = 2,
+    MOVIE = 2,
     /**
      * Audio Spatialization Scene Type Audio Book.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 12
      */
-    SPATIALIZATION_SCENE_TYPE_AUDIOBOOK = 3,
+    AUDIOBOOK = 3,
   }
 
   /**
