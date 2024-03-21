@@ -302,7 +302,7 @@ declare namespace emitter {
    * @since 11
    *
    */
-  export interface InnerCallback extends Callback<EventData> {}
+  export type InnerCallback = Callback<EventData>
 
   /**
    * Indicates the emit priority of the event.
