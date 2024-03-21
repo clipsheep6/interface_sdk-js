@@ -922,7 +922,7 @@ declare namespace image {
     PHOTOMETRIC_INTERPRETATION = 'PhotometricInterpretation',
 
     /**
-     * For each strip, the byte offset of that strip. It is recommended that this be selected so the number of strip bytes does not exceed 64 Kbytes. With JPEG compressed data this designation is not needed and is omitted. See also <RowsPerStrip> and <StripByteCounts>.
+     * For each strip, the byte offset of that strip. It is recommended that this be selected so the number of strip bytes does not exceed 64K bytes. With JPEG compressed data this designation is not needed and is omitted. See also <RowsPerStrip> and <StripByteCounts>.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1075,7 +1075,7 @@ declare namespace image {
     REFERENCE_BLACK_WHITE = 'ReferenceBlackWhite',
 
     /**
-     * Copyright information. In this standard the tag is used to indicate both the photographer and editor copyrights. It is the copyright notice of the person or organization claiming rights to the image. The Interoperability copyright statement including date and rights should be written in this field; e.g., "Copyright, John Smith, 19xx. All rights reserved.". In this standard the field records both the photographer and editor copyrights, with each recorded in a separate part of the statement. When there is a clear distinction between the photographer and editor copyrights, these are to be written in the order of photographer followed by editor copyright, separated by NULL (in this case since the statement also ends with a NULL, there are two NULL codes). When only the photographer copyright is given, it is terminated by one NULL code. When only the editor copyright is given, the photographer copyright part consists of one space followed by a terminating NULL code, then the editor copyright is given. When the field is left blank, it is treated as unknown.
+     * Copyright information. In this standard the tag is used to indicate both the photographer and editor copyright. It is the copyright notice of the person or organization claiming rights to the image. The Interoperability copyright statement including date and rights should be written in this field; e.g., "Copyright, John Smith, 19xx. All rights reserved.". In this standard the field records both the photographer and editor copyright, with each recorded in a separate part of the statement. When there is a clear distinction between the photographer and editor copyright, these are to be written in the order of photographer followed by editor copyright, separated by NULL (in this case since the statement also ends with a NULL, there are two NULL codes). When only the photographer copyright is given, it is terminated by one NULL code. When only the editor copyright is given, the photographer copyright part consists of one space followed by a terminating NULL code, then the editor copyright is given. When the field is left blank, it is treated as unknown.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1093,7 +1093,7 @@ declare namespace image {
     JPEG_INTERCHANGE_FORMAT = 'JPEGInterchangeFormat',
 
     /**
-     * The number of bytes of JPEG compressed thumbnail data. This is not used for primary image JPEG data. JPEG thumbnails are not divided but are recorded as a continuous JPEG bitstream from SOI to EOI. Appn and COM markers should not be recorded. Compressed thumbnails must be recorded in no more than 64 Kbytes, including all other data to be recorded in APP1.
+     * The number of bytes of JPEG compressed thumbnail data. This is not used for primary image JPEG data. JPEG thumbnails are not divided but are recorded as a continuous JPEG bitstream from SOI to EOI. Appn and COM markers should not be recorded. Compressed thumbnails must be recorded in no more than 64K bytes, including all other data to be recorded in APP1.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1216,7 +1216,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    SUB_SEC_TIME = 'SubSecTime',
+    SUBSEC_TIME = 'SubsecTime',
 
     /**
      * A tag used to record fractions of seconds for the <DateTimeOriginal> tag.
@@ -1225,7 +1225,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    SUB_SEC_TIME_ORIGINAL = 'SubSecTimeOriginal',
+    SUBSEC_TIME_ORIGINAL = 'SubsecTimeOriginal',
 
     /**
      * A tag used to record fractions of seconds for the <DateTimeDigitized> tag.
@@ -1234,7 +1234,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    SUB_SEC_TIME_DIGITIZED = 'SubSecTimeDigitized',
+    SUBSEC_TIME_DIGITIZED = 'SubsecTimeDigitized',
 
     /**
      * The FlashPix format version supported by a FPXR file.
@@ -1363,7 +1363,7 @@ declare namespace image {
     CUSTOM_RENDERED = 'CustomRendered',
 
     /**
-     * This tag indicates the exposure mode set when the image was shot. In auto-bracketing mode, the camera shoots a series of frames of the same scene at different exposure settings.
+     * This tag indicates the exposure mode set when the image was shot. In auto-bracketing mode, the camera shots a series of frames of the same scene at different exposure settings.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1516,7 +1516,7 @@ declare namespace image {
     GPS_DOP = 'GPSDOP',
 
     /**
-     * Indicates the unit used to express the GPS receiver speed of movement. "K" "M" and "N" represents kilometers per hour, miles per hour, and knots.
+     * Indicates the unit used to express the GPS receiver speed of movement. "K" "M" and "N" represents kilometer per hour, miles per hour, and knots.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1633,7 +1633,7 @@ declare namespace image {
     GPS_DEST_BEARING = 'GPSDestBearing',
 
     /**
-     * Indicates the unit used to express the distance to the destination point. "K", "M" and "N" represent kilometers, miles and knots.
+     * Indicates the unit used to express the distance to the destination point. "K", "M" and "N" represent kilometer, miles and knots.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1831,7 +1831,7 @@ declare namespace image {
     OFFSET_TIME_ORIGINAL = 'OffsetTimeOriginal',
 
     /**
-     * For a composite image, records the parameters relating exposure time of the exposures for generating the said composite image, such as respective exposure times of captured source images (tentatively recorded images).
+     * For a composite image, records the parameters relating exposure time of the exposure for generating the said composite image, such as respective exposure times of captured source images (tentatively recorded images).
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
