@@ -327,7 +327,7 @@ declare namespace display {
    * set fold status locked and get callback fold status.
    *
    * @permission ohos.permission.CHANGE_DISPLAYMODE
-   * @param { number } displayMode - display mode.
+   * @param { FoldDisplayMode } displayMode - display mode.
    * @param { Callback<FoldStatus> } callback - Callback used to return the fold status.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error.
@@ -337,13 +337,13 @@ declare namespace display {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function setFoldStatusLocked(displayMode: number, callback: Callback<FoldStatus>): void;
+  function setFoldStatusLocked(displayMode: FoldDisplayMode, callback: Callback<FoldStatus>): void;
 
   /**
    * set fold status unlocked.
    *
    * @permission ohos.permission.CHANGE_DISPLAYMODE
-   * @param { number } displayMode - display mode.
+   * @param { FoldDisplayMode } displayMode - display mode.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported on this device.
@@ -352,7 +352,7 @@ declare namespace display {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function setFoldStatusUnlocked(displayMode: number): void;
+  function setFoldStatusUnlocked(displayMode: FoldDisplayMode): void;
 
   /**
    * Enumerates the fold status.
