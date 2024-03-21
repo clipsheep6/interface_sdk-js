@@ -950,7 +950,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Set options of marquee
    *
-   * @param { object } value
+   * @param { MarqueeOptions } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
