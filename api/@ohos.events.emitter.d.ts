@@ -295,14 +295,23 @@ declare namespace emitter {
   }
   
   /**
-   * Describes an intra-process event callback
-   * 
+   * Defines the basic callback.
    * @typedef InnerCallback
    * @syscap SystemCapability.Notification.Emitter
+   * @atomicservice
    * @since 11
    */
-  export type InnerCallback = Callback<EventData>
-
+  export interface InnerCallback<T> {
+    /**
+     * Defines the callback info.
+     * @param { T } data
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 11
+     */
+    (data: T): void;
+  }
+  
   /**
    * Indicates the emit priority of the event.
    *
