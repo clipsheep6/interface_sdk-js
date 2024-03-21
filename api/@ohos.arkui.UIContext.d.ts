@@ -44,6 +44,7 @@ import { TimePickerDialogOptions } from 'TimePickerDialogParam';
 import { TextPickerDialogOptions } from 'textPickerDialogParam';
 import type { CustomBuilder, DragItemInfo, DragEvent } from 'DragControllerParam';
 import type dragController from './@ohos.arkui.dragController';
+import type { FrameNode } from './@ohos.arkui.node'
 
 /**
  * class Font
@@ -969,6 +970,36 @@ export class PromptAction {
  */
 export class UIObserver {
   /**
+   * Defines the callback type used in UIObserver watch click event.
+   * The value of event indicates the information of ClickEvent.
+   * The value of node indicates the frameNode which will receive the event.
+   * 
+   * @typedef {Function} ClickEventListenerCallback
+   * @param { ClickEvent } event - the information of ClickEvent
+   * @param { FrameNode } node - the information of frameNode
+   * @return { void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void
+
+  /**
+   * Defines the callback type used in UIObserver watch gesture.
+   * The value of event indicates the information of gesture.
+   * The value of node indicates the frameNode which will receive the event.
+   * 
+   * @typedef {Function} GestureEventListenerCallback
+   * @param { GestureEvent } event - the information of GestureEvent
+   * @param { FrameNode } node - the information of frameNode
+   * @return { void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void
+
+  /**
    * Registers a callback function to be called when the navigation destination is updated.
    *
    * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
@@ -1155,6 +1186,102 @@ export class UIObserver {
    * @since 12
    */
   off(type: 'didLayout', callback?: Callback<void>): void;
+
+  /**
+   * Registers a callback function to be called before clickEvent is called.
+   *
+   * @param { 'willClick' } type - The type of event to listen for.
+   * @param { ClickEventListenerCallback } callback - The callback function to be called
+   *                                                  when the clickEvent will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'willClick', callback: ClickEventListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called before clickEvent is called.
+   *
+   * @param { 'willClick' } type - The type of event to remove the listener for.
+   * @param { ClickEventListenerCallback } [callback] - The callback function to remove. If not provided,
+   *                                                    all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'willClick', callback?: ClickEventListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called after clickEvent is called.
+   *
+   * @param { 'didClick' } type - The type of event to listen for.
+   * @param { ClickEventListenerCallback } callback - The callback function to be called
+   *                                                  when the clickEvent will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'didClick', callback: ClickEventListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called after clickEvent is called.
+   *
+   * @param { 'didClick' } type - The type of event to remove the listener for.
+   * @param { ClickEventListenerCallback } [callback] - The callback function to remove. If not provided,
+   *                                                    all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'didClick', callback?: ClickEventListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called before tapGesture is called.
+   *
+   * @param { 'willClick' } type - The type of event to listen for.
+   * @param { GestureEventListenerCallback } callback - The callback function to be called
+   *                                                    when the clickEvent will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'willClick', callback: GestureEventListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called before tapGesture is called.
+   *
+   * @param { 'willClick' } type - The type of event to remove the listener for.
+   * @param { GestureEventListenerCallback } [callback] - The callback function to remove. If not provided,
+   *                                                      all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'willClick', callback?: GestureEventListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called after tapGesture is called.
+   *
+   * @param { 'didClick' } type - The type of event to listen for.
+   * @param { GestureEventListenerCallback } callback - The callback function to be called
+   *                                                    when the clickEvent will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  on(type: 'didClick', callback: GestureEventListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called after tapGesture is called.
+   *
+   * @param { 'didClick' } type - The type of event to remove the listener for.
+   * @param { GestureEventListenerCallback } [callback] - The callback function to remove. If not provided,
+   *                                                      all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  off(type: 'didClick', callback?: GestureEventListenerCallback): void;
 }
 
 /**
