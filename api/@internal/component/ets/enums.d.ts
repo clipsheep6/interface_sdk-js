@@ -6456,6 +6456,7 @@ declare enum TextOverflow {
    * @since 11
    */
   MARQUEE,
+  
   /**
    * When the text overflows its dimensions, the text will fadeout and
    * if text got onfocus, the text will scroll for displaying.
