@@ -1207,7 +1207,7 @@ declare interface MarqueeOptions {
   /**
    * The running direction of the marquee.
    *
-   * @type { boolean }
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -1217,7 +1217,7 @@ declare interface MarqueeOptions {
   /**
    * The waiting time between each round of the marquee.
    *
-   * @type { ?number }
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
