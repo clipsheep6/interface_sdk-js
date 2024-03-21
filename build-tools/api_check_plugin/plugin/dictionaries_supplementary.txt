@@ -601,6 +601,7 @@ pertaining
 pfa
 pfb
 pgo
+phonemes
 photographing
 phy
 pickers
