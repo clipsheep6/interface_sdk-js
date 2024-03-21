@@ -296,10 +296,10 @@ declare namespace emitter {
   
   /**
    * Describes an intra-process event callback
+   * 
    * @typedef InnerCallback
    * @syscap SystemCapability.Notification.Emitter
    * @since 11
-   *
    */
   export type InnerCallback = Callback<EventData>
 
