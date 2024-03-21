@@ -31,6 +31,12 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * This module provides functionality for component coordinates and sizes.
+ * @namespace componentUtils
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
 declare namespace componentUtils {
 
   /**
@@ -46,6 +52,12 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 11
   */
+  /**
+   * Component information.
+   * @typedef ComponentInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
   interface ComponentInfo {
 
     /**
@@ -92,6 +104,15 @@ declare namespace componentUtils {
     * @since 11
     */
     windowOffset: Offset
+
+    /**
+     * Obtain attribute information relative to the window with the graphics
+     * transform information applied.
+     * @type {Offset}
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 12
+     */
+    windowOffsetWithTransform: Offset
 
     /**
     * Obtain attribute information relative to the screen.
