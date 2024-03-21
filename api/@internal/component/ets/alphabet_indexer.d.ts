@@ -802,6 +802,17 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * @since 12
    */
   popupTitleBackground(value: ResourceColor): AlphabetIndexerAttribute;
+
+  /**
+   * Set the width of indexer auto adapt to the max width of the item.
+   *
+   * @param { boolean } value
+   * @returns { AlphabetIndexerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  adaptiveWidth(value: boolean): AlphabetIndexerAttribute;
 }
 
 /**
