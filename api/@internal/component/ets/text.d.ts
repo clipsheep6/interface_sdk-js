@@ -1217,7 +1217,7 @@ declare interface MarqueeOptions {
   /**
    * The waiting time between each round of the marquee.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
