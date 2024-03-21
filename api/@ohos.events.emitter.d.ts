@@ -297,7 +297,6 @@ declare namespace emitter {
   /**
    * Describes an intra-process event callback
    * @typedef InnerCallback
-   * @extends Callback<EventData>
    * @syscap SystemCapability.Notification.Emitter
    * @since 11
    *
