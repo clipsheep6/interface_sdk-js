@@ -1020,7 +1020,6 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Called when the percentage of bubble prompt is set when sliding.
    *
    * @param { boolean } value
-   * @param { ResourceStr } content
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -1029,7 +1028,6 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * Called when the percentage of bubble prompt is set when sliding.
    *
    * @param { boolean } value
-   * @param { ResourceStr } content
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
