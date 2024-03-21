@@ -64,7 +64,39 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
-    PROFILE_PAN_NETWORK = 7
+    PROFILE_PAN_NETWORK = 7,
+
+      /**
+     * Phone Book Access Profile (PBAP): client.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    PROFILE_PBAP_PCE = 8,
+
+    /**
+     * Phone Book Access Profile (PBAP): server.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    PROFILE_PBAP_PSE = 9,
+
+    /**
+     * Message Access Server (MAS).
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    PROFILE_MAP_MAS = 10,
+
+    /**
+     * Message Notification Server (MNS).
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 11
+     */
+    PROFILE_MAP_MNS = 11
   }
 
   /**
@@ -155,7 +187,39 @@ declare namespace constant {
      * @systemapi
      * @since 10
      */
-    PROFILE_UUID_HOGP = '00001812-0000-1000-8000-00805F9B34FB'
+    PROFILE_UUID_HOGP = '00001812-0000-1000-8000-00805F9B34FB',
+      /**
+     * Phonebook Access - PCE
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    PROFILE_UUID_PBAP_PCE = '0000112e-0000-1000-8000-00805F9B34FB',
+    /**
+     * Phonebook Access - PSE
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    PROFILE_UUID_PBAP_PSE = '0000112f-0000-1000-8000-00805F9B34FB',
+    /**
+     * Message Access Server
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    PROFILE_UUID_MAP_MAS = "00001132-0000-1000-8000-00805F9B34FB",
+    /**
+     * Message Notification Server
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 11
+     */
+    PROFILE_UUID_MAP_MNS = "00001133-0000-1000-8000-00805F9B34FB"
   }
 
   /**
