@@ -269,6 +269,16 @@ export interface BundleInfo {
    * @since 12
    */
   readonly routerMap: Array<RouterItem>;
+
+  /**
+   * Indicates the appIndex of application, only work in twin app mode
+   * 
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly appIndex: number;
 }
 
 /**

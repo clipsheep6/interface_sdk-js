@@ -723,6 +723,43 @@ declare namespace installer {
      * @since 12
      */
     uninstallUpdates(bundleName: string, installParam?: InstallParam): Promise<void>;
+
+    /**
+     * Create twin instance for an application.
+     *
+     * @permission ohos.permission.INSTALL_TWIN_BUNDLE
+     * @param { string } bundleName - Indicates the path where the HAP of the application is stored.
+     * @param { CreateAppTwinParam } [createAppTwinParam] Indicates the optional params of create twin app.
+     * @returns { Promise<number> } Return the appIndex of the twin application.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
+     * @throws { BusinessError } 17700004 - The userId is invalid.
+     * @throws { BusinessError } 17700061 - The appIndex is not in valid range or already exists.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    createAppTwin(bundleName: string, createAppTwinParam?: CreateAppTwinParam): Promise<number>;
+
+    /**
+     * Destroy twin instance for an application.
+     *
+     * @permission ohos.permission.INSTALL_TWIN_BUNDLE or ohos.permission.UNINSTALL_TWIN_BUNDLE
+     * @param { string } bundleName - Indicates the path where the HAP of the application is stored.
+     * @param { number } appIndex - Indicates the twin application's index.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_TWIN_BUNDLE'.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 401 - Input parameters check failed.
+     * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+     * @throws { BusinessError } 17700063 - AppIndex Not Found.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+      destroyAppTwin(bundleName: string, appIndex: number): Promise<void>;
   }
 
   /**
@@ -945,6 +982,35 @@ declare namespace installer {
      * @since 10
      */
     versionCode?: number;
+  }
+
+  /**
+   * Provides parameters required for creating twin app.
+   * 
+   * @typedef CreateTwinParam
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  export interface CreateAppTwinParam {
+    /**
+     * Indicates the user id
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    userId?: number;
+    /**
+     * Indicates the appIndex of MultiApp
+     * 
+     * @type { ?number }
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    appIndex?: number; 
   }
 }
 
