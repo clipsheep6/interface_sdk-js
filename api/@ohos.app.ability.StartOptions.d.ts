@@ -18,7 +18,7 @@
  * @kit AbilityKit
  */
 
-import contextConstant from "./@ohos.app.ability.contextConstant";
+import contextConstant from './@ohos.app.ability.contextConstant';
 
 /**
  * StartOptions is the basic communication component of the system.
