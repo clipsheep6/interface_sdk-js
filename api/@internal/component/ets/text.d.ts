@@ -967,7 +967,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @since 12
    */
-  onMarqueeStateChange(callback: Callback<MarqueeState>): TextAttribute;
+  onMarqueeStateChange(callback: (state: MarqueeState) => void): TextAttribute;
 }
 
 /**
@@ -1187,7 +1187,7 @@ declare interface MarqueeOptions {
   /**
    * The step size of the marquee.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -1197,7 +1197,7 @@ declare interface MarqueeOptions {
   /**
    * The rounds of the marquee.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -1217,7 +1217,7 @@ declare interface MarqueeOptions {
   /**
    * The waiting time between each round of the marquee.
    *
-   * @type { number }
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
