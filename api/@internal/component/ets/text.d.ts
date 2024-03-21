@@ -967,7 +967,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @crossplatform
    * @since 12
    */
-  onMarqueeStateChange(callback: (state: MarqueeState) => void): TextAttribute;
+  onMarqueeStateChange(callback: Callback<MarqueeState>): TextAttribute;
 }
 
 /**
