@@ -9251,6 +9251,16 @@ declare interface SheetOptions extends BindOptions {
    * @since 11
    */
   enableOutsideInteractive?: boolean;
+
+  /**
+   * Called when height of the sheet is changed
+   *
+   * @type { ?Callback<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onHeightDidChange?: Callback<number>;
 }
 
 /**
