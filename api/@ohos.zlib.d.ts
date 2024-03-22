@@ -879,13 +879,12 @@ declare namespace zlib {
     /**
      * A function that decompresses data from the end to read the raw compressed data from the input source.
      * @param { object } inDesc
-     * @param { ArrayBuffer } buf
-     * @returns { number }
+     * @returns { ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12
      */
-    (inDesc: object, buf: ArrayBuffer): number;
+    (inDesc: object): ArrayBuffer;
   }
 
   /**
