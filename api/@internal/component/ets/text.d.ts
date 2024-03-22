@@ -963,6 +963,28 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    */
   onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) => void): TextAttribute;
+
+  /**
+   * Set options of marquee
+   *
+   * @param { MarqueeOptions } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  marqueeOptions(value: MarqueeOptions): TextAttribute;
+
+  /**
+   * Called when the text marquee state changes.
+   *
+   * @param { Callback<MarqueeState> } callback - callback of the marquee state change event.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onMarqueeStateChange(callback: (state: MarqueeState) => void): TextAttribute;
 }
 
 /**
@@ -1104,6 +1126,43 @@ declare enum TextResponseType {
 }
 
 /**
+ * Defines marquee state.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum MarqueeState {
+  /**
+   * The marquee started.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  START = 0,
+
+  /**
+   * The marquee a round finished and start next round.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  BOUNCE = 1,
+
+  /**
+   * The marquee all finished.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FINISH = 2,
+}
+
+/**
  * Defines the options of Text.
  *
  * @interface TextOptions
@@ -1121,6 +1180,66 @@ declare interface TextOptions {
    * @since 11
    */
   controller: TextController;
+}
+
+/**
+ * Defines the options of marquee.
+ *
+ * @interface MarqueeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface MarqueeOptions {
+  /**
+   * Is need start marquee.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  start: boolean;
+
+  /**
+   * The step size of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  step?: number;
+
+  /**
+   * The rounds of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  loop?: number;
+
+  /**
+   * The running direction of the marquee.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fromStart?: boolean;
+
+  /**
+   * The waiting time between each round of the marquee.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  delay?: number;
 }
 
 /**
