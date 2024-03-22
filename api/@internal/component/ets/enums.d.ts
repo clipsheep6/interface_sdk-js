@@ -7479,6 +7479,7 @@ declare enum CopyOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @deprecated since 12
    * @form
    */
   CROSS_DEVICE = 3,
