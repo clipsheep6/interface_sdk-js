@@ -478,7 +478,16 @@ declare class SubTabBarStyle {
    * @atomicservice
    * @since 11
    */
-  constructor(content: ResourceStr);
+  /**
+   * constructor.
+   *
+   * @param { ResourceStr | FrameNode } content - indicates the content of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  constructor(content: ResourceStr | FrameNode);
 
   /**
    * constructor
@@ -501,7 +510,18 @@ declare class SubTabBarStyle {
    * @atomicservice
    * @since 11
    */
-  static of(content: ResourceStr): SubTabBarStyle;
+  /**
+   * constructor
+   *
+   * @param { ResourceStr | FrameNode } content - indicates the content of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  static of(content: ResourceStr | FrameNode): SubTabBarStyle;
 
   /**
    * Set the style of the indicator when selected
