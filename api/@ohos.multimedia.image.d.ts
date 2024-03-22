@@ -922,7 +922,7 @@ declare namespace image {
     PHOTOMETRIC_INTERPRETATION = 'PhotometricInterpretation',
 
     /**
-     * The number of rows per strip of image data.
+     * For each strip, the byte offset of that strip.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1102,7 +1102,7 @@ declare namespace image {
     JPEG_INTERCHANGE_FORMAT_LENGTH = 'JPEGInterchangeFormatLength',
 
     /**
-     * This tag describes the class of the program used by the camera to set exposure when the picture is taken. It can indicate various modes such as manual, normal program, aperture priority, shutter priority, and others, providing insight into how the image was exposed. The Exif (Exchangeable Image File Format) standard encompasses various tags that provide detailed information about an image's attributes.
+     * The class of the program used by the camera to set exposure when the picture is taken.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1111,7 +1111,7 @@ declare namespace image {
     EXPOSURE_PROGRAM = 'ExposureProgram',
 
     /**
-     * This tag indicates the spectral sensitivity of each channel of the camera used. It is an ASCII string that aligns with the standard developed by the ASTM Technical committee.
+     * Indicates the spectral sensitivity of each channel of the camera used.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1120,7 +1120,7 @@ declare namespace image {
     SPECTRAL_SENSITIVITY = 'SpectralSensitivity',
 
     /**
-     * The OECF tag indicates the relationship between the camera optical input and the image values. It is a crucial parameter for understanding how the camera sensor converts light into electronic signals.
+     * Indicates the Opto-Electric Conversion Function (OECF) specified in ISO 14524.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1138,7 +1138,7 @@ declare namespace image {
     EXIF_VERSION = 'ExifVersion',
 
     /**
-     * This field records the date and time when the image was stored as digital data. It is similar to DateTimeOriginal but specifically for the digitized version of the image.
+     * The date and time when the image was stored as digital data.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1147,7 +1147,7 @@ declare namespace image {
     DATE_TIME_DIGITIZED = 'DateTimeDigitized',
 
     /**
-     * The channels of each component arranged in order.
+     * Information specific to compressed data.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1174,7 +1174,7 @@ declare namespace image {
     BRIGHTNESS_VALUE = 'BrightnessValue',
 
     /**
-     * This tag records the smallest F-number of the lens, which is the maximum aperture value that the lens can achieve. It is expressed in APEX value and is useful for understanding the lens's light-gathering ability.
+     * The smallest F number of lens.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1192,7 +1192,7 @@ declare namespace image {
     SUBJECT_DISTANCE = 'SubjectDistance',
 
     /**
-     * Location and area of the main subject.
+     * This tag indicate the location and area of the main subject in the overall scene.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1201,7 +1201,7 @@ declare namespace image {
     SUBJECT_AREA = 'SubjectArea',
 
     /**
-     * Manufacturer-specific notes, often used for additional information.
+     * A tag for manufacturers of Exif/DCF writers to record any desired infomation.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1210,7 +1210,7 @@ declare namespace image {
     MAKER_NOTE = 'MakerNote',
 
     /**
-     * A tag for manufacturers of Exif writers to record any desired information. The contents are up to the manufacturer.
+     * A tag for record fractions of seconds for the DateTime tag.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1219,7 +1219,7 @@ declare namespace image {
     SUBSEC_TIME = 'SubsecTime',
 
     /**
-     * A tag for manufacturers of Exif writers to record any desired information. The contents are up to the manufacturer.
+     * A tag used to record fractions of seconds for the DateTimeOriginal tag.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1228,7 +1228,7 @@ declare namespace image {
     SUBSEC_TIME_ORIGINAL = 'SubsecTimeOriginal',
 
     /**
-     * A tag for manufacturers of Exif writers to record any desired information. The contents are up to the manufacturer.
+     * A tag used to record fractions of seconds for the DateTimeDigitized tag.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1237,7 +1237,7 @@ declare namespace image {
     SUBSEC_TIME_DIGITIZED = 'SubsecTimeDigitized',
 
     /**
-     * This tag indicates the version of the Flashpix format supported by an FPXR file. Flashpix is a format for exchanging images and is particularly useful for compatibility with different devices.
+     * This tag denotes the Flashpix format version supported by an FPXR file, enhancing device compatibility.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1633,7 +1633,7 @@ declare namespace image {
     GPS_DEST_BEARING = 'GPSDestBearing',
 
     /**
-     * The unit used to express the distance to the destination point.
+     * The measurement unit for the distance to the target point.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1651,7 +1651,7 @@ declare namespace image {
     GPS_DEST_DISTANCE = 'GPSDestDistance',
 
     /**
-     * This tag records the method used for location finding, which can include GPS, cell-id, WLAN, or a hybrid method. It provides context on how the GPS coordinates were determined.
+     * A character string recording the name of the method used for location finding.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1660,7 +1660,7 @@ declare namespace image {
     GPS_PROCESSING_METHOD = 'GPSProcessingMethod',
 
     /**
-     * This tag records the name of the GPS area, which can be useful for identifying the region or cell where the GPS data was collected.
+     * A character string recording the name of the GPS area.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1669,7 +1669,7 @@ declare namespace image {
     GPS_AREA_INFORMATION = 'GPSAreaInformation',
 
     /**
-     * This field indicates whether differential correction was applied to the GPS receiver data. It is important for accurately reflecting the position data, especially in applications requiring precise location information.
+     * This field denotes if differential correction was applied to GPS data, crucial for precise location accuracy.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1714,7 +1714,7 @@ declare namespace image {
     COMPRESSED_BITS_PER_PIXEL = 'CompressedBitsPerPixel',
 
     /**
-     * This tag encodes the DNG four-tier version number. For files compliant with version 1.1.0.0 of the DNG specification, this tag should contain the bytes: 1, 1, 0, 0.
+     * The DNGVersion tag encodes the four-tier version number for DNG specification compliance.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1723,7 +1723,7 @@ declare namespace image {
     DNG_VERSION = 'DNGVersion',
 
     /**
-     * Raw images often store extra pixels around the edges of the final image. These extra pixels help prevent interpolation artifacts near the edges of the final image. DefaultCropSize specifies the size of the final image area, in raw image coordinates (i.e., before the DefaultScale has been applied).
+     * DefaultCropSize specifies the final image size in raw coordinates, accounting for extra edge pixels.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1732,7 +1732,7 @@ declare namespace image {
     DEFAULT_CROP_SIZE = 'DefaultCropSize',
 
     /**
-     * The Gamma tag indicates the value of the gamma coefficient used for image reproduction. It describes how the input value is transformed into the reproduced value, which is useful for color correction and image processing.
+     * The Gamma tag denotes the gamma coefficient used in image reproduction, aiding in color correction and image processing.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1795,7 +1795,7 @@ declare namespace image {
     LENS_SPECIFICATION = 'LensSpecification',
 
     /**
-     * A general indication of the kind of data contained in this subfile.
+     * This tag provides a broad description of the data type in this subfile.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1804,7 +1804,7 @@ declare namespace image {
     NEW_SUBFILE_TYPE = 'NewSubfileType',
 
     /**
-     * This tag is used to record the time difference from UTC for the DateTime tag. It is also formatted as "±HH:MM" and is essential for ensuring that timestamps are accurate regardless of the image's location.
+     * This tag records the UTC offset for the DateTime tag, ensuring accurate timestamps regardless of location.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1813,7 +1813,7 @@ declare namespace image {
     OFFSET_TIME = 'OffsetTime',
 
     /**
-     * Similar to OffsetTimeOriginal, this tag records the offset from UTC for the date and time when the image was stored as digital data. It helps in adjusting the timestamp of the digital image to reflect the correct time.
+     * This tag records the UTC offset when the image was digitized, aiding in accurate timestamp adjustment.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1822,7 +1822,7 @@ declare namespace image {
     OFFSET_TIME_DIGITIZED = 'OffsetTimeDigitized',
 
     /**
-     * This tag records the offset from UTC for the date and time when the original image data was generated. It is formatted as "±HH:MM" and is crucial for time-sensitive applications or when coordinating images across different time zones.
+     * This tag records the UTC offset when the original image was created, crucial for time-sensitive applications.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1849,7 +1849,7 @@ declare namespace image {
     SOURCE_IMAGE_NUMBER_OF_COMPOSITE_IMAGE = 'SourceImageNumberOfCompositeImage',
 
     /**
-     * A general indication of the kind of data contained in this subfile. This field is deprecated. The NewSubfileType field should be used instead.
+     * This deprecated tag indicates the data type in this subfile. Use NewSubfileType instead.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1858,7 +1858,7 @@ declare namespace image {
     SUBFILE_TYPE = 'SubfileType',
 
     /**
-     * This tag indicates horizontal positioning errors in meters.
+     * This tag denotes the horizontal positioning inaccuracies measured in meters.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
