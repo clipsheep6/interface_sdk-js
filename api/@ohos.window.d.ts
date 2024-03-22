@@ -3686,6 +3686,33 @@ declare namespace window {
      */
     off(type: 'windowVisibilityChange', callback?: Callback<boolean>): void;
 
+     /**
+     * Register the callback function that has no interaction for a long time.
+     *
+     * @param { 'noInteractionDetect' } type - The value is fixed at 'noInteractionDetect', indicating the window has no interaction for a long time.
+     * @param { number } timeout - The timeout of no interaction detection.
+     * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 12
+     */
+
+     on(type: 'noInteractionDetect', timeout: number, callback: Callback<void>): void;
+
+     /**
+      * Unregister the callback function that has no interaction for a long time.
+      *
+      * @param { 'noInteractionDetect' } type - The value is fixed at 'noInteractionDetect', indicating the window has no interaction for a long time.
+      * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
+      * @throws { BusinessError } 1300002 - This window state is abnormal.
+      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+      * @syscap SystemCapability.WindowManager.WindowManager.Core
+      * @since 12
+      */
+     off(type: 'noInteractionDetect', callback?: Callback<void>): void;
+
     /**
      * Register the callback of screenshot, only the focused window called back
      *
