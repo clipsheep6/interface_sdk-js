@@ -666,7 +666,17 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
    */
-  class AudioSelectOptions {}
+  class AudioSelectOptions {
+      /**
+     * Maximum number of files for a single selection.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
+     */
+      maxSelectNumber?: number;
+  }
 
   /**
    * AudioSaveOptions Object
