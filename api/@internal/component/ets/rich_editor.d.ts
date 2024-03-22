@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines delete text direction.
  *
  * @enum { number }
@@ -164,6 +169,43 @@ declare enum RichEditorResponseType {
    * @since 11
    */
   SELECT = 2,
+}
+
+/**
+ * Define the menu pop-up policy
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum MenuPolicy {
+  /**
+   * Default value. The default logic of whether to pop up a menu depends on the scene.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * Never pop up menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  NEVER = 1,
+
+  /**
+   * Always pop up menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  ALWAYS = 2,
 }
 
 /**
@@ -841,22 +883,22 @@ declare interface RichEditorTextStyleResult {
   /**
    * letter spacing.
    *
-   * @type { number } 
+   * @type { ?number } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  letterSpacing: number;
+  letterSpacing?: number;
 
   /**
    * line height.
    *
-   * @type { number } 
+   * @type { ?number } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  lineHeight: number;
+  lineHeight?: number;
 }
 
 /**
@@ -1057,6 +1099,16 @@ declare interface RichEditorTextSpanResult {
    * @since 11
    */
   valueResource?: Resource;
+
+  /**
+   * The Style of paragraph.
+   *
+   * @type { ?RichEditorParagraphStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  paragraphStyle?: RichEditorParagraphStyle;
 }
 
 /**
@@ -1129,6 +1181,16 @@ declare interface RichEditorImageSpanStyleResult {
    * @since 11
    */
   objectFit: ImageFit;
+
+  /**
+   * RichEditor ImageSpan Layout Style.
+   *
+   * @type { ?RichEditorLayoutStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  layoutStyle?: RichEditorLayoutStyle;
 }
 
 /**
@@ -1471,6 +1533,26 @@ declare interface RichEditorTextSpanOptions {
    * @since 11
    */
   gesture?: RichEditorGesture;
+}
+
+/**
+ * Defines the selection options of RichEditor.
+ *
+ * @interface SelectionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface SelectionOptions {
+  /**
+   * Menu pop-up policy.
+   *
+   * @type { ?MenuPolicy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  menuPolicy?: MenuPolicy;
 }
 
 /**
@@ -2282,7 +2364,17 @@ declare class RichEditorController {
    * @crossplatform
    * @since 11
    */
-  setSelection(selectionStart: number, selectionEnd: number): void;
+  /**
+   * Specify the start and end positions to select a range of content.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } [options] - Indicates the options of selection.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
    * Called when the content is selected.

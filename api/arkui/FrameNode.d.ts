@@ -13,8 +13,16 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ */
+
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { RenderNode } from './RenderNode';
+import { UICommonEvent } from 'commonEvent';
+import { CommonAttribute } from 'commonAttribute';
+
 /**
  * Defines FrameNode.
  *
@@ -187,4 +195,24 @@ export class FrameNode {
    * @since 12
    */
   getPositionToParent(): Position;
+
+  /**
+   * Set commonEvent response to the current FrameNode.
+   *
+   * @returns { UICommonEvent } - Returns a Object inside the FrameNode, which is used to set callbacks about different events.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get commonEvent(): UICommonEvent;
+
+  /**
+   * Get the CommonAttribute of the current FrameNode.
+   *
+   * @returns { CommonAttribute } - Returns the CommonAttribute which is used to modify the common attributes of the FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get commonAttribute(): CommonAttribute;
 }

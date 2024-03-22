@@ -86,6 +86,33 @@ type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => 
 type OnIntelligentTrackingPreventionCallback = (details: IntelligentTrackingPreventionDetails) => void;
 
 /**
+ * The configuration of native video player.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+type NativeVideoPlayerConfig = {
+  /**
+   * Should playing web video by native application instead of web player.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enable: boolean,
+
+  /**
+   * The contents painted by native video player should overlay web page.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  shouldOverlay: boolean
+}
+
+/**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  *
  * @enum { number }
@@ -3514,6 +3541,34 @@ declare class WebCookie {
 }
 
 /**
+ * Defines the touch event result.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @atomicservice
+ * @since 12
+ */
+declare class EventResult {
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  constructor();
+
+  /**
+   * Set whether the event is consumed.
+   * 
+   * @param { boolean } result - True if the event is consumed.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  setGestureEventResult(result: boolean): void;
+}
+
+/**
  * Defines the Web controller.
  *
  * @syscap SystemCapability.Web.Webview.Core
@@ -4057,6 +4112,15 @@ declare interface NativeEmbedInfo {
    */
   src?: string;
   /**
+   * The coordinate position of embed element relative to the webComponent.
+   *
+   * @type { ?Position }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  position?: Position;
+  /**
    * The embed tag width.
    *
    * @type { ?number }
@@ -4177,6 +4241,15 @@ declare interface NativeEmbedTouchInfo {
    * @since 11
    */
   touchEvent?: TouchEvent;
+  /**
+   * Handle the user's touch result.
+   *
+   * @type { ?EventResult }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  result?: EventResult;
 }
 
   /**
@@ -4724,6 +4797,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @useinstead ohos.web.webview.webview.WebviewController#setCustomUserAgent
    */
   userAgent(userAgent: string): WebAttribute;
+
+  /**
+   * Set whether to support the viewport attribute of the meta tag in the frontend page.
+   *
+   * @param { boolean } enabled {@code true} means support the viewport attribute of the meta tag; {@code false} otherwise.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  metaViewport(enabled: boolean): WebAttribute;
 
   /**
    * Triggered at the end of web page loading.
@@ -6848,6 +6932,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
   onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
+
+  /**
+   * Enable whether to automatically resize text. The default value is true.
+   *
+   * @param { boolean } textAutosizing - Whether to enable text autosizing.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  textAutosizing(textAutosizing: boolean): WebAttribute;
+
+  /**
+   * Enable app creates native video player to play web page video source.
+   *
+   * @param { NativeVideoPlayerConfig } config - The configuration of native video player.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enableNativeVideoPlayer(config: NativeVideoPlayerConfig): WebAttribute;
 }
 
 /**
