@@ -1160,6 +1160,26 @@ declare namespace camera {
   }
 
   /**
+   * Camera Occlusion Detection Result.
+   *
+   * @interface CameraOcclusionDetectionResult
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface CameraOcclusionDetectionResult {
+    /**
+     * Check whether camera is occluded.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly cameraOccluded: boolean;
+  }
+
+  /**
    * Camera input object.
    *
    * @interface CameraInput
@@ -1210,6 +1230,28 @@ declare namespace camera {
      * @since 10
      */
     close(): Promise<void>;
+
+    /**
+     * Subscribes to camera occlusion detection results.
+     *
+     * @param { 'CameraOcclusionDetect' } type - Event type.
+     * @param { AsyncCallback<CameraOcclusionDetectionResult> } callback - Callback used to get detection results.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'cameraOcclusionDetect', callback: AsyncCallback<CameraOcclusionDetectionResult>): void;
+
+    /**
+     * Unsubscribes from camera occlusion detection results.
+     *
+     * @param { 'cameraOcclusionDetect' } type - Event type.
+     * @param { AsyncCallback<CameraOcclusionDetectionResult> } callback - Callback used to get detection results.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'cameraOcclusionDetect', callback?: AsyncCallback<CameraOcclusionDetectionResult>): void;
 
     /**
      * Subscribes to error events.
@@ -1323,7 +1365,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
-    CAMERA_FORMAT_YCRCB_P010
+    CAMERA_FORMAT_YCRCB_P010,
+
+    /**
+     * HEIC Format.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    CAMERA_FORMAT_HEIC,
   }
 
   /**
@@ -1365,6 +1415,36 @@ declare namespace camera {
      * @since 10
      */
     FLASH_MODE_ALWAYS_OPEN = 3
+  }
+
+  /**
+   * LCD Flash Status.
+   *
+   * @interface LcdFlashStatus
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface LcdFlashStatus {
+    /**
+     * Check whether lcd flash is needed.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly isLcdFlashNeeded: boolean;
+
+    /**
+     * Compensate value for lcd flash.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly lcdCompensate: number;
   }
 
   /**
@@ -1415,8 +1495,30 @@ declare namespace camera {
      * @since 11
      */
     setFlashMode(flashMode: FlashMode): void;
-  }
 
+    /**
+     * Checks whether lcd flash is supported.
+     *
+     * @returns { boolean } Is lcd flash supported.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    isLcdFlashSupported(): boolean;
+
+    /**
+     * Enable lcd flash.
+     *
+     * @param { boolean } enabled - Target lcd flash status.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    enableLcdFlash(enabled: boolean): void;
+  }
+  
   /**
    * Enum for exposure mode.
    *
@@ -2075,7 +2177,6 @@ declare namespace camera {
    *
    * @interface ColorManagement
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
    * @since 11
    */
   interface ColorManagement {
@@ -2086,7 +2187,6 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
      * @since 11
      */
     getActiveColorSpace(): colorSpaceManager.ColorSpace;
@@ -2098,7 +2198,6 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
      * @since 11
      */
     getSupportedColorSpaces(): Array<colorSpaceManager.ColorSpace>;
@@ -2111,7 +2210,6 @@ declare namespace camera {
      * @throws { BusinessError } 7400102 - The colorSpace does not match the format.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
      * @since 11
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpace): void;
@@ -2896,6 +2994,173 @@ declare namespace camera {
   }
 
   /**
+   * Enum for feature type used in scene detection.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  enum SceneFeatureType {
+    /**
+     * Feature for macro capture.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    MACRO_CAPTURE = 0,
+
+    /**
+     * Feature for boost moon capture.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    MOON_CAPTURE_BOOST = 1,
+
+    /**
+     * Feature for tripod detection.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    TRIPOD_DETECTION = 2,
+  }
+
+  /**
+   * Feature Detection Result.
+   *
+   * @interface SceneFeatureDetectionResult
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface SceneFeatureDetectionResult {
+    /**
+     * Detected feature type.
+     *
+     * @type { SceneFeatureType }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly featureType: SceneFeatureType;
+
+    /**
+     * Check whether camera is occluded.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly detected: boolean;
+  }
+
+  /**
+   * Enum for tripod status.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  enum TripodStatus {
+    /**
+     * Invalid tripod status.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    INVALID = 0,
+
+    /**
+     * Tripod is active.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    ACTIVE = 1,
+
+    /**
+     * Enter tripod stabilitation state.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    ENTER = 1,
+
+    /**
+     * Exit tripod stabilitation state.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    EXITING = 1,
+  }
+
+   /**
+   * Tripod detection result.
+   *
+   * @interface TripodDetectionResult
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface TripodDetectionResult extends SceneFeatureDetectionResult {
+    /**
+     * tripod status.
+     *
+     * @type { TripodStatus }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    tripodStatus: TripodStatus;
+  }
+
+  /**
+   * Scene detection.
+   *
+   * @interface SceneDetection
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface SceneDetection {
+    /**
+     * Check whether specified feature is supported.
+     *
+     * @param { SceneFeatureType } type - Specified feature type.
+     * @returns { boolean } - Is specified feature supported.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    isSceneFeatureSupported(type: SceneFeatureType): boolean
+
+    /**
+     * Enable specified feature.
+     *
+     * @param { SceneFeatureType } type - Specified feature type.
+     * @param { boolean } enabled - Target feature status.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    enableSceneFeature(type: SceneFeatureType, enabled: boolean): void
+  }
+
+  /**
    * Photo session object for system hap.
    *
    * @interface PhotoSessionForSys
@@ -2903,7 +3168,7 @@ declare namespace camera {
    * @systemapi
    * @since 11
    */
-  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro {
+  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection {
   }
 
   /**
@@ -2913,7 +3178,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
-  interface PhotoSession extends Session, Flash, AutoExposure, Focus, Zoom {
+  interface PhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement {
     /**
      * Subscribes to error events.
      *
@@ -2997,6 +3262,52 @@ declare namespace camera {
      * @since 11
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
+
+    /**
+     * Subscribes to feature detection results.
+     *
+     * @param { 'featureDetectionStatus' } type - Event type.
+     * @param { SceneFeatureType } featureType - Feature type.
+     * @param { AsyncCallback<SceneFeatureDetectionResult> } callback - Callback used to get the detection result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'featureDetectionStatus', featureType: SceneFeatureType, callback: AsyncCallback<SceneFeatureDetectionResult>): void;
+
+    /**
+     * Unsubscribes from feature detection result.
+     *
+     * @param { 'featureDetectionStatus' } type - Event type.
+     * @param { SceneFeatureType } featureType - Feature type.
+     * @param { AsyncCallback<SceneFeatureDetectionResult> } callback - Callback used to get the detection result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'featureDetectionStatus', featureType: SceneFeatureType, callback?: AsyncCallback<SceneFeatureDetectionResult>): void;
+
+    /**
+     * Subscribes to lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Unsubscribes from lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
   }
 
   /**
@@ -3007,7 +3318,7 @@ declare namespace camera {
    * @systemapi
    * @since 11
    */
-  interface VideoSessionForSys extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro {
+  interface VideoSessionForSys extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection {
   }
 
   /**
@@ -3017,7 +3328,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 11
    */
-  interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization {
+  interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement {
     /**
      * Subscribes to error events.
      *
@@ -3101,6 +3412,52 @@ declare namespace camera {
      * @since 11
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
+
+    /**
+     * Subscribes to feature detection results.
+     *
+     * @param { 'featureDetectionStatus' } type - Event type.
+     * @param { SceneFeatureType } featureType - Feature type.
+     * @param { AsyncCallback<SceneFeatureDetectionResult> } callback - Callback used to get the detection result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'featureDetectionStatus', featureType: SceneFeatureType, callback: AsyncCallback<SceneFeatureDetectionResult>): void;
+
+    /**
+     * Unsubscribes from feature detection result.
+     *
+     * @param { 'featureDetectionStatus' } type - Event type.
+     * @param { SceneFeatureType } featureType - Feature type.
+     * @param { AsyncCallback<SceneFeatureDetectionResult> } callback - Callback used to get the detection result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'featureDetectionStatus', featureType: SceneFeatureType, callback?: AsyncCallback<SceneFeatureDetectionResult>): void;
+
+    /**
+     * Subscribes to lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Unsubscribes from lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
   }
 
   /**
@@ -3461,6 +3818,28 @@ declare namespace camera {
      * @since 11
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes to lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Unsubscribes from lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
   }
 
   /**
@@ -3583,6 +3962,28 @@ declare namespace camera {
      * @since 11
      */
     off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
+
+    /**
+     * Subscribes to lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'lcdFlashStatus', callback: AsyncCallback<LcdFlashStatus>): void;
+
+    /**
+     * Unsubscribes from lcd flash status.
+     *
+     * @param { 'lcdFlashStatus' } type - Event type.
+     * @param { AsyncCallback<LcdFlashStatus> } callback - Callback used to get the lcd flash status.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'lcdFlashStatus', callback?: AsyncCallback<LcdFlashStatus>): void;
   }
 
   /**
@@ -3758,6 +4159,35 @@ declare namespace camera {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Get supported frame rates which can be set during session running.
+     *
+     * @returns { Array<FrameRateRange> } The array of supported frame rate range.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getSupportedFrameRates(): Array<FrameRateRange>
+
+    /**
+     * Set a frame rate range.
+     *
+     * @param { number } minFps - Minimum frame rate per second.
+     * @param { number } maxFps - Maximum frame rate per second.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    setFrameRate(minFps: number, maxFps: number): void
+
+    /**
+     * Get active frame rate range which has been set before.
+     *
+     * @returns { FrameRateRange } The active frame rate range.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getActiveFrameRate(): FrameRateRange;
 
     /**
      * Adds a deferred surface.
@@ -4553,6 +4983,35 @@ declare namespace camera {
     stop(): Promise<void>;
 
     /**
+     * Get supported frame rates which can be set during session running.
+     *
+     * @returns { Array<FrameRateRange> } The array of supported frame rate range.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getSupportedFrameRates(): Array<FrameRateRange>
+
+    /**
+     * Set a frame rate range.
+     *
+     * @param { number } minFps - Minimum frame rate per second.
+     * @param { number } maxFps - Maximum frame rate per second.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    setFrameRate(minFps: number, maxFps: number): void
+
+    /**
+     * Get active frame rate range which has been set before.
+     *
+     * @returns { FrameRateRange } The active frame rate range.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    getActiveFrameRate(): FrameRateRange;
+
+    /**
      * Subscribes frame start event callback.
      *
      * @param { 'frameStart' } type - Event type.
@@ -4627,7 +5086,107 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
-    FACE_DETECTION = 0
+    FACE_DETECTION = 0,
+
+    /**
+     * Human body detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    HUMAN_BODY = 1,
+
+    /**
+     * Cat face detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    CAT_FACE = 2,
+
+    /**
+     * Cat body detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    CAT_BODY = 3,
+
+    /**
+     * Dog face detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    DOG_FACE = 4,
+
+    /**
+     * Dog body detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    DOG_BODY = 5,
+
+    /**
+     * Salient detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    SALIENT_DETECTION = 6,
+  }
+
+  /**
+   * Enum for emotion type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  enum Emotion {
+    /**
+     * Emotion type: Neutral.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    NEUTRAL = 0,
+
+    /**
+     * Emotion type: Sadness.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    SADNESS = 1,
+
+    /**
+     * Emotion type: Smile.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    SMILE = 2,
+
+    /**
+     * Emotion type: Surprise.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    SURPRISE = 3,
   }
 
   /**
@@ -4689,6 +5248,18 @@ declare namespace camera {
      * @since 10
      */
     readonly type: MetadataObjectType;
+
+    /**
+     * Metadata object id.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly objectId: number;
+
     /**
      * Metadata object timestamp in milliseconds.
      *
@@ -4698,6 +5269,7 @@ declare namespace camera {
      * @since 10
      */
     readonly timestamp: number;
+
     /**
      * The axis-aligned bounding box of detected metadata object.
      *
@@ -4707,6 +5279,212 @@ declare namespace camera {
      * @since 10
      */
     readonly boundingBox: Rect;
+
+    /**
+     * Confidence for the detected type.
+     *
+     * @type { numer }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly confidence: numer;
+  }
+
+  /**
+   * Metadata object for face.
+   *
+   * @typedef MetadataFaceObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface MetadataFaceObject extends MetadataObject {
+    /**
+     * Bounding box for left eye.
+     *
+     * @type { Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly leftEyeBoundingBox: Rect;
+
+    /**
+     * Bounding box for right eye.
+     *
+     * @type { Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly rightEyeBoundingBox: Rect;
+
+    /**
+     * Emotion type for face.
+     *
+     * @type { Emotion }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly emotion: Emotion;
+
+    /**
+     * Emotion confidence.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly emotionConfidence: number;
+
+    /**
+     * Pitch angle for face.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly pitchAngle: number;
+
+    /**
+     * Yaw angle for face.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly yawAngle: number;
+
+    /**
+     * Roll angle for face.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly rollAngle: number;
+  }
+
+  /**
+   * Metadata object for human body.
+   *
+   * @typedef MetadataHumanBodyObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface MetadataHumanBodyObject extends MetadataObject {
+  }
+
+    /**
+   * Metadata object for cat face.
+   *
+   * @typedef MetadataCatFaceObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface MetadataCatFaceObject extends MetadataObject {
+    /**
+     * Bounding box for left eye.
+     *
+     * @type { Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly leftEyeBoundingBox: Rect;
+
+    /**
+     * Bounding box for right eye.
+     *
+     * @type { Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly rightEyeBoundingBox: Rect;
+  }
+
+  /**
+   * Metadata object for cat body.
+   *
+   * @typedef MetadataCatBodyObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface MetadataCatBodyObject extends MetadataObject {
+  }
+
+  /**
+   * Metadata object for dog face.
+   *
+   * @typedef MetadataDogFaceObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface MetadataDogFaceObject extends MetadataObject {
+    /**
+     * Bounding box for left eye.
+     *
+     * @type { Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly leftEyeBoundingBox: Rect;
+
+    /**
+     * Bounding box for right eye.
+     *
+     * @type { Rect }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly rightEyeBoundingBox: Rect;
+  }
+
+  /**
+   * Metadata object for dog body.
+   *
+   * @typedef MetadataDogBodyObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface MetadataDogBodyObject extends MetadataObject {
+  }
+
+  /**
+   * Metadata object for salient detection.
+   *
+   * @typedef MetadataSalientDetectionObject
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface MetadataSalientDetectionObject extends MetadataObject {
   }
 
   /**
@@ -4756,6 +5534,30 @@ declare namespace camera {
      * @since 10
      */
     stop(): Promise<void>;
+
+    /**
+     * Add metadata object types.
+     *
+     * @param { Array<MetadataObjectType> } types - Object types to be added.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    addMetadataObjectTypes(types: Array<MetadataObjectType>): void;
+
+    /**
+     * Remove metadata object types.
+     *
+     * @param { Array<MetadataObjectType> } types - Object types to be removed.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    removeMetadataObjectTypes(types: Array<MetadataObjectType>): void;
 
     /**
      * Subscribes to metadata objects available event callback.
