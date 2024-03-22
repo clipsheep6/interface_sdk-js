@@ -3123,7 +3123,7 @@ declare namespace window {
     /**
      * Get the properties of system bar
      *
-     * @returns { SystemBarProperties } Return system bar properties.
+     * @returns { SystemBarProperties } Return the system bar properties.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
