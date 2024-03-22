@@ -961,7 +961,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Called when the text marquee state changes.
    *
-   * @param { function } callback - callback of the marquee state change event.
+   * @param { Callback<MarqueeState> } callback - callback of the marquee state change event.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
