@@ -6465,7 +6465,7 @@ declare enum TextOverflow {
    * @crossplatform
    * @since 12
    */
-   FadeoutWithMarquee,
+  FADEOUT_WITH_MARQUEE = 4,
 }
 
 /**
