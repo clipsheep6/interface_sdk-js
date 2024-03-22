@@ -1177,7 +1177,7 @@ declare interface MarqueeOptions {
   /**
    * Is need start marquee.
    *
-   * @type { boolean }
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
