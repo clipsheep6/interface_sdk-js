@@ -1518,7 +1518,7 @@ declare namespace camera {
      */
     enableLcdFlash(enabled: boolean): void;
   }
-  
+
   /**
    * Enum for exposure mode.
    *
