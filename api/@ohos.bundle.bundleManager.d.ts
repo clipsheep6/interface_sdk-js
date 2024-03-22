@@ -2790,6 +2790,22 @@ declare namespace bundleManager {
   function canOpenLink(link: string): boolean;
 
   /**
+   * Migrate specified file data to a fixed directory.
+   *
+   * @permission ohos.permission.MIGRATE_DATA
+   * 
+   * @param { Array<string> } paths - Indicates the file paths to be migrated.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700057 - The specified paths are invalid.
+   * @throws { BusinessError } 17700058 - Waiting for user authentication timeout.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  function migrateData(paths: Array<string>): void;
+
+  /**
    * Obtains configuration information about an application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
