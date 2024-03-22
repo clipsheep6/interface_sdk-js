@@ -476,6 +476,29 @@ declare namespace photoAccessHelper {
       requestOptions: RequestOptions,
       dataHandler: MediaAssetDataHandler<ArrayBuffer>
     ): Promise<string>;
+
+    /**
+     * Acquire an interface for requesting contents of Moving Photo
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { PhotoAsset } asset - the moving photo asset to request
+     * @param { RequestOptions } requestOptions - the request options
+     * @param { MediaAssetDataHandler<MovingPhoto> } dataHandler - handler used for handling moving photo interface when data is prepared
+     * @returns { Promise<string> } Returns request id
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+      static requestMovingPhoto(
+        context: Context,
+        asset: PhotoAsset,
+        requestOptions: RequestOptions,
+        dataHandler: MediaAssetDataHandler<MovingPhoto>
+      ): Promise<string>;
   }
 
   /**
@@ -3840,6 +3863,61 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     placeBefore(album: Album): void;
+  }
+  interface MovingPhoto {
+    /**
+     * Request the image and video contents of moving photo and write to destination uri.
+     * 
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } imageFileUri - Destination uri for the image content of moving photo to write into
+     * @param { string } videoFileUri - Destination uri for the video content of moving photo to write into
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    requestContent(imageFileUri: string, videoFileUri: string): Promise<void>;
+
+    /**
+     * Request the content of moving photo of the given resource type and write to destination uri.
+     * 
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { ResourceType } resourceType - The resource type of the content to request
+     * @param { string } fileUri - Destination uri for the requested content of moving photo to write into
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    requestContent(resourceType: ResourceType, fileUri: string): Promise<void>;
+
+    /**
+     * Request the content of moving photo of the given resource type and return an array buffer.
+     * 
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } resourceType - The resource type of the content to request
+     * @returns { Promise<ArrayBuffer> } Returns array buffer of the data
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    requestContent(resourceType: ResourceType): Promise<ArrayBuffer>;
+
+    /**
+     * Get uri of the moving photo.
+     *
+     * @returns { string } Returns uri of the moving photo
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    getUri(): string;
   }
 }
 
