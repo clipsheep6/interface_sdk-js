@@ -17648,6 +17648,16 @@ declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 declare type DrawContext = import('../api/arkui/Graphics').DrawContext;
 
 /**
+ * FrameNode defines a basic type of node which contains a RenderNode.
+ *
+ * @typedef {import('../api/arkui/FrameNode').FrameNode} FrameNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type FrameNode = import('../api/arkui/FrameNode').FrameNode;
+
+/**
  * Custom Component
  *
  * @extends CommonAttribute
