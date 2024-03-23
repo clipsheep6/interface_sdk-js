@@ -1732,7 +1732,7 @@ declare namespace image {
     DEFAULT_CROP_SIZE = 'DefaultCropSize',
 
     /**
-     * The Gamma tag denotes the gamma coefficient used in image reproduction, aiding in color correction and image processing.
+     * Indicates the value of coefficient gamma.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1741,7 +1741,7 @@ declare namespace image {
     GAMMA = 'Gamma',
 
     /**
-     * The ISO speed latitude yyy value of the camera.
+     * The tag indicate the ISO speed latitude yyy value of the camera or input device that is defined in ISO 12232.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1750,7 +1750,7 @@ declare namespace image {
     ISO_SPEED_LATITUDEYYY = 'ISOSpeedLatitudeyyy',
 
     /**
-     * The ISO speed latitude zzz value of the camera.
+     * The tag indicate the ISO speed latitude zzz value of the camera or input device that is defined in ISO 12232.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1858,7 +1858,7 @@ declare namespace image {
     SUBFILE_TYPE = 'SubfileType',
 
     /**
-     * This tag denotes the horizontal positioning inaccuracies measured in meters.
+     * This tag indicates horizontal positioning errors in meters.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
