@@ -19,6 +19,8 @@
  */
 
 import type { AutoFillType } from './AutoFillType';
+import type CustomData from './CustomData';
+import type PopupSize from './PopupSize';
 import type ViewData from './ViewData';
 
 /**
@@ -52,6 +54,17 @@ export interface FillRequest {
    * @since 11
    */
   viewData: ViewData;
+
+  /**
+   * The custom data.
+   *
+   * @type { CustomData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  customData: CustomData;
 }
 
 /**
@@ -144,7 +157,33 @@ export interface FillRequestCallback {
    * @StageModelOnly
    * @since 11
    */
-  onCancel(): void;
+  /**
+   * Notification system that filling has been cancelled.
+   *
+   * @param { string } [userNameList] - Indicates the user name list.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  onCancel(userNameList?: string): void;
+
+  /**
+   * Resize popup.
+   *
+   * @param { PopupSize } popupSize - Indicates the popup size.
+   * @returns { number } Returns the number code of the resize popup.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  resize(popupSize: PopupSize): number;
 }
 
 /**
