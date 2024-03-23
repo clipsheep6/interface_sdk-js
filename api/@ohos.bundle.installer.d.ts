@@ -99,6 +99,7 @@ declare namespace installer {
      *  (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
      * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because the device had been controlled.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -137,6 +138,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because the device had been controlled.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -177,6 +179,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
      * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because the device had been controlled.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 11
@@ -208,6 +211,7 @@ declare namespace installer {
      *  (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
      * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because the device had been controlled.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -244,6 +248,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because the device had been controlled.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -282,6 +287,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
      * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because the device had been controlled.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 11
@@ -315,6 +321,7 @@ declare namespace installer {
      *  (required APL: system_basic or system_core).
      * @throws { BusinessError } 17700044 - Failed to install the HAP because the isolationMode configured is not supported.
      * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because the device had been controlled.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9
@@ -353,6 +360,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700047 - Failed to install the HAP because the VersionCode to be updated is not greater than the current VersionCode.
      * @throws { BusinessError } 17700048 - Failed to install the HAP because the code signature verification is failed.
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because the device had been controlled.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 10
@@ -393,6 +401,7 @@ declare namespace installer {
      * @throws { BusinessError } 17700050 - Failed to install the HAP because enterprise normal/MDM bundle cannot be installed on non-enterprise device.
      * @throws { BusinessError } 17700052 - Failed to install the HAP because debug bundle cannot be installed under non-developer mode.
      * @throws { BusinessError } 17700054 - Failed to install the HAP because the HAP requests wrong permissions.
+     * @throws { BusinessError } 17700058 - Failed to install the HAP because the device had been controlled.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 11
