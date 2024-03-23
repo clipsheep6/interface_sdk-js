@@ -2320,6 +2320,16 @@ declare class RichEditorController {
   getParagraphs(value?: RichEditorRange): Array<RichEditorParagraphResult>;
 
   /**
+   * Returns the number of lines of text.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getLineCount(): number;
+
+  /**
    * close the select menu when menu is on.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
