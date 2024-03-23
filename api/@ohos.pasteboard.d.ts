@@ -1177,7 +1177,9 @@ declare namespace pasteboard {
     getDataSync(): PasteData;
     /**
      * Gets unifiedData from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
      * @returns { Promise<UnifiedData> } the promise returned by the getData.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -1187,7 +1189,9 @@ declare namespace pasteboard {
 
     /**
      * Gets unifiedData from the system pasteboard.
+     * @permission ohos.permission.READ_PASTEBOARD
      * @returns { UnifiedData }  a new UnifiedData.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
@@ -1340,7 +1344,7 @@ declare namespace pasteboard {
      * Writes UnifiedData to the system pasteboard.
      * @param { UnifiedData } data - UnifiedData will be written to the clipboard.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - if type of data is not PasteData.
+     * @throws { BusinessError } 401 - if type of data is not UnifiedData.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @throws { BusinessError } 12900004 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1349,6 +1353,16 @@ declare namespace pasteboard {
      */
     setUnifiedData(data: udc.UnifiedData): Promise<void>;
 
+    /**
+     * Writes UnifiedData to the system pasteboard.
+     * @param { UnifiedData } data - UnifiedData will be written to the clipboard.
+     * @throws { BusinessError } 401 - if type of data is not UnifiedData.
+     * @throws { BusinessError } 12900005 - Request time out.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 12
+     */
+    setUnifiedDataSync(data: udc.UnifiedData): void;
   }
 }
 

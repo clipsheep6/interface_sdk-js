@@ -69,7 +69,7 @@ declare namespace unifiedDataChannel {
    */
   interface UnifiedDataProperties {
     /**
-     * additional property data. key-value pairs.
+     * extra property data. key-value pairs.
      * @type { ?Record<string, object> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
