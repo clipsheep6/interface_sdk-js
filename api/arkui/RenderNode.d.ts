@@ -163,6 +163,7 @@ export class RenderNode {
    * Set opacity of the RenderNode.
    *
    * @param { number } value - The opacity of the RenderNode.
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -173,6 +174,7 @@ export class RenderNode {
    * Get opacity of the RenderNode.
    *
    * @returns { number } Returns the opacity of the RenderNode.
+   * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
