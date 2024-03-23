@@ -210,6 +210,7 @@
     "SystemCapability.Graphic.Graphic2D.NativeWindow",
     "SystemCapability.Graphic.Vulkan",
     "SystemCapability.Multimedia.Image.ImageCreator",
-    "SystemCapability.Graphic.Graphic2D.WebGL2"
+    "SystemCapability.Graphic.Graphic2D.WebGL2",
+    "SystemCapability.AI.MindSporeLite"
   ]
 }
