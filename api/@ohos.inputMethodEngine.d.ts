@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1245,6 +1245,54 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     sendExtendAction(action: ExtendAction): Promise<void>;
+
+    /**
+     * Insert the provided text as preview text.
+     *
+     * @param { string } text - the text to be previewed.
+     * @param { Range } range - the range of the text to be replaced by the preview text.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    setPreviewText(text: string, range: Range): Promise<void>;
+
+    /**
+     * Insert the provided text as preview text.
+     *
+     * @param { string } text - the text to be previewed.
+     * @param { Range } range - the range of the text to be replaced by the preview text.
+     * @throws { BusinessError } 401 - parameter error.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    setPreviewTextSync(text: string, range: Range): void;
+
+    /**
+     * Finish the text preview.
+     *
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    finishTextPreview(): Promise<void>;
+
+    /**
+     * Finish the text preview.
+     *
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800011 - text preview is not supported.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    finishTextPreviewSync(): void;
   }
 
   /**
@@ -1618,6 +1666,15 @@ declare namespace inputMethodEngine {
      * @since 8
      */
     readonly enterKeyType: number;
+
+    /**
+     * Indicates whether the editor supports the text preview.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    isTextPreviewSupported: boolean;
   }
 
   /**
