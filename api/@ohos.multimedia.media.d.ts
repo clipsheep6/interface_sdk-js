@@ -277,6 +277,8 @@ declare namespace media {
    */
   function createAVImageGenerator(callback: AsyncCallback<AVImageGenerator>): void;
 
+  function createMediaSourceWithUrl(url: string, header?: Record<string, string>): MediaSource;
+
   /**
    * Fetch media meta data or audio art picture from source. Before calling an AVMetadataExtractor method,
    * you must use createAVMetadataExtractor() to create an AVMetadataExtractor instance.
@@ -872,6 +874,15 @@ declare namespace media {
    */
   type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
 
+  interface MediaSource {}
+
+  interface PlayStrategy {
+    preferedWidth? : number;
+    preferedHeight? : number;
+    preferedBufferDuration? : number;
+    preferHDR? : boolean;
+  }
+
   /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
    * to create an AVPlayer instance.
@@ -890,6 +901,8 @@ declare namespace media {
    * @since 11
    */
   interface AVPlayer {
+    setMediaSource(src: MediaSource, strategy?: PlayStrategy) : Promise<void>;
+
     /**
      * Prepare audio/video playback, it will request resource for playing.
      * @param { AsyncCallback<void> } callback - instance used to return when prepare completed.
