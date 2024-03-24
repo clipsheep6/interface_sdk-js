@@ -896,6 +896,17 @@ declare namespace media {
    */
   type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
 
+  interface MediaSource {
+  }
+
+createMediaSourceWithURL(url: string, header?: Record<string, string>): MediaSource;
+
+interface PlayStrategy {
+  preferedWidth? : number;
+  preferedHeight? : number;
+  preferedBufferDuration? : number;
+  preferHDR? : boolean;
+}
   /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
    * to create an AVPlayer instance.
@@ -914,6 +925,8 @@ declare namespace media {
    * @since 11
    */
   interface AVPlayer {
+
+    setMediaSource(src: MediaSource, strategy?: PlayStrategy) : void
     /**
      * Prepare audio/video playback, it will request resource for playing.
      * @param { AsyncCallback<void> } callback - instance used to return when prepare completed.
