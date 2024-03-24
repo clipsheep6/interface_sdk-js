@@ -750,5 +750,34 @@ declare namespace hidebug {
    * @since 12
    */
   function stopAppTraceCapture(): void;
+
+  /**
+   * Obtains given item of virtual machine runtime statistic.
+   *
+   * @param { string } item - virtual machine runtime item.
+   * @returns { number } Returns value of given item.
+   * @throws { BusinessError } 401 - Invalid argument
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getVMRuntimeStat(item: string): number;
+
+  /**
+   * Interface of virtual machine runtime statistic.
+   *
+   * @typedef Stats
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  type Stats = Record<string, number>;
+
+  /**
+   * Obtains virtual machine runtime statistic.
+   *
+   * @returns { number } Returns runtime statistic.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getVMRuntimeStats(): Stats;
 }
 export default hidebug;
