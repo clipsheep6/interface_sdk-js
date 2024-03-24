@@ -36,10 +36,10 @@ function checkJsDocLegality(node, comments, checkInfoMap) {
   // 'enum'
   legalityCheck(node, comments, [ts.SyntaxKind.EnumDeclaration], ['enum'], true, checkInfoMap);
   // 'extends'
-  legalityCheck(node, comments, [ts.SyntaxKind.ClassDeclaration], ['extends'], true, checkInfoMap,
+  legalityCheck(node, comments, [ts.SyntaxKind.ClassDeclaration,ts.SyntaxKind.InterfaceDeclaration], ['extends'], true, checkInfoMap,
     (currentNode, checkResult) => {
       let tagCheckResult = false;
-      if (ts.isClassDeclaration(currentNode) && currentNode.heritageClauses) {
+      if ((ts.isClassDeclaration(currentNode) || ts.isInterfaceDeclaration(currentNode)) && currentNode.heritageClauses) {
         const clauses = currentNode.heritageClauses;
         clauses.forEach(claus => {
           if (/^extends\s/.test(claus.getText())) {
@@ -82,8 +82,32 @@ function checkJsDocLegality(node, comments, checkInfoMap) {
       return new Set(commentNodeWhiteList).has(currentNode.kind);
     }
   );
-  // typedef/interface
-  legalityCheck(node, comments, [ts.SyntaxKind.InterfaceDeclaration], ['interface', 'typedef'], true, checkInfoMap);
+  // interface
+  legalityCheck(node, comments, [ts.SyntaxKind.InterfaceDeclaration], ['interface'], true, checkInfoMap,
+    (currentNode, checkResult) => {
+      if (ts.isInterfaceDeclaration(currentNode)) {
+        const tags=comments[0].tags;
+        for (let i = 0; i < tags.length; i++) {
+          if(tags[i].tag==='typedef'){
+            return false;
+          }
+        }
+      }
+      return true;
+    });
+  // typedef
+  legalityCheck(node, comments, [ts.SyntaxKind.InterfaceDeclaration, ts.SyntaxKind.TypeAliasDeclaration], ['typedef'],
+    true, checkInfoMap,(currentNode, checkResult) => {
+      if (ts.isInterfaceDeclaration(currentNode)) {
+        const tags=comments[0].tags;
+        for (let i = 0; i < tags.length; i++) {
+          if(tags[i].tag==='typedef' || tags[i].tag==='interface'){
+            return false;
+          }
+        }
+      }
+      return true;
+    });
   // 'type', 'readonly'
   legalityCheck(node, comments, [ts.SyntaxKind.PropertyDeclaration, ts.SyntaxKind.PropertySignature],
     ['type', 'readonly'], false, checkInfoMap);
@@ -119,8 +143,7 @@ function dealSpecialTag(comment, tagName) {
       } else if (tag.tag === 'deprecated') {
         useinsteadResultObj.hasDeprecated = true;
       }
-    } else if (((tagName === 'interface' || tagName === 'typedef') && (tag.tag === 'interface' ||
-      tag.tag === 'typedef')) || tag.tag === tagName) {
+    } else if (tag.tag === tagName) {
       checkResult = true;
     }
     if (tag.tag === 'param') {
@@ -288,9 +311,15 @@ function checkJSDoc(node, sourcefile, fileName, isGuard) {
     let errorInfo = '';
     if (item.missingTags.length > 0) {
       item.missingTags.forEach(lostLabel => {
-        errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LOST_LABEL, [lostLabel]);
-        addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, errorInfo, FileType.JSDOC,
-          ErrorLevel.MIDDLE);
+        if (lostLabel === 'typedef') {
+          errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LOST_LABEL, [lostLabel]);
+          addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, errorInfo, FileType.JSDOC,
+            ErrorLevel.LOW);
+        } else {
+          errorInfo = createErrorInfo(ErrorValueInfo.ERROR_LOST_LABEL, [lostLabel]);
+          addAPICheckErrorLogs(node, sourcefile, fileName, ErrorType.WRONG_SCENE, errorInfo, FileType.JSDOC,
+            ErrorLevel.MIDDLE);
+        }
       });
     }
     if (item.illegalTags.length > 0) {
