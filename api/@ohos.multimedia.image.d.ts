@@ -1867,6 +1867,15 @@ declare namespace image {
     GPS_H_POSITIONING_ERROR = 'GPSHPositioningError',
 
     /**
+     * This tag indicates the sensitivity of the camera or input device when the image was shot.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    PHOTOGRAPHIC_SENSITIVITY = 'PhotographicSensitivity',
+
+    /**
      * Burst Number
      *
      * @syscap SystemCapability.Multimedia.Image.Core
