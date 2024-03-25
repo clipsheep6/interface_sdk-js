@@ -963,6 +963,19 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    */
   onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) => void): TextAttribute;
+
+  /**
+   * Set whether the content of text is hidden on form.
+   *
+   * @param { boolean } config - True for content will be hidden.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  privacySensitive(enable: boolean): TextAttribute;
 }
 
 /**
