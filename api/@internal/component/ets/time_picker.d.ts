@@ -373,6 +373,14 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
 
   /**
+   * Set time format
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+  */
+  dateTimeOptions(value: (import('../api/@ohos.intl').default.DateTimeOptions)): TimePickerAttribute;
+
+  /**
    * This event is triggered when a TimePicker time is selected.
    *
    * @param { function } callback
