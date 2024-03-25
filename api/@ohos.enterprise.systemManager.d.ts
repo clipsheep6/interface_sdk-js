@@ -25,8 +25,9 @@ import type Want from './@ohos.app.ability.Want';
  *
  * @namespace systemManager
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi
  * @stagemodelonly
- * @since 12
+ * @since 11
  */
 declare namespace systemManager {
   /**
@@ -34,8 +35,9 @@ declare namespace systemManager {
    *
    * @typedef SystemUpdateInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 11
    */
   export interface SystemUpdateInfo {
     /**
@@ -43,8 +45,9 @@ declare namespace systemManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 11
      */
     versionName: string;
 
@@ -53,8 +56,9 @@ declare namespace systemManager {
      *
      * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 11
      */
     firstReceivedTime: number;
 
@@ -63,8 +67,9 @@ declare namespace systemManager {
      *
      * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since 11
      */
     packageType: string;
   }

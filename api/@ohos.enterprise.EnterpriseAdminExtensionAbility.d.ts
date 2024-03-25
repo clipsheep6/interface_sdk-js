@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -24,16 +24,18 @@ import type systemManager from './@ohos.enterprise.systemManager';
  * Class of the enterprise admin extension ability.
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi
  * @StageModelOnly
- * @since 12
+ * @since 9
  */
 export default class EnterpriseAdminExtensionAbility {
   /**
    * Called back when an application is enabled.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
    * @StageModelOnly
-   * @since 12
+   * @since 9
    */
   onAdminEnabled(): void;
 
@@ -41,8 +43,9 @@ export default class EnterpriseAdminExtensionAbility {
    * Called back when an application is disabled.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
    * @StageModelOnly
-   * @since 12
+   * @since 9
    */
   onAdminDisabled(): void;
 
@@ -51,8 +54,9 @@ export default class EnterpriseAdminExtensionAbility {
    *
    * @param { string } bundleName - bundleName indicates the name of the bundle installed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
    * @StageModelOnly
-   * @since 12
+   * @since 9
    */
   onBundleAdded(bundleName: string): void;
 
@@ -61,8 +65,9 @@ export default class EnterpriseAdminExtensionAbility {
    *
    * @param { string } bundleName - bundleName indicates the name of the bundle uninstalled.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
    * @StageModelOnly
-   * @since 12
+   * @since 9
    */
   onBundleRemoved(bundleName: string): void;
 
@@ -71,8 +76,9 @@ export default class EnterpriseAdminExtensionAbility {
    *
    * @param { string } bundleName - bundleName indicates the name of the app started.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
    * @StageModelOnly
-   * @since 12
+   * @since 10
    */
   onAppStart(bundleName: string): void;
 
@@ -81,8 +87,9 @@ export default class EnterpriseAdminExtensionAbility {
    *
    * @param { string } bundleName - bundleName indicates the name of the app stopped.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
    * @StageModelOnly
-   * @since 12
+   * @since 10
    */
   onAppStop(bundleName: string): void;
 
@@ -91,8 +98,9 @@ export default class EnterpriseAdminExtensionAbility {
    *
    * @param { systemManager.SystemUpdateInfo } systemUpdateInfo - the information of the system version.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 11
    */
   onSystemUpdate(systemUpdateInfo: systemManager.SystemUpdateInfo): void;
 
@@ -100,8 +108,9 @@ export default class EnterpriseAdminExtensionAbility {
    * Called back when the enterprise admin extension is started.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 11
    */
   onStart(): void;
 }
