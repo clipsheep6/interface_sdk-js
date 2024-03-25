@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Defines delete text direction.
  *
  * @enum { number }
@@ -878,22 +883,22 @@ declare interface RichEditorTextStyleResult {
   /**
    * letter spacing.
    *
-   * @type { number } 
+   * @type { ?number } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  letterSpacing: number;
+  letterSpacing?: number;
 
   /**
    * line height.
    *
-   * @type { number } 
+   * @type { ?number } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  lineHeight: number;
+  lineHeight?: number;
 }
 
 /**
@@ -1094,6 +1099,16 @@ declare interface RichEditorTextSpanResult {
    * @since 11
    */
   valueResource?: Resource;
+
+  /**
+   * The Style of paragraph.
+   *
+   * @type { ?RichEditorParagraphStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  paragraphStyle?: RichEditorParagraphStyle;
 }
 
 /**
@@ -1166,6 +1181,16 @@ declare interface RichEditorImageSpanStyleResult {
    * @since 11
    */
   objectFit: ImageFit;
+
+  /**
+   * RichEditor ImageSpan Layout Style.
+   *
+   * @type { ?RichEditorLayoutStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  layoutStyle?: RichEditorLayoutStyle;
 }
 
 /**

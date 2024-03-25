@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
  * Provides the method of switching the cursor position.
  *
  * @extends TextContentControllerBase
@@ -105,7 +110,18 @@ declare class TextAreaController extends TextContentControllerBase {
    * @atomicservice
    * @since 11
    */
-  setTextSelection(selectionStart: number, selectionEnd: number): void;
+  /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } [options] - Indicates the options of the text selection.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
    * Exit edit state.
@@ -1024,6 +1040,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 11
    */
   maxLines(value: number): TextAreaAttribute;
+
+  /**
+   * Set the word break type.
+   *
+   * @param { WordBreak } value - The word break type.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  wordBreak(value: WordBreak): TextAreaAttribute;
 
   /**
    * Define custom keyboard of the text area.
