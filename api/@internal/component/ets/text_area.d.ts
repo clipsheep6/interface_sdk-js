@@ -644,6 +644,21 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   fontFamily(value: ResourceStr): TextAreaAttribute;
 
   /**
+   * Called when the text fontFeature is set.
+   *
+   * @param { string } value - The fontFeature.
+   * normal | <feature-tag-value>, 
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  fontFeature(value: string): TextAreaAttribute;
+
+  /**
    * Called when the inputFilter of text is set.
    *
    * @param { ResourceStr } value

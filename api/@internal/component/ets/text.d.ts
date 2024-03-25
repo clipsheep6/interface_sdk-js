@@ -963,6 +963,21 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    */
   onTextSelectionChange(callback: (selectionStart: number, selectionEnd: number) => void): TextAttribute;
+
+  /**
+   * Called when the text fontFeature is set.
+   *
+   * @param { string } value - The fontFeature.
+   * normal | <feature-tag-value>, 
+   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
+   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  fontFeature(value: string): TextAttribute;
 }
 
 /**
