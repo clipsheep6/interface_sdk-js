@@ -671,7 +671,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
-    ISO_SPEED = 'ISOSpeedRatings',
+    ISO_SPEED = 'ISOSpeed',
  
     /**
      * Aperture value
