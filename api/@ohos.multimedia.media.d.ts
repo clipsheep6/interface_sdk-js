@@ -81,7 +81,7 @@ declare namespace media {
   /**
    * Create MediaSource from url.
    * @param { string } url : The location for the media source.
-   * @param { Record<string, string> } headers : Headers attatched to network request while player request data.
+   * @param { Record<string, string> } headers : Headers attached to network request while player request data.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 5400101 - No memory.
