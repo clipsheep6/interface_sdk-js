@@ -901,7 +901,16 @@ declare namespace image {
      * @crossplatform
      * @since 11
      */
-    FOCUS_MODE = 'HwMnoteFocusMode'
+    FOCUS_MODE = 'HwMnoteFocusMode',
+    
+    /**
+     * This tag indicates the sensitivity of the camera or input device when the image was shot.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    PHOTOGRAPHIC_SENSITIVITY = 'PhotographicSensitivity'
   }
 
   /**
