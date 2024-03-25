@@ -79,7 +79,7 @@ declare namespace media {
   function createAVRecorder(callback: AsyncCallback<AVRecorder>): void;
 
   /**
-   * Create MediaSource from url string.
+   * Create MediaSource from url.
    * @param { string } url : The location for the media source.
    * @param { Record<string, string> } headers : Headers attatched to network request while player request data.
    * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
