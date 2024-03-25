@@ -1082,6 +1082,66 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 11
    */
   type(value: TextAreaType): TextAreaAttribute;
+
+  /**
+   * Called when the overflow mode of the font is set.
+   *
+   * @param { object } value
+   * @returns { TextAreaAttribute } Returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  textOverflow(value: { overflow: TextOverflow }): TextAreaAttribute;
+
+  /**
+   * Called when the baseline offset is set.
+   *
+   * @param { number | string } value
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  baselineOffset(value: number | string): TextAreaAttribute;
+
+  /**
+   * Specify the indentation of the first line in a text-block.
+   *
+   * @param { Length } value - The length of text indent.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  textIndent(value: Length): TextAreaAttribute;
+
+  /**
+   * Define the text selected background color of the text area.
+   *
+   * @param { ResourceColor } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectedBackgroundColor(value: ResourceColor): TextAreaAttribute;
+
+  /**
+   * Define the caret style of the text area.
+   *
+   * @param { CaretStyle } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  caretStyle(value: CaretStyle): TextAreaAttribute;
 }
 
 /**

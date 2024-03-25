@@ -93,6 +93,18 @@ declare class SearchController extends TextContentControllerBase {
   caretPosition(value: number): void;
 
   /**
+   * Text selection is achieved by specifying the start and end positions of the text.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  setTextSelection(selectionStart: number, selectionEnd: number): void;
+
+  /**
    * Exit edit state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1128,6 +1140,79 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 11
    */
   type(value: SearchType): SearchAttribute;
+
+  /**
+   * Called when the overflow mode of the font is set.
+   *
+   * @param { object } value
+   * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  textOverflow(value: { overflow: TextOverflow }): SearchAttribute;
+
+  /**
+   * Called when the baseline offset is set.
+   *
+   * @param { number | string } value
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  baselineOffset(value: number | string): SearchAttribute;
+
+  /**
+   * Specify the indentation of the first line in a text-block.
+   *
+   * @param { Length } value - The length of text indent.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  textIndent(value: Length): SearchAttribute;
+
+  /**
+   * Define the text selected background color of the search component.
+   *
+   * @param { ResourceColor } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectedBackgroundColor(value: ResourceColor): SearchAttribute;
+
+  /**
+   * Called when the inputFilter of text is set.
+   *
+   * @param { ResourceStr } value
+   * @param { function } error
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  inputFilter(value: ResourceStr, error?: (value: string) => void): SearchAttribute;
+
+  /**
+   * Called when judging whether the text editing change finished.
+   *
+   * @param { function } callback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onEditChange(callback: (isEditing: boolean) => void): SearchAttribute;
 }
 
 /**
