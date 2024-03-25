@@ -1903,6 +1903,39 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 11
    */
   passwordRules(value: string): TextInputAttribute;
+
+  /**
+   * Called when the text decoration of the text is set.
+   *
+   * @param { TextDecorationOptions } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  decoration(value: TextDecorationOptions): TextInputAttribute;
+
+  /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  letterSpacing(value: number | string | Resource): TextInputAttribute;
+
+  /**
+   * Called when the line height of the font is set.
+   *
+   * @param { number | string | Resource } value
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineHeight(value: number | string | Resource): TextInputAttribute;
 }
 
 /**
