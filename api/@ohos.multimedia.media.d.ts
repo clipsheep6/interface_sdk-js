@@ -79,6 +79,18 @@ declare namespace media {
   function createAVRecorder(callback: AsyncCallback<AVRecorder>): void;
 
   /**
+   * Create MediaSource from url string.
+   * @param { string } url : The location for the media source.
+   * @param { Record<string, string> } headers : Headers attatched to network request while player request data.
+   * @returns { MediaSource } MediaSource instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 5400101 - No memory.
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource;
+
+  /**
    * Creates an AVRecorder instance.
    * @returns { Promise<AVRecorder> } A Promise instance used to return AVRecorder instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
@@ -1823,6 +1835,49 @@ declare namespace media {
      * @since 8
      */
     CACHED_DURATION = 4,
+  }
+
+  /**
+   * Media source descriptor. User can set media data information
+   * @typedef MediaSource
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  interface MediaSource {
+  }
+
+  /**
+   * Provides preferred playback settings for player.
+   *
+   * @typedef PlaybackStrategy
+   * @syscap SystemCapability.Multimedia.Media.Core
+   * @since 12
+   */
+  interface PlaybackStrategy {
+    /**
+     * Choose a stream with width close to it.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    preferredWidth?: number;
+    /**
+     * Choose a stream with height close to it.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    preferredHeight?: number;
+    /**
+     * Choose a preferred buffer duration.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    preferredBufferDuration?: number;
+    /**
+     * If true, the player should choose HDR stream if exist.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @since 12
+     */
+    preferredHdr?: boolean;
   }
 
   /**
