@@ -92,6 +92,7 @@ export interface RenderOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 11
  */
 export class BuilderNode<Args extends Object[]> {
@@ -102,6 +103,7 @@ export class BuilderNode<Args extends Object[]> {
    * @param { RenderOptions } options - Render options of the Builder Node
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   constructor(uiContext: UIContext, options?: RenderOptions);
@@ -113,6 +115,7 @@ export class BuilderNode<Args extends Object[]> {
    * @param { Object } arg - Defined the args will be used in the builder.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   build(builder: WrappedBuilder<Args>, arg?: Object): void;
@@ -123,6 +126,7 @@ export class BuilderNode<Args extends Object[]> {
    * @param { Object } arg - Parameters used to update the BuilderNode, which must match the types required by the builder bound to the BuilderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   update(arg: Object): void;
@@ -133,6 +137,7 @@ export class BuilderNode<Args extends Object[]> {
    * @returns { FrameNode | null } - Returns a FrameNode inside the BuilderNode, or null if not contained.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   getFrameNode(): FrameNode | null;
@@ -144,6 +149,7 @@ export class BuilderNode<Args extends Object[]> {
    * @returns { boolean } - Returns true if the TouchEvent has been successfully posted to the targetNode, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 11
    */
   postTouchEvent(event: TouchEvent): boolean;
@@ -153,6 +159,7 @@ export class BuilderNode<Args extends Object[]> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   dispose(): void;
