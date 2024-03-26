@@ -197,7 +197,14 @@ declare namespace relationalStore {
    * @crossplatform
    * @since 10
    */
-  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets;
+  /**
+   * Indicates possible value types and bigint
+   *
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @crossplatform
+   * @since 12
+   */
+  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets | bigint;
 
   /**
    * Values in buckets are stored in key-value pairs
@@ -541,28 +548,25 @@ declare namespace relationalStore {
   }
 
   /**
-   * Records information about execute sql.
+   * Defines information about the SQL statements executed.
    *
    * @interface SqlExeInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform
    * @since 12
    */
   interface SqlExeInfo {
     /**
-     * The sql be executed. when the args of batchInsert is too large, there may be more than one sql.
+     * Array of SQL statements executed. When the args of batchInsert is too large, there may be more than one SQL.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 12
      */
     sql:Array<string>;
 
     /**
-     * The total microseconds of the sql executions;
+     * Total time used for executing the SQL statements, in ms.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 12
      */
     totalTime:number;
@@ -571,7 +575,6 @@ declare namespace relationalStore {
      * The microseconds to get the sql file handle.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 12
      */
     waitTime:number;
@@ -580,7 +583,6 @@ declare namespace relationalStore {
      * The microseconds to prepare sql and args
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 12
      */
     prepareTime:number;
@@ -589,7 +591,6 @@ declare namespace relationalStore {
      * The microseconds to execute the sql
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 12
      */
     executeTime:number;
@@ -2256,6 +2257,21 @@ declare namespace relationalStore {
     getAssets(columnIndex: number): Assets;
 
     /**
+     * Obtains the value of the specified column in the current row.
+     * The implementation class determines whether to throw an exception if the value of the specified column
+     * in the current row is null or the specified column is not of the Assets type.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { ValueType } The value of the specified column.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corruption .
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    getValue(columnIndex: number): ValueType;
+
+    /**
      * Obtains the values of all columns in the specified row.
      *
      * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
@@ -3671,14 +3687,13 @@ declare namespace relationalStore {
     on(event: 'autoSyncProgress', progress: Callback<ProgressDetails>): void;
 
     /**
-     * Turn on the sql statistics feature.
-     * @param { 'statistics' } event - Indicates the event must be string 'statistics'.
-     * @param { Callback<SqlExeInfo> } observer - The observer of sql execution statistics {@link SqlExeInfo} in the database.
+     * Subscribes to the SQL statistics.
+     * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
+     * @param { Callback<SqlExeInfo> } observer - Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 12
      */
     on(event: 'statistics', observer:Callback<SqlExeInfo> ):void;
@@ -3745,14 +3760,13 @@ declare namespace relationalStore {
     off(event: 'autoSyncProgress', progress?: Callback<ProgressDetails>): void;
 
     /**
-     * Turn off the sql statistics feature.
-     * @param { 'statistics' } event - Indicates the event must be string 'statistics'.
-     * @param { Callback<SqlExeInfo> } observer - The observer of sql execution statistics {@link SqlExeInfo} in the database.
+     * Unsubscribes from the SQL statistics.
+     * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
+     * @param { Callback<SqlExeInfo> } observer - Indicates the calllback to unregister.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
      * @since 12
      */
     off(event: 'statistics', observer?:Callback<SqlExeInfo> ):void;
