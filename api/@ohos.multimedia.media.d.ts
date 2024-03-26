@@ -1194,6 +1194,17 @@ declare namespace media {
     getTrackDescription(): Promise<Array<MediaDescription>>;
 
     /**
+     * Set MediaSource to AVPlayer, this interface is exclusive with fd/url/dataSrc assign.
+     * @param { MediaSource } src : MediaSource instance to be set to the avplayer instance.
+     * @param { PlaybackStrategy } strategy : Play stragegy of the media source.
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>;
+
+    /**
      * Media URI. Mainstream media formats are supported.
      * Network:http://xxx
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
