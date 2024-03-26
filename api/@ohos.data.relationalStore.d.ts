@@ -572,7 +572,7 @@ declare namespace relationalStore {
     totalTime:number;
 
     /**
-     * The microseconds to get the sql file handle.
+     * Maximum time allowed to obtain the SQL file handle, in ms.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -580,7 +580,7 @@ declare namespace relationalStore {
     waitTime:number;
 
     /**
-     * The microseconds to prepare sql and args
+     * Time used to prepare SQL and args, in ms.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -588,7 +588,7 @@ declare namespace relationalStore {
     prepareTime:number;
 
     /**
-     * The microseconds to execute the sql
+     * Time used to execute the SQL statements, in ms.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
