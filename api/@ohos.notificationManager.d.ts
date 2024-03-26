@@ -2173,7 +2173,9 @@ declare namespace notificationManager {
   function setBadgeNumber(badgeNumber: number): Promise<void>;
 
   /**
-   * Set badge number by bundle.
+   * Set badge number by bundle option.
+   * <p>If there is no agent relationship with the specified bundle,
+   * you need to apply for permission:ohos.permission.NOTIFICATION_AGENT_CONTROLLER.
    *
    * @param { BundleOption } bundle - Use the bundleOption to carry bundleName and uid of the application.
    * @param { number } badgeNumber - Badge number.
