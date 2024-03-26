@@ -1195,6 +1195,7 @@ declare namespace media {
 
     /**
      * Set MediaSource to AVPlayer, this interface is exclusive with fd/url/dataSrc assign.
+     * @returns { Promise<void> } A Promise instance used to return when setMediaSource completed.
      * @param { MediaSource } src : MediaSource instance to be set to the avplayer instance.
      * @param { PlaybackStrategy } strategy : Play stragegy of the media source.
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
