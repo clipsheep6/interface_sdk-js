@@ -617,6 +617,27 @@ declare namespace inputMethodEngine {
      */
     off(type: 'securityModeChange', callback?: Callback<SecurityMode>): void;
 
+    /**
+     * Subscribe 'patternOptions' event. Only support system default input method.
+     *
+     * @param { 'patternOptions' } type - the type of subscribe event.
+     * @param { Callback<PatternInfo> } callback - the callback of on('patternOptions').
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    on(type: 'patternOptions', callback: Callback<PatternInfo>): void;
+	
+    /**
+     * Unsubscribe 'patternOptions' event. Only support system default input method.
+     *
+     * @param { 'patternOptions' } type - the type of unsubscribe event.
+     * @param { Callback<PatternInfo> } [callback] - optional, the callback of off('patternOptions').
+     * @throws { BusinessError } 12800010 - not default input method configured by system.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    off(type: 'patternOptions', callback?: Callback<PatternInfo>): void;
 
     /**
      * Get input method's security mode.
@@ -677,6 +698,40 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     destroyPanel(panel: Panel): Promise<void>;
+  }
+
+  /**
+   * Pattern infomation of change pattern options.
+   *
+   * @typedef PatternInfo
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  interface PatternInfo {
+    /**
+     * Pattern option.
+     *
+     * @type { PatternAction }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    patternAction: PatternAction,
+    /**
+     * When patternAction is LEFT_HAND or RIGHT_HAND, receive the panel width.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    panelWidth?: number,
+    /**
+     * When patternAction is LEFT_HAND or RIGHT_HAND, receive the panel height.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    panelHeight?: number
   }
 
   /**
@@ -1792,6 +1847,51 @@ declare namespace inputMethodEngine {
     FULL
   }
 
+  /**
+   * Enumerates the pattern actions. Only support system default input method.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  export enum PatternAction {
+    /**
+     * Normal
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    NORMAL = 0,
+    /**
+     * Left hand
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    LEFT_HAND,
+    /**
+     * Right hand
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    RIGHT_HAND,
+    /**
+     * Thumb
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    THUMB,
+    /**
+     * Floating
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    FLOATING
+  }
+ 
   /**
    * Range of selected text.
    *
