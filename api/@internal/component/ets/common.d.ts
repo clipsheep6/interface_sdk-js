@@ -70,17 +70,6 @@ declare interface InputCounterOptions {
    * @since 11
    */
   highlightBorder?: boolean;
-
-  /**
-   * Called when detent of the sheet changed
-   *
-   * @type { ?Callback<number> }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  onDetentDidChange?: Callback<number>;
 }
 
 /**
@@ -9288,7 +9277,7 @@ declare interface SheetOptions extends BindOptions {
    * @crossplatform
    * @since 12
    */
-  onDetentDidChange?: Callback<number>;
+  onDetentsDidChange?: Callback<number>;
 }
 
 /**
