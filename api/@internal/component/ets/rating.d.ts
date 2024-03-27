@@ -95,6 +95,80 @@ interface RatingInterface {
 }
 
 /**
+ * RatingConfig used by rating style
+ *
+ * @interface RatingConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface RatingConfig {
+  /**
+   * Current number of Rating.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  rating: number;
+
+  /**
+   * Rating is indicator or not.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  indicator: boolean;
+
+  /**
+   * Total stars of Rating.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  stars: number;
+
+  /**
+   * The step size of the Rating .
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  stepSize: number;
+
+  /**
+   * Notice Rating selected change
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  triggerChange: (value: number) => void;
+}
+
+/**
+ * RatingStyle wrapped builder
+ *
+ * @interface RatingStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface RatingStyle {
+  applyContent(): WrappedBuilder<[RatingConfig]>
+}
+
+
+/**
  * Defines the rating attribute functions.
  *
  * @extends CommonMethod<RatingAttribute>
@@ -288,6 +362,18 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
    * @form
    */
   onChange(callback: (value: number) => void): RatingAttribute;
+
+  /**
+   * Set the builder style of rating.
+   *
+   * @param { RatingStyle } value - The style of rating.
+   * @returns { RatingAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  customStyle(style: RatingStyle) : RatingAttribute
 }
 
 /**
