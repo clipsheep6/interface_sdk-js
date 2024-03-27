@@ -1988,6 +1988,55 @@ declare namespace camera {
   }
 
   /**
+   * Enum for feature type used in scene detection.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  enum SceneFeatureType {
+    /**
+     * Feature for boost moon capture.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    MOON_CAPTURE_BOOST = 0
+  }
+
+  /**
+   * Feature Detection Result.
+   *
+   * @interface SceneFeatureDetectionResult
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface SceneFeatureDetectionResult {
+    /**
+     * Detected feature type.
+     *
+     * @type { SceneFeatureType }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly featureType: SceneFeatureType;
+
+    /**
+     * Check whether camera is detected.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    readonly detected: boolean;
+  }
+
+  /**
    * Enumerates the camera color effect types.
    *
    * @enum { number }
@@ -2895,6 +2944,50 @@ declare namespace camera {
     setBeauty(type: BeautyType, value: number): void;
   }
 
+    /**
+   * Scene detection query.
+   *
+   * @interface SceneDetectionQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+    interface SceneDetectionQuery {
+      /**
+       * Check whether specified feature is supported.
+       *
+       * @param { SceneFeatureType } type - Specified feature type.
+       * @returns { boolean } - Is specified feature supported.
+       * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+       * @syscap SystemCapability.Multimedia.Camera.Core
+       * @systemapi
+       * @since 12
+       */
+      isSceneFeatureSupported(type: SceneFeatureType): boolean;
+    }
+
+  /**
+   * Scene detection.
+   *
+   * @interface SceneDetection
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  interface SceneDetection extends SceneDetectionQuery {
+    /**
+     * Enable specified feature.
+     *
+     * @param { SceneFeatureType } type - Specified feature type.
+     * @param { boolean } enabled - Target feature status.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    enableSceneFeature(type: SceneFeatureType, enabled: boolean): void;
+  }
+
   /**
    * Photo session object for system hap.
    *
@@ -2903,7 +2996,30 @@ declare namespace camera {
    * @systemapi
    * @since 11
    */
-  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro {
+  interface PhotoSessionForSys extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection{
+    /**
+     * Subscribes to feature detection results.
+     *
+     * @param { 'featureDetectionStatus' } type - Event type.
+     * @param { SceneFeatureType } featureType - Feature type.
+     * @param { AsyncCallback<SceneFeatureDetectionResult> } callback - Callback used to get the detection result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    on(type: 'featureDetectionStatus', featureType: SceneFeatureType, callback: AsyncCallback<SceneFeatureDetectionResult>): void;
+
+    /**
+     * Unsubscribes from feature detection result.
+     *
+     * @param { 'featureDetectionStatus' } type - Event type.
+     * @param { SceneFeatureType } featureType - Feature type.
+     * @param { AsyncCallback<SceneFeatureDetectionResult> } callback - Callback used to get the detection result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    off(type: 'featureDetectionStatus', featureType: SceneFeatureType, callback?: AsyncCallback<SceneFeatureDetectionResult>): void;
   }
 
   /**
