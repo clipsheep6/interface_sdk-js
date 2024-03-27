@@ -307,6 +307,20 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Add dependencies on the task array for this task.
+     *
+     * @param { Task[] } tasks - tasks tasks An array of dependent tasks.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200026 - There is a circular dependency.
+     * @throws { BusinessError } 10200031 - The sequenceRunnerTask cannot have dependency.
+     * @throws { BusinessError } 10200032 - The executedTask cannot have dependency.
+     * @throws { BusinessError } 10200033 - The groupTask cannot have dependency.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     addDependency(...tasks: Task[]): void;
 
     /**
@@ -319,6 +333,20 @@ declare namespace taskpool {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Remove dependencies on the task array for this task.
+     *
+     * @param { Task[] } tasks - tasks tasks An array of dependent tasks.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200027 - The dependency does not exist.
+     * @throws { BusinessError } 10200034 - The executedTask cannot remove dependency.
+     * @throws { BusinessError } 10200035 - Cannot removeDependency on a dependent and executed task.
+     * @throws { BusinessError } 10200036 - The task has no dependency.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     removeDependency(...tasks: Task[]): void;
 
@@ -485,6 +513,19 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Add a Concurrent function into task group.
+     *
+     * @param { Function } func - func func Concurrent function to add in task group.
+     * @param { Object[] } args - args args The concurrent function arguments.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200037 - The executed taskGroup cannot addTask.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     addTask(func: Function, ...args: Object[]): void;
 
     /**
@@ -507,6 +548,22 @@ declare namespace taskpool {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Add a Task into TaskGroup.
+     *
+     * @param { Task } task - task task The task want to add in task group.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200037 - The executed taskGroup cannot addTask.
+     * @throws { BusinessError } 10200038 - The taskGroup cannot add task with dependency.
+     * @throws { BusinessError } 10200039 - The taskGroup cannot add executedTask.
+     * @throws { BusinessError } 10200040 - The taskGroup cannot add sequenceRunnerTask.
+     * @throws { BusinessError } 10200041 - The taskGroup cannot add task in other taskGroup.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     addTask(task: Task): void;
 
@@ -555,6 +612,23 @@ declare namespace taskpool {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Execute a concurrent function.
+     *
+     * @param { Task } task - The task want to execute.
+     * @returns { Promise<Object> }
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @throws { BusinessError } 10200003 - Worker initialization failure.
+     * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+     * @throws { BusinessError } 10200025 - Add dependent task to SequenceRunner.
+     * @throws { BusinessError } 10200042 - The sequenceRunner cannot execute task in other sequenceRunner.
+     * @throws { BusinessError } 10200043 - The sequenceRunner cannot execute executedTask.
+     * @throws { BusinessError } 10200044 - The sequenceRunner cannot execute groupTask.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     execute(task: Task): Promise<Object>;
   }
@@ -935,6 +1009,24 @@ declare namespace taskpool {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Execute a concurrent task.
+   *
+   * @param { Task } task - task task The task want to execute.
+   * @param { Priority } [priority] - priority priority Task priority, MEDIUM is default.
+   * @returns { Promise<Object> }
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200003 - Worker initialization failure.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200045 - The groupTask cannot execute outside.
+   * @throws { BusinessError } 10200046 - The sequenceRunnerTask cannot execute outside.
+   * @throws { BusinessError } 10200047 - The executedTask with dependency cannot execute again.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function execute(task: Task, priority?: Priority): Promise<Object>;
 
   /**
@@ -977,6 +1069,23 @@ declare namespace taskpool {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Execute a concurrent task after the specified time.
+   *
+   * @param { number } delayTime - delayTime delayTime The time want to delay.
+   * @param { Task } task - task task The task want to execute.
+   * @param { Priority } [priority] - priority priority Task priority, MEDIUM is default.
+   * @returns { Promise<Object> }
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200028 - The delayTime is less than zero.
+   * @throws { BusinessError } 10200048 - The groupTask cannot executeDealyed outside.
+   * @throws { BusinessError } 10200049 - The sequenceRunnerTask cannot executeDealyed outside.
+   * @throws { BusinessError } 10200050 - The executedTask with dependency cannot executeDealyed again.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise<Object>;
 
