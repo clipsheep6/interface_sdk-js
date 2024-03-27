@@ -1162,7 +1162,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    SHUTTER_SPEED_VALUE = 'ShutterSpeedValue',
+    SHUTTER_SPEED = 'ShutterSpeedValue',
 
     /**
      * The brightness value of the image, in APEX units.
@@ -1747,7 +1747,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    ISO_SPEED_LATITUDEYYY = 'ISOSpeedLatitudeyyy',
+    ISO_SPEED_LATITUDE_YYY = 'ISOSpeedLatitudeyyy',
 
     /**
      * The tag indicate the ISO speed latitude zzz value of the camera or input device that is defined in ISO 12232.
@@ -1756,7 +1756,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    ISO_SPEED_LATITUDEZZZ = 'ISOSpeedLatitudezzz',
+    ISO_SPEED_LATITUDE_ZZZ = 'ISOSpeedLatitudezzz',
 
     /**
      * The manufacturer of the lens.
