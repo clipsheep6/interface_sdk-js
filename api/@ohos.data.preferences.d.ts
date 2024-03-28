@@ -1572,7 +1572,7 @@ declare namespace preferences {
      * @atomicservice
      * @since 12
      */
-    on(event: 'dataChange', keys: Array<string>, callback: Callback<Record<string, ValueType>>);
+    on(type: 'dataChange', keys: Array<string>, callback: Callback<Record<string, ValueType>>): void;
 
     /**
      * Unregisters an existing observer.
