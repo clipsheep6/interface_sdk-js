@@ -21,6 +21,35 @@
 import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, Edges } from './Graphics';
 
 /**
+ * Enumerates the length metrics unit of RenderNode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export enum LengthMetricsUnit {
+
+  /**
+   * The default length metrics unit of RenderNode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * The pixel length metrics unit of RenderNode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  PX = 1
+}
+
+/**
  * Defines RenderNode. Contains node tree operations and render property operations on node.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -971,4 +1000,25 @@ export class RenderNode {
    * @since 12
    */
   dispose(): void;
+
+  /**
+   * Set the length metrics unit of RenderNode.
+   *
+   * @param { LengthMetricsUnit } unit - The length metrics unit of RenderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  set lengthMetricsUnit(unit: LengthMetricsUnit);
+
+  /**
+   * Get the length metrics unit of RenderNode.
+   *
+   * @returns { LengthMetricsUnit } - Return the length metrics unit of RenderNode.
+   * @default LengthMetricsUnit.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  get lengthMetricsUnit(): LengthMetricsUnit;
 }
