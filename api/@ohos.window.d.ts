@@ -3690,7 +3690,7 @@ declare namespace window {
      * Register the callback function that has no interaction for a long time.
      *
      * @param { 'noInteractionDetect' } type - The value is fixed at 'noInteractionDetect', indicating the window has no interaction for a long time.
-     * @param { number } timeout - The timeout of no interaction detection.
+     * @param { number } timeout - The timeout(in seconds) of no interaction detection.
      * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
