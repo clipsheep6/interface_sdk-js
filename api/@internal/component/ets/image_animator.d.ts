@@ -336,7 +336,17 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @since 11
    * @form
    */
-  images(value: Array<ImageFrameInfo>): ImageAnimatorAttribute;
+  /**
+   * list images
+   *
+   * @param { Array<ImageFrameInfo> | Array<PixelMap> } value
+   * @returns { ImageAnimatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  images(value: Array<ImageFrameInfo> | Array<PixelMap>): ImageAnimatorAttribute;
 
   /**
    * The default value is the initial state, which is used to control the playback status.
