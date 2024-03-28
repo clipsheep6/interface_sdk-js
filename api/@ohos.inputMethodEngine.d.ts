@@ -1618,6 +1618,56 @@ declare namespace inputMethodEngine {
      * @since 8
      */
     readonly enterKeyType: number;
+
+    /**
+     * Indicates the case mode of editor.
+     *
+     * @type { CaseMode }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    caseMode: CaseMode;
+  }
+
+  /**
+   * Enumerates the case mode of editor.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  export enum CaseMode {
+    /**
+     * No text in automatic uppercase.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    NORMAL = 0,
+
+    /**
+     * All letters in automatic uppercase.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    ALL,
+
+    /**
+     * The first letter of each word in automatic uppercase.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    WORD_BEGIN,
+
+    /**
+     * The first letter of each sentence in automatic uppercase.
+     *
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    SENTENCE_BEGIN,
   }
 
   /**
