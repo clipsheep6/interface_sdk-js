@@ -9365,6 +9365,17 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
+
+    /**
+   * Called when detent of the sheet changed
+   *
+   * @type { ?Callback<number> }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDetentsDidChange?: Callback<number>;
 }
 
 /**
