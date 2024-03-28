@@ -629,7 +629,6 @@ preconnectable
 preconnecting
 preempted
 preferentially
-prefetched
 preinstalled
 prelaunch
 preloads
@@ -745,7 +744,6 @@ sensing
 sequenceable
 setsockopt
 settingsdata
-seventh
 sfactor
 sgi
 sha1
