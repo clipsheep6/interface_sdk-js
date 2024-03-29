@@ -435,6 +435,17 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
      * @since 11
      */
     lifetime?: number;
+
+    /**
+     * The mean value by which the lifetime of the particle can vary.
+     *
+     * @type { ?number }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    lifetimeRange?: number;
   };
 
   /**
