@@ -565,6 +565,33 @@ declare namespace hiAppEvent {
   function write(info: AppEventInfo, callback: AsyncCallback<void>): void;
 
   /**
+   * Indicates possible parameter types.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 12
+   */
+  type ParamType = number | string | boolean | Array<string>;
+
+  /**
+   * It is used to set custom parameters for events, including both system-subscribed events and custom events.
+   * Existing parameter will be overwritten, and non-existing parameter will be created.
+   *
+   * @param { Record<string, ParamType> } params The parameters of the event.
+   * @param { string } domain The domain of the event.
+   * @param { ?string } name The name of the event.
+   * @returns { Promise<void> } Return Promise.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 11101007 - The number of parameter keys exceeds the limit.
+   * @static
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @atomicservice
+   * @since 12
+   */
+  function setEventParam(params: Record<string, ParamType>, domain: string,
+      name?: string): Promise<void>;
+  
+  /**
    * Definition of the read event package.
    *
    * @interface AppEventPackage
@@ -637,8 +664,18 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11
+     * @deprecated since 12
      */
     data: string[];
+	
+	/**
+     * The events json format data contained in the package.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    events: AppEventInfo[];
   }
 
   /**
@@ -693,6 +730,18 @@ declare namespace hiAppEvent {
      */
     setSize(size: number): void;
 
+    /**
+     * Set the number of rows per read.
+     *
+     * @param { number } size Row size.
+     * @throws { BusinessError } 401 - The type of size must be number.
+     * @throws { BusinessError } 11104001 - Invalid size value.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 11
+     */
+    setRow(size: number): void;
+	
     /**
      * Read the event data monitored by the watcher.
      *
@@ -1230,6 +1279,27 @@ declare namespace hiAppEvent {
      * @since 11
      */
     eventConfigs?: AppEventReportConfig[];
+
+    	
+	/**
+     * The processor config id.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    configId?: number;
+	
+	/**
+     * The processor set custom config data.
+     *
+     * @type { ?Record<string, string> }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    customConfigs?: Record<string, string>;
   }
 
   /**
