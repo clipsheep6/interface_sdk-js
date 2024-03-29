@@ -1502,6 +1502,16 @@ declare namespace image {
      * @since 12
      */
     alphaType: AlphaType;
+
+    /**
+     * Indicates image mime type.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 12
+     */
+    mimeType: string;
   }
 
   /**
@@ -2852,6 +2862,19 @@ declare namespace image {
     readPixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
     /**
+     * Reads image pixel map data in an area.
+     *
+     * @param { PositionArea } area Area from which the image pixel map data will be read.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    readPixelsSync(area: PositionArea): void;
+
+    /**
      * Writes image pixel map data to the specified area. This method uses a promise to return
      * the operation result.
      *
@@ -2990,6 +3013,19 @@ declare namespace image {
      * @since 11
      */
     writeBufferToPixels(src: ArrayBuffer, callback: AsyncCallback<void>): void;
+
+    /**
+     * Reads image data in an ArrayBuffer and writes the data to a PixelMap object.
+     *
+     * @param { ArrayBuffer } src A buffer from which the image data will be read.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    writeBufferToPixelsSync(src: ArrayBuffer): void;
 
     /**
      * Obtains pixel map information about this image. This method uses a promise to return the information.
@@ -3195,6 +3231,18 @@ declare namespace image {
     opacity(rate: number): Promise<void>;
 
     /**
+     * Set the transparent rate of pixel map.
+     *
+     * @param { number } rate The value of transparent rate.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    opacitySync(rate: number): void;
+    /**
      * Obtains new pixel map with alpha information. This method uses a promise to return the information.
      *
      * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
@@ -3246,6 +3294,18 @@ declare namespace image {
      */
     createAlphaPixelmap(callback: AsyncCallback<PixelMap>): void;
 
+    /**
+     * Obtains new pixel map with alpha information.
+     *
+     * @returns { PixelMap } return the new image pixel map. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    createAlphaPixelmapSync(): PixelMap;
     /**
      * Image zoom in width and height. This method uses a callback to return the operation result.
      *
@@ -3389,6 +3449,20 @@ declare namespace image {
     translate(x: number, y: number): Promise<void>;
 
     /**
+     * Image position transformation.
+     *
+     * @param { number } x The position value of width.
+     * @param { number } y The position value of height.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    translateSync(x: number, y: number): void;
+
+    /**
      * Image rotation. This method uses a callback to return the operation result.
      *
      * @param { number } angle The rotation angle.
@@ -3445,6 +3519,19 @@ declare namespace image {
      * @since 11
      */
     rotate(angle: number): Promise<void>;
+
+    /**
+     * Image rotation.
+     *
+     * @param { number } angle The rotation angle.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    rotateSync(angle: number): void;
 
     /**
      * Image flipping. This method uses a callback to return the operation result.
@@ -3511,6 +3598,20 @@ declare namespace image {
     flip(horizontal: boolean, vertical: boolean): Promise<void>;
 
     /**
+     * Image flipping.
+     *
+     * @param { boolean } horizontal Is flip in horizontal.
+     * @param { boolean } vertical Is flip in vertical.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    flipSync(horizontal: boolean, vertical: boolean): void;
+
+    /**
      * Crop the image. This method uses a callback to return the operation result.
      *
      * @param { Region } region The region to crop.
@@ -3567,6 +3668,19 @@ declare namespace image {
      * @since 11
      */
     crop(region: Region): Promise<void>;
+
+    /**
+     * Crop the image.
+     *
+     * @param { Region } region The region to crop.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    cropSync(region: Region): void;
 
     /**
      * Get color space of pixel map.
@@ -3856,6 +3970,17 @@ declare namespace image {
     getImageInfo(index?: number): Promise<ImageInfo>;
 
     /**
+     * Get image information from image source synchronously.
+     *
+     * @param { number } index - Index of sequence images. If this parameter is not specified, default value is 0.
+     * @returns { ImageInfo } The image information.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
+    getImageInfoSync(index?: number): ImageInfo;
+
+    /**
      * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
      * return the object.
      *
@@ -3944,6 +4069,17 @@ declare namespace image {
      * @since 11
      */
     createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap>): void;
+
+    /**
+     * Create a PixelMap object based on image decoding parameters synchronously.
+     *
+     * @param { DecodingOptions } options - Image decoding parameters.
+     * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
+    createPixelMapSync(options?: DecodingOptions): PixelMap;
 
     /**
      * Creates a PixelMap array based on image decoding parameters. This method uses a promise to
@@ -4076,6 +4212,21 @@ declare namespace image {
      * @since 10
      */
     getDelayTimeList(callback: AsyncCallback<Array<number>>): void;
+
+    /**
+     * Obtains the array of disposal type in a gif image. This method uses a promise to return the array.
+     *
+     * @returns { Promise<Array<number>> } A Promise instance used to return the array.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980101 - The image data is abnormal.
+     * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 62980149 - Invalid image source mime type.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
+    getDisposalTypeList(): Promise<Array<number>>;
 
     /**
      * Obtains the count of frame in an image. This method uses a promise to return the number.
@@ -4225,6 +4376,24 @@ declare namespace image {
     getImageProperty(key: string, options: GetImagePropertyOptions, callback: AsyncCallback<string>): void;
 
     /**
+     * Obtains the value of properties in an image. This method uses a promise to return the property values in array
+     * of records.
+     *
+     * @param { Array<PropertyKey> } key - Name of the properties whose value is to be obtained.
+     * @returns { Promise<Record<PropertyKey, string|null>> } Array of Records instance used to return the
+     * property values. If the operation fails, the null is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 62980110 - The image source data is incorrect.
+     * @throws { BusinessError } 62980113 - Unknown image format.
+     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
+    getImageProperties(key: Array<PropertyKey>): Promise<Record<PropertyKey, string|null>>;
+
+    /**
      * Modify the value of a property in an image with the specified key. This method uses a
      * promise to return the property value in a string.
      *
@@ -4295,6 +4464,24 @@ declare namespace image {
      * @useinstead image.ImageSource#modifyImageProperty
      */
     modifyImageProperty(key: string, value: string, callback: AsyncCallback<void>): void;
+
+    /**
+     * Modify the value of properties in an image with the specified keys.
+     *
+     * @param { Record<PropertyKey, string|null> } records - Array of the property Records whose values are to
+     * be modified.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
+     * error message is returned.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 62980123 - Images in EXIF format are not supported.
+     * @throws { BusinessError } 62980133 - The EXIF data is out of range.
+     * @throws { BusinessError } 62980135 - The EXIF value is invalid.
+     * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @crossplatform
+     * @since 12
+     */
+    modifyImageProperties(records: Record<PropertyKey, string|null>): Promise<void>;
 
     /**
      * Update the data in the incremental ImageSource.
@@ -4720,7 +4907,7 @@ declare namespace image {
      */
     readonly format: number;
 
-     /**
+    /**
      * Image timestamp.
      *
      * @type { number }

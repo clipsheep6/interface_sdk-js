@@ -24,6 +24,7 @@ import type * as _PageNodeInfo from './application/PageNodeInfo';
 import { AutoFillType } from './application/AutoFillType';
 import type * as _AutoFillRequest from './application/AutoFillRequest';
 import type * as _CustomData from './application/CustomData';
+import type * as _AutoFillRect from './application/AutoFillRect';
 
 /**
  * This module provides the function of auto fill manager.
@@ -126,6 +127,16 @@ declare namespace autoFillManager {
   export type SaveRequest = _AutoFillRequest.SaveRequest;
 
   /**
+   * The interface of update request.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  export type UpdateRequest = _AutoFillRequest.UpdateRequest;
+
+  /**
    * The interface of fill response.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -164,6 +175,16 @@ declare namespace autoFillManager {
    * @since 12
    */
   export type CustomData = _CustomData.default;
+
+  /**
+   * Auto fill rectangle.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
+  export type AutoFillRect = _AutoFillRect.default;
 }
 
 export default autoFillManager;
