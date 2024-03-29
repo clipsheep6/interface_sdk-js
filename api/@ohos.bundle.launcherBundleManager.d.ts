@@ -21,6 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant } from './bundleManager/ShortcutInfo';
+import { StartOptions } from './@ohos.app.ability.StartOptions';
 
 /**
  * Launcher bundle manager.
@@ -173,6 +174,23 @@ declare namespace launcherBundleManager {
    * @since 10
    */
   function getShortcutInfoSync(bundleName: string): Array<ShortcutInfo>;
+
+  /**
+   * Starts shortcut.
+   *
+   * @permission ohos.permission.START_SHORTCUT
+   * @returns { Array<ShortcutInfo> } the LauncherShortcutInfo object.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 801 - Capability not support.
+   * @throws { BusinessError } 17700301 - The specified shortcutInfo is not found.
+   * @throws { BusinessError } 17700302 - Start shortcut failed.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  function startShortcut(shortcutInfo: ShortcutInfo, options?: StartOptions): Promise<void>;
 
   /**
    * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo.

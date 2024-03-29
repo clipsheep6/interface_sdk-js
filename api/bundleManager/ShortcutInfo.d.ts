@@ -156,4 +156,14 @@ export interface ShortcutWant {
    * @since 9
    */
   readonly targetAbility: string;
+
+  /**
+   * Indicates the target parameter of the shortcut want
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @since 12
+   */
+  readonly parameter: string;
 }
