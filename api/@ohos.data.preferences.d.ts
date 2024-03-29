@@ -68,7 +68,7 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array;
+  type ValueType = number | string | boolean | Array<number> | Array<string> | Array<boolean> | Uint8Array | object;
 
   /**
    * Indicates the maximum length of a key (80 characters).
@@ -1562,6 +1562,19 @@ declare namespace preferences {
     on(type: 'multiProcessChange', callback: Callback<string>): void;
 
     /**
+     * Register one or more observers to listen for changes to the {@ link Preferences} object.
+     *
+     * @param { 'datachange' } type - Indicates the callback when preferences changes.
+     * @param { Array<string> } keys - Indicates one or more keys to listen on.
+     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @atomicservice
+     * @since 12
+     */
+    on(event: 'datachange', keys: Array<string>, callback: Callback<Record<string, ValueType>>);
+
+    /**
      * Unregisters an existing observer.
      *
      * @param { 'change' } type - Indicates the callback when preferences changes.
@@ -1613,6 +1626,19 @@ declare namespace preferences {
      * @since 11
      */
     off(type: 'multiProcessChange', callback?: Callback<string>): void;
+
+    /**
+     * Unregisters an existing observer.
+     *
+     * @param { 'datachange' } type - Indicates the callback when preferences changes.
+     * @param { Array<string> } keys - Indicates one or more keys to cancel listening.
+     * @param { Callback<Record<string, ValueType>> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @atomicservice
+     * @since 12
+     */
+    off(type: 'datachange', keys: Array<string>, callback: Callback<Record<string, ValueType>>): void;
   }
 }
 
