@@ -18,6 +18,7 @@ adts
 advertisements
 affinities
 agrees
+aifc
 alerting
 algrithom
 aligns
@@ -61,6 +62,7 @@ attribs
 audios
 authenticates
 authinfo
+authmode
 autocorrect
 autosizing
 averr
@@ -68,6 +70,7 @@ avoidareachange
 avrcp
 avsession
 backgrounding
+backpress
 backs
 base64
 bassboost
@@ -195,6 +198,8 @@ deregisters
 deselected
 designative
 desynchronized
+detaches
+detaching
 detents
 developtools
 devicemanager
@@ -202,6 +207,7 @@ dfactor
 dfx
 dialling
 differed
+digidesign
 dimbehind
 dirent
 dirxml
@@ -242,6 +248,7 @@ ebu
 ece
 edr
 efuse
+efx
 egid
 ehrpd
 ejectclosecd
@@ -284,12 +291,14 @@ fileio
 fileshare
 fillets
 flac
+flashpix
 flg
 flushes
 foiling
 foldable
 foregrounding
 formatable
+formulat
 forwardmail
 freesize
 fstat
@@ -306,6 +315,7 @@ glasses
 gnss
 goaway
 graphicseditor
+granting
 greate
 gtc
 hailing
@@ -323,6 +333,7 @@ haptic
 haptics
 hce
 hdcp
+hdoc
 headed
 headersreceive
 headphones
@@ -340,6 +351,7 @@ hidebug
 hierarchically
 hifi
 hilog
+hinote
 hisysevent
 hitrace
 hiview
@@ -404,6 +416,7 @@ issuers
 ivi
 iwlan
 jank
+jfx
 jis
 judged
 kaihong
@@ -545,7 +558,10 @@ onmessageerror
 onrepeat
 oob
 oobinline
+opendocument
+openexr
 openharmony
+opentype
 oper
 operated
 operatorconfigs
@@ -585,6 +601,8 @@ persistently
 perso
 personalisation
 pertaining
+pfa
+pfb
 pgo
 photographing
 phy
@@ -611,6 +629,7 @@ preconnectable
 preconnecting
 preempted
 preferentially
+prefetched
 preinstalled
 prelaunch
 preloads
@@ -619,6 +638,7 @@ premultiplied
 premultiply
 prepares
 preresolve
+presentationml
 presently
 presistent
 prevgroup
@@ -707,6 +727,7 @@ scdma
 scene
 sco
 scrambling
+screencapture
 screenlock
 screenoff
 screensaver
@@ -716,6 +737,7 @@ sdpi
 searchsetter
 sece
 secinfo
+securityguard
 seeked
 semicircles
 sendable
@@ -723,7 +745,9 @@ sensing
 sequenceable
 setsockopt
 settingsdata
+seventh
 sfactor
+sgi
 sha1
 shadertype
 sharedarraybuffer
@@ -761,6 +785,7 @@ spellcheck
 spn
 spooler
 spp
+spreadsheetml
 spry
 spy
 srgb
@@ -771,6 +796,7 @@ stopcd
 storei
 storge
 stroked
+stuffit
 subassembies
 subassemblies
 subcomponents
@@ -822,6 +848,7 @@ textarget
 textblob
 textclock
 texttimer
+tga
 thirdparty
 throttled
 timeinterfaceimpl
@@ -894,6 +921,7 @@ unmarshalling
 unmountable
 unmounted
 unmute
+unmuted
 unmutes
 unobserve
 unperceivable
@@ -959,6 +987,7 @@ wma
 wmp
 wmv
 wmx
+wordprocessingml
 wordprocessor
 workscheduler
 woy
@@ -969,6 +998,7 @@ wvx
 wwan
 x25519
 x509
+xbitmap
 xcomponent
 xfer
 xldpi
@@ -1002,3 +1032,4 @@ beidou
 qzss
 glonass
 sbas
+gbk

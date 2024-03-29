@@ -315,8 +315,8 @@ declare namespace restrictions {
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } feature - feature indicates the specific feature to be queried.
-   * @returns { boolean } true if the specific feature of device is disallowed, otherwise false.
    * @param { number } accountId - indicates the account ID to be queried.
+   * @returns { boolean } true if the specific feature of device is disallowed, otherwise false.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.

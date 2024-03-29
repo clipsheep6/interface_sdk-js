@@ -108,7 +108,7 @@ declare namespace securityManager {
      * @stagemodelonly
      * @since 12
      */
-    ValidityPeriod?: number;
+    validityPeriod?: number;
 
     /**
      * Other supplementary description
@@ -124,7 +124,7 @@ declare namespace securityManager {
   /**
    * ClipBoard policy.
    *
-   * @typedef ClipboardPolicy
+   * @enum { number } ClipboardPolicy
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -211,7 +211,7 @@ declare namespace securityManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } item - admin indicates the administrator ability information.
+   * @param { string } item - item indicates the specific type of security policy.
    * @returns { string } security policy of the specific type.
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.

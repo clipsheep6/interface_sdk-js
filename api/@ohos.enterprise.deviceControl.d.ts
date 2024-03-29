@@ -125,7 +125,7 @@ declare namespace deviceControl {
    * Allows the administrator to operate device.
    * This function can be called by a super administrator.
    *
-   * @permission ohos.permission.ENTERPRISE_OPERATE_DEVICE
+   * @permission ohos.permission.ENTERPRISE_RESET_DEVICE or ohos.permission.ENTERPRISE_REBOOT or ohos.permission.ENTERPRISE_LOCK_DEVICE
    * @param { Want } admin - admin indicates the administrator ability information.
    * @param { string } operate - the operation to perform.
    * @param { string } [addition] - addition indicates the specify additional parameters when performing the operation.
