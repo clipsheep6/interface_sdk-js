@@ -252,7 +252,7 @@ export default class ApplicationContext extends Context {
    * @atomicservice
    * @since 11
    */
-  on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
+  on(type: 'applicationStateChange', c.allback: ApplicationStateChangeCallback): void;
 
   /**
    * Unregister applicationStateChange callback.
@@ -464,4 +464,43 @@ export default class ApplicationContext extends Context {
    * @since 12
    */
   restartApp(want: Want): void;
+
+  /**
+   * Get current app key of current running app instance.
+   *
+   * @returns { string } Returns the key of current running app instance.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000070 - The MultiAppMode is not {@link MULTI_INSTANCE}.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+   getCurrentInstanceKey(): string;
+
+  /**
+   * Get all running app instance key for current bundle
+   *
+   * @returns { Array<string> } Returns the array of all running app instance key.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000070 - The MultiAppMode is not {@link MULTI_INSTANCE}.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+    getAllRunningInstanceKey(): Promise<Array<string>>;
+
+  /**
+   * Get current app index.
+   *
+   * @returns { number } Returns the app index for current app.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000071 - The MultiAppMode is not {@link MULTI_ISOLATION_APP}.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+   getCurrentAppIndex(): number;
 }

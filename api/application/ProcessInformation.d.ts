@@ -148,4 +148,13 @@ export interface ProcessInformation {
    * @since 11
    */
   state: appManager.ProcessState;
+
+  /**
+   * The app index of current process if app is multi app mode.
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   */
+   appIndex?: number;
 }

@@ -95,4 +95,13 @@ export default class AbilityStateData {
    * @since 8
    */
   abilityType: number;
+
+  /**
+   * The app index of ability instance.
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+   appIndex?: number;
 }
