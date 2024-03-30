@@ -584,6 +584,16 @@ declare namespace cloudSync {
      */
     constructor();
     /**
+     * A constructor used to create a FileSync object.
+     * @param { string } bundleName - Indicates the bundle name.
+     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 12
+     */
+    constructor(bundleName: string);
+    /**
      * Subscribes to sync progress change event. This method uses a callback to get sync progress changes.
      *
      * @permission ohos.permission.CLOUDFILE_SYNC
