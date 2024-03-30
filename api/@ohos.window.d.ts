@@ -3689,29 +3689,31 @@ declare namespace window {
      /**
      * Register the callback function that has no interaction for a long time.
      *
-     * @param { 'noInteractionDetect' } type - The value is fixed at 'noInteractionDetect', indicating the window has no interaction for a long time.
+     * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
      * @param { number } timeout - The timeout(in seconds) of no interaction detection.
      * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported on this device.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
 
-     on(type: 'noInteractionDetect', timeout: number, callback: Callback<void>): void;
+     on(type: 'noInteractionDetected', timeout: number, callback: Callback<void>): void;
 
      /**
       * Unregister the callback function that has no interaction for a long time.
       *
-      * @param { 'noInteractionDetect' } type - The value is fixed at 'noInteractionDetect', indicating the window has no interaction for a long time.
+      * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
       * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
+      * @throws { BusinessError } 801 - Capability not supported on this device.
       * @throws { BusinessError } 1300002 - This window state is abnormal.
       * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-      * @syscap SystemCapability.WindowManager.WindowManager.Core
+      * @syscap SystemCapability.Window.SessionManager
       * @since 12
       */
-     off(type: 'noInteractionDetect', callback?: Callback<void>): void;
+     off(type: 'noInteractionDetected', callback?: Callback<void>): void;
 
     /**
      * Register the callback of screenshot, only the focused window called back
