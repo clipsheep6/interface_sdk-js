@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,6 +25,7 @@ import type { KeyEvent as InputKeyEvent } from './@ohos.multimodalInput.keyEvent
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
 import type { LocalStorage } from 'StateManagement';
 import BaseContext from './application/BaseContext';
+import window from './@ohos.window';
 
 /**
  * Input method engine
@@ -1245,6 +1246,18 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     sendExtendAction(action: ExtendAction): Promise<void>;
+
+    /**
+     * Get info of the calling window.
+     *
+     * @returns { Promise<WindowInfo> } the promise returned by the function.
+     * @throws { BusinessError } 12800003 - input method client error.
+     * @throws { BusinessError } 12800012 - input method panel doesn't exist.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    getCallingWindowInfo(): Promise<WindowInfo>;
   }
 
   /**
@@ -1595,6 +1608,40 @@ declare namespace inputMethodEngine {
      * @since 11
      */
     setPrivacyMode(isPrivacyMode: boolean): void;
+
+    /**
+     * Preset the height of panel for landscape and portrait orientations.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     *
+     * @param { number } landscapeHeight - the panel height for landscape orientation.
+     * @param { number } portraitHeight - the panel height for portrait orientation.
+     * @throws { BusinessError } 401 - parameter error.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    presetPanelHeight(landscapeHeight: number, portraitHeight: number): void;
+
+    /**
+     * Subscribe 'panelSizeChange' event.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     *
+     * @param { 'panelSizeChange' } type - the type of subscribe event.
+     * @param { Callback<window.Size> } callback - the callback of on('panelSizeChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    on(type: 'panelSizeChange', callback: Callback<window.Size>): void;
+
+    /**
+     * Unsubscribe 'panelSizeChange' event.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED.</p>
+     *
+     * @param { 'panelSizeChange' } type - the type of unsubscribe event.
+     * @param { Callback<window.Size> } [callback] - optional, the callback of off('panelSizeChange').
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    off(type: 'panelSizeChange', callback?: Callback<window.Size>): void;
   }
 
   /**
@@ -1876,6 +1923,33 @@ declare namespace inputMethodEngine {
      * @since 10
      */
     PASTE = 5
+  }
+
+  /**
+   * Window info.
+   *
+   * @interface WindowInfo
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 12
+   */
+  export interface WindowInfo {
+    /**
+     * Rectangle.
+     *
+     * @type { window.Rect }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    rect: window.Rect;
+
+    /**
+     * Window status.
+     *
+     * @type { window.WindowStatusType }
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 12
+     */
+    status: window.WindowStatusType;
   }
 }
 
