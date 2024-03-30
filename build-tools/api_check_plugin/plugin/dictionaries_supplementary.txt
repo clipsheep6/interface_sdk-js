@@ -70,6 +70,7 @@ avoidareachange
 avrcp
 avsession
 backgrounding
+backpress
 backs
 base64
 bassboost
@@ -120,6 +121,7 @@ cft
 channeldown
 channelup
 checkboxgroup
+checksum
 chload
 chromaticities
 chrominance
@@ -197,6 +199,8 @@ deregisters
 deselected
 designative
 desynchronized
+detaches
+detaching
 detents
 developtools
 devicemanager
@@ -734,6 +738,7 @@ sdpi
 searchsetter
 sece
 secinfo
+securityguard
 seeked
 semicircles
 sendable
@@ -1028,3 +1033,4 @@ beidou
 qzss
 glonass
 sbas
+gbk
