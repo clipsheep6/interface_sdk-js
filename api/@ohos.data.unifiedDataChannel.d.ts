@@ -19,6 +19,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+import {unifiedDataStructs} from "./@ohos.data.unifiedDataStructs";
 
 /**
  * Provide methods for sharing data between different applications across unified data channels.
@@ -36,6 +37,8 @@ import { AsyncCallback } from './@ohos.base';
  * @since 11
  */
 declare namespace unifiedDataChannel {
+  import UnifiedDataStruct = unifiedDataStructs.UnifiedDataStruct;
+
   /**
    * Types of scope that UnifiedData can be used.
    * @enum { number }
@@ -59,6 +62,16 @@ declare namespace unifiedDataChannel {
      */
     CROSS_APP
   }
+
+  /**
+   * Indicated delay get UnifiedData
+   * @param {string} type - the type of UnifiedData required.
+   * @returns { UnifiedData } Return the UnifiedData required.
+   * @typedef {function} GetDelayData
+   * @atomicservice
+   * @since 12
+   */
+  type GetDelayData = (type: string) => UnifiedData;
 
   /**
    * Describe the unified data properties.
@@ -105,12 +118,13 @@ declare namespace unifiedDataChannel {
     shareOption?: ShareOption;
 
     /**
-     * Indicated delay get UnifiedData
-     * @type { ?function }
+     * Indicated delay get UnifiedData.
+     * @type { ?GetDelayData }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
      * @since 12
      */
-    getDelayData?: (string) => UnifiedData;
+    getDelayData?: GetDelayData;
   }
 
   /**
@@ -284,6 +298,27 @@ declare namespace unifiedDataChannel {
      * @since 11
      */
     getType(): string;
+
+    /**
+     * Create unified record by type and value.
+     *
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     * @param struct
+     */
+    constructor(struct: UnifiedDataStruct);
+
+    /**
+     * Get the unified data struct of unified record
+     *
+     * @returns { UnifiedDataStruct } Return the struct of unified record.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    getValue(): UnifiedDataStruct;
   }
 
   /**
