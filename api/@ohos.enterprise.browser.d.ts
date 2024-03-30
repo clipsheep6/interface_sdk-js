@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -119,7 +119,7 @@ declare namespace browser {
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 12
    */
   function setPolicySync(admin: Want, appId: string, policyName: string, policyValue: string): void;
@@ -134,10 +134,10 @@ declare namespace browser {
    * @throws { BusinessError } 9200001 - the application is not an administrator of the device.
    * @throws { BusinessError } 401 - invalid input parameter.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
+   * @StageModelOnly
    * @since 12
    */
-    function getPoliciesSync(admin: Want, appId: string): string;
+  function getPoliciesSync(admin: Want, appId: string): string;
 }
 
 export default browser;
