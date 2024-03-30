@@ -46,6 +46,13 @@ declare namespace componentUtils {
   * @atomicservice
   * @since 11
   */
+  /**
+  * Component information.
+  * @typedef ComponentInfo
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since 12
+  */
   interface ComponentInfo {
 
     /**
@@ -167,6 +174,33 @@ declare namespace componentUtils {
     * @since 11
     */
     transform: Matrix4Result
+
+    /**
+    * Obtain attribute information relative to the local with transform.
+    * @type {Offset}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @atomicservice
+    * @since 12
+    */
+    localOffsetWithTransform: Offset
+
+    /**
+    * Obtain attribute information relative to the window with transform.
+    * @type {Offset}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @atomicservice
+    * @since 12
+    */
+    windowOffsetWithTransform: Offset
+
+    /**
+    * Obtain attribute information relative to the screen with transform.
+    * @type {Offset}
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @atomicservice
+    * @since 12
+    */
+    screenOffsetWithTransform: Offset
   }
 
   /**
