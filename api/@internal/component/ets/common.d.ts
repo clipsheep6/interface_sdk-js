@@ -4672,6 +4672,16 @@ declare namespace focusControl {
    * @since 11
    */
   function requestFocus(value: string): boolean;
+
+  /**
+   * reset focus to the root container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function resetFocus(): void;
 }
 
 /**
