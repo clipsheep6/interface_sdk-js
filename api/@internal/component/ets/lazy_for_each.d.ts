@@ -406,6 +406,7 @@ interface DataReloadOperation {
 /**
  * All data operation type
  *
+ * @typedef DataOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
