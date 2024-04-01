@@ -86,6 +86,14 @@ declare namespace certificateManager {
     CM_ERROR_INCORRECT_FORMAT = 17500003,
 
     /**
+     * Indicates that the specified number of certificates has reached the required online limit.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 12
+     */
+    CM_ERROR_CERT_NUM_REACHED_LIMIT = 17500004,
+
+    /**
      * Indicates that the application is not authorized by user.
      *
      * @syscap SystemCapability.Security.CertificateManager
