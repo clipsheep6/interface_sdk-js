@@ -405,12 +405,13 @@ export default class UIAbility extends Ability {
   /**
    * Called back when an ability window stage will destroy.
    *
+   * @param { window.WindowStage } windowStage - Indicates the WindowStage that will be destroyed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
    * @since 12
    */
-   onWindowStageWillDestroy(): void;
+   onWindowStageWillDestroy(windowStage: window.WindowStage): void;
 
   /**
    * Called back when an ability window stage is destroyed.
