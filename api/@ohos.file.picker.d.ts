@@ -469,6 +469,26 @@ declare namespace picker {
     authMode?: boolean;
   }
 
+  export enum DocumentPickerMode {
+    /**
+     * Select the picker type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
+     */
+    PICKER = 0,
+
+    /**
+     * Select the picker type.
+     *
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
+     */
+    LITEPICKER = 1,
+  }
+
   /**
    * DocumentSaveOptions Object
    *
@@ -533,6 +553,15 @@ declare namespace picker {
      * @since 12
      */
     fileSuffixChoices?: Array<string>;
+    /**
+     * select picker mode.
+     *
+     * @type { ?DocumentPickerMode }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
+     */
+    pickerMode?: DocumentPickerMode;
   }
 
   /**
@@ -666,7 +695,17 @@ declare namespace picker {
    * @syscap SystemCapability.FileManagement.UserFileService
    * @since 9
    */
-  class AudioSelectOptions {}
+  class AudioSelectOptions {
+      /**
+     * Maximum number of files for a single selection.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.UserFileService
+     * @atomicservice
+     * @since 12
+     */
+      maxSelectNumber?: number;
+  }
 
   /**
    * AudioSaveOptions Object
