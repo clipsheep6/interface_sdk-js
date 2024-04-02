@@ -330,6 +330,17 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   fontFamily(value: string | Resource): MarqueeAttribute;
 
   /**
+   * Marquee scrolling strategy after text update.
+   *
+   * @param { boolean } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  marqueeUpdateStrategy(value: MarqueeUpdateStrategy): TextAttribute;
+
+  /**
    * Called when scrolling starts.
    *
    * @param { function } event
