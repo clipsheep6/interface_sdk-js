@@ -17716,6 +17716,18 @@ declare class CommonMethod<T> {
    * @since 12
    */
   onSizeChange(event: SizeChangeCallback): T;
+
+  /**
+   * Set visual effect params of the commponent.
+   *
+   * @param { EffectType } type - visual effect type.
+   * @param { Array<string | number> } value - visual effect params.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syatemapi
+   * @since 12
+   */
+  visualEffect(type: EffectType, value: Array<string | number>): T
 }
 
 /**
