@@ -2972,6 +2972,31 @@ declare namespace audio {
      * @since 10
      */
     getSystemVolumeInDbSync(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): number;
+
+    /**
+     * Obtains the active volume type for the calling moment. This method uses a promise to return the result.
+     * @param { number } uid - the Calling UID.
+     * @returns { Promise<AudioVolumeType> } Promise used to return the active volume type.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    getActiveVolumeType(uid: number): Promise<AudioVolumeType>;
+    /**
+     * Obtains the active volume type for the calling moment. This method returns the result in sync.
+     * @param { number } uid - the Calling UID.
+     * @returns { AudioVolumeType } Active volume type.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 401 - Input parameter type or number mismatch.
+     * @throws { BusinessError } 6800101 - Invalid parameter error.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 12
+     */
+    getActiveVolumeTypeSync(uid: number): AudioVolumeType;
   }
 
   /**
