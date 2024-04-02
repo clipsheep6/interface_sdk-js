@@ -6992,6 +6992,15 @@ declare namespace image {
      */
     readonly format: number;
 
+     /**
+     * Image timestamp.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @since 12
+     */
+    readonly timestamp: number;
+
     /**
      * Image timestamp.
      *
