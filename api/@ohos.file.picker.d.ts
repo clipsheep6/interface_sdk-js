@@ -477,7 +477,7 @@ declare namespace picker {
      * @atomicservice
      * @since 12
      */
-    PICKER = 0,
+    DEFAULT = 0,
 
     /**
      * Select the picker type.
@@ -486,7 +486,7 @@ declare namespace picker {
      * @atomicservice
      * @since 12
      */
-    LITEPICKER = 1,
+    DOWNLOAD = 1,
   }
 
   /**
