@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,398 +23,512 @@ import type common2D from './@ohos.graphics.common2D';
 
 declare namespace text {
 
+  /**
+   * Text Alignment refers to how to align the horizontal position of text when displaying text.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Text
+   * @since 12
+   */
   enum TextAlign {
     /**
-     * The left text alignment is used
-     * @syscap SystemCapability.Graphics.text
+     * Align the left edge of the text.
+     * @syscap SystemCapability.Graphics.Text
      * @since 12
      */
     LEFT = 0,
+
     /**
-     * The right text alignment is used
-     * @syscap SystemCapability.Graphics.text
+     * Align the right edge of the text.
+     * @syscap SystemCapability.Graphics.Text
      * @since 12
      */
     RIGHT = 1,
+
     /**
-     * This text is JustifyCenter
-     * @syscap SystemCapability.Graphics.text
+     * Align left and right edges of the text so that the left and right edges of the text are symmetrical.
+     * @syscap SystemCapability.Graphics.Text
      * @since 12
      */
     CENTER = 2,
+
     /**
-     * This text is aligned at both ends
-     * @syscap SystemCapability.Graphics.text
+     * Align left and right edges of the text so that the left and right edges of the text are aligned.
+     * @syscap SystemCapability.Graphics.Text
      * @since 12
      */
     JUSTIFY = 3,
+
     /**
-     * Text start points are aligned
-     * @syscap SystemCapability.Graphics.text
+     * Text start points are aligned.
+     * @syscap SystemCapability.Graphics.Text
      * @since 12
      */
     START = 4,
+
     /**
-     * The end points of the text are aligned
-     * @syscap SystemCapability.Graphics.text
+     * The end points of the text are aligned.
+     * @syscap SystemCapability.Graphics.Text
      * @since 12
      */
     END = 5,
   }
 
+  /**
+   * Enumerate text runs direction.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Text
+   * @since 12
+   */
   enum TextDirection {
     /**
-     * The text runs from right to left
+     * The text is oriented from right to left.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     RTL,
+
     /**
-     * The text runs from left to right
+     * The text is oriented from left to right.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     LTR,
   }
 
+  /**
+   * Enumerate text segmentation strategy.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Text
+   * @since 12
+   */
   enum BreakStrategy {
     /**
-     * The segmentation strategy is greedy
+     * The segmentation strategy is greedy.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     GREEDY,
+
     /**
-     * The segmentation strategy is HIGH_QUALITY
+     * The segmentation strategy is high quality.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     HIGH_QUALITY,
+
     /**
-     * The segmentation strategy is BALANCED
+     * The segmentation strategy is balanced.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     BALANCED,
   }
 
+  /**
+   * Enumerate word break strategy.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Text
+   * @since 12
+   */
   enum WordBreakType {
     /**
-     * Normal word segmentation
+     * Normal word break strategy.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     NORMAL,
+
     /**
-     * Word segmentation at character level
+     * Breaks word by character.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     BREAK_ALL,
+
     /**
-     * Segmentation at the phrase level
+     * Breaks word by phrase.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     BREAK_WORD,
   }
 
+  /**
+   * Decoration for text.
+   * @typedef Decoration
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
   interface Decoration {
     /**
-     * Setting text decoration by line
-     * @type { ?TextDecoration } it has four choice
+     * Setting text decoration by line.
+     * @type { ?TextDecoration } It has four choice.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     textDecoration?: TextDecoration;
+
     /**
-     * Setting text color by uint32_t data
-     * @type { number } it is uint32_t type data
+     * Setting text color.
+     * @type { common2D.color } Rect object.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
-    color?: common2D.Color;
+    color?: common2D.color;
+
     /**
-     * Setting decorationStyle Style
-     * @type { ?TextDecorationStyle } decorationStyle Style
+     * Setting decorationStyle Style.
+     * @type { ?TextDecorationStyle } DecorationStyle style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     decorationStyle?: TextDecorationStyle;
+
     /**
-     * Setting decoration line of thicknessScale
-     * @type { ?number } it is double type data
+     * Setting decoration line of thicknessScale.
+     * @type { ?number } It is double type data.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     decorationThicknessScale?: number;
   }
 
+  /**
+   * Enumerates decoration for text.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
   enum TextDecoration {
     /**
-     * There are no text decorations
+     * There are no text decorations.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     NONE,
+
     /**
-     * The text is underlined
+     * There is a decoration line below the text.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     UNDERLINE,
+
     /**
-     * Underline the text above
+     * There is a decoration line above the text.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     OVERLINE,
+
     /**
-     * Underline the middle of the text
+     * There is a decorative line running through the middle of the text.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     LINE_THROUGH,
   }
 
+  /**
+   * Enumerates decoration style.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
   enum TextDecorationStyle {
     /**
-     * Customize text decoration
+     * Solid style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     SOLID,
+
     /**
-     * Customize text decoration
+     * Double style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     DOUBLE,
+
     /**
-     * Customize text decoration
+     * Dotted style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     DOTTED,
+
     /**
-     * Customize text decoration
+     * Dashed style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     DASHED,
+
     /**
-     * Customize text decoration
+     * Wavy style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     WAVY,
   }
 
+  /**
+   * Enumeration of font weight of text.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.text
+   * @since 12
+   */
   enum FontWeight {
     /**
-     * The font is thin
+     * Thin
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     W100,
+
     /**
-     * The font is thin
+     * Extra-light
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     W200,
+
     /**
-     * The font is thin
+     * Light
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     W300,
+
     /**
-     * The font is normal
+     * Normal/Regular
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     W400,
+
     /**
-     * The font is normal
+     * Medium
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     W500,
+
     /**
-     * The font is normal
+     * Semi-bold
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     W600,
+
     /**
-     * The font is bold
+     * Bold
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     W700,
+
     /**
-     * The font is bold
+     * Extra-bold
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     W800,
+
     /**
-     * The font is bold
+     * Black
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     W900,
   }
 
+  /**
+   * Enumeration of font style of text.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.text
+   * @since 12
+   */
   enum FontStyle {
     /**
-     * Upright font type
+     * Upright font type.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     NORMAL,
+
     /**
-     * Slant font
+     * Slant font.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     ITALIC,
+
+    /**
+     * Oblique font.
+     * @syscap SystemCapability.Graphics.text
+     * @since 12
+     */
+    OBLIQUE,
   }
 
+  /**
+   * Enumeration of text base line.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.text
+   * @since 12
+   */
   enum TextBaseline {
     /**
-     * The vertical direction of the text is dominated by alphabetical order
+     * The vertical direction of the text is dominated by alphabetical order.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     ALPHABETIC,
+
     /**
-     * The vertical direction of the text is dominated by the meaning of the text
+     * The vertical direction of the text is dominated by the meaning of the text.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     IDEOGRAPHIC,
   }
 
+  /**
+   * Enumerates of ellipsis modal.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
   enum EllipsisModal {
     /**
-     * The ellipsis is shown in the head
+     * The ellipsis is shown in the head.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     HEAD,
+
     /**
-     * The ellipsis is shown in the middle
+     * The ellipsis is shown in the middle.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     MIDDLE,
+
     /**
-     * The ellipsis is shown in the tail
+     * The ellipsis is shown in the tail.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     TAIL,
   }
 
-  interface StrutStyle {
+  /**
+   * Describes a textstyle object.
+   *
+   * @syscap SystemCapability.Graphics.text
+   * @since 12
+   */
+  interface TextStyle {
     /**
-     * System font FontFamilies.
-     * @type { Array<string> } fontfamily gather
+     * Setting color of textstyle.
+     * @type { ?common2D.Color } it is uint32_t type data
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
-    fontFamilies : Array<string>;
-  }
+    color?: common2D.Color;
 
-  class TextStyle {
     /**
-     * Setting decoration color by uint32_t data
-     * @type { ?number } it is uint32_t type data
-     * @syscap SystemCapability.Graphics.text
-     * @since 12
-     */
-    color?: number;
-    /**
-     * Setting text fontWegiht
-     * @type { ?number } it is uint32_t type data
+     * Setting font Weight of textstyle.
+     * @type { ?FontWeight } it is uint32_t type data
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     fontWeight?: FontWeight;
+
     /**
-     * Setting text textBaseline
-     * @type { ?number } it is uint32_t type data
+     * Setting base line of textstyle.
+     * @type { ?TextBaseline } it is uint32_t type data
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
-    textBaseline?: TextBaseline;
+    baseline?: TextBaseline;
+
     /**
-     * System font FontFamilies.
+     * Setting font Families of textstyle.
      * @type { ?Array<string> } fontfamily gather
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     fontFamilies?: Array<string>;
+
     /**
-     * Setting text fontSize
+     * Setting font size of textstyle.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     fontSize?: number;
+
     /**
-     * Setting text letterSpacing
+     * Setting letter spacing of textstyle.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     letterSpacing?: number;
+
     /**
-     * Setting text wordSpacing
+     * Setting word spacing of textstyle.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     wordSpacing?: number;
+
     /**
-     * Setting text heightScale
+     * Setting height scale of textstyle.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     heightScale?: number;
+
     /**
-     * Setting text halfLeading
+     * Setting half leading of textstyle.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     halfLeading?: boolean;
+
     /**
-     * Setting text heightOnly
+     * Setting height of textstyle only.
      * @type { ?boolean } it is boolean type data
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     heightOnly?: boolean;
+
     /**
      * Setting text ellipsis
-     * @type { ?string } it is u16string type data
+     * @type { ?string } it is u16string type data.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     ellipsis?: string;
+
     /**
-     * Setting text ellipses mode
+     * Setting text ellipses mode.
+     * @type { ?EllipsisModal } Ellipses mode.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     ellipsisModal?: EllipsisModal;
+
     /**
-     * Setting the text locale
-     * @type { ?string } it is string type data
+     * Setting the text locale.
+     * @type { ?string } it is string type data.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
@@ -422,136 +536,170 @@ declare namespace text {
   }
 
   /**
-   * The date structure that provides the basis for graphics.
+   * The structure of fontcollection that provides the basis for graphics.
    * @namespace text
    * @syscap SystemCapability.Graphics.text
    * @since 12
    */
   class FontCollection {
     /**
-     * Diable system fallback font
-     * @param { font.FontOptions } options - FontOptions
+     * Load font.
+     * @param { string } name - the font name.
+     * @param { string } path - the path of the font file.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
-    loadFont(options: font.FontOptions): void;
+    loadFont(name: string, path: string): void;
   }
 
-  class ParagraphStyle {
+  /**
+   * Determines the configuration used by ParagraphBuilder to position lines within a Paragraph of text.
+   *
+   * class ParagraphStyle
+   * @syscap SystemCapability.Graphics.Text
+   * @since 12
+   */
+  interface ParagraphStyle {
     /**
-     * Get strutStyle from paragraphStyle
+     * The text style of paragraph.
+     * @type { TextStyle }
      * @syscap SystemCapability.Graphics.text
-     * @returns { ?StrutStyle } StrutStyle object
      * @since 12
      */
-    structStyle?: StrutStyle;
+    textStyle?: TextStyle;
+
     /**
-     * Set text direction from paragraphstyle
-     * @param { ?number } Custom textDirection 1/default mean ltr. 0 mean rtl.
+     * The text runs direction.
+     * @type { TextDirection }
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
-    textDirection?: number;
+    textDirection?: TextDirection;
+
     /**
-     * Set text align from paragraphstyle
-     * @param { ?TextAlign } Custom TextAlign
+     * Text alignment refers to how to align the horizontal position of text when displaying text.
+     * @type { TextAlign }
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     align?: TextAlign;
+
     /**
-     * Set the text segmentation mode
-     * @param { ?WordBreakType } Custom wordbreak
+     * The word break strategy.
+     * @type { number }
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     wordBreak?: WordBreakType;
+
     /**
-     * Set the text max lines
-     * @param { ?number } Current line max lines
+     * Maximum number of lines.
+     * @type { number }
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     maxLines?: number;
+
     /**
-     * Text segmentation strategy properties
-     * @param { ?number } The current segmentation strategy property of the text
+     * The text segmentation strategy.
+     * @type { BreakStrategy }
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     breakStrategy?: BreakStrategy;
   }
 
+  /**
+   * Enumeration of positional placeholders aligned vertically relative to surrounding text.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.text
+   * @since 12
+   */
   enum PlaceholderAlignment {
     /**
-     * Match the baseline of the placeholder with the baseline
+     * Match the baseline of the placeholder with the base line.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     OFFSET_AT_BASELINE,
+
     /**
-     * Align the bottom edge of the placeholder with the baseline
+     * Align the bottom edge of the placeholder with the base line.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     ABOVE_BASELINE,
+
     /**
-     * Align the top edge of the placeholder with the baseline specified
+     * Align the top edge of the placeholder with the base line specified.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     BELOW_BASELINE,
+
     /**
-     * Align the top edge of the placeholder with the top edge of the text
+     * Align the top edge of the place holder with the top edge of the text.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     TOP_OF_ROW_BOX,
+
     /**
-     * Align the bottom edge of the placeholder with the bottom edge of the text
+     * Align the bottom edge of the place holder with the bottom edge of the text.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     BOTTOM_OF_ROW_BOX,
+
     /**
-     * Align the middle of the placeholder with the middle of the text
+     * Align the middle of the place holder with the middle of the text.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     CENTER_OF_ROW_BOX,
   }
 
+  /**
+   * Provide a description of place holder scope in creating typography.
+   * @typedef PlaceholderSpan
+   * @syscap SystemCapability.Graphics.text
+   * @since 12
+   */
   interface PlaceholderSpan {
     /**
-     * Setting the width of the placeholder
+     * Setting the width of the place holder.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     width: number;
+
     /**
-     * Setting the height of the placeholder
+     * Setting the height of the place holder.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     height: number;
+
     /**
-     * Setting alignment mode of placeholder
+     * Setting alignment mode of place holder.
      * @type { ?PlaceholderAlignment } Custom PlaceholderAlignment
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     align: PlaceholderAlignment;
+
     /**
-     * Setting the textBaseline of placeholder
+     * Setting base line of place holder.
      * @param { ?TextBaseline } Custom TextBaseline
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     baseline: TextBaseline;
+
     /**
-     * Setting decoration line of thicknessScale
+     * Setting base line offset of place holder.
      * @type { ?number } it is double type data
      * @syscap SystemCapability.Graphics.text
      * @since 12
@@ -567,32 +715,33 @@ declare namespace text {
    */
   interface Range {
     /**
-     * Left index
+     * Left index.
      * @type { number }
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
-    leftIndex: number;
+    start: number;
+
     /**
-     * Right index
+     * Right index.
      * @type { number }
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
-    rightIndex: number;
+    end: number;
   }
 
   /**
-   * The date structure that provides the basis of paragraph for graphics.
+   * A paragraph retains the size and position of each glyph in the text and can be efficiently resized and painted.
    * @namespace text
    * @syscap SystemCapability.provide system text data deal
    * @since 12
    */
   class Paragraph {
     /**
-     * Get the start and end position of the word containing the glyphs of the given offset.
+     * Finds the start and end position of the word containing the glyphs of the given offset.
      * @param { number } offset - offset value
-     * @returns { Range } (Range) returned
+     * @returns { Range } The range value returned to the caller.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
@@ -600,7 +749,7 @@ declare namespace text {
 
     /**
      * Get line count.
-     * @returns { number } (number) returned
+     * @returns { number } The line count value returned to the caller.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
@@ -609,7 +758,7 @@ declare namespace text {
     /**
      * Gets the line height of the specified line.
      * @param { number } line - line number
-     * @returns { number } (number) returned
+     * @returns { number } The line height value returned to the caller.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
@@ -618,14 +767,14 @@ declare namespace text {
     /**
      * Gets the line width of the specified line.
      * @param { number } line - line number
-     * @returns { number } (number) returned
+     * @returns { number } The line wifth value returned to the caller.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     getLineWidth(line: number): number;
 
     /**
-     * Whether it exceed the maximum lines of typography
+     * Whether it exceed the maximum lines of typography.
      * @returns { boolean } The true indicates exceeding, the false indicates not exceeding.
      * @syscap SystemCapability.Graphics.text
      * @since 12
@@ -658,15 +807,14 @@ declare namespace text {
 
     /**
      * Gets the rects for range.
-     * @param { number } start - Start of range to set.
-     * @param { number } end - End of range to set.
+     * @param { Range } range - The range to set.
      * @param { RectWidthStyle } wstyle - Width style to set.
      * @param { RectHeightStyle } hstyle - Height style to set.
      * @returns { Array<TextBox> } The rects for range.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
-    getRectsForRange(start: number, end: number, wstyle: RectWidthStyle, hstyle: RectHeightStyle): Array<TextBox>;
+    getRectsForRange(range: Range, wstyle: RectWidthStyle, hstyle: RectHeightStyle): Array<TextBox>;
 
     /**
      * Gets the rects for placeholders.
@@ -689,27 +837,24 @@ declare namespace text {
     /**
      * Layout calculates the positioning of all the glyphs.
      * @param { number } width - Control how wide the text is allowed to be.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Graphics.Drawing
+     * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     layout(width: number): void;
 
     /**
      * Paints the laid out text onto the supplied canvas at (x, y).
-     * @param { Canvas } canvas - Object.
+     * @param { Canvas } canvas - Object
      * @param { number } x - Represents the X-axis position on the canvas.
      * @param { number } y - Represents the Y-axis position on the canvas.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Graphics.Drawing
+     * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     paint(canvas: drawing.Canvas, x: number, y: number): void;
 
     /**
      * Get max width of horizontal space this paragraph occupies.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Graphics.Drawing
+     * @syscap SystemCapability.Graphics.text
      * @returns { number } Max width of horizontal space.
      * @since 12
      */
@@ -717,8 +862,7 @@ declare namespace text {
 
     /**
      * Get height of horizontal space this paragraph occupies.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Graphics.Drawing
+     * @syscap SystemCapability.Graphics.text
      * @returns { number } Height of horizontal space this paragraph occupies.
      * @since 12
      */
@@ -726,8 +870,7 @@ declare namespace text {
 
     /**
      * Get the longest line of horizontal space this paragraph occupies.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Graphics.Drawing
+     * @syscap SystemCapability.Graphics.text
      * @returns { number } The longest line of horizontal space this paragraph occupies.
      * @since 12
      */
@@ -735,18 +878,16 @@ declare namespace text {
 
     /**
      * Get the min intrinsic width of horizontal space this paragraph occupies.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Graphics.Drawing
      * @returns { number } The min intrinsic width of horizontal space this paragraph occupies.
+     * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     getMinIntrinsicWidth(): number;
 
     /**
      * Get the text lines of paragraph.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Graphics.Drawing
      * @returns { Array<TextLine> } the tuple of TextLine.
+     * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     getTextLines(): Array<TextLine>;
@@ -766,6 +907,7 @@ declare namespace text {
      * @since 11
      */
     rect: common2D.Rect;
+
     /**
      * Text direction.
      * @type { TextDirection }
@@ -786,34 +928,35 @@ declare namespace text {
      * Position of text.
      * @type { number }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 12
      */
     pos: number;
+
     /**
      * Affinity of text.
      * @type { Affinity }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 12
      */
     affinity: Affinity;
   }
 
   /**
    * Enumerates rect width style.
-   *
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since 12
    */
   enum RectWidthStyle {
     /**
-     * Tight style
+     * Tight style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     TIGHT,
+
     /**
-     * Max style
+     * Max style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
@@ -822,44 +965,48 @@ declare namespace text {
 
   /**
    * Enumerates rect height style.
-   *
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since 12
    */
   enum RectHeightStyle {
     /**
-     * Tight style
+     * Tight style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     TIGHT,
+
     /**
-     * Max style
+     * Max style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     MAX,
+
     /**
-     * Includelinespacemiddle style
+     * Includelinespacemiddle style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     INCLUDELINESPACEMIDDLE,
+
     /**
-     * Includelinespacetop style
+     * Includelinespacetop style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     INCLUDELINESPACETOP,
+
     /**
-     * Includelinespacebottom style
+     * Includelinespacebottom style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     INCLUDELINESPACEBOTTOM,
+
     /**
-     * Struct style
+     * Struct style.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
@@ -867,21 +1014,21 @@ declare namespace text {
   }
 
   /**
-   * Text affinity.
-   *
+   * Enumerates text affinity.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since 12
    */
   enum Affinity {
     /**
-     * The position has affinity for the upstream side of the text position
+     * The position has affinity for the upstream side of the text position.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
+
     UPSTREAM,
     /**
-     * The position has affinity for the downstream side of the text position
+     * The position has affinity for the downstream side of the text position.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
@@ -889,14 +1036,14 @@ declare namespace text {
   }
 
   /**
-   * ParagraphBuilder object.
+   * Builds a Paragraph containing text with the given styling information.
    * @namespace text
    * @syscap SystemCapability.Graphics.text
    * @since 12
    */
   class ParagraphBuilder {
     /**
-     * Constructor ParagraphBuilder
+     * Constructor ParagraphBuilder.
      * @param { ParagraphStyle } paragraphStyle - Paragraph style {@link ParagraphStyle}
      * @param { FontCollection } fontCollection - Font Clollection {@link FontCollection}
      * @syscap SystemCapability.Graphics.text
@@ -905,7 +1052,7 @@ declare namespace text {
     constructor(paragraphStyle: ParagraphStyle, fontCollection: FontCollection);
 
     /**
-     * Push text style
+     * Push a style to the stack.
      * @param { TextStyle } textStyle - Text style {@link TextStyle}
      * @syscap SystemCapability.Graphics.text
      * @since 12
@@ -913,14 +1060,14 @@ declare namespace text {
     pushStyle(textStyle: TextStyle): void;
 
     /**
-     * Pop text style
+     * Remove a style from the stack.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     popStyle(): void;
 
     /**
-     * Add text
+     * Adds text to the builder.
      * @param { string } text - Text string
      * @syscap SystemCapability.Graphics.text
      * @since 12
@@ -928,7 +1075,7 @@ declare namespace text {
     addText(text: string): void;
 
     /**
-     * Add placeholder
+     * Add placeholder.
      * @param { PlaceholderSpan } placeholderSpan - Placeholder Span {@link PlaceholderSpan}
      * @syscap SystemCapability.Graphics.text
      * @since 12
@@ -936,8 +1083,8 @@ declare namespace text {
     addPlaceholder(placeholderSpan: PlaceholderSpan): void;
 
     /**
-     * Create paragraph
-     * @returns { Paragraph } (Paragraph) returned
+     * Create paragraph object.
+     * @returns { Paragraph } The paragraph value returned to the caller.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
@@ -945,39 +1092,41 @@ declare namespace text {
   }
 
   /**
-   * The date structure that provides the basis of paragraph for graphics.
+   * The structure of textline that provides the basis of paragraph for graphics.
    * @namespace text
    * @syscap SystemCapability.provide system text data deal
    * @since 12
    */
   class TextLine {
     /**
-     * Getting the count of glyphs
+     * Getting the count of glyphs.
      * @returns { number } The counts of glyphs.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     getGlyphCount(): number;
+
     /**
-     * Getting the range of text
+     * Getting the range of text line.
      * @returns { Range } The range of text.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     getTextRange(): Range;
+
     /**
-     * Getting the glyph runs of text
+     * Getting the glyph runs of text line.
      * @returns { Run } The tuple of glyph runs of text.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     getGlyphRuns(): Array<Run>;
+
     /**
-     * Getting the range of text
+     * painting the range of text line.
      * @param { drawing.Canvas } canvas - Canvas.
      * @param { number } x - Represents the X-axis position on the canvas.
      * @param { number } y - Represents the Y-axis position on the canvas.
-     * @returns { Range } The range of text.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
@@ -987,75 +1136,80 @@ declare namespace text {
   /**
    * Coordinates in the font layout.
    *
-   * @syscap SystemCapability.Graphics.Drawing
+   * @syscap SystemCapability.Graphics.text
    * @since 12
    */
-  class Point {
+  interface Point {
     /**
      * X-axis coordinate.
-     * @param { ?number } x_ X-axis coordinate.
+     * @param { ?number } x X-axis coordinate.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
-    x_?: number;
+    x: number;
 
     /**
      * Y-axis coordinate.
-     * @param { ?number } y_ Y-axis coordinate.
+     * @param { ?number } y Y-axis coordinate.
      * @syscap SystemCapability.Graphics.text
      * @since 12
      */
-     y_?: number;
+     y: number;
   }
 
+  /**
+   * Independent rendering of text layout.
+   *
+   * @syscap SystemCapability.Graphics.text
+   * @since 12
+   */
   class Run {
     /**
      * Gets the number of glyph.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Graphics.Drawing
+     * @syscap SystemCapability.Graphics.text
      * @returns { number } The number of glyph.
      * @since 12
      */
     getGlyphCount(): number;
+
     /**
      * Gets the glyph identifier for each character.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Graphics.Drawing
+     * @syscap SystemCapability.Graphics.text
      * @returns { Array<number> } Glyph identifier.
      * @since 12
      */
     getGlyphs(): Array<number>;
+
     /**
      * Gets the font position offset.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Graphics.Drawing
+     * @syscap SystemCapability.Graphics.text
      * @returns { Array<Point> } The position of the font in the layout.
      * @since 12
      */
     getPositions(): Array<Point>;
+
 	/**
      * Gets the font position offset array.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Graphics.Drawing
+     * @syscap SystemCapability.Graphics.text
      * @returns { Array<Point> } The position offset of the font in the layout.
      * @since 12
      */
     getOffsets(): Array<Point>;
+
     /**
      * Gets the font object instance.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Graphics.Drawing
+     * @syscap SystemCapability.Graphics.text
      * @returns { Font } The font object instance.
      * @since 12
      */
     getFont(): drawing.Font;
+
     /**
      * Paints the laid out text onto the supplied canvas at (x, y).
      * @param { Canvas } canvas - Object.
      * @param { number } x - Represents the X-axis position on the canvas.
      * @param { number } y - Represents the Y-axis position on the canvas.
-     * @throws { BusinessError } 401 - Parameter error.
-     * @syscap SystemCapability.Graphics.Drawing
+     * @syscap SystemCapability.Graphics.text
      * @since 12
      */
     paint(canvas: drawing.Canvas, x: number, y: number): void;
