@@ -559,6 +559,17 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   caretColor(value: ResourceColor): TextAreaAttribute;
 
   /**
+   * Define the text selected background color of the text area.
+   *
+   * @param { ResourceColor } value
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selectedBackgroundColor(value: ResourceColor): TextAreaAttribute;
+
+  /**
    * Called when the font color is set.
    *
    * @param { ResourceColor } value

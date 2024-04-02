@@ -817,6 +817,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   caretStyle(value: CaretStyle): SearchAttribute;
 
   /**
+   * Define the text selected background color of the search.
+   *
+   * @param { ResourceColor } value
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selectedBackgroundColor(value: ResourceColor): SearchAttribute;
+
+  /**
    * Set the place hold text color
    *
    * @param { ResourceColor } value
