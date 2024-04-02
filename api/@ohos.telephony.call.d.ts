@@ -3190,7 +3190,7 @@ declare namespace call {
     /**
      * Indicates the location of the phone number.
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -3200,7 +3200,7 @@ declare namespace call {
     /**
      * Indicates the mark information of the phone number.
      *
-     * @type { NumberMarkInfo }
+     * @type { ?NumberMarkInfo }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -5279,7 +5279,7 @@ declare namespace call {
     /**
      * Indicates the content of number mark.
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -5289,7 +5289,7 @@ declare namespace call {
     /**
      * Indicates the count of number mark.
      *
-     * @type { number }
+     * @type { ?number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -5299,7 +5299,7 @@ declare namespace call {
     /**
      * Indicates the source of number mark.
      *
-     * @type { string }
+     * @type { ?string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -5309,7 +5309,7 @@ declare namespace call {
     /**
      * Indicates if this is a number mark from cloud.
      *
-     * @type { boolean }
+     * @type { ?boolean }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12
