@@ -2895,11 +2895,11 @@ declare namespace request {
        */
       /**
        * The path to save the downloaded file, the default is "./".
-       * Currently support:
-       * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
-       * 2: internal protocol path, "internal://cache/" is mandatory, like "internal://cache/path/to/file.txt".
-       * 3: application storage path, only the base directory and its subdirectories are supported, like "/data/storage/el1/base/path/to/file.txt".
-       * 4: file protocol path with self bundle name, only the base directory and its subdirectories are supported, like "file://com.example.test/data/storage/el2/base/file.txt".
+       * Currently the following forms are supported:
+       * 1: Relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
+       * 2: Internal protocol path, "internal://cache/" is mandatory, like "internal://cache/path/to/file.txt".
+       * 3: Application storage path, only the base directory and its subdirectories are supported, like "/data/storage/el1/base/path/to/file.txt".
+       * 4: File protocol path with self bundle name, only the base directory and its subdirectories are supported, like "file://com.example.test/data/storage/el2/base/file.txt".
        *
        * @type { ?string }
        * @default ./
