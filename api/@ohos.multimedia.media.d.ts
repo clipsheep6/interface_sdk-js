@@ -724,12 +724,12 @@ declare namespace media {
 
     /**
      * This value exists if the video is HDR video.
-     * @type { ?HDRType }
+     * @type { ?HdrType }
      * @readonly
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 12
      */
-    hdrType?: HDRType;
+    hdrType?: HdrType;
 
     /**
      * The geographical location info of the video.
