@@ -3006,3 +3006,10 @@ declare const RotationGesture: RotationGestureInterface;
  * @since 11
  */
 declare const GestureGroup: GestureGroupInterface;
+
+declare module "GestureEventModule" {
+  module "GestureEventModule" {
+    // @ts-ignore
+    export { GestureEvent };
+  }
+}
