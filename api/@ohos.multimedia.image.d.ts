@@ -3604,6 +3604,28 @@ declare namespace image {
      */
     applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager): Promise<void>;
 
+
+    /**
+     * Format conversion was performed using the PIxelmap in the original format. This method uses a promise to return the result.
+     * 
+     * The method is used for the transformation of the image formats. Pixel data will be changed by calling this method.
+     * If you want to only convert the image formats, use methods to format the target image.
+     *
+     * @param { PixelMapFormat } targetPixelFormat - The color space for pixel map.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 62980115 - Invalid input parameter.
+     * @throws { BusinessError } 62980111 - The image source data is incomplete.
+     * @throws { BusinessError } 62980274 - The conversion failed.
+     * @throws { BusinessError } 62980276 - The type to be converted is an unsupported type.
+     * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+     * @throws { BusinessError } 62980273 - Failed to create a c++ conversion class object.
+     * @throws { BusinessError } 62980136 - The c++ conversion class object pointer is empty when converting.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @since 11
+     */
+    convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise<PixelMap>;
+
      /**
      * Releases this PixelMap object. This method uses a callback to return the result.
      *
@@ -4885,44 +4907,6 @@ declare namespace image {
      */
     release(): Promise<void>;
   }
-
-  /**
-   * Convert PixelMap in YUV format to PixelMap in RGB format.
-   * a promise to return the result.
-   *
-   * @param { PixelMap } srcPixelMap PixelMap instance in YUV format.
-   * @param { PixelMapFormat } destPixelFormat The pixel format of the converted target PixelMap instance.
-   * @returns { Promise<PixelMap> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-   * @throws { BusinessError } 62980115 - Invalid input parameter.
-   * @throws { BusinessError } 62980111 - The image source data is incomplete.
-   * @throws { BusinessError } 62980274 - The conversion failed.
-   * @throws { BusinessError } 62980276 - The type to be converted is an unsupported type.
-   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
-   * @throws { BusinessError } 62980273 - Failed to create a c++ conversion class object.
-   * @throws { BusinessError } 62980136 - The c++ conversion class object pointer is empty when converting.
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
-   */
-  function imageConvertYuvToRgb(srcPixelMap: PixelMap, destPixelFormat: PixelMapFormat):Promise<PixelMap>;
-
-  /**
-   * Convert PixelMap in RGB format to PixelMap in YUV format.
-   * a promise to return the result.
-   *
-   * @param { PixelMap } srcPixelMap PixelMap instance in RGB format.
-   * @param { PixelMapFormat } destPixelFormat The pixel format of the converted target PixelMap instance.
-   * @returns { Promise<PixelMap> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
-   * @throws { BusinessError } 62980115 - Invalid input parameter.
-   * @throws { BusinessError } 62980111 - The image source data is incomplete.
-   * @throws { BusinessError } 62980274 - The conversion failed.
-   * @throws { BusinessError } 62980276 - The type to be converted is an unsupported type.
-   * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
-   * @throws { BusinessError } 62980273 - Failed to create a c++ conversion class object.
-   * @throws { BusinessError } 62980136 - The c++ conversion class object pointer is empty when converting.
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
-   */
-  function imageConvertRgbToYuv(srcPixelMap: PixelMap, destPixelFormat: PixelMapFormat):Promise<PixelMap>;
 }
 
 export default image;
