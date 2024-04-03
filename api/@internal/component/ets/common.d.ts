@@ -20710,6 +20710,111 @@ declare interface UICommonEvent {
   setOnSizeChange(callback: SizeChangeCallback | undefined): void;
 }
 
+/**
+ * Defines the ColorMetrics class.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class ColorMetrics {
+  /**
+  * Instantiate the ColorMetrics class using color number 
+  * 
+  * @param { number } value - value
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  static numeric(value: number): ColorMetrics;
+
+  /**
+  * Instantiate the ColorMetrics class using color rgb
+  * 
+  * @param { number } red - value
+  * @param { number } green - value
+  * @param { number } blue - value
+  * @param { ?number } alpha - value
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
+
+  /**
+  * Instantiate the ColorMetrics class using ResourceColor
+  * 
+  * @param { ResourceColor } color - class
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  static resourceColor(color: ResourceColor): ColorMetrics;
+	
+  /**
+  * blend color
+  * 
+  * @param { ColorMetrics } overlayColor - class
+  * @returns { ColorMetrics } ColorMetrics class
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  blendColor(overlayColor: ColorMetrics): ColorMetrics;
+	
+  /**
+  * Get color of the ColorMetrics.
+  * 
+  * @returns { string } The color of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+   get color(): string;
+
+  /**
+  * Get red value of the ColorMetrics.
+  * 
+  * @returns { number } The color of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+   get red(): number;
+
+  /**
+  * Get green value of the ColorMetrics.
+  * 
+  * @returns { number } The color of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  get green(): number;
+
+  /**
+  * Get blue value of the ColorMetrics.
+  * 
+  * @returns { number } The color of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  get blue(): number;
+
+  /**
+  * Get opacity value of the ColorMetrics.
+  * 
+  * @returns { number } The color of the ColorMetrics.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  get alpha(): number;
+}
 declare module 'commonEvent' {
   module 'commonEvent' {
     // @ts-ignore
