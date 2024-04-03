@@ -132,5 +132,5 @@ export interface MissionInfo {
    * @systemapi
    * @since 12
    */
-  continueSessionId: number;
+  continuedSessionId: number;
 }
