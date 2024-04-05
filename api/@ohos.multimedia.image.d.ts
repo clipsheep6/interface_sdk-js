@@ -3616,10 +3616,8 @@ declare namespace image {
      * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980274 - The conversion failed.
-     * @throws { BusinessError } 62980276 - The type to be converted is an unsupported type.
+     * @throws { BusinessError } 62980276 - The type to be converted is an unsupported target pixel format.
      * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
-     * @throws { BusinessError } 62980273 - Failed to create a c++ conversion class object.
-     * @throws { BusinessError } 62980136 - The c++ conversion class object pointer is empty when converting.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 11
