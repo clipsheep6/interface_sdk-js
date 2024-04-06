@@ -99,6 +99,113 @@ declare namespace i18n {
   export function getSystemLocale(): string;
 
   /**
+   * Enumeration of user preference options.
+   *
+   * @enum { string } PreferenceOptions
+   * @syscap SystemCapability.Global.I18n
+   * @since 12
+   */
+  export enum PreferenceOptions {
+    /**
+     * Temperature preference option
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    TEMPERATURE_PREFERENCE = 'temperature_preference',
+    /**
+     * First day of week preference
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    FIRST_DAY_OF_WEEK_PREFERENCE = 'first_day_of_week_preference'
+  }
+
+  /**
+   * Enumeration of temperature unit keys.
+   *
+   * @enum { string } PreferenceOptions
+   * @syscap SystemCapability.Global.I18n
+   * @since 12
+   */
+  export enum TemperatureUnitKeys {
+    /**
+     * Celsius key
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    CELSIUS = 'celsius',
+    /**
+     * Fahrenheit key
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    FAHRENHEIT = 'fahrenheit'
+  }
+
+  /**
+   * Enumeration of week day keys.
+   *
+   * @enum { string } WeekDayKeys
+   * @syscap SystemCapability.Global.I18n
+   * @since 12
+   */
+  export enum WeekDayKeys {
+    /**
+     * Monday key
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    MONDAY = 'monday',
+    /**
+     * Tuesday key
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    TUESDAY = 'tuesday',
+    /**
+     * Wednesday key
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    WEDNESDAY = 'wednesday',
+    /**
+     * Thursday key
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    THURSDAY = 'thursday',
+    /**
+     * Friday key
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    FRIDAY = 'friday',
+    /**
+     * Saturday key
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    SATURDAY = 'saturday',
+    /**
+     * Sunday key
+     *
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    SUNDAY = 'sunday'
+  }
+
+  /**
    * Provides system functions.
    *
    * @syscap SystemCapability.Global.I18n
@@ -434,6 +541,21 @@ declare namespace i18n {
     static setAppPreferredLanguage(language: string): void;
 
     /**
+     * Set the preferred language of the specified App.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } language - the language to be set.
+     * @param { string } app - the package name of the app.
+     * @throws { BusinessError } 201 - the application does not have permission to call this function
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 890001 - param value not valid
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    static setAppPreferredLanguageSystem(language: string, app: string): void;
+
+    /**
      * Get the preferred language of App.
      *
      * @returns { string } a string represent the preferred language of App.
@@ -464,6 +586,33 @@ declare namespace i18n {
      * @since 9
      */
     static getUsingLocalDigit(): boolean;
+
+    /**
+     * Set user preference for i18n apis.
+     *
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { PreferenceOptions } preference - a variable represents which preference would be set
+     * @param { string } value - a string variable represents the preference value
+     * @throws { BusinessError } 201 - the application does not have permission to call this function
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 890001 - param value not valid
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    static setUserPreference(preference: PreferenceOptions, value: string): void;
+
+    /**
+     * Get user preference for i18n apis.
+     *
+     * @param { PreferenceOptions } preference - a variable represents which preference would be get
+     * @returns { string } a string represent the preference value
+     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 890001 - param value not valid
+     * @syscap SystemCapability.Global.I18n
+     * @since 12
+     */
+    static getUserPreference(preference: PreferenceOptions): string;
   }
 
   /**
