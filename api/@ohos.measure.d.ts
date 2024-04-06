@@ -190,6 +190,16 @@ export interface MeasureOptions {
  * @since 9
  */
 export default class MeasureText {
+
+  /**
+   * Creates a new DrawableDescriptor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  constructor();
+  
   /**
    * Displays the textWidth.
    *
