@@ -8119,7 +8119,7 @@ declare interface TouchEvent extends BaseEvent {
  * @crossplatform
  * @since 12
  */
-declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) => void;
+declare type SizeChangeCallback = (oldValue: Size, newValue: Size) => void;
 
 /**
  * Defines the PixelMap type object for ui component.
