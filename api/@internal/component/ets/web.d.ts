@@ -6016,6 +6016,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead ohos.web.WebAttribute#onSslErrorEvent
    */
   onSslErrorEventReceive(callback: (event: {
     /**
