@@ -3459,6 +3459,23 @@ declare namespace resourceManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Obtains the DrawableDescriptor of the media file corresponding to a specified resource ID.
+     *
+     * @param { number } resId - Indicates the resource ID.
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *             to use the density of current system dpi.
+     * @param { number } [type] - The optional parameter means the media type, the default value 0 means
+     *             the normal media.
+     * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     getDrawableDescriptor(resId: number, density?: number, type?: number): DrawableDescriptor;
 
     /**
@@ -3489,6 +3506,23 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Obtains the DrawableDescriptor of the media file corresponding to a specified resource Name.
+     *
+     * @param { string } resName - Indicates the resource name.
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *             to use the density of current system dpi.
+     * @param { number } [type] - The optional parameter means the media type, the default value 0 means
+     *             the normal media.
+     * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001003 - If the resName invalid.
+     * @throws { BusinessError } 9001004 - If the resource not found by resName.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     getDrawableDescriptorByName(resName: string, density?: number, type?: number): DrawableDescriptor;
 
@@ -3522,6 +3556,24 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Obtains the DrawableDescriptor of the media file corresponding to a specified resource.
+     *
+     * @param { Resource } resource - Indicates the resource object.
+     * @param { number } [density] - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
+     *             to use the density of current system dpi.
+     * @param { number } [type] - The optional parameter means the media type, the default value 0 means
+     *             the normal media.
+     * @returns { DrawableDescriptor } The DrawableDescriptor class to get drawable image.
+     * @throws { BusinessError } 401 - If the input parameter invalid.
+     * @throws { BusinessError } 9001001 - If the resId invalid.
+     * @throws { BusinessError } 9001002 - If the resource not found by resId.
+     * @syscap SystemCapability.Global.ResourceManager
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     getDrawableDescriptor(resource: Resource, density?: number, type?: number): DrawableDescriptor;
 
