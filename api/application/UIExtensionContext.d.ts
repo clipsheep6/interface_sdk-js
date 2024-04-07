@@ -376,6 +376,7 @@ export default class UIExtensionContext extends ExtensionContext {
    * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
    * @param { AtomicServiceOptions } [options] - Indicates the atomic service start options.
    * @returns { Promise<AbilityResult> } Returns the result of openAtomicService.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000003 - The appId does not exist.
