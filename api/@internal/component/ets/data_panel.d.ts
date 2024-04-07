@@ -464,6 +464,45 @@ interface DataPanelInterface {
 }
 
 /**
+ * DataPanelConfig used by datapanel style
+ *
+ * @interface DataPanelConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface DataPanelConfig {
+  /**
+   * Current name of datapanel.
+   *
+   * @type { ?number[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+	values : number[];
+  /**
+   * datapanel is selected or not.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+	max : number;
+}
+/**
+ * DataPanelStyle wrapped builder
+ *
+ * @interface DataPanelStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 12
+ */
+declare interface DataPanelStyle {
+  applyContent(): WrappedBuilder<[DataPanelConfig]>
+}
+/**
  * Defines the DataPanel attribute functions.
  *
  * @extends CommonMethod
@@ -621,6 +660,17 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @since 11
    */
   trackShadow(value: DataPanelShadowOptions): DataPanelAttribute;
+  /**
+   * Set the builder style of dataPanel.
+   *
+   * @param { DataPanelStyle } value - The style of dataPanel.
+   * @returns { DataPanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  costomStyle(style: DataPanelStyle) : DataPanelAttribute
 }
 
 /**
