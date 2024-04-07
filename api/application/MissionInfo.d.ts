@@ -128,4 +128,14 @@ export interface MissionInfo {
    * @since 10
    */
   unclearable: boolean;
+
+  /**
+   * Indicates the session id to continue.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 12
+   */
+  continuedSessionId: number;
 }
