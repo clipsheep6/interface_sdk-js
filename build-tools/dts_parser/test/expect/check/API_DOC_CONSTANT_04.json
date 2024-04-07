@@ -1,0 +1,13 @@
+[
+  {
+    "analyzerName": "apiengine",
+    "buggyFilePath": "API_DOC_CONSTANT_04.d.ts",
+    "codeContextStaerLine": "34",
+    "defectLevel": 2,
+    "defectType": "API_DOC_CONSTANT_04",
+    "description": "API check error of [wrong scene]: The validity verification of the JSDoc tag failed. The [constant] tag is not allowed to be reused, please delete the extra tags.",
+    "language": "ts",
+    "mainBuggyCode": "const batterySOC = 123;",
+    "mainBuggyLine": "34"
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "analyzerName": "apiengine",
+    "buggyFilePath": "API_DOC_CONSTANT_02.d.ts",
+    "codeContextStaerLine": "29",
+    "defectLevel": 2,
+    "defectType": "API_DOC_CONSTANT_02",
+    "description": "API check error of [wrong scene]: JSDoc label validity verification failed. The [constant] label is not allowed. Please check the label usage method.",
+    "language": "ts",
+    "mainBuggyCode": " declare namespace batteryInfo",
+    "mainBuggyLine": "29"
+  }
+]
