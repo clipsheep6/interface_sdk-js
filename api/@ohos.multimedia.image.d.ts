@@ -3604,21 +3604,18 @@ declare namespace image {
      */
     applyColorSpace(targetColorSpace: colorSpaceManager.ColorSpaceManager): Promise<void>;
 
-
     /**
-     * Format conversion was performed using the PIxelmap in the original format. This method uses a promise to return the result.
-     * 
+     *@brief Format conversion was performed using the pixelmap in the original format. This method uses a promise to return the result.
      * The method is used for the transformation of the image formats. Pixel data will be changed by calling this method.
      *
-     * @param { PixelMapFormat } target Pixel Format - The pixel Format pixelmap to convert.
+     * @param { PixelMapFormat } Target pixel format for pixelmap conversion.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980274 - The conversion failed.
      * @throws { BusinessError } 62980276 - The type to be converted is an unsupported target pixel format.
-     * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+     * @throws { BusinessError } 62980178 - Failed to create the pixelmap.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
      * @since 12
      */
     convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise<void>;
