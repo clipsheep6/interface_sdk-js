@@ -17456,8 +17456,7 @@ declare class CommonMethod<T> {
   /**
    * Bind content cover
    *
-   * @param { boolean } isShow - true means display content, false means hide content.
-   *     set it false if undefined or null.
+   * @param { boolean } isShow - true means display content, false means hide content. set it false if undefined or null.
    * @param { CustomBuilder } builder - the content to be displayed.
    * @param { ModalTransition } type - transition type.
    * @returns { T }
@@ -17482,8 +17481,7 @@ declare class CommonMethod<T> {
   /**
    * Bind content cover
    *
-   * @param { boolean } isShow - true means display content, false means hide content.
-   *     set it false if undefined or null.
+   * @param { boolean } isShow - true means display content, false means hide content. set it false if undefined or null.
    * @param { CustomBuilder } builder - the content to be displayed.
    * @param { ContentCoverOptions } options - options of content cover.
    * @returns { T }
@@ -17508,8 +17506,7 @@ declare class CommonMethod<T> {
   /**
    * Bind sheet
    *
-   * @param { boolean } isShow - true means display sheet, false means hide sheet.
-   *     set it false if undefined or null.
+   * @param { boolean } isShow - true means display sheet, false means hide sheet. set it false if undefined or null.
    * @param { CustomBuilder } builder - the sheet to be displayed.
    * @param { SheetOptions } options - options of sheet.
    * @returns { T } - template type
