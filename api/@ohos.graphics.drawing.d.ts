@@ -1262,6 +1262,15 @@ declare namespace drawing {
    * @since 12
    */
   interface TextStyle {
+
+    /**
+     * Setting text decoration of textstyle.
+     * @type { ?Decoration } decoration for text
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    decoration?: Decoration;
+
     /**
      * Setting color of textstyle.
      * @type { ?common2D.Color } it is uint32_t type data
