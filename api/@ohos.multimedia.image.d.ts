@@ -3620,7 +3620,7 @@ declare namespace image {
      * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since 11
+     * @since 12
      */
     convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise<PixelMap>;
 
