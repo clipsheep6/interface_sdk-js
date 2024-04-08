@@ -615,6 +615,16 @@ declare type EdgeOutlineWidths = {
    * @since 11
    * @form
    */
+  /**
+   * top outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   top?: Dimension;
 
   /**
@@ -624,6 +634,16 @@ declare type EdgeOutlineWidths = {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * right outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   right?: Dimension;
@@ -637,6 +657,16 @@ declare type EdgeOutlineWidths = {
    * @since 11
    * @form
    */
+  /**
+   * bottom outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   bottom?: Dimension;
 
   /**
@@ -646,6 +676,16 @@ declare type EdgeOutlineWidths = {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * left outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   left?: Dimension;
@@ -820,6 +860,16 @@ declare type OutlineRadiuses = {
    * @since 11
    * @form
    */
+  /**
+   * top-left property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   topLeft?: Dimension;
 
   /**
@@ -829,6 +879,16 @@ declare type OutlineRadiuses = {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * top-right property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   topRight?: Dimension;
@@ -842,6 +902,16 @@ declare type OutlineRadiuses = {
    * @since 11
    * @form
    */
+  /**
+   * bottom-left property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   bottomLeft?: Dimension;
 
   /**
@@ -851,6 +921,16 @@ declare type OutlineRadiuses = {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * bottom-right property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   bottomRight?: Dimension;
@@ -1167,6 +1247,16 @@ declare type EdgeOutlineStyles = {
    * @since 11
    * @form
    */
+  /**
+   * top property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   top?: OutlineStyle;
 
   /**
@@ -1176,6 +1266,16 @@ declare type EdgeOutlineStyles = {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * right property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   right?: OutlineStyle;
@@ -1189,6 +1289,16 @@ declare type EdgeOutlineStyles = {
    * @since 11
    * @form
    */
+  /**
+   * bottom property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   bottom?: OutlineStyle;
 
   /**
@@ -1198,6 +1308,16 @@ declare type EdgeOutlineStyles = {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   * @form
+   */
+  /**
+   * left property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    * @form
    */
   left?: OutlineStyle;
