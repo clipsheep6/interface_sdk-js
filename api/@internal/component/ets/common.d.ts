@@ -19515,6 +19515,8 @@ declare class CustomComponent extends CommonAttribute {
    */
   aboutToRecycle?(): void;
 
+  aboutToApplyTheme?(theme: Theme): void;
+
   /**
    * Custom component override this method to layout each of its sub components.
    *
