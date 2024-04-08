@@ -3609,9 +3609,8 @@ declare namespace image {
      * Format conversion was performed using the PIxelmap in the original format. This method uses a promise to return the result.
      * 
      * The method is used for the transformation of the image formats. Pixel data will be changed by calling this method.
-     * If you want to only convert the image formats, use methods to format the target image.
      *
-     * @param { PixelMapFormat } targetPixelFormat - The color space for pixel map.
+     * @param { PixelMapFormat } targetPixelFormat - The pixelFormat pixelmap to convert.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
