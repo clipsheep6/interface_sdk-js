@@ -17470,12 +17470,12 @@ declare class CommonMethod<T> {
    *
    * @param { boolean | undefined | null } isShow - true means display content, false means hide content. set it false if undefined or null.
    * @param { CustomBuilder } builder - the content to be displayed.
-   * @param { ContentCoverOptions } options - options of content cover.
+   * @param { ModalTransition } type - transition type.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 11
    */
   bindContentCover(isShow: boolean | undefined | null, builder: CustomBuilder, type?: ModalTransition): T;
 
