@@ -17475,7 +17475,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
   bindContentCover(isShow: boolean | undefined | null, builder: CustomBuilder, type?: ModalTransition): T;
 
