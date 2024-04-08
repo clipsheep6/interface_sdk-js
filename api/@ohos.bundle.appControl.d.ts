@@ -91,7 +91,15 @@ declare namespace appControl {
      * @systemapi
      * @since 11
      */
-    NON_BLOCK = 3
+    NON_BLOCK = 3,
+    /**
+     * Only the specified app will be blocked.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since 12
+     */
+    BLOCK_APPLICATION_WITH_RESULT = 4
   }
 
   /**
