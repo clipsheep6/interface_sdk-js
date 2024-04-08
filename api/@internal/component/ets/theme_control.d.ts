@@ -15,13 +15,6 @@
 
 declare class ThemeControl {
     /**
-     * Sets whether the system can apply Theme to the Basic Components
-     *
-     * @param enable - set 'true' to switch on the Theme supporting for the Basic Components. Default value is 'false'
-     */
-    static enableTheme(enable: boolean): void;
-
-    /**
      * Sets the default Theme for the ArkUI page and for later opened pages.
      * @param theme - the Theme for settings
      */

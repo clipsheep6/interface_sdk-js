@@ -1,0 +1,16 @@
+diff --git a/api/@internal/component/ets/button.d.ts b/api/@internal/component/ets/button.d.ts
+index 44ccf321c..1444e4a6d 100644
+--- a/api/@internal/component/ets/button.d.ts
++++ b/api/@internal/component/ets/button.d.ts
+@@ -401,11 +401,6 @@ declare enum ButtonStyleEx {
+   SmallText = 'SmallText',
+ }
+ 
+-declare enum ButtonRole {
+-  Normal = 'Normal',
+-  Warning = 'Warning',
+-}
+-
+ /**
+  * Defines the Button Component.
+  *
