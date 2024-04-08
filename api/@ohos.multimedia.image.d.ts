@@ -3622,7 +3622,7 @@ declare namespace image {
      * @crossplatform
      * @since 12
      */
-    convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise<PixelMap>;
+    convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise<void>;
 
      /**
      * Releases this PixelMap object. This method uses a callback to return the result.
