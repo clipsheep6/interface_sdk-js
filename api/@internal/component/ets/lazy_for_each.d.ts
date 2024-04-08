@@ -781,7 +781,7 @@ declare interface IDataSource {
  * @atomicservice
  * @since 11
  */
-interface LazyForEachInterface {
+interface LazyForEachInterface extends DynamicNode<LazyForEachInterface> {
   /**
    * Enter the value to obtain the LazyForEach.
    *

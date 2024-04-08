@@ -48,12 +48,13 @@
 /**
  * Defines the Repeat component attribute functions.
  *
+ * @implements DynamicNode<RepeatAttribute<T>>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  * @form
  */
-declare class RepeatAttribute<T> {
+declare class RepeatAttribute<T> implements DynamicNode<RepeatAttribute<T>> {
   /**
    * Executes itemGenerator of each item.
    *
@@ -76,6 +77,16 @@ declare class RepeatAttribute<T> {
    * @form
    */
   key(keyGenerator: (item: T, index: number) => string): RepeatAttribute<T>;
+  /**
+   * Set the move action.
+   *
+   * @param { Optional<OnMoveHandler> } handler
+   * @returns { RepeatAttribute<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onMove(handler: Optional<OnMoveHandler>): RepeatAttribute<T>
 }
 
 /**

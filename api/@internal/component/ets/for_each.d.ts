@@ -52,7 +52,7 @@
  * @since 11
  * @form
  */
-interface ForEachInterface {
+interface ForEachInterface extends DynamicNode<ForEachInterface> {
   /**
    * Set the value, array, and key.
    *
