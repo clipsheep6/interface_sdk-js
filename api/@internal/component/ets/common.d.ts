@@ -17516,7 +17516,7 @@ declare class CommonMethod<T> {
   /**
    * Bind content cover
    *
-   * @param {Optional<boolean> } isShow - true means display content, false means hide content.
+   * @param { Optional<boolean> } isShow - true means display content, false means hide content.
    * @param { CustomBuilder } builder - the content to be displayed.
    * @param { ContentCoverOptions } options - options of content cover.
    * @returns { T }
