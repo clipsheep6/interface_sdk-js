@@ -17791,6 +17791,18 @@ declare class CommonMethod<T> {
   obscured(reasons: Array<ObscuredReasons>): T;
 
   /**
+   * Whether to support hide sensitive privacy
+   *
+   * @param { boolean } value - Whether to support hide sensitive privacy.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  privacySensitive(value: boolean): T;
+
+  /**
    * Reuse id is used for identify the reuse type for each custom node.
    *
    * @param { string } id - The id for reusable custom node.
