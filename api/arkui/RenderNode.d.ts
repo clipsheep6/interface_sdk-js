@@ -19,7 +19,7 @@
  */
 
 import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, Edges } from './Graphics';
-
+import { RenderOptions } from './BuilderNode'
 /**
  * Defines RenderNode. Contains node tree operations and render property operations on node.
  *
@@ -52,6 +52,17 @@ export class RenderNode {
    * @since 12
    */
   constructor();
+
+  /**
+   * Constructor.
+   *
+   * @param { RenderOptions } options - render options used to create the FrameNode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  constructor(options: RenderOptions);
 
   /**
    * Add child to the end of the RenderNode's children.

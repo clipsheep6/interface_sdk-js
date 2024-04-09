@@ -22,7 +22,7 @@ import { UIContext } from '../@ohos.arkui.UIContext';
 import { RenderNode } from './RenderNode';
 import { UICommonEvent } from 'commonEvent';
 import { CommonAttribute } from 'commonAttribute';
-
+import { RenderOptions } from './BuilderNode'
 /**
  * Defines FrameNode.
  *
@@ -57,6 +57,30 @@ export class FrameNode {
    * @since 12
    */
   constructor(uiContext: UIContext);
+
+  /**
+   * Constructor.
+   *
+   * @param { UIContext } uiContext - uiContext used to create the FrameNode
+   * @param { RenderOptions } options - render options used to create the FrameNode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  constructor(uiContext: UIContext, options: RenderOptions);
+
+  /**
+   * Dispatch touchEvent to targetNode.
+   *
+   * @param { TouchEvent } event - The touchEvent which will be sent to the targetNode.
+   * @returns { boolean } - Returns true if the TouchEvent has been successfully posted to the targetNode, false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  postTouchEvent(event: TouchEvent): boolean;
 
   /**
    * Get the RenderNode in FrameNode.
