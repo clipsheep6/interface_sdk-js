@@ -15,7 +15,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { getAPINote, ErrorType, ErrorLevel, FileType, systemPermissionFile, checkOption } = require('./utils');
+const { apiCheckInfoArr, ApiCheckResult, getAPINote, ErrorType, ErrorLevel, FileType, systemPermissionFile, checkOption } = require('./utils');
 const { addAPICheckErrorLogs } = require('./compile_info');
 
 const permissionCheckWhitelist = new Set(['@ohos.wifi.d.ts', '@ohos.wifiManager.d.ts']);
@@ -27,9 +27,16 @@ const permissionCheckWhitelist = new Set(['@ohos.wifi.d.ts', '@ohos.wifiManager.
  *
  * @returns Set<string>
  */
-function getPermissionBank() {
+function getPermissionBank () {
   const permissionTags = ['ohos.permission.HEALTH_DATA', 'ohos.permission.HEART_RATE', 'ohos.permission.ACCELERATION'];
   let permissionFileContent;
+  ApiCheckResult.logMap.set("systemPermissionFile", fs.existsSync(systemPermissionFile));
+  ApiCheckResult.logMap.set("hassystemPermissionFile", systemPermissionFile);
+  ApiCheckResult.logMap.set("checkOption.permissionContent", checkOption.permissionContent);
+  console.log('systemPermissionFile=====>', fs.existsSync(systemPermissionFile));
+  apiCheckInfoArr.push(systemPermissionFile);
+  apiCheckInfoArr.push(fs.existsSync(systemPermissionFile));
+  apiCheckInfoArr.push(checkOption.permissionContent);
   if (fs.existsSync(systemPermissionFile)) {
     permissionFileContent = require(systemPermissionFile);
   } else if (checkOption.permissionContent) {
@@ -37,16 +44,19 @@ function getPermissionBank() {
   } else {
     permissionFileContent = require('../config/config.json');
   }
+  ApiCheckResult.logMap.set("permissionFileContent", permissionFileContent);
   const permissionTagsObj = permissionFileContent.module.definePermissions;
   permissionTagsObj.forEach((item) => {
     permissionTags.push(item.name);
   });
+  ApiCheckResult.logMap.set("permissionTags", permissionTags);
+  apiCheckInfoArr.push(permissionTags);
   const permissionRuleSets = new Set(permissionTags);
   return permissionRuleSets;
 }
 exports.getPermissionBank = getPermissionBank;
 
-function checkPermission(node, sourcefile, fileName) {
+function checkPermission (node, sourcefile, fileName) {
   const permissionRuleSet = getPermissionBank();
   const apiNote = getAPINote(node);
   let hasPermissionError = false;
