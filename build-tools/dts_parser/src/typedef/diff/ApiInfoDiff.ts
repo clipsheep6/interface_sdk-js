@@ -14,7 +14,7 @@
  */
 
 import ts from 'typescript';
-import { ApiInfo, MethodInfo } from '../parser/ApiInfoDefination';
+import { ApiInfo, MethodInfo, ApiType } from '../parser/ApiInfoDefination';
 import { Comment } from '../parser/Comment';
 import { NumberConstant } from '../../utils/Constant';
 export class BasicDiffInfo {
@@ -610,6 +610,75 @@ export const diffMap: Map<ApiDiffType, string> = new Map([
   [ApiDiffType.KIT_CHANGE, 'kit变更'],
 ]);
 
+export const apiChangeMap: Map<ApiDiffType, string> = new Map([
+  [ApiDiffType.SYSTEM_TO_PUBLIC, 'API修改(约束变化)'],
+  [ApiDiffType.PUBLIC_TO_SYSTEM, 'API修改(约束变化)'],
+  [ApiDiffType.NA_TO_STAGE, 'API修改(约束变化)'],
+  [ApiDiffType.NA_TO_FA, 'API修改(约束变化)'],
+  [ApiDiffType.FA_TO_STAGE, 'API修改(约束变化)'],
+  [ApiDiffType.STAGE_TO_FA, 'API修改(约束变化)'],
+  [ApiDiffType.STAGE_TO_NA, 'API修改(约束变化)'],
+  [ApiDiffType.FA_TO_NA, 'API修改(约束变化)'],
+  [ApiDiffType.NA_TO_CARD, 'API修改(约束变化)'],
+  [ApiDiffType.CARD_TO_NA, 'API修改(约束变化)'],
+  [ApiDiffType.NA_TO_CROSS_PLATFORM, 'API修改(约束变化)'],
+  [ApiDiffType.CROSS_PLATFORM_TO_NA, 'API修改(约束变化)'],
+  [ApiDiffType.SYSCAP_NA_TO_HAVE, 'API修改(约束变化)'],
+  [ApiDiffType.SYSCAP_HAVE_TO_NA, 'API修改(约束变化)'],
+  [ApiDiffType.SYSCAP_A_TO_B, 'API修改(约束变化)'],
+  [ApiDiffType.DEPRECATED_NA_TO_HAVE, 'API废弃'],
+  [ApiDiffType.DEPRECATED_HAVE_TO_NA, 'API废弃'],
+  [ApiDiffType.DEPRECATED_A_TO_B, 'API废弃'],
+  [ApiDiffType.ERROR_CODE_NA_TO_HAVE, 'API修改(约束变化)'],
+  [ApiDiffType.ERROR_CODE_ADD, 'API修改(原型修改)'],
+  [ApiDiffType.ERROR_CODE_REDUCE, 'API修改(原型修改)'],
+  [ApiDiffType.ERROR_CODE_CHANGE, 'API修改(原型修改)'],
+  [ApiDiffType.PERMISSION_NA_TO_HAVE, 'API修改(约束变化)'],
+  [ApiDiffType.PERMISSION_HAVE_TO_NA, 'API修改(约束变化)'],
+  [ApiDiffType.PERMISSION_RANGE_BIGGER, 'API修改(约束变化)'],
+  [ApiDiffType.PERMISSION_RANGE_SMALLER, 'API修改(约束变化)'],
+  [ApiDiffType.PERMISSION_RANGE_CHANGE, 'API修改(约束变化)'],
+  [ApiDiffType.TYPE_RANGE_BIGGER, 'API修改(原型修改)'],
+  [ApiDiffType.TYPE_RANGE_SMALLER, 'API修改(原型修改)'],
+  [ApiDiffType.TYPE_RANGE_CHANGE, 'API修改(原型修改)'],
+  [ApiDiffType.API_NAME_CHANGE, 'API修改(原型修改)'],
+  [ApiDiffType.FUNCTION_RETURN_TYPE_ADD, 'API修改(原型修改)'],
+  [ApiDiffType.FUNCTION_RETURN_TYPE_REDUCE, 'API修改(原型修改)'],
+  [ApiDiffType.FUNCTION_RETURN_TYPE_CHANGE, 'API修改(原型修改)'],
+  [ApiDiffType.FUNCTION_PARAM_POS_CHANGE, 'API修改(原型修改)'],
+  [ApiDiffType.FUNCTION_PARAM_UNREQUIRED_ADD, 'API修改(原型修改)'],
+  [ApiDiffType.FUNCTION_PARAM_REQUIRED_ADD, 'API修改(原型修改)'],
+  [ApiDiffType.FUNCTION_PARAM_REDUCE, 'API修改(原型修改)'],
+  [ApiDiffType.FUNCTION_PARAM_TO_UNREQUIRED, 'API修改(原型修改)'],
+  [ApiDiffType.FUNCTION_PARAM_TO_REQUIRED, 'API修改(原型修改)'],
+  [ApiDiffType.FUNCTION_PARAM_NAME_CHANGE, 'API修改(原型修改)'],
+  [ApiDiffType.FUNCTION_PARAM_TYPE_CHANGE, 'API修改(原型修改)'],
+  [ApiDiffType.FUNCTION_PARAM_TYPE_ADD, 'API修改(原型修改)'],
+  [ApiDiffType.FUNCTION_PARAM_TYPE_REDUCE, 'API修改(原型修改)'],
+  [ApiDiffType.PROPERTY_READONLY_TO_UNREQUIRED, 'API修改(约束变化)'],
+  [ApiDiffType.PROPERTY_READONLY_TO_REQUIRED, 'API修改(约束变化)'],
+  [ApiDiffType.PROPERTY_WRITABLE_TO_UNREQUIRED, 'API修改(约束变化)'],
+  [ApiDiffType.PROPERTY_WRITABLE_TO_REQUIRED, 'API修改(约束变化)'],
+  [ApiDiffType.PROPERTY_TYPE_CHANGE, 'API修改(原型修改)'],
+  [ApiDiffType.PROPERTY_READONLY_ADD, 'API修改(约束变化)'],
+  [ApiDiffType.PROPERTY_READONLY_REDUCE, 'API修改(约束变化)'],
+  [ApiDiffType.PROPERTY_WRITABLE_ADD, 'API修改(约束变化)'],
+  [ApiDiffType.PROPERTY_WRITABLE_REDUCE, 'API修改(约束变化)'],
+  [ApiDiffType.CONSTANT_VALUE_CHANGE, 'API修改(原型修改)'],
+  [ApiDiffType.TYPE_ALIAS_CHANGE, 'API修改(原型修改)'],
+  [ApiDiffType.TYPE_ALIAS_ADD, 'API修改(原型修改)'],
+  [ApiDiffType.TYPE_ALIAS_REDUCE, 'API修改(原型修改)'],
+  [ApiDiffType.ENUM_MEMBER_VALUE_CHANGE, 'API修改(原型修改)'],
+  [ApiDiffType.ADD, 'API新增'],
+  [ApiDiffType.REDUCE, 'API删除'],
+  [ApiDiffType.DELETE_DECORATOR, 'API修改(约束变化)'],
+  [ApiDiffType.NEW_DECORATOR, 'API修改(约束变化)'],
+  [ApiDiffType.SINCE_VERSION_A_TO_B, 'API修改(约束变化)'],
+  [ApiDiffType.SINCE_VERSION_HAVE_TO_NA, 'API修改(约束变化)'],
+  [ApiDiffType.SINCE_VERSION_NA_TO_HAVE, 'API修改(约束变化)'],
+  [ApiDiffType.KIT_CHANGE, '非API变更'],
+]);
+
 export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.PUBLIC_TO_SYSTEM,
   ApiDiffType.NA_TO_STAGE,
@@ -648,3 +717,9 @@ export const incompatibleApiDiffTypes: Set<ApiDiffType> = new Set([
   ApiDiffType.HISTORICAL_JSDOC_CHANGE,
   ApiDiffType.HISTORICAL_API_CHANGE,
 ]);
+
+export const isNotApiSet: Set<string> = new Set([
+  ApiType.NAMESPACE,
+  ApiType.ENUM,
+  ApiType.SOURCE_FILE,
+])

@@ -27,9 +27,9 @@ export class FunctionUtils {
    */
   static getPackageName(fileFilePath: string): string {
     const packageName =
-      fileFilePath.indexOf('component\\ets\\') >= 0 || fileFilePath.indexOf('component/ets/') >= 0 ? 
-        'ArkUI' : 
-        path.basename(fileFilePath).replace(/@|.d.ts$/g, '');
+      fileFilePath.indexOf('component\\ets\\') >= 0 || fileFilePath.indexOf('component/ets/') >= 0
+        ? 'ArkUI'
+        : path.basename(fileFilePath).replace(/@|.d.ts$/g, '');
     return packageName;
   }
 
@@ -70,6 +70,20 @@ export class FunctionUtils {
       fileNameMap: fileNameMap,
     };
   }
+
+  static readKitFile(): KitSubSystemData {
+    const kitFilePath: string = path.join(FileUtils.getBaseDirName(), 'kit.json');
+    const fileContent = JSON.parse(fs.readFileSync(kitFilePath, 'utf-8'));
+    const subSystemMap: Map<string, string> = new Map();
+    const kitNameMap: Map<string, string> = new Map();
+    const filePathSet: Set<string> = new Set();
+    fileContent.data.forEach((subSystemInfo: KitSubSystemInfo) => {
+      subSystemMap.set(subSystemInfo.filePath.replace('api/', ''), subSystemInfo.subSystem);
+      kitNameMap.set(subSystemInfo.filePath.replace('api/', ''), subSystemInfo.kitName);
+      filePathSet.add(subSystemInfo.filePath.replace('api/', ''));
+    });
+    return { subSystemMap, kitNameMap, filePathSet };
+  }
 }
 
 /**
@@ -90,3 +104,15 @@ type SubSystemData = {
   subsystemMap: Map<string, string>;
   fileNameMap: Map<string, string>;
 };
+
+type KitSubSystemData = {
+  subSystemMap: Map<string, string>;
+  kitNameMap: Map<string, string>;
+  filePathSet: Set<string>;
+};
+
+class KitSubSystemInfo {
+  filePath: string = '';
+  subSystem: string = '';
+  kitName: string = '';
+}

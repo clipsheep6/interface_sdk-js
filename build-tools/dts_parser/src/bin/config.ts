@@ -21,7 +21,7 @@ import { FileUtils } from '../utils/FileUtils';
 import { LogUtil } from '../utils/logUtil';
 import { FilesMap, Parser } from '../coreImpl/parser/parser';
 import { DiffHelper } from '../coreImpl/diff/diff';
-import { BasicDiffInfo, diffTypeMap, ApiDiffType } from '../typedef/diff/ApiInfoDiff';
+import { BasicDiffInfo, diffTypeMap, ApiDiffType, isNotApiSet, apiChangeMap } from '../typedef/diff/ApiInfoDiff';
 import { WriterHelper } from './writer';
 import { LocalEntry } from '../coreImpl/checker/local_entry';
 import { ApiResultMessage, ApiResultSimpleInfo } from '../typedef/checker/result_type';
@@ -30,6 +30,7 @@ import { ApiStatisticsHelper } from '../coreImpl/statistics/Statistics';
 import { ApiStatisticsInfo } from '../typedef/statistics/ApiStatistics';
 import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
 import { FunctionUtils } from '../utils/FunctionUtils';
+import { ApiType } from '../typedef/parser/ApiInfoDefination';
 
 /**
  * 工具名称的枚举值，用于判断执行哪个工具
@@ -451,21 +452,42 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
 function diffApiCallback(data: BasicDiffInfo[], sheet: ExcelJS.Worksheet, dest?: string): void {
   sheet.name = 'api差异';
   sheet.views = [{ xSplit: 1 }];
-  sheet.getRow(1).values = ['操作标记', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统', 'kit'];
+  sheet.getRow(1).values = ['操作标记', 'API', '差异项-旧版本', '差异项-新版本', 'd.ts文件', '归属子系统', 'kit', '是否兼容', 'API类型', '是否为API的变更', 'API变更类型'];
   data.forEach((diffInfo: BasicDiffInfo, index: number) => {
     const dtsName = diffInfo.getNewDtsName() ? diffInfo.getNewDtsName() : diffInfo.getOldDtsName();
     sheet.getRow(index + NumberConstant.LINE_IN_EXCEL).values = [
       diffTypeMap.get(diffInfo.getDiffType()),
+      getApiName(diffInfo),
       joinOldMessage(diffInfo),
       joinNewMessage(diffInfo),
       dtsName.replace(/\\/g, '/'),
       SyscapProcessorHelper.matchSubsystem(diffInfo),
-      SyscapProcessorHelper.getSingleKitInfo(diffInfo)
-      
+      SyscapProcessorHelper.getSingleKitInfo(diffInfo),
+      diffInfo.getIsCompatible(),
+      diffInfo.getApiType(),
+      isApiChange(diffInfo),
+      apiChangeMap.get(diffInfo.getDiffType())
     ];
   });
 
   WriterHelper.MarkdownReporter.writeInMarkdown(data, dest);
+}
+
+function isApiChange(diffInfo: BasicDiffInfo): boolean {
+  if (isNotApiSet.has(diffInfo.getApiType())) {
+    return false;
+  }
+  return true;
+}
+
+export function getApiName(diffInfo: BasicDiffInfo): string {
+  if (diffInfo.getApiType() === ApiType.SOURCE_FILE) {
+    return 'sourcefile';
+  }
+  if (diffInfo.getNewApiName() !== '') {
+    return diffInfo.getNewApiName();
+  }
+  return diffInfo.getOldApiName();
 }
 
 export function joinOldMessage(diffInfo: BasicDiffInfo): string {
