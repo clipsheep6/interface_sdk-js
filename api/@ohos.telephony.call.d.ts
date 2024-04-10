@@ -3834,22 +3834,22 @@ declare namespace call {
     EVENT_SHOW_FLOAT_WINDOW,
  
     /**
-     * Indicates voip call mute on.
+     * Indicates voip call muted.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    EVENT_CALL_MUTE_ON,
+    EVENT_CALL_MUTED,
 
     /**
-     * Indicates voip call mute off.
+     * Indicates voip call unmuted.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    EVENT_CALL_MUTE_OFF,
+    EVENT_CALL_UNMUTED,
 
     /**
      *  Indicates voip call speaker on.
