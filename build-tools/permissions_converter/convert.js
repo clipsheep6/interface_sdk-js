@@ -61,8 +61,8 @@ const getPermissions = downloadPath => {
   try {
     const content = fs.readFileSync(downloadPath, { encoding: 'utf8' });
     const configMap = JSON.parse(decodeURIComponent(content));
-    if (configMap.module.definePermissions) {
-      return configMap.module.definePermissions;
+    if (configMap) {
+      return configMap;
     }
   } catch (error) {
     console.error('Convert json file to object failed');
@@ -77,7 +77,9 @@ const convertJsonToDTS = (permissions, outputFilePath) => {
   fs.appendFileSync(outputFilePath, copyRight, 'utf8');
   fs.appendFileSync(outputFilePath, label, 'utf8');
   fs.appendFileSync(outputFilePath, typeHead, 'utf8');
-  permissions.forEach((permission, index) => {
+  const systemGrantPermissions = permissions.systemGrantPermissions;
+  const userGrantPermissions = permissions.userGrantPermissions;
+  [...systemGrantPermissions, ...userGrantPermissions].forEach((permission, index) => {
     if (permission.since || permission.deprecated) {
       fs.appendFileSync(outputFilePath, commentHead, 'utf8');
       if (permission.since) {

@@ -317,8 +317,9 @@ function getPermissionList() {
   } else {
     permissionFileContent = require('../../config/config.json');
   }
-  const permissionTagsObj = permissionFileContent.module.definePermissions;
-  permissionTagsObj.forEach((item) => {
+  const systemGrantPermissions = permissionFileContent.systemGrantPermissions;
+  const userGrantPermissions = permissionFileContent.userGrantPermissions;
+  [...systemGrantPermissions, ...userGrantPermissions].forEach((item) => {
     permissionTags.push(item.name);
   });
   const permissionRuleSets = new Set(permissionTags);
