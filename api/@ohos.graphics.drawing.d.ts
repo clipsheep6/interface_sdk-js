@@ -1587,6 +1587,16 @@ declare namespace drawing {
     layout(width: number): void;
 
     /**
+     * Paints the laid out text onto the supplied canvas at (x, y).
+     * @param { Canvas } canvas - Object
+     * @param { number } x - Represents the X-axis position on the canvas.
+     * @param { number } y - Represents the Y-axis position on the canvas.
+     * @syscap SystemCapability.Graphics.text
+     * @since 12
+     */
+    paint(canvas: drawing.Canvas, x: number, y: number): void;
+
+    /**
      * Get max width of horizontal space this paragraph occupies.
      * @returns { number } Max width of horizontal space.
      * @syscap SystemCapability.Graphics.Drawing
