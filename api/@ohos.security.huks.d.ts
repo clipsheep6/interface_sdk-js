@@ -1825,7 +1825,7 @@ declare namespace huks {
   export interface HuksListAliasesReturnResult {
 
     /**
-     * @syscap SystemCapability.Security.Huks.Core
+     * @syscap SystemCapability.Security.Huks.Extension
      * @since 12
      */
     keyAliases?: Array<string>;
