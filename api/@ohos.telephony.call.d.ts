@@ -3834,7 +3834,7 @@ declare namespace call {
     EVENT_SHOW_FLOAT_WINDOW,
  
     /**
-     * Indicates voip call mute off.
+     * Indicates voip call mute on.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
@@ -3852,7 +3852,7 @@ declare namespace call {
     EVENT_CALL_MUTE_OFF,
 
     /**
-     *  Indicates voip call speaker off.
+     *  Indicates voip call speaker on.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
