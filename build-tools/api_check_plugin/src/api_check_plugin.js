@@ -130,6 +130,9 @@ function scanEntry(url, prId, isTestCase) {
     checkAPICodeStyle(url, isTestCase);
   }
   result.scanResult.push(`api_check: ${ApiCheckResult.formatCheckResult}`);
+  ApiCheckResult.logMap.forEach((item, key)=>{
+    result.scanResult.push(`${key}: ${item}`);
+  })
   return result.scanResult;
 }
 exports.scanEntry = scanEntry;

@@ -197,6 +197,7 @@ exports.apiCheckInfoArr = apiCheckInfoArr;
 
 class ApiCheckResultClass {
   formatCheckResult = true;
+  logMap = new Map();
 }
 exports.ApiCheckResult = new ApiCheckResultClass();
 

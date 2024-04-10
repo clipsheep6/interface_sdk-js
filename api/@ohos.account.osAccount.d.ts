@@ -70,6 +70,30 @@ declare namespace osAccount {
      * @since 7
      */
     activateOsAccount(localId: number, callback: AsyncCallback<void>): void;
+    /**
+     * Activates a specified OS account.
+     * <p>
+     * If multiple OS accounts are available, you can call this method to enable a specific OS account
+     * to run in the foreground. Then, the OS account originally running in the foreground will be
+     * switched to the background.
+     * </p>
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION2
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid localId.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @throws { BusinessError } 12300009 - Account has been activated.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 7
+     */
+    activateOsAccount2(localId: number, callback: AsyncCallback<void>): void;
 
     /**
      * Activates a specified OS account.
