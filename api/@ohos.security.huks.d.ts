@@ -1819,7 +1819,7 @@ declare namespace huks {
    * Interface of huks ListAliases result.
    *
    * @typedef HuksListAliasesReturnResult
-   * @syscap SystemCapability.Security.Huks.Core
+   * @syscap SystemCapability.Security.Huks.Extension
    * @since 12
    */
   export interface HuksListAliasesReturnResult {
