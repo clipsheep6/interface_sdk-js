@@ -32,6 +32,7 @@ import type _PermissionRequestResult from './security/PermissionRequestResult';
  * @namespace abilityAccessCtrl
  * @syscap SystemCapability.Security.AccessToken
  * @atomicservice
+ * @crossplatform
  * @since 11
  */
 declare namespace abilityAccessCtrl {
@@ -206,6 +207,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @crossplatform
+     * @atomicservice
      * @since 10
      */
     requestPermissionsFromUser(
