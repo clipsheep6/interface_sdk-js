@@ -309,6 +309,15 @@ declare namespace unifiedDataChannel {
     /**
      * Create unified record by type and value.
      *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    constructor();
+
+    /**
+     * Create unified record by type and value.
+     *
      * @param { string } type - indicates to data type of unified record.
      * @param { ValueType } value - indicates to value of unified record.
      * @throws { BusinessError } 401 - Parameter error.
