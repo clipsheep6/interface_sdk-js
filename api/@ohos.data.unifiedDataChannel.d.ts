@@ -19,7 +19,8 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-import {unifiedDataStructs} from "./@ohos.data.unifiedDataStructs";
+import image from "./@ohos.multimedia.image";
+import Want from "./@ohos.app.ability.Want";
 
 /**
  * Provide methods for sharing data between different applications across unified data channels.
@@ -37,8 +38,6 @@ import {unifiedDataStructs} from "./@ohos.data.unifiedDataStructs";
  * @since 11
  */
 declare namespace unifiedDataChannel {
-  import UnifiedDataStruct = unifiedDataStructs.UnifiedDataStruct;
-
   /**
    * Types of scope that UnifiedData can be used.
    * @enum { number }
@@ -72,6 +71,14 @@ declare namespace unifiedDataChannel {
    * @since 12
    */
   type GetDelayData = (type: string) => UnifiedData;
+
+  /**
+   * Indicates type of value.
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @atomicservice
+   * @since 12
+   */
+  type ValueType = number | string | image.PixelMap | Want | ArrayBuffer;
 
   /**
    * Describe the unified data properties.
@@ -302,23 +309,24 @@ declare namespace unifiedDataChannel {
     /**
      * Create unified record by type and value.
      *
+     * @param { string } type - indicates to data type of unified record.
+     * @param { ValueType } value - indicates to value of unified data
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
-     * @param struct
      */
-    constructor(struct: UnifiedDataStruct);
+    constructor(type: string, value: ValueType);
 
     /**
      * Get the unified data struct of unified record
      *
-     * @returns { UnifiedDataStruct } Return the struct of unified record.
+     * @returns { ValueType } Return the value of unified record.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
      */
-    getValue(): UnifiedDataStruct;
+    getValue(): ValueType;
   }
 
   /**

@@ -1175,8 +1175,9 @@ declare namespace pasteboard {
      * @since 11
      */
     getDataSync(): PasteData;
+
     /**
-     * Gets unifiedData from the system pasteboard.
+     * Gets unified data from the system pasteboard.
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { Promise<UnifiedData> } the promise returned by the getData.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1341,8 +1342,8 @@ declare namespace pasteboard {
     setDataSync(data: PasteData): void;
 
     /**
-     * Writes UnifiedData to the system pasteboard.
-     * @param { UnifiedData } data - UnifiedData will be written to the clipboard.
+     * Writes unified data to the system pasteboard.
+     * @param { UnifiedData } data - Unified data will be written to the pasteboard.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if type of data is not UnifiedData.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
@@ -1354,8 +1355,8 @@ declare namespace pasteboard {
     setUnifiedData(data: udc.UnifiedData): Promise<void>;
 
     /**
-     * Writes UnifiedData to the system pasteboard.
-     * @param { UnifiedData } data - UnifiedData will be written to the clipboard.
+     * Writes unified data to the system pasteboard.
+     * @param { UnifiedData } data - Unified data will be written to the pasteboard.
      * @throws { BusinessError } 401 - if type of data is not UnifiedData.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
