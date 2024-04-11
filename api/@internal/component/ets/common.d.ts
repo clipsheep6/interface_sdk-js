@@ -10036,7 +10036,7 @@ declare interface SheetOptions extends BindOptions {
    * @crossplatform
    * @since 12
    */
-  onTypeChanged?: Callback<SheetType>;
+  onTypeDidChange?: Callback<SheetType>;
 }
 
 /**
