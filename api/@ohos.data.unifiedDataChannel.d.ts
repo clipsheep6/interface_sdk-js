@@ -74,7 +74,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicates type of value.
-   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12
    */
@@ -310,7 +310,7 @@ declare namespace unifiedDataChannel {
      * Create unified record by type and value.
      *
      * @param { string } type - indicates to data type of unified record.
-     * @param { ValueType } value - indicates to value of unified data
+     * @param { ValueType } value - indicates to value of unified record.
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
@@ -319,7 +319,7 @@ declare namespace unifiedDataChannel {
     constructor(type: string, value: ValueType);
 
     /**
-     * Get the unified data struct of unified record
+     * Get the value of unified record.
      *
      * @returns { ValueType } Return the value of unified record.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
