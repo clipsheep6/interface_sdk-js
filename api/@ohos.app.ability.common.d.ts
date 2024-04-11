@@ -37,6 +37,9 @@ import type * as _VpnExtensionContext from './application/VpnExtensionContext';
 import type { AutoStartupCallback as _AutoStartupCallback } from './application/AutoStartupCallback';
 import type { AutoStartupInfo as _AutoStartupInfo } from './application/AutoStartupInfo';
 import type * as _EmbeddableUIAbilityContext from './application/EmbeddableUIAbilityContext';
+import * as _UIServiceExtensionContext from './application/UIServiceExtensionContext';
+import * as _UIServiceProxy from './application/UIServiceProxy';
+import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 
 /**
  * This module provides application context classes and common data structures.
@@ -384,6 +387,36 @@ declare namespace common {
    * @since 12
    */
   export type EmbeddableUIAbilityContext = _EmbeddableUIAbilityContext.default;
+
+  /**
+   * The context of a UI service ability.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  export type UIServiceExtensionContext = _UIServiceExtensionContext.default;
+
+  /**
+   * The UI service proxy.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  export type UIServiceProxy = _UIServiceProxy.default;
+
+  /**
+   * The UI service host proxy.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  export type UIServiceHostProxy = _UIServiceHostProxy.default;
 }
 
 export default common;
