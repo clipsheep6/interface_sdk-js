@@ -307,7 +307,7 @@ declare namespace unifiedDataChannel {
     getType(): string;
 
     /**
-     * Create unified record by type and value.
+     * Create unified record.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
