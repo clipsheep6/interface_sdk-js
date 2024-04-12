@@ -67,7 +67,16 @@ declare interface CustomDialogControllerOptions {
    * @atomicservice
    * @since 11
    */
-  builder: any;
+  /**
+   * Custom builder function.
+   *
+   * @type { CustomBuilder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  builder: CustomBuilder;
 
   /**
    * Defines the cancel function.
