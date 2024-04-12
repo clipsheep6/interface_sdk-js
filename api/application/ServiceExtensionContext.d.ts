@@ -13,12 +13,18 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit AbilityKit
+ */
+
 import { AsyncCallback } from '../@ohos.base';
 import { ConnectOptions } from '../ability/connectOptions';
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import ExtensionContext from './ExtensionContext';
 import Want from '../@ohos.app.ability.Want';
 import StartOptions from '../@ohos.app.ability.StartOptions';
+import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 
 /**
  * The context of service extension. It allows access to
@@ -206,6 +212,39 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @since 10
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
+
+  /**
+   * Service extension uses this method to start a specific ability by implicit want. If the caller application is in foreground,
+   * you can use this method to start ability; If the caller application is in the background,
+   * you need to apply for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the target ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
+   *
+   * @param { string } link - Indicates the ability to start.
+   * @param { OpenLinkOptions } [options] - Indicates the open link options.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000004 - Can not start invisible component.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000010 - The call with the continuation flag is forbidden.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  openLink(link:string, options?: OpenLinkOptions): Promise<void>;
 
   /**
    * Service extension start an ability using the original caller information. If the caller application is in
@@ -1335,6 +1374,25 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @StageModelOnly
    * @since 11
    */
+  /**
+   * Requests the specified foreground application to start the UIExtensionAbility of the corresponding type. The foreground
+   * application is specified by bundleName in want.parameters. If bundleName is left unspecified, or if the application
+   * specified by bundleName is not running in the foreground or does not exist, the UIExtensionAbility is directly started
+   * on the system interface. The UIExtensionAbility to start is determined by the combination of the bundleName, abilityName,
+   * and moduleName fields in want, and its type is determined by the ability.want.params.uiExtensionType field in want.parameters.
+   * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
+   *
+   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @param { AsyncCallback<void> } callback - The callback of requestModalUIExtension.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
   requestModalUIExtension(pickerWant: Want, callback: AsyncCallback<void>): void;
 
   /**
@@ -1356,6 +1414,25 @@ export default class ServiceExtensionContext extends ExtensionContext {
    * @systemapi
    * @StageModelOnly
    * @since 11
+   */
+  /**
+   * Requests the specified foreground application to start the UIExtensionAbility of the corresponding type. The foreground
+   * application is specified by bundleName in want.parameters. If bundleName is left unspecified, or if the application
+   * specified by bundleName is not running in the foreground or does not exist, the UIExtensionAbility is directly started
+   * on the system interface. The UIExtensionAbility to start is determined by the combination of the bundleName, abilityName,
+   * and moduleName fields in want, and its type is determined by the ability.want.params.uiExtensionType field in want.parameters.
+   * If the target UIExtensionAbility is visible, you can start the target UIExtensionAbility; If the target UIExtensionAbility is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible UIExtensionAbility.
+   *
+   * @param { Want } type - Indicates the UIExtensionAbility to start.
+   * @returns { Promise<void> } The promise returned by the requestModalUIExtension.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
    */
   requestModalUIExtension(pickerWant: Want): Promise<void>;
 }

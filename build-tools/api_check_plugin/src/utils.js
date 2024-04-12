@@ -46,7 +46,7 @@ const commentNodeWhiteList = [
 exports.commentNodeWhiteList = commentNodeWhiteList;
 
 const tagsArrayOfOrder = [
-  'namespace', 'struct', 'extends', "implements", 'typedef', 'interface', 'permission', 'enum', 'constant', 'type',
+  'namespace', 'struct', 'extends', 'implements', 'typedef', 'interface', 'permission', 'enum', 'constant', 'type',
   'param', 'default', 'returns', 'readonly', 'throws', 'static', 'fires', 'syscap', 'systemapi', 'famodelonly',
   'FAModelOnly', 'stagemodelonly', 'StageModelOnly', 'crossplatform', 'form', 'atomicservice', 'since', 'deprecated',
   'useinstead', 'test', 'form', 'example'
@@ -308,7 +308,7 @@ function getDeclareValue(declareValue) {
 exports.getDeclareValue = getDeclareValue;
 
 const systemPermissionFile = path.resolve(__dirname, '../../../../../',
-  'base/global/system_resources/systemres/main/config.json');
+  'base/global/system_resources/systemres/main/module.json');
 
 exports.systemPermissionFile = systemPermissionFile;
 
@@ -354,7 +354,7 @@ const ErrorValueInfo = {
   ERROR_EVENT_CALLBACK_MISSING: 'The off functions of one single event should have at least one callback parameter, and the callback parameter should be the last parameter.',
   ERROR_EVENT_ON_AND_OFF_PAIR: 'The on and off event subscription methods do not appear in pair.',
   ILLEGAL_USE_ANY: 'Illegal [any] keyword used in the API',
-  ERROR_CHANGES_VERSION: 'Please check if the changed API version number is 10.',
+  ERROR_CHANGES_VERSION: 'Please check if the changed API version number is $$.',
   ERROR_CHANGES_API_HISTORY_PARAM_REQUIRED_CHANGE: 'Forbid changes: Optional parameters cannot be changed to required parameters.',
   ERROR_CHANGES_API_HISTORY_PARAM_RANGE_CHANGE: 'Forbid changes: Parameters type range cannot be reduced.',
   ERROR_CHANGES_API_HISTORY_PARAM_WITHOUT_TYPE_CHANGE: 'Forbid changes: Parameters Parameter must be defined by type.',

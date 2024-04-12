@@ -272,7 +272,7 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 12
    */
-  function getSystemMemInfo(): SystemMemInfo
+  function getSystemMemInfo(): SystemMemInfo;
 
   /**
    * Application process native memory information.
@@ -476,13 +476,13 @@ declare namespace hidebug {
      */
     const ABILITY_MANAGER: number;
     /**
-     * ACE development framework tag.
+     * ARKUI development framework tag.
      *
      * @constant
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 12
      */
-    const ACE: number;
+    const ARKUI: number;
     /**
      * ARK tag.
      *
