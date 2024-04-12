@@ -13203,6 +13203,19 @@ declare class CommonMethod<T> {
   constructor();
 
   /**
+   * Whether to follow the host densityDpi.
+   *
+   * @param { boolean } value
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  densityDpi(value: boolean): T;
+
+  /**
    * Sets the width of the current component.
    *
    * @param { Length } value
