@@ -3212,8 +3212,8 @@ declare class Driver {
   /**
    * Press two or three key combinations
    *
-   * @param { number } [key0] - the first keyCode,set it default 0 if null or undefined.
-   * @param { number } [key1] - the second keyCode,set it default 0 if null or undefined.
+   * @param { number } key0 - the first keyCode.
+   * @param { number } key1 - the second keyCode.
    * @param { number } [key2] - the third keyCode,set it default 0 if null or undefined.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - if the input parameters are invalid.
@@ -4380,8 +4380,8 @@ declare class PointerMatrix {
   /**
    * Create an {@link PointerMatrix} object.
    *
-   * @param { number } fingers The number of fingers.
-   * @param { number } steps The number of steps of each finger trace.
+   * @param { number } fingers The number of fingers, ranges from 1 to 10.
+   * @param { number } steps The number of steps of each finger trace, ranges from 1 to 1000.
    * @returns { PointerMatrix } the {@link PointerMatrix} object.
    * @throws { BusinessError } 401 - if the input parameters are invalid.
    * @syscap SystemCapability.Test.UiTest
