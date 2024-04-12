@@ -23,7 +23,7 @@ import { Metadata } from './Metadata';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
- * Indicates the ability skill uri
+ * Indicates the extensionAbility skill uri
  *
  * @typedef Uri
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
