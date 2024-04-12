@@ -981,6 +981,20 @@ declare namespace formInfo {
     FORM_RENDERING_MODE_KEY = 'ohos.extra.param.key.form_rendering_mode',
 
     /**
+     * Indicates the key specifying set the form privacy mask property, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_OBSCURED_KEY: true
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    FORM_OBSCURED_KEY = 'ohos.extra.param.key.form_obscured_mode',
+
+    /**
      * Indicates the key specifying the inverse of the host background color, which is represented as
      * want: {
      *   "parameters": {
