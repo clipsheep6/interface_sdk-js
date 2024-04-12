@@ -24,13 +24,13 @@ declare class StyledString {
     /**
      * constructor.
      *
-     * @param { string } value - indicates the current object value of the StyledString.
+     * @param { string | CustomSpan } value - indicates the current object value of the StyledString.
      * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    constructor(value: string, styles?: Array<StyleOptions>);
+    constructor(value: string | CustomSpan, styles?: Array<StyleOptions>);
 
     /**
      * Get the length of the StyledString's characters.
@@ -243,6 +243,65 @@ declare interface TextStyleInterface {
     fontColor?: ResourceColor;
 }
 
+interface CustomSpanMetric {
+    /**
+     * The width of the custom span.
+     *
+     * @type { ?LengthMetric }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    width?: LengthMetric,
+
+    /**
+     * The height of the custom span.
+     *
+     * @type { ?LengthMetric }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    height?: LengthMetric,
+}
+
+declare class CustomSpan {
+    /**
+     * constructor.
+     *
+     * @param { ?string } value - the text for the custom span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    constructor(value?: string);
+
+    /**
+     * Mesure the size of custom span.
+     *
+     * @param { string } text - the text value of custom span.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    onMeasure?(text: string) : CustomSpanMetric;
+
+    /**
+     * Replace the string of the specified range.
+     *
+     * @param { DrawContext } context - the current context.
+     * @param { string } text - the text value of custom span.
+     * @param { number } x - the x offset of the start.
+     * @param { number } top - the top postion of the line.
+     * @param { number } baseline - the baseline postion of the line.
+     * @param { number } bottom - the bottom postion of the line.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    onDraw?(context: DrawContext, text: string, x: number, top: number, baseline: number, bottom: number): void;
+}
+
 /**
  * Defines the Span Type.
  *
@@ -250,7 +309,7 @@ declare interface TextStyleInterface {
  * @crossplatform
  * @since 12
  */
-declare type StyledStringValue = TextStyle ;
+declare type StyledStringValue = TextStyle | CustomSpan;
 
 /**
  * MutableStyledString
@@ -409,4 +468,12 @@ declare enum StyledStringKey {
      */
     FONT = 0,
 
+    /**
+     * The key of custom span.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    CUSTOM_SPAN = 1,
 }
