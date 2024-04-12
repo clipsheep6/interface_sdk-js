@@ -195,11 +195,12 @@ declare interface SpanStyle {
 /**
  * Defines TextStyle.
  *
+ * @extends StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare class TextStyle {
+declare class TextStyle extends StyledStringValue{
 
     /**
      * constructor.
@@ -244,13 +245,23 @@ declare interface TextStyleInterface {
 }
 
 /**
- * Defines the Span Type.
+ * Defines the style base class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare type StyledStringValue = TextStyle ;
+declare class StyledStringValue {
+    /**
+     * constructor.
+     *
+     * @param { number } value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    constructor(value: number)
+}
 
 /**
  * MutableStyledString
