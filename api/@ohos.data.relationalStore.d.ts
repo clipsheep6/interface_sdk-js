@@ -576,6 +576,55 @@ declare namespace relationalStore {
      */
     details: Record<string, TableDetails>;
   }
+
+  /**
+   * Defines information about the SQL statements executed.
+   *
+   * @interface SqlExeInfo
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 12
+   */
+  interface SqlExeInfo {
+    /**
+     * Array of SQL statements executed. When the args of batchInsert is too large, there may be more than one SQL.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    sql:Array<string>;
+
+    /**
+     * Total time used for executing the SQL statements, in ms.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    totalTime:number;
+
+    /**
+     * Maximum time allowed to obtain the SQL file handle, in ms.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    waitTime:number;
+
+    /**
+     * Time used to prepare SQL and args, in ms.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    prepareTime:number;
+
+    /**
+     * Time used to execute the SQL statements, in ms.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    executeTime:number;
+  }
   /**
    * Describes the {@code RdbStore} type.
    *
@@ -4235,6 +4284,18 @@ declare namespace relationalStore {
     on(event: 'autoSyncProgress', progress: Callback<ProgressDetails>): void;
 
     /**
+     * Subscribes to the SQL statistics.
+     * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
+     * @param { Callback<SqlExeInfo> } observer - Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    on(event: 'statistics', observer:Callback<SqlExeInfo> ):void;
+
+    /**
      * Remove specified observer of specified type from the database.
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
@@ -4294,6 +4355,18 @@ declare namespace relationalStore {
      * @since 11
      */
     off(event: 'autoSyncProgress', progress?: Callback<ProgressDetails>): void;
+
+    /**
+     * Unsubscribes from the SQL statistics.
+     * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
+     * @param { Callback<SqlExeInfo> } observer - Indicates the calllback to unregister.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    off(event: 'statistics', observer?:Callback<SqlExeInfo> ):void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
