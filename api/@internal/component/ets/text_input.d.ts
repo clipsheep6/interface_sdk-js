@@ -2314,6 +2314,26 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 12
    */
   fontFeature(value: string): TextInputAttribute;  
+  
+  /**
+   * Get text value information when about to input.
+   *
+   * @param { function } callback - Indicates the password rules. 
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onWillIMEInput(callback: (value: string) => boolean): TextInputAttribute;
+
+  /**
+   * Get text value information when about to delete.
+   *
+   * @param { function } callback - Indicates the password rules. 
+   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onDidIMEInput(callback: (value: string) => boolean): TextInputAttribute;
 }
 
 /**
