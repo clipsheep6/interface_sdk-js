@@ -2586,13 +2586,13 @@ declare interface SelectionMenuOptions {
   /**
    * Callback function when the selection menu appears.
    * 
-   * @type { ?function }
+   * @type { ?MenuOnAppearCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
-  onAppear?: () => void;
+    onAppear?: MenuOnAppearCallback;
 
   /**
    * Callback function when the selection menu disappears.
@@ -3423,6 +3423,16 @@ declare interface CopyEvent {
  * @since 12
  */
 declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
+
+/**
+ * Callback function when the selection menu appears.
+ *
+ * @typedef {function(number, number): void} MenuOnAppearCallback
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type MenuOnAppearCallback = (start: number, end: number) => void;
 
 /**
  * Provides an interface for writing texts.
