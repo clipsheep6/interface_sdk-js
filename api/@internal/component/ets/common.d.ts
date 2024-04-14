@@ -13732,7 +13732,7 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  padding(value: Padding | Length): T;
+  padding(value: Padding | Length | LocalizedPadding): T;
 
   /**
    * Outer Margin.

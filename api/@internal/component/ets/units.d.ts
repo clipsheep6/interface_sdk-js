@@ -398,6 +398,61 @@ declare type Padding = {
 };
 
 /**
+ * Defines the localized padding property.
+ *
+ * @interface LocalizedPadding
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ * @form
+ */
+declare interface LocalizedPadding {
+  /**
+   * top property.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  top?: Length;
+
+  /**
+   * end property.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  end?: Length;
+
+  /**
+   * bottom property.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  bottom?: Length;
+
+  /**
+   * start property.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  start?: Length;
+};
+
+/**
  * Defines the margin property.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
