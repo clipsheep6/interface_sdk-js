@@ -3043,6 +3043,25 @@ declare namespace image {
      * @since 11
      */
     bufferSize?: number;
+
+    /**
+     * Specify the number of times the loop should.
+     * If this loop is equal to 0, it will be infinite loop.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 12
+     */
+    loop?: number;
+
+    /**
+     * Specify the delay time for each frame of the dynamic image.
+     *
+     * @type { ?Array<number> }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 12
+     */
+    delayTimes?: Array<number>;
   }
 
   /**
@@ -6993,6 +7012,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 11
      */
     packToFile(source: PixelMap, fd: number, options: PackingOption): Promise<void>;
+
+    /**
+     * Compresses or packs some images into a file and uses a promise to return the result.
+     *
+     * @param { Array<PixelMap> } source PixelMaps to be processed.
+     * @param { number } fd ID of a file descriptor.
+     * @param { PackingOption } options Options for image packing.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @since 12
+     */
+    packToFileMultiFrames(source: Array<PixelMap>, fd: number, options: PackingOption): Promise<void>;
 
      /**
      * Releases an ImagePacker instance and uses a callback to return the result.
