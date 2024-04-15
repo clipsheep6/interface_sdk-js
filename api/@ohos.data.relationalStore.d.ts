@@ -2411,6 +2411,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2432,6 +2433,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2463,6 +2465,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2484,6 +2487,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2577,6 +2581,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2599,6 +2604,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2637,6 +2643,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2659,6 +2666,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2700,6 +2708,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -2747,6 +2756,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -2777,6 +2787,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2806,6 +2817,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2843,6 +2855,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -2881,6 +2894,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -3101,6 +3115,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800018 - Data is not exits.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3122,6 +3137,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800018 - Data is not exits.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3146,6 +3162,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
@@ -3162,6 +3179,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
@@ -3182,6 +3200,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
@@ -3251,6 +3270,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3283,6 +3303,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3315,6 +3336,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3337,6 +3359,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3359,6 +3382,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - SQL busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
