@@ -2832,6 +2832,33 @@ declare class RichEditorController {
    */
   getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult>;
 
+
+  /**
+   * Convert StyledString to spans in rich editor.
+   * return a empty Array<RichEditorSpan> if convert failed
+   * 
+   * @param { StyledString } value - StyledString.
+   * @returns { Array<RichEditorSpan> }
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    fromStyledString(value: StyledString): Array<RichEditorSpan>;
+
+  /**
+   * Convert spans to StyledString in rich editor.
+   * return a empty StyledString if convert failed
+   * 
+   * @param { RichEditorRange } value - range of spans in rich editor
+   * @returns { StyledString }
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+    toStyledString(value: RichEditorRange): StyledString;
+
   /**
    * Get span content.
    *
@@ -3423,6 +3450,15 @@ declare interface CopyEvent {
  * @since 12
  */
 declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
+
+/**
+ * Defines the types of spans in rich editor.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type RichEditorSpan = RichEditorImageSpanResult | RichEditorTextSpanResult;
 
 /**
  * Provides an interface for writing texts.
