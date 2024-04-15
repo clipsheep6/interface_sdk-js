@@ -576,6 +576,56 @@ declare namespace relationalStore {
      */
     details: Record<string, TableDetails>;
   }
+
+  /**
+   * Defines information about the SQL statements executed.
+   *
+   * @interface SqlExeInfo
+   * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+   * @since 12
+   */
+  interface SqlExeInfo {
+    /**
+     * Array of SQL statements executed. When the args of batchInsert is too large, there may be more than one SQL.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    sql:Array<string>;
+
+    /**
+     * Total time used for executing the SQL statements, in ms.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    totalTime:number;
+
+    /**
+     * Maximum time allowed to obtain the SQL file handle, in ms.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    waitTime:number;
+
+    /**
+     * Time used to prepare SQL and args, in ms.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    prepareTime:number;
+
+    /**
+     * Time used to execute the SQL statements, in ms.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    executeTime:number;
+  }
+
   /**
    * Describes the {@code RdbStore} type.
    *
@@ -2683,6 +2733,23 @@ declare namespace relationalStore {
     insert(table: string, values: ValuesBucket, conflict: ConflictResolution): Promise<number>;
 
     /**
+     * Inserts a row of data into the target table with sync interface.
+     *
+     * @param { string } table - Indicates the target table.
+     * @param { Array<string> } fields - Indicates the columns.
+     * @param { Array<Array<ValueType>> } values - Indicates the rows of data {@link ValueType} to be inserted into the table.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { number } The row ID if the operation is successful. return -1 otherwise.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    insertSync(table: string, fields: Array<string>, values: Array<Array<ValueType>>, conflict?: ConflictResolution): number;
+
+    /**
      * Inserts a batch of data into the target table.
      *
      * @param { string } table - Indicates the target table.
@@ -2920,6 +2987,24 @@ declare namespace relationalStore {
     update(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolution): Promise<number>;
 
     /**
+     * Updates data in the database based on a specified instance object of RdbPredicates with sync interface.
+     *
+     * @param { ValuesBucket } values - Indicates the row of data to be updated in the database.
+     *                         The key-value pairs are associated with column names of the database table.
+     * @param { RdbPredicates } predicates - Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
+     * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
+     * @returns { number } The number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
+    updateSync(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolution): number;
+
+    /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
      *
      * @param { string } table - Indicates the target table.
@@ -3110,6 +3195,20 @@ declare namespace relationalStore {
      */
     delete(predicates: RdbPredicates): Promise<number>;
 
+    /**
+     * Deletes data from the database based on a specified instance object of RdbPredicates with sync interface.
+     *
+     * @param { RdbPredicates } predicates - The specified delete condition by the instance object of {@link RdbPredicates}.
+     * @returns { number } return the number of affected rows.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
+    deleteSync(predicates: RdbPredicates): number;
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
      *
@@ -3336,6 +3435,20 @@ declare namespace relationalStore {
     ): Promise<ResultSet>;
 
     /**
+     * Queries data in the database based on specified conditions with sync function.
+     *
+     * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
+     * @param { Array<string> } columns - The columns to query. If the value is empty array, the query applies to all columns.
+     * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
+    querySync(predicates: RdbPredicates, columns?: Array<string>): ResultSet;
+
+    /**
      * Queries data in the database based on SQL statement.
      *
      * @param { string } sql - Indicates the SQL statement to execute.
@@ -3397,6 +3510,20 @@ declare namespace relationalStore {
      * @since 10
      */
     querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
+
+    /**
+     * Queries data in the database based on SQL statement with sync interface.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } bindArgs - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
+    querySqlSync(sql: string, bindArgs?: Array<ValueType>): ResultSet;
 
     /**
      * Obtains the modify time of rows corresponding to the primary keys.
@@ -3699,6 +3826,22 @@ declare namespace relationalStore {
     execute(sql: string, txId: number, args?: Array<ValueType>): Promise<ValueType>;
 
     /**
+     * Executes a SQL statement that contains specified parameters and returns a value of ValueType with sync interface.
+     *
+     * @param { string } sql - Indicates the SQL statement to execute.
+     * @param { Array<ValueType> } args - Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
+     * @returns { ValueType } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    executeSync(sql: string, args?: Array<ValueType>): ValueType;
+
+
+    /**
      * BeginTransaction before execute your sql.
      *
      * @throws { BusinessError } 401 - Parameter error.
@@ -3836,6 +3979,18 @@ declare namespace relationalStore {
     backup(destName: string): Promise<void>;
 
     /**
+     * Backs up a database in a specified name with sync interface.
+     *
+     * @param { string } destName - Indicates the name that saves the database backup.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 12
+     */
+    backupSync(destName: string): Promise<void>;
+
+    /**
      * Restores a database from a specified database file.
      *
      * @param { string } srcName - Indicates the name that saves the database file.
@@ -3880,6 +4035,19 @@ declare namespace relationalStore {
      * @since 10
      */
     restore(srcName: string): Promise<void>;
+
+    /**
+     * Restores a database from a specified database file with sync interface.
+     *
+     * @param { string } srcName - Indicates the name that saves the database file.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @crossplatform
+     * @since 10
+     */
+    restoreSync(srcName: string): void;
+
 
     /**
      * Set table to be distributed table.
@@ -4235,6 +4403,18 @@ declare namespace relationalStore {
     on(event: 'autoSyncProgress', progress: Callback<ProgressDetails>): void;
 
     /**
+     * Subscribes to the SQL statistics.
+     * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
+     * @param { Callback<SqlExeInfo> } observer - Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    on(event: 'statistics', observer:Callback<SqlExeInfo> ):void;
+
+    /**
      * Remove specified observer of specified type from the database.
      *
      * @param { 'dataChange' } event - Indicates the event must be string 'dataChange'.
@@ -4294,6 +4474,18 @@ declare namespace relationalStore {
      * @since 11
      */
     off(event: 'autoSyncProgress', progress?: Callback<ProgressDetails>): void;
+
+    /**
+     * Unsubscribes from the SQL statistics.
+     * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
+     * @param { Callback<SqlExeInfo> } observer - Indicates the calllback to unregister.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    off(event: 'statistics', observer?:Callback<SqlExeInfo> ):void;
 
     /**
      * Notifies the registered observers of a change to the data resource specified by Uri.
@@ -4361,6 +4553,47 @@ declare namespace relationalStore {
     attach(context: Context, config: StoreConfig, attachName: string, waitTime?: number) : Promise<number>;
 
     /**
+     * Attaches a database file to the currently linked database with sync interface.
+     *
+     * @param { string } fullPath - Indicates the path of the database file to attach.
+     * @param { string } attachName - Indicates the alias of the database.
+     * @param { number } waitTime - Indicates the maximum time allowed for attaching the database file.
+     * @returns { number } Promise used to return the number of attached databases.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800010 - Invalid database path.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800016 - The database is already attached.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    attachSync(fullPath: string, attachName: string, waitTime?: number) : number;
+
+    /**
+     * Attaches a database file to the currently linked database with sync interface.
+     *
+     * @param { Context } context - Indicates the context of an application or ability.
+     * @param { StoreConfig } config - Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
+     * @param { string } attachName - Indicates the alias of the database.
+     * @param { number } waitTime - Indicates the maximum time allowed for attaching the database file.
+     * @returns { number } Promise used to return the number of attached databases.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800010 - Invalid database path.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800016 - The database is already attached.
+     * @throws { BusinessError } 14801001 - Only supported in stage mode.
+     * @throws { BusinessError } 14801002 - The data group id is not valid.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    attachSync(context: Context, config: StoreConfig, attachName: string, waitTime?: number) : number;
+
+    /**
      * Detaches a database from this database.
      *
      * @param { string } attachName - Indicates the alias of the database.
@@ -4374,6 +4607,21 @@ declare namespace relationalStore {
      * @since 12
      */
     detach(attachName: string, waitTime?: number) : Promise<number>;
+
+    /**
+     * Detaches a database from this database with sync interface.
+     *
+     * @param { string } attachName - Indicates the alias of the database.
+     * @param { number } waitTime - Indicates the maximum time allowed for detaching the database.
+     * @returns { number } Return the current number of attached databases.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 12
+     */
+    detachSync(attachName: string, waitTime?: number) : number;
   }
 
   /**
