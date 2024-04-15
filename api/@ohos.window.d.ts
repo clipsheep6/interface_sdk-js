@@ -3313,7 +3313,20 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    setWindowLayoutFullScreen(isLayoutFullScreen: boolean, callback: AsyncCallback<void>): void;
+    /**
+     * Set the property of the window can layout in full screen
+     *
+     * @param { boolean } isLayoutFullScreen - The window can layout in full screen
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @param { boolean } [maximizeInstantly] - Maximize window instantly if true. The default value is true.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 12
+     */
+    setWindowLayoutFullScreen(isLayoutFullScreen: boolean, callback: AsyncCallback<void>, maximizeInstantly?: boolean): void;
 
     /**
      * Set the property of the window can layout in full screen
@@ -3326,7 +3339,20 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
-    setWindowLayoutFullScreen(isLayoutFullScreen: boolean): Promise<void>;
+    /**
+     * Set the property of the window can layout in full screen
+     *
+     * @param { boolean } isLayoutFullScreen - The window can layout in full screen
+     * @param { boolean } [maximizeInstantly] - Maximize window instantly if true. The default value is true.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @since 12
+     */
+    setWindowLayoutFullScreen(isLayoutFullScreen: boolean, maximizeInstantly?: boolean): Promise<void>;
 
     /**
      * Set the system bar to have visible.
