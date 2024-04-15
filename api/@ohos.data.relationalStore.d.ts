@@ -2408,7 +2408,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -2430,7 +2430,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -2462,7 +2462,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -2484,7 +2484,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -2516,7 +2516,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -2546,7 +2546,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -2578,7 +2578,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -2601,7 +2601,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -2640,7 +2640,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -2663,7 +2663,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -2705,7 +2705,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -2753,7 +2753,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -2784,7 +2784,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -2814,7 +2814,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -2852,7 +2852,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -2891,7 +2891,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -3112,7 +3112,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800018 - Data is not exits.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -3134,7 +3134,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800018 - Data is not exits.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -3267,7 +3267,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -3300,7 +3300,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -3333,7 +3333,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -3356,7 +3356,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -3379,7 +3379,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @throws { BusinessError } 14800021 - SQL constraint.
      * @throws { BusinessError } 14800022 - SQL error.
@@ -3404,7 +3404,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3421,7 +3421,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3504,7 +3504,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800010 - Invalid dast name.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -3530,7 +3530,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -3557,7 +3557,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -3584,7 +3584,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - SQL busy.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800020 - No storage.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -4058,7 +4058,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800010 - Invalid database path.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800016 - The database is already attached.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -4079,7 +4079,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800010 - Invalid database path.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800016 - The database is already attached.
      * @throws { BusinessError } 14801001 - Only supported in stage mode.
      * @throws { BusinessError } 14801002 - The data group id is not valid.
@@ -4098,7 +4098,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
