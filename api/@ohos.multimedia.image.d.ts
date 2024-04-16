@@ -7150,6 +7150,8 @@ declare namespace image {
      */
     off(type: 'imageArrival'): void;
 
+    test(): void;
+
     /**
      * Release image receiver instance and uses a callback to return the result.
      *
@@ -7251,6 +7253,8 @@ declare namespace image {
      * @since 12
      */
     off(type: 'imageRelease'): void;
+
+    test(): void;
 
     /**
      * Releases buffer in bufferqueue instance and uses a callback to return the result.
