@@ -3317,8 +3317,8 @@ declare namespace window {
      * Set the property of the window can layout in full screen
      *
      * @param { boolean } isLayoutFullScreen - The window can layout in full screen
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @param { boolean } [maximizeInstantly] - Maximize window instantly if true. The default value is true.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -3326,7 +3326,7 @@ declare namespace window {
      * @crossplatform
      * @since 12
      */
-    setWindowLayoutFullScreen(isLayoutFullScreen: boolean, callback: AsyncCallback<void>, maximizeInstantly?: boolean): void;
+    setWindowLayoutFullScreen(isLayoutFullScreen: boolean, maximizeInstantly?: boolean, callback: AsyncCallback<void>): void;
 
     /**
      * Set the property of the window can layout in full screen
