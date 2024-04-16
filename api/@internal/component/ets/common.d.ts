@@ -9710,13 +9710,49 @@ declare interface SheetDismiss {
   /**
    * Defines sheet dismiss function
    *
-   * @type { function  }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
   dismiss: () => void;
+}
+
+declare interface DismissSheetAction {
+  /**
+   * Defines sheet dismiss function
+   *
+   * @type { Callback<void>  }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  dismiss: Callback<void>;
+
+  /**
+   * Dismiss reason type.
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reason: DismissReason;
+}
+
+declare interface SpringBackAction {
+  /**
+   * Defines spring back action
+   *
+   * @type { Callback<void>  }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  springBack: Callback<void>;
 }
 
 /**
@@ -9917,6 +9953,30 @@ declare interface SheetOptions extends BindOptions {
   shouldDismiss?: (sheetDismiss: SheetDismiss) => void;
 
   /**
+   * Callback function when the sheet will dismiss
+   *
+   *
+   * @type { ?function }
+   * @type { ?Callback<DismissSheetAction> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillDismiss?: Callback<DismissSheetAction>;
+
+   /**
+   * Callback function when the sheet springs back when dismiss
+   *
+   * @type { ?Callback<SpringBackAction> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillSpringBackWhenDismiss?: Callback<SpringBackAction>;
+
+  /**
    * Set whether interaction is allowed outside the sheet
    *
    * @type { ?boolean }
@@ -10012,31 +10072,12 @@ declare interface SheetOptions extends BindOptions {
    * Called when detents of the sheet changed
    *
    * @type { ?Callback<number> }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
   onDetentsDidChange?: Callback<number>;
-
-  /**
-   * Called when width of the sheet changed
-   *
-   * @type { ?Callback<number> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  onWidthDidChange?: Callback<number>;
-
-  /**
-   * Called when the sheet type changed
-   *
-   * @type { ?Callback<SheetType> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  onTypeChanged?: Callback<SheetType>;
 }
 
 /**
@@ -10367,7 +10408,16 @@ declare enum DismissReason {
   * @crossplatform
   * @since 12
   */
-  CLOSE_BUTTON = 2
+  CLOSE_BUTTON = 2,
+
+  /**
+  * Slide down
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  SLIDE_DONE = 3
 }
 
 /**
