@@ -66,7 +66,7 @@ declare namespace unifiedDataChannel {
    * Indicated delay get UnifiedData
    * @param { string } type - the type of UnifiedData required.
    * @returns { UnifiedData } Return the UnifiedData required.
-   * @typedef GetDelayData
+   * @typedef {function} GetDelayData
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12

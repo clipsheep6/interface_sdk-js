@@ -1179,7 +1179,7 @@ declare namespace pasteboard {
     /**
      * Gets unified data from the system pasteboard.
      * @permission ohos.permission.READ_PASTEBOARD
-     * @returns { Promise<UnifiedData> } the promise returned by the getData.
+     * @returns { Promise<udc.UnifiedData> } the promise returned by the getData.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
@@ -1191,7 +1191,7 @@ declare namespace pasteboard {
     /**
      * Gets unifiedData from the system pasteboard.
      * @permission ohos.permission.READ_PASTEBOARD
-     * @returns { UnifiedData }  a new UnifiedData.
+     * @returns { udc.UnifiedData }  a new UnifiedData.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
