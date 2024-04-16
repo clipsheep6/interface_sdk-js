@@ -1343,7 +1343,7 @@ declare namespace pasteboard {
 
     /**
      * Writes unified data to the system pasteboard.
-     * @param { UnifiedData } data - Unified data will be written to the pasteboard.
+     * @param { udc.UnifiedData } data - Unified data will be written to the pasteboard.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if type of data is not UnifiedData.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
@@ -1356,7 +1356,7 @@ declare namespace pasteboard {
 
     /**
      * Writes unified data to the system pasteboard.
-     * @param { UnifiedData } data - Unified data will be written to the pasteboard.
+     * @param { udc.UnifiedData } data - Unified data will be written to the pasteboard.
      * @throws { BusinessError } 401 - if type of data is not UnifiedData.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard

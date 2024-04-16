@@ -64,9 +64,10 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicated delay get UnifiedData
-   * @param {string} type - the type of UnifiedData required.
+   * @param { string } type - the type of UnifiedData required.
    * @returns { UnifiedData } Return the UnifiedData required.
-   * @typedef {function} GetDelayData
+   * @typedef GetDelayData
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12
    */
@@ -74,6 +75,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicates type of value.
+   * @typedef ValueType
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12
@@ -166,6 +168,14 @@ declare namespace unifiedDataChannel {
      * @since 11
      */
     constructor(record: UnifiedRecord);
+    /**
+     * Create a empty unified data.
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    constructor();
     /**
      * Add a record into unified data
      *
