@@ -1113,6 +1113,16 @@ declare namespace camera {
      * @since 10
      */
     readonly cameraType: CameraType;
+	
+	/**
+     * Camera sensor orientation attribute.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    readonly cameraOrientation: number;
 
     /**
      * Camera connection type attribute.
