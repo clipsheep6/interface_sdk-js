@@ -3956,6 +3956,20 @@ declare namespace avSession {
     deviceType: DeviceType;
 
     /**
+     * Device manufacturer.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 12
+     */
+    manufacturer?: string;
+
+    /**
+     * Device model name.
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @since 12
+     */
+    modelName?: string;
+
+    /**
      * device ip address if available.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
