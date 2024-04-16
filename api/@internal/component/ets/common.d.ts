@@ -6320,7 +6320,7 @@ declare interface PickerDialogButtonStyle {
    */
   borderRadius?: Length | BorderRadiuses;
 
-    /**
+  /**
    * Define whether the button default to responding to the Enter key
    *
    * @type { ?boolean }
