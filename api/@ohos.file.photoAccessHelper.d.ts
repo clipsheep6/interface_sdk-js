@@ -1470,7 +1470,14 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
-    PHOTO_SUBTYPE = 'subtype'
+    PHOTO_SUBTYPE = 'subtype',
+    /**
+     * Cover position of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    COVER_POSITION = 'cover_position'
   }
 
   /**
@@ -3859,6 +3866,19 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     addResource(type: ResourceType, proxy: PhotoProxy): void;
+
+    /**
+     * Set cover of the asset.
+     *
+     * @param { number } position - Position of the cover
+     * @param { ArrayBuffer } [data] - Data buffer of the cover
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @throws { BusinessError } 14000016 - Operation Not Support
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    setCover(position: number, data?: ArrayBuffer): void;
   }
 
   /**
