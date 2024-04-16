@@ -75,7 +75,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicates type of value.
-   * @typedef ValueType
+   * @typedef {number | string | image.PixelMap | Want | ArrayBuffer}
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12
