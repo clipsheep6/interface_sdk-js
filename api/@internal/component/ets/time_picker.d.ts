@@ -466,6 +466,17 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @since 11
    */
   onChange(callback: (value: TimePickerResult) => void): TimePickerAttribute;
+
+  /**
+   * Enable audio haptic feedback.
+   *
+   * @param { boolean } value
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  enableAudioHapticFeedback(value: boolean): TimePickerAttribute;
 }
 
 /**
