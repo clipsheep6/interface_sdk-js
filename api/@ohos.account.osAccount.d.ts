@@ -1180,6 +1180,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid type or domainInfo.
      * @throws { BusinessError } 12300004 - Account already exists.
