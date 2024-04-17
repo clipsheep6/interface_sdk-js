@@ -497,6 +497,15 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Determine whether camera mute is supported.
+     *
+     * @returns { boolean } Is camera mute supported.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @throws { BusinessError } 202 - Not System Application.
+     * @systemapi
+     * @since 11
+     */
     isCameraMuteSupported(): boolean;
 
     /**
@@ -506,6 +515,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Mute camera.
+     *
+     * @param { boolean } mute - Mute camera if TRUE, otherwise unmute camera.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @throws { BusinessError } 202 - Not System Application.
+     * @systemapi
+     * @since 11
      */
     muteCamera(mute: boolean): void;
 
@@ -518,6 +536,18 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Creates a CameraInput instance by camera.
+     *
+     * @permission ohos.permission.CAMERA
+     * @param { CameraDevice } camera - Camera device used to create the instance.
+     * @returns { CameraInput } The CameraInput instance.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     createCameraInput(camera: CameraDevice): CameraInput;
 
@@ -532,6 +562,19 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Creates a CameraInput instance by camera position and type.
+     *
+     * @permission ohos.permission.CAMERA
+     * @param { CameraPosition } position - Target camera position.
+     * @param { CameraType } type - Target camera type.
+     * @returns { CameraInput } The CameraInput instance.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error. 
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     createCameraInput(position: CameraPosition, type: CameraType): CameraInput;
 
     /**
@@ -543,6 +586,17 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Creates a PreviewOutput instance.
+     *
+     * @param { Profile } profile - Preview output profile.
+     * @param { string } surfaceId - Surface object id used in camera photo output.
+     * @returns { PreviewOutput } The PreviewOutput instance.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     createPreviewOutput(profile: Profile, surfaceId: string): PreviewOutput;
 
@@ -568,6 +622,7 @@ declare namespace camera {
      * @param { Profile } profile - Photo output profile.
      * @returns { PhotoOutput } The PhotoOutput instance.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -583,6 +638,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Creates a VideoOutput instance.
+     *
+     * @param { VideoProfile } profile - Video profile.
+     * @param { string } surfaceId - Surface object id used in camera video output.
+     * @returns { VideoOutput } The VideoOutput instance.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     createVideoOutput(profile: VideoProfile, surfaceId: string): VideoOutput;
 
     /**
@@ -593,6 +659,16 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Creates a MetadataOutput instance.
+     *
+     * @param { Array<MetadataObjectType> } metadataObjectTypes - Array of MetadataObjectType.
+     * @returns { MetadataOutput } The MetadataOutput instance.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     createMetadataOutput(metadataObjectTypes: Array<MetadataObjectType>): MetadataOutput;
 
@@ -648,6 +724,16 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Subscribes camera mute change event callback.
+     *
+     * @param { 'cameraMute' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to get the camera mute change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
     on(type: 'cameraMute', callback: AsyncCallback<boolean>): void;
 
     /**
@@ -658,6 +744,16 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Unsubscribes from camera mute change event callback.
+     *
+     * @param { 'cameraMute' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to get the camera mute change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
      */
     off(type: 'cameraMute', callback?: AsyncCallback<boolean>): void;
 
@@ -671,6 +767,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Determines whether the camera device supports prelaunch.
+     * This function must be called in prior to the setPrelaunchConfig and prelaunch functions.
+     *
+     * @param { CameraDevice } camera - Camera device.
+     * @returns { boolean } Whether prelaunch is supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
      */
     isPrelaunchSupported(camera: CameraDevice): boolean;
 
@@ -686,6 +794,20 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Sets the camera prelaunch configuration.
+     * The configuration is sent to the camera service when you exit the camera or change the configuration next time.
+     *
+     * @permission ohos.permission.CAMERA
+     * @param { PrelaunchConfig } prelaunchConfig - Prelaunch configuration info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
     setPrelaunchConfig(prelaunchConfig: PrelaunchConfig): void;
 
     /**
@@ -696,6 +818,17 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Enable the camera to prelaunch and start.
+     * This function is called when the user clicks the system camera icon to start the camera application.
+     *
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
     prelaunch(): void;
 
     /**
@@ -705,6 +838,7 @@ declare namespace camera {
      * @param { string } cameraId - The camera to prepare.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -720,6 +854,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Creates a deferred PreviewOutput instance.
+     *
+     * @param { Profile } profile - Preview output profile.
+     * @returns { PreviewOutput } the PreviewOutput instance.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
      */
     createDeferredPreviewOutput(profile: Profile): PreviewOutput;
 
@@ -755,6 +900,8 @@ declare namespace camera {
      *
      * @param { TorchMode } mode - torch mode.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -1565,6 +1712,7 @@ declare namespace camera {
      * Set exposure compensation.
      *
      * @param { number } exposureBias - Exposure compensation
+     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
@@ -1784,6 +1932,7 @@ declare namespace camera {
      *
      * @returns { number } The zoom ratio value.
      * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -2143,6 +2292,7 @@ declare namespace camera {
      * Gets the specific color space type.
      *
      * @returns { colorSpaceManager.ColorSpace } Current color space.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
@@ -2150,12 +2300,26 @@ declare namespace camera {
     getActiveColorSpace(): colorSpaceManager.ColorSpace;
 
     /**
+     * Gets the supported color space types.
+     *
+     * @returns { Array<colorSpaceManager.ColorSpace> } The array of the supported color space for the session.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
+    getSupportedColorSpaces(): Array<colorSpaceManager.ColorSpace>;
+
+    /**
      * Sets a color space for the session.
      *
      * @param { colorSpaceManager.ColorSpace } colorSpace - The type of color space.
+     * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - The colorSpace does not match the format.
      * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
@@ -2187,6 +2351,7 @@ declare namespace camera {
      *
      * @param { boolean } enabled - enable macro for camera if TRUE.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -2207,6 +2372,7 @@ declare namespace camera {
      * Begin capture session config.
      *
      * @throws { BusinessError } 7400105 - Session config locked.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -2253,6 +2419,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -2266,6 +2433,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -2290,6 +2458,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -2303,6 +2472,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
@@ -2312,6 +2482,7 @@ declare namespace camera {
      * Starts capture session.
      *
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -2323,6 +2494,7 @@ declare namespace camera {
      * Starts capture session.
      *
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -3522,6 +3694,7 @@ declare namespace camera {
      *
      * @returns { Array<number> } The array of manual exposure range.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3534,6 +3707,7 @@ declare namespace camera {
      *
      * @returns { number } The current exposure value.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3546,6 +3720,7 @@ declare namespace camera {
      *
      * @param { number } exposure - Exposure value
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
@@ -3843,7 +4018,9 @@ declare namespace camera {
      *
      * @param { boolean } enabled - enable sketch for camera if TRUE.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -3855,7 +4032,9 @@ declare namespace camera {
      *
      * @param { string } surfaceId - Surface object id used in sketch stream.
      * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
@@ -4430,6 +4609,17 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Checks whether PhotoOutput supports quick thumbnail.
+     * This method is valid after Session.addInput() and Session.addOutput(photoOutput) are called.
+     *
+     * @returns { boolean } Whether quick thumbnail is supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400104 - session is not running.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
     isQuickThumbnailSupported(): boolean;
 
     /**
@@ -4444,6 +4634,21 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Enables or disables quick thumbnail.
+     * The method must be called after Session.addInput() and Session.addOutput(photoOutput) are called.
+     * To avoid stream reconfiguration and performance loss,
+     * you are advised to call the method before Session.commitConfig().
+     * 
+     * @param { boolean } enabled - The value TRUE means to enable quick thumbnail, and FALSE means the opposite.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400104 - session is not running.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
     enableQuickThumbnail(enabled: boolean): void;
 
     /**
@@ -4456,6 +4661,18 @@ declare namespace camera {
      * @systemapi
      * @since 10
      */
+    /**
+     * Subscribes to camera thumbnail events.
+     * This method is valid only after enableQuickThumbnail(true) is called.
+     *
+     * @param { 'quickThumbnail' } type - Event type.
+     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to get the quick thumbnail.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400104 - session is not running.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
+     */
     on(type: 'quickThumbnail', callback: AsyncCallback<image.PixelMap>): void;
 
     /**
@@ -4467,6 +4684,18 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 10
+     */
+    /**
+     * Unsubscribes from camera thumbnail events.
+     * This method is valid only after enableQuickThumbnail(true) is called.
+     *
+     * @param { 'quickThumbnail' } type - Event type.
+     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to get the quick thumbnail.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400104 - session is not running.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 11
      */
     off(type: 'quickThumbnail', callback?: AsyncCallback<image.PixelMap>): void;
   }
@@ -4586,6 +4815,14 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
      */
+    /**
+     * Stop video output.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
+     */
     stop(callback: AsyncCallback<void>): void;
 
     /**
@@ -4594,6 +4831,14 @@ declare namespace camera {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 10
+     */
+    /**
+     * Stop video output.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 11
      */
     stop(): Promise<void>;
 
