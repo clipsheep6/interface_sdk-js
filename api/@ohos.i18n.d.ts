@@ -33,6 +33,7 @@ import { BusinessError } from './@ohos.base';
  * @namespace i18n
  * @syscap SystemCapability.Global.I18n
  * @form
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
