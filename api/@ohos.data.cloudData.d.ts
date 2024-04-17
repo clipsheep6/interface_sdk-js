@@ -90,16 +90,21 @@ declare namespace cloudData {
     /**
      * Extra data, which contains the following fields.
      * {
-     *   "accountId": "aaa",
-     *   "bundleName": "com.bbb.xxx",
-     *   "containerName": "alias",
-     *   "databaseScopes": ["private", "shared"],
-     *   "recordTypes": ["xxx", "yyy", "zzz"],
-     *   "properties": {
-     *     "key": "value"
+     *   "header": {
+     *     "token": "abc"
      *   },
-     *   "keyId": "",
-     *   "signV3": ""
+     *   "data": {
+     *     "accountId": "aaa",
+     *     "bundleName": "com.bbb.xxx",
+     *     "containerName": "alias",
+     *     "databaseScopes": ["private", "shared"],
+     *     "recordTypes": ["xxx", "yyy", "zzz"],
+     *     "properties": {
+     *          "key": "value"
+     *     },
+     *     "keyId": "",
+     *     "signV3": ""
+     *   }
      * }
      * <b>accountId</b> and <b>bundleName</b> are mandatory.
      *
