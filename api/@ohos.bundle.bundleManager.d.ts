@@ -3032,6 +3032,8 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700066 - The original application is not installed when install clone application.
    * @throws { BusinessError } 17700067 - The userId is invalid or the user does not exist when install clone application.
    * @throws { BusinessError } 17700068 - The origin application is not installed at current user.
+   * @throws { BusinessError } 17700069 - The appIndex is not in valid range.
+   * @throws { BusinessError } 17700070 - The appIndex is already exist before install clone application.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12
    */
