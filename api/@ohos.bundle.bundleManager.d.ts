@@ -3018,19 +3018,25 @@ declare namespace bundleManager {
    * @since 12
    */
   function switchUninstallState(bundleName: string, state: boolean): void;
+
   /**
-   * install clone app.
+   * Install clone application.
+   *
    * @param { string } bundleName - Indicates the clone app's bundleName.
-   * @param { int } appIndex - Indicates the clone app's index.
+   * @param { number } appIndex - Indicates the clone app's index.
    * @returns { Promise<number> } Returns number of install result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700066 - The original application is not installed when install clone application.
+   * @throws { BusinessError } 17700067 - The userId is invalid or the user does not exist when install clone application.
+   * @throws { BusinessError } 17700068 - The origin application is not installed at current user.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12
    */
   function installCloneApp(bundleName: string, appIndex: number): Promise<number>;
+
   /**
    * Obtains configuration information about an application.
    *
