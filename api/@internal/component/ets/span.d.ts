@@ -609,6 +609,18 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @since 12
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): SpanAttribute;
+
+  /**
+   * Set the word break type.
+   *
+   * @param { WordBreak } value - The word break type.
+   * @returns { SpanAttribute } The attribute of the span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  wordBreak(value: WordBreak): SpanAttribute;
 }
 
 /**
