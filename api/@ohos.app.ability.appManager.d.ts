@@ -368,6 +368,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.app.ability.abilityManager/appManager#killProcessesWithAccount
    */
   function killProcessWithAccount(bundleName: string, accountId: number): Promise<void>;
 
@@ -385,8 +387,44 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.app.ability.abilityManager/appManager#killProcessesWithAccount
    */
   function killProcessWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Kill processes with account.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
+   * @param { string } bundleName - The process bundle name.
+   * @param { number } accountId - The account id.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function killProcessesWithAccount(bundleName: string, accountId: number): Promise<void>;
+
+  /**
+   * Kill processes with account.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and ohos.permission.KILL_APP_PROCESSES
+   * @param { string } bundleName - The process bundle name.
+   * @param { number } accountId - The account id.
+   * @param { AsyncCallback<void> } callback - The callback of killProcessesWithAccount.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function killProcessesWithAccount(bundleName: string, accountId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Is user running in stability test.
@@ -441,6 +479,8 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.app.ability.abilityManager/appManager#killProcesses
    */
   function killProcessesByBundleName(bundleName: string): Promise<void>;
 
@@ -457,8 +497,66 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9
+   * @deprecated since 12
+   * @useinstead ohos.app.ability.abilityManager/appManager#killProcesses
    */
   function killProcessesByBundleName(bundleName: string, callback: AsyncCallback<void>);
+
+  /**
+   * Kill processes by bundle name
+   *
+   * @permission ohos.permission.KILL_APP_PROCESSES
+   * @param { string } bundleName - bundle name.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function killProcesses(bundleName: string): Promise<void>;
+
+  /**
+   * Kill processes by bundle name
+   *
+   * @permission ohos.permission.KILL_APP_PROCESSES
+   * @param { string } bundleName - bundle name.
+   * @param { AsyncCallback<void> } callback - The callback of killProcesses.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  function killProcesses(bundleName: string, callback: AsyncCallback<void>);
+
+  /**
+   * Kill self processes by bundle name
+   *
+   * @permission ohos.permission.KILL_SELF_PROCESSES
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 12
+   */
+  function killSelfProcesses(): Promise<void>;
+
+  /**
+   * Kill self processes by bundle name
+   *
+   * @permission ohos.permission.KILL_SELF_PROCESSES
+   * @param { AsyncCallback<void> } callback - The callback of killSelfProcesses.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 12
+   */
+  function killSelfProcesses(callback: AsyncCallback<void>);
 
   /**
    * Clear up application data by bundle name
