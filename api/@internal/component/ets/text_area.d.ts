@@ -1263,7 +1263,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   letterSpacing(value: number | string | Resource): TextAreaAttribute;
 
   /**
-   * Called when the line spacing of the font is set.
+   * Set font line spacing.
    *
    * @param { LengthMetrics } value
    * @returns { TextAreaAttribute }
