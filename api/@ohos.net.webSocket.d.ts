@@ -44,7 +44,7 @@ import type connection from './@ohos.net.connection';
  */
 declare namespace webSocket {
   /**
-   * @typedef HttpProxy
+   * @typedef { connection.HttpProxy }
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 12
    */
@@ -122,6 +122,7 @@ declare namespace webSocket {
      * File path for client cert.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     caPath?: string;
@@ -130,6 +131,7 @@ declare namespace webSocket {
      * Client cert.
      * @type {?ClientCert}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     clientCert?: ClientCert;
@@ -159,7 +161,7 @@ declare namespace webSocket {
    * @syscap SystemCapability.Communication.NetStack
    * @since 12
    */
-  export type ProxyConfiguration = 'system' | 'no-proxy' | HttpProxy;
+  export type ProxyConfiguration = { 'system' | 'no-proxy' | HttpProxy };
 
   /**
    * The clientCert field of the client certificate, which includes three attributes:
@@ -167,6 +169,7 @@ declare namespace webSocket {
    * and passphrase (keyPassword).
    * @interface ClientCert
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   export interface ClientCert {
@@ -174,6 +177,7 @@ declare namespace webSocket {
      * The path to the client certificate file.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     certPath: string;
@@ -182,6 +186,7 @@ declare namespace webSocket {
      * The path of the client certificate private key file.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     keyPath: string;
@@ -190,6 +195,7 @@ declare namespace webSocket {
      * Client certificate password.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     keyPassword?: string;
@@ -320,7 +326,7 @@ declare namespace webSocket {
    */
   export type ResponseHeaders = {
     [k: string]: string | string[] | undefined;
-  }
+  };
 
   /**
    * <p>Defines a WebSocket object. Before invoking WebSocket APIs,
@@ -855,6 +861,7 @@ declare namespace webSocket {
      * @param { 'dataEnd' } type - event indicating the WebSocket connection has received data ends.
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     on(type: 'dataEnd', callback: Callback<void>): void;
@@ -864,6 +871,7 @@ declare namespace webSocket {
      * @param { 'dataEnd' } type - event indicating the WebSocket connection has received data ends.
      * @param { Callback<void> } [ callback ] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     off(type: 'dataEnd', callback?: Callback<void>): void;
