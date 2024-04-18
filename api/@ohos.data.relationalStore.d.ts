@@ -2390,6 +2390,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corruption .
+     * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -2406,6 +2408,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - The capability is not supported because the database is not a vector DB.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.  
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12
@@ -2417,9 +2420,11 @@ declare namespace relationalStore {
      *
      * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 11
+     * @since 12
      */
     /**
      * Obtains the values of all columns in the specified row.
@@ -2560,9 +2565,15 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     /**
      * Inserts a row of data into the target table.
@@ -2590,9 +2601,15 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     /**
      * Inserts a row of data into the target table.
@@ -2631,9 +2648,15 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     /**
      * Inserts a row of data into the target table.
@@ -2661,9 +2684,15 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     /**
      * Inserts a row of data into the target table.
@@ -2702,9 +2731,13 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     /**
      * Inserts a batch of data into the target table.
@@ -2742,9 +2775,13 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     /**
      * Inserts a batch of data into the target table.
@@ -2784,9 +2821,15 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -2816,9 +2859,15 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -2865,9 +2914,15 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -2897,9 +2952,15 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -2949,10 +3010,16 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 12
      */
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -3010,10 +3077,16 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 12
      */
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
@@ -3054,9 +3127,15 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -3091,9 +3170,15 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -3136,10 +3221,16 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 12
      */
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -3186,10 +3277,16 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 12
      */
     /**
      * Deletes data from the database based on a specified instance object of RdbPredicates.
@@ -3217,9 +3314,10 @@ declare namespace relationalStore {
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     query(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>): void;
 
@@ -3242,9 +3340,10 @@ declare namespace relationalStore {
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
 
@@ -3267,9 +3366,10 @@ declare namespace relationalStore {
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     query(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
@@ -3283,10 +3383,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 10
+     * @since 12
      */
     query(table: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<ResultSet>): void;
 
@@ -3301,10 +3402,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 12
      */
     query(
       table: string,
@@ -3324,10 +3426,11 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
-     * @since 9
+     * @since 12
      */
     query(
       table: string,
@@ -3342,9 +3445,10 @@ declare namespace relationalStore {
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     querySql(sql: string, callback: AsyncCallback<ResultSet>): void;
 
@@ -3367,9 +3471,10 @@ declare namespace relationalStore {
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
 
@@ -3392,9 +3497,10 @@ declare namespace relationalStore {
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
 
@@ -3409,8 +3515,14 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800018 - Data is not exits.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
+     * @since 12
      */
     /**
      * Obtains the modify time of rows corresponding to the primary keys.
@@ -3440,8 +3552,14 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800018 - Data is not exits.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
+     * @since 12
      */
     /**
      * Obtains the modify time of rows corresponding to the primary keys.
@@ -3476,8 +3594,12 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
+     * @since 12
      */
     /**
      * Cleans the dirty data, which is the data deleted in the cloud.
@@ -3504,8 +3626,12 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
+     * @since 12
      */
     /**
      * Cleans all dirty data deleted in the cloud.
@@ -3533,8 +3659,12 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 11
+     * @since 12
      */
     /**
      * Cleans dirty data deleted in the cloud.
@@ -3564,9 +3694,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 12
      */
     querySharingResource(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
@@ -3579,9 +3710,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 12
      */
     querySharingResource(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>): void;
 
@@ -3595,9 +3727,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 12
      */
     querySharingResource(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
 
@@ -3608,10 +3741,17 @@ declare namespace relationalStore {
      * @param { AsyncCallback<void> } callback - The callback of executeSql.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     executeSql(sql: string, callback: AsyncCallback<void>): void;
 
@@ -3634,10 +3774,17 @@ declare namespace relationalStore {
      * @param { AsyncCallback<void> } callback - The callback of executeSql.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
 
@@ -3660,10 +3807,17 @@ declare namespace relationalStore {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 14800000 - Inner error.+
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
 
@@ -3676,7 +3830,14 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3692,7 +3853,14 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800021 - SQL constraint.
+     * @throws { BusinessError } 14800022 - SQL error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3712,9 +3880,12 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     beginTransaction(): void;
 
@@ -3726,6 +3897,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3806,9 +3980,13 @@ declare namespace relationalStore {
      * @param { AsyncCallback<void> } callback - The callback of backup.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800010 - Invalid dast name.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     backup(destName: string, callback: AsyncCallback<void>): void;
 
@@ -3829,9 +4007,12 @@ declare namespace relationalStore {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     backup(destName: string): Promise<void>;
 
@@ -3852,9 +4033,13 @@ declare namespace relationalStore {
      * @param { AsyncCallback<void> } callback - The callback of restore.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     restore(srcName: string, callback: AsyncCallback<void>): void;
 
@@ -3875,9 +4060,13 @@ declare namespace relationalStore {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800011 - Database corrupted.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800020 - No storage.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     restore(srcName: string): Promise<void>;
 
@@ -3890,8 +4079,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 12
      */
     setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -3904,8 +4094,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 12
      */
     setDistributedTables(tables: Array<string>): Promise<void>;
 
@@ -3921,8 +4112,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
+     * @since 12
      */
     setDistributedTables(tables: Array<string>, type: DistributedType, callback: AsyncCallback<void>): void;
 
@@ -3939,8 +4131,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
+     * @since 12
      */
     setDistributedTables(
       tables: Array<string>,
@@ -3962,8 +4155,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
+     * @since 12
      */
     setDistributedTables(tables: Array<string>, type?: DistributedType, config?: DistributedConfig): Promise<void>;
 
@@ -3978,8 +4172,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 12
      */
     obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
 
@@ -3994,8 +4189,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 12
      */
     obtainDistributedTableName(device: string, table: string): Promise<string>;
 
@@ -4011,8 +4207,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 12
      */
     sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[string, number]>>): void;
 
@@ -4026,8 +4223,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 12
      */
     sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
 
@@ -4041,8 +4239,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 10
+     * @since 12
      */
     cloudSync(mode: SyncMode, progress: Callback<ProgressDetails>, callback: AsyncCallback<void>): void;
 
@@ -4056,8 +4255,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 10
+     * @since 12
      */
     cloudSync(mode: SyncMode, progress: Callback<ProgressDetails>): Promise<void>;
 
@@ -4072,8 +4272,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 10
+     * @since 12
      */
     cloudSync(
       mode: SyncMode,
@@ -4093,8 +4294,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 202 - if permission verification failed, application does not have permission ohos.permission.DISTRIBUTED_DATASYNC.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since 10
+     * @since 12
      */
     cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetails>): Promise<void>;
 
@@ -4108,9 +4310,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - if the parameter type is incorrect.
      * @throws { BusinessError } 202 - if permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 12
      */
     cloudSync(
       mode: SyncMode,
@@ -4130,9 +4333,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - if permission verification failed, application which is not a system
      * application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
-     * @since 11
+     * @since 12
      */
     cloudSync(mode: SyncMode, predicates: RdbPredicates, progress: Callback<ProgressDetails>): Promise<void>;
 
@@ -4147,8 +4351,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 12
      */
     remoteQuery(
       device: string,
@@ -4169,8 +4374,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 12
      */
     remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: Array<string>): Promise<ResultSet>;
 
@@ -4184,8 +4390,9 @@ declare namespace relationalStore {
      * @param { Callback<Array<string>> } observer - {Array<string>}: the observer of data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 12
      */
     on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
 
@@ -4202,8 +4409,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
+     * @since 12
      */
     on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
 
@@ -4217,6 +4425,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -4229,8 +4438,9 @@ declare namespace relationalStore {
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 11
+     * @since 12
      */
     on(event: 'autoSyncProgress', progress: Callback<ProgressDetails>): void;
 
@@ -4243,8 +4453,9 @@ declare namespace relationalStore {
      * @param { Callback<Array<string>> } observer - {Array<string>}: the data change observer already registered.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 9
+     * @since 12
      */
     off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
 
@@ -4259,8 +4470,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
+     * @since 12
      */
     off(
       event: 'dataChange',
@@ -4278,8 +4490,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
+     * @since 12
      */
     off(event: string, interProcess: boolean, observer?: Callback<void>): void;
 
@@ -4290,8 +4503,9 @@ declare namespace relationalStore {
      * @param { Callback<ProgressDetails> } progress - the specified sync condition by the instance object of {@link ProgressDetails}.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 11
+     * @since 12
      */
     off(event: 'autoSyncProgress', progress?: Callback<ProgressDetails>): void;
 
@@ -4303,8 +4517,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 10
+     * @since 12
      */
     emit(event: string): void;
 
@@ -4331,7 +4546,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800010 - Invalid database path.
      * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800016 - The database is already attached.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -4351,7 +4567,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800010 - Invalid database path.
      * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @throws { BusinessError } 14800016 - The database is already attached.
      * @throws { BusinessError } 14801001 - Only supported in stage mode.
      * @throws { BusinessError } 14801002 - The data group id is not valid.
@@ -4369,7 +4586,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Database corrupted.
-     * @throws { BusinessError } 14800015 - The database does not respond.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -4405,9 +4623,11 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @throws { BusinessError } 14801001 - Only supported in stage mode.
    * @throws { BusinessError } 14801002 - The data group id is not valid.
+   * @throws { BusinessError } 14800017 - Config changed.
+   * @throws { BusinessError } 14800020 - No storage.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
+   * @since 12
    */
   function getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void;
 
@@ -4440,9 +4660,11 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
    * @throws { BusinessError } 14801001 - Only supported in stage mode.
    * @throws { BusinessError } 14801002 - The data group id is not valid.
+   * @throws { BusinessError } 14800017 - Config changed.
+   * @throws { BusinessError } 14800020 - No storage.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
+   * @since 12
    */
   function getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>;
 
