@@ -128,8 +128,9 @@ declare class SwiperController {
    * @since 12
    * @form
    */
-  changeIndex(index: number, useAnimation?: boolean);
+  changeIndex(index: Optional<number>, useAnimation?: boolean);
 
+  type FinishAnimationHandler = () => void
   /**
    * Called when need to stop the swiper animation.
    *
@@ -156,7 +157,7 @@ declare class SwiperController {
    * @since 11
    * @form
    */
-  finishAnimation(callback?: () => void);
+  finishAnimation(handler: Optional<FinishAnimationHandler>);
 }
 
 /**
@@ -198,7 +199,7 @@ declare class Indicator<T> {
    * @since 11
    * @form
    */
-  left(value: Length): T;
+  left(value: Optional<Length>): T;
 
   /**
    * Set the indicator to the top.
@@ -221,7 +222,7 @@ declare class Indicator<T> {
    * @since 11
    * @form
    */
-  top(value: Length): T;
+  top(value: Optional<Length>): T;
 
   /**
    * Set the indicator to the right.
@@ -244,7 +245,7 @@ declare class Indicator<T> {
    * @since 11
    * @form
    */
-  right(value: Length): T;
+  right(value: Optional<Length>): T;
 
   /**
    * Set the indicator to the bottom.
@@ -267,7 +268,7 @@ declare class Indicator<T> {
    * @since 11
    * @form
    */
-  bottom(value: Length): T;
+  bottom(value: Optional<Length>): T;
 
   /**
    * DotIndicator class object.
@@ -376,7 +377,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 11
    * @form
    */
-  itemWidth(value: Length): DotIndicator;
+  itemWidth(value: Optional<Length>): DotIndicator;
 
   /**
    * Set the indicator item height.
@@ -399,7 +400,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 11
    * @form
    */
-  itemHeight(value: Length): DotIndicator;
+  itemHeight(value: Optional<Length>): DotIndicator;
 
   /**
    * Set the indicator item width when selected.
@@ -422,7 +423,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 11
    * @form
    */
-  selectedItemWidth(value: Length): DotIndicator;
+  selectedItemWidth(value: Optional<Length>): DotIndicator;
 
   /**
    * Set the indicator item height when selected.
@@ -445,7 +446,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 11
    * @form
    */
-  selectedItemHeight(value: Length): DotIndicator;
+  selectedItemHeight(value: Optional<Length>): DotIndicator;
 
   /**
    * Setting indicator style mask.
@@ -468,7 +469,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 11
    * @form
    */
-  mask(value: boolean): DotIndicator;
+  mask(value: Optional<boolean>): DotIndicator;
 
   /**
    * Set the indicator color.
@@ -491,7 +492,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 11
    * @form
    */
-  color(value: ResourceColor): DotIndicator;
+  color(value: Optional<ResourceColor>): DotIndicator;
 
   /**
    * Set the navigation point color.
@@ -514,7 +515,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 11
    * @form
    */
-  selectedColor(value: ResourceColor): DotIndicator;
+  selectedColor(value: Optional<ResourceColor>): DotIndicator;
 }
 
 /**
@@ -611,7 +612,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @since 11
    * @form
    */
-  fontColor(value: ResourceColor): DigitIndicator;
+  fontColor(value: Optional<ResourceColor>): DigitIndicator;
 
   /**
    * Set font color of the digital indicator when selected.
@@ -634,7 +635,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @since 11
    * @form
    */
-  selectedFontColor(value: ResourceColor): DigitIndicator;
+  selectedFontColor(value: Optional<ResourceColor>): DigitIndicator;
 
   /**
    * Set the digital indicator font (just support font size and weight).
@@ -657,7 +658,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @since 11
    * @form
    */
-  digitFont(value: Font): DigitIndicator;
+  digitFont(value: Optional<Font>): DigitIndicator;
 
   /**
    * Set the digital indicator font (just support font size and weight).
@@ -680,7 +681,7 @@ declare class DigitIndicator extends Indicator<DigitIndicator> {
    * @since 11
    * @form
    */
-  selectedDigitFont(value: Font): DigitIndicator;
+  selectedDigitFont(value: Optional<Font>): DigitIndicator;
 }
 
 /**
@@ -1229,7 +1230,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  index(value: number): SwiperAttribute;
+  index(value: Optional<number>): SwiperAttribute;
 
   /**
    * Called when setting whether the subcomponent plays automatically.
@@ -1260,7 +1261,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  autoPlay(value: boolean): SwiperAttribute;
+  autoPlay(value: Optional<boolean>): SwiperAttribute;
 
   /**
    * Called when the time interval for automatic playback is set.
@@ -1291,7 +1292,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  interval(value: number): SwiperAttribute;
+  interval(value: Optional<number>): SwiperAttribute;
 
   /**
    * Called when you set whether the navigation point indicator is enabled.
@@ -1322,7 +1323,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  indicator(value: DotIndicator | DigitIndicator | boolean): SwiperAttribute;
+  indicator(value: Optional<DotIndicator | DigitIndicator | boolean>): SwiperAttribute;
 
   /**
    * Set arrow is enabled, or set the arrow style.
@@ -1344,7 +1345,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  displayArrow(value: ArrowStyle | boolean, isHoverShow?: boolean): SwiperAttribute;
+  displayArrow(value: Optional<ArrowStyle | boolean>, isHoverShow?: boolean): SwiperAttribute;
 
   /**
    * Called when setting whether to turn on cyclic sliding.
@@ -1375,7 +1376,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  loop(value: boolean): SwiperAttribute;
+  loop(value: Optional<boolean>): SwiperAttribute;
 
   /**
    * Called when the animation duration of the switch is set.
@@ -1404,7 +1405,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  duration(value: number): SwiperAttribute;
+  duration(value: Optional<number>): SwiperAttribute;
 
   /**
    * Called when setting whether to slide vertically.
@@ -1435,7 +1436,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  vertical(value: boolean): SwiperAttribute;
+  vertical(value: Optional<boolean>): SwiperAttribute;
 
   /**
    * Called when the size of the rotation chart is set.
@@ -1466,7 +1467,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  itemSpace(value: number | string): SwiperAttribute;
+  itemSpace(value: Optional<number | string>): SwiperAttribute;
 
   /**
    * Called when setting the size of the swiper container on the spindle.
@@ -1497,7 +1498,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  displayMode(value: SwiperDisplayMode): SwiperAttribute;
+  displayMode(value: Optional<SwiperDisplayMode>): SwiperAttribute;
 
   /**
    * Called when setting the cached count of the swiper container one side.
@@ -1528,7 +1529,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  cachedCount(value: number): SwiperAttribute;
+  cachedCount(value: Optional<number>): SwiperAttribute;
 
   /**
    * This command is invoked when the number of subcomponents is set.
@@ -1567,7 +1568,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  displayCount(value: number | string | SwiperAutoFill, swipeByGroup?: boolean): SwiperAttribute;
+  displayCount(value: Optional<number | string | SwiperAutoFill>, swipeByGroup?: boolean): SwiperAttribute;
 
   /**
    * Invoked when setting the sliding effect
@@ -1598,7 +1599,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  effectMode(value: EdgeEffect): SwiperAttribute;
+  effectMode(value: Optional<EdgeEffect>): SwiperAttribute;
 
   /**
    * Called when sliding is disableSwipe
@@ -1629,7 +1630,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  disableSwipe(value: boolean): SwiperAttribute;
+  disableSwipe(value: Optional<boolean>): SwiperAttribute;
 
   /**
    * Called when sliding is curve
@@ -1664,8 +1665,9 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  curve(value: Curve | string | ICurve): SwiperAttribute;
+  curve(value: Optional<Curve | string | ICurve>): SwiperAttribute;
 
+  type OnChangeHandler = (index: number) => void
   /**
    * Called when the index value changes.
    *
@@ -1695,7 +1697,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  onChange(event: (index: number) => void): SwiperAttribute;
+  onChange(handler: Optional<OnChangeHandler>): SwiperAttribute;
 
   /**
    * Setting indicator style navigation.
@@ -1726,7 +1728,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  prevMargin(value: Length): SwiperAttribute;
+  prevMargin(value: Optional<Length>): SwiperAttribute;
 
   /**
    * The next margin which can be used to expose a small portion of the latter item.
@@ -1746,8 +1748,9 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  nextMargin(value: Length): SwiperAttribute;
+  nextMargin(value: Optional<Length>): SwiperAttribute;
 
+  type OnAnimationStartHandler = (index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => void
   /**
    * Called when the swiper animation start.
    *
@@ -1783,8 +1786,9 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  onAnimationStart(event: (index: number, targetIndex: number, extraInfo: SwiperAnimationEvent) => void): SwiperAttribute;
+  onAnimationStart(handler: Optional<OnAnimationStartHandler>): SwiperAttribute;
 
+  type OnAnimationEndHandler = (index: number, extraInfo: SwiperAnimationEvent) => void
   /**
    * Called when the swiper animation end.
    *
@@ -1818,8 +1822,9 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @since 11
    * @form
    */
-  onAnimationEnd(event: (index: number, extraInfo: SwiperAnimationEvent) => void): SwiperAttribute;
+  onAnimationEnd(handler: Optional<OnAnimationEndHandler>): SwiperAttribute;
 
+  type OnGestureSwipeHandler = (index: number, extraInfo: SwiperAnimationEvent) => void
   /**
    * Called when the swiper swipe with the gesture.
    *
@@ -1843,7 +1848,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  onGestureSwipe(event: (index: number, extraInfo: SwiperAnimationEvent) => void): SwiperAttribute;
+  onGestureSwipe(handler: Optional<OnGestureSwipeHandler>): SwiperAttribute;
 
   /**
    * Called to setting the nested scroll mode.
@@ -1855,7 +1860,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  nestedScroll(value: SwiperNestedScrollMode): SwiperAttribute;
+  nestedScroll(value: Optional<SwiperNestedScrollMode>): SwiperAttribute;
 
   /**
    * Custom swiper content transition animation.
@@ -1866,7 +1871,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @since 12
    */
-  customContentTransition(transition: SwiperContentAnimatedTransition): SwiperAttribute;
+  customContentTransition(transition: Optional<SwiperContentAnimatedTransition>): SwiperAttribute;
 
   /**
    * Called when the swiper content did scroll.
@@ -1881,7 +1886,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @since 12
    */
-  onContentDidScroll(handler: ContentDidScrollCallback): SwiperAttribute;
+  onContentDidScroll(handler: Optional<ContentDidScrollCallback>): SwiperAttribute;
 
   /**
    * Setting whether the indicator is interactive.
@@ -1892,7 +1897,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @crossplatform
    * @since 12
    */
-  indicatorInteractive(value: boolean): SwiperAttribute;
+  indicatorInteractive(value: Optional<boolean>): SwiperAttribute;
 }
 
 /**
