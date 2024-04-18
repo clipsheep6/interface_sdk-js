@@ -1265,13 +1265,13 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called when the line spacing of the font is set.
    *
-   * @param { LengthMetric } value
+   * @param { LengthMetrics } value
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  lineSpacing(value: LengthMetric): TextAreaAttribute;
+  lineSpacing(value: LengthMetrics): TextAreaAttribute;
 
   /**
    * Called when the line height of the font is set.
