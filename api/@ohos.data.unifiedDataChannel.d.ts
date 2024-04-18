@@ -45,7 +45,7 @@ declare namespace unifiedDataChannel {
    * @atomicservice
    * @since 12
    */
-  enum ShareOption {
+  enum ShareOptions {
     /**
      * IN_APP indicates that only use in the same app is allowed.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -64,9 +64,9 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicated delay get UnifiedData
+   * @typedef {function} GetDelayData
    * @param { string } type - the type of UnifiedData required.
    * @returns { UnifiedData } Return the UnifiedData required.
-   * @typedef {function} GetDelayData
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12
@@ -124,7 +124,7 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 12
      */
-    shareOption?: ShareOption;
+    shareOption?: ShareOptions;
 
     /**
      * Indicated delay get UnifiedData.

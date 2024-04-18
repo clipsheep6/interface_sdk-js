@@ -21,7 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
-import udc from './@ohos.data.unifiedDataChannel';
+import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 
 /**
  * systemPasteboard
@@ -1179,26 +1179,26 @@ declare namespace pasteboard {
     /**
      * Gets unified data from the system pasteboard.
      * @permission ohos.permission.READ_PASTEBOARD
-     * @returns { Promise<udc.UnifiedData> } the promise returned by the getData.
+     * @returns { Promise<unifiedDataChannel.UnifiedData> } the promise returned by the getData.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12
      */
-    getUnifiedData(): Promise<udc.UnifiedData>;
+    getUnifiedData(): Promise<unifiedDataChannel.UnifiedData>;
 
     /**
-     * Gets unifiedData from the system pasteboard.
+     * Gets unified data from the system pasteboard.
      * @permission ohos.permission.READ_PASTEBOARD
-     * @returns { udc.UnifiedData }  a new UnifiedData.
+     * @returns { unifiedDataChannel.UnifiedData }  a new UnifiedData.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12
      */
-    getUnifiedDataSync(): udc.UnifiedData;
+    getUnifiedDataSync(): unifiedDataChannel.UnifiedData;
 
     /**
      * Checks whether there is content in the pasteboard.
@@ -1343,7 +1343,7 @@ declare namespace pasteboard {
 
     /**
      * Writes unified data to the system pasteboard.
-     * @param { udc.UnifiedData } data - Unified data will be written to the pasteboard.
+     * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - if type of data is not UnifiedData.
      * @throws { BusinessError } 12900003 - Another copy or paste is in progress.
@@ -1352,18 +1352,18 @@ declare namespace pasteboard {
      * @atomicservice
      * @since 12
      */
-    setUnifiedData(data: udc.UnifiedData): Promise<void>;
+    setUnifiedData(data: unifiedDataChannel.UnifiedData): Promise<void>;
 
     /**
      * Writes unified data to the system pasteboard.
-     * @param { udc.UnifiedData } data - Unified data will be written to the pasteboard.
+     * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
      * @throws { BusinessError } 401 - if type of data is not UnifiedData.
      * @throws { BusinessError } 12900005 - Request time out.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 12
      */
-    setUnifiedDataSync(data: udc.UnifiedData): void;
+    setUnifiedDataSync(data: unifiedDataChannel.UnifiedData): void;
   }
 }
 
