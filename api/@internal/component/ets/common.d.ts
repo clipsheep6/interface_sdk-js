@@ -2948,6 +2948,40 @@ declare interface ScaleOptions {
    */
   centerY?: number | string;
 }
+/**
+ * Defines the align rule params of relative container.
+ *
+ * @interface AlignRuleParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare interface AlignRuleParams<T> {
+  /**
+   * The id of component's anchor.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  anchor: string;
+  /**
+   * The alignment.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 11
+   */
+  align: T
+}
 
 /**
  * Defines the align rule options of relative container.
@@ -3004,7 +3038,17 @@ declare interface AlignRuleOption {
    * @since 11
    * @form
    */
-  left?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of left align.
+   *
+   * @type { ?AlignRuleParams<HorizontalAlign> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  left?: AlignRuleParams<HorizontalAlign>;
 
   /**
    * The param of right align.
@@ -3033,7 +3077,17 @@ declare interface AlignRuleOption {
    * @since 11
    * @form
    */
-  right?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of right align.
+   *
+   * @type { ?AlignRuleParams<HorizontalAlign> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  right?: AlignRuleParams<HorizontalAlign>;
 
   /**
    * The param of middle align.
@@ -3062,7 +3116,17 @@ declare interface AlignRuleOption {
    * @since 11
    * @form
    */
-  middle?: { anchor: string, align: HorizontalAlign };
+  /**
+   * The param of middle align.
+   *
+   * @type { ?AlignRuleParams<HorizontalAlign> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  middle?: AlignRuleParams<HorizontalAlign>;
 
   /**
    * The param of top align.
@@ -3091,7 +3155,17 @@ declare interface AlignRuleOption {
    * @since 11
    * @form
    */
-  top?: { anchor: string, align: VerticalAlign };
+  /**
+   * The param of top align.
+   *
+   * @type { ?AlignRuleParams<VerticalAlign> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  top?: AlignRuleParams<VerticalAlign>;
 
   /**
    * The param of bottom align.
@@ -3118,7 +3192,17 @@ declare interface AlignRuleOption {
    * @since 11
    * @form
    */
-  bottom?: { anchor: string, align: VerticalAlign };
+  /**
+   * The param of bottom align.
+   *
+   * @type { ?AlignRuleParams<VerticalAlign> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  bottom?: AlignRuleParams<VerticalAlign>;
 
   /**
    * The param of center align.
@@ -3147,7 +3231,17 @@ declare interface AlignRuleOption {
    * @since 11
    * @form
    */
-  center?: { anchor: string, align: VerticalAlign };
+  /**
+   * The param of center align.
+   *
+   * @type { ?AlignRuleParams<VerticalAlign> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  center?: AlignRuleParams<VerticalAlign>;
 
   /**
    * Defines the bias ratio in horizontal and vertical direction.
@@ -3680,19 +3774,146 @@ declare enum TransitionEdge {
  * @since 11
  * @form
  */
-declare type TransitionEffects = {
+/**
+ * Defines all transition effects.
+ *
+ * @interface TransitionEffects
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare interface TransitionEffects  {
+
+  /**
+   * The param of identity.
+   *
+   * @type { undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   identity: undefined;
+
+  /**
+   * The param of opacity.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   opacity: number;
+  /**
+   * The param of slideSwitch.
+   *
+   * @type { undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   slideSwitch: undefined;
+  /**
+   * The param of move.
+   *
+   * @type { TransitionEdge }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   move: TransitionEdge;
+  /**
+   * The param of translate.
+   *
+   * @type { TranslateOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   translate: TranslateOptions;
+  /**
+   * The param of rotate.
+   *
+   * @type { RotateOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   rotate: RotateOptions;
+  /**
+   * The param of angle.
+   *
+   * @type { ScaleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   scale: ScaleOptions;
-  asymmetric: {
-    appear: TransitionEffect;
-    disappear: TransitionEffect;
-  };
-};
+  /**
+   * The param of asymmetric.
+   *
+   * @type { AsymmetricTransitionEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  asymmetric: AsymmetricTransitionEffectOptions;
+}
+
+/**
+ * Defines asymmetric transition effects.
+ *
+ * @interface AsymmetricTransitionEffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare interface AsymmetricTransitionEffectOptions {
+
+  /**
+   * The param of appear.
+   *
+   * @type { TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  appear: TransitionEffect;
+
+  /**
+   * The param of disappear.
+   *
+   * @type { TransitionEffect }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  disappear: TransitionEffect;
+
+}
 
 /**
  * Defined the draw modifier of node. Provides draw callbacks for the associated Node.
@@ -8641,6 +8862,68 @@ declare enum DragResult {
 }
 
 /**
+ * Define visible area change callback
+ * 
+ * @typedef { function } VisibilityAreaChangeCallback
+ * @param { boolean } isVisible 
+ * @param { number } currentRatio 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+declare type VisibleAreaChangeCallback = (isVisible: boolean, currentRatio: number) => void
+
+/**
+ * Define onGesture judge begin callback
+ * 
+ * @typedef { function } OnGestureJudgeBeginCallback
+ * @param { GestureInfo } gestureInfo 
+ * @param { BaseGestureEvent } event 
+ * @returns { GestureJudgeResult }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+declare type OnGestureJudgeBeginCallback = (gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult
+
+/**
+ * Define onDragStart Callback
+ * 
+ * @typedef { function } OnDragStartCallback
+ * @param { DragEvent } event 
+ * @param { string } [extraParams] 
+ * @returns { CustomBuilder | DragItemInfo }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+declare type OnDragStartCallback = (event: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo
+
+/**
+ * Define onDrag Callback
+ * 
+ * @typedef { function } OnDragCallback
+ * @param { DragEvent } event 
+ * @param { string } [extraParams] 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+declare type OnDragCallback = (event: DragEvent, extraParams?: string) => void
+
+/**
+ * Define onDrop Callback
+ * 
+ * @typedef { function } OnDropCallback
+ * @param { DragEvent } event 
+ * @param { string } [extraParams] 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+declare type OnDropCallback = (event: DragEvent, extraParams?: string) => void
+
+/**
  * Enum for BlendMode.
  * Blend modes for compositing current component 
  * with overlapping content. Use overlapping content
@@ -10554,6 +10837,61 @@ declare enum DismissReason {
 }
 
 /**
+ * Defines the popup button options.
+ *
+ * @interface PopupButtonOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface PopupButtonOptions {
+  /**
+   * Button text value
+   * 
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  value: string;
+  /**
+   * action
+   * 
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  action: Callback<void>;
+}
+
+/**
+ * Defines the popup mask options.
+ *
+ * @interface PopupMaskOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface PopupMaskOptions {
+  /**
+   * Popup mask color
+   * 
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  color: ResourceColor;
+}
+
+
+/**
  * Component popup dismiss
  *
  * @interface DismissPopupAction
@@ -10692,59 +11030,16 @@ declare interface PopupOptions {
    * @atomicservice
    * @since 11
    */
-  primaryButton?: {
-    /**
-     * Button text value
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Button text value
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Button text value
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    value: string;
-
-    /**
-     * action
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * action
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * action
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    action: () => void;
-  };
+  /**
+   * The first button.
+   *
+   * @type { ?PopupButtonOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  primaryButton?: PopupButtonOptions;
 
   /**
    * The second button.
@@ -10770,59 +11065,16 @@ declare interface PopupOptions {
    * @atomicservice
    * @since 11
    */
-  secondaryButton?: {
-    /**
-     * Button text value
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Button text value
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Button text value
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    value: string;
-
-    /**
-     * action
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * action
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * action
-     *
-     * @type { function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    action: () => void;
-  };
+  /**
+   * The second button.
+   *
+   * @type { ?PopupButtonOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  secondaryButton?: PopupButtonOptions;
 
   /**
    * on State Change
@@ -10942,7 +11194,18 @@ declare interface PopupOptions {
    * @atomicservice
    * @since 11
    */
-  mask?: boolean | { color: ResourceColor };
+  /**
+   * The mask to block gesture events of popup.
+   * When mask is set false, gesture events are not blocked.
+   * When mask is set true, gesture events are blocked and mask color is transparent.
+   *
+   * @type { ?(boolean | PopupMaskOptions) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  mask?: boolean | PopupMaskOptions;
 
   /**
    * Sets the options of popup message.
@@ -11508,7 +11771,18 @@ declare interface CustomPopupOptions {
    * @atomicservice
    * @since 11
    */
-  mask?: boolean | { color: ResourceColor };
+  /**
+   * The mask to block gesture events of popup.
+   * When mask is set false, gesture events are not blocked.
+   * When mask is set true, gesture events are blocked and mask color is transparent.
+   *
+   * @type { ?(boolean | PopupMaskOptions) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  mask?: boolean | PopupMaskOptions;
 
   /**
    * Sets the space of between the popup and target.
@@ -13344,6 +13618,305 @@ declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
  */
 declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 
+
+/**
+ * Define the options of background
+ *
+ * @interface BackgroundOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface BackgroundOptions {
+  /**
+   * Defines the alignment of background
+   * 
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  align?: Alignment
+}
+
+/**
+ * Define the overlay offset
+ *
+ * @interface OverlayOffset
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface OverlayOffset {
+  /**
+   * x property.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  x?: number;
+
+  /**
+   * y property.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  y?: number;
+
+}
+
+/**
+ * Define the options of overlay
+ *
+ * @interface OverlayOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface OverlayOptions {
+
+  /**
+   * Defines the alignment of overlay
+   * 
+   * @type { ?Alignment }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  align?: Alignment;
+
+  /**
+   * Defines the offset of overlay
+   * 
+   * @type { ?OverlayOffset }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  offset?: OverlayOffset;
+}
+
+/**
+ * Define the options of linearGradient
+ *
+ * @interface LinearGradientOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare interface LinearGradientOptions {
+  /**
+   * Defines the angle of linearGradient
+   * 
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  angle?: number | string;
+
+  /**
+   * Defines the direction of linearGradient
+   * 
+   * @type { ?GradientDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  direction?: GradientDirection;
+
+  /**
+   * Defines the colors of linearGradient
+   * 
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  colors: Array<[ResourceColor, number]>;
+
+  /**
+   * Defines the repeating of linearGradient
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  repeating?: boolean;
+}
+
+/**
+ * Define the options of sweepGradient
+ *
+ * @interface SweepGradientOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare interface SweepGradientOptions {
+
+  /**
+   * Defines the center of sweepGradient
+   * 
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  center: [Length, Length];
+
+  /**
+   * Defines the start of sweepGradient
+   * 
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  start?: number | string;
+
+  /**
+   * Defines the end of sweepGradient
+   * 
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  end?: number | string;
+
+  /**
+   * Defines the rotation of sweepGradient
+   * 
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  rotation?: number | string;
+
+  /**
+   * Defines the colors of sweepGradient
+   * 
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  colors: Array<[ResourceColor, number]>;
+
+  /**
+   * Defines the repeating of sweepGradient
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  repeating?: boolean;
+}
+
+/**
+ * Define the options of radialGradient
+ *
+ * @interface RadialGradientOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare interface RadialGradientOptions {
+
+  /**
+   * Defines the center of radialGradient
+   * 
+   * @type { [Length, Length] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  center: [Length, Length];
+
+  /**
+   * Defines the radius of radialGradient
+   * 
+   * @type { number | string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  radius: number | string;
+
+  /**
+   * Defines the colors of radialGradient
+   * 
+   * @type { Array<[ResourceColor, number]> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */  
+  colors: Array<[ResourceColor, number]>;
+
+  /**
+   * Defines the repeating of radialGradient
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */ 
+  repeating?: boolean;
+
+}
+
+
 /**
  * CommonMethod.
  *
@@ -13854,7 +14427,18 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  background(builder: CustomBuilder, options?: { align?: Alignment }): T;
+  /**
+   * Background.
+   *
+   * @param { CustomBuilder } builder
+   * @param { BackgroundOptions } [options] - options set for background
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  background(builder: CustomBuilder, options?: BackgroundOptions): T;
 
   /**
    * Background color
@@ -16764,7 +17348,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onDragStart(event: (event: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
+  /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   *
+   * @param { OnDragStartCallback } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  onDragStart(event: OnDragStartCallback): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
@@ -16783,7 +17377,16 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onDragEnter(event: (event: DragEvent, extraParams?: string) => void): T;
+  /**
+   * After binding, a callback is triggered when the component is dragged to the range of the component.
+   *
+   * @param { OnDragCallback } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  onDragEnter(event: OnDragCallback): T;
 
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
@@ -16802,7 +17405,16 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onDragMove(event: (event: DragEvent, extraParams?: string) => void): T;
+  /**
+   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+   *
+   * @param { OnDragCallback } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  onDragMove(event: OnDragCallback): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
@@ -16821,7 +17433,16 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onDragLeave(event: (event: DragEvent, extraParams?: string) => void): T;
+  /**
+   * After binding, a callback is triggered when the component is dragged out of the component range.
+   *
+   * @param { OnDragCallback } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  onDragLeave(event: OnDragCallback): T;
 
   /**
    * The component bound to this event can be used as the drag release target.
@@ -16842,7 +17463,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onDrop(event: (event: DragEvent, extraParams?: string) => void): T;
+  /**
+   * The component bound to this event can be used as the drag release target.
+   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   *
+   * @param { OnDropCallback } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  onDrop(event: OnDropCallback): T;
 
   /**
    * This function is called when the drag event is end.
@@ -16861,7 +17492,16 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
+  /**
+   * This function is called when the drag event is end.
+   *
+   * @param { OnDropCallback } event - indicates the function to be called.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  onDragEnd(event: OnDropCallback): T;
 
   /**
    * Allowed drop uniformData type for this node.
@@ -17004,7 +17644,19 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  overlay(value: string | CustomBuilder, options?: { align?: Alignment; offset?: { x?: number; y?: number } }): T;
+  /**
+   * Add mask text to the current component. The layout is the same as that of the current component.
+   *
+   * @param { string | CustomBuilder } value
+   * @param { OverlayOptions } [options] - the options of overlay
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  overlay(value: string | CustomBuilder, options?: OverlayOptions): T;
 
   /**
    * Linear Gradient
@@ -17067,20 +17719,15 @@ declare class CommonMethod<T> {
    * colors: Color description for gradients.
    * repeating: repeating. The default value is false
    *
-   * @param { object } value
+   * @param { LinearGradientOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  linearGradient(value: {
-    angle?: number | string;
-    direction?: GradientDirection;
-    colors: Array<[ResourceColor, number]>;
-    repeating?: boolean;
-  }): T;
+  linearGradient(value: LinearGradientOptions): T;
 
   /**
    * Angle Gradient
@@ -17158,22 +17805,15 @@ declare class CommonMethod<T> {
    * colors:Color description for gradients
    * repeating:repeating. The default value is false
    *
-   * @param { object } value
+   * @param { SweepGradientOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  sweepGradient(value: {
-    center: [Length, Length];
-    start?: number | string;
-    end?: number | string;
-    rotation?: number | string;
-    colors: Array<[ResourceColor, number]>;
-    repeating?: boolean;
-  }): T;
+  sweepGradient(value: SweepGradientOptions): T;
 
   /**
    * Radial Gradient
@@ -17236,20 +17876,15 @@ declare class CommonMethod<T> {
    * colors:Color description for gradients
    * repeating: Refill. The default value is false
    *
-   * @param { object } value
+   * @param { RadialGradientOptions } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  radialGradient(value: {
-    center: [Length, Length];
-    radius: number | string;
-    colors: Array<[ResourceColor, number]>;
-    repeating?: boolean;
-  }): T;
+  radialGradient(value: RadialGradientOptions): T;
 
   /**
    * Set the motion path of the component
@@ -17883,7 +18518,18 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T;
+  /**
+   * Trigger a visible area change event.
+   *
+   * @param { Array<number> } ratios
+   * @param { VisibleAreaChangeCallback } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T;
 
   /**
    * Set the spherical effect of the component.
@@ -17946,7 +18592,19 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
+  /**
+   * Sets hot keys
+   *
+   * @param { string | FunctionKey } value - Character of the combination key.
+   * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
+   * @param { Callback<void> } [action] - Callback function, triggered when the shortcut keyboard is pressed.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: Callback<void>): T;
 
   /**
    * Sets accessibilityGroup
@@ -18174,14 +18832,14 @@ declare class CommonMethod<T> {
   /**
    * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
    *
-   * @param { function } callback - A callback instance used when a gesture bound to this component will be accepted.
+   * @param { OnGestureJudgeBeginCallback } callback - A callback instance used when a gesture bound to this component will be accepted.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onGestureJudgeBegin(callback: (gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult): T;
+  onGestureJudgeBegin(callback: OnGestureJudgeBeginCallback): T;
 
   /**
    * Events are monopolized by components.
@@ -19783,7 +20441,16 @@ declare class CustomComponent extends CommonAttribute {
    * @atomicservice
    * @since 11
    */
-  aboutToReuse?(params: { [key: string]: unknown }): void;
+  /**
+   * aboutToReuse Method
+   *
+   * @param { Record<string, unknown> } params - Custom component init params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  aboutToReuse?(params: Record<string, unknown>): void;
 
   /**
    * aboutToRecycle Method
@@ -20468,7 +21135,18 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
+  /**
+   * Called when the scrollable scrolls.
+   *
+   * @param { OnScrollCallback } event - callback of scrollable,
+   * scrollOffset is offset per frame scrolling, ScrollState is current scroll state.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onScroll(event: OnScrollCallback): T;
 
   /**
    * Called when the scrollable will scroll.
@@ -20505,7 +21183,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onReachStart(event: () => void): T;
+  /**
+   * Called when the scrollable reaches the start position.
+   *
+   * @param { Callback<void> } event - Callback function, triggered when the scrollable reaches the start position.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onReachStart(event: Callback<void>): T;
 
   /**
    * Called when the scrollable reaches the end position.
@@ -20517,7 +21205,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onReachEnd(event: () => void): T;
+  /**
+   * Called when the scrollable reaches the end position.
+   *
+   * @param { Callback<void> } event - Callback function, triggered when the scrollable reaches the end position.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onReachEnd(event: Callback<void>): T;
 
   /**
    * Called when the scrollable starts scrolling.
@@ -20529,7 +21227,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onScrollStart(event: () => void): T;
+  /**
+   * Called when the scrollable starts scrolling.
+   *
+   * @param { Callback<void> } event - Callback function, triggered when the scrollable starts scrolling.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onScrollStart(event: Callback<void>): T;
 
   /**
    * Called when the scrollable stops scrolling.
@@ -20541,7 +21249,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onScrollStop(event: () => void): T;
+  /**
+   * Called when the scrollable stops scrolling.
+   *
+   * @param { Callback<void> } event - Callback function, triggered when the scrollable stops scrolling.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onScrollStop(event: Callback<void>): T;
 
   /**
    * Limit the max speed when fling.
@@ -20558,10 +21276,14 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 }
 
 /**
-  * on scroll callback using in scrollable onWillScroll and onDidScroll.
+  * On scroll callback using in scrollable onScroll and onWillScroll and onDidScroll.
   *
+  * @typedef { function } OnScrollCallback
+  * @param { number } scrollOffset
+  * @param { ScrollState } scrollState
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
+  * @atomicservice
   * @since 12
   */
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
@@ -20977,13 +21699,13 @@ declare interface KeyframeAnimateParam {
   /**
    * Callback invoked when the whole keyframe animation is complete.
    *
-   * @type { ?function }
+   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onFinish?: () => void;
+  onFinish?: Callback<void>;
 }
 
 /**
@@ -21053,13 +21775,13 @@ declare interface KeyframeState {
   /**
    * The closure function to specify the terminating state of this keyframe.
    *
-   * @type { function }
+   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  event: () => void;
+  event: Callback<void>;
 }
 
 declare module 'touchEvent'{
@@ -21075,6 +21797,8 @@ declare module 'touchEvent'{
  * @typedef Callback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
+ * @atomicservice
  * @since 12
  */
 declare interface Callback<T, V = void> {
@@ -21085,6 +21809,8 @@ declare interface Callback<T, V = void> {
    * @returns { V } - Returns result of the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
+   * @atomicservice
    * @since 12
    */
   (data: T): V;
