@@ -702,6 +702,25 @@ declare namespace installer {
      * @since 12
      */
     uninstallUpdates(bundleName: string, installParam?: InstallParam): Promise<void>;
+
+    /**
+     * Install clone application.
+     *
+     * @param { string } bundleName - Indicates the clone application's bundleName.
+     * @param { number } userId - Indicates the userId.
+     * @param { number } appIndex - Indicates the clone application's index.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 17700001 - The specified bundleName is not found or the bundle is not installed by the specified self.
+     * @throws { BusinessError } 17700004 - The userId is invalid or the user does not exist.
+     * @throws { BusinessError } 17700066 - The appIndex is not in valid range or is already exist.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    installCloneApp(bundleName: string, userId: number, appIndex: number): Promise<void>;
   }
 
   /**
