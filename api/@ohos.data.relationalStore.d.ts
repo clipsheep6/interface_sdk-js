@@ -2736,8 +2736,7 @@ declare namespace relationalStore {
      * Inserts a row of data into the target table with sync interface.
      *
      * @param { string } table - Indicates the target table.
-     * @param { Array<string> } fields - Indicates the columns.
-     * @param { Array<Array<ValueType>> } values - Indicates the rows of data {@link ValueType} to be inserted into the table.
+     * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { number } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
@@ -2747,7 +2746,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
-    insertSync(table: string, fields: Array<string>, values: Array<Array<ValueType>>, conflict?: ConflictResolution): number;
+    insertSync(table: string, values: ValuesBucket, conflict: ConflictResolution): number;
 
     /**
      * Inserts a batch of data into the target table.
@@ -3002,7 +3001,7 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 12
      */
-    updateSync(values: ValuesBucket, predicates: RdbPredicates, conflict: ConflictResolution): number;
+    updateSync(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): number;
 
     /**
      * Updates data in the database based on a specified instance object of RdbPredicates.
