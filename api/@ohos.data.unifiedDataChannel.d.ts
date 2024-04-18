@@ -119,12 +119,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the scope of clipboard data which can be used.
      * If it is not set or is incorrectly set, The default value is CrossDevice.
-     * @type { ?ShareOption }
+     * @type { ?ShareOptions }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
      */
-    shareOption?: ShareOptions;
+    shareOptions?: ShareOptions;
 
     /**
      * Indicated delay get UnifiedData.
