@@ -259,7 +259,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    displayX: number;
+    screenX: number;
 
     /**
      * The mouse pointer is located at the Y coordinate on the screen.
@@ -269,7 +269,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    displayY: number;
+    screenY: number;
 
     /**
      * Screen width.
@@ -279,7 +279,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    displayWidth: number;
+    screenWidth: number;
 
     /**
      * Screen height.
@@ -289,7 +289,7 @@ declare namespace cooperate {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    displayHeight: number;
+    screenHeight: number;
   }
 
   /**
