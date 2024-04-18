@@ -395,7 +395,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   fontWeight(value: number | FontWeight | string): TextAttribute;
 
   /**
-   * Called when the line spacing of the font is set.
+   * Set font line spacing.
    *
    * @param { LengthMetrics } value
    * @returns { TextAttribute }
