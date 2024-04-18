@@ -10417,7 +10417,7 @@ declare enum DismissReason {
   * @crossplatform
   * @since 12
   */
-  SLIDE_DONE = 3
+  SLIDE_DOWN = 3
 }
 
 /**
