@@ -415,8 +415,7 @@ declare namespace image {
    */
   enum ResolutionQuality {
     /**
-     * Highest resolution quality
-     * Longest decoding time and slowest Rendering speed.
+     * Highest quality images, longer decoding time.
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
