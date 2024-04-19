@@ -46,6 +46,16 @@ import { NotificationUserInput as _NotificationUserInput } from './notification/
 import type UIAbilityContext from './application/UIAbilityContext';
 
 /**
+ * Push App's OnCheckNotification function callback.
+ * @typedef OnCheckNotificationCallback
+ * @syscap SystemCapability.Notification.Notification
+ * @since 10
+ */
+export interface OnCheckNotificationCallback {
+  (msg: string): Object;
+}
+
+/**
  * Manages notifications.
  * <p>Generally, only system applications have permissions on notification subscription and unsubscribe.
  * You can specify the content of a notification to be published and the content is carried by
@@ -2521,6 +2531,76 @@ declare namespace notificationManager {
      */
     message: string;
   }
+
+  /**
+   * Register push application's callback.
+   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { 'pushCheck' } type - pushCheck.
+   * @param { OnCheckNotificationCallback } pushcallback - push callback.
+   * @param { AsyncCallback<void> } callback - Async Callback.
+   * @throws { BusinessError } 401 - parameter error.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function on(type: 'pushCheck', pushcallback: OnCheckNotificationCallback, callback: AsyncCallback<void>): void;
+
+  /**
+   * Register push application's callback.
+   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { 'pushCheck' } type - pushCheck.
+   * @param { OnCheckNotificationCallback } pushcallback - push callback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function on(type: 'pushCheck', pushcallback: OnCheckNotificationCallback): Promise<void>;
+
+  /**
+   * Unregister push application's callback.
+   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { 'pushCheck' } type - pushCheck.
+   * @param { AsyncCallback<void> } callback - Async Callback
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function off(type: 'pushCheck', callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregister push application's callback.
+   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @param { 'pushCheck' } type - pushCheck.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission specified below.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi Hide this for inner system use.
+   * @since 10
+   */
+  function off(type: 'pushCheck'): Promise<void>;
 
   /**
    * Describes NotificationSlot types.
