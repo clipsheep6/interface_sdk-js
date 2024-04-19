@@ -424,8 +424,7 @@ declare namespace image {
     SUPER = 0,
 
     /**
-     * High resolution quality
-     * Long decoding time and slow Rendering speed.
+     * High quality images, shorter decoding time than SUPER, longer than MEDIUM.
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -434,8 +433,7 @@ declare namespace image {
     HIGH = 1,
 
     /**
-     * Medium resolution quality
-     * Medium decoding time and medium rendering speed.
+     * Medium quality images, moderate decoding time.
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -444,8 +442,7 @@ declare namespace image {
     MEDIUM = 2,
 
     /**
-     * Low resolution quality
-     * Short decoding time and fast rendering speed.
+     * Low quality images, short decoding time.
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
