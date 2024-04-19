@@ -130,8 +130,7 @@ type NativeMediaPlayerConfig = {
 /**
 * The callback of ads block
 *
-* @param { url } string The url of webpage.
-* @param { adBlocked } Array<string> The ads' blocked urls.
+* @typedef OnAdsBlockedCallback
 * @syscap SystemCapability.Web.Webview.Core
 * @atomicservice
 * @since 12
