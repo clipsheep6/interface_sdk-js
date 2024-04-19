@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 a256
 a2dpsource
 aafwk
@@ -1061,3 +1062,5 @@ geofences
 gbk
 ocsp
 encipherment
+nnrtdevice
+quant
