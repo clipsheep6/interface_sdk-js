@@ -6154,6 +6154,92 @@ declare namespace webview {
    */
   type CreateNativeMediaPlayerCallback =
       (handler: NativeMediaPlayerHandler, mediaInfo: MediaInfo) => NativeMediaPlayerBridge
+
+  /**
+   * Provides methods for managing the ads block's rules and allow/disallow domain lists.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  class WebAdsBlockManager {
+
+    /**
+     * set Ads Block ruleset file, containing easylist rules.
+     *
+     * @param { string } rulesFile：absolute easylist file path contains app customized ads block rules.
+     * @param { boolean } replace: {@code true} replace internal rules; {@code false} add to internal rules.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static setAdsBlockRules(rulesFile : string, replace : boolean) : void
+
+    /**
+    * Add items to Ads Block Disallowed list.
+    *
+    * @param { Array<string> } domainSuffix : list of domains suffix, if web page url matches someone in the list,
+    * Ads Block will be disallowed for the web page.
+    * @syscap SystemCapability.Web.Webview.Core
+    * @atomicservice
+    * @since 12
+    */
+    static addAdsBlockDisallowedList(domainSuffixes : Array<string>) : void
+
+    /**
+     * remove items from Ads Block Disallowed list.
+     *
+     * @param { Array<string> } domainSuffix : list of domains suffix needed be removed from disallow list
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static removeAdsBlockDisallowedList(domainSuffixes : Array<string>) : void
+
+    /**
+     * clear Ads Block Disallowed list.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static clearAdsBlockDisallowedList() : void
+
+    /**
+     * Add items to Ads Block Allowed list.
+     * By default, ads block is allowed for all pages unless they are added to the
+     * disallow list. The priority of allowlist is higher than the disallowlist. It is
+     * used to re-enable ads block on the page that matches disallow list.
+     *
+     * @param { Array<string> } domainSuffix : list of domains suffix, if web page url matches someone in the list,
+     * Ads Block will be allowed for the web page.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static addAdsBlockAllowedList(domainSuffixes : Array<string>) : void
+
+    /**
+     * remove items from Ads Block allowed list.
+     *
+     * @param { Array<string> } domainSuffix : list of domains suffix needed be removed from allow list
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static removeAdsBlockAllowedList(domainSuffixes : Array<string>) : void
+
+    /**
+     * clear Ads Block allow list.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    static clearAdsBlockAllowedList() : void
+  }
+
 }
 
 export default webview;
