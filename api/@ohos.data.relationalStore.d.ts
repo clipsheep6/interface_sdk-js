@@ -3863,7 +3863,8 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates - The specified lock condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     * 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800018 - No data meets the condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -3877,7 +3878,8 @@ declare namespace relationalStore {
      *
      * @param { RdbPredicates } predicates - The specified Unlock condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     * 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800018 - No data meets the condition.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -3892,7 +3894,8 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates - The specified query condition by the instance object of {@link RdbPredicates}.
      * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
-     * @throws { BusinessError } 401 - Parameter error. 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     * 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
