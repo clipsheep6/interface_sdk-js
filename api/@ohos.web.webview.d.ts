@@ -4535,6 +4535,37 @@ declare namespace webview {
      * @since 12
      */
     static warmupServiceWorker(url: string): void;
+
+    /**
+     * Enable the ability to block Ads, disabled by default.
+     *
+     * @param { boolean } enable {@code true} Enable Ads block; {@code false} otherwise.
+     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    enableAdsBlock(enable: boolean): void;
+
+    /**
+     * Get whether Ads block is enabled.
+     *
+     * @returns { boolean } True if the ability of AdsBlock is enabled; else false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isAdsBlockEnabled(): boolean;
+
+    /**
+     * Get whether Ads block is enabled for current Webpage.
+     *
+     * @returns { boolean } True if the ability of AdsBlock is enabled for current Webpage; else false.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    isAdsBlockEnabledForCurPage(): boolean;
   }
 
   /**

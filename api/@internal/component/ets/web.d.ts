@@ -128,6 +128,17 @@ type NativeMediaPlayerConfig = {
 }
 
 /**
+* The callback of ads block
+*
+* @param { url } string The url of webpage.
+* @param { adBlocked } Array<string> The ads' blocked urls.
+* @syscap SystemCapability.Web.Webview.Core
+* @atomicservice
+* @since 12
+*/
+type OnAdsBlockedCallback= (url: string, adsBlocked: Array<string>) => void;
+
+/**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  *
  * @enum { number }
@@ -6991,6 +7002,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 12
    */
    enableSmoothDragResize(mode: boolean): WebAttribute;
+
+  /**
+   * Called when received Ads blocked results.
+   * If blocked results exist at end of page loading, the first call will be triggered.
+   * To avoid performance issues, subsequent results will be periodically reported through this api.
+   *
+   * @param { OnAdsBlockedCallback } callback Function triggered if there are ads blocked for current webpage.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  onAdsBlocked(callback: OnAdsBlockedCallback): WebAttribute;
 }
 
 /**
