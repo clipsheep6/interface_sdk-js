@@ -406,6 +406,56 @@ declare namespace image {
   }
 
   /**
+   * Enumerates image resolution quality.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @since 12
+   */
+  enum ResolutionQuality {
+    /**
+     * Highest resolution quality
+     * Longest decoding time and slowest Rendering speed.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 12
+     */
+    SUPER = 0,
+
+    /**
+     * High resolution quality
+     * Long decoding time and slow Rendering speed.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 12
+     */
+    HIGH = 1,
+
+    /**
+     * Medium resolution quality
+     * Medium decoding time and medium rendering speed.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 12
+     */
+    MEDIUM = 2,
+
+    /**
+     * Low resolution quality
+     * Short decoding time and fast rendering speed.
+     * 
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @since 12
+     */
+    LOW = 3
+  }
+
+  /**
    * Describes the size of an image.
    *
    * @typedef Size
@@ -3550,7 +3600,6 @@ declare namespace image {
      * @since 11
      */
     desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
-
     
     /**
      * The desired dynamic range of the image pixelmap.
@@ -3560,6 +3609,16 @@ declare namespace image {
      * @since 12
      */
     desiredDynamicRange?: DecodingDynamicRange;
+
+    /**
+     * Resolution Quality of the image.
+     *
+     * @type { ?ResolutionQuality }
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @systemapi
+     * @since 12
+     */
+    resolutionQuality?: ResolutionQuality;
   }
 
   /**
