@@ -1413,16 +1413,5 @@ declare namespace dlpPermission {
    * @since 11
    */
   function getSandboxAppConfig(): Promise<string>;
-
-   /**
-   * Checks whether the current system provides the DLP feature. This method uses a promise to return the result.
-   *
-   * @returns { Promise<boolean> } Promise used to return the result.
-   * @throws { BusinessError } 19100011 - System service exception.
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 12
-   */
-   function isDLPFeatureProvided(): Promise<boolean>;
-
 }
 export default dlpPermission;
