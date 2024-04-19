@@ -395,6 +395,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   fontWeight(value: number | FontWeight | string): TextAttribute;
 
   /**
+   * Called when the line spacing of the font is set.
+   *
+   * @param { LengthMetrics } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  lineSpacing(value: LengthMetrics): TextAttribute;
+
+  /**
    * Called when the horizontal center mode of the font is set.
    *
    * @param { TextAlign } value
