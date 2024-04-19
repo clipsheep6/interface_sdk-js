@@ -269,6 +269,17 @@ export interface BundleInfo {
    * @since 12
    */
   readonly routerMap: Array<RouterItem>;
+
+  /**
+   * Indicates the index of the bundle
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly appIndex: number;
 }
 
 /**
