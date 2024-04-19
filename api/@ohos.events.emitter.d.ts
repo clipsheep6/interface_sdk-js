@@ -441,7 +441,25 @@ declare namespace emitter {
      */
     priority?: EventPriority;
   }
-
+  
+  /**
+   * Defines the basic callback.
+   * @typedef InnerCallback
+   * @syscap SystemCapability.Notification.Emitter
+   * @atomicservice
+   * @since 11
+   */
+  export interface InnerCallback<T> {
+    /**
+     * Defines the callback info.
+     * @param { T } data
+     * @syscap SystemCapability.Notification.Emitter
+     * @atomicservice
+     * @since 11
+     */
+    (data: T): void;
+  }
+  
   /**
    * Indicates the emit priority of the event.
    *
