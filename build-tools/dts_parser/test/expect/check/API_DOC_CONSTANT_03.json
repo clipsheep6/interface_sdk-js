@@ -1,0 +1,13 @@
+[
+  {
+    "analyzerName": "apiengine",
+    "buggyFilePath": "API_DOC_CONSTANT_03.d.ts",
+    "codeContextStaerLine": "32",
+    "defectLevel": 2,
+    "defectType": "API_DOC_CONSTANT_03",
+    "description": "API check error of [wrong scene]: JSDoc tag validity verification failed. Please confirm if the [constant] tag is missing.",
+    "language": "ts",
+    "mainBuggyCode": "const batterySOC = 123;",
+    "mainBuggyLine": "32"
+  }
+]
