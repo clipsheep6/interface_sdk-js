@@ -208,7 +208,17 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  rowStart(value: number): GridItemAttribute;
+  /**
+   * This parameter specifies the start line number of the current element.
+   *
+   * @param { Optional<number> } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  rowStart(value: Optional<number>): GridItemAttribute;
 
   /**
    * Specifies the end line number of the current element.
@@ -237,7 +247,17 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  rowEnd(value: number): GridItemAttribute;
+  /**
+   * Specifies the end line number of the current element.
+   *
+   * @param { Optional<number> } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  rowEnd(value: Optional<number>): GridItemAttribute;
 
   /**
    * This parameter specifies the start column number of the current element.
@@ -266,7 +286,17 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  columnStart(value: number): GridItemAttribute;
+  /**
+   * This parameter specifies the start column number of the current element.
+   *
+   * @param { Optional<number> } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  columnStart(value: Optional<number>): GridItemAttribute;
 
   /**
    * This parameter specifies the end column number of the current element.
@@ -295,7 +325,17 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  columnEnd(value: number): GridItemAttribute;
+  /**
+   * This parameter specifies the end column number of the current element.
+   *
+   * @param { Optional<number> } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  columnEnd(value: Optional<number>): GridItemAttribute;
 
   /**
    * This parameter specifies whether to recreate the node when the component build is triggered.
@@ -335,7 +375,17 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  selectable(value: boolean): GridItemAttribute;
+  /**
+   * Called when judging whether it is selectable.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectable(value: Optional<boolean>): GridItemAttribute;
 
   /**
    * Called when judging whether it is selected.
@@ -358,7 +408,18 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  selected(value: boolean): GridItemAttribute;
+  /**
+   * Called when judging whether it is selected.
+   * This parameter supports $$ for two-way binding of variables.
+   * 
+   * @param { Optional<boolean> } value - if the gridItem is selected.
+   * @returns { GridItemAttribute } the attribute of the gridItem.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selected(value: Optional<boolean>): GridItemAttribute;
 
   /**
    * Called when the gridItem is selected.
@@ -387,7 +448,17 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  onSelect(event: (isSelected: boolean) => void): GridItemAttribute;
+  /**
+   * Called when the gridItem is selected.
+   *
+   * @param { Optional<Callback<boolean>> } handler - handler of GridItem.
+   * @returns { GridItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onSelect(handler: Optional<Callback<boolean>>): GridItemAttribute;
 }
 
 /**
