@@ -90,3 +90,21 @@ export { XComponentNode } from './arkui/XComponentNode';
  * @since 12
  */
 export { ComponentContent } from './arkui/ComponentContent';
+
+/**
+ * Export NodeContent.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export { NodeContent } from './arkui/NodeContent';
+
+/**
+ * Export Content.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export { Content } from './arkui/Content';
