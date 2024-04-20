@@ -902,6 +902,16 @@ interface SliderInterface {
 }
 
 /**
+ * Defines the callback type used in onChange.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type onSliderChangeCallback = (value: number, mode: SliderChangeMode) => void;
+
+/**
  * Defines the attribute functions of Slider.
  *
  * @extends CommonMethod<SliderAttribute>
@@ -974,7 +984,18 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 11
    * @form
    */
-  blockColor(value: ResourceColor): SliderAttribute;
+  /**
+   * Called when the slider color of the slider bar is set.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  blockColor(value: Optional<ResourceColor>): SliderAttribute;
 
   /**
    * Called when the track color of the slider is set.
@@ -1017,14 +1038,14 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
    * Called when the track color of the slider is set.
    *
-   * @param { ResourceColor | LinearGradient } value
+   * @param { Optional<ResourceColor | LinearGradient> } value
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    * @form
    */
-  trackColor(value: ResourceColor | LinearGradient): SliderAttribute;
+  trackColor(value: Optional<ResourceColor | LinearGradient>): SliderAttribute;
 
   /**
    * Called when the slider of the slider bar is set to slide over the area color.
@@ -1064,7 +1085,18 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 11
    * @form
    */
-  selectedColor(value: ResourceColor): SliderAttribute;
+  /**
+   * Called when the slider of the slider bar is set to slide over the area color.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  selectedColor(value: Optional<ResourceColor>): SliderAttribute;
 
   /**
    * Called when the minimum label is set.
@@ -1128,7 +1160,18 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 11
    * @form
    */
-  showSteps(value: boolean): SliderAttribute;
+  /**
+   * Called when setting whether to display step size.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  showSteps(value: Optional<boolean>): SliderAttribute;
 
   /**
    * Called when the percentage of bubble prompt is set when sliding.
@@ -1172,7 +1215,20 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 11
    * @form
    */
-  showTips(value: boolean, content?: ResourceStr): SliderAttribute;
+  /**
+   * Called when the percentage of bubble prompt is set when sliding.
+   *
+   * @param { Optional<boolean> } value - Whether to display the bubble.
+   * @param { ResourceStr } content - Text content in the bubble. If the content is not specified, the current
+   *                                  percentage is displayed by default.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  showTips(value: Optional<boolean>, content?: ResourceStr): SliderAttribute;
 
   /**
    * Called when the thickness of track is set.
@@ -1212,7 +1268,18 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 11
    * @form
    */
-  trackThickness(value: Length): SliderAttribute;
+  /**
+   * Called when the thickness of track is set.
+   *
+   * @param { Optional<Length> } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  trackThickness(value: Optional<Length>): SliderAttribute;
 
   /**
    * Called when the selection value changes.
@@ -1252,7 +1319,18 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 11
    * @form
    */
-  onChange(callback: (value: number, mode: SliderChangeMode) => void): SliderAttribute;
+  /**
+   * Called when the selection value changes.
+   *
+   * @param { Optional<onSliderChangeCallback> } handler
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  onChange(handler: Optional<onSliderChangeCallback>): SliderAttribute;
 
   /**
    * Called when the border color of block is set.
@@ -1273,7 +1351,17 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @atomicservice
    * @since 11
    */
-  blockBorderColor(value: ResourceColor): SliderAttribute;
+  /**
+   * Called when the border color of block is set.
+   *
+   * @param { Optional<ResourceColor> } value - the border color of block.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  blockBorderColor(value: Optional<ResourceColor>): SliderAttribute;
 
   /**
    * Called when the border width of block is set.
@@ -1294,7 +1382,17 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @atomicservice
    * @since 11
    */
-  blockBorderWidth(value: Length): SliderAttribute;
+  /**
+   * Called when the border width of block is set.
+   *
+   * @param { Optional<Length> } value - the border width of block.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  blockBorderWidth(value: Optional<Length>): SliderAttribute;
 
   /**
    * Called when the color of step is set.
@@ -1315,7 +1413,17 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @atomicservice
    * @since 11
    */
-  stepColor(value: ResourceColor): SliderAttribute;
+  /**
+   * Called when the color of step is set.
+   *
+   * @param { Optional<ResourceColor> } value - the color of step.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  stepColor(value: Optional<ResourceColor>): SliderAttribute;
 
   /**
    * Called when the radius of track border is set.
@@ -1336,18 +1444,28 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @atomicservice
    * @since 11
    */
-  trackBorderRadius(value: Length): SliderAttribute;
+  /**
+   * Called when the radius of track border is set.
+   *
+   * @param { Optional<Length> } value - the radius of track border.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  trackBorderRadius(value: Optional<Length>): SliderAttribute;
 
   /**
    * Called when the radius of selected part is set.
    *
-   * @param { Dimension } value - the radius of selected part.
+   * @param { Optional<Dimension> } value - the radius of selected part.
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-    selectedBorderRadius(value: Dimension): SliderAttribute;
+    selectedBorderRadius(value: Optional<Dimension>): SliderAttribute;
   
   /**
    * Called when the size of block is set.
@@ -1368,7 +1486,17 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @atomicservice
    * @since 11
    */
-  blockSize(value: SizeOptions): SliderAttribute;
+  /**
+   * Called when the size of block is set.
+   *
+   * @param { Optional<SizeOptions> } value - the size of block.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  blockSize(value: Optional<SizeOptions>): SliderAttribute;
 
   /**
    * Called when the style of block is set.
@@ -1389,7 +1517,17 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @atomicservice
    * @since 11
    */
-  blockStyle(value: SliderBlockStyle): SliderAttribute;
+  /**
+   * Called when the style of block is set.
+   *
+   * @param { Optional<SliderBlockStyle> } value - the style of block.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  blockStyle(value: Optional<SliderBlockStyle>): SliderAttribute;
 
   /**
    * Called when the diameter of step is set.
@@ -1410,40 +1548,50 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @atomicservice
    * @since 11
    */
-  stepSize(value: Length): SliderAttribute;
+  /**
+   * Called when the diameter of step is set.
+   *
+   * @param { Optional<Length> } value - the diameter of step.
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  stepSize(value: Optional<Length>): SliderAttribute;
 
   /**
    * Sets the interaction mode of the slider.
    *
-   * @param { SliderInteraction } value
+   * @param { Optional<SliderInteraction> } value
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  sliderInteractionMode(value: SliderInteraction): SliderAttribute;
+  sliderInteractionMode(value: Optional<SliderInteraction>): SliderAttribute;
 
   /**
    * Sets the min value when Slider response to drag event.
    *
-   * @param { number } value
+   * @param { Optional<number> } value
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  minResponsiveDistance(value: number): SliderAttribute;
+  minResponsiveDistance(value: Optional<number>): SliderAttribute;
 
   /**
    * Set the content modifier of slider.
    *
-   * @param { ContentModifier<SliderConfiguration> } modifier - The content modifier of slider.
+   * @param { Optional<ContentModifier<SliderConfiguration>> } modifier - The content modifier of slider.
    * @returns { SliderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  contentModifier(modifier: ContentModifier<SliderConfiguration>): SliderAttribute;
+  contentModifier(modifier: Optional<ContentModifier<SliderConfiguration>>): SliderAttribute;
 }
 
 /**

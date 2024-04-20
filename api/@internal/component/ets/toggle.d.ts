@@ -322,6 +322,16 @@ interface ToggleInterface {
 }
 
 /**
+ * Defines the callback type used in onChange.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type onToggleChangeCallback = (isOn: boolean) => void;
+
+/**
  * Defines the toggle attribute functions
  *
  * @extends CommonMethod<ToggleAttribute>
@@ -394,18 +404,29 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @since 11
    * @form
    */
-  onChange(callback: (isOn: boolean) => void): ToggleAttribute;
+  /**
+   * Called when the selected state of the component changes.
+   *
+   * @param { Optional<onToggleChangeCallback> } handler
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  onChange(handler: Optional<onToggleChangeCallback>): ToggleAttribute;
 
   /**
    * Set the content modifier of toggle.
    *
-   * @param { ContentModifier<ToggleConfiguration> } modifier - The content modifier of toggle.
+   * @param { Optional<ContentModifier<ToggleConfiguration>> } modifier - The content modifier of toggle.
    * @returns { ToggleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  contentModifier(modifier: ContentModifier<ToggleConfiguration>): ToggleAttribute;
+  contentModifier(modifier: Optional<ContentModifier<ToggleConfiguration>>): ToggleAttribute;
 
   /**
    * Called when the color of the selected button is set.
@@ -445,7 +466,18 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @since 11
    * @form
    */
-  selectedColor(value: ResourceColor): ToggleAttribute;
+  /**
+   * Called when the color of the selected button is set.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  selectedColor(value: Optional<ResourceColor>): ToggleAttribute;
 
   /**
    * Called when the color of the selected button is set.
@@ -485,18 +517,29 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @since 11
    * @form
    */
-  switchPointColor(color: ResourceColor): ToggleAttribute;
+  /**
+   * Called when the color of the selected button is set.
+   *
+   * @param { Optional<ResourceColor> } color
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  switchPointColor(color: Optional<ResourceColor>): ToggleAttribute;
 
   /**
    * Set the style of the switch.
    *
-   * @param { SwitchStyle } value
+   * @param { Optional<SwitchStyle> } value
    * @returns { ToggleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  switchStyle(value: SwitchStyle): ToggleAttribute;
+  switchStyle(value: Optional<SwitchStyle>): ToggleAttribute;
 }
 
 /**

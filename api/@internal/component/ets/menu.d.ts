@@ -128,7 +128,18 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @atomicservice
    * @since 11
    */
-  font(value: Font): MenuAttribute;
+  /**
+   * Sets the font style.
+   * Family and style are not supported currently and will be fixed in future.
+   *
+   * @param { Optional<Font> } value - Indicates the font style of menu item.
+   * @returns { MenuAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  font(value: Optional<Font>): MenuAttribute;
 
   /**
    * Sets the Menu font color.
@@ -149,7 +160,17 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @atomicservice
    * @since 11
    */
-  fontColor(value: ResourceColor): MenuAttribute;
+  /**
+   * Sets the Menu font color.
+   *
+   * @param { Optional<ResourceColor> } value - Indicates the font color of menu item.
+   * @returns { MenuAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  fontColor(value: Optional<ResourceColor>): MenuAttribute;
 
   /**
    * Sets the radius of the corner around the menu.
@@ -172,7 +193,18 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
    * @atomicservice
    * @since 11
    */
-  radius(value: Dimension | BorderRadiuses): MenuAttribute;
+  /**
+   * Sets the radius of the corner around the menu.
+   * When the radius is less than the menu width, the default border radius is used.
+   * 
+   * @param { Optional<Dimension | BorderRadiuses> } value - the border radius.
+   * @returns { MenuAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  radius(value: Optional<Dimension | BorderRadiuses>): MenuAttribute;
 }
 
 /**

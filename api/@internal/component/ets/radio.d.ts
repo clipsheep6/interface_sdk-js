@@ -344,6 +344,16 @@ interface RadioInterface {
 }
 
 /**
+ * Defines the callback type used in onChange.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type onRadioChangeCallback = (isChecked: boolean) => void;
+
+/**
  * Provides methods for radio method component.
  *
  * @extends CommonMethod<RadioAttribute>
@@ -416,7 +426,18 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @since 11
    * @form
    */
-  checked(value: boolean): RadioAttribute;
+  /**
+   * Called when the radio box is selected.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { RadioAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  checked(value: Optional<boolean>): RadioAttribute;
 
   /**
    * Called when the radio box selection status changes.
@@ -456,7 +477,18 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @since 11
    * @form
    */
-  onChange(callback: (isChecked: boolean) => void): RadioAttribute;
+  /**
+   * Called when the radio box selection status changes.
+   *
+   * @param { Optional<onRadioChangeCallback> } handler
+   * @returns { RadioAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  onChange(handler: Optional<onRadioChangeCallback>): RadioAttribute;
 
   /**
    * Set the radio style.
