@@ -377,7 +377,19 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 11
    * @form
    */
-  format(value: string): TextTimerAttribute;
+  /**
+   * Set the display time format, for example, now is hh/mm/ss/ms and current: hh-mm-ss-ms.
+   * The time format string can be hh, mm, ss, or ms.
+   *
+   * @param { Optional<string> } value
+   * @returns { TextTimerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  format(value: Optional<string>): TextTimerAttribute;
 
   /**
    * Called when the font color is set.
@@ -408,7 +420,18 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 11
    * @form
    */
-  fontColor(value: ResourceColor): TextTimerAttribute;
+  /**
+   * Called when the font color is set.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { TextTimerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  fontColor(value: Optional<ResourceColor>): TextTimerAttribute;
 
   /**
    * Called when the font size is set.
@@ -439,7 +462,18 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 11
    * @form
    */
-  fontSize(value: Length): TextTimerAttribute;
+  /**
+   * Called when the font size is set.
+   *
+   * @param { Optional<Length> } value
+   * @returns { TextTimerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  fontSize(value: Optional<Length>): TextTimerAttribute;
 
   /**
    * Called when the fontStyle is set
@@ -470,7 +504,18 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 11
    * @form
    */
-  fontStyle(value: FontStyle): TextTimerAttribute;
+  /**
+   * Called when the fontStyle is set
+   *
+   * @param { Optional<FontStyle> } value
+   * @returns { TextTimerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  fontStyle(value: Optional<FontStyle>): TextTimerAttribute;
 
   /**
    * Called when the fontWeight is set
@@ -501,7 +546,18 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 11
    * @form
    */
-  fontWeight(value: number | FontWeight | string): TextTimerAttribute;
+  /**
+   * Called when the fontWeight is set
+   *
+   * @param { Optional<number | FontWeight | string> } value
+   * @returns { TextTimerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  fontWeight(value: Optional<number | FontWeight | string>): TextTimerAttribute;
 
   /**
    * Called when the fontFamily is set
@@ -532,7 +588,18 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 11
    * @form
    */
-  fontFamily(value: ResourceStr): TextTimerAttribute;
+  /**
+   * Called when the fontFamily is set
+   *
+   * @param { Optional<ResourceStr> } value
+   * @returns { TextTimerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  fontFamily(value: Optional<ResourceStr>): TextTimerAttribute;
 
   /**
    * Called when the timer value is returned.
@@ -563,7 +630,18 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 11
    * @form
    */
-  onTimer(event: (utc: number, elapsedTime: number) => void): TextTimerAttribute;
+  /**
+   * Called when the timer value is returned.
+   *
+   * @param { Optional<onTimerEvent> } event
+   * @returns { TextTimerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  onTimer(event: Optional<onTimerEvent>): TextTimerAttribute;
 
   /**
    * Called when the text shadow is set.
@@ -577,15 +655,27 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
    * Called when the text shadow is set.
    *
-   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+   * @param { Optional<ShadowOptions | Array<ShadowOptions>> } value - The shadow options.
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  textShadow(value: ShadowOptions | Array<ShadowOptions>): TextTimerAttribute;
+  textShadow(value: Optional<ShadowOptions | Array<ShadowOptions>>): TextTimerAttribute;
 }
+
+/**
+ * Event of TextTimer, using in onTimer.
+ * 
+ * @typedef { function } onTimerEvent
+ * @param { number } utc - UTC coordinated universal time.
+ * @param { number } elapsedTime - The time elapsed by TextTimer.
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type onTimerEvent = (utc: number, elapsedTime: number) => void;
 
 /**
  * Defines TextTimer Component.
