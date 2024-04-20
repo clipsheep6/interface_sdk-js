@@ -850,7 +850,6 @@ declare namespace relationalStore {
     refFields: Record<string, string>
   }
 
-
   /**
    * Manages the distributed configuration of the table.
    *
@@ -1953,9 +1952,27 @@ declare namespace relationalStore {
      * @returns { number } The index of the specified column.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     getColumnIndex(columnName: string): number;
 
@@ -1978,9 +1995,27 @@ declare namespace relationalStore {
      * @returns { string } The name of the specified column.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     getColumnName(columnIndex: number): string;
 
@@ -2005,9 +2040,27 @@ declare namespace relationalStore {
      *                   Returns false otherwise.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     goTo(offset: number): boolean;
 
@@ -2028,9 +2081,27 @@ declare namespace relationalStore {
      * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     goToRow(position: number): boolean;
 
@@ -2049,9 +2120,27 @@ declare namespace relationalStore {
      * @returns { boolean } True if the result set is moved successfully;
      *                    Returns false otherwise, for example, if the result set is empty.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     goToFirstRow(): boolean;
 
@@ -2070,9 +2159,27 @@ declare namespace relationalStore {
      * @returns { boolean } True if the result set is moved successfully;
      *                    Returns false otherwise, for example, if the result set is empty.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     goToLastRow(): boolean;
 
@@ -2091,9 +2198,27 @@ declare namespace relationalStore {
      * @returns { boolean } True if the result set is moved successfully;
      *                    Returns false otherwise, for example, if the result set is already in the last row.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     goToNextRow(): boolean;
 
@@ -2112,9 +2237,27 @@ declare namespace relationalStore {
      * @returns { boolean } True if the result set is moved successfully;
      *                    Returns false otherwise, for example, if the result set is already in the first row.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     goToPreviousRow(): boolean;
 
@@ -2139,9 +2282,27 @@ declare namespace relationalStore {
      * @returns { Uint8Array } The value of the specified column as a byte array.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     getBlob(columnIndex: number): Uint8Array;
 
@@ -2166,9 +2327,27 @@ declare namespace relationalStore {
      * @returns { string } The value of the specified column as a string.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     getString(columnIndex: number): string;
 
@@ -2193,9 +2372,27 @@ declare namespace relationalStore {
      * @returns { number } The value of the specified column as a long.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     getLong(columnIndex: number): number;
 
@@ -2220,9 +2417,27 @@ declare namespace relationalStore {
      * @returns { number } The value of the specified column as a double.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     getDouble(columnIndex: number): number;
 
@@ -2235,9 +2450,27 @@ declare namespace relationalStore {
      * @returns { Asset } The value of the specified column as an asset.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     getAsset(columnIndex: number): Asset;
 
@@ -2250,9 +2483,27 @@ declare namespace relationalStore {
      * @returns { Assets } The value of the specified column as assets.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     getAssets(columnIndex: number): Assets;
 
@@ -2268,6 +2519,22 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corruption .
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -2285,6 +2552,22 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.  
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12
@@ -2298,6 +2581,22 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2323,9 +2622,27 @@ declare namespace relationalStore {
      *                    Returns false otherwise.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     isColumnNull(columnIndex: number): boolean;
 
@@ -2380,9 +2697,22 @@ declare namespace relationalStore {
      * Obtains the RdbStore version.
      *
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     version: number;
 
@@ -2409,9 +2739,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2428,12 +2770,23 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2463,9 +2816,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2485,9 +2850,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2517,7 +2894,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2547,7 +2938,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2579,9 +2984,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2602,9 +3019,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2641,9 +3070,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2664,9 +3105,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2706,9 +3159,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -2754,9 +3219,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -2785,9 +3262,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2815,9 +3304,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2853,9 +3354,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -2892,9 +3405,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -2910,6 +3435,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2936,6 +3462,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2962,6 +3489,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -2979,6 +3507,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -2998,6 +3527,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -3022,6 +3552,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @StageModelOnly
@@ -3041,6 +3572,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3067,6 +3599,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3093,6 +3626,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3113,9 +3647,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800018 - Data is not exits.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3135,9 +3681,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800018 - Data is not exits.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3161,8 +3719,22 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
@@ -3178,8 +3750,22 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
@@ -3199,8 +3785,22 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 12
      */
@@ -3217,6 +3817,22 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 12
@@ -3233,6 +3849,22 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 12
@@ -3250,6 +3882,22 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 12
@@ -3268,9 +3916,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3301,9 +3961,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3334,9 +4006,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3357,9 +4041,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3380,9 +4076,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
-     * @throws { BusinessError } 14800021 - SQL constraint.
-     * @throws { BusinessError } 14800022 - SQL error.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3405,6 +4113,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3422,6 +4145,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3438,9 +4176,27 @@ declare namespace relationalStore {
      * Commit the the sql you have executed.
      *
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     commit(): void;
 
@@ -3451,6 +4207,24 @@ declare namespace relationalStore {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3467,9 +4241,27 @@ declare namespace relationalStore {
      * Roll back the sql you have already executed.
      *
      * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     rollBack(): void;
 
@@ -3480,6 +4272,24 @@ declare namespace relationalStore {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 14800011 - Failed to open database by database corrupted.
+     * @throws { BusinessError } 14800000 - Inner error.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -3505,7 +4315,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800010 - Invalid dast name.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3531,7 +4355,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3558,7 +4396,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -3585,7 +4437,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800020 - No storage.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 12
@@ -4059,7 +4925,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
-     * @throws { BusinessError } 14800016 - The database is already attached.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -4083,6 +4963,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800016 - The database is already attached.
      * @throws { BusinessError } 14801001 - Only supported in stage mode.
      * @throws { BusinessError } 14801002 - The data group id is not valid.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -4099,6 +4994,21 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800011 - Database corrupted.
      * @throws { BusinessError } 14800014 - Already closed.
      * @throws { BusinessError } 14800015 - The database is busy.
+     * @throws { BusinessError } 14800019 - SQLite generic error.
+     * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+     * @throws { BusinessError } 14800021 - SQLite access permission denied.
+     * @throws { BusinessError } 14800022 - SQLite the database file is locked.
+     * @throws { BusinessError } 14800023 - SQLite a table in the database is locked.
+     * @throws { BusinessError } 14800024 - SQLite the database is out of memory.
+     * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+     * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+     * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+     * @throws { BusinessError } 14800028 - SQLite the database is full.
+     * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
+     * @throws { BusinessError } 14800030 - SQLite TEXT or BLOB exceeds size limit.
+     * @throws { BusinessError } 14800031 - SQLite abort due to constraint violation.
+     * @throws { BusinessError } 14800032 - SQLite data type mismatch.
+     * @throws { BusinessError } 14800033 - SQLite library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -4135,7 +5045,14 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14801001 - Only supported in stage mode.
    * @throws { BusinessError } 14801002 - The data group id is not valid.
    * @throws { BusinessError } 14800017 - Config changed.
-   * @throws { BusinessError } 14800020 - No storage.
+   * @throws { BusinessError } 14800019 - SQLite generic error.
+   * @throws { BusinessError } 14800020 - SQLite callback routine requested an abort.
+   * @throws { BusinessError } 14800021 - SQLite access permission denied.
+   * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+   * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+   * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+   * @throws { BusinessError } 14800028 - SQLite the database is full.
+   * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 12
@@ -4172,7 +5089,12 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14801001 - Only supported in stage mode.
    * @throws { BusinessError } 14801002 - The data group id is not valid.
    * @throws { BusinessError } 14800017 - Config changed.
-   * @throws { BusinessError } 14800020 - No storage.
+   * @throws { BusinessError } 14800019 - SQLite generic error.
+   * @throws { BusinessError } 14800025 - SQLite attempt to write a readonly database.
+   * @throws { BusinessError } 14800026 - SQLite some kind of disk I/O error occurred.
+   * @throws { BusinessError } 14800027 - SQLite the database disk image is malformed.
+   * @throws { BusinessError } 14800028 - SQLite the database is full.
+   * @throws { BusinessError } 14800029 - SQLite unable to open the database file.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 12
