@@ -1274,7 +1274,7 @@ declare interface DisturbanceFieldOptions {
   noiseFrequency?: number;
 
   /**
-   * NoiseAmplitude fluctuation range of noise,  value,
+   * The amplitude determines the fluctuation range of the noise value.
    *
    * @type { ?number }
    * the greater the difference between noise, with a value greater or equal 0.
