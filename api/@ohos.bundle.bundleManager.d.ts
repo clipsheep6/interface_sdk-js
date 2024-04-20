@@ -47,6 +47,15 @@ import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
  * @atomicservice
  * @since 11
  */
+/**
+ * This module is used to obtain package information of various applications installed on the current device.
+ *
+ * @namespace bundleManager
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare namespace bundleManager {
   /**
    * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
@@ -347,7 +356,15 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
-    GET_ABILITY_INFO_ONLY_SYSTEM_APP = 0x00000010
+    GET_ABILITY_INFO_ONLY_SYSTEM_APP = 0x00000010,
+    /**
+     * Used to obtain the abilityInfo with domain verification.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_ABILITY_INFO_WITH_APP_LINKING = 0x00000040,
   }
 
   /**
@@ -1042,7 +1059,16 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 11
      */
-    LOCKED
+    LOCKED,
+
+    /**
+     * Indicates the system automatically determines the sensor restricted mode
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 12
+     */
+    AUTO_ROTATION_UNSPECIFIED
   }
 
   /**
@@ -1564,7 +1590,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback<Array<AbilityInfo>> } callback - The callback of querying ability info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. At least one parameter(action, entity, uri or type) is required for implicit query.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified ability is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
@@ -1585,7 +1611,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback<Array<AbilityInfo>> } callback - The callback of querying ability info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. At least one parameter(action, entity, uri or type) is required for implicit query.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified ability is not found.
    * @throws { BusinessError } 17700004 - The specified userId is invalid.
@@ -1608,7 +1634,7 @@ declare namespace bundleManager {
    * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. At least one parameter(action, entity, uri or type) is required for implicit query.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified ability is not found.
    * @throws { BusinessError } 17700004 - The specified userId is invalid.
@@ -1630,7 +1656,7 @@ declare namespace bundleManager {
    * @returns { Array<AbilityInfo> } Returns a list of AbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. At least one parameter(action, entity, uri or type) is required for implicit query.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified ability is not found.
    * @throws { BusinessError } 17700004 - The specified userId is invalid.
@@ -1653,7 +1679,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback<Array<ExtensionAbilityInfo>> } callback - The callback of querying extension ability info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. At least one parameter(action, entity, uri or type) is required for implicit query.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified extensionAbility is not found.
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
@@ -1676,7 +1702,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback<Array<ExtensionAbilityInfo>> } callback - The callback of querying extension ability info result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. At least one parameter(action, entity, uri or type) is required for implicit query.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified extensionAbility is not found.
    * @throws { BusinessError } 17700004 - The specified userId is invalid.
@@ -1700,7 +1726,7 @@ declare namespace bundleManager {
    * @returns { Promise<Array<ExtensionAbilityInfo>> } Returns a list of ExtensionAbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. At least one parameter(action, entity, uri or type) is required for implicit query.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified extensionAbility is not found.
    * @throws { BusinessError } 17700004 - The specified userId is invalid.
@@ -1724,7 +1750,7 @@ declare namespace bundleManager {
    * @returns { Array<ExtensionAbilityInfo> } Returns a list of ExtensionAbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. At least one parameter(action, entity, uri or type) is required for implicit query.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified extensionAbility is not found.
    * @throws { BusinessError } 17700004 - The specified userId is invalid.
@@ -1748,7 +1774,7 @@ declare namespace bundleManager {
    * @returns { Array<ExtensionAbilityInfo> } Returns a list of ExtensionAbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. At least one parameter(action, entity, uri or type) is required for implicit query.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700003 - The specified extensionAbility is not found.
    * @throws { BusinessError } 17700004 - The specified userId is invalid.
@@ -1771,7 +1797,7 @@ declare namespace bundleManager {
    * @returns { Array<ExtensionAbilityInfo> } Returns a list of ExtensionAbilityInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter extensionAbilityType is empty.
    * @throws { BusinessError } 17700003 - The specified extensionAbility is not found.
    * @throws { BusinessError } 17700004 - The specified userId is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2656,7 +2682,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback<AppProvisionInfo> } callback - Indicates the callback of getting AppProvisionInfo result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter bundleName is empty.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -2673,7 +2699,7 @@ declare namespace bundleManager {
    * @param { AsyncCallback<AppProvisionInfo> } callback - Indicates the callback of getting AppProvisionInfo result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter bundleName is empty.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2691,7 +2717,7 @@ declare namespace bundleManager {
    * @returns { Promise<AppProvisionInfo> } Returns the AppProvisionInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter bundleName is empty.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2709,7 +2735,7 @@ declare namespace bundleManager {
    * @returns { AppProvisionInfo } Returns the AppProvisionInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter bundleName is empty.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2742,7 +2768,7 @@ declare namespace bundleManager {
    * @returns { string } The additional information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Input parameters check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter bundleName is empty.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -2926,7 +2952,7 @@ declare namespace bundleManager {
    * @param { string } additionalInfo - The additional information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter bundleName is empty.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700053 - Not app gallery call.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -2971,7 +2997,7 @@ declare namespace bundleManager {
    * @returns { Array<BundleInfo> } Returns a list of BundleInfo objects.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter developerId is empty.
    * @throws { BusinessError } 17700059 - The specified developerId is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
