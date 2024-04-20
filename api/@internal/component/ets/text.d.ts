@@ -883,6 +883,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   wordBreak(value: WordBreak): TextAttribute;
 
   /**
+   * Set the text line break strategy type.
+   *
+   * @param { BreakStrategy } value - The text line break strategy type.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  BreakStrategy(value: BreakStrategy): TextAttribute;
+
+  /**
    * Called when using the Clipboard menu
    *
    * @param { function } callback - callback of the listened event.
