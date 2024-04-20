@@ -141,6 +141,16 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @since 12
    */
   onError(callback: ImageErrorCallback): ImageSpanAttribute;
+
+  /**
+   * Placeholder displayed on load
+   *
+   * @param { DrawableDescriptor } value - DrawableDescriptor resource
+   * @returns { ImageSpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  alt(value: DrawableDescriptor): ImageSpanAttribute;
 }
 
 /**
