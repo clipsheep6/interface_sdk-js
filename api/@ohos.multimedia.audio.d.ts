@@ -18,7 +18,7 @@
  * @kit AudioKit
  */
 
-import { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
+import { ErrorCallback, AsyncCallback, Callback, BusinessError } from './@ohos.base';
 
 /**
  * @namespace audio
@@ -470,6 +470,12 @@ declare namespace audio {
      * @since 12
      */
     DISPLAY_PORT = 23,
+    /**
+     * A device type for rerouting audio to other remote devices by system application
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 12
+     */
+    REMOTE_CAST = 24,
     /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -4511,6 +4517,15 @@ declare namespace audio {
      * @since 12
      */
     SOURCE_TYPE_VOICE_MESSAGE = 10,
+
+    /**
+     * Remote cast source type.
+     * @permission ohos.permission.CAST_AUDIO_OUTPUT
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @throws { BusinessError } 201 - Permission denied.
+     * @since 12
+     */
+    SOURCE_TYPE_REMOTE_CAST = 11,
   }
 
   /**
