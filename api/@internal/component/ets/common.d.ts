@@ -13417,6 +13417,17 @@ declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
 declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 
 /**
+ * Define optional param type.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
+declare type Optional<T> = T | undefined;
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
