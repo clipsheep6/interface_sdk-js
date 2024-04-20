@@ -31,7 +31,7 @@
 */
 export declare class ParticleModifier extends ParticleAttribute implements AttributeModifier<ParticleAttribute> {
 
-    /**
+  /**
    * Defines the normal update attribute function.
    * 
    * @param { ParticleAttribute } instance
