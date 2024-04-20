@@ -1274,10 +1274,9 @@ declare interface DisturbanceFieldOptions {
   noiseFrequency?: number;
 
   /**
-   * The amplitude determines the fluctuation range of the noise value.
+   * NoiseAmplitude fluctuation range of noise,  value,
    *
    * @type { ?number }
-   * the greater the difference between noise, with a value greater or equal 0.
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
