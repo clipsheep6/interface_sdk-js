@@ -631,6 +631,26 @@ declare namespace photoAccessHelper {
       fileUri: string,
       dataHandler: MediaAssetDataHandler<boolean>
     ): Promise<string>;
+
+    /**
+     * load moving photo
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { string } imageFileUri - the photo image file uri requested
+     * @param { string } videoFileUri - the photo video file uri requested
+     * @returns { Promise<MovingPhoto> } Returns moving photo
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    static loadMovingPhoto(
+      context: Context,
+      imageFileUri: string,
+      videoFileUri: string
+    ): Promise<MovingPhoto>;
   }
 
   /**
