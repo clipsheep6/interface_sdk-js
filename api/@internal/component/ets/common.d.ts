@@ -8916,14 +8916,14 @@ declare enum DragResult {
 /**
  * Define visible area change callback
  * 
- * @typedef { function } VisibilityAreaChangeCallback
+ * @typedef { function } OnVisibleAreaChangeHandler
  * @param { boolean } isVisible 
  * @param { number } currentRatio 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
  */
-declare type VisibleAreaChangeCallback = (isVisible: boolean, currentRatio: number) => void
+declare type OnVisibleAreaChangeHandler = (isVisible: boolean, currentRatio: number) => void
 
 /**
  * Define onGesture judge begin callback
@@ -18692,14 +18692,14 @@ declare class CommonMethod<T> {
    * Trigger a visible area change event.
    *
    * @param { Array<number> } ratios
-   * @param { VisibleAreaChangeCallback } event
+   * @param { OnVisibleAreaChangeHandler } event
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T;
+  onVisibleAreaChange(ratios: Array<number>, event: OnVisibleAreaChangeHandler): T;
 
   /**
    * Set the spherical effect of the component.
