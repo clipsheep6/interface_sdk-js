@@ -292,6 +292,18 @@ interface TimePickerInterface {
 declare type DateTimeOptions = import('../api/@ohos.intl').default.DateTimeOptions
 
 /**
+ * Defines the callback type used in onChange.
+ * 
+ * @typedef { function } OnTimePickerChangeHandler
+ * @param { TimePickerResult } value
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type OnTimePickerChangeHandler = (value: TimePickerResult) => void;
+
+/**
  * Defines the TimePicker attribute functions.
  *
  * @extends CommonMethod<TimePickerAttribute>
@@ -343,7 +355,17 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  useMilitaryTime(value: boolean): TimePickerAttribute;
+  /**
+   * Time Selector: indicates whether to display the 24-hour clock.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  useMilitaryTime(value: Optional<boolean>): TimePickerAttribute;
 
   /**
    * Sets whether to enable the wheel mode.
@@ -355,14 +377,14 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    */
   /**
    * Sets whether to enable the wheel mode.
-   * @param { boolean } value - indicates whether to enable the wheel mode.
+   * @param { Optional<boolean> } value - indicates whether to enable the wheel mode.
    * @returns { TimePickerAttribute } the attribute of the time picker
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  loop(value: boolean): TimePickerAttribute;
+  loop(value: Optional<boolean>): TimePickerAttribute;
 
   /**
    * Sets the text style of disappearing items
@@ -383,7 +405,17 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  disappearTextStyle(value: PickerTextStyle): TimePickerAttribute;
+  /**
+   * Sets the text style of disappearing items
+   *
+   * @param { Optional<PickerTextStyle> } value - indicates the text style of disappearing items.
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  disappearTextStyle(value: Optional<PickerTextStyle>): TimePickerAttribute;
 
   /**
    * Sets the text style of normal items
@@ -404,7 +436,17 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  textStyle(value: PickerTextStyle): TimePickerAttribute;
+  /**
+   * Sets the text style of normal items
+   *
+   * @param { Optional<PickerTextStyle> } value - indicates the text style of normal items.
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  textStyle(value: Optional<PickerTextStyle>): TimePickerAttribute;
 
   /**
    * Sets the text style of selected items
@@ -425,18 +467,28 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
+  /**
+   * Sets the text style of selected items
+   *
+   * @param { Optional<PickerTextStyle> } value - indicates the text style of selected items.
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectedTextStyle(value: Optional<PickerTextStyle>): TimePickerAttribute;
 
   /**
    * Set time format
    *
-   * @param { DateTimeOptions } value - indicates the format of the time display.
+   * @param { Optional<DateTimeOptions> } value - indicates the format of the time display.
    * @returns { TimePickerAttribute } the attribute of the time picker
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
   */
-  dateTimeOptions(value: DateTimeOptions): TimePickerAttribute;
+  dateTimeOptions(value: Optional<DateTimeOptions>): TimePickerAttribute;
 
   /**
    * This event is triggered when a TimePicker time is selected.
@@ -465,7 +517,17 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  onChange(callback: (value: TimePickerResult) => void): TimePickerAttribute;
+  /**
+   * This event is triggered when a TimePicker time is selected.
+   *
+   * @param { Optional<OnTimePickerChangeHandler> } handler
+   * @returns { TimePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onChange(handler: Optional<OnTimePickerChangeHandler>): TimePickerAttribute;
 
   /**
    * Enable or disable haptic feedback.

@@ -343,6 +343,19 @@ declare interface DividerOptions {
 }
 
 /**
+ * Defines the callback type used in onChange.
+ * 
+ * @typedef { function } OnTextPickerChangeHandler
+ * @param { string | string[] } value
+ * @param { number | number[] } index
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type OnTextPickerChangeHandler = (value: string | string[], index: number | number[]) => void;
+
+/**
  * Style the text selector.
  *
  * @extends CommonMethod<TextPickerAttribute>
@@ -394,7 +407,17 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  defaultPickerItemHeight(value: number | string): TextPickerAttribute;
+  /**
+   * Called when the default height of the selected element is set.
+   *
+   * @param { Optional<number | string> } value
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  defaultPickerItemHeight(value: Optional<number | string>): TextPickerAttribute;
 
   /**
    * Can scroll loop if true is set, on the contrary it can not.
@@ -414,7 +437,17 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  canLoop(value: boolean): TextPickerAttribute;
+  /**
+   * Can scroll loop if true is set, on the contrary it can not.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  canLoop(value: Optional<boolean>): TextPickerAttribute;
 
   /**
    * Sets the text style of disappearing items
@@ -435,7 +468,17 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  disappearTextStyle(value: PickerTextStyle): TextPickerAttribute;
+  /**
+   * Sets the text style of disappearing items
+   *
+   * @param { Optional<PickerTextStyle> } value - indicates the text style of disappearing items.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  disappearTextStyle(value: Optional<PickerTextStyle>): TextPickerAttribute;
 
   /**
    * Sets the text style of normal items
@@ -456,7 +499,17 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  textStyle(value: PickerTextStyle): TextPickerAttribute;
+  /**
+   * Sets the text style of normal items
+   *
+   * @param { Optional<PickerTextStyle> } value - indicates the text style of normal items.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  textStyle(value: Optional<PickerTextStyle>): TextPickerAttribute;
 
   /**
    * Sets the text style of selected items
@@ -477,7 +530,17 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  selectedTextStyle(value: PickerTextStyle): TextPickerAttribute;
+  /**
+   * Sets the text style of selected items
+   *
+   * @param { Optional<PickerTextStyle> } value - indicates the text style of selected items.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectedTextStyle(value: Optional<PickerTextStyle>): TextPickerAttribute;
 
   /**
    * Called when the pop-up value is returned.
@@ -530,7 +593,18 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  onChange(callback: (value: string | string[], index: number | number[]) => void): TextPickerAttribute;
+  /**
+   * This event is triggered when a TextPicker item is selected.
+   * Only valid when only text is displayed. When picture or picture plus text is displayed, the value is "".
+   *
+   * @param { Optional<OnTextPickerChangeHandler> } handler - the callback of onChange.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onChange(handler: Optional<OnTextPickerChangeHandler>): TextPickerAttribute;
 
   /**
    * Set the selected indices.
@@ -553,29 +627,40 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  selectedIndex(value: number | number[]): TextPickerAttribute;
+  /**
+   * Set the selected indices.
+   * The array size is the total number of columns.
+   *
+   * @param { Optional<number | number[]> } value - the selected indices.
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectedIndex(value: Optional<number | number[]>): TextPickerAttribute;
 
   /**
    * Set the divider of TextPicker
    *
-   * @param { DividerOptions | null } value
+   * @param { Optional<DividerOptions | null> } value
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  divider(value: DividerOptions | null): TextPickerAttribute;
+  divider(value: Optional<DividerOptions | null>): TextPickerAttribute;
 
   /**
    * Called when set the height of gradient
    *
-   * @param { Dimension } value - The value the gradient height
+   * @param { Optional<Dimension> } value - The value the gradient height
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  gradientHeight(value: Dimension): TextPickerAttribute;
+  gradientHeight(value: Optional<Dimension>): TextPickerAttribute;
 }
 
 /**
