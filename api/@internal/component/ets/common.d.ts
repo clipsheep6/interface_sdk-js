@@ -8928,7 +8928,7 @@ declare type OnVisibleAreaChangeHandler = (isVisible: boolean, currentRatio: num
 /**
  * Define onGesture judge begin callback
  * 
- * @typedef { function } OnGestureJudgeBeginCallback
+ * @typedef { function } OnGestureJudgeBeginHandler
  * @param { GestureInfo } gestureInfo 
  * @param { BaseGestureEvent } event 
  * @returns { GestureJudgeResult }
@@ -8936,12 +8936,12 @@ declare type OnVisibleAreaChangeHandler = (isVisible: boolean, currentRatio: num
  * @atomicservice
  * @since 12
  */
-declare type OnGestureJudgeBeginCallback = (gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult
+declare type OnGestureJudgeBeginHandler = (gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult
 
 /**
  * Define onDragStart Callback
  * 
- * @typedef { function } OnDragStartCallback
+ * @typedef { function } OnDragStartHandler
  * @param { DragEvent } event 
  * @param { string } [extraParams] 
  * @returns { CustomBuilder | DragItemInfo }
@@ -8949,31 +8949,31 @@ declare type OnGestureJudgeBeginCallback = (gestureInfo: GestureInfo, event: Bas
  * @atomicservice
  * @since 12
  */
-declare type OnDragStartCallback = (event: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo
+declare type OnDragStartHandler = (event: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo
 
 /**
  * Define onDrag Callback
  * 
- * @typedef { function } OnDragCallback
+ * @typedef { function } OnDragHandler
  * @param { DragEvent } event 
  * @param { string } [extraParams] 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
  */
-declare type OnDragCallback = (event: DragEvent, extraParams?: string) => void
+declare type OnDragHandler = (event: DragEvent, extraParams?: string) => void
 
 /**
  * Define onDrop Callback
  * 
- * @typedef { function } OnDropCallback
+ * @typedef { function } OnDropHandler
  * @param { DragEvent } event 
  * @param { string } [extraParams] 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
  */
-declare type OnDropCallback = (event: DragEvent, extraParams?: string) => void
+declare type OnDropHandler = (event: DragEvent, extraParams?: string) => void
 
 /**
  * Enum for BlendMode.
@@ -17522,13 +17522,13 @@ declare class CommonMethod<T> {
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
    * (To be triggered, press and hold for 170 milliseconds (ms))
    *
-   * @param { OnDragStartCallback } event
+   * @param { OnDragStartHandler } event
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  onDragStart(event: OnDragStartCallback): T;
+  onDragStart(event: OnDragStartHandler): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
@@ -17550,13 +17550,13 @@ declare class CommonMethod<T> {
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
    *
-   * @param { OnDragCallback } event
+   * @param { OnDragHandler } event
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  onDragEnter(event: OnDragCallback): T;
+  onDragEnter(event: OnDragHandler): T;
 
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
@@ -17578,13 +17578,13 @@ declare class CommonMethod<T> {
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
    *
-   * @param { OnDragCallback } event
+   * @param { OnDragHandler } event
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  onDragMove(event: OnDragCallback): T;
+  onDragMove(event: OnDragHandler): T;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
@@ -17606,13 +17606,13 @@ declare class CommonMethod<T> {
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
    *
-   * @param { OnDragCallback } event
+   * @param { OnDragHandler } event
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  onDragLeave(event: OnDragCallback): T;
+  onDragLeave(event: OnDragHandler): T;
 
   /**
    * The component bound to this event can be used as the drag release target.
@@ -17637,13 +17637,13 @@ declare class CommonMethod<T> {
    * The component bound to this event can be used as the drag release target.
    * This callback is triggered when the drag behavior is stopped within the scope of the component.
    *
-   * @param { OnDropCallback } event
+   * @param { OnDropHandler } event
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  onDrop(event: OnDropCallback): T;
+  onDrop(event: OnDropHandler): T;
 
   /**
    * This function is called when the drag event is end.
@@ -17665,13 +17665,13 @@ declare class CommonMethod<T> {
   /**
    * This function is called when the drag event is end.
    *
-   * @param { OnDropCallback } event - indicates the function to be called.
+   * @param { OnDropHandler } event - indicates the function to be called.
    * @returns { T } property value of type T.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  onDragEnd(event: OnDropCallback): T;
+  onDragEnd(event: OnDropHandler): T;
 
   /**
    * Allowed drop uniformData type for this node.
@@ -19002,14 +19002,14 @@ declare class CommonMethod<T> {
   /**
    * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
    *
-   * @param { OnGestureJudgeBeginCallback } callback - A callback instance used when a gesture bound to this component will be accepted.
+   * @param { OnGestureJudgeBeginHandler } callback - A callback instance used when a gesture bound to this component will be accepted.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onGestureJudgeBegin(callback: OnGestureJudgeBeginCallback): T;
+  onGestureJudgeBegin(callback: OnGestureJudgeBeginHandler): T;
 
   /**
    * Events are monopolized by components.
