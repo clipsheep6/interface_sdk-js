@@ -518,6 +518,17 @@ declare interface NavigationMenuItem {
   icon?: string;
 
   /**
+   * The symbol of navigation menu item.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  symbolIcon?: SymbolGlyphModifier;
+
+  /**
    * Whether to enable this menu item.
    *
    * @type { ?boolean }
@@ -1649,6 +1660,17 @@ declare interface ToolbarItem {
   icon?: ResourceStr;
 
   /**
+   * The symbol of navigation toolbar item.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  symbolIcon?: SymbolGlyphModifier;
+
+  /**
    * Trigger by navigation toolbar item click.
    *
    * @type { ?function }
@@ -1704,6 +1726,17 @@ declare interface ToolbarItem {
    * @since 11
    */
   activeIcon?: ResourceStr;
+
+  /**
+   * The symbol of navigation toolbar item in active state.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  activeSymbolIcon?: SymbolGlyphModifier;
 }
 
 /**
@@ -1737,6 +1770,45 @@ declare interface NavigationTitleOptions {
    * @since 11
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Set title bar style.
+   *
+   * @type { ?BarStyle }
+   * @default BarStyle.STANDARD
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  barStyle?: BarStyle;
+}
+
+/**
+ * Declare BarStyle enum.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum BarStyle {
+  /**
+   * Standard style means that the bar and content area are column layouts.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  STANDARD = 0,
+
+  /**
+   * Stack style means that the bar and content area are stack layouts.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  STACK = 1,
 }
 
 /**
@@ -1953,7 +2025,17 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @atomicservice
    * @since 11
    */
-  backButtonIcon(value: string | PixelMap | Resource): NavigationAttribute;
+  /**
+   * Sets the back button icon.
+   *
+   * @param { string | PixelMap | Resource | SymbolGlyphModifier } value
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  backButtonIcon(value: string | PixelMap | Resource | SymbolGlyphModifier): NavigationAttribute;
 
   /**
    * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in split mode.
