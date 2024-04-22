@@ -515,7 +515,16 @@ declare interface NavigationMenuItem {
    * @atomicservice
    * @since 11
    */
-  icon?: string;
+  /**
+   * The icon of navigation menu item.
+   *
+   * @type { ?string | SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  icon?: string | SymbolGlyphModifier;
 
   /**
    * Whether to enable this menu item.
@@ -1646,7 +1655,16 @@ declare interface ToolbarItem {
    * @atomicservice
    * @since 11
    */
-  icon?: ResourceStr;
+  /**
+   * The icon of navigation toolbar item.
+   *
+   * @type { ?ResourceStr | SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  icon?: ResourceStr | SymbolGlyphModifier;
 
   /**
    * Trigger by navigation toolbar item click.
@@ -1703,7 +1721,16 @@ declare interface ToolbarItem {
    * @atomicservice
    * @since 11
    */
-  activeIcon?: ResourceStr;
+  /**
+   * The icon of navigation toolbar item in active state.
+   *
+   * @type { ?ResourceStr | SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  activeIcon?: ResourceStr | SymbolGlyphModifier;
 }
 
 /**
@@ -1953,7 +1980,17 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @atomicservice
    * @since 11
    */
-  backButtonIcon(value: string | PixelMap | Resource): NavigationAttribute;
+  /**
+   * Sets the back button icon.
+   *
+   * @param { string | PixelMap | Resource | SymbolGlyphModifier } value
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  backButtonIcon(value: string | PixelMap | Resource | SymbolGlyphModifier): NavigationAttribute;
 
   /**
    * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in split mode.
