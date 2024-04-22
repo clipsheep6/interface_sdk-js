@@ -1254,8 +1254,13 @@ declare interface DisturbanceFieldOptions {
   /**
    * Scaling parameter is used to control the overall size of noise, with a value greater or equal 0.
    *
+<<<<<<< HEAD
    * @type { ?number }
    * @default 1
+=======
+   * @default 1
+   * @type { ?number }
+>>>>>>> d54520e3181f6ff00751eab4f7706b0be6e8e6e9
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
@@ -1265,8 +1270,13 @@ declare interface DisturbanceFieldOptions {
    /**
    * Noise frequency with a value greater or equal 0.
    *
+<<<<<<< HEAD
    * @type { ?number }
    * @default 1
+=======
+   * @default 1
+   * @type { ?number }
+>>>>>>> d54520e3181f6ff00751eab4f7706b0be6e8e6e9
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
