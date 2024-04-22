@@ -283,6 +283,16 @@ declare namespace hiAppEvent {
      * @since 12
      */
     const ADDRESS_SANITIZER: string;
+
+    /**
+     * main thread jank event.
+     *
+     * @constant
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    const MAIN_THREAD_JANK: string;
   }
 
   /**
@@ -676,6 +686,16 @@ declare namespace hiAppEvent {
      * @since 11
      */
     data: string[];
+
+    /**
+     * The event json format data contained in the package.
+     *
+     * @type { Array<AppEventInfo> }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @atomicservice
+     * @since 12
+     */
+    appEventInfos: Array<AppEventInfo>;
   }
 
   /**
