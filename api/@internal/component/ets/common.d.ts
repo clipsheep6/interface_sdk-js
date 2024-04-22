@@ -20621,6 +20621,275 @@ declare abstract class TextContentControllerBase {
 }
 
 /**
+ * TextSelectionController
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface TextSelectionController {
+  /**
+   * Set selection to select a range of content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setSelection(): void;
+
+  /**
+   * Close the select menu when menu is on.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  closeSelectionMenu(): void;
+}
+
+/**
+ * TextEditController
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface TextEditController {
+  /**
+   * Judge whether is in editing state
+   * 
+   * @returns { boolean } - true is editing state, false is non editing status
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isEditing(): boolean;
+
+  /**
+   * Stop editing state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  stopEditing(): void;
+
+  /**
+   * Register content changed listener
+   * @param { TextChangedListener | StyledStringChangedListener } value - content changed listener.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onContentChanged(value: TextChangedListener | StyledStringChangedListener): void;
+
+  /**
+   * Set caret offset.
+   *
+   * @returns { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setCaretOffset(): boolean;
+
+  /**
+   * Get caret offset from controller.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getCaretOffset(): number;
+}
+
+/**
+ * StyledStringController
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface StyledStringController {
+  /**
+   * Set the component StyledString.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setStyledString(): void;
+
+  /**
+   * Get the component StyledString.
+   *
+   * @returns { StyledStringController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getStyledString(): StyledStringController;
+}
+
+/**
+ * TextChangedListener
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class TextChangedListener {
+  /**
+   * Called before text changed.
+   *
+   * @param { Callback<TextChangeValue, boolean> } callback - The triggered function before text content is about to change.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillChange(callback: Callback<TextChangeValue, boolean>): void;
+
+  /**
+   * Called after text changed.
+   *
+   * @param { Callback<void> } callback - The triggered function after text content is about to change.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidChange(callback: Callback<void>): void;
+
+  /**
+   * Called when about to input.
+   *
+   * @param { Callback<TextChangeValue, boolean> } callback - The triggered function when text content is about to insert.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillIMEInput(callback: Callback<TextChangeValue, boolean>): void;
+
+  /**
+   * Called when completed input.
+   *
+   * @param { Callback<void> } callback - The triggered function when text content has been inserted.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidIMEInput(callback: Callback<void>): void;
+
+  /**
+   * Called when about to delete.
+   *
+   * @param { Callback<TextChangeRange, boolean> } callback - The triggered function when text content is about to delete.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillIMEDelete(callback: Callback<TextChangeRange, boolean>): void;
+
+  /**
+   * Called when the deletion has been completed
+   *
+   * @param { Callback<void> } callback - The triggered function when text content has been deleted.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidIMEDelete(callback: Callback<void>): void;
+}
+
+declare class StyledStringChangedListener {
+  /**
+   * Called before text changed.
+   *
+   * @param { Callback<StyledStringChangeValue, boolean> } callback - The triggered function before text content is about to change.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillChange(callback: Callback<StyledStringChangeValue, boolean>): void;
+
+  /**
+   * Called after text changed.
+   *
+   * @param { Callback<void> } callback - The triggered function after text content is about to change.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidChange(callback: Callback<void>): void;
+}
+
+declare interface TextChangeValue {
+  /**
+   * Range of the content to be replaced.
+   *
+   * @type { TextChangeRange }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  range: TextChangeRange;
+
+  /**
+   * String to replace.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  replacementString: string;
+}
+
+declare interface StyledStringChangeValue {
+  /**
+   * Range of the content to be replaced.
+   *
+   * @type { TextChangeRange }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  range: TextChangeRange;
+
+  /**
+   * StyledString to replace.
+   *
+   * @type { StyledString }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  replacementString: StyledString;
+}
+
+declare interface TextChangeRange {
+  /**
+   * start offset.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  start: number;
+
+  /**
+   * end offset.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  end: number;
+}
+
+/**
  * CommonScrollableMethod
  *
  * @extends CommonMethod<T>
