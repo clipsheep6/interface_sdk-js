@@ -76,6 +76,18 @@ declare class RepeatAttribute<T> {
    * @form
    */
   key(keyGenerator: (item: T, index: number) => string): RepeatAttribute<T>;
+
+  /**
+   * data operate handler.
+   *
+   * @param { DataOperationHandler } handler
+   * @returns { RepeatAttribute<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  operateHandler(handler: DataOperationHandler): RepeatAttribute<T>;
 }
 
 /**
