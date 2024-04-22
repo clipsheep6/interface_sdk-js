@@ -6168,8 +6168,8 @@ declare namespace webview {
     /**
      * set Ads Block ruleset file, containing easylist rules.
      *
-     * @param { string } rulesFile: absolute easylist file path contains app customized ads block rules.
-     * @param { boolean } replace: {@code true} replace internal rules; {@code false} add to internal rules.
+     * @param { string } rulesFile absolute easylist file path contains app customized ads block rules.
+     * @param { boolean } replace {@code true} replace internal rules; {@code false} add to internal rules.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12

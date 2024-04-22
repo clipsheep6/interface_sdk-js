@@ -135,7 +135,7 @@ type NativeMediaPlayerConfig = {
 * @atomicservice
 * @since 12
 */
-type OnAdsBlockedCallback= (url: string, adsBlocked: Array<string>) => void;
+type OnAdsBlockedCallback = (url: string, adsBlocked: Array<string>) => void;
 
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
