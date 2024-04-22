@@ -479,7 +479,7 @@ declare namespace picker {
    */
   export enum DocumentPickerMode {
     /**
-     * Select the picker type for document mode.
+     * Document mode.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
@@ -488,7 +488,7 @@ declare namespace picker {
     DEFAULT = 0,
 
     /**
-     * Select the picker type for download mode.
+     * Download mode.
      *
      * @syscap SystemCapability.FileManagement.UserFileService
      * @atomicservice
@@ -562,7 +562,7 @@ declare namespace picker {
      */
     fileSuffixChoices?: Array<string>;
     /**
-     * select picker mode.
+     * picker mode.
      *
      * @type { ?DocumentPickerMode }
      * @syscap SystemCapability.FileManagement.UserFileService
