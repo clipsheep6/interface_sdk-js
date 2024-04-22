@@ -13202,6 +13202,13 @@ declare enum DragPreviewMode {
    * @since 12
    */
   DISABLE_SCALE = 2,
+  /**
+   * Disable the default gather effect for multiple selection.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  DISABLE_GATHER = 3,
 }
 
 /**
@@ -13239,12 +13246,12 @@ declare interface DragPreviewOptions {
  /**
   * Drag preview mode.
   *
-  * @type { ?DragPreviewMode }
+  * @type { ?(DragPreviewMode | Array<DragPreviewMode>) }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 12
   */
-  mode?: DragPreviewMode;
+  mode?: DragPreviewMode | Array<DragPreviewMode>;
 
   /**
   * Drag preview modifier.
