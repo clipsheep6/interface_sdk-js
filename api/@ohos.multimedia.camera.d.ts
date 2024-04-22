@@ -580,7 +580,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
-    createPreviewOutput(profile: Profile, surfaceId: string): PreviewOutput;
+    createPreviewOutput(profile?: Profile, surfaceId: string): PreviewOutput;
 
     /**
      * Creates a PhotoOutput instance.
@@ -619,7 +619,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
-    createPhotoOutput(profile: Profile): PhotoOutput;
+    createPhotoOutput(profile?: Profile): PhotoOutput;
 
     /**
      * Creates a VideoOutput instance.
@@ -642,7 +642,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
-    createVideoOutput(profile: VideoProfile, surfaceId: string): VideoOutput;
+    createVideoOutput(profile?: VideoProfile, surfaceId: string): VideoOutput;
 
     /**
      * Creates a MetadataOutput instance.
@@ -3175,6 +3175,53 @@ declare namespace camera {
   }
 
   /**
+   * Types of preconfig, which used to configure session conveniently.
+   * Preconfig type contains common use cases of camera output.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 12
+   */
+  enum PreconfigType {
+    /**
+     * 720P output for preconfig.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    PRECONFIG_720P = 0,
+  
+    /**
+     * 1080P output for preconfig.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    PRECONFIG_1080P = 1,
+  
+    /**
+     * 4K output for preconfig.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    PRECONFIG_4K = 2,
+  
+    /**
+     * high quality output for preconfig.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    PRECONFIG_HIGH_QUALITY = 3
+  }
+
+  /**
    * Photo session object for system hap.
    *
    * @interface PhotoSessionForSys
@@ -3193,6 +3240,31 @@ declare namespace camera {
    * @since 11
    */
   interface PhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorManagement {
+    /**
+     * Gets whether the choosed preconfig type can be used to configure photo session.
+     * Must choose preconfig type from {@link PreconfigType}.
+     *
+     * @param { PreconfigType } config - preconfig type.
+     * @returns { boolean } Whether the choosed preconfig type can be used.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    canPreconfig(config: PreconfigType): boolean;
+
+    /**
+     * The preconfig type to configure photo session.
+     * Must choose preconfig type from {@link PreconfigType}.
+     *
+     * @param { PreconfigType } config - preconfig type.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    preconfig(config: PreconfigType): void;
+
     /**
      * Subscribes to error events.
      *
@@ -3297,6 +3369,31 @@ declare namespace camera {
    * @since 11
    */
   interface VideoSession extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement {
+    /**
+     * Gets whether the choosed preconfig type can be used to configure photo session.
+     * Must choose preconfig type from {@link PreconfigType}.
+     *
+     * @param { PreconfigType } config - preconfig type.
+     * @returns { boolean } Whether the choosed preconfig type can be used.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    canPreconfig(config: PreconfigType): boolean;
+
+    /**
+     * The preconfig type to configure photo session.
+     * Must choose preconfig type from {@link PreconfigType}.
+     *
+     * @param { PreconfigType } config - preconfig type.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    preconfig(config: PreconfigType): void;
+
     /**
      * Subscribes to error events.
      *
@@ -4083,6 +4180,17 @@ declare namespace camera {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
+     * Gets the current preconfig type if you had already call preconfig interface.
+     *
+     * @returns { Profile } The current preconfig type {@link PreconfigType}.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getActiveProfile(): Profile;
+
+    /**
      * Adds a deferred surface.
      *
      * @param { string } surfaceId - Surface object id used in camera photo output.
@@ -4723,6 +4831,17 @@ declare namespace camera {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
+     * Gets the current preconfig type if you had already call preconfig interface.
+     *
+     * @returns { Profile } The current preconfig type {@link PreconfigType}.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getActiveProfile(): Profile;
+
+    /**
      * Checks whether PhotoOutput supports quick thumbnail.
      * This method is valid after Session.addInput() and Session.addOutput(photoOutput) are called.
      *
@@ -4984,6 +5103,17 @@ declare namespace camera {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Gets the current preconfig type if you had already call preconfig interface.
+     *
+     * @returns { VideoProfile } The current preconfig type {@link PreconfigType}.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    getActiveProfile(): VideoProfile;
   }
 
   /**
