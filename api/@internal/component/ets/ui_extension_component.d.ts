@@ -227,6 +227,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
+   * @deprecated since 12
    */
   onResult(
     callback: import('../api/@ohos.base').Callback<{
@@ -243,6 +244,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
+   * @deprecated since 12
    */
   onRelease(
     callback: import('../api/@ohos.base').Callback<number>
