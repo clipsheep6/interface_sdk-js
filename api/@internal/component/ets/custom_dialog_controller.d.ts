@@ -222,6 +222,8 @@ declare interface CustomDialogControllerOptions {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead customDialogController/CustomDialogControllerOptions#width
    */
   gridCount?: number;
 
