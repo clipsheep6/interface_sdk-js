@@ -295,7 +295,18 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @since 11
    * @form
    */
-  color(value: ResourceColor): LoadingProgressAttribute;
+  /**
+   * Load the color of the progress bar.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { LoadingProgressAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  color(value: Optional<ResourceColor>): LoadingProgressAttribute;
 
   /**
    * Whether to display the LoadingProgress content.
@@ -316,18 +327,28 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @atomicservice
    * @since 11
    */
-  enableLoading(value: boolean): LoadingProgressAttribute;
+  /**
+   * Whether to display the LoadingProgress content.
+   * 
+   * @param { Optional<boolean> } value - indicates the state of LoadingProgress content
+   * @returns { LoadingProgressAttribute } the attribute of the LoadingProgress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enableLoading(value: Optional<boolean>): LoadingProgressAttribute;
 
   /**
    * Set the content modifier of loadingProgress.
    *
-   * @param { ContentModifier<LoadingProgressConfiguration> } modifier - The contentModifier of LoadingProgress.
+   * @param { Optional<ContentModifier<LoadingProgressConfiguration>> } modifier - The contentModifier of LoadingProgress.
    * @returns { LoadingProgressAttribute} the attribute of the loading progress
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  contentModifier(modifier: ContentModifier<LoadingProgressConfiguration>): LoadingProgressAttribute;
+  contentModifier(modifier: Optional<ContentModifier<LoadingProgressConfiguration>>): LoadingProgressAttribute;
 }
 
 /**

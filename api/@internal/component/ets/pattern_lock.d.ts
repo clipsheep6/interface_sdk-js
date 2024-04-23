@@ -165,7 +165,16 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @crossplatform
    * @since 10
    */
-  sideLength(value: Length): PatternLockAttribute;
+  /**
+   * The square side length of pattern lock component.
+   *
+   * @param { Optional<Length> } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  sideLength(value: Optional<Length>): PatternLockAttribute;
 
   /**
    * Circle radius.
@@ -184,7 +193,16 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @crossplatform
    * @since 10
    */
-  circleRadius(value: Length): PatternLockAttribute;
+  /**
+   * Circle radius.
+   *
+   * @param { Optional<Length> } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  circleRadius(value: Optional<Length>): PatternLockAttribute;
 
   /**
    * The background color.
@@ -203,7 +221,16 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @crossplatform
    * @since 10
    */
-  backgroundColor(value: ResourceColor): PatternLockAttribute;
+  /**
+   * The background color.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  backgroundColor(value: Optional<ResourceColor>): PatternLockAttribute;
 
   /**
    * Regular color.
@@ -222,7 +249,16 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @crossplatform
    * @since 10
    */
-  regularColor(value: ResourceColor): PatternLockAttribute;
+  /**
+   * Regular color.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  regularColor(value: Optional<ResourceColor>): PatternLockAttribute;
 
   /**
    * The color when cell is selected.
@@ -241,7 +277,16 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @crossplatform
    * @since 10
    */
-  selectedColor(value: ResourceColor): PatternLockAttribute;
+  /**
+   * The color when cell is selected.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  selectedColor(value: Optional<ResourceColor>): PatternLockAttribute;
 
   /**
    * The color when cell is active state.
@@ -260,7 +305,16 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @crossplatform
    * @since 10
    */
-  activeColor(value: ResourceColor): PatternLockAttribute;
+  /**
+   * The color when cell is active state.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  activeColor(value: Optional<ResourceColor>): PatternLockAttribute;
 
   /**
    * The path line color.
@@ -279,7 +333,16 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @crossplatform
    * @since 10
    */
-  pathColor(value: ResourceColor): PatternLockAttribute;
+  /**
+   * The path line color.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  pathColor(value: Optional<ResourceColor>): PatternLockAttribute;
 
   /**
    * The path line stroke width.
@@ -298,7 +361,16 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @crossplatform
    * @since 10
    */
-  pathStrokeWidth(value: number | string): PatternLockAttribute;
+  /**
+   * The path line stroke width.
+   *
+   * @param { Optional<number | string> } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  pathStrokeWidth(value: Optional<number | string>): PatternLockAttribute;
 
   /**
    * Called when the pattern input completed.
@@ -317,7 +389,16 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @crossplatform
    * @since 10
    */
-  onPatternComplete(callback: (input: Array<number>) => void): PatternLockAttribute;
+  /**
+   * Called when the pattern input completed.
+   *
+   * @param { Optional<Callback<Array<number>>> } callback
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onPatternComplete(handler: Optional<Callback<Array<number>>>): PatternLockAttribute;
 
   /**
    * Called when judging whether the input state can be reset by touch pattern lock.
@@ -336,7 +417,16 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @crossplatform
    * @since 10
    */
-  autoReset(value: boolean): PatternLockAttribute;
+  /**
+   * Called when judging whether the input state can be reset by touch pattern lock.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  autoReset(value: Optional<boolean>): PatternLockAttribute;
 
   /**
    * Called when connecting to a grid dot.
@@ -346,7 +436,15 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @crossplatform
    * @since 11
    */
-  onDotConnect(callback: import('../api/@ohos.base').Callback<number>): PatternLockAttribute;
+  /**
+   * Called when connecting to a grid dot.
+   * @param { Optional<Callback<number>> } callback - A callback instance used when connection to a grid dot.
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDotConnect(handler: Optional<Callback<number>>): PatternLockAttribute;
 }
 
 /**
