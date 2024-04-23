@@ -191,7 +191,7 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
  * @crossplatform
  * @since 12
  */
-declare const ComponentV2: ClassDecorator
+declare const ComponentV2: ClassDecorator;
 
 /**
  * Defines the options of Entry ClassDecorator.
