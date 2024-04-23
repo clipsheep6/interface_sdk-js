@@ -9719,14 +9719,21 @@ declare interface SheetDismiss {
   dismiss: () => void;
 }
 
+/**
+ * Component sheet dismiss
+ *
+ * @interface DismissSheetAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
 declare interface DismissSheetAction {
   /**
    * Defines sheet dismiss function
    *
-   * @type { Callback<void>  }
+   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
    */
   dismiss: Callback<void>;
@@ -9742,14 +9749,21 @@ declare interface DismissSheetAction {
   reason: DismissReason;
 }
 
+/**
+ * Defines sheet spring back action 
+ *
+ * @interface SpringBackAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
 declare interface SpringBackAction {
   /**
-   * Defines spring back action
+   * Defines spring back function
    *
-   * @type { Callback<void>  }
+   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
    */
   springBack: Callback<void>;
