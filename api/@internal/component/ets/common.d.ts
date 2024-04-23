@@ -20263,6 +20263,54 @@ declare class CustomComponent extends CommonAttribute {
   onBackPress?(): void | boolean;
 
   /**
+   * onBuildDone Method
+   *
+   * Triggered when the custom component has been built and its layout has been measured.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onBuildDone?(): void;
+
+  /**
+   * onShow Method
+   *
+   * Triggered once when the page is displayed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onShow?(): void
+
+  /**
+   * onHide Method
+   *
+   * Triggered once when the page is hidden.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onHide?(): void
+
+  /**
+   * onBackPressed Method
+   *
+   * Triggered when the user clicks the back button.
+   *
+   * @returns { void | boolean} true means that the custom component itself processes the return logic.
+   * false or no value is returned means that the return logic of its parent will be used.
+   * If it does not have a parent, use the default logic of the page.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onBackPressed?(): void | boolean;
+
+  /**
    * PageTransition Method.
    * Implement Animation when enter this page or move to other pages.
    *
