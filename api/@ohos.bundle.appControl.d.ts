@@ -93,7 +93,7 @@ declare namespace appControl {
      */
     NON_BLOCK = 3,
     /**
-     * All abilities of the specified application will be blocked, and the check result is returned.
+     * All abilities of the specified application will be blocked, and check the returned result.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
