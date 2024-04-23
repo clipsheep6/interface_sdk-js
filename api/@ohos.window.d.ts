@@ -1272,6 +1272,18 @@ declare namespace window {
      * @since 9
      */
     id: number;
+
+    /**
+     * Whether the window can layout in immersive mode when maximize.
+     * The value true means the window can layout in immersive mode, and false means the opposite.
+     * The default value is true.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @since 12
+     */
+    isImmersiveModeEnabled: boolean;
   }
 
   /**
@@ -5740,6 +5752,20 @@ declare namespace window {
      * @since 12
      */
     setWindowGrayScale(grayScale: number): Promise<void>;
+
+    /**
+     * Set the property of the window can layout in immersive mode when maximize.
+     *
+     * @param { boolean } enabled - The value true means the window can layout in immersive mode, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @crossplatform
+     * @since 12
+     */
+    setImmersiveModeEnabled(enabled: boolean): void;
   }
 
   /**
