@@ -228,7 +228,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @systemapi
    * @since 10
    * @deprecated since 12
-   * @useinstead UIExtensionComponentAttribute#onTerminated
+   * @useinstead onTerminated
    */
   onResult(
     callback: import('../api/@ohos.base').Callback<{
@@ -246,7 +246,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @systemapi
    * @since 10
    * @deprecated since 12
-   * @useinstead UIExtensionComponentAttribute#onTerminated
+   * @useinstead onError
    */
   onRelease(
     callback: import('../api/@ohos.base').Callback<number>
