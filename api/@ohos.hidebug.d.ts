@@ -383,6 +383,14 @@ declare namespace hidebug {
      * @since 12
      */
     vmHeapLimit: bigint;
+    /**
+     * The limit of the total js vm heap size of process, in kilobyte
+     *
+     * @type { bigint }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 12
+     */
+    vmTotalHeapSize: bigint;
   }
 
   /**
@@ -759,7 +767,7 @@ declare namespace hidebug {
   /**
    * Set the resource limitation of application.Please note that this function is only valid
    * when the developer options switch of setting is turned on.
-   * 
+   *
    * @param { string } type - resource type. It could be pss_memory、js_heap、fd、or thread.
    * @param { number } value - For different resource type, values could have different meaning:
    *                           1.For pss_memory, it means the baseline PSS memory size for the application,
@@ -780,5 +788,42 @@ declare namespace hidebug {
    * @since 12
    */
   function setAppResourceLimit(type: string, value: number, enableDebugLog: boolean): void;
+
+  /**
+   * Collection statistics.
+   *
+   * @typedef { Record<string, number> }
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  type GcStats = Record<string, number>;
+
+  /**
+   * Get the garbage collection statistics.
+   *
+   * @returns { GcStats } Returns garbage collection statistics.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getVMRuntimeStats(): GcStats;
+
+  /**
+   * Get the garbage collection statistics by statistical item.
+   *
+   * @param { string } item - statistical item.
+   * @returns { number } Returns garbage collection statistics.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 12
+   */
+  function getVMRuntimeStat(item: string): number;
+
+  /**
+   * A Map type containing tag-value pairs that describe the attributes of an Asset.
+   *
+   * @typedef { Map<Tag, Value> }
+   * @syscap SystemCapability.Security.Asset
+   * @since 12
+   */
+  type AssetMap = Map<Tag, Value>;
 }
 export default hidebug;
