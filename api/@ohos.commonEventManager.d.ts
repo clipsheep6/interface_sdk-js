@@ -36,9 +36,17 @@ import { CommonEventPublishData as _CommonEventPublishData } from './commonEvent
  *
  * @namespace commonEventManager
  * @syscap SystemCapability.Notification.CommonEvent
- * @crossplatform
  * @atomicservice
  * @since 11
+ */
+/**
+ * Common event definition
+ *
+ * @namespace commonEventManager
+ * @syscap SystemCapability.Notification.CommonEvent
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  */
 declare namespace commonEventManager {
   /**
