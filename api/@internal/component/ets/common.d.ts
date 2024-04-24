@@ -9962,13 +9962,63 @@ declare interface SheetDismiss {
   /**
    * Defines sheet dismiss function
    *
-   * @type { function  }
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
   dismiss: () => void;
+}
+
+/**
+ * Component sheet dismiss
+ *
+ * @interface DismissSheetAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DismissSheetAction {
+  /**
+   * Defines sheet dismiss function
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dismiss: Callback<void>;
+
+  /**
+   * Dismiss reason type.
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reason: DismissReason;
+}
+
+/**
+ * Defines sheet spring back action 
+ *
+ * @interface SpringBackAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface SpringBackAction {
+  /**
+   * Defines spring back function
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  springBack: Callback<void>;
 }
 
 /**
@@ -10167,6 +10217,26 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   shouldDismiss?: (sheetDismiss: SheetDismiss) => void;
+
+  /**
+   * Callback function when the sheet will dismiss
+   *
+   * @type { ?Callback<DismissSheetAction> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDismiss?: Callback<DismissSheetAction>;
+
+   /**
+   * Sheet springs back callback when dismiss
+   *
+   * @type { ?Callback<SpringBackAction> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillSpringBackWhenDismiss?: Callback<SpringBackAction>;
 
   /**
    * Set whether interaction is allowed outside the sheet
@@ -10630,7 +10700,16 @@ declare enum DismissReason {
   * @crossplatform
   * @since 12
   */
-  CLOSE_BUTTON = 2
+  CLOSE_BUTTON = 2,
+
+  /**
+  * Slide down
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  SLIDE_DOWN = 3
 }
 
 /**
