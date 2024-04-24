@@ -246,7 +246,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @systemapi
    * @since 10
    * @deprecated since 12
-   * @useinstead UIExtensionComponentAttribute#onError
+   * @useinstead UIExtensionComponentAttribute#onTerminated or UIExtensionComponentAttribute#onError
    */
   onRelease(
     callback: import('../api/@ohos.base').Callback<number>
@@ -267,13 +267,13 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   /**
    * Called when the provider of the embedded UI is terminated.
    *
-   * @param { import('../api/@ohos.base').Callback<TerminationInfo> } callback
+   * @param { Callback<TerminationInfo> } callback
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12
    */
-  onTerminated(callback: import('../api/@ohos.base').Callback<TerminationInfo>): UIExtensionComponentAttribute;
+  onTerminated(callback: Callback<TerminationInfo>): UIExtensionComponentAttribute;
 }
 
 /**
