@@ -886,6 +886,43 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
  */
  declare const AnimatableExtend: MethodDecorator & ((value: Object) => MethodDecorator);
 
+declare const Monitor: (value: string, ...args: string[]) => MethodDecorator;
+
+declare interface IMonitor<T> {
+  /**
+   * Get array of changed paths
+   *
+   * @returns { string[] }
+   */
+  dirty(): string[];
+
+  /**
+   * Get value before the most recent change
+   * 
+   * @param { ?string } key : If the key is not specified, the first changed value is returned.
+   *                          If the key is specified, the old value of the key is returned.
+   * @returns { T | undefined } old value if key in monitor, otherwise undefined
+   */
+  before<T>(path?: string): T | undefined;
+
+  /**
+   * Get current value
+   * 
+   * @param { ?string } key : Same ae the oldVal's key
+   * @returns { T | undefined } new value if key in monitor, otherwise undefined
+   */
+  after<T>(path?: string): T | undefined;
+
+  /**
+   * Multi-attribute monitoring is used to determine whether an attribute is modified.
+   * 
+   * @param { string } key : Same as the oldVal's key
+   * @returns { boolean } True : modified; False : not modified
+   */
+  isDirty(path: string): boolean;
+}
+
+
 /**
  * Define Monitor MethodDecorator
  *
