@@ -432,7 +432,7 @@ declare namespace text {
   }
 
   /**
-   * Describes text-shadow .
+   * Describes text-shadow.
    * @typedef TextShadow
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
