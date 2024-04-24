@@ -1715,7 +1715,7 @@ declare interface ToolbarItem {
  * @atomicservice
  * @since 11
  */
-declare interface NavigationTitleOptions {
+export interface NavigationTitleOptions {
   /**
    * Background color.
    *
