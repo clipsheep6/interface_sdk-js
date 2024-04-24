@@ -9969,7 +9969,6 @@ declare interface SheetOptions extends BindOptions {
   /**
    * Callback function when the sheet will dismiss
    *
-   *
    * @type { ?Callback<DismissSheetAction> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -9978,7 +9977,7 @@ declare interface SheetOptions extends BindOptions {
   onWillDismiss?: Callback<DismissSheetAction>;
 
    /**
-   * Callback function when the sheet springs back when dismiss
+   * Sheet springs back callback when dismiss
    *
    * @type { ?Callback<SpringBackAction> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
