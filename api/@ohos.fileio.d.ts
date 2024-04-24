@@ -465,7 +465,7 @@ declare function fstat(fd: number): Promise<Stat>;
  * fstat.
  *
  * @param { number } fd - fd.
- * @param { AsyncCallback<Stat> } callback
+ * @param { AsyncCallback<Stat> } callback ok
  * @throws { TypedError } fstat fail
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 7
