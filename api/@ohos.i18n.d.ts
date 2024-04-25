@@ -129,7 +129,7 @@ declare namespace i18n {
      * @param { string } locale - The locale used to display the country or region.
      * @param { boolean } [sentenceCase] - Specifies whether the country or region name is displayed in sentence case.
      * @returns { string } the country or region name localized for display on a given locale.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @since 9
@@ -141,7 +141,7 @@ declare namespace i18n {
      * @param { string } locale - The locale used to display the country or region.
      * @param { boolean } [sentenceCase] - Specifies whether the country or region name is displayed in sentence case.
      * @returns { string } the country or region name localized for display on a given locale.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
@@ -156,7 +156,7 @@ declare namespace i18n {
      * @param { string } locale - The locale used to display the language.
      * @param { boolean } [sentenceCase] - Specifies whether the language name is displayed in sentence case.
      * @returns { string } the language name localized for display on a given locale.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @since 9
@@ -168,7 +168,7 @@ declare namespace i18n {
      * @param { string } locale - The locale used to display the language.
      * @param { boolean } [sentenceCase] - Specifies whether the language name is displayed in sentence case.
      * @returns { string } the language name localized for display on a given locale.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
@@ -181,7 +181,7 @@ declare namespace i18n {
      * @param { string } locale - The locale used to display the language.
      * @param { boolean } [sentenceCase] - Specifies whether the language name is displayed in sentence case.
      * @returns { string } the language name localized for display on a given locale.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
@@ -204,7 +204,7 @@ declare namespace i18n {
      *
      * @param { string } language - The language used to get the list of regions.
      * @returns { Array<string> } all countries or regions supported by the system in the language.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @since 9
@@ -217,7 +217,7 @@ declare namespace i18n {
      * @param { string } language - The language code.
      * @param { string } [region] - The region code.
      * @returns { boolean } whether the current language or region is recommended.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @since 9
@@ -257,7 +257,7 @@ declare namespace i18n {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { string } language - The language to be used.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
@@ -288,7 +288,7 @@ declare namespace i18n {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { string } region - The region to be used.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
@@ -328,7 +328,7 @@ declare namespace i18n {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { string } locale - The locale to be used.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
@@ -368,7 +368,7 @@ declare namespace i18n {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { boolean } option - represent the boolean to be set.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
@@ -383,7 +383,7 @@ declare namespace i18n {
      * @param { string } language - the language to be added.
      * @param { number } [index] - the position of preferred language list to be inserted.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
@@ -397,7 +397,7 @@ declare namespace i18n {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { number } index - the position of removed language in preferred language list.
      * @throws { BusinessError } 201 - the application does not have permission to call this function
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
@@ -427,7 +427,7 @@ declare namespace i18n {
      * Set the preferred language of App.
      *
      * @param { string } language - the language to be set.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @since 11
@@ -449,7 +449,7 @@ declare namespace i18n {
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { boolean } flag - a boolean variable represents whether to use local digit
      * @throws { BusinessError } 201 - the application does not have permission to call this function
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
@@ -549,8 +549,8 @@ declare namespace i18n {
      * @param { number } hour - the hour value.
      * @param { string } [locale] - specified the locale. Use current app locale by default.
      * @returns { string } the string of time period name. The return value may be empty string
-     * @throws {BusinessError} 401 - check param failed.
-     * @throws {BusinessError} 890001 - param value not valid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -563,8 +563,8 @@ declare namespace i18n {
      * @param { string[] } localeList - a list of locales to be matched.
      * @returns { string } the string of the best matched locale name. 
      * The return value may be empty string due to none is matched.
-     * @throws {BusinessError} 401 - check param failed.
-     * @throws {BusinessError} 890001 - param value not valid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 890001 - param value not valid.
      * @static
      * @syscap SystemCapability.Global.I18n
      * @since 12
@@ -576,8 +576,8 @@ declare namespace i18n {
      *
      * @param { string } locale - the origin locale or language code.
      * @returns { string } 3 letter language code. 
-     * @throws {BusinessError} 401 - check param failed.
-     * @throws {BusinessError} 890001 - param value not valid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 890001 - param value not valid.
      * @static
      * @syscap SystemCapability.Global.I18n
      * @since 12
@@ -589,8 +589,8 @@ declare namespace i18n {
      *
      * @param { string } locale - the origin locale or region code.
      * @returns { string } 3 letter region code. 
-     * @throws {BusinessError} 401 - check param failed.
-     * @throws {BusinessError} 890001 - param value not valid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 890001 - param value not valid.
      * @static
      * @syscap SystemCapability.Global.I18n
      * @since 12
@@ -1009,8 +1009,8 @@ declare namespace i18n {
      * @param { string } field - field values such as year, month, week_of_year, week_of_month, date, day_of_year, day_of_week
      *  day_of_week_in_month, hour, hour_of_day, minute, second, millisecond
      * @param { number } amount - the amount of date or time to be added to the field.
-     * @throws {BusinessError} 401 - check param failed.
-     * @throws {BusinessError} 890001 - param value not valid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 11
@@ -1033,7 +1033,7 @@ declare namespace i18n {
      * @param { Date } date - Date object to be compared.
      * @returns { number }  value of of the comparison result. A positive value indicates that the date is later, 
      * and a negative value indicates that the date is earlier.
-     * @throws {BusinessError} 401 - check param failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 11
@@ -1741,8 +1741,8 @@ declare namespace i18n {
      * @param { number } longitude value
      * @param { number } latitude value
      * @returns { Array<TimeZone> } Returns a TimeZone array from the specified longitude and latitude.
-     * @throws {BusinessError} 401 - check param failed
-     * @throws {BusinessError} 890001 - param value not valid
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -1838,7 +1838,7 @@ declare namespace i18n {
      *
      * @param { NormalizerMode } mode - specified the mode of Normalizer.
      * @returns { Normalizer } Transliterator that is specified by id name.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -1849,7 +1849,7 @@ declare namespace i18n {
      *
      * @param { string } text - text to normalized.
      * @returns { string } a normalized string from source.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
@@ -2071,7 +2071,7 @@ declare namespace i18n {
      * @param { Array<string> } languages - The languages whose name will be sorted and displayed.
      * @param { SortOptions } options - Sort options for locale item.
      * @returns { Array<LocaleItem> } Locale Informations sorted for specified options.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
@@ -2085,7 +2085,7 @@ declare namespace i18n {
      * @param { Array<string>  } regions - The regions whose name will be sorted and displayed.
      * @param { SortOptions } options - Sort options for locale item.
      * @returns { Array<LocaleItem> } Locale Informations sorted for specified options.
-     * @throws { BusinessError } 401 - check param failed
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @throws { BusinessError } 890001 - param value not valid
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
@@ -2196,8 +2196,8 @@ declare namespace i18n {
      * A constructor used to create a HolidayManager object.
      *
      * @param { String } icsPath - the path of the iCalendar format file to create HolidayManager object.
-     * @throws {BusinessError} 401 - check param failed.
-     * @throws {BusinessError} 890001 - param value not valid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -2209,7 +2209,7 @@ declare namespace i18n {
      *
      * @param { Date } [date] - Date object whose attribute is desired.
      * @returns { boolean } whether the date is a holiday day.
-     * @throws {BusinessError} 401 - check param failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -2221,8 +2221,8 @@ declare namespace i18n {
      * @param { number } [year] - specified holiday year. If the year is not given,
      *  the current year is used.
      * @returns { Array<HolidayInfoItem> } holiday information array for one year.
-     * @throws {BusinessError} 401 - check param failed.
-     * @throws {BusinessError} 890001 - param value not valid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -2276,8 +2276,8 @@ declare namespace i18n {
      * A constructor used to create a EntityRecognizer object.
      *
      * @param { string } [locale] - specified the locale. Use current app locale by default.
-     * @throws {BusinessError} 401 - check param failed.
-     * @throws {BusinessError} 890001 - param value not valid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 890001 - param value not valid.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
@@ -2288,7 +2288,7 @@ declare namespace i18n {
      *
      * @param { string } text - the text to find entities.
      * @returns { Array<EntityInfoItem> } entity information array found.
-     * @throws {BusinessError} 401 - check param failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Global.I18n
      * @since 11
      */
