@@ -889,7 +889,7 @@ declare namespace appManager {
    * @systemapi
    * @since 12
    */
-  export type AbilityFirstFrameStateData = _AbilityStateData.default;
+  export type AbilityFirstFrameStateData = _AbilityFirstFrameStateData.default;
 }
 
 export default appManager;
