@@ -885,7 +885,7 @@ declare namespace appManager {
   /**
    * The class of an ability first frame state data.
    *
-   * @typedef AbilityFirstFrameStateData
+   * @typedef { _AbilityFirstFrameStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 12
