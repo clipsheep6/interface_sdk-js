@@ -1323,6 +1323,26 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 12
    */
   fontFeature(value: string): SearchAttribute;
+
+  /**
+   * Get text value information when about to input.
+   *
+   * @param { function } callback - Indicates the password rules. 
+   * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onWillIMEInput(callback: (value: string) => boolean): SearchAttribute;
+
+  /**
+   * Get text value information when about to delete.
+   *
+   * @param { function } callback - Indicates the password rules. 
+   * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onDidIMEInput(callback: (value: string) => boolean): SearchAttribute;
 }
 
 /**

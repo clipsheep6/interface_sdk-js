@@ -1308,6 +1308,26 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 12
    */
   fontFeature(value: string): TextAreaAttribute;
+
+  /**
+   * Get text value information when about to input.
+   *
+   * @param { function } callback - Indicates the password rules. 
+   * @returns { TextAreaAttribute } Returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onWillIMEInput(callback: (value: string) => boolean): TextAreaAttribute;
+
+  /**
+   * Get text value information when about to delete.
+   *
+   * @param { function } callback - Indicates the password rules. 
+   * @returns { TextAreaAttribute } Returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  onDidIMEInput(callback: (value: string) => boolean): TextAreaAttribute;
 }
 
 /**
