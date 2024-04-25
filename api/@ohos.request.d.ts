@@ -33,8 +33,14 @@ import BaseContext from './application/BaseContext';
  * upload and download
  *
  * @namespace request
- * @crossplatform
  * @since 10
+ */
+/**
+ * upload and download
+ *
+ * @namespace request
+ * @atomicservice
+ * @since 11
  */
 /**
  * upload and download
@@ -42,7 +48,7 @@ import BaseContext from './application/BaseContext';
  * @namespace request
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 12
  */
 declare namespace request {
   /**
