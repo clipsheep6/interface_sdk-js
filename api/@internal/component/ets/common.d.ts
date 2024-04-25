@@ -13117,6 +13117,16 @@ declare interface AttributeModifier<T> {
    * @since 12
    */
   applySelectedAttribute?(instance: T) : void;
+
+  /**
+   * Defines the sensitive update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  applySensitiveAttribute?(instance: T) : void;
 }
 
 /**
