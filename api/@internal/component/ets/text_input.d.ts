@@ -2329,7 +2329,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @crossplatform
    * @since 12
    */
-  fontFeature(value: string): TextInputAttribute;  
+  fontFeature(value: string): TextInputAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } enable - Default value is true, set false to disable haptic feedback.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  enableHapticFeedback(enable: boolean): TextInputAttribute;
 }
 
 /**

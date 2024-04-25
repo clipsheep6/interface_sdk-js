@@ -3324,6 +3324,16 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
     * @since 12
     */
   onCopy(callback: Callback<CopyEvent>): RichEditorAttribute;
+
+  /**
+   * Enable or disable haptic feedback.
+   *
+   * @param { boolean } enable - Default value is true, set false to disable haptic feedback.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  enableHapticFeedback(enable: boolean): RichEditorAttribute;
 }
 
 /**
