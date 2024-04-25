@@ -415,22 +415,13 @@ declare namespace image {
    */
   enum ResolutionQuality {
     /**
-     * Highest quality images, longer decoding time.
+     * Low quality images, short decoding time.
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @since 12
      */
-    SUPER = 0,
-
-    /**
-     * High quality images, shorter decoding time than SUPER, longer than MEDIUM.
-     * 
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @systemapi
-     * @since 12
-     */
-    HIGH = 1,
+    LOW = 1,
 
     /**
      * Medium quality images, moderate decoding time.
@@ -442,13 +433,13 @@ declare namespace image {
     MEDIUM = 2,
 
     /**
-     * Low quality images, short decoding time.
+     * High quality images, longer decoding time.
      * 
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @since 12
      */
-    LOW = 3
+    HIGH = 3
   }
 
   /**
