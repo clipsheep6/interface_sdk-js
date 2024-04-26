@@ -388,6 +388,37 @@ declare namespace display {
   function setFoldStatusLocked(locked: boolean): void;
 
   /**
+   * set fold status locked and get callback fold status.
+   *
+   * @permission ohos.permission.CHANGE_DISPLAYMODE
+   * @param { FoldDisplayMode } displayMode - display mode.
+   * @param { Callback<FoldStatus> } callback - Callback used to return the fold status.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function setFoldStatusLocked(displayMode: FoldDisplayMode, callback: Callback<FoldStatus>): void;
+
+  /**
+   * set fold status unlocked.
+   *
+   * @permission ohos.permission.CHANGE_DISPLAYMODE
+   * @param { FoldDisplayMode } displayMode - display mode.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function setFoldStatusUnlocked(displayMode: FoldDisplayMode): void;
+
+  /**
    * Enumerates the fold status.
    *
    * @enum { number }
