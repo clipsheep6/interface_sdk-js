@@ -70,7 +70,7 @@ export { LengthUnit, SizeT, LengthMetrics, ColorMetrics } from './arkui/Graphics
  * @crossplatform
  * @since 11
  */
-export { RenderNode } from './arkui/RenderNode';
+export { RenderNode, LengthMetricsUnit } from './arkui/RenderNode';
 
 /**
  * Export XComponentNode, which extends FrameNode.
