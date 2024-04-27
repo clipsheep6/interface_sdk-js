@@ -29,13 +29,13 @@ declare class StyledString {
     /**
      * constructor.
      *
-     * @param { string | ImageAttachment } value - indicates the current object value of the StyledString.
+     * @param { string | ImageAttachment | CustomSpan } value - indicates the current object value of the StyledString.
      * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    constructor(value: string | ImageAttachment, styles?: Array<StyleOptions>);
+    constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
 
     /**
      * Get the length of the StyledString's characters.
@@ -574,12 +574,12 @@ declare interface GestureStyleInterface {
 /**
  * Defines the Span Type.
  *
- * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment } StyledStringValue
+ * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | CustomSpan } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment;
+declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | CustomSpan;
 
 /**
  * MutableStyledString
@@ -791,6 +791,15 @@ declare enum StyledStringKey {
      * @since 12
      */
     IMAGE = 300,
+
+    /**
+     * The key of CustomSpan.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    CUSTOM_SPAN = 400,
 }
 
 /**
@@ -966,4 +975,139 @@ declare interface ImageAttachmentLayoutStyle {
      * @since 12
      */
     borderRadius?: LengthMetrics | BorderRadiuses;
+}
+
+/**
+ * Defines the CustomSpanMetrics interface.
+ *
+ * @interface CustomSpanMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface CustomSpanMetrics {
+    /**
+     * CustomSpan Width.
+     * The unit is vp.
+     *
+     * @type { number }
+     * @default 0
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    width: number;
+
+    /**
+     * CustomSpan Height.
+     * The unit is vp.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    height?: number;
+}
+
+/**
+ * Defines the CustomSpanOptions interface.
+ *
+ * @interface CustomSpanOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface CustomSpanOptions {
+    /**
+     * The unit is px.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    x: number;
+
+    /**
+     * The unit is px.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    lineTop: number;
+
+    /**
+     * The unit is px.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    lineBottom: number;
+
+    /**
+     * The unit is px.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    baseline: number;
+}
+
+/**
+ * Defines the CustomSpanMeasureInfo interface.
+ *
+ * @interface CustomSpanMeasureInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface CustomSpanMeasureInfo {
+    /**
+     * Current component's fontSize value.
+     * The unit is fp.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    fontSize: number;
+}
+
+/**
+ * Defines CustomSpan.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare abstract class CustomSpan {
+    /**
+     * Measure the size of custom span.
+     *
+     * @param { CustomSpanMeasureInfo } measureInfo
+     * @returns { CustomSpanMetrics } - CustomSpan Size
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    abstract onMeasure(measureInfo: CustomSpanMeasureInfo) : CustomSpanMetrics;
+
+    /**
+     * Draw the custom span.
+     *
+     * @param { DrawContext } context
+     * @param { CustomSpanOptions } options
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    abstract onDraw(context: DrawContext,  options: CustomSpanOptions): void;
 }
