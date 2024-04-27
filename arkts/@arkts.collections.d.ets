@@ -118,7 +118,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly length: number;
+    public readonly length: number;
     /**
      * Creates an ArkTS Array with arrayLength elements initialized to initialValue.
      *
@@ -573,7 +573,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly size: number;
+    public readonly size: number;
     /**
      * A constructor used to create a Map.
      *
@@ -736,7 +736,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly size: number;
+    public readonly size: number;
     /**
      * A constructor used to create a Set.
      *
@@ -880,7 +880,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly byteLength: number;
+    public readonly byteLength: number;
     /**
      * A constructor used to create a ArrayBuffer.
      *
@@ -935,7 +935,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static readonly BYTES_PER_ELEMENT: number;
+    public static readonly BYTES_PER_ELEMENT: number;
     /**
      * The ArrayBuffer instance referenced by the array.
      *
@@ -946,7 +946,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly buffer: ArrayBuffer;
+    public readonly buffer: ArrayBuffer;
     /**
      * The length in bytes of the array.
      *
@@ -957,7 +957,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly byteLength: number;
+    public readonly byteLength: number;
     /**
      * The offset in bytes of the array.
      *
@@ -968,7 +968,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly byteOffset: number;
+    public readonly byteOffset: number;
     /**
      * The length of the array.
      *
@@ -979,7 +979,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly length: number;
+    public readonly length: number;
     /**
      * A constructor used to create an Int8Array.
      *
@@ -1501,7 +1501,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static readonly BYTES_PER_ELEMENT: number;
+    public static readonly BYTES_PER_ELEMENT: number;
     /**
      * The ArrayBuffer instance referenced by the array.
      *
@@ -1512,7 +1512,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly buffer: ArrayBuffer;
+    public readonly buffer: ArrayBuffer;
     /**
      * The length in bytes of the array.
      *
@@ -1523,7 +1523,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly byteLength: number;
+    public readonly byteLength: number;
     /**
      * The offset in bytes of the array.
      *
@@ -1534,7 +1534,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly byteOffset: number;
+    public readonly byteOffset: number;
     /**
      * The length of the array.
      *
@@ -1545,7 +1545,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly length: number;
+    public readonly length: number;
     /**
      * A constructor used to create an Uint8Array.
      *
@@ -2066,7 +2066,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static readonly BYTES_PER_ELEMENT: number;
+    public static readonly BYTES_PER_ELEMENT: number;
     /**
      * The ArrayBuffer instance referenced by the array.
      *
@@ -2077,7 +2077,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly buffer: ArrayBuffer;
+    public readonly buffer: ArrayBuffer;
     /**
      * The length in bytes of the array.
      *
@@ -2088,7 +2088,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly byteLength: number;
+    public readonly byteLength: number;
     /**
      * The offset in bytes of the array.
      *
@@ -2099,7 +2099,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly byteOffset: number;
+    public readonly byteOffset: number;
     /**
      * The length of the array.
      *
@@ -2110,7 +2110,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly length: number;
+    public readonly length: number;
     /**
      * A constructor used to create an Int16Array.
      *
@@ -2631,7 +2631,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static readonly BYTES_PER_ELEMENT: number;
+    public static readonly BYTES_PER_ELEMENT: number;
     /**
      * The ArrayBuffer instance referenced by the array.
      *
@@ -2642,7 +2642,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly buffer: ArrayBuffer;
+    public readonly buffer: ArrayBuffer;
     /**
      * The length in bytes of the array.
      *
@@ -2653,7 +2653,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly byteLength: number;
+    public readonly byteLength: number;
     /**
      * The offset in bytes of the array.
      *
@@ -2664,7 +2664,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly byteOffset: number;
+    public readonly byteOffset: number;
     /**
      * The length of the array.
      *
@@ -2675,7 +2675,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly length: number;
+    public readonly length: number;
     /**
      * A constructor used to create an Uint16Array.
      *
@@ -3195,7 +3195,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static readonly BYTES_PER_ELEMENT: number;
+    public static readonly BYTES_PER_ELEMENT: number;
     /**
      * The ArrayBuffer instance referenced by the array.
      *
@@ -3206,7 +3206,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly buffer: ArrayBuffer;
+    public readonly buffer: ArrayBuffer;
     /**
      * The length in bytes of the array.
      *
@@ -3217,7 +3217,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly byteLength: number;
+    public readonly byteLength: number;
     /**
      * The offset in bytes of the array.
      *
@@ -3228,7 +3228,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly byteOffset: number;
+    public readonly byteOffset: number;
     /**
      * The length of the array.
      *
@@ -3239,7 +3239,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly length: number;
+    public readonly length: number;
     /**
      * A constructor used to create an Int32Array.
      *
@@ -3760,7 +3760,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    static readonly BYTES_PER_ELEMENT: number;
+    public static readonly BYTES_PER_ELEMENT: number;
     /**
      * The ArrayBuffer instance referenced by the array.
      *
@@ -3771,7 +3771,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly buffer: ArrayBuffer;
+    public readonly buffer: ArrayBuffer;
     /**
      * The length in bytes of the array.
      *
@@ -3782,7 +3782,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly byteLength: number;
+    public readonly byteLength: number;
     /**
      * The offset in bytes of the array.
      *
@@ -3793,7 +3793,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly byteOffset: number;
+    public readonly byteOffset: number;
     /**
      * The length of the array.
      *
@@ -3804,7 +3804,7 @@ declare namespace collections {
      * @atomicservice
      * @since 12
      */
-    readonly length: number;
+    public readonly length: number;
     /**
      * A constructor used to create an Uint32Array.
      *
