@@ -3254,7 +3254,7 @@ declare namespace camera {
     canPreconfig(config: PreconfigType): boolean;
 
     /**
-     * The preconfig type to configure photo session.
+     * Configure photo session with the preconfig type.
      * Must choose preconfig type from {@link PreconfigType}.
      *
      * @param { PreconfigType } config - preconfig type.
