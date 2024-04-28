@@ -1602,7 +1602,7 @@ declare namespace connection {
      * @atomicservice
      * @since 12
      */
-    NET_CAPABILITY_PORTAL = 17
+    NET_CAPABILITY_CAPITVE_PORTAL = 17,
   }
 
   /**
