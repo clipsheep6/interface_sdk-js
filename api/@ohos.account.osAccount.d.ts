@@ -566,7 +566,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<void> } callback - Indicates the callback for removing the specified OS account.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -585,7 +585,7 @@ declare namespace osAccount {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -611,7 +611,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<void> } callback - Indicates the callback for setting the specified OS account constraints.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid localId or constraints.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -642,7 +642,7 @@ declare namespace osAccount {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid localId or constraints.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -662,7 +662,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<void> } callback - Indicates the callback for setting the specified OS account name.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid localId or localName.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -682,7 +682,7 @@ declare namespace osAccount {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid localId or localName.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -733,7 +733,7 @@ declare namespace osAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @param { AsyncCallback<number> } callback - Returns the number of created OS accounts.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
@@ -779,7 +779,7 @@ declare namespace osAccount {
      * Gets the local ID of the current OS account.
      *
      * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the current OS account.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
@@ -790,7 +790,6 @@ declare namespace osAccount {
      * Get the local ID of the current OS account.
      *
      * @returns { Promise<number> } Returns the local ID of the current account.
-     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
@@ -826,7 +825,7 @@ declare namespace osAccount {
      *
      * @param { number } uid - Indicates the process UID.
      * @param { AsyncCallback<number> } callback - Indicates the callback for getting the local ID of the OS account associated with the specified UID.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
@@ -839,7 +838,7 @@ declare namespace osAccount {
      *
      * @param { number } uid - Indicates the process UID.
      * @returns { Promise<number> } - Returns the local ID of the OS account associated with the specified UID.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
@@ -852,7 +851,7 @@ declare namespace osAccount {
      *
      * @param { number } uid - Indicates the process UID.
      * @returns { number } Returns the local ID of the OS account associated with the specified UID.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @since 10
@@ -893,7 +892,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<number> } callback - Indicates the callback for
      *   getting the local ID of the OS account associated with the specified domain account.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
@@ -908,7 +907,7 @@ declare namespace osAccount {
      * @param { DomainAccountInfo } domainInfo - Indicates the domain account info.
      * @returns { Promise<number> } Returns the local ID of the OS account associated with the specified domain account.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
@@ -921,7 +920,7 @@ declare namespace osAccount {
      *
      * @param { AsyncCallback<number> } callback - Returns the maximum number of OS accounts that can be created.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -934,7 +933,6 @@ declare namespace osAccount {
      *
      * @returns { Promise<number> } Returns the maximum number of OS accounts that can be created.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -987,7 +985,7 @@ declare namespace osAccount {
      * @param { number } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<Array<string>> } callback - Returns a list of constraints.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1004,7 +1002,7 @@ declare namespace osAccount {
      * @param { number } localId - Indicates the local ID of the OS account.
      * @returns { Promise<Array<string>> } Returns a list of constraints.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1022,7 +1020,7 @@ declare namespace osAccount {
      * @returns { Promise<Array<string>> } Returns a list of constraints.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
@@ -1038,7 +1036,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<Array<OsAccountInfo>> } callback - Returns a list of OS accounts.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -1053,7 +1051,6 @@ declare namespace osAccount {
      * @returns { Promise<Array<OsAccountInfo>> } Returns a list of OS accounts.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -1087,7 +1084,7 @@ declare namespace osAccount {
      * Gets the local IDs of all activated OS accounts.
      *
      * @param { AsyncCallback<Array<number>> } callback - Indicates the callback for getting the local IDs of all activated OS accounts.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
@@ -1098,7 +1095,6 @@ declare namespace osAccount {
      * Gets the local IDs of all activated OS accounts.
      *
      * @returns { Promise<Array<number>> } Returns all activated accounts.
-     * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
@@ -1147,7 +1143,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<OsAccountInfo> } callback - Returns information about the created OS account; returns {@code null} if the creation fails.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - parameter error. Possible cause: 1.Mandatory parameter are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid localName or type.
      * @throws { BusinessError } 12300004 - Local name already exists.
