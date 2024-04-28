@@ -19,16 +19,6 @@
  */
 
 /**
- * Defines the Optional type.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-declare type Optional<T> = T | undefined;
-
-/**
  * Defines the options of Component ClassDecorator.
  *
  * @interface ComponentOptions
