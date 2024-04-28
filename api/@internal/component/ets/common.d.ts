@@ -17471,7 +17471,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<boolean> } isShow - true means display content, false means hide content.
    * @param { CustomBuilder } builder - the content to be displayed.
-   * @param { ModalTransition } type - transition type.
+   * @param { ModalTransition } [type] - transition type.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -17508,7 +17508,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<boolean> } isShow - true means display content, false means hide content.
    * @param { CustomBuilder } builder - the content to be displayed.
-   * @param { ContentCoverOptions } options - options of content cover.
+   * @param { ContentCoverOptions } [options] - options of content cover.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -17545,7 +17545,7 @@ declare class CommonMethod<T> {
    *
    * @param { Optional<boolean> } isShow - true means display sheet, false means hide sheet.
    * @param { CustomBuilder } builder - the sheet to be displayed.
-   * @param { SheetOptions } options - options of sheet.
+   * @param { SheetOptions } [options] - options of sheet.
    * @returns { T } - template type
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
