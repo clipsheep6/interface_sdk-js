@@ -5753,7 +5753,7 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
-    setImmersiveModeEnabled(enabled: boolean): void;
+    setImmersiveModeEnabledState(enabled: boolean): void;
 
     /**
      * Get whether the immersive mode is enabled or not.
@@ -5766,7 +5766,7 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
-    isImmersiveModeEnabled(): boolean;
+    getImmersiveModeEnabledState(): boolean;
   }
 
   /**
