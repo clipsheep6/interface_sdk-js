@@ -395,16 +395,7 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 12
      */
-    DRIVING_LICENSE = 9,
-
-    /**
-     * FEATURED_SINGLE_PORTRAIT indicates that featured single portrait photos can be recommended
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 12
-     */
-    FEATURED_SINGLE_PORTRAIT = 10
+    DRIVING_LICENSE = 9
   }
 
   /**
