@@ -686,7 +686,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
    * Called when the timer value is returned.
    *
-   * @param { Optional<onTimerEvent> } event
+   * @param { Optional<onTimerHandler> } event
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -694,7 +694,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @since 12
    * @form
    */
-  onTimer(event: Optional<onTimerEvent>): TextTimerAttribute;
+  onTimer(event: Optional<onTimerHandler>): TextTimerAttribute;
 
   /**
    * Called when the text shadow is set.
@@ -732,14 +732,14 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
 /**
  * Event of TextTimer, using in onTimer.
  * 
- * @typedef { function } onTimerEvent
+ * @typedef { function } onTimerHandler
  * @param { number } utc - UTC coordinated universal time.
  * @param { number } elapsedTime - The time elapsed by TextTimer.
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare type onTimerEvent = (utc: number, elapsedTime: number) => void;
+declare type onTimerHandler = (utc: number, elapsedTime: number) => void;
 
 /**
  * Defines TextTimer Component.
