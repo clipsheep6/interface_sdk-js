@@ -149,6 +149,16 @@ declare interface TextDecorationOptions {
    * @since 12
    */
   color?: ResourceColor;
+
+  /**
+   * The style value of decoration.
+   *
+   * @type { ?TextDecorationStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  style?: TextDecorationStyle;
 }
 
 /**
@@ -191,7 +201,7 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
  * @crossplatform
  * @since 12
  */
-declare const ComponentV2: ClassDecorator
+declare const ComponentV2: ClassDecorator;
 
 /**
  * Defines the options of Entry ClassDecorator.
@@ -664,6 +674,14 @@ declare interface ProvideOptions {
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
+ * Defining Provider PropertyDecorator.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const Provider: (aliasName?: string) => PropertyDecorator;
+
+/**
  * Defining Consume PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -694,6 +712,23 @@ declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => 
  * @form
  */
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
+
+/**
+* Defining Consumer PropertyDecorator.
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @since 12
+*/
+declare const Consumer: (aliasName?: string) => PropertyDecorator;
+
+/**
+* Defining Computed MethodDecorator.
+*
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @since 12
+*/
+declare const Computed: MethodDecorator;
 
 /**
  * Defining StorageProp PropertyDecorator.
@@ -6317,6 +6352,16 @@ declare interface PickerDialogButtonStyle {
    * @since 12
    */
   borderRadius?: Length | BorderRadiuses;
+
+  /**
+   * Define whether the button default to responding to the Enter key
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  primary?: boolean;
 }
 
 /**
@@ -13357,6 +13402,16 @@ declare enum MenuPolicy {
 declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
 
 /**
+ * SymbolGlyphModifier
+ *
+ * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier;
+
+/**
  * Defines the preview options.
  *
  * @interface DragPreviewOptions
@@ -13570,6 +13625,18 @@ declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
 declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 
 /**
+ * Defines the type that can be undefined.
+ *
+ * @typedef { T | undefined } Optional<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare type Optional<T> = T | undefined;
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13707,6 +13774,18 @@ declare class CommonMethod<T> {
    * @since 12
    */
   drawModifier(modifier: DrawModifier | undefined): T;
+
+  /**
+   * Sets the custom property of the current component.
+   *
+   * @param { string } name - the name of the custom property.
+   * @param { Optional<Object> } value - the value of the custom property.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  customProperty(name: string, value: Optional<Object>): T;
 
   /**
    * Expands the safe area.
