@@ -182,6 +182,7 @@ dci
 ddmp
 de
 deactivated
+deactivates
 deactivation
 decodes
 decomposed
@@ -514,6 +515,7 @@ mmicode
 mnc
 moderately
 moitor
+moov
 mplink
 mschap
 msdos
@@ -707,6 +709,7 @@ renderbuffertarget
 renegotiation
 repayment
 repeates
+replacer
 reposition
 resizeable
 resmgr
@@ -776,6 +779,7 @@ shuts
 sigalgs
 silenced
 singly
+skews
 slidable
 sliderstyle
 statvfs
@@ -805,6 +809,7 @@ spn
 spooler
 spp
 spreadsheetml
+springs
 spry
 spy
 srgb
@@ -969,6 +974,7 @@ useriam
 userspace
 usim
 ussd
+utd
 utilized
 utimes
 uuids
