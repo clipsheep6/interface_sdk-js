@@ -152,7 +152,7 @@ declare namespace utils {
        * @param { AsyncLockMode } mode - mode of the lock operation.
        * @param { AsyncLockOptions<U> } options - lock operation options.
        * @returns { Promise<T | U> } Promise that will be resolved after the callback gets executed or rejected in case
-       * timeout exceeded.
+       *     timeout exceeded.
        * @throws { BusinessError } 401 - The input parameters are invalid.
        * @throws { BusinessError } 10200030 - No such lock.
        * @throws { BusinessError } 10200031 - Timeout exceeded.
@@ -661,7 +661,7 @@ declare namespace utils {
      *
      * @param { ISendable | null | undefined } value - The value to stringify.
      * @returns { string } The JSON string representation of the value.
-     * @throws { BusinessError } 401 - Parameter error. Invalid JSONValue.
+     * @throws { BusinessError } 401 - Parameter error. Invalid ArkTS value.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

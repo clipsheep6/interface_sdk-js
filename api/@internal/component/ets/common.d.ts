@@ -149,6 +149,16 @@ declare interface TextDecorationOptions {
    * @since 12
    */
   color?: ResourceColor;
+
+  /**
+   * The style value of decoration.
+   *
+   * @type { ?TextDecorationStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  style?: TextDecorationStyle;
 }
 
 /**
@@ -191,7 +201,7 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
  * @crossplatform
  * @since 12
  */
-declare const ComponentV2: ClassDecorator
+declare const ComponentV2: ClassDecorator;
 
 /**
  * Defines the options of Entry ClassDecorator.
@@ -664,6 +674,14 @@ declare interface ProvideOptions {
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
+ * Defining Provider PropertyDecorator.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare const Provider: (aliasName?: string) => PropertyDecorator;
+
+/**
  * Defining Consume PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -694,6 +712,23 @@ declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => 
  * @form
  */
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
+
+/**
+* Defining Consumer PropertyDecorator.
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @since 12
+*/
+declare const Consumer: (aliasName?: string) => PropertyDecorator;
+
+/**
+* Defining Computed MethodDecorator.
+*
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @since 12
+*/
+declare const Computed: MethodDecorator;
 
 /**
  * Defining StorageProp PropertyDecorator.
@@ -4544,8 +4579,7 @@ declare function animateTo(value: AnimateParam, event: () => void): void;
  * @param { function } event - Specify the closure function that displays dynamic effects,
  * and the system will automatically insert transition animations for state changes caused by the closure function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 11
+ * @since 12
  */
 declare function animateToImmediately(value: AnimateParam, event: () => void): void;
 
@@ -5960,8 +5994,7 @@ declare interface BlurStyleOptions {
    * @type { ?number }
    * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   scale?: number;
 
@@ -6319,6 +6352,16 @@ declare interface PickerDialogButtonStyle {
    * @since 12
    */
   borderRadius?: Length | BorderRadiuses;
+
+  /**
+   * Define whether the button default to responding to the Enter key
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  primary?: boolean;
 }
 
 /**
@@ -9974,6 +10017,59 @@ declare interface SheetDismiss {
 }
 
 /**
+ * Component sheet dismiss
+ *
+ * @interface DismissSheetAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DismissSheetAction {
+
+  /**
+   * Defines sheet dismiss function
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  dismiss: Callback<void>;
+
+  /**
+   * Dismiss reason type.
+   *
+   * @type { DismissReason }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reason: DismissReason;
+}
+
+/**
+ * Defines sheet spring back action 
+ *
+ * @interface SpringBackAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface SpringBackAction {
+  /**
+   * Defines spring back function
+   *
+   * @type { Callback<void> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  springBack: Callback<void>;
+}
+
+/**
  * Component sheet options
  *
  * @interface SheetOptions
@@ -10171,6 +10267,28 @@ declare interface SheetOptions extends BindOptions {
   shouldDismiss?: (sheetDismiss: SheetDismiss) => void;
 
   /**
+   * Callback function when the sheet will dismiss
+   *
+   * @type { ?Callback<DismissSheetAction> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillDismiss?: Callback<DismissSheetAction>;
+
+   /**
+   * Sheet springs back callback when dismiss
+   *
+   * @type { ?Callback<SpringBackAction> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillSpringBackWhenDismiss?: Callback<SpringBackAction>;
+
+  /**
    * Set whether interaction is allowed outside the sheet
    *
    * @type { ?boolean }
@@ -10292,6 +10410,16 @@ declare interface SheetOptions extends BindOptions {
    * @since 12
    */
   onTypeDidChange?: Callback<SheetType>;
+
+  /**
+   * The UIContext that the sheet belongs to
+   *
+   * @type { ?UIContext }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  uiContext?: UIContext;
 }
 
 /**
@@ -10622,7 +10750,16 @@ declare enum DismissReason {
   * @crossplatform
   * @since 12
   */
-  CLOSE_BUTTON = 2
+  CLOSE_BUTTON = 2,
+
+  /**
+  * Slide down
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  SLIDE_DOWN = 3
 }
 
 /**
@@ -12045,6 +12182,16 @@ declare interface ContextMenuOptions {
   preview?: MenuPreviewMode | CustomBuilder;
 
   /**
+   * Defines the border radius of menu.
+   *
+   * @type { ?(Length | BorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  borderRadius?: Length | BorderRadiuses;
+
+  /**
    * Callback function when the context menu appears.
    *
    * @type { ?function }
@@ -13192,6 +13339,57 @@ declare enum DragPreviewMode {
    * @since 12
    */
   DISABLE_SCALE = 2,
+  /**
+   * Enable the default shadow effect of preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ENABLE_DEFAULT_SHADOW = 3,
+  /**
+   * Enable the default radius effect of preview.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  ENABLE_DEFAULT_RADIUS = 4,
+}
+
+/**
+ * Define the menu pop-up policy
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum MenuPolicy {
+  /**
+   * Default value. The default logic of whether to pop up a menu depends on the scene.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DEFAULT = 0,
+
+  /**
+   * Hide pop up menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  HIDE = 1,
+
+  /**
+   * Show pop up menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SHOW = 2,
 }
 
 /**
@@ -13202,6 +13400,16 @@ declare enum DragPreviewMode {
  * @since 12
  */
 declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
+
+/**
+ * SymbolGlyphModifier
+ *
+ * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier;
 
 /**
  * Defines the preview options.
@@ -13229,12 +13437,12 @@ declare interface DragPreviewOptions {
  /**
   * Drag preview mode.
   *
-  * @type { ?DragPreviewMode }
+  * @type { ?(DragPreviewMode | Array<DragPreviewMode>) }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
   * @since 12
   */
-  mode?: DragPreviewMode;
+  mode?: DragPreviewMode | Array<DragPreviewMode>;
 
   /**
   * Drag preview modifier.
@@ -13417,6 +13625,18 @@ declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
 declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 
 /**
+ * Defines the type that can be undefined.
+ *
+ * @typedef { T | undefined } Optional<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare type Optional<T> = T | undefined;
+
+/**
  * CommonMethod.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13554,6 +13774,18 @@ declare class CommonMethod<T> {
    * @since 12
    */
   drawModifier(modifier: DrawModifier | undefined): T;
+
+  /**
+   * Sets the custom property of the current component.
+   *
+   * @param { string } name - the name of the custom property.
+   * @param { Optional<Object> } value - the value of the custom property.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  customProperty(name: string, value: Optional<Object>): T;
 
   /**
    * Expands the safe area.
@@ -13993,7 +14225,7 @@ declare class CommonMethod<T> {
   /**
    * PixelRound
    *
-   * @param { PixelRoundPolicy } value
+   * @param { PixelRoundPolicy } value - indicates the pixel round policy.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -15330,8 +15562,7 @@ declare class CommonMethod<T> {
    * @param { LinearGradientBlurOptions } options - the linear gradient blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   linearGradientBlur(value: number, options: LinearGradientBlurOptions): T;
 
@@ -15671,8 +15902,7 @@ declare class CommonMethod<T> {
    *
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   systemBarEffect(): T;
 
@@ -15755,8 +15985,7 @@ declare class CommonMethod<T> {
    * @param { boolean } value - true means the component should apply the effects template.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   useEffect(value: boolean): T;
 
@@ -15844,7 +16073,6 @@ declare class CommonMethod<T> {
    * @param { boolean } value - true means the component should remain stationary.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @since 12
    */
   freeze(value: boolean): T;
@@ -17643,8 +17871,7 @@ declare class CommonMethod<T> {
    * @param { string } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 8
+   * @since 12
    * @test
    */
   key(value: string): T;
@@ -18052,9 +18279,8 @@ declare class CommonMethod<T> {
    * If the value is 0, the component keep same, else the value is 1, component are fully spherical.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @crossplatform
-   * @since 10
+   * @since 12
    */
   sphericalEffect(value: number): T;
 
@@ -18065,9 +18291,8 @@ declare class CommonMethod<T> {
    * The color brightness in the component rendering content area is greater than the value and can be displayed, otherwise it will not be displayed.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @crossplatform
-   * @since 10
+   * @since 12
    */
   lightUpEffect(value: number): T;
 
@@ -18077,9 +18302,8 @@ declare class CommonMethod<T> {
    * @param { PixelStretchEffectOptions } options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
    * @crossplatform
-   * @since 10
+   * @since 12
    */
   pixelStretchEffect(options: PixelStretchEffectOptions): T;
 
@@ -18317,8 +18541,7 @@ declare class CommonMethod<T> {
    * @param { BackgroundBrightnessOptions } params - params indicates BackgroundBrightnessOptions
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   backgroundBrightness(params: BackgroundBrightnessOptions): T;
 
@@ -18599,8 +18822,7 @@ declare type CustomBuilder = (() => any) | void;
  * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 10
+ * @since 12
  */
 declare type FractionStop = [ number, number ];
 
@@ -19302,8 +19524,7 @@ declare interface PixelRoundPolicy {
  *
  * @interface LinearGradientBlurOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 10
+ * @since 12
  */
 declare interface LinearGradientBlurOptions {
   /**
@@ -19311,8 +19532,7 @@ declare interface LinearGradientBlurOptions {
    *
    * @type { FractionStop[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   fractionStops: FractionStop[];
   /**
@@ -19320,8 +19540,7 @@ declare interface LinearGradientBlurOptions {
    *
    * @type { GradientDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
+   * @since 12
    */
   direction: GradientDirection;
 }
@@ -19804,6 +20023,16 @@ declare interface MeasureResult extends SizeResult {
  * @since 11
  */
 declare type NavDestinationInfo = import('../api/@ohos.arkui.observer').default.NavDestinationInfo;
+
+/**
+ * The router page information.
+ *
+ * @typedef {import('../api/@ohos.arkui.observer').default.RouterPageInfo} RouterPageInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+ declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.RouterPageInfo;
 
 /**
  * The navigation information.
@@ -20321,6 +20550,27 @@ declare class CustomComponent extends CommonAttribute {
    * @since 12
    */
   queryNavigationInfo(): NavigationInfo | undefined;
+
+  /**
+   * Query the router page information of the current custom component.
+   *
+   * @returns { RouterPageInfo | undefined } The router page information, or undefined if it is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+   queryRouterPageInfo(): RouterPageInfo | undefined;
+
+  /**
+   * The callback method after the custom component is built.
+   *
+   * Triggered when the custom component has been built.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+   onDidBuild?(): void;
 }
 
 /**
@@ -20943,8 +21193,7 @@ declare class ChildrenMainSize {
  *
  * @interface BackgroundBrightnessOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 11
+ * @since 12
  */
 declare interface BackgroundBrightnessOptions {
 
@@ -20954,8 +21203,7 @@ declare interface BackgroundBrightnessOptions {
    *
    * @type { number } -The default value is 0.0, value range: (0.0, +∞).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   rate: number;
 
@@ -20966,8 +21214,7 @@ declare interface BackgroundBrightnessOptions {
    *
    * @type { number }  -The default value is 0.0, value range: [-1.0, 1.0].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
+   * @since 12
    */
   lightUpDegree: number;
 }
@@ -21517,6 +21764,26 @@ declare interface GestureModifier {
    * @since 12
    */
   applyGesture(event: UIGestureEvent): void;
+}
+
+/**
+ * Defines the selection options.
+ *
+ * @interface SelectionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface SelectionOptions {
+  /**
+   * Menu pop-up policy.
+   *
+   * @type { ?MenuPolicy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  menuPolicy?: MenuPolicy;
 }
 
 declare module 'commonEvent' {
