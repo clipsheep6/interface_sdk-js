@@ -89,7 +89,7 @@ declare namespace fileUri {
    *
    * @param { string } path the path of file in app sandbox
    * @returns { string } Return the file uri
-   * @throws { BusinessError } 401 - The input parameter is invalid
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.AppFileService
    * @since 9
    */

@@ -37,7 +37,7 @@ declare namespace cloudSyncManager {
    * @returns { Promise<void> } - Return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10
@@ -53,7 +53,7 @@ declare namespace cloudSyncManager {
    * @param { AsyncCallback<void> } [callback] - Callback function
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10
@@ -73,7 +73,7 @@ declare namespace cloudSyncManager {
    * @returns { Promise<void> } Return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10
@@ -88,7 +88,7 @@ declare namespace cloudSyncManager {
    * @param { AsyncCallback<void> } [callback] - Callback function
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10
@@ -104,7 +104,7 @@ declare namespace cloudSyncManager {
    * @returns { Promise<void> } Return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10
@@ -120,7 +120,7 @@ declare namespace cloudSyncManager {
    * @param { AsyncCallback<void> } [callback] - Callback function
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10
@@ -135,7 +135,7 @@ declare namespace cloudSyncManager {
    * @returns { Promise<void> } Return Promise.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10
@@ -150,7 +150,7 @@ declare namespace cloudSyncManager {
    * @param { AsyncCallback<void> } callback - Callback function
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10
@@ -197,7 +197,7 @@ declare namespace cloudSyncManager {
    * @returns { Promise<void> } Return Promise.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10
@@ -213,7 +213,7 @@ declare namespace cloudSyncManager {
    * @param { AsyncCallback<void> } callback - Callback function
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 10
@@ -229,7 +229,7 @@ declare namespace cloudSyncManager {
    * @returns { Promise<void> } Return Promise
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
@@ -246,7 +246,7 @@ declare namespace cloudSyncManager {
    * @param { AsyncCallback<void> } callback - Callback function
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Incorrect parameter types.
    * @throws { BusinessError } 13600001 - IPC error.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
