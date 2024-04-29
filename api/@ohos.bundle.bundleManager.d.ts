@@ -245,7 +245,17 @@ declare namespace bundleManager {
      * @atomicservice
      * @since 12
      */
-    GET_BUNDLE_INFO_WITH_ROUTER_MAP = 0x00000200
+    GET_BUNDLE_INFO_WITH_ROUTER_MAP = 0x00000200,
+    /**
+     * Used to obtain the skillInfo contained in abilityInfo and extensionInfo.
+     * It can't be used alone, it needs to be used with GET_BUNDLE_INFO_WITH_HAP_MODULE,
+     * GET_BUNDLE_INFO_WITH_ABILITIES, GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 12
+     */
+    GET_BUNDLE_INFO_WITH_SKILL = 0x00000400
   }
 
   /**
@@ -366,6 +376,15 @@ declare namespace bundleManager {
      * @since 12
      */
     GET_ABILITY_INFO_WITH_APP_LINKING = 0x00000040,
+    /**
+     * Used to obtain the abilityInfo with skillInfo.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @atomicservice
+     * @since 12
+     */
+    GET_ABILITY_INFO_WITH_SKILL = 0x00000080
   }
 
   /**
@@ -409,7 +428,15 @@ declare namespace bundleManager {
      * @systemapi
      * @since 9
      */
-    GET_EXTENSION_ABILITY_INFO_WITH_METADATA = 0x00000004
+    GET_EXTENSION_ABILITY_INFO_WITH_METADATA = 0x00000004,
+    /**
+     * Used to obtain the extensionAbilityInfo with skillInfo.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    GET_EXTENSION_ABILITY_INFO_WITH_SKILL = 0x00000010
   }
 
   /**

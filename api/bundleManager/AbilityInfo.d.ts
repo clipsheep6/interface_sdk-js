@@ -23,6 +23,182 @@ import { Metadata } from './Metadata';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
+ * Indicates the ability skill uri
+ *
+ * @typedef Uri
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+export interface Uri {
+  /**
+   * Indicates the uri scheme
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scheme: string;
+
+  /**
+   * Indicates the uri host
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  host: string;
+
+  /**
+   * Indicates the uri port
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  port: string;
+
+  /**
+   * Indicates the uri path starting string
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  pathStartWith: string;
+
+  /**
+   * Indicates the uri path
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  path: string;
+
+  /**
+   * Indicates the uri path regular expression
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  pathRegex: string;
+
+  /**
+   * Indicates the uri type
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  type: string;
+
+  /**
+   * Indicates the uri utd (universal text discovery) identifier
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  utd: string;
+
+  /**
+   * Indicates the maximum number of files supported by the uri
+   *
+   * @type { number }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  maxFileSupported: number;
+
+  /**
+   * Indicates the link feature of the uri
+   *
+   * @type { string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  linkFeature: string;
+}
+
+/**
+ * Indicates the ability skill
+ *
+ * @typedef Skill
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+export interface Skill {
+  /**
+   * Indicates entities associated with the skill
+   *
+   * @type {Array<string>}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  entities: Array<string>;
+
+  /**
+   * Indicates actions associated with the skill
+   *
+   * @type {Array<string>}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  actions: Array<string>;
+
+  /**
+   * Indicates uris associated with the skill
+   *
+   * @type {Array<uris>}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  uris: Array<Uri>;
+
+  /**
+   * Indicates permissions associated with the skill
+   *
+   * @type {Array<string>}
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  permissions: Array<string>;
+}
+
+/**
  * Obtains configuration information about an ability
  *
  * @typedef AbilityInfo
@@ -545,6 +721,16 @@ export interface AbilityInfo {
    * @since 12
    */
     readonly excludeFromDock: boolean;
+
+  /**
+   * Indicates the skills of ability
+   *
+   * @type { Array<Skill> }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly skills: Array<Skill>;
 }
 
 /**
