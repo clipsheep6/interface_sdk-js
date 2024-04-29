@@ -145,3 +145,174 @@ declare interface TextDataDetectorConfig {
    */
   onDetectResultUpdate?: (result: string) => void
 }
+
+/**
+ * Define the text selection controller.
+ *
+ * @interface TextBaseController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface TextBaseController {
+  /**
+   * Set selection to select a range of content.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } [options] - Indicates the options of selection.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
+
+  /**
+   * Close the select menu when menu is on.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  closeSelectionMenu(): void;
+}
+
+/**
+ * Define the text editing controller.
+ *
+ * @interface TextEditController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface TextEditController {
+  /**
+   * Judge whether is in editing state
+   * 
+   * @returns { boolean } - true means that the component is in editing state, false means is non in editing status
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isEditing(): boolean;
+
+  /**
+   * Stop editing state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  stopEditing(): void;
+
+  /**
+   * Set caret offset.
+   *
+   * @param { number } offset - caret offset.
+   * @returns { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setCaretOffset(offset: number): boolean;
+
+  /**
+   * Get caret offset from controller.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getCaretOffset(): number;
+}
+
+/**
+ * Define the StyledString controller.
+ *
+ * @interface StyledStringController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface StyledStringController {
+  /**
+   * Set the StyledString of the component.
+   *
+   * @param { StyledString } value - StyledString.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setStyledString(value: StyledString): void;
+
+  /**
+   * Get the StyledString of the component.
+   *
+   * @returns { MutableStyledString }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getStyledString(): MutableStyledString;
+}
+
+/**
+ * Define the StyledString changed listener.
+ *
+ * @interface StyledStringChangedListener
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface StyledStringChangedListener {
+  /**
+   * Called before text changed.
+   *
+   * @type { Callback<StyledStringChangeValue, boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillChange: Callback<StyledStringChangeValue, boolean>;
+
+  /**
+   * Called after text changed.
+   *
+   * @type { OnDidChangeCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidChange: OnDidChangeCallback;
+}
+
+/**
+ * Define the StyledString changed value.
+ *
+ * @interface StyledStringChangeValue
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface StyledStringChangeValue {
+  /**
+   * Range of the content to be replaced.
+   *
+   * @type { TextRange }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  range: TextRange;
+
+  /**
+   * StyledString to replace.
+   *
+   * @type { StyledString }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  replacementString: StyledString;
+}
