@@ -405,6 +405,15 @@ export interface NotificationButton {
    * @since 11
    */
   icons?: Array<image.PixelMap>;
+
+  /**
+   * array of button icons resource path.
+   *
+   * @type { ?Array<string> }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 12
+   */
+  iconsResource?: Array<string>
 }
 
 /**
