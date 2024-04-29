@@ -269,6 +269,28 @@ export interface BundleInfo {
    * @since 12
    */
   readonly routerMap: Array<RouterItem>;
+
+  /**
+   * Indicates the index of the bundle
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly appIndex: number;
+
+  /**
+   * Indicates the MultiAppMode object of the bundle
+   *
+   * @type { MultiAppMode }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly multiAppMode: MultiAppMode;
 }
 
 /**
@@ -488,4 +510,36 @@ export interface SignatureInfo {
    * @since 11
    */
   readonly appIdentifier: string;
+}
+
+/**
+ * Indicates MultiAppMode
+ *
+ * @typedef MultiAppMode
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @atomicservice
+ * @since 12
+ */
+export interface MultiAppMode {
+  /**
+   * Indicates the index of the bundle
+   *
+   * @type { bundleManager.MultiAppModeType }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly type: bundleManager.MultiAppModeType;
+
+  /**
+   * Indicates the max additional number of the bundle
+   *
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly maxAdditionalNumber: number;
 }
