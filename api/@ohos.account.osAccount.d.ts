@@ -3538,6 +3538,7 @@ declare namespace osAccount {
     /**
      * Notifies to get data.
      *
+     * @type { function }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 8
