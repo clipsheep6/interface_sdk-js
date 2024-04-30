@@ -274,13 +274,13 @@ export declare struct TipsDialog {
   /**
    * Custom Theme.
    *
-   * @type { ?CustomTheme }
+   * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  theme?: CustomTheme;
+  theme?: Theme | CustomTheme;
 }
 
 /**
@@ -383,13 +383,13 @@ export declare struct SelectDialog {
   /**
    * Custom Theme.
    *
-   * @type { ?CustomTheme }
+   * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  theme?: CustomTheme;
+  theme?: Theme | CustomTheme;
 }
 
 /**
@@ -506,13 +506,13 @@ export declare struct ConfirmDialog {
   /**
    * Custom Theme.
    *
-   * @type { ?CustomTheme }
+   * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  theme?: CustomTheme;
+  theme?: Theme | CustomTheme;
 }
 
 /**
@@ -603,13 +603,13 @@ export declare struct AlertDialog {
   /**
    * Custom Theme.
    *
-   * @type { ?CustomTheme }
+   * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  theme?: CustomTheme;
+  theme?: Theme | CustomTheme;
 }
 
 /**
@@ -656,13 +656,13 @@ export declare struct LoadingDialog {
   /**
    * Custom Theme.
    *
-   * @type { ?CustomTheme }
+   * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  theme?: CustomTheme;
+  theme?: Theme | CustomTheme;
 }
 
 /**
@@ -724,11 +724,11 @@ export declare struct CustomContentDialog {
   /**
    * Custom Theme.
    *
-   * @type { ?CustomTheme }
+   * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  theme?: CustomTheme;
+  theme?: Theme | CustomTheme;
 }
