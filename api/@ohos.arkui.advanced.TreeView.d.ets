@@ -28,8 +28,6 @@ import { ResourceStr } from 'GlobalResource';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
-
-
 /**
  * Control style of operation element
  * @enum { TreeListenType }
@@ -39,65 +37,86 @@ import { ResourceStr } from 'GlobalResource';
  */
 export declare enum TreeListenType {
     /**
-     * register listener after a node is clicked.
+     * Register listener after a node is clicked.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
     /**
-     * register listener after a node is clicked.
+     * Register listener after a node is clicked.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
      */
     NODE_CLICK = "NodeClick",
     /**
-     * register listener after a node is add.
+     * Register listener after a node is add.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
     /**
-     * register listener after a node is add.
+     * Register listener after a node is add.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
      */
     NODE_ADD = "NodeAdd",
     /**
-     * register listener after a node is delected.
+     * Register listener after a node is deleted.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
     /**
-     * register listener after a node is delected.
+     * Register listener after a node is deleted.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
      */
     NODE_DELETE = "NodeDelete",
     /**
-     * register listener after a node is modified.
+     * Register listener after a node is modified.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
     /**
-     * register listener after a node is modified.
+     * Register listener after a node is modified.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
      */
     NODE_MODIFY = "NodeModify",
     /**
-     * register listener after a node is moved.
+     * Register listener after a node is moved.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 10
      */
     /**
-     * register listener after a node is moved.
+     * Register listener after a node is moved.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
      */
     NODE_MOVE = "NodeMove",
+    /**
+     * Register listener when the drag behavior is stopped within the scope of the node.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    NODE_DROP = "NodeDrop",
+    /**
+     * Register listener after the node is dragged.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    NODE_DRAG_START = "NodeDragStart",
+    /**
+     * Register listener when the drag event of the node is end.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    NODE_DRAG_END = "NodeDragEnd",
 }
 
 /**
@@ -456,6 +475,15 @@ export interface NodeParam {
      * @since 11
      */
     container?: () => void;
+
+    /**
+     * Set allowed drop uniformData type for tree item.
+     * @type { ?Array<UniformDataType> } allowDropValue - the uniformData type for this node.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    allowDropValue?: Array<UniformDataType>;
 }
 
 /**
@@ -483,7 +511,17 @@ export declare class TreeController {
      * @atomicservice
      * @since 11
      */
-    removeNode(): void;
+    /**
+     * Delete a node.
+     * Register an NODE_DELETE callback through the ListTreeListener mechanism to obtain the IDs of all deleted nodes.
+     * If the input parameter is empty, set the information of the node that is clicked. 
+     * If no node is clicked and the input parameter is empty, the deletion operation does not respond.
+     * @param { NodeParam } [nodeParam] - Configuration information of the removed node.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    removeNode(nodeParam?: NodeParam): void;
 
     /**
      * Modify the node name.
@@ -498,7 +536,17 @@ export declare class TreeController {
      * @atomicservice
      * @since 11
      */
-    modifyNode(): void;
+    /**
+     * Modify the node name.
+     * Register an NODE_MODIFY callback to obtain the ID, parent node ID, and node name of the modified node.
+     * If the input parameter is empty, set the information of the node that is clicked. 
+     * If no node is clicked and the input parameter is empty, the modification operation does not respond.
+     * @param { NodeParam } [nodeParam] - Configuration information of the modified node.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    modifyNode(nodeParam?: NodeParam): void;
 
     /**
      * Initialize the interface of the tree view. This interface is used to generate ListNodeDataSource data.
@@ -570,4 +618,32 @@ export declare class TreeController {
      * @since 11
      */
     buildDone(): void;
+
+    /**
+     * Change the focused node in the treeview
+     * @param { NodeParam | number } [nodeParam] - the parameter can be node object or the ID of node.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    focusChange(nodeParam: NodeParam | number): void;
+
+    /**
+     * Add a divider to the specific position.
+     * @param { NodeParam } [nodeParam] - the position where the divider need to be inserted.
+     * @param { AttributeModifier<DividerAttribute> } [dividerModifier] - the attribute modifier of the added divider.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    addDivider(nodeParam: NodeParam, dividerModifier?: AttributeModifier<DividerAttribute>): void;
+
+    /**
+     * Remove a divider of the specific position.
+     * @param { NodeParam } [nodeParam] - the position where the divider need to be removed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    removeDivider(nodeParam: NodeParam): void;
 }
