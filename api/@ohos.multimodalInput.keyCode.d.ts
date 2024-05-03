@@ -2664,5 +2664,21 @@ export declare enum KeyCode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9
    */
-  KEYCODE_BTN_9 = 3109
+  KEYCODE_BTN_9 = 3109,
+
+  /**
+   * KEYCODE_CALL_NOTIFICATION_CENTER
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 11
+   */
+  KEYCODE_CALL_NOTIFICATION_CENTER = 10009,
+
+  /**
+   * KEYCODE_CALL_CONTROL_CENTER
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @since 11
+   */
+  KEYCODE_CALL_CONTROL_CENTER = 10010
 }
