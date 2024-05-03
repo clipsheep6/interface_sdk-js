@@ -3124,7 +3124,27 @@ declare namespace bundleManager {
    * @since 12
    */
   function switchUninstallState(bundleName: string, state: boolean): void;
-  
+
+  /**
+   * Migrate files from the source paths to the destination path.
+   *
+   * @permission ohos.permission.MIGRATE_DATA
+   *
+   * @param { Array<string> } sourcePaths - Indicates the source paths to be migrated.
+   * @param { string } destinationPath - Indicates the destination path.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 17700070 - The source paths are invalid.
+   * @throws { BusinessError } 17700071 - The destination path is invalid.
+   * @throws { BusinessError } 17700072 - User authentication failed.
+   * @throws { BusinessError } 17700073 - No permission to access file or no remaining space.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function migrateData(sourcePaths: Array<string>, destinationPath: string): void;
+
   /**
    * Obtains configuration information about an application.
    *
