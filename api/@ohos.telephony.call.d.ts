@@ -3862,6 +3862,42 @@ declare namespace call {
      * @since 12
      */
     EVENT_SHOW_FLOAT_WINDOW,
+ 
+    /**
+     * Indicates voip call muted.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_CALL_MUTED,
+
+    /**
+     * Indicates voip call unmuted.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_CALL_UNMUTED,
+
+    /**
+     *  Indicates voip call speaker on.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_CALL_SPEAKER_ON,
+
+    /**
+     *  Indicates voip call speaker off.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    EVENT_CALL_SPEAKER_OFF,   
   }
 
   /**
