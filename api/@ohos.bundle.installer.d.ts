@@ -723,6 +723,26 @@ declare namespace installer {
      * @since 12
      */
     uninstallUpdates(bundleName: string, installParam?: InstallParam): Promise<void>;
+
+    /**
+     * Install clone application.
+     *
+     * @permission ohos.permission.INSTALL_BUNDLE
+     * @param { string } bundleName - Indicates the clone application's bundleName.
+     * @param { number } [userId] - Indicates the userId.
+     * @param { number } [appIndex] - Indicates the clone application's index. If this parameter exists, then the userId parameter must exist.
+     * @returns { Promise<number> } Return the appIndex of the clone application.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
+     * @throws { BusinessError } 17700004 - The userId is invalid.
+     * @throws { BusinessError } 17700061 - The appIndex is not in valid range or already exist.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 12
+     */
+    installCloneApp(bundleName: string, userId?: number, appIndex?: number): Promise<number>;
   }
 
   /**
