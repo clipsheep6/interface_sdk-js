@@ -2521,6 +2521,26 @@ declare interface RichEditorOptions {
 }
 
 /**
+ * Defines the options of RichEditor with StyledString.
+ *
+ * @interface RichEditorStyledStringOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface RichEditorStyledStringOptions {
+  /**
+   * RichEditor controller.
+   *
+   * @type { RichEditorStyledStringController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  controller: RichEditorStyledStringController;
+}
+
+/**
  * Defines the selection menu options.
  * 
  * @interface SelectionMenuOptions
@@ -2587,6 +2607,97 @@ declare interface SelectionMenuOptions {
 }
 
 /**
+ * Provides Base Controller for RichEditor.
+ *
+ * @implements TextEditControllerEx
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class RichEditorBaseController implements TextEditControllerEx {
+  /**
+   * Get caret offset from controller.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getCaretOffset(): number;
+
+  /**
+   * Set caret offset.
+   *
+   * @param { number } offset - caret offset.
+   * @returns { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setCaretOffset(offset: number): boolean;
+
+  /**
+   * close the select menu when menu is on.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  closeSelectionMenu(): void;
+
+  /**
+   * Get the typing text style.
+   *
+   * @returns { RichEditorTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getTypingStyle(): RichEditorTextStyle;
+
+  /**
+   * Set the typing text style.
+   *
+   * @param { RichEditorTextStyle } value - set the typing text style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setTypingStyle(value: RichEditorTextStyle): void;
+
+  /**
+   * Specify the start and end positions to select a range of content.
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } [options] - Indicates the options of selection.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
+
+  /**
+   * Judge whether is in editing state
+   * 
+   * @returns { boolean } - true is editing state, false is non editing status
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isEditing(): boolean;
+
+  /**
+   * Stop editing state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  stopEditing(): void;
+}
+
+/**
  * Provides Controller for RichEditor.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2600,45 +2711,16 @@ declare interface SelectionMenuOptions {
  * @atomicservice
  * @since 11
  */
-declare class RichEditorController {
-  /**
-   * Get caret offset from controller.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Get caret offset from controller.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  getCaretOffset(): number;
-
-  /**
-   * Set caret offset.
-   *
-   * @param { number } offset - caret offset.
-   * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Set caret offset.
-   *
-   * @param { number } offset - caret offset.
-   * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  setCaretOffset(offset: number): boolean;
-
+/**
+ * Provides Controller for RichEditor.
+ *
+ * @extends RichEditorBaseController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare class RichEditorController extends RichEditorBaseController {
   /**
    * Add a text span.
    *
@@ -2826,82 +2908,6 @@ declare class RichEditorController {
   getParagraphs(value?: RichEditorRange): Array<RichEditorParagraphResult>;
 
   /**
-   * close the select menu when menu is on.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * close the select menu when menu is on.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  closeSelectionMenu(): void;
-
-  /**
-   * Get the typing text style.
-   *
-   * @returns { RichEditorTextStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the typing text style.
-   *
-   * @returns { RichEditorTextStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  getTypingStyle(): RichEditorTextStyle;
-
-  /**
-   * Set the typing text style.
-   *
-   * @param { RichEditorTextStyle } value - set the typing text style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set the typing text style.
-   *
-   * @param { RichEditorTextStyle } value - set the typing text style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  setTypingStyle(value: RichEditorTextStyle): void;
-
-  /**
-   * Text selection is achieved by specifying the start and end positions of the rich editor.
-   *
-   * @param { number } selectionStart - The start position of the selected text.
-   * @param { number } selectionEnd - The end position of the selected text.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Specify the start and end positions to select a range of content.
-   *
-   * @param { number } selectionStart - The start position of the selected text.
-   * @param { number } selectionEnd - The end position of the selected text.
-   * @param { SelectionOptions } [options] - Indicates the options of selection.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
-
-  /**
    * Called when the content is selected.
    *
    * @returns { RichEditorSelection }
@@ -2919,25 +2925,56 @@ declare class RichEditorController {
    * @since 12
    */
   getSelection(): RichEditorSelection;
- 
+}
+
+/**
+ * Provides Controller for RichEditor with StyledString.
+ *
+ * @extends RichEditorBaseController
+ * @implements StyledStringController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class RichEditorStyledStringController extends RichEditorBaseController implements StyledStringController {
   /**
-   * Judge whether is in editing state
-   * 
-   * @returns { boolean } - true is editing state, false is non editing status
+   * Set the StyledString of the RichEditor.
+   *
+   * @param { StyledString } value - StyledString.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  isEditing(): boolean;
+  setStyledString(value: StyledString): void;
 
   /**
-   * Stop editing state.
+   * Get the StyledString of the RichEditor.
    *
+   * @returns { MutableStyledString }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  getStyledString(): MutableStyledString;
+
+  /**
+   * Get the selection in the StyledString of the RichEditor.
+   *
+   * @returns { RichEditorRange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  stopEditing(): void;
+  getSelection(): RichEditorRange;
+
+  /**
+   * Register content changed listener
+   * 
+   * @param { StyledStringChangedListener } value - content changed listener.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onContentChanged(value: StyledStringChangedListener): void;
 }
 
 /**
@@ -3444,6 +3481,17 @@ interface RichEditorInterface {
    * @since 11
    */
   (value: RichEditorOptions): RichEditorAttribute;
+
+  /**
+   * Called when create RichEditor with StyledString.
+   *
+   * @param { RichEditorStyledStringOptions} value
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  (value: RichEditorStyledStringOptions): RichEditorAttribute;
 }
 
 /**
