@@ -899,7 +899,18 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11
    * @form
    */
-  type(value: ButtonType): ButtonAttribute;
+  /**
+   * Describes the button style.
+   *
+   * @param { Optional<ButtonType> } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  type(value: Optional<ButtonType>): ButtonAttribute;
 
   /**
    * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
@@ -939,7 +950,18 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11
    * @form
    */
-  stateEffect(value: boolean): ButtonAttribute;
+  /**
+   * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  stateEffect(value: Optional<boolean>): ButtonAttribute;
 
   /**
    * Describes the button style.
@@ -954,15 +976,15 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
    * Describes the button style.
    *
-   * @param { ButtonStyleMode } value - button style mode
+   * @param { Optional<ButtonStyleMode> } value - button style mode
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  buttonStyle(value: ButtonStyleMode): ButtonAttribute;
+  buttonStyle(value: Optional<ButtonStyleMode>): ButtonAttribute;
   
   /** 
    * Set the Button size.
@@ -977,27 +999,27 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   /** 
    * Set the Button size.
    * 
-   * @param { ControlSize } value - control size
+   * @param { Optional<ControlSize> } value - control size
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  controlSize(value: ControlSize): ButtonAttribute;
+  controlSize(value: Optional<ControlSize>): ButtonAttribute;
 
   /** 
    * Set the Button role.
    * 
-   * @param { ButtonRole } value - button role
+   * @param { Optional<ButtonRole> } value - button role
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @since 12 
    */
-  role(value: ButtonRole): ButtonAttribute;
+  role(value: Optional<ButtonRole>): ButtonAttribute;
 
   /**
    * Text color.
@@ -1037,7 +1059,18 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11
    * @form
    */
-  fontColor(value: ResourceColor): ButtonAttribute;
+  /**
+   * Text color.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  fontColor(value: Optional<ResourceColor>): ButtonAttribute;
 
   /**
    * Text size.
@@ -1077,7 +1110,18 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11
    * @form
    */
-  fontSize(value: Length): ButtonAttribute;
+  /**
+   * Text size.
+   *
+   * @param { Optional<Length> } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  fontSize(value: Optional<Length>): ButtonAttribute;
 
   /**
    * Font weight.
@@ -1117,7 +1161,18 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11
    * @form
    */
-  fontWeight(value: number | FontWeight | string): ButtonAttribute;
+  /**
+   * Font weight.
+   *
+   * @param { Optional<number | FontWeight | string> } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  fontWeight(value: Optional<number | FontWeight | string>): ButtonAttribute;
 
   /**
    * Font style.
@@ -1157,7 +1212,18 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11
    * @form
    */
-  fontStyle(value: FontStyle): ButtonAttribute;
+  /**
+   * Font style.
+   *
+   * @param { Optional<FontStyle> } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  fontStyle(value: Optional<FontStyle>): ButtonAttribute;
 
   /**
    * Font family.
@@ -1197,18 +1263,29 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11
    * @form
    */
-  fontFamily(value: string | Resource): ButtonAttribute;
+  /**
+   * Font family.
+   *
+   * @param { Optional<string | Resource> } value
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  fontFamily(value: Optional<string | Resource>): ButtonAttribute;
 
   /**
    * Set the content modifier of button.
    *
-   * @param { ContentModifier<ButtonConfiguration> } modifier - The content modifier of button.
+   * @param { Optional<ContentModifier<ButtonConfiguration>> } modifier - The content modifier of button.
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  contentModifier(modifier: ContentModifier<ButtonConfiguration>): ButtonAttribute;
+  contentModifier(modifier: Optional<ContentModifier<ButtonConfiguration>>): ButtonAttribute;
 
   /**
    * Set button label style.
@@ -1229,7 +1306,17 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @atomicservice
    * @since 11
    */
-  labelStyle(value: LabelStyle): ButtonAttribute;
+  /**
+   * Set button label style.
+   *
+   * @param { Optional<LabelStyle> } value - The label style configuration on button.
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  labelStyle(value: Optional<LabelStyle>): ButtonAttribute;
 }
 
 /**

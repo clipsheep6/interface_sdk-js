@@ -230,6 +230,18 @@ interface MenuItemInterface {
 }
 
 /**
+ * Defines the callback type used in onChange.
+ * 
+ * @typedef { function } OnMenuItemChangeHandler
+ * @param { boolean } selected
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type OnMenuItemChangeHandler = (selected: boolean) => void;
+
+/**
  * Defines the MenuItem component attribute functions.
  *
  * @extends CommonMethod<MenuItemAttribute>
@@ -281,7 +293,17 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  selected(value: boolean): MenuItemAttribute;
+  /**
+   * Setting whether menuItem is selected.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selected(value: Optional<boolean>): MenuItemAttribute;
 
   /**
    * Whether the relevant check icon is displayed when a menu item is selected.
@@ -318,7 +340,21 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  selectIcon(value: boolean | ResourceStr): MenuItemAttribute;
+  /**
+   * Whether the relevant check icon is displayed when a menu item is selected.
+   * Use type ResourceStr to specify icon instead of the default check mark.
+   *
+   * @param { Optional<boolean | ResourceStr> } value - Indicates whether to display icon when selected.
+   *                                          true: displays the default check mark when selected.
+   *                                          false: does not displays icon when selected.
+   *                                          ResourceStr: displays the specified icon when selected.
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectIcon(value: Optional<boolean | ResourceStr>): MenuItemAttribute;
 
   /**
    * Triggers a callback when a menu item is selected or unchecked.
@@ -347,7 +383,17 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  onChange(callback: (selected: boolean) => void): MenuItemAttribute;
+  /**
+   * Triggers a callback when a menu item is selected or unchecked.
+   *
+   * @param { Optional<OnMenuItemChangeHandler> } handler
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onChange(handler: Optional<OnMenuItemChangeHandler>): MenuItemAttribute;
 
   /**
    * Sets the content font style.
@@ -370,7 +416,18 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  contentFont(value: Font): MenuItemAttribute;
+  /**
+   * Sets the content font style.
+   * Family and style are not supported currently and will be fixed in future.
+   *
+   * @param { Optional<Font> } value - Indicates the font style of content text.
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  contentFont(value: Optional<Font>): MenuItemAttribute;
 
   /**
    * Sets the font color of content text.
@@ -391,7 +448,17 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  contentFontColor(value: ResourceColor): MenuItemAttribute;
+  /**
+   * Sets the font color of content text.
+   *
+   * @param { Optional<ResourceColor> } value - Indicates the font color of content text.
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  contentFontColor(value: Optional<ResourceColor>): MenuItemAttribute;
 
   /**
    * Sets the label info font style.
@@ -414,7 +481,18 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  labelFont(value: Font): MenuItemAttribute;
+  /**
+   * Sets the label info font style.
+   * Family and style are not supported currently and will be fixed in future.
+   *
+   * @param { Optional<Font> } value - Indicates the font style of label info text.
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  labelFont(value: Optional<Font>): MenuItemAttribute;
 
   /**
    * Sets the font color of label info text.
@@ -435,7 +513,17 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  labelFontColor(value: ResourceColor): MenuItemAttribute;
+  /**
+   * Sets the font color of label info text.
+   *
+   * @param { Optional<ResourceColor> } value - Indicates the font color of label info text.
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  labelFontColor(value: Optional<ResourceColor>): MenuItemAttribute;
 }
 
 /**

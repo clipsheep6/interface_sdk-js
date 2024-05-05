@@ -404,6 +404,19 @@ interface CheckboxGroupInterface {
 }
 
 /**
+ * Defines the callback type used in onChange.
+ * 
+ * @typedef { function } OnCheckBoxGroupChangeHandler
+ * @param { CheckboxGroupResult } event
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare type OnCheckBoxGroupChangeHandler = (event: CheckboxGroupResult) => void;
+
+/**
  * Defines the attribute functions of CheckboxGroup.
  *
  * @extends CommonMethod<CheckboxGroupAttribute>
@@ -476,7 +489,18 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @since 11
    * @form
    */
-  selectAll(value: boolean): CheckboxGroupAttribute;
+  /**
+   * setting whether all checkbox is selected.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  selectAll(value: Optional<boolean>): CheckboxGroupAttribute;
 
   /**
    * setting the display color of checkbox.
@@ -516,7 +540,18 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @since 11
    * @form
    */
-  selectedColor(value: ResourceColor): CheckboxGroupAttribute;
+  /**
+   * setting the display color of checkbox.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  selectedColor(value: Optional<ResourceColor>): CheckboxGroupAttribute;
 
   /**
    * Set the display border color of unselected checkbox.
@@ -537,7 +572,17 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @atomicservice
    * @since 11
    */
-  unselectedColor(value: ResourceColor): CheckboxGroupAttribute;
+  /**
+   * Set the display border color of unselected checkbox.
+   *
+   * @param { Optional<ResourceColor> } value - The color of border when checkboxgroup unselected.
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  unselectedColor(value: Optional<ResourceColor>): CheckboxGroupAttribute;
 
   /**
    * Set the mark style of checkbox.
@@ -558,7 +603,17 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @atomicservice
    * @since 11
    */
-  mark(value: MarkStyle): CheckboxGroupAttribute;
+  /**
+   * Set the mark style of checkbox.
+   *
+   * @param { Optional<MarkStyle> } value - The style configuration of checkboxgroup mark.
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  mark(value: Optional<MarkStyle>): CheckboxGroupAttribute;
 
   /**
    * Called when the selection status changes.
@@ -598,19 +653,30 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @since 11
    * @form
    */
-  onChange(callback: (event: CheckboxGroupResult) => void): CheckboxGroupAttribute;
+  /**
+   * Called when the selection status changes.
+   *
+   * @param { Optional<OnCheckBoxGroupChangeHandler> } handler
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  onChange(handler: Optional<OnCheckBoxGroupChangeHandler>): CheckboxGroupAttribute;
 
   /**
    * Setting the shape of checkbox group.
    *
-   * @param { CheckBoxShape } value - The configuration of checkbox group shape.
+   * @param { Optional<CheckBoxShape> } value - The configuration of checkbox group shape.
    * @returns { CheckboxGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 12
    * @form
+   * @since 12
    */
-  checkboxShape(value: CheckBoxShape): CheckboxGroupAttribute;
+  checkboxShape(value: Optional<CheckBoxShape>): CheckboxGroupAttribute;
 }
 
 /**

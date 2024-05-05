@@ -282,6 +282,18 @@ interface DatePickerInterface {
 }
 
 /**
+ * Defines the callback type used in onChange.
+ * 
+ * @typedef { function } OnDateChangeHandler
+ * @param { Date } value
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type OnDateChangeHandler = (value: Date) => void;
+
+/**
  * Defines the DatePicker attribute functions.
  *
  * @extends CommonMethod
@@ -333,7 +345,17 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  lunar(value: boolean): DatePickerAttribute;
+  /**
+   * Date selector: true: displays the lunar calendar. false: The lunar calendar is not displayed.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  lunar(value: Optional<boolean>): DatePickerAttribute;
 
   /**
    * Sets the text style of disappearing items
@@ -354,7 +376,17 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  disappearTextStyle(value: PickerTextStyle): DatePickerAttribute;
+  /**
+   * Sets the text style of disappearing items
+   *
+   * @param { Optional<PickerTextStyle> } value - indicates the text style of disappearing items.
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  disappearTextStyle(value: Optional<PickerTextStyle>): DatePickerAttribute;
 
   /**
    * Sets the text style of normal items
@@ -375,7 +407,17 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  textStyle(value: PickerTextStyle): DatePickerAttribute;
+  /**
+   * Sets the text style of normal items
+   *
+   * @param { Optional<PickerTextStyle> } value - indicates the text style of normal items.
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  textStyle(value: Optional<PickerTextStyle>): DatePickerAttribute;
 
   /**
    * Sets the text style of selected items
@@ -396,7 +438,17 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  selectedTextStyle(value: PickerTextStyle): DatePickerAttribute;
+  /**
+   * Sets the text style of selected items
+   *
+   * @param { Optional<PickerTextStyle> } value - indicates the text style of selected items.
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectedTextStyle(value: Optional<PickerTextStyle>): DatePickerAttribute;
 
   /**
    * This event is triggered when a DatePicker date or time is selected.
@@ -429,7 +481,17 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @atomicservice
    * @since 11
    */
-  onDateChange(callback: (value: Date) => void): DatePickerAttribute;
+  /**
+   * This event is triggered when a DatePicker date or time is selected.
+   *
+   * @param { Optional<OnDateChangeHandler> } handler
+   * @returns { DatePickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onDateChange(handler: Optional<OnDateChangeHandler>): DatePickerAttribute;
 }
 
 /**
