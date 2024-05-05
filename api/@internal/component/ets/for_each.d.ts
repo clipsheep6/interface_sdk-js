@@ -99,10 +99,25 @@ interface ForEachInterface {
    * @since 11
    * @form
    */
+  /**
+   * Set the value, array, and key.
+   *
+   * @param { Array<any> } arr
+   * @param { function } itemGenerator
+   * @param { function } keyGenerator
+   * @param { DataOperationHandler } operateHandler
+   * @returns { ForEachInterface }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   (
     arr: Array<any>,
     itemGenerator: (item: any, index: number) => void,
     keyGenerator?: (item: any, index: number) => string,
+    operateHandler?: DataOperationHandler,
   ): ForEachInterface;
 }
 

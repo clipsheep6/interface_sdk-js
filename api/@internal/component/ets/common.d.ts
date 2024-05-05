@@ -21076,6 +21076,38 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   */
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 
+/**
+ * Defines the onMove callback.
+ *
+ * @typedef { function } OnMoveHandler
+ * @param { number } from - Index number for moving elements.
+ * @param { number } to - Target index number for moving elements.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type OnMoveHandler = (from: number, to: number) => void
+
+/**
+ * Define DynamicNode.
+ *
+ * @interface DataOperationHandler
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DataOperationHandler {
+  /**
+   * OnMoveHandler
+   *
+   * @type { OnMoveHandler } [onMove] - on move handle
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  onMove?: OnMoveHandler;
+}
+
 declare module "SpecialEvent" {
   module "SpecialEvent" {
     // @ts-ignore
