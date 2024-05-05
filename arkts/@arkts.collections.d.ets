@@ -60,7 +60,7 @@ declare namespace collections {
    * 
    * @param { ElementType } value - The value of the element.
    * @param { number } index - The index of the element.
-   * @param { ArrayType } array - The array that the element belongs to.
+   * @param { ArrayType } array - The array that the element belongs sss to.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
