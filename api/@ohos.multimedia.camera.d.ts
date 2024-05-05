@@ -2454,7 +2454,7 @@ declare namespace camera {
   }
 
   /**
-   * WhiteBalanceQuery object.
+   * WhiteBalance Query object.
    *
    * @interface WhiteBalanceQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -2550,14 +2550,14 @@ declare namespace camera {
   }
 
   /**
-   * ManualISOQuery object.
+   * ManualIso Query object.
    *
-   * @interface ManualISOQuery
+   * @interface ManualIsoQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
    */
-  interface ManualISOQuery {
+  interface ManualIsoQuery {
     /**
      * Checks whether ISO is supported.
      *
@@ -2568,10 +2568,10 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
-    isManualISOSupported(): boolean;
+    isManualIsoSupported(): boolean;
 
     /**
-     * Query the ISO range.
+     * Get the ISO range.
      *
      * @returns { Array<number> } The array of ISO range.
      * @throws { BusinessError } 202 - Not System Application.
@@ -2584,14 +2584,14 @@ declare namespace camera {
   }
 
   /**
-   * ManualISO object.
+   * ManualIso object.
    *
-   * @interface ManualISO
+   * @interface ManualIso
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
    */
-  interface ManualISO extends ManualISOQuery {
+  interface ManualIso extends ManualIsoQuery {
     /**
      * Gets current ISO.
      *
@@ -2953,7 +2953,7 @@ declare namespace camera {
   /**
    * Beauty Query object.
    *
-   * @interface Beautyquery
+   * @interface BeautyQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
@@ -3209,9 +3209,9 @@ declare namespace camera {
   }
 
   /**
-   * Macro object.
+   * Macro Query object.
    *
-   * @interface Macro
+   * @interface MacroQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
@@ -5290,12 +5290,12 @@ declare namespace camera {
   /**
    * ISO info object
    *
-   * @typedef ISOInfo
+   * @typedef IsoInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12
    */
-  interface ISOInfo {
+  interface IsoInfo {
     /**
      * ISO value.
      *
@@ -5379,7 +5379,7 @@ declare namespace camera {
    * @systemapi
    * @since 12
    */
-  interface ProfessionalPhotoSession extends Session, AutoExposure, ManualExposure, Focus, ManualFocus, WhiteBalance, ManualISO, Flash, Zoom, ColorEffect, Aperture {
+  interface ProfessionalPhotoSession extends Session, AutoExposure, ManualExposure, Focus, ManualFocus, WhiteBalance, ManualIso, Flash, Zoom, ColorEffect, Aperture {
     /**
      * Subscribes to error events.
      *
@@ -5456,25 +5456,25 @@ declare namespace camera {
      * Subscribes ISO info event callback.
      *
      * @param { 'isoInfo' } type - Event type.
-     * @param { AsyncCallback<ISOInfo> } callback - Callback used to get the ISO info.
+     * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    on(type: 'isoInfo', callback: AsyncCallback<ISOInfo>): void;
+    on(type: 'isoInfo', callback: AsyncCallback<IsoInfo>): void;
 
     /**
      * Unsubscribes from ISO info event callback.
      *
      * @param { 'isoInfo' } type - Event type.
-     * @param { AsyncCallback<ISOInfo> } callback - Callback used to get the ISO info.
+     * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    off(type: 'isoInfo', callback?: AsyncCallback<ISOInfo>): void;
+    off(type: 'isoInfo', callback?: AsyncCallback<IsoInfo>): void;
 
     /**
      * Subscribes exposure info event callback.
@@ -5557,7 +5557,7 @@ declare namespace camera {
    * @systemapi
    * @since 12
    */
-  interface ProfessionalVideoSession extends Session, AutoExposure, ManualExposure, Focus, ManualFocus, WhiteBalance, ManualISO, Flash, Zoom, ColorEffect, Aperture {
+  interface ProfessionalVideoSession extends Session, AutoExposure, ManualExposure, Focus, ManualFocus, WhiteBalance, ManualIso, Flash, Zoom, ColorEffect, Aperture {
     /**
      * Subscribes to error events.
      *
@@ -5634,25 +5634,25 @@ declare namespace camera {
      * Subscribes ISO info event callback.
      *
      * @param { 'isoInfo' } type - Event type.
-     * @param { AsyncCallback<ISOInfo> } callback - Callback used to get the ISO info.
+     * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    on(type: 'isoInfo', callback: AsyncCallback<ISOInfo>): void;
+    on(type: 'isoInfo', callback: AsyncCallback<IsoInfo>): void;
 
     /**
      * Unsubscribes from ISO info event callback.
      *
      * @param { 'isoInfo' } type - Event type.
-     * @param { AsyncCallback<ISOInfo> } callback - Callback used to get the ISO info.
+     * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 12
      */
-    off(type: 'isoInfo', callback?: AsyncCallback<ISOInfo>): void;
+    off(type: 'isoInfo', callback?: AsyncCallback<IsoInfo>): void;
 
     /**
      * Subscribes exposure info event callback.
