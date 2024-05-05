@@ -1461,8 +1461,8 @@ declare namespace camera {
     /**
      * Open camera.
      *
-     * @returns { Promise<bigint> } Promise used to return the result.
      * @param { boolean } isSecureEnabled - Enable secure camera.
+     * @returns { Promise<bigint> } Promise used to return the result.
      * @throws { BusinessError } 7400107 - Can not use camera cause of conflict.
      * @throws { BusinessError } 7400108 - Camera disabled cause of security reason.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
