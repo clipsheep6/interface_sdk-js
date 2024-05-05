@@ -22,6 +22,7 @@ import { ErrorCallback, AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
 import image from './@ohos.multimedia.image';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
+import type PhotoAsset from './@ohos.file.photoAccessHelper';
 
 /**
  * @namespace camera
@@ -1646,7 +1647,6 @@ declare namespace camera {
      * Secure photo mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
      * @since 12
      */
     SECURE_PHOTO = 12
@@ -5410,8 +5410,8 @@ declare namespace camera {
      * @param { 'focusStateChange' } type - Event type.
      * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
      * @throws { BusinessError } 202 - Not System Application.
-     * @systemapi
      * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
      * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
@@ -5878,7 +5878,7 @@ declare namespace camera {
     /**
      * Set slow motion detection area.
      *
-     * @param { 'Rect' } area - Detection area.
+     * @param { Rect } area - Detection area.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. 
      * @throws { BusinessError } 7400103 - Session not config.
@@ -6413,6 +6413,7 @@ declare namespace camera {
      * @param { number } minFps - Minimum frame rate per second.
      * @param { number } maxFps - Maximum frame rate per second.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400110 - Unresolved conflicts with current configurations.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
@@ -7019,7 +7020,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
-     on(type: 'photoAssetAvailable', callback?: AsyncCallback<PhotoAsset>): void;
+     off(type: 'photoAssetAvailable', callback?: AsyncCallback<PhotoAsset>): void;
 
     /**
      * Check whether to support mirror photo.
@@ -7504,6 +7505,7 @@ declare namespace camera {
      * @param { number } minFps - Minimum frame rate per second.
      * @param { number } maxFps - Maximum frame rate per second.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400110 - Unresolved conflicts with current configurations.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
