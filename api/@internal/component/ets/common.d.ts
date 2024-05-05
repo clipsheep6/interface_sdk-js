@@ -12998,7 +12998,15 @@ declare interface MenuElement {
    * @atomicservice
    * @since 11
    */
-  icon?: ResourceStr;
+  /**
+   * Sets the icon of the menu element.
+   *
+   * @type { ?(ResourceStr | SymbolGlyphModifier) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  icon?: ResourceStr | SymbolGlyphModifier;
 
   /**
    * If the value is true, the menu element is available and can respond to operations such as clicking.
