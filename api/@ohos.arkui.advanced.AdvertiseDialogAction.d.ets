@@ -188,7 +188,7 @@ export declare class AdvertiseDialogAction {
      * @atomicservice
      * @since 12
      */
-    openAdvertiseDialog(): void;
+    openDialog(): void;
     /**
      * Execute a dialog close event.
      *
@@ -196,5 +196,5 @@ export declare class AdvertiseDialogAction {
      * @atomicservice
      * @since 12
      */
-    closeAdvertiseDialog(): void;
+    closeDialog(): void;
 }
