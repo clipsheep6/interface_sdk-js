@@ -48,7 +48,7 @@ declare namespace collections {
    * @param { number } index - The index of the element.
    * @param { ArrayType } array - The array that the element belongs to.
    * @returns { boolean } True if the value meets the predicate, otherwise false.
-   * @syscap SystemCapability.Utils.Lang
+   * @syscap SystemCapability.Utils.Langsadadas
    * @crossplatform
    * @atomicservice
    * @since 12
