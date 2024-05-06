@@ -31,7 +31,7 @@
  */
 export declare enum IconStyle {
     /**
-     * The main titlt is above the text content.
+     * Sets the button icon to dark.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
@@ -39,7 +39,7 @@ export declare enum IconStyle {
      */
     Dark = 0,
     /**
-     * The main titlt is below the text content.
+     * Sets the button icon to light.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
@@ -65,7 +65,7 @@ export declare enum TitltPosition {
      */
     Top = 0,
     /**
-     * The main titlt is above the text content.
+     * The main titlt is below the text content.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
@@ -101,7 +101,7 @@ export declare interface DialogOptions {
      */
     title?: ResourceStr;
     /**
-     * The subtitlt of the dialog.
+     * The subtitle of the dialog.
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
