@@ -28,7 +28,7 @@ import {
 import {
   IconOptions, LabelOptions as ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup
 } from '@ohos.arkui.advanced.ChipGroup';
-import { AdvertiseDialogAction, IconStyle, TitlePosition } from '@ohos.arkui.advanced.AdvertiseDialogAction'
+import { AdvertiseDialogAction, IconStyle, TitlePosition } from '@ohos.arkui.advanced.AdvertiseDialogAction';
 import {
   ComposeListItem, ContentItem, IconType, OperateButton, OperateCheck, OperateIcon, OperateItem
 } from '@ohos.arkui.advanced.ComposeListItem';

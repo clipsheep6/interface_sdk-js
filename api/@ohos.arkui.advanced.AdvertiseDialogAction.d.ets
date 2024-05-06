@@ -1,17 +1,17 @@
 /* 
-* Copyright (C) 2024 Huawei Device Co., Ltd
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* you may obtain a copy of the License at
-*
-* http://www/apache.org/license/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Copyright (C) 2024 Huawei Device Co., Ltd
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * you may obtain a copy of the License at
+ *
+ * http://www/apache.org/license/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /**
  * @file
  * @kit ArkUI
@@ -171,34 +171,7 @@ export declare interface DialogOptions {
  * @atomicservice
  * @since 12
  */
-export declare class DialogAction {
-    /**
-     * The UIContext required by the dialog.
-     *
-     * @type { UIContext }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    uiContext: UIContext;
-    /**
-     * The content node required by the dialog.
-     *
-     * @type { ComponentContent<Object> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    contentNode: ComponentContent<Object>;
-    /**
-     * The params required by the dialog.
-     *
-     * @type { DialogParams }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    dialogParam: DialogParams;
+export declare class AdvertiseDialogAction {
     /**
      * Execute a drag event.
      *
@@ -207,7 +180,7 @@ export declare class DialogAction {
      * @atomicservice
      * @since 12
      */
-    constructor(value:DialogOptions);
+    constructor(value: DialogOptions);
     /**
      * Execute a dialog open event.
      *
