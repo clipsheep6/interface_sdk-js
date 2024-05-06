@@ -127,6 +127,22 @@ declare namespace notificationSubscribe {
    */
   function subscribeSelf(subscriber: NotificationSubscriber): Promise<void>;
 
+    /**
+   * Unsubscribe self notifications.
+   *
+   * @param { NotificationSubscriber } subscriber - The notification subscriber.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+  * @since 12
+   */
+    function unsubscribeSelf(subscriber: NotificationSubscriber): Promise<void>;
+
   /**
    * Subscribe to notifications.
    *
