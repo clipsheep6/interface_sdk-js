@@ -55,9 +55,9 @@ export declare enum IconStyle {
  * @atomicservice
  * @since 12
  */
-export declare enum TitltPosition {
+export declare enum titlePosition {
     /**
-     * The main titlt is above the text content.
+     * The main title is above the text content.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
@@ -65,7 +65,7 @@ export declare enum TitltPosition {
      */
     Top = 0,
     /**
-     * The main titlt is below the text content.
+     * The main title is below the text content.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
@@ -92,7 +92,7 @@ export declare interface DialogOptions {
      */
     uiContext: UIContext;
     /**
-     * The titlt of the dialog.
+     * The title of the dialog.
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
