@@ -2049,6 +2049,16 @@ declare namespace commonEventManager {
      * @since 12
      */
     COMMON_EVENT_DYNAMIC_ICON_CHANGED = 'usual.event.DYNAMIC_ICON_CHANGED',
+
+    /**
+     * Indicates that the file access state is changed.
+     * This is a protected common event that can only be sent by system.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 12
+     */
+    COMMON_EVENT_SCREEN_LOCK_FILE_ACCESS_STATE_CHANGED = 'usual.event.SCREEN_LOCK_FILE_ACCESS_STATE_CHANGED',
   }
 
   /**
