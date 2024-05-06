@@ -135,7 +135,16 @@ declare namespace taskpool {
      * @atomicservice
      * @since 11
      */
-    LOW = 2
+    LOW = 2,
+    /**
+     * set task priority to idle.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    IDLE = 3
   }
 
   /**
@@ -644,6 +653,19 @@ declare namespace taskpool {
     constructor(priority?: Priority);
 
     /**
+     * Create or get a SequenceRunner instance by name.
+     *
+     * @param { string } name - SequenceRunner name, if name is the same, will return the same SequenceRunner.
+     * @param { Priority } priority - Task execution priority, MEDIUM is default.
+     * @throws { BusinessError } 401 - The input parameters are invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    constructor(name: string, priority?: Priority);
+
+    /**
      * Execute a concurrent function.
      *
      * @param { Task } task - The task want to execute.
@@ -1121,6 +1143,24 @@ declare namespace taskpool {
    * @since 11
    */
   function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise<Object>;
+
+  /**
+   * Execute a concurrent task periodically
+   *
+   * @param { number } period - The period in milliseconds for executing task.
+   * @param { Task } task - The task want to execute.
+   * @param { Priority } [priority] - Task priority, MEDIUM is default.
+   * @throws { BusinessError } 401 - The input parameters are invalid.
+   * @throws { BusinessError } 10200003 - Worker initialization failure.
+   * @throws { BusinessError } 10200006 - An exception occurred during serialization.
+   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200028 - The period is less than zero.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  function executePeriodically(period: number, task: Task, priority?: Priority): void;
 
   /**
    * Cancel a concurrent task.
