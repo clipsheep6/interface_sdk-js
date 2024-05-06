@@ -21,6 +21,7 @@
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
+import { TextModifier } from './@ohos.arkui.modifier';
 
 /**
  * Control style of operation element
@@ -451,4 +452,36 @@ export declare struct SubHeader {
    * @since 12
    */
   operationSymbolOptions?: Array<SymbolOptions>;
+
+  /**
+   * Text modifier for primary title.
+   * @type { TextModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  primaryTitleModifier?:TextModifier;
+  
+  /**
+   * Text modifier for secondary title.
+   * @type { TextModifier }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  secondaryTitleModifier?:TextModifier;
+  
+  /**
+   * Sets the title content.
+   * @type { () => void }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  @BuilderParam titleBuilder?: () => void;
+
+  /**
+   * Sets the content margin.
+   * @type { ?Margin }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  @Prop contentMargin?:Margin;
 }
