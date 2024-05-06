@@ -55,7 +55,7 @@ export declare enum IconStyle {
  * @atomicservice
  * @since 12
  */
-export declare enum titlePosition {
+export declare enum TitlePosition {
     /**
      * The main title is above the text content.
      *
@@ -173,7 +173,7 @@ export declare interface DialogOptions {
  */
 export declare class AdvertiseDialogAction {
     /**
-     * Execute a drag event.
+     * The constructor transfers parameter settings.
      *
      * @param { DialogOptions } value - Creates a new dialog action object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
