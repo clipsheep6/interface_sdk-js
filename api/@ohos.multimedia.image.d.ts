@@ -765,6 +765,7 @@ declare namespace image {
      * Date time
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     DATE_TIME = 'DateTime',
@@ -773,6 +774,7 @@ declare namespace image {
      * GPS time stamp
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     GPS_TIME_STAMP = 'GPSTimeStamp',
@@ -781,6 +783,7 @@ declare namespace image {
      * GPS date stamp
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     GPS_DATE_STAMP = 'GPSDateStamp',
@@ -789,6 +792,7 @@ declare namespace image {
      * Image description
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     IMAGE_DESCRIPTION = 'ImageDescription',
@@ -797,6 +801,7 @@ declare namespace image {
      * Make
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     MAKE = 'Make',
@@ -805,6 +810,7 @@ declare namespace image {
      * Model
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     MODEL = 'Model',
@@ -813,6 +819,7 @@ declare namespace image {
      * Photo mode
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     PHOTO_MODE = 'PhotoMode',
@@ -821,6 +828,7 @@ declare namespace image {
      * Sensitivity type
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     SENSITIVITY_TYPE = 'SensitivityType',
@@ -829,6 +837,7 @@ declare namespace image {
      * Standard output sensitivity
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     STANDARD_OUTPUT_SENSITIVITY = 'StandardOutputSensitivity',
@@ -837,6 +846,7 @@ declare namespace image {
      * Recommended exposure index
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     RECOMMENDED_EXPOSURE_INDEX = 'RecommendedExposureIndex',
@@ -845,6 +855,7 @@ declare namespace image {
      * ISO speed
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     ISO_SPEED = 'ISOSpeedRatings',
@@ -853,6 +864,7 @@ declare namespace image {
      * Aperture value
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     APERTURE_VALUE = 'ApertureValue',
@@ -861,6 +873,7 @@ declare namespace image {
      * Exposure bias value
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     EXPOSURE_BIAS_VALUE = 'ExposureBiasValue',
@@ -869,6 +882,7 @@ declare namespace image {
      * Metering mode
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     METERING_MODE = 'MeteringMode',
@@ -877,6 +891,7 @@ declare namespace image {
      * Light source
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     LIGHT_SOURCE = 'LightSource',
@@ -885,6 +900,7 @@ declare namespace image {
      * Flash
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     FLASH = 'Flash',
@@ -893,6 +909,7 @@ declare namespace image {
      * Focal length
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     FOCAL_LENGTH = 'FocalLength',
@@ -901,6 +918,7 @@ declare namespace image {
      * User comment
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     USER_COMMENT = 'UserComment',
@@ -909,6 +927,7 @@ declare namespace image {
      * Pixel x dimension
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     PIXEL_X_DIMENSION = 'PixelXDimension',
@@ -917,6 +936,7 @@ declare namespace image {
      * Pixel y dimension
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     PIXEL_Y_DIMENSION = 'PixelYDimension',
@@ -925,6 +945,7 @@ declare namespace image {
      * White balance
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     WHITE_BALANCE = 'WhiteBalance',
@@ -933,6 +954,7 @@ declare namespace image {
      * Focal length in 35mm film
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     FOCAL_LENGTH_IN_35_MM_FILM = 'FocalLengthIn35mmFilm',
@@ -941,6 +963,7 @@ declare namespace image {
      * Capture mode
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     CAPTURE_MODE = 'HwMnoteCaptureMode',
@@ -949,6 +972,7 @@ declare namespace image {
      * Physical aperture
      *
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
      * @since 10
      */
     PHYSICAL_APERTURE = 'HwMnotePhysicalAperture',
