@@ -20352,6 +20352,17 @@ declare class CustomComponent extends CommonAttribute {
   aboutToRecycle?(): void;
 
   /**
+   * willApplyTheme method invoked before the theme will be applied.
+   *
+   * @param { Theme } theme - the actual whole Theme for this component at this moment.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillApplyTheme?(theme: Theme): void;
+
+  /**
    * Custom component override this method to layout each of its sub components.
    *
    * @param { Array<LayoutChild> } children
