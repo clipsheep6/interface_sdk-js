@@ -1513,6 +1513,7 @@ declare enum MouseButton {
  * Describes the attribute requirements for the target Components.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform 
  * @atomicservice
  * @since 11
  */
@@ -1686,7 +1687,7 @@ declare class On {
    *
    * @param { boolean } [b] - the longClickable status.Set it default true if null or undefined.
    * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;2. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -2032,6 +2033,7 @@ declare class On {
  * Represents an Component of the ohos application,user can perform operations or query attributes on it.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform 
  * @atomicservice
  * @since 11
  * @test
@@ -2894,6 +2896,7 @@ declare class Component {
  * coordinates-based UI actions,capture screen and so on.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform 
  * @atomicservice
  * @since 11
  * @test
@@ -3987,6 +3990,7 @@ declare class Driver {
  * Represents a window of the ohos application,user can perform operations or query attributes on it.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform 
  * @atomicservice
  * @since 11
  * @test
