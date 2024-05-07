@@ -1727,7 +1727,7 @@ declare class On {
    *
    * @param { boolean } [b] - the longClickable status.Set it default true if null or undefined.
    * @returns { On } this {@link On} object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;2. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
