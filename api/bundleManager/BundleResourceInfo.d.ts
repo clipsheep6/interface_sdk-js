@@ -78,7 +78,7 @@ export interface BundleResourceInfo {
    *
    * @type { number }
    * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 12
    */

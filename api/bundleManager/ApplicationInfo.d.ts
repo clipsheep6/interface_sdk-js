@@ -554,18 +554,18 @@ export interface ApplicationInfo {
    * @atomicservice
    * @since 12
    */
-    readonly appIndex: number;
+  readonly appIndex: number;
 
-    /**
-     * Indicates the MultiAppMode object of the bundle
-     *
-     * @type { MultiAppMode }
-     * @readonly
-     * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
-     * @since 12
-     */
-    readonly multiAppMode: MultiAppMode;
+  /**
+   * Indicates the MultiAppMode object of the bundle
+   *
+   * @type { MultiAppMode }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly multiAppMode: MultiAppMode;
 }
 
 /**

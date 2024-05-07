@@ -276,6 +276,7 @@ export interface BundleInfo {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
    * @since 12
    */
   readonly appIndex: number;
