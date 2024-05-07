@@ -1056,6 +1056,7 @@ declare interface Point {
  *
  * @typedef Rect 
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -1513,6 +1514,7 @@ declare enum MouseButton {
  * Describes the attribute requirements for the target Components.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -2032,6 +2034,7 @@ declare class On {
  * Represents an Component of the ohos application,user can perform operations or query attributes on it.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
  * @atomicservice
  * @since 11
  * @test
@@ -2894,6 +2897,7 @@ declare class Component {
  * coordinates-based UI actions,capture screen and so on.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
  * @atomicservice
  * @since 11
  * @test
