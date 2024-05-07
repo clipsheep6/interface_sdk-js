@@ -669,6 +669,7 @@ declare class UiDriver {
  *
  * @enum { number }
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -684,6 +685,7 @@ declare enum WindowMode {
    * The test window is a full screen window.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -700,6 +702,7 @@ declare enum WindowMode {
    * The test window is the first window in the split screen state.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -716,6 +719,7 @@ declare enum WindowMode {
    * The test window is the second window in the split screen state.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -732,6 +736,7 @@ declare enum WindowMode {
    * The test window is a floating window.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -751,6 +756,7 @@ declare enum WindowMode {
  *
  * @enum { number }
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -766,6 +772,7 @@ declare enum ResizeDirection {
    * Left.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -782,6 +789,7 @@ declare enum ResizeDirection {
    * Right.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -798,6 +806,7 @@ declare enum ResizeDirection {
    * Up.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -814,6 +823,7 @@ declare enum ResizeDirection {
    * Down.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -830,6 +840,7 @@ declare enum ResizeDirection {
    * Upper left.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -846,6 +857,7 @@ declare enum ResizeDirection {
    * Lower left.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -862,6 +874,7 @@ declare enum ResizeDirection {
    * Upper right.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -878,6 +891,7 @@ declare enum ResizeDirection {
    * Lower right.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -897,6 +911,7 @@ declare enum ResizeDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -912,6 +927,7 @@ declare enum DisplayRotation {
    * Device display does not rotate to display vertically.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -928,6 +944,7 @@ declare enum DisplayRotation {
    * Device display rotates 90 degrees clockwise to display horizontally.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -944,6 +961,7 @@ declare enum DisplayRotation {
    * Device display rotates clockwise 180 degrees to display vertically in reverse.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -960,6 +978,7 @@ declare enum DisplayRotation {
    * Device display rotates 270 degrees clockwise to display horizontally in reverse.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1138,6 +1157,7 @@ declare interface Rect {
  *
  * @typedef WindowFilter
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -1154,6 +1174,7 @@ declare interface WindowFilter {
    *
    * @type { ?string }
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1171,6 +1192,7 @@ declare interface WindowFilter {
    *
    * @type { ?string }
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1188,6 +1210,7 @@ declare interface WindowFilter {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1216,6 +1239,7 @@ declare interface WindowFilter {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -1235,6 +1259,7 @@ declare interface WindowFilter {
  * 
  * @typedef UIElementInfo
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
  * @atomicservice
  * @since 11
  * @test
@@ -1251,6 +1276,7 @@ declare interface UIElementInfo {
    * The bundle name of the host application.
    * @type { string }
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1267,6 +1293,7 @@ declare interface UIElementInfo {
    * The component type, set it as 'window' if it's a window.
    * @type { string }
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1283,6 +1310,7 @@ declare interface UIElementInfo {
    * The text of component, set it as window's title if it's a window.
    * @type { string }
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1303,6 +1331,7 @@ declare interface UIElementInfo {
  * 
  * @typedef UIEventObserver
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
  * @atomicservice
  * @since 11
  * @test
@@ -1325,6 +1354,7 @@ declare interface UIEventObserver {
    * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1348,6 +1378,7 @@ declare interface UIEventObserver {
    * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1367,6 +1398,7 @@ declare interface UIEventObserver {
  *
  * @enum { number }
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -1382,6 +1414,7 @@ declare enum UiDirection {
    * Left.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1398,6 +1431,7 @@ declare enum UiDirection {
    * Right.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1414,6 +1448,7 @@ declare enum UiDirection {
    * Up.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1430,6 +1465,7 @@ declare enum UiDirection {
    * Down.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1449,6 +1485,7 @@ declare enum UiDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -1464,6 +1501,7 @@ declare enum MouseButton {
    * Left button of the mouse.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1480,6 +1518,7 @@ declare enum MouseButton {
    * Right button of the mouse..
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1496,6 +1535,7 @@ declare enum MouseButton {
    * MIDDLE button of the mouse.
    *
    * @syscap SystemCapability.Test.UiTest
+   * @crossplatform
    * @atomicservice
    * @since 11
    * @test
@@ -1513,6 +1553,7 @@ declare enum MouseButton {
  * Describes the attribute requirements for the target Components.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform 
  * @atomicservice
  * @since 11
  */
@@ -2032,6 +2073,7 @@ declare class On {
  * Represents an Component of the ohos application,user can perform operations or query attributes on it.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform 
  * @atomicservice
  * @since 11
  * @test
@@ -2894,6 +2936,7 @@ declare class Component {
  * coordinates-based UI actions,capture screen and so on.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform 
  * @atomicservice
  * @since 11
  * @test
@@ -3987,6 +4030,7 @@ declare class Driver {
  * Represents a window of the ohos application,user can perform operations or query attributes on it.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform 
  * @atomicservice
  * @since 11
  * @test
