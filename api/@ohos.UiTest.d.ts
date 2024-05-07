@@ -1414,8 +1414,8 @@ declare enum UiDirection {
    * Left.
    *
    * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 11
    * @test
    */
@@ -1431,8 +1431,8 @@ declare enum UiDirection {
    * Right.
    *
    * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 11
    * @test
    */
@@ -1448,8 +1448,8 @@ declare enum UiDirection {
    * Up.
    *
    * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 11
    * @test
    */
@@ -1465,8 +1465,8 @@ declare enum UiDirection {
    * Down.
    *
    * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
    * @crossplatform
+   * @atomicservice
    * @since 11
    * @test
    */
