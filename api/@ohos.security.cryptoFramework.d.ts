@@ -1186,6 +1186,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @atomicservice
+     * @crossplatform
      * @since 11
      */
     setSeed(seed: DataBlob): void;
