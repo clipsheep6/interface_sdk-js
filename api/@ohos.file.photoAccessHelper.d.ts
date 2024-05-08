@@ -35,6 +35,7 @@ import type dataSharePredicates from './@ohos.data.dataSharePredicates';
  *
  * @namespace photoAccessHelper
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @crossplatform
  * @atomicservice
  * @since 11
  */
@@ -2956,6 +2957,7 @@ declare namespace photoAccessHelper {
    *
    * @enum { string } PhotoViewMIMETypes
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -2970,6 +2972,7 @@ declare namespace photoAccessHelper {
      * IMAGE_TYPE indicates that the selected media resources are images.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2984,6 +2987,7 @@ declare namespace photoAccessHelper {
      * VIDEO_TYPE indicates that the selected media resources are videos.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -2998,6 +3002,7 @@ declare namespace photoAccessHelper {
      * IMAGE_VIDEO_TYPE indicates that the selected media resources are images and videos.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3014,6 +3019,7 @@ declare namespace photoAccessHelper {
    * PhotoSelectOptions Object
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -3030,6 +3036,7 @@ declare namespace photoAccessHelper {
      *
      * @type { ?PhotoViewMIMETypes }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3162,6 +3169,7 @@ declare namespace photoAccessHelper {
    * PhotoSelectResult Object
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -3178,6 +3186,7 @@ declare namespace photoAccessHelper {
      *
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3195,6 +3204,7 @@ declare namespace photoAccessHelper {
      *
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3211,6 +3221,7 @@ declare namespace photoAccessHelper {
    * PhotoViewPicker Object
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -3233,6 +3244,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 401 - if parameter is invalid
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3256,6 +3268,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 401 - if parameter is invalid
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -3277,6 +3290,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 401 - if parameter is invalid
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
