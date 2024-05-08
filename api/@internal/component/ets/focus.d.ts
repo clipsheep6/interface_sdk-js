@@ -13,66 +13,77 @@
  * limitations under the License.
  */
 
-/// <reference path="../../component/common.d.ts" />
-
 /**
- * function that returns a default param of AttributeUpdater.
+ * Focus box style.
  *
- * @typedef { function } Initializer<T>
- * @returns { T }
+ * @interface FocusBoxStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-declare type Initializer<T> = () => T;
+interface FocusBoxStyle {
+  /**
+   * Describes the focus-box margin.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  margin?: LengthMetrics;
+  /**
+   * Describes the focus-box color.
+   *
+   * @type { ?ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  strokeColor?: ColorMetrics;
+  /**
+   * Describes the focus-box stroke width.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  strokeWidth?: LengthMetrics;
+}
 
 /**
- * Defines a modifier which can update attributes to native side.
+ * Focus Priority
  *
- * @implements AttributeModifier
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
-export declare class AttributeUpdater<T, C = Initializer<T>> implements AttributeModifier<T> {
-
+declare enum FocusPriority {
   /**
-   * Defines the normal update attribute function.
+   * Default priority.
    *
-   * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  applyNormalAttribute?(instance: T): void;
+  AUTO = 0,
 
   /**
-   * Defines a function for initialization.
+   * Prior priority.
    *
-   * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  initializeModifier(instance: T): void;
+  PRIOR = 2000,
 
   /**
-   * Get attribute of the modifier.
+   * Previous focus priority.
    *
-   * @returns { T | undefined } The attribute of the modifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  get attribute(): T | undefined;
-
-  /**
-   * Used to update constructor params.
-   *
-   * @type { C }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 12
-   */
-  updateConstructorParams: C;
+  PREVIOUS = 3000,
 }
