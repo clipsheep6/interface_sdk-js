@@ -1515,6 +1515,39 @@ declare type Offset = {
 };
 
 /**
+ * Defines the offset property.
+ *
+ * @interface OffsetT
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface OffsetT<T> {
+  /**
+   * x property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  x: T;
+
+  /**
+   * y property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  y: T;
+}
+
+/**
  * Defines the color which can use resource.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
