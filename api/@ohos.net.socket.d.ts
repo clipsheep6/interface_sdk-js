@@ -1558,6 +1558,7 @@ declare namespace socket {
      * @param { AsyncCallback<void> } callback - Return the callback of bind.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301022 - Invalid argument.
      * @syscap SystemCapability.Communication.NetStack
      * @since 7
      */
@@ -1568,6 +1569,7 @@ declare namespace socket {
      * @param { AsyncCallback<void> } callback - the callback of bind.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301022 - Invalid argument.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -1581,6 +1583,7 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301022 - Invalid argument.
      * @syscap SystemCapability.Communication.NetStack
      * @since 7
      */
@@ -1591,6 +1594,7 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301022 - Invalid argument.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -1604,6 +1608,8 @@ declare namespace socket {
      * @param { AsyncCallback<void> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301022 - Invalid argument.
+     * @throws { BusinessError } 2301115 - Operation in progress.
      * @syscap SystemCapability.Communication.NetStack
      * @since 7
      */
@@ -1614,6 +1620,8 @@ declare namespace socket {
      * @param { AsyncCallback<void> } callback - the callback of connect.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301022 - Invalid argument.
+     * @throws { BusinessError } 2301115 - Operation in progress.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
@@ -1627,6 +1635,8 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301022 - Invalid argument.
+     * @throws { BusinessError } 2301115 - Operation in progress.
      * @syscap SystemCapability.Communication.NetStack
      * @since 7
      */
@@ -1637,6 +1647,8 @@ declare namespace socket {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 2301022 - Invalid argument.
+     * @throws { BusinessError } 2301115 - Operation in progress.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since 10
