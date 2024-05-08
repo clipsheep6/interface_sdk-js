@@ -52,6 +52,36 @@ declare interface UIExtensionOptions {
 }
 
 /**
+ * Indicates the information when the provider of the embedded UI is terminated.
+ *
+ * @interface TerminationInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @since 12
+ */
+declare interface TerminationInfo {
+  /**
+   * Defines the termination code.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+   code: number;
+
+  /**
+   * Defines the additional termination information.
+   *
+   * @type { ?import('../api/@ohos.app.ability.Want').default }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+   want?: import('../api/@ohos.app.ability.Want').default;
+}
+
+/**
  * This interface is used for send data to the UIExtensionAbility.<br/>
  * It is returned from onRemoteReady callback of UIExtensionComponent<br/>
  * when UIExtensionAbility connects successfully
@@ -208,6 +238,8 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
+   * @deprecated since 12
+   * @useinstead UIExtensionComponentAttribute#onTerminated
    */
   onResult(
     callback: import('../api/@ohos.base').Callback<{
@@ -224,6 +256,8 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 10
+   * @deprecated since 12
+   * @useinstead UIExtensionComponentAttribute#onTerminated or UIExtensionComponentAttribute#onError
    */
   onRelease(
     callback: import('../api/@ohos.base').Callback<number>
@@ -240,6 +274,17 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   onError(
     callback: import('../api/@ohos.base').ErrorCallback
   ): UIExtensionComponentAttribute;
+
+  /**
+   * Called when the provider of the embedded UI is terminated.
+   *
+   * @param { Callback<TerminationInfo> } callback
+   * @returns { UIExtensionComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  onTerminated(callback: Callback<TerminationInfo>): UIExtensionComponentAttribute;
 }
 
 /**
