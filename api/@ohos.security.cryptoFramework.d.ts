@@ -1186,6 +1186,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - memory error.
      * @syscap SystemCapability.Security.CryptoFramework
      * @atomicservice
+     * @crossplatform
      * @since 11
      */
     setSeed(seed: DataBlob): void;
@@ -1295,7 +1296,6 @@ declare namespace cryptoFramework {
      * Used to generate asymmetric keypair.
      *
      * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -1305,7 +1305,6 @@ declare namespace cryptoFramework {
      * Used to generate asymmetric keypair.
      *
      * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -1316,7 +1315,6 @@ declare namespace cryptoFramework {
      * Used to generate asymmetric keypair.
      *
      * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -1330,7 +1328,6 @@ declare namespace cryptoFramework {
      * Used to generate asymmetric keypair.
      *
      * @returns { KeyPair } return keypair.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -8206,7 +8203,6 @@ declare namespace cryptoFramework {
      * Generate an asymmetric keypair.
      *
      * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -8216,7 +8212,6 @@ declare namespace cryptoFramework {
      * Generate an asymmetric keypair.
      *
      * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -8227,7 +8222,6 @@ declare namespace cryptoFramework {
      * Generate an asymmetric keypair.
      *
      * @returns { Promise<KeyPair> } the promise used to return keypair.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -8241,7 +8235,6 @@ declare namespace cryptoFramework {
      * Generate an asymmetric keypair.
      *
      * @returns { KeyPair } return keypair.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -8293,7 +8286,6 @@ declare namespace cryptoFramework {
      * Generate a private key instance.
      *
      * @returns { Promise<PriKey> } the promise used to return PriKey.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -8303,7 +8295,6 @@ declare namespace cryptoFramework {
      * Generate a private key instance.
      *
      * @returns { Promise<PriKey> } the promise used to return PriKey.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -8314,7 +8305,6 @@ declare namespace cryptoFramework {
      * Generate a private key instance.
      *
      * @returns { Promise<PriKey> } the promise used to return PriKey.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -8328,7 +8318,6 @@ declare namespace cryptoFramework {
      * Generate a private key instance.
      *
      * @returns { PriKey } return PriKey.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -8377,7 +8366,6 @@ declare namespace cryptoFramework {
      * Generate a public key instance.
      *
      * @returns { Promise<PubKey> } the promise used to return PubKey.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -8387,7 +8375,6 @@ declare namespace cryptoFramework {
      * Generate a public key instance.
      *
      * @returns { Promise<PubKey> } the promise used to return PubKey.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -8398,7 +8385,6 @@ declare namespace cryptoFramework {
      * Generate a public key instance.
      *
      * @returns { Promise<PubKey> } the promise used to return PubKey.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
@@ -8412,7 +8398,6 @@ declare namespace cryptoFramework {
      * Generate a public key instance.
      *
      * @returns { PubKey } return PubKey.
-     * @throws { BusinessError } 401 - invalid parameters.
      * @throws { BusinessError } 17620001 - memory error.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework
