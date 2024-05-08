@@ -1731,6 +1731,28 @@ declare namespace bundleManager {
   function queryAbilityInfoSync(want: Want, abilityFlags: number, userId?: number): Array<AbilityInfo>;
 
   /**
+   * Batch query the AbilityInfo by the given Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { Array<Want> } wants - Indicates the Wants containing the application bundle name to be queried.
+   * @param { number } abilityFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that will be returned.
+   * @param { number } userId - userId Indicates the user ID.
+   * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700003 - The specified ability is not found.
+   * @throws { BusinessError } 17700004 - The specified userId is invalid.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @throws { BusinessError } 17700029 - The specified ability is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 12
+   */
+  function queryAbilityInfos(wants: Array<Want>, abilityFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
+
+  /**
    * Query extension info of by utilizing a Want. ohos.permission.GET_BUNDLE_INFO_PRIVILEGED is required for cross user access.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
