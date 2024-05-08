@@ -394,7 +394,7 @@ declare namespace vibrator {
    * @atomicservice
    * @since 11
    */
-  type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile;
+  type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibratePattern;
 
   /**
    * Vibrate continuously for a period of time at the default intensity of the system.
@@ -536,6 +536,223 @@ declare namespace vibrator {
      * @since 10
      */
     length?: number;
+  }
+
+  /**
+   * 振动曲线，当振动事件类型为"continuous"时有效.
+   *
+   * @interface VibratorCurvePoint
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 12
+   */
+  interface VibratorCurvePoint {
+    /**
+     * 相对事件起始时间的偏移.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    time: number;
+
+    /**
+     * 相对事件振动强度的增益.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    intensity?: number;
+
+    /**
+     * 相对事件振动频率的变化.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    frequency?: number;
+  }
+
+  /**
+   * 表示一个振动事件.
+   *
+   * @interface VibratorEvent
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 12
+   */
+  interface VibratorEvent {
+    /**
+     * 振动事件类型.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    eventType: number;
+
+    /**
+     * 振动的起始时间.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    time: number;
+
+    /**
+     * 振动的持续时间.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    duration?: number;
+
+    /**
+     * 振动事件强度.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    intensity?: number;
+
+    /**
+     * 振动事件频率.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    frequency?: number;
+
+    /**
+     * 表示通道编号.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    index?: number;
+
+    /**
+     * 表示振动曲线数组.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    points?: Array<VibratorCurvePoint>;
+  }
+
+  /**
+   * 表示马达振动序列，每个"events"属性代表1个振动事件.
+   *
+   * @interface VibratorPattern
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 12
+   */
+  interface VibratorPattern {
+    /**
+     * 表示振动的相对起始时间.
+     *
+     * @type { Array<> }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    time: number;
+
+    /**
+     * 表示振动事件数组，每个"events"属性代表1个振动事件.
+     *
+     * @type { Array<> }
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    events: Array<VibratorEvent>;
+  }
+
+  /**
+   * 提供添加长振或短振事件的方法，并生成VibratorPattern对象.
+   *
+   * @interface VibratorPatternBuilder
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 12
+   * @deprecated since 9
+   * @useinstead vibrator#startVibration
+   */
+  interface VibratorPatternBuilder {
+    /**
+     * 添加长振事件的方法.
+     *
+     * @param { number } time 长振事件的起始时间.
+     * @param { number } duration 长振事件的持续时间.
+     * @param { number } intensity 长振事件的振动强度.
+     * @param { number } frequency 长振事件的振动频率.
+     * @param { VibratorCurvePoint[] } points 长振事件的振动曲线数组.
+     * @returns { VibratorPatternBuilder } 返回当前VibratorPatternBuilder对象.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    addContinuousEvent(time: number,duration: number, options?:{ points?:VibratorCurvePoint[],intensity?: number,frequency?: number }):VibratorPatternBuilder;
+
+    /**
+     * 添加短振事件的方法.
+     *
+     * @param { number } time 短振事件的起始时间.
+     * @param { number } frequency 短振事件的振动频率.
+     * @param { number } intensity 短振事件的振动强度.
+     * @returns { VibratorPatternBuilder } 返回当前VibratorPatternBuilder对象.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    addTransientEvent(time: number, frequency: number, intensity?: number): VibratorPatternBuilder;
+
+    /**
+     * 构建组合短振或长振事件振动序列的方法.
+     *
+     * @returns { VibratorPattern } 返回VibratorPattern对象.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    build(): VibratorPattern;
+
+    /**
+     * 释放相关资源的方法.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    release(): void;
+  }
+
+  /**
+   * 以自定义振动效果触发马达振动.
+   *
+   * @interface VibratePattern
+   * @syscap SystemCapability.Sensors.MiscDevice
+   * @since 12
+   */
+  interface VibratePattern {
+    /**
+     * 取值为"pattern", 根据自定义振动模式触发马达振动.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    type: 'pattern';
+
+    /**
+     * 自定义马达振动事件序列，build()方法返回的VibratorPattern对象.
+     *
+     * @syscap SystemCapability.Sensors.MiscDevice
+     * @since 12
+     */
+    patternBuilder: VibratorPattern;
   }
 }
 
