@@ -29,13 +29,13 @@ declare class StyledString {
     /**
      * constructor.
      *
-     * @param { string | ImageAttachment | CustomSpan } value - indicates the current object value of the StyledString.
+     * @param { string | ImageAttachment | CustomSpan | TokenAttachment} value - indicates the current object value of the StyledString.
      * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
      */
-    constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
+    constructor(value: string | ImageAttachment | CustomSpan | TokenAttachment, styles?: Array<StyleOptions>);
 
     /**
      * Get the length of the StyledString's characters.
@@ -770,13 +770,13 @@ declare class LineHeightStyle {
  * Defines the Span Type.
  *
  * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
- * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan } StyledStringValue
+ * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan | TokenAttachment } StyledStringValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
 declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | 
-GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan;
+GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan | TokenAttachment;
 
 /**
  * MutableStyledString
@@ -1039,6 +1039,15 @@ declare enum StyledStringKey {
      * @since 12
      */
     CUSTOM_SPAN = 400,
+
+    /**
+     * The key of TokenAttachment.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    TOKEN = 500,
 }
 
 /**
@@ -1353,4 +1362,158 @@ declare abstract class CustomSpan {
      * @since 12
      */
     abstract onDraw(context: DrawContext, drawInfo: CustomSpanDrawInfo): void;
+}
+
+/**
+ * Defines TokenAttachment.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class TokenAttachment {
+
+    /**
+     * constructor.
+     *
+     * @param { TokenAttachmentInterface } value - token attachment object.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    constructor(value: TokenAttachmentInterface);
+
+    /**
+     * Get the content of the TokenAttachment.
+     *
+     * @type { string } - the content of the TokenAttachment
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly content: string;
+
+    /**
+     * Get the prefix icon of the TokenAttachment.
+     *
+     * @type { ?PixelMap } - the prefix icon of the TokenAttachment or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly prefixIcon?: PixelMap;
+
+    /**
+     * Get the suffix icon of the TokenAttachment.
+     *
+     * @type { ?PixelMap } - the suffix icon of the TokenAttachment or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly suffixIcon?: PixelMap;
+
+    /**
+     * Get the attachmentLayoutStyle of the StyledString.
+     *
+     * @type { ?AttachmentLayoutStyle } - the attachmentLayoutStyle of the StyledString or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    readonly layoutStyle?: AttachmentLayoutStyle;
+}
+
+/**
+ * Defines the TokenAttachmentInterface.
+ *
+ * @interface TokenAttachmentInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface TokenAttachmentInterface {
+    /**
+     * Textual content.
+     *
+     * @type { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    content: string;
+
+    /**
+     * The prefix icon.
+     *
+     * @type { ?PixelMap }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    prefixIcon?: PixelMap;
+
+    /**
+     * The suffix icon.
+     *
+     * @type { ?PixelMap }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    suffixIcon?: PixelMap;
+
+    /**
+     * The tokenAttachment Layout Style.
+     *
+     * @type { ?AttachmentLayoutStyle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    layoutStyle?: AttachmentLayoutStyle;
+}
+
+/**
+ * Defines the Attachment Layout Style.
+ *
+ * @interface AttachmentLayoutStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface AttachmentLayoutStyle {
+    /**
+     * Outer Margin.
+     *
+     * @type { ?(LengthMetrics | Margin) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    margin?: LengthMetrics | Margin;
+
+    /**
+     * Inner margin.
+     *
+     * @type { ?(LengthMetrics | Padding) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    padding?: LengthMetrics | Padding;
+
+    /**
+     * Border radius.
+     *
+     * @type { ?(LengthMetrics | BorderRadiuses) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 12
+     */
+    borderRadius?: LengthMetrics | BorderRadiuses;
 }
