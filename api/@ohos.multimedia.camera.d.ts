@@ -4983,7 +4983,7 @@ declare namespace camera {
    * @systemapi
    * @since 12
    */
-  interface PortraitPhotoConflictFunctions extends ZoomQuery, PortraitQuery, ApertureQuery, MacroQuery {
+  interface PortraitPhotoConflictFunctions extends ZoomQuery, PortraitQuery, ApertureQuery {
   }
 
   /**
@@ -5326,7 +5326,7 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
-    readonly exposureTimeValue?: number;
+    readonly exposureTime?: number;
   }
 
   /**
@@ -6144,19 +6144,11 @@ declare namespace camera {
    */
   interface SecureSession extends Session, Flash, AutoExposure, Focus, Zoom {
     /**
-     * get max count that supported secure flow.
-     *
-     * @throws { BusinessError } 7400103 - Session not config.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 12
-     */
-    getMaxSecureStreamCount(): number;
-
-    /**
      * Add Secure output for camera.
      *
      * @param { PreviewOutput } previewOutput - Specify the output as a secure flow.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
@@ -6202,26 +6194,6 @@ declare namespace camera {
      * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
-
-    /**
-     * Subscribes zoom info event callback.
-     *
-     * @param { 'smoothZoomInfoAvailable' } type - Event type.
-     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 12
-     */
-    on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback<SmoothZoomInfo>): void;
-
-    /**
-     * Unsubscribes from zoom info event callback.
-     *
-     * @param { 'smoothZoomInfoAvailable' } type - Event type.
-     * @param { AsyncCallback<SmoothZoomInfo> } callback - Callback used to get the zoom info.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 12
-     */
-    off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback<SmoothZoomInfo>): void;
   }
 
   /**
