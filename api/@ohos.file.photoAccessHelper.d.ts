@@ -38,6 +38,15 @@ import type dataSharePredicates from './@ohos.data.dataSharePredicates';
  * @atomicservice
  * @since 11
  */
+/**
+ * Helper functions to access image and video assets
+ *
+ * @namespace photoAccessHelper
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare namespace photoAccessHelper {
   /**
    * Returns an instance of PhotoAccessHelper
@@ -3135,6 +3144,15 @@ declare namespace photoAccessHelper {
    * @atomicservice
    * @since 11
    */
+  /**
+   * PhotoViewMIMETypes represents the type of media resource that photo picker selects.
+   *
+   * @enum { string } PhotoViewMIMETypes
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   export enum PhotoViewMIMETypes {
     /**
      * IMAGE_TYPE indicates that the selected media resources are images.
@@ -3148,6 +3166,14 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * IMAGE_TYPE indicates that the selected media resources are images.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     IMAGE_TYPE = 'image/*',
     /**
@@ -3163,6 +3189,14 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 11
      */
+    /**
+     * VIDEO_TYPE indicates that the selected media resources are videos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     VIDEO_TYPE = 'video/*',
     /**
      * IMAGE_VIDEO_TYPE indicates that the selected media resources are images and videos.
@@ -3176,6 +3210,14 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * IMAGE_VIDEO_TYPE indicates that the selected media resources are images and videos.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     IMAGE_VIDEO_TYPE = '*/*',
 
@@ -3193,6 +3235,7 @@ declare namespace photoAccessHelper {
    * Class BaseSelectOptions, which is extracted from class PhotoSelectOptions
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -3218,6 +3261,7 @@ declare namespace photoAccessHelper {
      *
      * @type { ?PhotoViewMIMETypes }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
      * @atomicservice
      * @since 12
      */
@@ -3344,6 +3388,7 @@ declare namespace photoAccessHelper {
    *
    * @extends BaseSelectOptions
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -3421,6 +3466,14 @@ declare namespace photoAccessHelper {
    * @atomicservice
    * @since 11
    */
+  /**
+   * PhotoSelectResult Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   class PhotoSelectResult {
     /**
      * The uris for the selected files.
@@ -3436,6 +3489,15 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The uris for the selected files.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     photoUris: Array<string>;
 
@@ -3454,6 +3516,15 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Original option.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     isOriginalPhoto: boolean;
   }
 
@@ -3469,6 +3540,14 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 11
+   */
+  /**
+   * PhotoViewPicker Object
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   class PhotoViewPicker {
     /**
@@ -3491,6 +3570,18 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { PhotoSelectOptions } [option] - represents the options provided in select mode.
+     * @returns { Promise<PhotoSelectResult> } Returns the uris for the selected files.
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     select(option?: PhotoSelectOptions): Promise<PhotoSelectResult>;
 
@@ -3515,6 +3606,18 @@ declare namespace photoAccessHelper {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { PhotoSelectOptions } option - represents the options provided in select mode.
+     * @param { AsyncCallback<PhotoSelectResult> } callback - Returns the PhotoSelectResult by photo picker
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>): void;
 
     /**
@@ -3535,6 +3638,17 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Pull up the photo picker based on the selection mode.
+     *
+     * @param { AsyncCallback<PhotoSelectResult> } callback - Returns the PhotoSelectResult by photo picker
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     select(callback: AsyncCallback<PhotoSelectResult>): void;
   }
