@@ -1829,12 +1829,12 @@ declare namespace window {
    *
    * @param { Configuration } config - Parameters for window creation.
    * @param { AsyncCallback<Window> } callback - Callback used to return the window created.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
    *                                                                  2.Incorrect parameter types.
    * @throws { BusinessError } 1300001 - Repeated operation.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
-   * @throws { BusinessError } 1300008 - The operation is on invalid display.
+   * @throws { BusinessError } 1300008 - The display device is abnormal.
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
@@ -1846,12 +1846,12 @@ declare namespace window {
    *
    * @param { Configuration } config - Parameters for window creation.
    * @returns { Promise<Window> } Promise used to return the window created.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
    *                                                                  2.Incorrect parameter types.
    * @throws { BusinessError } 1300001 - Repeated operation.
    * @throws { BusinessError } 1300006 - This window context is abnormal.
-   * @throws { BusinessError } 1300008 - The operation is on invalid display.
+   * @throws { BusinessError } 1300008 - The display device is abnormal.
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 9
@@ -2196,9 +2196,9 @@ declare namespace window {
    * @param { image.PixelMap } pixelMap - Watermark image.
    * @param { boolean } enable - Show watermark if true.
    * @returns { Promise<void> } - Promise that returns no value.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-   * @throws { BusinessError } 401 - Parameter error. Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                                   2.Incorrect parameter types.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
+   *                                                                  2.Incorrect parameter types.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -2212,9 +2212,9 @@ declare namespace window {
    * @param { image.PixelMap } pixelMap - Watermark image.
    * @param { boolean } enable - Show watermark if true.
    * @param { AsyncCallback<void> } callback - The callback of setWaterMarkImage.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-   * @throws { BusinessError } 401 - Parameter error. Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                                   2.Incorrect parameter types.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
+   *                                                                  2.Incorrect parameter types.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -2228,9 +2228,9 @@ declare namespace window {
    * @param { number } sourceWindowId - Window id which the focus shift from.
    * @param { number } targetWindowId - Window id which the focus shift to.
    * @returns { Promise<void> } - Promise that returns no value.
-   * @throws { BusinessError } 401 - Parameter error. Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                                   2.Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
+   *                                                                  2.Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -2244,7 +2244,7 @@ declare namespace window {
    *
    * @param { number } windowId - Indicates target window id.
    * @returns { Promise<image.PixelMap> } - Promise that returns no value.
-   * @throws {BusinessError} 801 - Capability not supported on this device.
+   * @throws {BusinessError} 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws {BusinessError} 1300002 - This window state is abnormal.
    * @throws {BusinessError} 1300003 - This window manager service work abnormally.
    * @throws {BusinessError} 1300004 - This operation is not access.
@@ -2286,9 +2286,9 @@ declare namespace window {
    *
    * @param { 'gestureNavigationEnabledChange' } type the event of gesture navigation enabled changes.
    * @param { Callback<boolean> } callback Callback used to return the result whether gesture navigation enabled or not.
-   * @throws { BusinessError } 401 - Parameter error. Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-   *                                                                                   2.Incorrect parameter types.
-   *                                                                                   3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
+   *                                                                  2.Incorrect parameter types.
+   *                                                                  3.Parameter verification failed.
    * @throws { BusinessError } 1300002 - This window state is abnormal.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -2317,7 +2317,7 @@ declare namespace window {
    *
    * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
    * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -2330,7 +2330,7 @@ declare namespace window {
    *
    * @param { 'waterMarkFlagChange' } type the event of watermark flag change.
    * @param { Callback<boolean> } callback Callback used to return the result whether watermark flag change or not.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -3645,7 +3645,7 @@ declare namespace window {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3658,7 +3658,7 @@ declare namespace window {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3674,7 +3674,7 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3687,7 +3687,7 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3924,7 +3924,9 @@ declare namespace window {
      * Get the UIContext associate with the window content.
      *
      * @returns { UIContext } the object of UIContext.
-     * @throws { BusinessError } 401 - If param is invalid
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 
+     *                                                                   2.Incorrect parameter types; 
+     *                                                                   3.Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
@@ -3935,7 +3937,9 @@ declare namespace window {
      * Get the UIContext associate with the window content.
      *
      * @returns { UIContext } the object of UIContext.
-     * @throws { BusinessError } 401 - If param is invalid
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 
+     *                                                                   2.Incorrect parameter types; 
+     *                                                                   3.Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
@@ -4208,7 +4212,9 @@ declare namespace window {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 
+     *                                                                   2.Incorrect parameter types; 
+     *                                                                   3.Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -4217,7 +4223,9 @@ declare namespace window {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 
+     *                                                                   2.Incorrect parameter types; 
+     *                                                                   3.Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
@@ -4227,7 +4235,9 @@ declare namespace window {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<AvoidAreaOptions> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 
+     *                                                                   2.Incorrect parameter types; 
+     *                                                                   3.Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -4239,7 +4249,9 @@ declare namespace window {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 
+     *                                                                   2.Incorrect parameter types; 
+     *                                                                   3.Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
@@ -4248,7 +4260,9 @@ declare namespace window {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<{ type: AvoidAreaType, area: AvoidArea }> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 
+     *                                                                   2.Incorrect parameter types; 
+     *                                                                   3.Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11
@@ -4258,7 +4272,9 @@ declare namespace window {
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
      * @param { Callback<AvoidAreaOptions> } callback - Callback used to return the area.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 
+     *                                                                   2.Incorrect parameter types; 
+     *                                                                   3.Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12
@@ -4325,7 +4341,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types; 
      *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -4340,7 +4356,7 @@ declare namespace window {
      * @param { Callback<boolean> } callback - Callback used to notify the window visibility change.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
      *                                                                  2.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -4357,7 +4373,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types; 
      *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -4370,7 +4386,7 @@ declare namespace window {
      *
      * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
      * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -4487,7 +4503,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types; 
      *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -4500,7 +4516,7 @@ declare namespace window {
      * @param { Callback<WindowStatusType> } callback - Callback used to return the window status.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
      *                                                                  2.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
@@ -4820,10 +4836,10 @@ declare namespace window {
      *
      * @param { boolean } isTopmost - Main window is topmost if true.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5100,7 +5116,7 @@ declare namespace window {
      *
      * @param { boolean } wakeUp Specifies whether to wake up the screen. True means to wake it up, false means not.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
-     *                                                                                   2.Incorrect parameter types.
+     *                                                                  2.Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5161,7 +5177,7 @@ declare namespace window {
      * @permission ohos.permission.PRIVACY_WINDOW
      * @param { boolean } isPrivacyMode in private mode if true, or not if false.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -5174,7 +5190,7 @@ declare namespace window {
      * @permission ohos.permission.PRIVACY_WINDOW
      * @param { boolean } isPrivacyMode in private mode if true, or not if false.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -5190,7 +5206,7 @@ declare namespace window {
      * @permission ohos.permission.PRIVACY_WINDOW
      * @param { boolean } isPrivacyMode in private mode if true, or not if false.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -5203,7 +5219,7 @@ declare namespace window {
      * @permission ohos.permission.PRIVACY_WINDOW
      * @param { boolean } isPrivacyMode in private mode if true, or not if false.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -5283,10 +5299,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Add handwrite flag to window if true, or remove flag if false.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -5300,7 +5316,8 @@ declare namespace window {
      *
      * @param { boolean } isForbidSplitMove the flag of the window is forbidden to move in split screen mode
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
+     *                                                                  2.Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5314,7 +5331,8 @@ declare namespace window {
      *
      * @param { boolean } isForbidSplitMove the flag of the window is forbidden to move in split screen mode
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
+     *                                                                  2.Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -5497,7 +5515,7 @@ declare namespace window {
      * Raise app sub window to app top
      *
      * @param { AsyncCallback<void> } callback - The callback of raiseToAppTop
-     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5512,7 +5530,7 @@ declare namespace window {
      * Raise app sub window to app top
      *
      * @returns { Promise<void> } - The promise returned by the function
-     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5582,7 +5600,7 @@ declare namespace window {
      * @param { AsyncCallback<void> } callback - The callback of setWaterMarkFlag.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300008 - The operation is on invalid display.
+     * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -5596,7 +5614,7 @@ declare namespace window {
      * @returns { Promise<void> } - The promise returned by the function
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300008 - The operation is on invalid display.
+     * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10
@@ -5608,9 +5626,9 @@ declare namespace window {
      *
      * @param { number } windowId - Indicates target window id.
      * @param { AsyncCallback<void> } callback - The callback of raiseAboveTarget.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Mandatory parameters are left unspecified.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5626,9 +5644,9 @@ declare namespace window {
      *
      * @param { number } windowId - Indicates target window id.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Mandatory parameters are left unspecified.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5644,10 +5662,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable app sub window to raise itself by by click if false.
      * @param { AsyncCallback<void> } callback - The callback of setRaiseByClickEnabled.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5663,10 +5681,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable app sub window to raise itself by by click if false.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5681,7 +5699,7 @@ declare namespace window {
      * Minimize app main window and hide app subWindow.
      *
      * @param { AsyncCallback<void> } callback - The callback of Minimize.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -5693,7 +5711,7 @@ declare namespace window {
      * Minimize app main window and hide app subWindow.
      *
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -5705,7 +5723,7 @@ declare namespace window {
      * Maximize app main window.
      *
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5720,10 +5738,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
      * @param { AsyncCallback<void> } callback - The callback of setResizeByDragEnabled.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5736,10 +5754,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
      * @param { AsyncCallback<void> } callback - The callback of setResizeByDragEnabled.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -5753,10 +5771,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -5770,10 +5788,10 @@ declare namespace window {
      *
      * @param { boolean } shouldHide - Hide the non-system floating windows if true, otherwise means the opposite.
      * @param { AsyncCallback<void> } callback - The callback of hideNonSystemFloatingWindows.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5788,10 +5806,10 @@ declare namespace window {
      *
      * @param { boolean } shouldHide - Hide the non-system floating windows if true, otherwise means the opposite.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5805,7 +5823,7 @@ declare namespace window {
      * Get the window limits of current window.
      *
      * @returns { WindowLimits } - The limits of window.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -5820,7 +5838,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types; 
      *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -5834,10 +5852,10 @@ declare namespace window {
      *
      * @param { boolean } enable - Enable the single frame composer if true, otherwise means the opposite.
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
@@ -5851,7 +5869,7 @@ declare namespace window {
      * @param { boolean } keepKeyboardFlag - keep the keyboard if true, otherwise means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -5863,7 +5881,7 @@ declare namespace window {
      * Recover app main window.
      *
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300001 - Repeated operation.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -5877,7 +5895,7 @@ declare namespace window {
      * @param { boolean } - Enable the decor visible if true, otherwise means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -5892,7 +5910,7 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -5907,7 +5925,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types; 
      *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -5918,7 +5936,7 @@ declare namespace window {
      * Get the height of the window decor.
      *
      * @returns { number } - The height of window decor.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -5931,10 +5949,10 @@ declare namespace window {
      * If the window area changes, you need to reset it.
      *
      * @param { Array<Rect> } rects - Touchable areas. The maximum size cannot exceed 10, touchable area cannot exceed the window's area.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -5947,7 +5965,7 @@ declare namespace window {
      * Get the area of window title buttons.
      *
      * @returns { TitleButtonRect } - The area of window title buttons.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -5960,10 +5978,10 @@ declare namespace window {
      * @param { boolean } isMaximizeVisible - Display maximize button if true, or hide maximize button if false.
      * @param { boolean } isMinimizeVisible - Display minimize button if true, or hide minimize button if false.
      * @param { boolean } isSplitVisible - Display split button if true, or hide split button if false.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -6004,7 +6022,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types; 
      *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -6018,7 +6036,7 @@ declare namespace window {
      * @param { Callback<TitleButtonRect> } callback - Callback used to return the current title buttons area.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
      *                                                                  2.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
@@ -6032,7 +6050,7 @@ declare namespace window {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -6048,7 +6066,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types; 
      *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -6064,7 +6082,7 @@ declare namespace window {
      * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
      *                                                                  2.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -6081,7 +6099,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types; 
      *                                                                  3.Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -6093,7 +6111,8 @@ declare namespace window {
      * Set whether to enable immersive mode.
      *
      * @param { boolean } enabled - The value true means to enable immersive mode, and false means the opposite.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
+     *                                                                  2.Incorrect parameter types; 
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -6513,7 +6532,7 @@ declare namespace window {
      * @param { SubWindowOptions } options - options of sub window creation
      * @returns { Promise<Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
@@ -6824,7 +6843,7 @@ declare namespace window {
      * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                                   2.Parameter verification failed.
+     *                                                                  2.Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6837,7 +6856,7 @@ declare namespace window {
      * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                                   2.Parameter verification failed.
+     *                                                                  2.Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6851,7 +6870,7 @@ declare namespace window {
      * @param { 'windowStageEvent' } eventType The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter types; 
-     *                                                                                   2.Parameter verification failed.
+     *                                                                  2.Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6895,7 +6914,7 @@ declare namespace window {
      * @param { boolean } enabled - Use default density if true, or follow system density change if false
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified; 
      *                                                                  2.Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
