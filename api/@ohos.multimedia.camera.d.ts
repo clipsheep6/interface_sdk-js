@@ -22,7 +22,7 @@ import { ErrorCallback, AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
 import image from './@ohos.multimedia.image';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
-import PhotoAsset from './@ohos.file.photoAccessHelper';
+import photoAccessHelper from './@ohos.file.photoAccessHelper';
 
 /**
  * @namespace camera
@@ -6992,7 +6992,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
-    on(type: 'photoAssetAvailable', callback: AsyncCallback<PhotoAsset>): void;
+    on(type: 'photoAssetAvailable', callback: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
 
     /**
      * Unsubscribes photo asset event callback.
@@ -7002,7 +7002,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
-     off(type: 'photoAssetAvailable', callback?: AsyncCallback<PhotoAsset>): void;
+     off(type: 'photoAssetAvailable', callback?: AsyncCallback<photoAccessHelper.PhotoAsset>): void;
 
     /**
      * Check whether to support mirror photo.
