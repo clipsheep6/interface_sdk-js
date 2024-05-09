@@ -22,7 +22,7 @@ import { ErrorCallback, AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
 import image from './@ohos.multimedia.image';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
-import type PhotoAsset from './@ohos.file.photoAccessHelper';
+import PhotoAsset from './@ohos.file.photoAccessHelper';
 
 /**
  * @namespace camera
