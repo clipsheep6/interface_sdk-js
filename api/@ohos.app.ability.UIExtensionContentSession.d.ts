@@ -547,6 +547,20 @@ export default class UIExtensionContentSession {
    * @StageModelOnly
    * @since 11
    */
+  /**
+   * Starts the UIAbility or UIExtensionAbility by type.
+   *
+   * @param { string } type - The type of target ability.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
+   */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
 
@@ -570,6 +584,20 @@ export default class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @since 11
+   */
+  /**
+   * Starts the UIAbility or UIExtensionAbility by type.
+   *
+   * @param { string } type - The type of target ability.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @StageModelOnly
+   * @since 12
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
