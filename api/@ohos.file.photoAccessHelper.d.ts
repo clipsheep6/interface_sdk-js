@@ -4217,6 +4217,18 @@ declare namespace photoAccessHelper {
      * @since 11
      */
     placeBefore(album: Album): void;
+
+    /**
+     * Dismiss album
+     *
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - if parameter is invalid
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 12
+     */
+    dismiss(): void;
   }
 
   /**
