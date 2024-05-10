@@ -2239,7 +2239,7 @@ declare namespace camera {
   }
 
   /**
-   * FocusQuery object.
+   * Focus Query object.
    *
    * @interface FocusQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -2464,7 +2464,7 @@ declare namespace camera {
   }
 
   /**
-   * WhiteBalance Query object.
+   * White Balance Query object.
    *
    * @interface WhiteBalanceQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -2560,7 +2560,7 @@ declare namespace camera {
   }
 
   /**
-   * ManualIso Query object.
+   * Manual ISO Query object.
    *
    * @interface ManualIsoQuery
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -6988,7 +6988,7 @@ declare namespace camera {
      * Subscribes photo asset event callback.
      *
      * @param { 'photoAssetAvailable' } type - Event type.
-     * @param { AsyncCallback<PhotoAsset> } callback - Callback used to get the asset.
+     * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - Callback used to get the asset.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
@@ -6998,7 +6998,7 @@ declare namespace camera {
      * Unsubscribes photo asset event callback.
      *
      * @param { 'photoAssetAvailable' } type - Event type.
-     * @param { AsyncCallback<PhotoAsset> } callback - Callback used to get the asset.
+     * @param { AsyncCallback<photoAccessHelper.PhotoAsset> } callback - Callback used to get the asset.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
