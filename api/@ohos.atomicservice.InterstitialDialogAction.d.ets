@@ -20,7 +20,7 @@
  /// <reference path="../component/units.d.ts" />
  import { ResourceStr, Resource }  from 'GlobalResource';
  import { UIContext } from '@ohos.arkui.UIContext';
- impoer { ComponentContent } from "@ohos.arkui.node";
+ import { ComponentContent } from "@ohos.arkui.node";
 /**
  * IconStyle enumeration description.
  *
