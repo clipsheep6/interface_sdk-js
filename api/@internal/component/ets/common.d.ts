@@ -20352,6 +20352,16 @@ declare class CustomComponent extends CommonAttribute {
   aboutToRecycle?(): void;
 
   /**
+   * Custom component override this method to catch the error in build function.
+   *
+   * @param { Error } error - indicate the error information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onBuildError?(error: Error): void;
+
+  /**
    * Custom component override this method to layout each of its sub components.
    *
    * @param { Array<LayoutChild> } children
