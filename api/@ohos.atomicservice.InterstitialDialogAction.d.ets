@@ -171,7 +171,7 @@ export declare interface DialogOptions {
  * @atomicservice
  * @since 12
  */
-export declare class AdvertiseDialogAction {
+export declare class InterstitialDialogAction {
     /**
      * The constructor transfers parameter settings.
      *
