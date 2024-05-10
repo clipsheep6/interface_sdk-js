@@ -688,7 +688,7 @@ export interface PreinstalledApplicationInfo {
  */
 export interface MultiAppMode {
   /**
-   * Indicates the index of the bundle
+   * Indicates the type of MultiAppMode
    *
    * @type { bundleManager.MultiAppModeType }
    * @readonly
@@ -696,10 +696,10 @@ export interface MultiAppMode {
    * @atomicservice
    * @since 12
    */
-  readonly type: bundleManager.MultiAppModeType;
+  readonly multiAppModeType: bundleManager.MultiAppModeType;
 
   /**
-   * Indicates the max additional number of the bundle
+   * Indicates the maximum number of clone app for an app
    *
    * @type { number }
    * @readonly
@@ -707,5 +707,5 @@ export interface MultiAppMode {
    * @atomicservice
    * @since 12
    */
-  readonly maxAdditionalNumber: number;
+  readonly maxCount: number;
 }

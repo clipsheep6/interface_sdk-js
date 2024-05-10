@@ -300,7 +300,7 @@ export interface ExtensionAbilityInfo {
   readonly skills: Array<Skill>;
   
   /**
-   * Indicates the appIndex of extension ability, only work in twin app mode
+   * Indicates the appIndex of extension ability, only work in clone app mode
    * 
    * @type { number }
    * @readonly

@@ -725,12 +725,12 @@ declare namespace installer {
   uninstallUpdates(bundleName: string, installParam?: InstallParam): Promise<void>;
 
   /**
-   * Create twin instance for an application.
+   * Create clone instance for an application.
    *
-   * @permission ohos.permission.INSTALL_TWIN_BUNDLE
+   * @permission ohos.permission.INSTALL_CLONE_BUNDLE
    * @param { string } bundleName - Indicates the path where the HAP of the application is stored.
-   * @param { CreateAppTwinParam } [createAppTwinParam] Indicates the optional params of create twin app.
-   * @returns { Promise<number> } Return the appIndex of the twin application.
+   * @param { CreateAppCloneParam } [createAppCloneParam] Indicates the optional params of create clone app.
+   * @returns { Promise<number> } Return the appIndex of the clone application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -741,17 +741,17 @@ declare namespace installer {
    * @systemapi
    * @since 12
    */
-  createAppTwin(bundleName: string, createAppTwinParam?: CreateAppTwinParam): Promise<number>;
+  createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<number>;
 
   /**
-   * Destroy twin instance for an application.
+   * Destroy clone instance for an application.
    *
-   * @permission ohos.permission.UNINSTALL_TWIN_BUNDLE
+   * @permission ohos.permission.UNINSTALL_CLONE_BUNDLE
    * @param { string } bundleName - Indicates the path where the HAP of the application is stored.
-   * @param { number } appIndex - Indicates the twin application's index.
+   * @param { number } appIndex - Indicates the clone application's index.
    * @param { number } [userId] - userId Indicates the user ID.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_TWIN_BUNDLE'.
+   * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_CLONE_BUNDLE'.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by the specified user.
@@ -761,7 +761,7 @@ declare namespace installer {
    * @systemapi
    * @since 12
    */
-    destroyAppTwin(bundleName: string, appIndex: number, userId?: number): Promise<void>;
+    destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
   }
 
   /**
@@ -987,14 +987,14 @@ declare namespace installer {
   }
 
   /**
-   * Provides parameters required for creating twin app.
+   * Provides parameters required for creating clone app.
    * 
-   * @typedef CreateTwinParam
+   * @typedef CreateAppCloneParam
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12
    */
-  export interface CreateAppTwinParam {
+  export interface CreateAppCloneParam {
     /**
      * Indicates the user id
      * 

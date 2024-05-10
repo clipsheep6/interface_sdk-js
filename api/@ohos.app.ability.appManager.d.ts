@@ -850,7 +850,7 @@ declare namespace appManager {
    * @param { string } bundleName - The bundle name of the application to preload.
    * @param { number } userId - Indicates the user identification.
    * @param { PreloadMode } mode - Preload application mode.
-   * @param { number } [appIndex] - The index of application twin.
+   * @param { number } [appIndex] - The index of application clone.
    * @returns { Promise<void> } Returns the result of preloadApplication.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - Not system application.

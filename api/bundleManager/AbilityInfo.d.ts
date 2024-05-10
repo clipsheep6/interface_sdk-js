@@ -559,7 +559,7 @@ export interface AbilityInfo {
   readonly skills: Array<Skill>;
      
   /**
-   * Indicates the appIndex of application, only work in twin app mode
+   * Indicates the appIndex of application, only work in clone app mode
    * 
    * @type { number }
    * @readonly

@@ -104,7 +104,6 @@ declare namespace bundleResourceManager {
    */
   function getBundleResourceInfo(bundleName: string, resourceFlags?: number): BundleResourceInfo;
 
-
   /**
    * Obtains the BundleResourceInfo of a specified bundle. Default resourceFlag is GET_RESOURCE_INFO_ALL.
    *

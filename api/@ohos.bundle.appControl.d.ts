@@ -365,7 +365,7 @@ declare namespace appControl {
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
-   * @param { number } [appIndex] Indicates the index of twin app.
+   * @param { number } [appIndex] Indicates the index of clone app.
    * @returns { DisposedRule } Returns the disposed rule of a specified bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
@@ -400,7 +400,7 @@ declare namespace appControl {
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - Indicates the app ID of the application.
    * @param { DisposedRule } rule - Indicates the disposed rule of a specified bundle.
-   * @param { number } [appIndex] Indicates the index of twin app.
+   * @param { number } [appIndex] Indicates the index of clone app.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
