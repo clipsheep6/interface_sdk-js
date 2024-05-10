@@ -105,7 +105,16 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  const MAX_KEY_LENGTH: 80;
+  /**
+   * Indicates the maximum length of a key (1024 characters).
+   *
+   * @constant
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  const MAX_KEY_LENGTH: 1024;
 
   /**
    * Indicates the maximum length of a string (8192 characters).
@@ -131,7 +140,16 @@ declare namespace preferences {
    * @atomicservice
    * @since 11
    */
-  const MAX_VALUE_LENGTH: 8192;
+  /**
+   * Indicates the maximum length of a string (16 * 1024 * 1024 characters).
+   *
+   * @constant
+   * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  const MAX_VALUE_LENGTH: 16777216;
 
   /**
    * Manages preferences file configurations.
@@ -985,6 +1003,25 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Obtains the value of a preferences in the ValueType format.
+     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
+     *
+     * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } defValue - Indicates the default value to return.
+     * @param { AsyncCallback<ValueType> } callback - The value matching the specified key if it is found;
+     *        returns the default value otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     get(key: string, defValue: ValueType, callback: AsyncCallback<ValueType>): void;
 
     /**
@@ -1036,6 +1073,25 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Obtains the value of a preferences in the ValueType format.
+     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
+     *
+     * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } defValue - Indicates the default value to return.
+     * @returns { Promise<ValueType> } The value matching the specified key if it is found;
+     *          returns the default value otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     get(key: string, defValue: ValueType): Promise<ValueType>;
 
     /**
@@ -1072,6 +1128,25 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Obtains the value of a preferences in the ValueType format. This interface is executed synchronously.
+     * <p>If the value is {@code null} or not in the ValueType format, the default value is returned.
+     *
+     * @param { string } key - Indicates the key of the preferences. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } defValue - Indicates the default value to return.
+     * @returns { ValueType } The value matching the specified key if it is found;
+     *          returns the default value otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     getSync(key: string, defValue: ValueType): ValueType;
 
     /**
@@ -1102,6 +1177,18 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Obtains all the keys and values of a preferences in an object.
+     *
+     * @param { AsyncCallback<Object> } callback - The values and keys in an object.
+     * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     getAll(callback: AsyncCallback<Object>): void;
 
     /**
@@ -1129,6 +1216,17 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Obtains all the keys and values of a preferences in an object.
+     *
+     * @returns { Promise<Object> } The values and keys in an object.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     getAll(): Promise<Object>;
 
     /**
@@ -1150,6 +1248,18 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Obtains all the keys and values of a preferences in an object.  This interface
+     * is executed synchronously.
+     *
+     * @returns { Object } The values and keys in an object.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     getAllSync(): Object;
 
@@ -1196,6 +1306,23 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
+     *
+     * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
+     * @param { AsyncCallback<boolean> } callback - {@code true} if the {@link Preferences} object contains a preferences
+     *         with the specified key;returns {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     has(key: string, callback: AsyncCallback<boolean>): void;
 
     /**
@@ -1241,6 +1368,23 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Checks whether the {@link Preferences} object contains a preferences matching a specified key.
+     *
+     * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
+     * @returns { Promise<boolean> } {@code true} if the {@link Preferences} object contains
+     *         a preferences with the specified key; returns {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     has(key: string): Promise<boolean>;
 
     /**
@@ -1274,6 +1418,24 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Checks whether the {@link Preferences} object contains a preferences matching a specified key. This interface
+     * is executed synchronously.
+     *
+     * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *         <tt>MAX_KEY_LENGTH</tt>.
+     * @returns { boolean } {@code true} if the {@link Preferences} object contains
+     *         a preferences with the specified key; returns {@code false} otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     hasSync(key: string): boolean;
 
@@ -1329,6 +1491,26 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Sets an int value for the key in the {@link Preferences} object.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
+     * file.
+     *
+     * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *        <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } value - Indicates the value of the preferences.
+     *        <tt>MAX_VALUE_LENGTH</tt>.
+     * @param { AsyncCallback<void> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     put(key: string, value: ValueType, callback: AsyncCallback<void>): void;
 
     /**
@@ -1383,6 +1565,26 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Sets an int value for the key in the {@link Preferences} object.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
+     * file.
+     *
+     * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *        <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } value - Indicates the value of the preferences.
+     *        <tt>MAX_VALUE_LENGTH</tt>.
+     * @returns { Promise<void> } A promise object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     put(key: string, value: ValueType): Promise<void>;
 
     /**
@@ -1418,6 +1620,25 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Sets an int value for the key in the {@link Preferences} object. This interface is executed synchronously.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
+     * file.
+     *
+     * @param { string } key - Indicates the key of the preferences to modify. It cannot be {@code null} or empty.
+     *        <tt>MAX_KEY_LENGTH</tt>.
+     * @param { ValueType } value - Indicates the value of the preferences.
+     *        <tt>MAX_VALUE_LENGTH</tt>.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     putSync(key: string, value: ValueType): void;
 
@@ -1467,6 +1688,24 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Deletes the preferences with a specified key from the {@link Preferences} object.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
+     * file.
+     *
+     * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
+     *        <tt>MAX_KEY_LENGTH</tt>.
+     * @param { AsyncCallback<void> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     delete(key: string, callback: AsyncCallback<void>): void;
 
     /**
@@ -1515,6 +1754,24 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Deletes the preferences with a specified key from the {@link Preferences} object.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the
+     * file.
+     *
+     * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
+     *        <tt>MAX_KEY_LENGTH</tt>.
+     * @returns { Promise<void> } A promise object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     delete(key: string): Promise<void>;
 
     /**
@@ -1546,6 +1803,23 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Deletes the preferences with a specified key from the {@link Preferences} object. This interface is
+     * executed synchronously. <p>You can call the {@link #flush} method to save the {@link Preferences}
+     * object to the file.
+     *
+     * @param { string } key - Indicates the key of the preferences to delete. It cannot be {@code null} or empty.
+     *        <tt>MAX_KEY_LENGTH</tt>.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     deleteSync(key: string): void;
 
@@ -1580,6 +1854,19 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Clears all preferences from the {@link Preferences} object.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
+     *
+     * @param { AsyncCallback<void> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     clear(callback: AsyncCallback<void>): void;
 
     /**
@@ -1610,6 +1897,18 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Clears all preferences from the {@link Preferences} object.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
+     *
+     * @returns { Promise<void> } A promise object.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     clear(): Promise<void>;
 
     /**
@@ -1628,6 +1927,17 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Clears all preferences from the {@link Preferences} object. This interface is executed synchronously.
+     * <p>You can call the {@link #flush} method to save the {@link Preferences} object to the file.
+     *
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     clearSync(): void;
 
@@ -1659,6 +1969,18 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Asynchronously saves the {@link Preferences} object to the file.
+     *
+     * @param { AsyncCallback<void> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error. Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     flush(callback: AsyncCallback<void>): void;
 
     /**
@@ -1685,6 +2007,17 @@ declare namespace preferences {
      * @crossplatform
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Asynchronously saves the {@link Preferences} object to the file.
+     *
+     * @returns { Promise<void> } A promise object.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
      */
     flush(): Promise<void>;
 
@@ -1725,6 +2058,21 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Registers an observer to listen for the change of a {@link Preferences} object.
+     *
+     * @param { 'change' } type - Indicates the callback when preferences changes.
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     on(type: 'change', callback: Callback<string>): void;
 
     /**
@@ -1753,6 +2101,21 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Registers an observer to listen for the change of a {@link Preferences} object.
+     *
+     * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @throws { BusinessError } 15500019 - Failed to obtain subscription service.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @atomicservice
+     * @since 12
+     */
     on(type: 'multiProcessChange', callback: Callback<string>): void;
 
     /**
@@ -1766,6 +2129,7 @@ declare namespace preferences {
      *                                                                   3. Parameter verification failed.
      *      The callback must be function.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -1809,6 +2173,21 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Unregisters an existing observer.
+     *
+     * @param { 'change' } type - Indicates the callback when preferences changes.
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     off(type: 'change', callback?: Callback<string>): void;
 
     /**
@@ -1835,6 +2214,20 @@ declare namespace preferences {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Unregisters an existing observer.
+     *
+     * @param { 'multiProcessChange' } type - Indicates the callback when preferences changed in multiple processes.
+     * @param { Callback<string> } callback - Indicates the callback function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types;
+     *                                                                   3. Parameter verification failed.
+     * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
+     * @syscap SystemCapability.DistributedDataManager.Preferences.Core
+     * @atomicservice
+     * @since 12
+     */
     off(type: 'multiProcessChange', callback?: Callback<string>): void;
 
     /**
@@ -1847,6 +2240,7 @@ declare namespace preferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12

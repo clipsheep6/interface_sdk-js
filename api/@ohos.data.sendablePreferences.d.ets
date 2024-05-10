@@ -221,6 +221,7 @@ declare namespace sendablePreferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -240,6 +241,7 @@ declare namespace sendablePreferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -251,6 +253,7 @@ declare namespace sendablePreferences {
      *
      * @returns { Promise<lang.ISendable> } Promise used to return the values and keys obtained in an object.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -262,6 +265,7 @@ declare namespace sendablePreferences {
      *
      * @returns { lang.ISendable } Returns the values and keys obtained in an object.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -279,6 +283,7 @@ declare namespace sendablePreferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -297,6 +302,7 @@ declare namespace sendablePreferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -316,6 +322,7 @@ declare namespace sendablePreferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -335,6 +342,7 @@ declare namespace sendablePreferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -352,6 +360,7 @@ declare namespace sendablePreferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -369,6 +378,7 @@ declare namespace sendablePreferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -381,6 +391,7 @@ declare namespace sendablePreferences {
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -403,6 +414,7 @@ declare namespace sendablePreferences {
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -418,6 +430,7 @@ declare namespace sendablePreferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -434,6 +447,7 @@ declare namespace sendablePreferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @throws { BusinessError } 15500019 - Failed to obtain subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
@@ -451,6 +465,7 @@ declare namespace sendablePreferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -481,6 +496,7 @@ declare namespace sendablePreferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
@@ -497,6 +513,7 @@ declare namespace sendablePreferences {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 15500000 - Inner error.
+     * @throws { BusinessError } 15500001 - The preferences instance has been deleted.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
      * @since 12
