@@ -128,6 +128,7 @@
 /// <reference path="./video.d.ts" />
 /// <reference path="./web.d.ts" />
 /// <reference path="./window_scene.d.ts" />
+/// <reference path="./with_theme.d.ts" />
 /// <reference path="./xcomponent.d.ts" />
 /// <reference path="./sidebar.d.ts" />
 /// <reference path="./ability_component.d.ts" />
