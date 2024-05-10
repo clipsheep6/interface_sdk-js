@@ -135,7 +135,7 @@ export declare interface DialogOptions {
      * @atomicservice
      * @since 12
      */
-    iconStyle: IconStyle;
+    iconStyle?: IconStyle;
     /**
      * The relative position of the title and subtitle.
      *
@@ -144,7 +144,7 @@ export declare interface DialogOptions {
      * @atomicservice
      * @since 12
      */
-    titlePosition: TitlePosition;
+    titlePosition?: TitlePosition;
     /**
      * The action after clicking dialog.
      *
