@@ -675,7 +675,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 10
    */
-  interface PhotoAsset {
+  export interface PhotoAsset {
     /**
      * uri of the asset.
      *
