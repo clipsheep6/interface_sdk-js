@@ -392,6 +392,7 @@ headphones
 heapsnapshot
 heating
 heavier
+heic
 henkan
 hevc
 hexadecagonal
@@ -527,6 +528,7 @@ lstat
 lubyte
 luint
 luma
+lumination
 lushort
 lux
 mah
@@ -604,6 +606,7 @@ nvalidates
 nweb
 oaep
 obscured
+occluded
 ofb
 offhook
 offscreen
