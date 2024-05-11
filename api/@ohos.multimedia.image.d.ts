@@ -6035,7 +6035,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *@brief Format conversion was performed using the pixelmap in the original format. This method uses a promise to return the result.
      * The method is used for the transformation of the image formats. Pixel data will be changed by calling this method.
      *
-     * @param { PixelMapFormat } Target pixel format for pixelmap conversion.
+     * @param { PixelMapFormat } targetPixelFormat - Target pixel format for pixelmap conversion.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
      * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
