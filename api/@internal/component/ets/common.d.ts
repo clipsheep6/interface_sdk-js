@@ -19299,6 +19299,16 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    */
   strokeOpacity(value: number | string | Resource): T;
 
+
+  /**
+   * Composite the contents of this view and its children into an offscreen cache before display in the screen.
+   * @param value if this view and its children need to composite into an offscreen cache.
+   * @form
+   * @crossplatform
+   * @since 10
+   */
+  renderGroup(value: bool): T;
+
   /**
    * fill Opacity
    *
