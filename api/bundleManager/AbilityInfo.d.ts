@@ -545,7 +545,7 @@ export interface AbilityInfo {
    * @atomicservice
    * @since 12
    */
-    readonly excludeFromDock: boolean;
+  readonly excludeFromDock: boolean;
 
   /**
    * Indicates skills of the ability
@@ -556,7 +556,18 @@ export interface AbilityInfo {
    * @atomicservice
    * @since 12
    */
-    readonly skills: Array<Skill>;
+  readonly skills: Array<Skill>;
+     
+  /**
+   * Indicates the appIndex of application, only work in clone app mode
+   * 
+   * @type { number }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @atomicservice
+   * @since 12
+   */
+  readonly appIndex: number;
 }
 
 /**
