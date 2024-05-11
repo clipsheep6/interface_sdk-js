@@ -630,6 +630,17 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 12
    */
   onWillHide(callback: Callback<void>): NavDestinationAttribute;
+
+  /**
+   * Set navdestination can be recovered after application is destroyed. Navigation id need set,
+   * this attribute can take effect.
+   *
+   * @param { boolean } value - set navdestination can be recovered.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  recoverable(value: Optional<boolean>): NavDestinationAttribute;
 }
 
 /**

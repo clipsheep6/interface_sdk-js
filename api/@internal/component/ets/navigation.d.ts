@@ -2427,6 +2427,17 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 12
    */
   customNavContentTransition(delegate: (from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined): NavigationAttribute;
+
+  /**
+   * Set navigation stack can be recovered after application is destroyed. When navigation stack is recovered,
+   * top destination will be recovered, other destination recovered when it backs.
+   *
+   * @param { boolean } value - navigation can be recovered.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  recoverable(value: Optional<boolean>): NavigationAttribute;
 }
 
 /**
