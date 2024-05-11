@@ -627,112 +627,162 @@ declare class SubTabBarStyle {
    * @atomicservice
    * @since 11
    */
-  indicator(value: IndicatorStyle): SubTabBarStyle;
-
   /**
-   * Set the mode of the indicator when selected
+   * Set the style of the indicator when selected
    *
-   * @param { SelectedMode } value - indicates the selected mode of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the mode of the indicator when selected
-   *
-   * @param { SelectedMode } value - indicates the selected mode of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  selectedMode(value: SelectedMode): SubTabBarStyle;
-
-  /**
-   * Set the style of the board when selected
-   *
-   * @param { BoardStyle } value - indicates the board style of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the style of the board when selected
-   *
-   * @param { BoardStyle } value - indicates the board style of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  board(value: BoardStyle): SubTabBarStyle;
-
-  /**
-   * Set the label style of the indicator
-   *
-   * @param { LabelStyle } value - indicates the label style of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the label style of the indicator
-   *
-   * @param { LabelStyle } value - indicates the label style of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  labelStyle(value: LabelStyle): SubTabBarStyle;
-
-  /**
-   * Set the padding of the sub tab bar
-   *
-   * @param { Padding | Dimension } value - indicates the padding of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the padding of the sub tab bar
-   *
-   * @param { Padding | Dimension } value - indicates the padding of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  padding(value: Padding | Dimension): SubTabBarStyle;
-
-  /**
-   * Set an id to the sub tab bar to identify it
-   *
-   * @param { string } value - id of the sub tab bar to identify it
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set an id to the sub tab bar to identify it
-   *
-   * @param { string } value - id of the sub tab bar to identify it
+   * @param { Optional<IndicatorStyle> } value - indicates the indicator style of the sub tab bar
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  id(value: string): SubTabBarStyle;
+  indicator(value: Optional<IndicatorStyle>): SubTabBarStyle;
+
+  /**
+   * Set the mode of the indicator when selected
+   *
+   * @param { SelectedMode } value - indicates the selected mode of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the mode of the indicator when selected
+   *
+   * @param { SelectedMode } value - indicates the selected mode of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Set the mode of the indicator when selected
+   *
+   * @param { Optional<SelectedMode> } value - indicates the selected mode of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  selectedMode(value: Optional<SelectedMode>): SubTabBarStyle;
+
+  /**
+   * Set the style of the board when selected
+   *
+   * @param { BoardStyle } value - indicates the board style of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the style of the board when selected
+   *
+   * @param { BoardStyle } value - indicates the board style of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Set the style of the board when selected
+   *
+   * @param { Optional<BoardStyle> } value - indicates the board style of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  board(value: Optional<BoardStyle>): SubTabBarStyle;
+
+  /**
+   * Set the label style of the indicator
+   *
+   * @param { LabelStyle } value - indicates the label style of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the label style of the indicator
+   *
+   * @param { LabelStyle } value - indicates the label style of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Set the label style of the indicator
+   *
+   * @param { Optional<LabelStyle> } value - indicates the label style of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  labelStyle(value: Optional<LabelStyle>): SubTabBarStyle;
+
+  /**
+   * Set the padding of the sub tab bar
+   *
+   * @param { Padding | Dimension } value - indicates the padding of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the padding of the sub tab bar
+   *
+   * @param { Padding | Dimension } value - indicates the padding of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Set the padding of the sub tab bar
+   *
+   * @param { Optional<Padding | Dimension> } value - indicates the padding of the sub tab bar
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  padding(value: Optional<Padding | Dimension>): SubTabBarStyle;
+
+  /**
+   * Set an id to the sub tab bar to identify it
+   *
+   * @param { string } value - id of the sub tab bar to identify it
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  /**
+   * Set an id to the sub tab bar to identify it
+   *
+   * @param { Optional<string> } value - id of the sub tab bar to identify it
+   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  id(value: Optional<string>): SubTabBarStyle;
 }
 
 /**
@@ -850,123 +900,173 @@ declare class BottomTabBarStyle {
    * @atomicservice
    * @since 11
    */
-  labelStyle(value: LabelStyle): BottomTabBarStyle;
-
   /**
-   * Set the padding of the bottom tab bar
+   * Set the label style of the indicator
    *
-   * @param { Padding | Dimension } value - indicates the padding of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the padding of the bottom tab bar
-   *
-   * @param { Padding | Dimension } value - indicates the padding of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  padding(value: Padding | Dimension): BottomTabBarStyle;
-
-  /**
-   * Set the layout mode of the bottom tab bar
-   *
-   * @param { LayoutMode } value - indicates the layout mode of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the layout mode of the bottom tab bar
-   *
-   * @param { LayoutMode } value - indicates the layout mode of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  layoutMode(value: LayoutMode): BottomTabBarStyle;
-
-  /**
-   * Set the vertical alignment style of the bottom tab bar
-   *
-   * @param { VerticalAlign } value - indicates the vertical alignment of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the vertical alignment style of the bottom tab bar
-   *
-   * @param { VerticalAlign } value - indicates the vertical alignment of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  verticalAlign(value: VerticalAlign): BottomTabBarStyle;
-
-  /**
-   * Set the symmetric extensible of the bottom tab bar
-   *
-   * @param { boolean } value - indicates whether the bottom tab bar is extensible
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the symmetric extensible of the bottom tab bar
-   *
-   * @param { boolean } value - indicates whether the bottom tab bar is extensible
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  symmetricExtensible(value: boolean): BottomTabBarStyle;
-
-  /**
-   * Set an id to the bottom tab bar to identify it
-   *
-   * @param { string } value - id of the bottom tab bar to identify it
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set an id to the bottom tab bar to identify it
-   *
-   * @param { string } value - id of the bottom tab bar to identify it
+   * @param { Optional<LabelStyle> } value - indicates the label style of the bottom tab bar
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  id(value: string): BottomTabBarStyle;
+  labelStyle(value: Optional<LabelStyle>): BottomTabBarStyle;
+
+  /**
+   * Set the padding of the bottom tab bar
+   *
+   * @param { Padding | Dimension } value - indicates the padding of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the padding of the bottom tab bar
+   *
+   * @param { Padding | Dimension } value - indicates the padding of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Set the padding of the bottom tab bar
+   *
+   * @param { Optional<Padding | Dimension> } value - indicates the padding of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  padding(value: Optional<Padding | Dimension>): BottomTabBarStyle;
+
+  /**
+   * Set the layout mode of the bottom tab bar
+   *
+   * @param { LayoutMode } value - indicates the layout mode of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the layout mode of the bottom tab bar
+   *
+   * @param { LayoutMode } value - indicates the layout mode of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Set the layout mode of the bottom tab bar
+   *
+   * @param { Optional<LayoutMode> } value - indicates the layout mode of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  layoutMode(value: Optional<LayoutMode>): BottomTabBarStyle;
+
+  /**
+   * Set the vertical alignment style of the bottom tab bar
+   *
+   * @param { VerticalAlign } value - indicates the vertical alignment of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the vertical alignment style of the bottom tab bar
+   *
+   * @param { VerticalAlign } value - indicates the vertical alignment of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Set the vertical alignment style of the bottom tab bar
+   *
+   * @param { Optional<VerticalAlign> } value - indicates the vertical alignment of the bottom tab bar
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  verticalAlign(value: Optional<VerticalAlign>): BottomTabBarStyle;
+
+  /**
+   * Set the symmetric extensible of the bottom tab bar
+   *
+   * @param { boolean } value - indicates whether the bottom tab bar is extensible
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Set the symmetric extensible of the bottom tab bar
+   *
+   * @param { boolean } value - indicates whether the bottom tab bar is extensible
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Set the symmetric extensible of the bottom tab bar
+   *
+   * @param { Optional<boolean> } value - indicates whether the bottom tab bar is extensible
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  symmetricExtensible(value: Optional<boolean>): BottomTabBarStyle;
+
+  /**
+   * Set an id to the bottom tab bar to identify it
+   *
+   * @param { string } value - id of the bottom tab bar to identify it
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  /**
+   * Set an id to the bottom tab bar to identify it
+   *
+   * @param { Optional<string> } value - id of the bottom tab bar to identify it
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  id(value: Optional<string>): BottomTabBarStyle;
 
   /**
    * Set the icon style of the bottom tab bar
    *
-   * @param { TabBarIconStyle } style - indicates the icon style of the bottom tab bar
+   * @param { Optional<TabBarIconStyle> } style - indicates the icon style of the bottom tab bar
    * @returns { BottomTabBarStyle } the style of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  iconStyle(style: TabBarIconStyle): BottomTabBarStyle;
+  iconStyle(style: Optional<TabBarIconStyle>): BottomTabBarStyle;
 }
 
 /**
@@ -1081,8 +1181,18 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @atomicservice
    * @since 11
    */
-  tabBar(value: string | Resource | CustomBuilder |
-  { icon?: string | Resource; text?: string | Resource }): TabContentAttribute;
+  /**
+   * Called when tabbar is entered.
+   *
+   * @param { Optional<string | Resource | CustomBuilder | { icon?: string | Resource; text?: string | Resource }> } value
+   * @returns { TabContentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  tabBar(value: Optional<string | Resource | CustomBuilder |
+  { icon?: string | Resource; text?: string | Resource }>): TabContentAttribute;
 
   /**
    * Called when tabbar is entered.
@@ -1111,29 +1221,39 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @atomicservice
    * @since 11
    */
-  tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
+  /**
+   * Called when tabbar is entered.
+   *
+   * @param { Optional<SubTabBarStyle | BottomTabBarStyle> } value
+   * @returns { TabContentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  tabBar(value: Optional<SubTabBarStyle | BottomTabBarStyle>): TabContentAttribute;
 
   /**
    * Called when the tab content will show.
-   * @param { VoidCallback  } event
+   * @param { Optional<VoidCallback>  } event
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onWillShow(event: VoidCallback): TabContentAttribute;
+  onWillShow(event: Optional<VoidCallback>): TabContentAttribute;
 
   /**
    * Called when the tab content will hide.
-   * @param { VoidCallback  } event
+   * @param { Optional<VoidCallback>  } event
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onWillHide(event: VoidCallback): TabContentAttribute;
+  onWillHide(event: Optional<VoidCallback>): TabContentAttribute;
 }
 
 /**
