@@ -444,7 +444,7 @@ declare namespace picker {
      * Suffixes for file selected.
      *
      * @type { ?Array<string> }
-     * @syscap SystemCapability.FileManagement.UserFileService
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @atomicservice
      * @since 12
      */
