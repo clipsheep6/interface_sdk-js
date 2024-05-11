@@ -436,36 +436,12 @@ declare namespace SendableImage {
    *
    * @typedef Size
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 6
-   */
-  /**
-   * Describes the size of an image.
-   *
-   * @typedef Size
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes the size of an image.
-   *
-   * @typedef Size
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes the size of an image.
-   *
-   * @typedef Size
-   * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
    * @since 12
    */
-  interface Size {
+  interface SendableSize {
     /**
      * Height
      *
@@ -933,60 +909,12 @@ declare namespace SendableImage {
    *
    * @typedef Region
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 8
-   */
-  /**
-   * Describes region information.
-   *
-   * @typedef Region
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes region information.
-   *
-   * @typedef Region
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes region information.
-   *
-   * @typedef Region
-   * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
    * @since 12
    */
-  interface Region {
-    /**
-     * Image size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Image size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Image size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
+  interface SendableRegion {
     /**
      * Image size.
      *
@@ -997,32 +925,8 @@ declare namespace SendableImage {
      * @atomicservice
      * @since 12
      */
-    size: Size;
+    size: SendableSize;
 
-    /**
-     * x-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * x-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * x-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     /**
      * x-coordinate at the upper left corner of the image.
      *
@@ -1035,30 +939,6 @@ declare namespace SendableImage {
      */
     x: number;
 
-    /**
-     * y-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * y-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * y-coordinate at the upper left corner of the image.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     /**
      * y-coordinate at the upper left corner of the image.
      *
@@ -1249,7 +1129,7 @@ declare namespace SendableImage {
      * @atomicservice
      * @since 12
      */
-    region: Region;
+    region: image.Region;
   }
 
   /**
@@ -1321,7 +1201,7 @@ declare namespace SendableImage {
      * @atomicservice
      * @since 12
      */
-    size: Size;
+    size: image.Size;
 
     /**
      * Indicates image default density.
@@ -1420,99 +1300,6 @@ declare namespace SendableImage {
      * @since 12
      */
     isHdr: boolean;
-  }
-
-  /**
-   * Describes image properties.
-   *
-   * @typedef GetImagePropertyOptions
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 7
-   * @deprecated since 11
-   * @useinstead image.ImagePropertyOptions
-   */
-  /**
-   * Describes image properties.
-   *
-   * @typedef GetImagePropertyOptions
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   * @deprecated since 11
-   * @useinstead image.ImagePropertyOptions
-   */
-  interface GetImagePropertyOptions {
-    /**
-     * Index of an image.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     * @deprecated since 11
-     * @useinstead image.ImagePropertyOptions#index
-     */
-    /**
-     * Index of an image.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     * @deprecated since 11
-     * @useinstead image.ImagePropertyOptions#index
-     */
-    index?: number;
-
-    /**
-     * Default property value.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     * @deprecated since 11
-     * @useinstead image.ImagePropertyOptions#defaultValue
-     */
-    /**
-     * Default property value.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     * @deprecated since 11
-     * @useinstead image.ImagePropertyOptions#defaultValue
-     */
-    defaultValue?: string;
-  }
-
-  /**
-   * Describes image properties.
-   *
-   * @typedef ImagePropertyOptions
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 11
-   */
-  interface ImagePropertyOptions {
-    /**
-     * Index of an image.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 11
-     */
-    index?: number;
-
-    /**
-     * Default property value.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 11
-     */
-    defaultValue?: string;
   }
 
   /**
@@ -1732,7 +1519,7 @@ declare namespace SendableImage {
      * @atomicservice
      * @since 12
      */
-    desiredSize?: Size;
+    desiredSize?: image.Size;
 
     /**
      * Cropping region of the image pixel map.
@@ -1768,7 +1555,7 @@ declare namespace SendableImage {
      * @atomicservice
      * @since 12
      */
-    desiredRegion?: Region;
+    desiredRegion?: image.Region;
 
     /**
      * Data format of the image pixel map.
@@ -1986,7 +1773,7 @@ declare namespace SendableImage {
      * @atomicservice
      * @since 12
      */
-    size: Size;
+    size: image.Size;
 
     /**
      * PixelMap source format.
@@ -2143,150 +1930,6 @@ declare namespace SendableImage {
   }
 
   /**
-   * Initialization options for ImageSource.
-   *
-   * @typedef SourceOptions
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 9
-   */
-  /**
-   * Initialization options for ImageSource.
-   *
-   * @typedef SourceOptions
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Initialization options for ImageSource.
-   *
-   * @typedef SourceOptions
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Initialization options for ImageSource.
-   *
-   * @typedef SourceOptions
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  interface SourceOptions {
-    /**
-     * The density for ImageSource.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * The density for ImageSource.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The density for ImageSource.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The density for ImageSource.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    sourceDensity: number;
-
-    /**
-     * PixelMap expected format.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * PixelMap expected format.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * PixelMap expected format.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * PixelMap expected format.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    sourcePixelFormat?: PixelMapFormat;
-
-    /**
-     * PixelMap size.
-     *
-     * @type { ?Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * PixelMap size.
-     *
-     * @type { ?Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * PixelMap size.
-     *
-     * @type { ?Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * PixelMap size.
-     *
-     * @type { ?Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12
-     */
-    sourceSize?: Size;
-  }
-
-  /**
    * Creates an ImageSource instance based on the URI.
    *
    * @param { string } uri Image source URI.
@@ -2316,50 +1959,6 @@ declare namespace SendableImage {
   function createImageSource(uri: string): ImageSourceHelper;
 
   /**
-   * Creates an ImageSource instance based on the URI.
-   *
-   * @param { string } uri Image source URI.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 9
-   */
-  /**
-   * Creates an ImageSource instance based on the URI.
-   *
-   * @param { string } uri Image source URI.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an ImageSource instance based on the URI.
-   *
-   * @param { string } uri Image source URI.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Creates an ImageSource instance based on the URI.
-   *
-   * @param { string } uri Image source URI.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  function createImageSource(uri: string, options: SourceOptions): ImageSourceHelper;
-
-  /**
    * Creates an ImageSource instance based on the file descriptor.
    *
    * @param { number } fd ID of a file descriptor.
@@ -2387,50 +1986,6 @@ declare namespace SendableImage {
    * @since 11
    */
   function createImageSource(fd: number): ImageSourceHelper;
-
-  /**
-   * Creates an ImageSource instance based on the file descriptor.
-   *
-   * @param { number } fd ID of a file descriptor.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 9
-   */
-  /**
-   * Creates an ImageSource instance based on the file descriptor.
-   *
-   * @param { number } fd ID of a file descriptor.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an ImageSource instance based on the file descriptor.
-   *
-   * @param { number } fd ID of a file descriptor.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Creates an ImageSource instance based on the file descriptor.
-   *
-   * @param { number } fd ID of a file descriptor.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  function createImageSource(fd: number, options: SourceOptions): ImageSourceHelper;
 
   /**
    * Creates an ImageSource instance based on the buffer.
@@ -2471,63 +2026,6 @@ declare namespace SendableImage {
    * @since 12
    */
   function createImageSource(buf: ArrayBuffer): ImageSourceHelper;
-
-  /**
-   * Creates an ImageSource instance based on the buffer.
-   *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 9
-   */
-  /**
-   * Creates an ImageSource instance based on the buffer.
-   *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an ImageSource instance based on the buffer.
-   *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Creates an ImageSource instance based on the buffer.
-   *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSourceHelper;
-
-  /**
-   * Creates an ImageSource instance based on the raw file descriptor.
-   *
-   * @param { resourceManager.RawFileDescriptor } rawfile The raw file descriptor of the image.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  function createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions): ImageSourceHelper;
 
   /**
    * Create SendablePixelMap by data buffer.
@@ -3441,30 +2939,6 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
    *
    * @typedef ImageSource
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 6
-   */
-  /**
-   * ImageSource instance.
-   *
-   * @typedef ImageSource
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * ImageSource instance.
-   *
-   * @typedef ImageSource
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * ImageSource instance.
-   *
-   * @typedef ImageSource
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @form
    * @atomicservice
@@ -3478,42 +2952,12 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      * @param { DecodingOptions } options Image decoding parameters.
      * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
-     * return the object.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
-     * return the object.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
-     * return the object.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @form
      * @atomicservice
      * @since 12
      */
-    createPixelMap(options?: DecodingOptions): Promise<SendablePixelMap>;
+    createSendablePixelMap(options?: DecodingOptions): Promise<SendablePixelMap>;
 
     /**
      * Releases an ImageSource instance and uses a promise to return the result.
@@ -3541,7 +2985,7 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 9
    */
-  interface Image {
+  interface SendableImage {
     /**
      * Sets or gets the image area to crop, default is size.
      *
@@ -3549,7 +2993,7 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
-    clipRect: Region;
+    clipRect: SendableRegion;
 
     /**
      * Image size.
@@ -3558,7 +3002,7 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
-    readonly size: Size;
+    readonly size: SendableSize;
 
     /**
      * Image format.
@@ -3579,16 +3023,6 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
     readonly timestamp: number;
 
     /**
-     * Get component buffer from image and uses a callback to return the result.
-     *
-     * @param { ComponentType } componentType The component type of image.
-     * @param { AsyncCallback<Component> } callback Callback used to return the component buffer.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    getComponent(componentType: ComponentType, callback: AsyncCallback<Component>): void;
-
-    /**
      * Get component buffer from image and uses a promise to return the result.
      *
      * @param { ComponentType } componentType The component type of image.
@@ -3597,15 +3031,6 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      * @since 9
      */
     getComponent(componentType: ComponentType): Promise<Component>;
-
-    /**
-     * Release current image to receive another and uses a callback to return the result.
-     *
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    release(callback: AsyncCallback<void>): void;
 
     /**
      * Release current image to receive another and uses a promise to return the result.
@@ -3624,7 +3049,7 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 9
    */
-  interface ImageReceiver {
+  interface ImageReceiverHelper {
     /**
      * Image size.
      *
@@ -3632,7 +3057,7 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
-    readonly size: Size;
+    readonly size: image.Size;
 
     /**
      * Image capacity.
@@ -3654,16 +3079,6 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
 
     /**
      * Get an id which indicates a surface and can be used to set to Camera or other component can receive a surface
-     * and uses a callback to return the result.
-     *
-     * @param { AsyncCallback<string> } callback Callback used to return the surface id.
-     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
-     */
-    getReceivingSurfaceId(callback: AsyncCallback<string>): void;
-
-    /**
-     * Get an id which indicates a surface and can be used to set to Camera or other component can receive a surface
      * and uses a promise to return the result.
      *
      * @returns { Promise<string> } A Promise instance used to return the surface id.
@@ -3673,31 +3088,13 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
     getReceivingSurfaceId(): Promise<string>;
 
     /**
-     * Get lasted image from receiver and uses a callback to return the result.
-     *
-     * @param { AsyncCallback<Image> } callback Callback used to return the latest image.
-     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
-     */
-    readLatestImage(callback: AsyncCallback<Image>): void;
-
-    /**
      * Get lasted image from receiver and uses a promise to return the result.
      *
      * @returns { Promise<Image> } A Promise instance used to return the latest image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
-    readLatestImage(): Promise<Image>;
-
-    /**
-     * Get next image from receiver and uses a callback to return the result.
-     *
-     * @param { AsyncCallback<Image> } callback Callback used to return the next image.
-     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
-     */
-    readNextImage(callback: AsyncCallback<Image>): void;
+    readLatestImage(): Promise<SendableImage>;
 
     /**
      * Get next image from receiver and uses a promise to return the result.
@@ -3706,7 +3103,7 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
-    readNextImage(): Promise<Image>;
+    readNextImage(): Promise<SendableImage>;
 
     /**
      * Subscribe callback when receiving an image
@@ -3717,15 +3114,6 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      * @since 9
      */
     on(type: 'imageArrival', callback: AsyncCallback<void>): void;
-
-    /**
-     * Release image receiver instance and uses a callback to return the result.
-     *
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
-     */
-    release(callback: AsyncCallback<void>): void;
 
     /**
      * Release image receiver instance and uses a promise to return the result.
