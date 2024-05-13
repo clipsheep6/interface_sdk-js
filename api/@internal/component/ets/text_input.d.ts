@@ -978,6 +978,34 @@ declare enum TextInputStyle {
 }
 
 /**
+ * Text input decoration style for preview text.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum PreviewTextStyle {
+  /**
+   * PreviewText Style for chinese input style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  UNDERLINE,
+
+  /**
+   * PreviewText Style for other lauguage input style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  NONE
+}
+
+/**
  * Provides a single-line text input component interface.
  *
  * @interface TextInputInterface
