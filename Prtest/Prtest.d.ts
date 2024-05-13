@@ -24,6 +24,6 @@
  * @namespace testNamespace
  * @syscap system.ability
  * @since 1
-*/declare namespace test {
+*/declare namespace test1 {
  }
  
