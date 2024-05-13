@@ -583,10 +583,10 @@ declare namespace camera {
     createPreviewOutput(profile: Profile, surfaceId: string): PreviewOutput;
 
     /**
-     * Creates a PreviewOutput instance without profile.
-     * You can 
+     * Creates a PreviewOutput instance without prefile.
+     * You can use the method to create preview output without prefile, then you must add this output
+     * to a session which already preconfiged.
      *
-     * @param { Profile } profile - Preview output profile.
      * @param { string } surfaceId - Surface object id used in camera photo output.
      * @returns { PreviewOutput } The PreviewOutput instance.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
@@ -636,6 +636,21 @@ declare namespace camera {
     createPhotoOutput(profile?: Profile): PhotoOutput;
 
     /**
+     * Creates a PhotoOutput instance without surfaceId and prefile.
+     * Call PhotoOutput capture interface will give a callback,
+     * {@link on(type: 'photoAvailable', callback: AsyncCallback<Photo>)}
+     * You can use the method to create photo output without prefile, then you must add this output
+     * to a session which already preconfiged.
+     *
+     * @returns { PhotoOutput } The PhotoOutput instance.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    createPhotoOutput(): PhotoOutput;
+
+    /**
      * Creates a VideoOutput instance.
      *
      * @param { VideoProfile } profile - Video profile.
@@ -657,6 +672,20 @@ declare namespace camera {
      * @since 12
      */
     createVideoOutput(profile?: VideoProfile, surfaceId: string): VideoOutput;
+
+    /**
+     * Creates a VideoOutput instance without prefile.
+     * You can use the method to create video output without prefile, then you must add this output
+     * to a session which already preconfiged.
+     *
+     * @param { string } surfaceId - Surface object id used in camera video output.
+     * @returns { VideoOutput } The VideoOutput instance.
+     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    createVideoOutput(surfaceId: string): VideoOutput;
 
     /**
      * Creates a MetadataOutput instance.
