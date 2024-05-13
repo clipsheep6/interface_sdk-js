@@ -625,6 +625,8 @@ declare namespace camera {
      * Creates a PhotoOutput instance without surfaceId.
      * Call PhotoOutput capture interface will give a callback,
      * {@link on(type: 'photoAvailable', callback: AsyncCallback<Photo>)}
+     * You can use the method to create video output without prefile, then you must add this output
+     * to a session which already preconfiged.
      *
      * @param { Profile } profile - Photo output profile.
      * @returns { PhotoOutput } The PhotoOutput instance.
