@@ -1148,7 +1148,16 @@ interface PasswordIcon {
  * @atomicservice
  * @since 11
  */
-declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
+/**
+ * Defines the TextInput attribute functions.
+ *
+ * @extends EditableText<TextInputAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare class TextInputAttribute extends EditableText<TextInputAttribute> {
   /**
    * Called when the input type is set.
    *

@@ -179,6 +179,159 @@ declare interface TextRange {
 }
 
 /**
+ * Defines the inserted text value info.
+ *
+ * @interface InsertValueInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface InsertValueInfo {
+  /**
+   * The location info where the value will be inserted.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  insertOffset: number;
+
+  /**
+   * The inserted value.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  insertValue: string;
+}
+
+/**
+ * Defines delete text direction.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum TextDeleteDirection {
+  /**
+   * Delete backward.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  BACKWARD = 0,
+
+  /**
+   * Delete forward.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FORWARD = 1,
+}
+
+/**
+ * Provides an interface for deleting value from text.
+ *
+ * @interface DeleteValueInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DeleteValueInfo {
+  /**
+   * The location info where the value will be deleted.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  deleteOffset: number;
+
+  /**
+   * The deleted direction.
+   *
+   * @type { TextDeleteDirection }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  direction: TextDeleteDirection;
+
+  /**
+   * The deleted value.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  deleteValue: string;
+}
+
+/**
+ * Define the EditableText class, contains the common methods of EditableText.
+ *
+ * @extends CommonMethod<T>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare class EditableText<T> extends CommonMethod<T> {
+  /**
+   * Get text value information when about to input.
+   *
+   * @param { Callback<InsertValueInfo, boolean> } callback - The triggered function when text content is about to insert.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillInsertValue(callback: Callback<InsertValueInfo, boolean>): T;
+
+  /**
+   * Get text value information when completed input.
+   *
+   * @param { Callback<InsertValueInfo> } callback - The triggered function when text content has been inserted.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidInsertValue(callback: Callback<InsertValueInfo>): T;
+
+  /**
+   * Get text value information when about to delete.
+   *
+   * @param { Callback<DeleteValueInfo, boolean> } callback - The triggered function when text content is about to delete.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onWillDelete(callback: Callback<DeleteValueInfo, boolean>): T;
+
+  /**
+   * Notify that the deletion has been completed
+   *
+   * @param { Callback<DeleteValueInfo> } callback - The triggered function when text content has been deleted.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidDelete(callback: Callback<DeleteValueInfo>): T;
+}
+
+/**
  * Callback after content changed.
  * 
  * @typedef { function } OnDidChangeCallback
