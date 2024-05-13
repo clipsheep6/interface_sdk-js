@@ -636,21 +636,6 @@ declare namespace camera {
     createPhotoOutput(profile?: Profile): PhotoOutput;
 
     /**
-     * Creates a PhotoOutput instance without surfaceId and prefile.
-     * Call PhotoOutput capture interface will give a callback,
-     * {@link on(type: 'photoAvailable', callback: AsyncCallback<Photo>)}
-     * You can use the method to create photo output without prefile, then you must add this output
-     * to a session which already preconfiged.
-     *
-     * @returns { PhotoOutput } The PhotoOutput instance.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
-     * @throws { BusinessError } 7400201 - Camera service fatal error.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 12
-     */
-    createPhotoOutput(): PhotoOutput;
-
-    /**
      * Creates a VideoOutput instance.
      *
      * @param { VideoProfile } profile - Video profile.
