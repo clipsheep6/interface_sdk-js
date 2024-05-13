@@ -20,6 +20,7 @@
 
 import notification from '../@ohos.notification';
 import image from '../@ohos.multimedia.image';
+import { Resource } from '../global/resource';
 import type notificationManager from '../@ohos.notificationManager';
 
 /**
@@ -407,13 +408,13 @@ export interface NotificationButton {
   icons?: Array<image.PixelMap>;
 
   /**
-   * array of button icons resource path.
+   * array of button icons resource.
    *
-   * @type { ?Array<string> }
+   * @type { ?Array<Resource> }
    * @syscap SystemCapability.Notification.Notification
    * @since 12
    */
-  iconsResource?: Array<string>
+  iconsResource?: Array<Resource>
 }
 
 /**
