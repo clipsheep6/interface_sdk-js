@@ -1095,6 +1095,8 @@ declare namespace photoAccessHelper {
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @returns { Promise<string> } Returns exif info into a json string
      * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
+     * 2.incorrect parameter types; 3.parameter verification failed.
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
