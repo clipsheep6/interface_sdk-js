@@ -658,7 +658,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
-    createVideoOutput(profile?: VideoProfile, surfaceId: string): VideoOutput;
+    createVideoOutput(profile: VideoProfile, surfaceId: string): VideoOutput;
 
     /**
      * Creates a VideoOutput instance without prefile.
@@ -860,6 +860,8 @@ declare namespace camera {
      */
     /**
      * Creates a deferred PreviewOutput instance.
+     * You can use the method to create deferred preview output without prefile, then you must add this output
+     * to a session which already preconfiged.
      *
      * @param { Profile } profile - Preview output profile.
      * @returns { PreviewOutput } the PreviewOutput instance.
@@ -869,7 +871,7 @@ declare namespace camera {
      * @systemapi
      * @since 12
      */
-    createDeferredPreviewOutput(profile: Profile): PreviewOutput;
+    createDeferredPreviewOutput(profile?: Profile): PreviewOutput;
 
     /**
      * Check if the device has a torch.
