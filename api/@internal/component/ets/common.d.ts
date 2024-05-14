@@ -20274,6 +20274,15 @@ declare type DrawContext = import('../api/arkui/Graphics').DrawContext;
 declare type ComponentContent = import('../api/arkui/ComponentContent').ComponentContent;
 
 /**
+ * Theme.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type Theme = import('../api/@ohos.arkui.Theme').Theme;
+
+/**
  * Custom Component
  *
  * @extends CommonAttribute
