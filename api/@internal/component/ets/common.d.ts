@@ -21078,7 +21078,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  scrollBar(barState: BarState): T;
+  /**
+   * Scrollbar status.
+   *
+   * @param { Optional<BarState> } barState - Scrollbar status.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollBar(barState: Optional<BarState>): T;
 
   /**
    * Color of the scrollbar.
@@ -21090,7 +21100,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  scrollBarColor(color: Color | number | string): T;
+  /**
+   * Color of the scrollbar.
+   *
+   * @param { Optional<Color | number | string> } color - Color of the scrollbar.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollBarColor(color: Optional<Color | number | string>): T;
 
   /**
    * Width of the scrollbar.
@@ -21102,7 +21122,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  scrollBarWidth(value: number | string): T;
+  /**
+   * Width of the scrollbar.
+   *
+   * @param { Optional<number | string> } value  - Width of the scrollbar.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollBarWidth(value: Optional<number | string>): T;
 
   /**
    * Edge scrolling effect.
@@ -21115,7 +21145,18 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
+  /**
+   * Edge scrolling effect.
+   *
+   * @param { Optional<EdgeEffect> } value - edge scrolling effect.
+   * @param { EdgeEffectOptions } [options] - edge scrolling effect options. 
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  edgeEffect(edgeEffect: Optional<EdgeEffect>, options?: EdgeEffectOptions): T;
 
   /**
    * Nested scrolling options.
@@ -21127,7 +21168,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  nestedScroll(value: NestedScrollOptions): T;
+  /**
+   * Nested scrolling options.
+   *
+   * @param { Optional<NestedScrollOptions> } value - options for nested scrolling.
+   * @returns { T } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  nestedScroll(value: Optional<NestedScrollOptions>): T;
 
   /**
    * Whether to support scroll gestures by finger or mouse.
@@ -21139,7 +21190,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  enableScrollInteraction(value: boolean): T;
+  /**
+   * Whether to support scroll gestures by finger or mouse.
+   *
+   * @param { Optional<boolean> } value - Whether to support scroll gestures by finger or mouse.
+   * @returns { T } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enableScrollInteraction(value: Optional<boolean>): T;
 
   /**
    * Friction coefficient.
@@ -21151,7 +21212,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  friction(value: number | Resource): T;
+  /**
+   * Friction coefficient.
+   *
+   * @param { Optional<number | Resource> } value - friction coefficient.
+   * @returns { T } 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  friction(value: Optional<number | Resource>): T;
 
   /**
    * Called when the scrollable scrolls.
@@ -21182,14 +21253,14 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Called when the scrollable did scroll.
    *
-   * @param { OnScrollCallback } handler - callback of scrollable,
+   * @param { Optional<OnScrollCallback> } handler - callback of scrollable,
    * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onDidScroll(handler: OnScrollCallback): T;
+  onDidScroll(handler: Optional<OnScrollCallback>): T;
 
   /**
    * Called when the scrollable reaches the start position.
@@ -21201,7 +21272,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onReachStart(event: () => void): T;
+  /**
+   * Called when the scrollable reaches the start position.
+   *
+   * @param { Optional<Callback<void>> } handler - Handler function, triggered when the scrollable reaches the start position.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onReachStart(handler: Optional<Callback<void>>): T;
 
   /**
    * Called when the scrollable reaches the end position.
@@ -21213,7 +21294,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onReachEnd(event: () => void): T;
+  /**
+   * Called when the scrollable reaches the end position.
+   *
+   * @param { Optional<Callback<void>> } handler - Handler function, triggered when the scrollable reaches the end position.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onReachEnd(handler: Optional<Callback<void>>): T;
 
   /**
    * Called when the scrollable starts scrolling.
@@ -21225,7 +21316,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onScrollStart(event: () => void): T;
+  /**
+   * Called when the scrollable starts scrolling.
+   *
+   * @param { Optional<Callback<void>> } handler - Handler function, triggered when the scrollable starts scrolling.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onScrollStart(handler: Optional<Callback<void>>): T;
 
   /**
    * Called when the scrollable stops scrolling.
@@ -21237,7 +21338,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  onScrollStop(event: () => void): T;
+  /**
+   * Called when the scrollable stops scrolling.
+   *
+   * @param { Optional<Callback<void>> } handler - Handler function, triggered when the scrollable stops scrolling.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onScrollStop(handler: Optional<Callback<void>>): T;
 
   /**
    * Limit the max speed when fling.
@@ -21250,8 +21361,33 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  flingSpeedLimit(speedLimit: number): T;
+  /**
+   * Limit the max speed when fling.
+   *
+   * @param { Optional<number> } speedLimit - Max fling speed, the minimum value is 0, the maximum value is not limited.
+   *                                The unit is vp/s.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  flingSpeedLimit(speedLimit: Optional<number>): T;
 }
+
+/**
+   * Handler of scrollable, using in onScrollFrameBegin.
+   *
+   * @typedef { function } OnScrollFrameBeginHandler
+   * @param { number } offset - the initial offset per frame.
+   * @param { ScrollState } state - the current scrolling state.
+   * @returns { number } offsetRemain - the actual offset per frame.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+declare type OnScrollFrameBeginHandler = (offset: number, state: ScrollState) => { offsetRemain: number };
 
 /**
   * on scroll callback using in scrollable onWillScroll and onDidScroll.
