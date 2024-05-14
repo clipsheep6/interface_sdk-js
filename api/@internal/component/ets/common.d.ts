@@ -6991,6 +6991,53 @@ declare enum SafeAreaEdge {
 }
 
 /**
+ * Enumerates the safe area types can be ignored.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum LayoutSafeAreaType {
+  /**
+   * Default area of the system, including the status bar and navigation bar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SYSTEM = 0,
+}
+
+/**
+ * Enumerates the safe area edges can be ignored.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum LayoutSafeAreaEdge {
+  /**
+   * Top edge of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  TOP = 0,
+
+  /**
+   * Bottom edge of the safe area.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  BOTTOM = 1,
+}
+
+/**
  * Defines sheet size type.
  *
  * @enum { number }
@@ -7340,6 +7387,18 @@ declare interface BaseEvent {
    * @form
    */
   sourceTool: SourceTool;
+
+  /**
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the keys of the ModifierKey.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getModifierKeyState(keys: Array<string>): boolean;
 }
 
 /**
@@ -9218,8 +9277,8 @@ declare interface DragEvent {
    * Get dragData from DragEvent.
    *
    * @returns { UnifiedData } - get dragData.
-   * @throws { BusinessError } 190001 - data not found.
-   * @throws { BusinessError } 190002 - data error.
+   * @throws { BusinessError } 190001 - Data not found.
+   * @throws { BusinessError } 190002 - Data error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9228,8 +9287,8 @@ declare interface DragEvent {
    * Get dragData from DragEvent.
    *
    * @returns { UnifiedData } - get dragData.
-   * @throws { BusinessError } 190001 - data not found.
-   * @throws { BusinessError } 190002 - data error.
+   * @throws { BusinessError } 190001 - Data not found.
+   * @throws { BusinessError } 190002 - Data error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9363,6 +9422,18 @@ declare interface DragEvent {
    * @since 11
    */
   getVelocity(): number;
+
+  /**
+   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the keys of the ModifierKey.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getModifierKeyState(keys: Array<string>): boolean;
 }
 
 /**
@@ -9634,6 +9705,18 @@ declare interface KeyEvent {
    * @since 11
    */
   intentionCode: IntentionCode;
+
+  /**
+   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'|'fn'
+   *
+   * @param { Array<string> } keys - indicate the modifier keys.
+   * @returns { boolean }
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getModifierKeyState(keys: Array<string>): boolean;
 }
 
 /**
@@ -16423,6 +16506,28 @@ declare class CommonMethod<T> {
   onDisAppear(event: () => void): T;
 
   /**
+   * This callback is triggered when a component mounts to view tree.
+   *
+   * @param { Callback<void> } callback
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onAttach(callback: Callback<void>): T;
+
+  /**
+   * This callback is triggered when a component is detached from view tree.
+   *
+   * @param { Callback<void> } callback
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDetach(callback: Callback<void>): T;
+
+  /**
    * This callback is triggered when the size or position of this component change finished.
    *
    * @param { function } event - event callback.
@@ -20352,6 +20457,17 @@ declare class CustomComponent extends CommonAttribute {
   aboutToRecycle?(): void;
 
   /**
+   * The onWillApplyTheme function is a custom hook to get active theme object from the context
+   * 
+   * @param { Theme } theme - Custom theme init params.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillApplyTheme?(theme: Theme): void;
+
+  /**
    * Custom component override this method to layout each of its sub components.
    *
    * @param { Array<LayoutChild> } children
@@ -21145,6 +21261,38 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   * @since 12
   */
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
+
+/**
+ * Defines the onMove callback.
+ *
+ * @typedef { function } OnMoveHandler
+ * @param { number } from - Index number for moving elements.
+ * @param { number } to - Target index number for moving elements.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type OnMoveHandler = (from: number, to: number) => void
+
+/**
+ * Define DynamicNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class DynamicNode<T> {
+  /**
+   * Set the move action.
+   *
+   * @param { Optional<OnMoveHandler> } handler
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onMove(handler: Optional<OnMoveHandler>): T
+}
 
 declare module "SpecialEvent" {
   module "SpecialEvent" {

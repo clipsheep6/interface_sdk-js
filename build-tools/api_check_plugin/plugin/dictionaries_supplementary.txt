@@ -173,6 +173,7 @@ csh
 cubemap
 cug
 cyclewindows
+cyclically
 daltonization
 darkens
 darkest
@@ -546,6 +547,8 @@ mgf1
 mifare
 minibar
 minimizing
+minors
+minorsmode
 mirrored
 misconfigured
 mismatches
@@ -977,6 +980,7 @@ unduck
 unducked
 unequal
 unfiltered
+unfocusable
 unfocused
 unhealthy
 unhold
@@ -1126,3 +1130,4 @@ gbk
 ocsp
 encipherment
 reconfirmed
+subresource
