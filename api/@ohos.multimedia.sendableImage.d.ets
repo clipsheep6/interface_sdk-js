@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit ImageKit
+ * @kit SendableImageKit
  */
 
 import { AsyncCallback } from './@ohos.base';
@@ -157,6 +157,20 @@ declare namespace sendableImage {
    * @since 12
    */
   function createImageSource(buf: ArrayBuffer): ImageSource;
+
+  /**
+   * Creates an ImageReceiver instance.
+   *
+   * @param { Size } size - The default {@link Size} in pixels of the Images that this receiver will produce.
+   * @param { ImageFormat } format - The format of the Image that this receiver will produce. This must be one of the
+   *            {@link ImageFormat} constants.
+   * @param { number } capacity - The maximum number of images the user will want to access simultaneously.
+   * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+   * @since 12
+   */
+  function createImageReceiver(size: Size, format: image.ImageFormat, capacity: number): ImageReceiver; 
 
   /**
    * Create SendablePixelMap by data buffer.
