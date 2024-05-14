@@ -189,7 +189,7 @@ declare namespace taskpool {
      * @param { Function } func - func func Concurrent function to execute in taskpool.
      * @param { unknown[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @since 9
      */
@@ -199,7 +199,7 @@ declare namespace taskpool {
      * @param { Function } func - func func Concurrent function to execute in taskpool.
      * @param { unknown[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -210,7 +210,7 @@ declare namespace taskpool {
      * @param { Function } func - func func Concurrent function to execute in taskpool.
      * @param { Object[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -225,7 +225,7 @@ declare namespace taskpool {
      * @param { Function } func - func func Concurrent function to execute in taskpool.
      * @param { Object[] } args - args args The concurrent function arguments.
      * @throws { BusinessError } 401 - The input parameters are invalid.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -558,7 +558,7 @@ declare namespace taskpool {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
      * 3.Parameter verification failed.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -572,7 +572,7 @@ declare namespace taskpool {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
      * 3.Parameter verification failed.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -588,7 +588,7 @@ declare namespace taskpool {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
      * 3.Parameter verification failed.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @since 10
@@ -601,7 +601,7 @@ declare namespace taskpool {
      * 1.Mandatory parameters are left unspecified;
      * 2.Incorrect parameter types;
      * 3.Parameter verification failed.
-     * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+     * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -976,7 +976,7 @@ declare namespace taskpool {
    * 3.Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
@@ -992,7 +992,7 @@ declare namespace taskpool {
    * 3.Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -1009,7 +1009,7 @@ declare namespace taskpool {
    * 3.Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -1029,7 +1029,7 @@ declare namespace taskpool {
    * 3.Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @since 9
    */
@@ -1045,7 +1045,7 @@ declare namespace taskpool {
    * 3.Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @since 10
@@ -1062,7 +1062,7 @@ declare namespace taskpool {
    * 3.Parameter verification failed.
    * @throws { BusinessError } 10200003 - Worker initialization failure.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
-   * @throws { BusinessError } 10200014 - The function is not mark as concurrent.
+   * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
