@@ -33,7 +33,9 @@ import { lang } from '@kit.ArkTS';
  * @atomicservice
  * @since 12
  */
-declare namespace SendableImage {
+declare namespace sendableImage {
+
+  type ISendable = lang.ISendable;
 
   /**
    * Describes the size of an image.
@@ -45,31 +47,7 @@ declare namespace SendableImage {
    * @atomicservice
    * @since 12
    */
-  interface SendableSize {
-    /**
-     * Height
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 6
-     */
-    /**
-     * Height
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Height
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
+  interface Size extends ISendable {
     /**
      * Height
      *
@@ -82,30 +60,6 @@ declare namespace SendableImage {
      */
     height: number;
 
-    /**
-     * Width
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 6
-     */
-    /**
-     * Width
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Width
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
     /**
      * Width
      *
@@ -129,7 +83,7 @@ declare namespace SendableImage {
    * @atomicservice
    * @since 12
    */
-  interface SendableRegion {
+  interface Region extends ISendable {
     /**
      * Image size.
      *
@@ -140,7 +94,7 @@ declare namespace SendableImage {
      * @atomicservice
      * @since 12
      */
-    size: SendableSize;
+    size: Size;
 
     /**
      * x-coordinate at the upper left corner of the image.
@@ -175,9 +129,9 @@ declare namespace SendableImage {
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
-  function createImageSource(uri: string): ImageSourceHelper;
+  function createImageSource(uri: string): ImageSource;
 
   /**
    * Creates an ImageSource instance based on the file descriptor.
@@ -187,9 +141,9 @@ declare namespace SendableImage {
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 12
    */
-  function createImageSource(fd: number): ImageSourceHelper;
+  function createImageSource(fd: number): ImageSource;
 
   /**
    * Creates an ImageSource instance based on the buffer.
@@ -202,7 +156,7 @@ declare namespace SendableImage {
    * @atomicservice
    * @since 12
    */
-  function createImageSource(buf: ArrayBuffer): ImageSourceHelper;
+  function createImageSource(buf: ArrayBuffer): ImageSource;
 
   /**
    * Create SendablePixelMap by data buffer.
@@ -395,9 +349,7 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
    * @crossplatform
    * @since 10
    */
-  function createPixelMap(colors: ArrayBuffer, options: image.InitializationOptions): Promise<ImageSourceHelper>;  
-
-  type ISendable = lang.ISendable;
+  function createPixelMap(colors: ArrayBuffer, options: image.InitializationOptions): Promise<SendablePixelMap>;  
 
   /**
    * SendablePixelMap instance.
@@ -1121,7 +1073,7 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
    * @atomicservice
    * @since 12
    */
-  interface ImageSourceHelper {
+  interface ImageSource {
     /**
      * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
      * return the object.
@@ -1141,15 +1093,8 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      *
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 6
-     */
-    /**
-     * Releases an ImageSource instance and uses a promise to return the result.
-     *
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
+     * @since 12
      */
     release(): Promise<void>;
   }
@@ -1160,33 +1105,33 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
    *
    * @typedef Image
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 9
+   * @since 12
    */
-  interface SendableImage {
+  interface Image extends ISendable {
     /**
      * Sets or gets the image area to crop, default is size.
      *
      * @type { Region }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
+     * @since 12
      */
-    clipRect: SendableRegion;
+    clipRect: Region;
 
     /**
      * Image size.
      *
      * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
+     * @since 12
      */
-    readonly size: SendableSize;
+    readonly size: Size;
 
     /**
      * Image format.
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
+     * @since 12
      */
     readonly format: number;
 
@@ -1205,7 +1150,7 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      * @param { ComponentType } componentType The component type of image.
      * @returns { Promise<Component> } A Promise instance used to return the component buffer.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
+     * @since 12
      */
     getComponent(componentType: image.ComponentType): Promise<image.Component>;
 
@@ -1224,15 +1169,15 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
    *
    * @typedef ImageReceiver
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-   * @since 9
+   * @since 12
    */
-  interface ImageReceiverHelper {
+  interface ImageReceiver {
     /**
      * Image size.
      *
      * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since 12
      */
     readonly size: image.Size;
 
@@ -1241,7 +1186,7 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      *
      * @type { number }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since 12
      */
     readonly capacity: number;
 
@@ -1250,7 +1195,7 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      *
      * @type { ImageFormat }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since 12
      */
     readonly format: image.ImageFormat;
 
@@ -1260,7 +1205,7 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      *
      * @returns { Promise<string> } A Promise instance used to return the surface id.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since 12
      */
     getReceivingSurfaceId(): Promise<string>;
 
@@ -1269,18 +1214,18 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      *
      * @returns { Promise<Image> } A Promise instance used to return the latest image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since 12
      */
-    readLatestImage(): Promise<SendableImage>;
+    readLatestImage(): Promise<Image>;
 
     /**
      * Get next image from receiver and uses a promise to return the result.
      *
      * @returns { Promise<Image> } A Promise instance used to return the next image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since 12
      */
-    readNextImage(): Promise<SendableImage>;
+    readNextImage(): Promise<Image>;
 
     /**
      * Subscribe callback when receiving an image
@@ -1288,7 +1233,7 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      * @param { 'imageArrival' } type Callback used to return the next image.
      * @param { AsyncCallback<void> } callback Callback used to return image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since 12
      */
     on(type: 'imageArrival', callback: AsyncCallback<void>): void;
 
@@ -1297,11 +1242,11 @@ function createUnpremultipliedSendablePixelMap(src: SendablePixelMap, dst: Senda
      *
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-     * @since 9
+     * @since 12
      */
     release(): Promise<void>;
   }
 
 }
 
-export default SendableImage;
+export default sendableImage;
