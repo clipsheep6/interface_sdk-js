@@ -204,6 +204,9 @@ declare namespace collections {
      * @since 12
      */
     static from<T>(arrayLike: ArrayLike<T>): Array<T>;
+    static from<T, U>(arrayLike: ArrayLike<T>, mapfn: (v: T, k: number) => U): Array<T>; // TODO(hzzhouzebin): Add JSDoc.
+    static isArray(value: ISendable | Object | null | undefined): boolean; // TODO(hzzhouzebin): Add JSDoc.
+    static of<T>(...items: T[]): Array<T>; // TODO(hzzhouzebin): Add JSDoc.
     /**
      * A constructor used to create an ArkTS Array.
      *
@@ -394,6 +397,7 @@ declare namespace collections {
      * @since 12
      */
     filter(predicate: (value: T, index: number, array: Array<T>) => boolean): Array<T>;
+    filter<S extends T>(predicate: (value: T, index: number, array: Array<T>) => boolean): Array<T>; // TODO(hzzhouzebin): Add JSDoc.
     /**
      * Calls the specified callback function for all the elements in an ArkTS Array.
      * The return value of the callback function is the accumulated result,
@@ -412,6 +416,7 @@ declare namespace collections {
      * @since 12
      */
     reduce(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array<T>) => T): T;
+    reduce(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array<T>) => T, initialValue: T): T; // TODO(hzzhouzebin): Add JSDoc.
     /**
      * Calls the specified callback function for all the elements in an array.
      * The return value of the callback function is the accumulated result,
@@ -436,6 +441,13 @@ declare namespace collections {
       callbackFn: (previousValue: U, currentValue: T, currentIndex: number, array: Array<T>) => U,
       initialValue: U
     ): U;
+
+    reduceRight(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array<T>) => T): T; // TODO(hzzhouzebin): Add JSDoc.
+    reduceRight(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array<T>) => T, initialValue: T): T; // TODO(hzzhouzebin): Add JSDoc.
+    reduceRight<U>(
+      callbackFn: (previousValue: U, currentValue: T, currentIndex: number, array: Array<T>) => U,
+      initialValue: U
+    ): U; // TODO(hzzhouzebin): Add JSDoc.
     /**
      * Returns the item located at the specified index.
      *
@@ -507,6 +519,8 @@ declare namespace collections {
      * @since 12
      */
     find(predicate: (value: T, index: number, obj: Array<T>) => boolean): T | undefined;
+    find<S extends T>(predicate:(value: T, index: number, obj: Array<T>) => boolean): S | undefined; // TODO(hzzhouzebin): Add JSDoc. a little different because lack of first parameter 'this' for predicate.
+    copyWithin(target: number, start: number, end?: number): Array<T>; // TODO(hzzhouzebin): Add JSDoc.
     /**
      * Determines whether an array includes a certain element, returning true or false as appropriate.
      *
@@ -616,6 +630,17 @@ declare namespace collections {
      * @since 12
      */
     concat(...items: ConcatArray<T>[]): Array<T>;
+    [Symbol.iterator] () : IterableIterator<T>;
+    toString(): string; // TODO(hzzhouzebin): Add JSDoc.
+    reverse(): Array<T>; // TODO(hzzhouzebin): Add JSDoc.
+    splice(start: number, deleteCount?: number): Array<T>; // TODO(hzzhouzebin): Add JSDoc.
+    splice(start: number, deleteCount: number, ...items: T[]): Array<T>; // TODO(hzzhouzebin): Add JSDoc.
+    lastIndexOf(searchElement: T, fromIndex?: number): number; // TODO(hzzhouzebin): Add JSDoc.
+    every<S extends T>(predicate: (value: T, index: number, array: T[])=> boolean): boolean;
+    every(predicate: (value: T, index: number, array: T[])=> boolean): boolean; // TODO(hzzhouzebin): Add JSDoc. a little different
+    some(predicate: (value: T, index: number, array: T[])=> boolean): boolean; // TODO(hzzhouzebin): Add JSDoc. a little different falsable and boolean.
+    flatMap<U>(callback: (value: T, index: number, array: Array<T>) => U | ReadonlyArray<U>) : Array<U>; // TODO(hzzhouzebin): Add JSDoc. Do we need a Sendable ReadonlyArray?
+    flat<A, D extends number = 1>(depth?: number): Array<FlatArray<A, D>>; // TODO(hzzhouzebin): Add JSDoc. We need a Sendable FlatArray, but it is complicated.
   }
   
   /**
@@ -1276,6 +1301,7 @@ declare namespace collections {
      * @since 12
      */
     indexOf(searchElement: number, fromIndex?: number): number;
+    lastIndexOf(searchElement: number, fromIndex?: number): number; // TODO(hzzhouzebin): Add JSDoc.
     /**
      * Adds all the elements of an array separated by the specified separator string.
      * @param { string } [separator] - A string used to separate one element of an array from the next in the
@@ -1371,6 +1397,12 @@ declare namespace collections {
      * @since 12
      */
     reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U;
+    reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): number; // TODO(hzzhouzebin): Add JSDoc.
+    reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>, initialValue: number): number; // TODO(hzzhouzebin): Add JSDoc.
+    reduceRight<U>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U; // TODO(hzzhouzebin): Add JSDoc.
+    toString(): string; // TODO(hzzhouzebin): Add JSDoc.
+    [Symbol.iterator](): IterableIterator<number>; // TODO(hzzhouzebin): Add JSDoc.
+    static of(...items: number[]): Int8Array; // TODO(hzzhouzebin): Add JSDoc.
     /**
      * Reverses the elements in an Array.
      *
