@@ -21556,6 +21556,161 @@ declare module "wrappedBuilderObject" {
 /**
  * Defines the overall animation parameters of the keyframe animation.
  *
+ * @interface LineMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface LineMetrics {
+  /**
+   * Text ascender height.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  ascender?: number;
+
+  /**
+   * Text descender height.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  descender?: number;
+
+  /**
+   * The height of a capital letter.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  capHeight?: number;
+
+  /**
+   * The height of a lowercase letter.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  xHeight?: number;
+
+
+  /**
+   * Text width.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  width?: number;
+
+  /**
+   * Line height.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  height?: number;
+
+
+  /**
+   * The distance from the left end of the text to the left end of the container,
+   * aligned to 0, is the width of the container minus the width of the line of text.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  x?: number;
+
+  /**
+   * The height from the top of the text to the top of the container, the first line is 0,
+   *  and the second line is the height of the first line.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  y?: number;
+
+  /**
+   * Start Index.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  startIndex?: number;
+
+  /**
+   * End Index.
+   *
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  endIndex?: number;
+}
+
+/**
+ * ParagraphLayout
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare class ParagraphLayout {
+
+  /**
+  * Get the literal content of the StyledString.
+  *
+  * @returns { string } - the literal content of the StyledString
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @since 12
+  */
+  getGetLineMetrics(): Array<LineMetrics>;
+}
+
+/**
+ * Defines the overall animation parameters of the keyframe animation.
+ *
  * @interface KeyframeAnimateParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform

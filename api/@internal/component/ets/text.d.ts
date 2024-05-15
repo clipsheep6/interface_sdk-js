@@ -1514,4 +1514,15 @@ declare class TextController {
    * @since 12
    */
   setStyledString(value: StyledString): void;
+
+  /**
+   * Get paragraph information.
+   *
+   * @returns { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  GetParagraph(): ParagraphLayout;
 }
