@@ -207,7 +207,7 @@ declare namespace screen {
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { VirtualScreenOption } options Indicates the options of the virtual screen.
    * @param { AsyncCallback<Screen> } callback Callback used to return the created virtual screen
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -223,7 +223,7 @@ declare namespace screen {
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { VirtualScreenOption } options Indicates the options of the virtual screen.
    * @returns { Promise<Screen> } Promise used to return the created virtual screen
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -268,7 +268,7 @@ declare namespace screen {
    * @param { number } screenId Indicates the screen id of the virtual screen.
    * @param { string } surfaceId Indicates the surface id.
    * @param { AsyncCallback<void> } callback Callback used to return the result
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -285,7 +285,7 @@ declare namespace screen {
    * @param { number } screenId Indicates the screen id of the virtual screen.
    * @param { string } surfaceId Indicates the surface id.
    * @returns { Promise<void> } Promise that returns no value
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
