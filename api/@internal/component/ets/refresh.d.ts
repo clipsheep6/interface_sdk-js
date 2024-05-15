@@ -396,7 +396,17 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @atomicservice
    * @since 11
    */
-  onStateChange(callback: (state: RefreshStatus) => void): RefreshAttribute;
+  /**
+   * Called when the refresh state changes.
+   *
+   * @param { Optional<Callback<RefreshStatus>> } callback
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onStateChange(callback: Optional<Callback<RefreshStatus>>): RefreshAttribute;
 
   /**
    * Called when the refresh state is entered.
@@ -425,43 +435,53 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @atomicservice
    * @since 11
    */
-  onRefreshing(callback: () => void): RefreshAttribute;
+  /**
+   * Called when the refresh state is entered.
+   *
+   * @param { Optional<Callback<void>> } callback
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onRefreshing(callback: Optional<Callback<void>>): RefreshAttribute;
 
   /**
    * The pull-down offset to trigger refresh.
    *
-   * @param { number } value
+   * @param { Optional<number> } value
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  refreshOffset(value: number): RefreshAttribute;
+  refreshOffset(value: Optional<number>): RefreshAttribute;
 
   /**
    * Sets whether to trigger refresh when the pull-down distance exceeds the refreshOffset.
    *
-   * @param { boolean } value
+   * @param { Optional<boolean> } value
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  pullToRefresh(value: boolean): RefreshAttribute;
+  pullToRefresh(value: Optional<boolean>): RefreshAttribute;
   
   /**
    * Called when the refresh offset changed.
    * The unit is vp.
    *
-   * @param { Callback<number> } callback
+   * @param { Optional<Callback<number>> } callback
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onOffsetChange(callback: Callback<number>): RefreshAttribute;
+  onOffsetChange(callback: Optional<Callback<number>>): RefreshAttribute;
 
   /**
    * Pull-down follow ratio for Refresh.
