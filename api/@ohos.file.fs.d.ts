@@ -784,7 +784,7 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
  * @param { string } destUri - dest uri.
  * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 401 - Parameter error.Possible causes:1. Mandatory parameters are left unspecified;
- * 2. Incorrect parameter types.
+ * 2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
