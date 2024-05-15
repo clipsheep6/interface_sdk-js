@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit SendableImageKit
+ * @kit ImageKit
  */
 
 import { AsyncCallback } from './@ohos.base';
