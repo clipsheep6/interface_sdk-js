@@ -170,7 +170,7 @@ declare namespace sendableImage {
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 12
    */
-  function createImageReceiver(size: Size, format: image.ImageFormat, capacity: number): ImageReceiver; 
+  function createImageReceiver(size: image.Size, format: image.ImageFormat, capacity: number): ImageReceiver; 
 
   /**
    * Create SendablePixelMap by data buffer.
