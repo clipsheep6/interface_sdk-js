@@ -24,6 +24,7 @@ import type image from './@ohos.multimedia.image';
 import type resourceManager from './@ohos.resourceManager';
 import type rpc from './@ohos.rpc';
 import lang from '../arkts/@arkts.lang';
+
 /**
  * This module provides the capability of image codec and access
  * @namespace sendableImage
