@@ -4369,8 +4369,8 @@ declare namespace photoAccessHelper {
      *
      * @param { Album } album - Specify the target album to be placed before
      * @throws { BusinessError } 202 - Called by non-system application
-     * <br>@throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. incorrect parameter types; 3. parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. incorrect parameter types; 3. parameter verification failed.
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
