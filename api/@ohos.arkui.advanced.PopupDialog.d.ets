@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2023-2024 Huawei Device Co., Ltd.
+* Copyright (C) 2024-2024 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -20,13 +20,16 @@
 
 /**
  * Declare struct PopupDialog
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
  */
+@Component
 export declare struct PopupDialog {
   /**
    * Sets the PopupDialog Visible Status.
+   * 
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -36,6 +39,7 @@ export declare struct PopupDialog {
   show: boolean;
   /**
    * Sets the targetBuilder content.
+   * 
    * @type { () => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -44,9 +48,10 @@ export declare struct PopupDialog {
    @BuilderParam targetBuilder: () => void;
   /**
    * Sets the PopupDialog options.
-   * @type { PopupDialogOptions }.
+   * 
+   * @type { PopupDialogOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @crossplatform
    * @since 12
    */
   @Prop
