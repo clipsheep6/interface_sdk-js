@@ -21,6 +21,7 @@
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
+import { TextModifier, ImageModifier } from './@ohos.arkui.modifier';
 
 /**
  * Declare enum IconType
@@ -291,7 +292,7 @@ export declare class ContentItem {
    * @since 11
    */
   icon?: ResourceStr;
-
+  
   /**
    * Sets the primaryText.
    * @type { ?ResourceStr }
@@ -306,7 +307,7 @@ export declare class ContentItem {
    * @since 11
    */
   primaryText?: ResourceStr;
-
+  
   /**
    * Sets the secondaryText.
    * @type { ?ResourceStr }
@@ -321,7 +322,7 @@ export declare class ContentItem {
    * @since 11
    */
   secondaryText?: ResourceStr;
-
+  
   /**
    * Sets the description.
    * @type { ?ResourceStr }
@@ -336,6 +337,38 @@ export declare class ContentItem {
    * @since 11
    */
   description?: ResourceStr;
+  
+  /**
+   * Image modifier for icon.
+   * @type { ImageModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  iconModifier?: ImageModifier;
+  
+  /**
+   * Text modifier for primaryText.
+   * @type { TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  primaryTextModifier?: TextModifier;
+  
+  /**
+   * Text modifier for secondaryText.
+   * @type { TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  secondaryTextModifier?: TextModifier;
+  
+  /**
+   * Text modifier for description.
+   * @type { TextModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  descriptionModifier?: TextModifier;
 }
 
 /**
@@ -528,4 +561,20 @@ export declare struct ComposeListItem {
    * @since 11
    */
   @Prop operateItem?: OperateItem;
+  
+  /**
+   * Sets the compose item margin.
+   * @type { ?Margin }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  composeItemMargin?: Margin;
+  
+  /**
+   * Sets the compose item padding.
+   * @type { ?Padding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  composeItemPadding?: Padding;
 }
