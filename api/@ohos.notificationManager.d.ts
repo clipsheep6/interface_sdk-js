@@ -900,6 +900,25 @@ declare namespace notificationManager {
   function isNotificationEnabled(userId: number): Promise<boolean>;
 
   /**
+   * get the notification enable status for this application
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { number } bundle - The bundle name.
+   * @returns { boolean } returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+  * @since 9
+   */
+  function getNotificationEnabled(bundle: string): boolean;
+
+  /**
    * Sets whether to allow the specified application to show badge.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
