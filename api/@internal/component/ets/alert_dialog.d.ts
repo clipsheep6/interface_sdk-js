@@ -732,6 +732,8 @@ declare interface AlertDialogParam {
    * @crossplatform
    * @atomicservice
    * @since 11
+   * @deprecated since 12
+   * @useinstead alertDialog/AlertDialogParam#width
    */
   gridCount?: number;
 
