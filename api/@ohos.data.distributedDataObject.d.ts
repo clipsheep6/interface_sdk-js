@@ -31,6 +31,33 @@ import commonType from '@ohos.data.commonType';
  */
 declare namespace distributedDataObject {
   /**
+   * Indicated the observer of object status changed.
+   * @typedef {function} StatusCallBack
+   * @param { string } sessionId - the sessionId of the changed object.
+   * @param { string } networkId - the networkId of the changed device.
+   * @param { string } status - the status of the changed device.
+   *                   'online' The object became online on the device and data can be synced to the device.
+   *                   'offline' The object became offline on the device and the object can not sync any data.
+   *                   'restored' The object restored success.
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @atomicservice
+   * @since 12
+   */
+  type StatusCallBack = (sessionId: string, networkId: string, status: string ) => void;
+
+  /**
+   * Indicated the observer of object data changed.
+   * @typedef {function} ChangeCallBack
+   * @param { string } sessionId - the sessionId of the changed object.
+   * @param { Array<string> } fields - Attribute names of changed data.
+   *
+   * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+   * @atomicservice
+   * @since 12
+   */
+  type ChangeCallBack = (sessionId: string, fields: Array<string>) => void;
+
+  /**
    * The information about the database bound to the asset.
    *
    * @interface BindInfo
@@ -333,6 +360,7 @@ declare namespace distributedDataObject {
      *                                                                 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
+     * @deprecated since 12
      */
     on(type: 'change', callback: (sessionId: string, fields: Array<string>) => void ): void;
 
@@ -349,6 +377,7 @@ declare namespace distributedDataObject {
      *                                                                 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
+     * @deprecated since 12
      */
     off(type: 'change', callback?: (sessionId: string, fields: Array<string>) => void ): void;
 
@@ -368,6 +397,7 @@ declare namespace distributedDataObject {
      *                                                                 2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
+     * @deprecated since 12
      */
     on(
       type: 'status',
@@ -390,6 +420,7 @@ declare namespace distributedDataObject {
      *                                                                   2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9
+     * @deprecated since 12
      */
     off(
       type: 'status',
@@ -490,6 +521,56 @@ declare namespace distributedDataObject {
      * @since 11
      */
     bindAssetStore(assetKey: string, bindInfo: BindInfo): Promise<void>;
+
+    /**
+     * On watch of change.
+     *
+     * @param { 'change' } type - event type, fixed as 'change', indicates data change.
+     * @param { Function } callback indicates the observer of object data changed.
+     * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                 2. Incorrect parameter types.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 12
+     */
+    on(type: 'change', callback: ChangeCallBack): void;
+
+    /**
+     * Off watch of change.
+     *
+     * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
+     * @param { Function } callback indicates the observer of object data changed.
+     *          callback If not null, off the callback, if undefined, off all callbacks.
+     * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                 2. Incorrect parameter types.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 12
+     */
+    off(type: 'change', callback?: ChangeCallBack ): void;
+
+    /**
+     * On watch of status.
+     *
+     * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
+     * @param { StatusCallBack } callback -  the observer of object status changed.
+     * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                 2. Incorrect parameter types.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 12
+     */
+    on(type: 'status', callback: StatusCallBack): void;
+
+    /**
+     * Off watch of status.
+     *
+     * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
+     * @param { StatusCallBack } callback -  the observer of object status changed.
+     *          callback If not null, off the callback, if undefined, off all callbacks.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *                                                                   2. Incorrect parameter types.
+     * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
+     * @since 12
+     */
+    off(type: 'status', callback?: StatusCallBack): void;
   }
 }
 
