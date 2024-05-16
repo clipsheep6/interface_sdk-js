@@ -914,7 +914,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-  * @since 9
+  * @since 12
    */
   function getNotificationEnabled(bundle: string): boolean;
 
