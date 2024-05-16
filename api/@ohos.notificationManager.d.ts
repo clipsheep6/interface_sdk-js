@@ -900,11 +900,11 @@ declare namespace notificationManager {
   function isNotificationEnabled(userId: number): Promise<boolean>;
 
   /**
-   * get the notification enable status for this application
+   * Get the notification enable status for this application.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { number } bundle - The bundle name.
-   * @returns { boolean } returned by the function.
+   * @returns { boolean } Returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - The parameter check failed.
