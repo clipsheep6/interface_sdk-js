@@ -35,8 +35,6 @@ import lang from '../arkts/@arkts.lang';
  */
 declare namespace sendableImage {
 
-  type ISendable = lang.ISendable;
-
   /**
    * Describes the size of an image.
    *
@@ -47,7 +45,7 @@ declare namespace sendableImage {
    * @atomicservice
    * @since 12
    */
-  interface Size extends ISendable {
+  interface Size extends lang.ISendable {
     /**
      * Height
      *
@@ -83,7 +81,7 @@ declare namespace sendableImage {
    * @atomicservice
    * @since 12
    */
-  interface Region extends ISendable {
+  interface Region extends lang.ISendable {
     /**
      * Image size.
      *
@@ -368,7 +366,7 @@ declare namespace sendableImage {
   * @atomicservice
   * @since 12
   */
- interface PixelMap extends ISendable {
+ interface PixelMap extends lang.ISendable {
    /**
     * Whether the image pixelmap can be edited.
     *
@@ -1114,7 +1112,7 @@ declare namespace sendableImage {
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12
    */
-  interface Image extends ISendable {
+  interface Image extends lang.ISendable {
     /**
      * Sets or gets the image area to crop, default is size.
      *
@@ -1166,7 +1164,7 @@ declare namespace sendableImage {
      *
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
+     * @since 12
      */
     release(): Promise<void>;
   }
