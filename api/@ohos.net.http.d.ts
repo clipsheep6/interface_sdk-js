@@ -49,6 +49,7 @@ declare namespace http {
    */
   /**
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @atomicservice
    * @since 11
    */
@@ -328,6 +329,7 @@ declare namespace http {
      * If this parameter is set as type of HttpProxy, the system will use the specified HttpProxy.
      * @type { ?(boolean | HttpProxy) }
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -352,6 +354,7 @@ declare namespace http {
      * If this parameter is set, the system will use ca path specified by user, or else use preset ca by the system.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @atomicservice
      * @since 11
      */
@@ -371,6 +374,7 @@ declare namespace http {
      * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
      * @type {?number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -390,6 +394,7 @@ declare namespace http {
      * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
      * @type {?number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -407,6 +412,7 @@ declare namespace http {
      * Support the application to pass in client certificates, allowing the server to verify the client's identity.
      * @type {?ClientCert}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -424,6 +430,7 @@ declare namespace http {
      * It MUST specify an HTTPS URL.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -443,6 +450,7 @@ declare namespace http {
      * Only take the first three if there are more than three.
      * @type {?Array<string>}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -461,6 +469,7 @@ declare namespace http {
      * The maximum value is 100 * 1024 *1024, in Byte.
      * @type {?number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -479,6 +488,7 @@ declare namespace http {
      * the email data to send/upload.
      * @type {?Array<MultiFormData>}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -497,6 +507,7 @@ declare namespace http {
    * Represents the properties of a form object.
    * @interface MultiFormData
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   /**
@@ -511,6 +522,7 @@ declare namespace http {
      * MIME name for the data field.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -526,6 +538,7 @@ declare namespace http {
      * Content type of the data field.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -541,6 +554,7 @@ declare namespace http {
      * Remote file name for the data field.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -556,6 +570,7 @@ declare namespace http {
      * This parameter sets a mime part's body content from memory data.
      * @type {?(string | Object | ArrayBuffer)}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -574,6 +589,7 @@ declare namespace http {
      * If data has a value, filePath does not take effect.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -593,6 +609,7 @@ declare namespace http {
    * Enum for certificate types
    * @enum {string}
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   /**
@@ -606,6 +623,7 @@ declare namespace http {
     /**
      * PEM format certificate
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -619,6 +637,7 @@ declare namespace http {
     /**
      * DER format certificate
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -632,6 +651,7 @@ declare namespace http {
     /**
      * P12 format certificate
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -648,6 +668,7 @@ declare namespace http {
    * client certificate (cert), client certificate type (certType), certificate private key (key), and passphrase (keyPassword).
    * @interface ClientCert
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   /**
@@ -663,6 +684,7 @@ declare namespace http {
      * The path to the client certificate file.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -678,6 +700,7 @@ declare namespace http {
      * The type of the client certificate.
      * @type {?CertType}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -693,6 +716,7 @@ declare namespace http {
      * The path of the client certificate private key file.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -708,6 +732,7 @@ declare namespace http {
      * Password required to use the client certificate private key.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -1402,6 +1427,7 @@ declare namespace http {
      * @param { 'dataReceiveProgress' } type - Indicates Event name.
      * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -1426,6 +1452,7 @@ declare namespace http {
      * @param { 'dataReceiveProgress' } type - Indicates Event name.
      * @param { Callback<DataReceiveProgressInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -1443,6 +1470,7 @@ declare namespace http {
      * @param { 'dataSendProgress' } type - Indicates Event name.
      * @param { Callback<DataSendProgressInfo> } callback - the callback of on.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -1460,6 +1488,7 @@ declare namespace http {
      * @param { 'dataSendProgress' } type - Indicates Event name.
      * @param { Callback<DataSendProgressInfo> } [callback] - the callback of off.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2462,6 +2491,7 @@ declare namespace http {
      * Cause error if using http only or not supporting http3 on this device.
      * Fallback to http2 or http1.1 if needed.
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2708,6 +2738,7 @@ declare namespace http {
      * The time taken of various stages of HTTP request.
      * @type {PerformanceTiming}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2724,6 +2755,7 @@ declare namespace http {
    * Counting the time taken of various stages of HTTP request.
    * @interface PerformanceTiming
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   /**
@@ -2738,6 +2770,7 @@ declare namespace http {
      * Time taken from startup to DNS resolution completion, in milliseconds.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2753,6 +2786,7 @@ declare namespace http {
      * Time taken from startup to TCP connection completion, in milliseconds.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2768,6 +2802,7 @@ declare namespace http {
      * Time taken from startup to TLS connection completion, in milliseconds.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2783,6 +2818,7 @@ declare namespace http {
      * Time taken from startup to start sending the first byte, in milliseconds.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2798,6 +2834,7 @@ declare namespace http {
      * Time taken from startup to receiving the first byte, in milliseconds.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2813,6 +2850,7 @@ declare namespace http {
      * Time taken from startup to the completion of the request, in milliseconds.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2828,6 +2866,7 @@ declare namespace http {
      * Time taken from startup to completion of all redirection steps, in milliseconds.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2843,6 +2882,7 @@ declare namespace http {
      * Time taken from HTTP request to header completion, in milliseconds.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2858,6 +2898,7 @@ declare namespace http {
      * Time taken from HTTP Request to body completion, in milliseconds.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2873,6 +2914,7 @@ declare namespace http {
      * Time taken from HTTP Request to callback to the application, in milliseconds.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2889,6 +2931,7 @@ declare namespace http {
    * This interface is used to obtain the progress information of file upload or download.
    * @interface DataReceiveProgressInfo
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   /**
@@ -2903,6 +2946,7 @@ declare namespace http {
      * Number of data bytes received.
      * @type { number }
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2917,6 +2961,7 @@ declare namespace http {
      * Total number of bytes to receive.
      * @type { number }
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2933,6 +2978,7 @@ declare namespace http {
    * This interface is used to monitor the progress of sending data.
    * @interface DataSendProgressInfo
    * @syscap SystemCapability.Communication.NetStack
+   * @crossplatform
    * @since 11
    */
   /**
@@ -2947,6 +2993,7 @@ declare namespace http {
      * Used to specify the data size to be sent.
      * @type { number }
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
@@ -2961,6 +3008,7 @@ declare namespace http {
      * Total number of bytes to receive.
      * @type { number }
      * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
      * @since 11
      */
     /**
