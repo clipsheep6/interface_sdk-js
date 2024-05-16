@@ -18318,7 +18318,19 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  bindSheet(isShow: boolean, builder: CustomBuilder, options?: SheetOptions): T;
+  /**
+   * Bind sheet
+   *
+   * @param { boolean } isShow - true means display sheet, false means hide sheet.
+   * @param { CustomBuilder } builder - the sheet to be displayed.
+   * @param { SheetOptions } options - options of sheet.
+   * @param { UIContext } uiContext - The UIContext that the sheet belongs to.
+   * @returns { T } - template type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  bindSheet(isShow: boolean, builder: CustomBuilder, options?: SheetOptions, uiContext?: UIContext): T;
 
   /**
    * Sets styles for component state.
