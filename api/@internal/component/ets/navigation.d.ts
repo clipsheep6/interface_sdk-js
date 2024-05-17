@@ -489,7 +489,7 @@ declare interface NavigationMenuItem {
    * @atomicservice
    * @since 11
    */
-  value: string;
+  value: string | Resource;
 
   /**
    * The icon of navigation menu item.
@@ -515,7 +515,7 @@ declare interface NavigationMenuItem {
    * @atomicservice
    * @since 11
    */
-  icon?: string;
+  icon?: string | Resource;
 
   /**
    * The symbol of navigation menu item.
