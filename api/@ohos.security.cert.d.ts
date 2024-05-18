@@ -1031,6 +1031,27 @@ declare namespace cert {
   }
 
   /**
+   * Enum for Encoding type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enum EncodingType {
+    /**
+     * Indicates to utf8 type.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    ENCODING_UTF8 = 0
+  }
+
+  /**
    * Provides the x509 cert type.
    *
    * @typedef X509Cert
@@ -1432,7 +1453,12 @@ declare namespace cert {
     /**
      * Get X509 cert subject name.
      *
+     * @param { EncodingType } [encodingType] indicates the encoding type, if the encoding type parameter is not set,
+     *                                    the default ASCII encoding is used.
      * @returns { DataBlob } X509 cert subject name.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *                                                     1. Incorrect parameter types;
+     *                                                     2. Parameter verification failed.
      * @throws { BusinessError } 19020001 - memory error.
      * @throws { BusinessError } 19020002 - runtime error.
      * @throws { BusinessError } 19030001 - crypto operation error.
@@ -1441,7 +1467,7 @@ declare namespace cert {
      * @atomicservice
      * @since 12
      */
-    getSubjectName(): DataBlob;
+    getSubjectName(encodingType?: EncodingType): DataBlob;
 
     /**
      * Get X509 cert not before time.
