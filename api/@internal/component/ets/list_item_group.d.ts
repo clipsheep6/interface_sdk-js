@@ -312,25 +312,40 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @atomicservice
    * @since 11
    */
+  /**
+   * Called when the ListItemGroup split line style is set.
+   *
+   * @param { Optional<{
+   *   strokeWidth: Length;
+   *   color?: ResourceColor;
+   *   startMargin?: Length;
+   *   endMargin?: Length;
+   * }> | null } value
+   * @returns { ListItemGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   divider(
-    value: {
+    value: Optional<{
       strokeWidth: Length;
       color?: ResourceColor;
       startMargin?: Length;
       endMargin?: Length;
-    } | null,
+    }> | null,
   ): ListItemGroupAttribute;
 
   /**
    * Set children main size for ListItemGroup.
    *
-   * @param { ChildrenMainSize } value - children main size for ListItemGroup
+   * @param { Optional<ChildrenMainSize> } value - children main size for ListItemGroup
    * @returns { ListItemGroupAttribute } the attribute of the ListItemGroup.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  childrenMainSize(value: ChildrenMainSize): ListItemGroupAttribute;
+  childrenMainSize(value: Optional<ChildrenMainSize>): ListItemGroupAttribute;
 }
 
 /**

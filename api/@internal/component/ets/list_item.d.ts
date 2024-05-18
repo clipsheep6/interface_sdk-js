@@ -743,7 +743,18 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 11
    * @form
    */
-  selectable(value: boolean): ListItemAttribute;
+  /**
+   * Called when judging whether it is selectable.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  selectable(value: Optional<boolean>): ListItemAttribute;
 
   /**
    * Called when judging whether it is selected.
@@ -768,7 +779,19 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 11
    * @form
    */
-  selected(value: boolean): ListItemAttribute;
+  /**
+   * Called when judging whether it is selected.
+   * This parameter supports $$ for two-way binding of variables.
+   *
+   * @param { Optional<boolean> } value - if the listItem is selected.
+   * @returns { ListItemAttribute } the attribute of the listItem.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  selected(value: Optional<boolean>): ListItemAttribute;
 
   /**
    * Sets the action item that appears when the list item slides in the cross axis direction of the list.
@@ -797,7 +820,17 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @atomicservice
    * @since 11
    */
-  swipeAction(value: SwipeActionOptions): ListItemAttribute;
+  /**
+   * Sets the action item that appears when the list item slides in the cross axis direction of the list.
+   *
+   * @param { Optional<SwipeActionOptions> } value - items defines in the SwipeActionOption.
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  swipeAction(value: Optional<SwipeActionOptions>): ListItemAttribute;
 
   /**
    * Called when the listItem is selected.
@@ -837,7 +870,18 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 11
    * @form
    */
-  onSelect(event: (isSelected: boolean) => void): ListItemAttribute;
+  /**
+   * Called when the listItem is selected.
+   *
+   * @param { Optional<Callback<boolean>> } handler
+   * @returns { ListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  onSelect(handler: Optional<Callback<boolean>>): ListItemAttribute;
 }
 
 /**

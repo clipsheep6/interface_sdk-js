@@ -697,6 +697,32 @@ declare interface VisibleListContentInfo {
 declare type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInfo, end: VisibleListContentInfo) => void;
 
 /**
+ * Callback of List, using in onScrollIndex.
+ *
+ * @typedef { function } OnListScrollIndexHandler
+ * @param { number } start - the index fo first item displayed in list.
+ * @param { number } end - the index fo last item displayed in list.
+ * @param { number } center - the index fo center item displayed in list.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type OnListScrollIndexHandler = (start: number, end: number, center: number) => void;
+
+/**
+ * Callback of List, using in onItemMove.
+ *
+ * @typedef { function } OnItemMoveHandler
+ * @param { number } from - the starting index.
+ * @param { number } to - the inserted index.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type OnItemMoveHandler = (from: number, to: number) => boolean;
+
+/**
  * @extends Scroller
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -924,7 +950,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * Called when need to decide how much lanes the list will show.
    *
    * @param { number | LengthConstrain } value
-   * @param { Dimension } gutter
+   * @param { Dimension } [gutter]
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -935,7 +961,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * Called when need to decide how much lanes the list will show.
    *
    * @param { number | LengthConstrain } value
-   * @param { Dimension } gutter
+   * @param { Dimension } [gutter]
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -943,7 +969,19 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  lanes(value: number | LengthConstrain, gutter?: Dimension): ListAttribute;
+  /**
+   * Called when need to decide how much lanes the list will show.
+   *
+   * @param { Optional<number | LengthConstrain> } value
+   * @param { Dimension } [gutter]
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  lanes(value: Optional<number | LengthConstrain>, gutter?: Dimension): ListAttribute;
 
   /**
    * Called when need to decide how to align lanes in the direction of the cross axis.
@@ -975,7 +1013,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  alignListItem(value: ListItemAlign): ListAttribute;
+  /**
+   * Called when need to decide how to align lanes in the direction of the cross axis.
+   *
+   * @param { Optional<ListItemAlign> } value
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  alignListItem(value: Optional<ListItemAlign>): ListAttribute;
 
   /**
    * Called when the arrangement direction of the list component is set.
@@ -1015,7 +1064,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  listDirection(value: Axis): ListAttribute;
+  /**
+   * Called when the arrangement direction of the list component is set.
+   *
+   * @param { Optional<Axis> } value
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  listDirection(value: Optional<Axis>): ListAttribute;
 
   /**
    * Called when the display mode of the side slider is set.
@@ -1055,7 +1115,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  scrollBar(value: BarState): ListAttribute;
+  /**
+   * Called when the display mode of the side slider is set.
+   *
+   * @param { Optional<BarState> } value
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  scrollBar(value: Optional<BarState>): ListAttribute;
 
   /**
    * Called when the sliding effect is set.
@@ -1088,7 +1159,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * Called when the sliding effect is set.
    *
    * @param { EdgeEffect } value
-   * @param { EdgeEffectOptions } options
+   * @param { EdgeEffectOptions } [options]
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1096,7 +1167,19 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): ListAttribute;
+  /**
+   * Called when the sliding effect is set.
+   *
+   * @param { Optional<EdgeEffect> } value
+   * @param { EdgeEffectOptions } [options]
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  edgeEffect(value: Optional<EdgeEffect>, options?: EdgeEffectOptions): ListAttribute;
 
   /**
    * Called when setting whether to enable fading Edge effect.
@@ -1119,14 +1202,14 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    */
   /**
    * Called when need to decide contentStartOffset the list will show.
-   * @param { number } value - the value Of startOffset.
+   * @param { Optional<number> } value - the value Of startOffset.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  contentStartOffset(value: number): ListAttribute;
+  contentStartOffset(value: Optional<number>): ListAttribute;
 
   /**
    * Called when need to decide contentEndOffset the list will show.
@@ -1138,14 +1221,14 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    */
   /**
    * Called when need to decide contentEndOffset the list will show.
-   * @param { number } value - the value Of endOffset.
+   * @param { Optional<number> } value - the value Of endOffset.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  contentEndOffset(value: number): ListAttribute;
+  contentEndOffset(value: Optional<number>): ListAttribute;
 
   /**
    * Called when the ListItem split line style is set.
@@ -1185,13 +1268,24 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
+  /**
+   * Called when the ListItem split line style is set.
+   *
+   * @param { Optional<{strokeWidth: Length;color?: ResourceColor;startMargin?: Length;endMargin?: Length;}> | null } value
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
   divider(
-    value: {
+    value: Optional<{
       strokeWidth: Length;
       color?: ResourceColor;
       startMargin?: Length;
       endMargin?: Length;
-    } | null,
+    }> | null,
   ): ListAttribute;
 
   /**
@@ -1243,7 +1337,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  multiSelectable(value: boolean): ListAttribute;
+  /**
+   * Called when judging whether it is multiSelectable.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  multiSelectable(value: Optional<boolean>): ListAttribute;
 
   /**
    * Called when the minimum number of list item caches is set for long list deferred loading.
@@ -1283,7 +1388,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  cachedCount(value: number): ListAttribute;
+  /**
+   * Called when the minimum number of list item caches is set for long list deferred loading.
+   *
+   * @param { Optional<number> } value
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  cachedCount(value: Optional<number>): ListAttribute;
 
   /**
    * Called when setting whether to enable chain linkage dynamic effect.
@@ -1323,7 +1439,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  chainAnimation(value: boolean): ListAttribute;
+  /**
+   * Called when setting whether to enable chain linkage dynamic effect.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  chainAnimation(value: Optional<boolean>): ListAttribute;
 
   /**
    * Called to setting chain linkage dynamic effect options.
@@ -1334,7 +1461,16 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @systemapi
    * @since 10
    */
-  chainAnimationOptions(value: ChainAnimationOptions): ListAttribute;
+  /**
+   * Called to setting chain linkage dynamic effect options.
+   *
+   * @param { Optional<ChainAnimationOptions> } value - options of the chain animation.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 12
+   */
+  chainAnimationOptions(value: Optional<ChainAnimationOptions>): ListAttribute;
 
   /**
    * Called when header or footer of item group will be pinned.
@@ -1366,7 +1502,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  sticky(value: StickyStyle): ListAttribute;
+  /**
+   * Called when header or footer of item group will be pinned.
+   *
+   * @param { Optional<StickyStyle> } value
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  sticky(value: Optional<StickyStyle>): ListAttribute;
 
   /**
    * Called to set list item scroll end alignment effect.
@@ -1386,7 +1533,17 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
-  scrollSnapAlign(value: ScrollSnapAlign): ListAttribute;
+  /**
+   * Called to set list item scroll end alignment effect.
+   *
+   * @param { Optional<ScrollSnapAlign> } value - options of the list alignment effect.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollSnapAlign(value: Optional<ScrollSnapAlign>): ListAttribute;
 
   /**
    * Called to setting the nested scroll options.
@@ -1406,7 +1563,17 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
-  nestedScroll(value: NestedScrollOptions): ListAttribute;
+  /**
+   * Called to setting the nested scroll options.
+   *
+   * @param { Optional<NestedScrollOptions> } value - options for nested scrolling.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  nestedScroll(value: Optional<NestedScrollOptions>): ListAttribute;
 
   /**
    * Called when setting whether to enable scroll by gesture or mouse.
@@ -1427,7 +1594,17 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
-  enableScrollInteraction(value: boolean): ListAttribute;
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { ListAttribute } The attribute of the list
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enableScrollInteraction(value: Optional<boolean>): ListAttribute;
 
   /**
    * Called to setting the friction.
@@ -1448,18 +1625,28 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
-  friction(value: number | Resource): ListAttribute;
+  /**
+   * Called to setting the friction.
+   *
+   * @param { Optional<number | Resource> } value - options for scrolling friction.
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  friction(value: Optional<number | Resource>): ListAttribute;
 
   /**
    * Set children main size for List.
    *
-   * @param { ChildrenMainSize } value - children main size for List
+   * @param { Optional<ChildrenMainSize> } value - children main size for List
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  childrenMainSize(value: ChildrenMainSize): ListAttribute;
+  childrenMainSize(value: Optional<ChildrenMainSize>): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.
@@ -1541,18 +1728,29 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  onScrollIndex(event: (start: number, end: number, center: number) => void): ListAttribute;
+  /**
+   * Called when the start and end positions of the display change.
+   *
+   * @param { Optional<OnListScrollIndexHandler> } handler
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  onScrollIndex(handler: Optional<OnListScrollIndexHandler>): ListAttribute;
 
   /**
    * Called when the list visible content changes.
    *
-   * @param { OnScrollVisibleContentChangeCallback } handler - Callback of Scroll Visible.
+   * @param { Optional<OnScrollVisibleContentChangeCallback> } handler - Callback of Scroll Visible.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onScrollVisibleContentChange(handler: OnScrollVisibleContentChangeCallback): ListAttribute;
+  onScrollVisibleContentChange(handler: Optional<OnScrollVisibleContentChangeCallback>): ListAttribute;
 
   /**
    * Called when the list begins to arrive.
@@ -1592,7 +1790,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  onReachStart(event: () => void): ListAttribute;
+  /**
+   * Called when the list begins to arrive.
+   *
+   * @param { Optional<Callback<void>> } handler
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  onReachStart(handler: Optional<Callback<void>>): ListAttribute;
 
   /**
    * Called when the list reaches the end.
@@ -1632,7 +1841,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  onReachEnd(event: () => void): ListAttribute;
+  /**
+   * Called when the list reaches the end.
+   *
+   * @param { Optional<Callback<void>> } handler
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  onReachEnd(handler: Optional<Callback<void>>): ListAttribute;
 
   /**
    * Called when the slider start.
@@ -1664,7 +1884,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  onScrollStart(event: () => void): ListAttribute;
+  /**
+   * Called when the slider start.
+   *
+   * @param { Optional<Callback<void>> } handler
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  onScrollStart(handler: Optional<Callback<void>>): ListAttribute;
 
   /**
    * Called when the slider stops.
@@ -1704,7 +1935,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  onScrollStop(event: () => void): ListAttribute;
+  /**
+   * Called when the slider stops.
+   *
+   * @param { Optional<Callback<void>> } handler
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  onScrollStop(handler: Optional<Callback<void>>): ListAttribute;
 
   /**
    * Called when a list item is deleted.
@@ -1744,7 +1986,17 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
-  onItemMove(event: (from: number, to: number) => boolean): ListAttribute;
+  /**
+   * Called when a list item is moved.
+   *
+   * @param { Optional<OnItemMoveHandler> } handler
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onItemMove(handler: Optional<OnItemMoveHandler>): ListAttribute;
 
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
@@ -1776,7 +2028,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
-  onItemDragStart(event: (event: ItemDragInfo, itemIndex: number) => ((() => any) | void)): ListAttribute;
+  /**
+   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
+   * (To be triggered, press and hold for 170 milliseconds (ms))
+   *
+   * @param { Optional<OnItemDragStartHandler> } handler
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onItemDragStart(handler: Optional<OnItemDragStartHandler>): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged to the range of the component.
@@ -1805,7 +2068,17 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
-  onItemDragEnter(event: (event: ItemDragInfo) => void): ListAttribute;
+  /**
+   * After binding, a callback is triggered when the component is dragged to the range of the component.
+   *
+   * @param { Optional<Callback<ItemDragInfo>> } handler
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onItemDragEnter(handler: Optional<Callback<ItemDragInfo>>): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the drag moves within the range of a placeable component.
@@ -1834,7 +2107,17 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
-  onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): ListAttribute;
+  /**
+   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+   *
+   * @param { Optional<OnItemDragMoveHandler> } handler
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onItemDragMove(handler: Optional<OnItemDragMoveHandler>): ListAttribute;
 
   /**
    * After binding, a callback is triggered when the component is dragged out of the component range.
@@ -1863,7 +2146,17 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
-  onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void): ListAttribute;
+  /**
+   * After binding, a callback is triggered when the component is dragged out of the component range.
+   *
+   * @param { Optional<OnItemDragLeaveHandler> } handler
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onItemDragLeave(handler: Optional<OnItemDragLeaveHandler>): ListAttribute;
 
   /**
    * The component bound to this event can be used as the drag release target.
@@ -1895,7 +2188,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
-  onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): ListAttribute;
+  /**
+   * The component bound to this event can be used as the drag release target.
+   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   *
+   * @param { Optional<OnItemDropHandler> } handler
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onItemDrop(handler: Optional<OnItemDropHandler>): ListAttribute;
 
   /**
    * Called when scrolling begin each frame.
@@ -1927,7 +2231,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    * @form
    */
-  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ListAttribute;
+  /**
+   * Called when scrolling begin each frame.
+   *
+   * @param { Optional<OnScrollFrameBeginHandler> } handler
+   * @returns { ListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  onScrollFrameBegin(handler: Optional<OnScrollFrameBeginHandler>): ListAttribute;
 }
 
 /**
