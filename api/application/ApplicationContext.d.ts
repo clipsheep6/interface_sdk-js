@@ -451,6 +451,30 @@ export default class ApplicationContext extends Context {
   clearUpApplicationData(callback: AsyncCallback<void>): void;
 
   /**
+   * Exit the current process and schedule the exit process normally.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  terminateProcess(): Promise<void>;
+
+  /**
+   * Exit the current application, schedule the exit process normally, including multiple processes within the application.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  terminateApplication(): Promise<void>;
+
+  /**
    * Kill the application and does not call back the onDestroy method, then start UIAbility.
    *
    * @param { Want } want - Indicates the want name of the current app, and the ability name is UIAbility.
