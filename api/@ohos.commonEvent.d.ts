@@ -1209,7 +1209,6 @@ declare namespace commonEvent {
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 12
-     * @deprecated since 9
      * @useinstead ohos.commonEventManager/commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_STATUS_VALUE
      */
      COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_STATUS_VALUE = 'usual.event.bluetooth.remotedevice.CONNECT_STATUS_VALUE',
