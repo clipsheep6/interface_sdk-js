@@ -1205,6 +1205,14 @@ declare namespace commonEvent {
     COMMON_EVENT_BLUETOOTH_A2DPSINK_AUDIO_STATE_UPDATE = 'usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE',
 
     /**
+     * bluetooth.remotedevice.connect.status.value.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 12
+     */
+     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_STATUS_VALUE = 'usual.event.bluetooth.remotedevice.CONNECT_STATUS_VALUE',
+
+    /**
      * Nfc state change.
      *
      * @syscap SystemCapability.Notification.CommonEvent
