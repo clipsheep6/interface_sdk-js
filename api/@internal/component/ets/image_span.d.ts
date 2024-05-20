@@ -117,7 +117,17 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @since 11
    */
   objectFit(value: ImageFit): ImageSpanAttribute;
-  
+
+  /**
+   * Placeholder displayed on load.
+   *
+   * @param { DrawableDescriptor } value - DrawableDescriptor resource.
+   * @returns { ImageSpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  alt(value: DrawableDescriptor): ImageSpanAttribute;
+
   /**
    * Sets a callback which is triggered when the image is successfully loaded.
    * The size of the image source that is successfully loaded is returned, in pixels.
