@@ -921,7 +921,8 @@ declare namespace userAuth {
    * @param { UserAuthType } authType - Credential type for authentication.
    * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
    * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12500002 - General operation error.
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
    * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
@@ -936,7 +937,8 @@ declare namespace userAuth {
    * @param { UserAuthType } authType - Credential type for authentication.
    * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
    * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12500002 - General operation error.
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
    * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
@@ -981,7 +983,8 @@ declare namespace userAuth {
    * @param { UserAuthType } authType - Credential type for authentication.
    * @returns { EnrolledState } Returns the enrolled state.
    * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12500002 - General operation error.
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
    * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
@@ -997,7 +1000,8 @@ declare namespace userAuth {
    * @param { UserAuthType } authType - Credential type for authentication.
    * @param { AuthTrustLevel } authTrustLevel - Trust level of authentication result.
    * @returns { AuthInstance } Returns an authentication instance.
-   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12500002 - General operation error.
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
    * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
@@ -1251,7 +1255,8 @@ declare namespace userAuth {
      *
      * @param { 'result' } type - Indicates the type of event.
      * @param { IAuthCallback } callback - Indicates the listener.
-     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
@@ -1263,7 +1268,8 @@ declare namespace userAuth {
      *
      * @param { 'result' } type - Indicates the type of event.
      * @param { IAuthCallback } callback - Indicates the listener.
-     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @since 10
@@ -1330,7 +1336,8 @@ declare namespace userAuth {
    * @param { AuthParam } authParam - Auth parameter.
    * @param { WidgetParam } widgetParam - Widget parameter.
    * @returns { UserAuthInstance } Returns an authentication instance with widget.
-   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 401 - parameter error. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12500002 - General operation error.
    * @throws { BusinessError } 12500005 - The authentication type is not supported.
    * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
@@ -1366,7 +1373,8 @@ declare namespace userAuth {
    * @param { string } eventData - The event data from widget.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12500002 - General operation error.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
@@ -1493,7 +1501,8 @@ declare namespace userAuth {
      *
      * @param { 'command' } type - Indicates the type of event.
      * @param { IAuthWidgetCallback } callback - Indicates the listener.
-     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -1506,7 +1515,8 @@ declare namespace userAuth {
      *
      * @param { 'command' } type - Indicates the type of event.
      * @param { IAuthWidgetCallback } callback - Indicates the listener.
-     * @throws { BusinessError } 401 - Incorrect parameters.
+     * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+     *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 12500002 - General operation error.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -1523,7 +1533,8 @@ declare namespace userAuth {
    * @returns { UserAuthWidgetMgr } Returns an authentication manager.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - Incorrect parameters.
+   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   *         1.Mandatory parameters are left unspecified; 2.Incorrect parameter types
    * @throws { BusinessError } 12500002 - General operation error.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
