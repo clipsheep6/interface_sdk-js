@@ -38,7 +38,7 @@ declare namespace dataUriUtils {
    * @deprecated since 9
    * @useinstead ohos.app.ability.dataUriUtils/dataUriUtils#getId
    */
-  function getId(uri: string): number;
+  function getId(uri: string, name: string): number;
 
   /**
    * Attaches the given ID to the end of the path component of the given uri.
