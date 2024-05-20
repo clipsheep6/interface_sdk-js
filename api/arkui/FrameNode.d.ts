@@ -136,6 +136,7 @@ export class FrameNode {
    *
    * @param { FrameNode } node - The node will be added.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @throws { BusinessError } 100022 - The operation is not allowed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
