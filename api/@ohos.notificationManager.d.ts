@@ -903,7 +903,7 @@ declare namespace notificationManager {
    * Get the notification enable status for this application.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } bundle - The bundle name.
+   * @param { string } bundle - The bundle name.
    * @returns { boolean } Returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -914,7 +914,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-  * @since 12
+   * @since 12
    */
   function getNotificationEnabled(bundle: string): boolean;
 
