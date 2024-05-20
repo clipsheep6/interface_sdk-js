@@ -286,7 +286,24 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @since 11
    * @form
    */
-  format(value: string): TextClockAttribute;
+  /**
+   * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
+   * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
+   * dd,ddd(English Week abbreviation),dddd(Full name of the week in English),
+   * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second).
+   * The default value is "hh:mm:ss" when TextClock is not in a form.
+   * The default value is "hh:mm" when TextClock is in a form.
+   * If the value has second or millisecond, the value will be set to the default value.
+   *
+   * @param { Optional<string> } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  format(value: Optional<string>): TextClockAttribute;
 
   /**
    * Provides a date change callback.
@@ -333,172 +350,17 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @since 11
    * @form
    */
-  onDateChange(event: (value: number) => void): TextClockAttribute;
-
   /**
-   * Called when the value of TextClock fontColor is set
+   * Provides a date change callback.
+   * The callback parameter is Unix Time Stamp,
+   * The number of milliseconds that have elapsed since January 1, 1970 (UTC).
+   * The minimum callback interval for this event default is seconds when TextClock is not in a form.
+   * The minimum callback interval for this event is minutes when TextClock is in a form.
+   * If visibility is Hidden the callback be disabled when TextClock is in a form.
+   * You can listen to this callback,
+   * Use the format attribute method to customize data display in the callback.
    *
-   * @param { ResourceColor } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the value of TextClock fontColor is set
-   *
-   * @param { ResourceColor } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the value of TextClock fontColor is set
-   *
-   * @param { ResourceColor } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   * @form
-   */
-  fontColor(value: ResourceColor): TextClockAttribute;
-
-  /**
-   * Called when the value of TextClock fontSize is set
-   *
-   * @param { Length } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the value of TextClock fontSize is set
-   *
-   * @param { Length } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the value of TextClock fontSize is set
-   *
-   * @param { Length } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   * @form
-   */
-  fontSize(value: Length): TextClockAttribute;
-
-  /**
-   * Called when the value of TextClock fontStyle is set
-   *
-   * @param { FontStyle } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the value of TextClock fontStyle is set
-   *
-   * @param { FontStyle } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the value of TextClock fontStyle is set
-   *
-   * @param { FontStyle } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   * @form
-   */
-  fontStyle(value: FontStyle): TextClockAttribute;
-
-  /**
-   * Called when the value of TextClock fontWeight is set
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the value of TextClock fontWeight is set
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the value of TextClock fontWeight is set
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   * @form
-   */
-  fontWeight(value: number | FontWeight | string): TextClockAttribute;
-
-  /**
-   * Called when the value of TextClock fontFamily is set
-   *
-   * @param { ResourceStr } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the value of TextClock fontFamily is set
-   *
-   * @param { ResourceStr } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the value of TextClock fontFamily is set
-   *
-   * @param { ResourceStr } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   * @form
-   */
-  fontFamily(value: ResourceStr): TextClockAttribute;
-
-  /**
-   * Called when the text shadow is set.
-   *
-   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  /**
-   * Called when the text shadow is set.
-   *
-   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+   * @param { Optional<onDateChangeEvent> } event - Listening date event callback.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -506,7 +368,235 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @since 12
    * @form
    */
-  textShadow(value: ShadowOptions | Array<ShadowOptions>): TextClockAttribute;
+  onDateChange(event: Optional<onDateChangeEvent>): TextClockAttribute;
+
+  /**
+   * Called when the value of TextClock fontColor is set
+   *
+   * @param { ResourceColor } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Called when the value of TextClock fontColor is set
+   *
+   * @param { ResourceColor } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Called when the value of TextClock fontColor is set
+   *
+   * @param { ResourceColor } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  /**
+   * Called when the value of TextClock fontColor is set
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  fontColor(value: Optional<ResourceColor>): TextClockAttribute;
+
+  /**
+   * Called when the value of TextClock fontSize is set
+   *
+   * @param { Length } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Called when the value of TextClock fontSize is set
+   *
+   * @param { Length } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Called when the value of TextClock fontSize is set
+   *
+   * @param { Length } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  /**
+   * Called when the value of TextClock fontSize is set
+   *
+   * @param { Optional<Length> } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  fontSize(value: Optional<Length>): TextClockAttribute;
+
+  /**
+   * Called when the value of TextClock fontStyle is set
+   *
+   * @param { FontStyle } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Called when the value of TextClock fontStyle is set
+   *
+   * @param { FontStyle } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Called when the value of TextClock fontStyle is set
+   *
+   * @param { FontStyle } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  /**
+   * Called when the value of TextClock fontStyle is set
+   *
+   * @param { Optional<FontStyle> } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  fontStyle(value: Optional<FontStyle>): TextClockAttribute;
+
+  /**
+   * Called when the value of TextClock fontWeight is set
+   *
+   * @param { number | FontWeight | string } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Called when the value of TextClock fontWeight is set
+   *
+   * @param { number | FontWeight | string } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Called when the value of TextClock fontWeight is set
+   *
+   * @param { number | FontWeight | string } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  /**
+   * Called when the value of TextClock fontWeight is set
+   *
+   * @param { Optional<number | FontWeight | string> } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  fontWeight(value: Optional<number | FontWeight | string>): TextClockAttribute;
+
+  /**
+   * Called when the value of TextClock fontFamily is set
+   *
+   * @param { ResourceStr } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 8
+   */
+  /**
+   * Called when the value of TextClock fontFamily is set
+   *
+   * @param { ResourceStr } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Called when the value of TextClock fontFamily is set
+   *
+   * @param { ResourceStr } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   * @form
+   */
+  /**
+   * Called when the value of TextClock fontFamily is set
+   *
+   * @param { Optional<ResourceStr> } value
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  fontFamily(value: Optional<ResourceStr>): TextClockAttribute;
+
+  /**
+   * Called when the text shadow is set.
+   *
+   * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   * @form
+   */
+  /**
+   * Called when the text shadow is set.
+   *
+   * @param { Optional<ShadowOptions | Array<ShadowOptions>> } value - The shadow options.
+   * @returns { TextClockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  textShadow(value: Optional<ShadowOptions | Array<ShadowOptions>>): TextClockAttribute;
 
   /**
    * Called when the text fontFeature is set.
@@ -524,7 +614,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
    * Called when the text fontFeature is set.
    *
-   * @param { string } value - The fontFeature.
+   * @param { Optional<string> } value - The fontFeature.
    * normal | <feature-tag-value>, 
    * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
    * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
@@ -535,19 +625,30 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @since 12
    * @form
    */
-  fontFeature(value: string): TextClockAttribute;
+  fontFeature(value: Optional<string>): TextClockAttribute;
 
   /**
    * Set the content modifier of textclock.
    *
-   * @param { ContentModifier<TextClockConfiguration> } modifier - The content modifier of textclock.
+   * @param { Optional<ContentModifier<TextClockConfiguration>> } modifier - The content modifier of textclock.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  contentModifier(modifier: ContentModifier<TextClockConfiguration>): TextClockAttribute;
+  contentModifier(modifier: Optional<ContentModifier<TextClockConfiguration>>): TextClockAttribute
 }
+
+/**
+ * Event of TextClock, using in onDateChange.
+ * 
+ * @typedef { function } onDateChangeEvent
+ * @param { number } value - The time stamp.
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type onDateChangeEvent = (value: number) => void;
 
 /**
  * Defines TextClock Component.
