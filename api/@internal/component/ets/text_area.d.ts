@@ -619,7 +619,16 @@ declare enum ContentType {
  * @atomicservice
  * @since 11
  */
-declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
+/**
+ * Defines the attribute functions of TextArea.
+ *
+ * @extends EditableText<TextAreaAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare class TextAreaAttribute extends EditableText<TextAreaAttribute> {
   /**
    * Called when the color of the placeholder is set.
    *

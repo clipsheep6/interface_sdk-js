@@ -575,7 +575,16 @@ interface SearchButtonOptions {
  * @atomicservice
  * @since 11
  */
-declare class SearchAttribute extends CommonMethod<SearchAttribute> {
+/**
+ * The attribute function of search
+ *
+ * @extends EditableText<SearchAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare class SearchAttribute extends EditableText<SearchAttribute> {
   /**
    * Set the search button text
    *
