@@ -862,6 +862,18 @@ declare namespace notificationManager {
   function isNotificationEnabled(): Promise<boolean>;
 
   /**
+   * Checks whether this application allows to publish notifications.
+   *
+   * @returns { boolean } Returned by the function.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 12
+   */
+  function isNotificationEnabledSync(): boolean;
+
+  /**
    * Checks whether this application allows to publish notifications under the user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -898,25 +910,6 @@ declare namespace notificationManager {
    * @since 9
    */
   function isNotificationEnabled(userId: number): Promise<boolean>;
-
-  /**
-   * Get the notification enable status for this application.
-   *
-   * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } bundle - The bundle name.
-   * @returns { boolean } Returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application to call the interface.
-   * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 1600001 - Internal error.
-   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600008 - The user does not exist.
-   * @syscap SystemCapability.Notification.Notification
-   * @systemapi
-   * @since 12
-   */
-  function getNotificationEnabled(bundle: string): boolean;
 
   /**
    * Sets whether to allow the specified application to show badge.
