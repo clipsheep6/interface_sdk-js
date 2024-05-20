@@ -37,7 +37,7 @@ export declare enum IconStyle {
      * @atomicservice
      * @since 12
      */
-    Dark = 0,
+    DARK = 0,
     /**
      * Sets the button icon to light.
      *
@@ -45,7 +45,7 @@ export declare enum IconStyle {
      * @atomicservice
      * @since 12
      */
-    Light = 0
+    LIGHT = 0
 }
 /**
  * TitlePosition enumeration description.
@@ -63,7 +63,7 @@ export declare enum TitlePosition {
      * @atomicservice
      * @since 12
      */
-    Top = 0,
+    TOP = 0,
     /**
      * The main title is below the text content.
      *
@@ -71,7 +71,7 @@ export declare enum TitlePosition {
      * @atomicservice
      * @since 12
      */
-    Bottom = 1
+    BOTTOM = 1
 }
 /**
  * Defines the properties required by the dialog.
