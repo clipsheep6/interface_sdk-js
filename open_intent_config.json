@@ -1,0 +1,53 @@
+//UIAbility下新增openIntent的配置文件配置
+{
+    "module":
+    {
+        "abilities": [
+            {
+                "metadata": [
+                    {
+                        "name": "ohos.extension.supportspurposes",  //系统新增预定于的key字段
+                        "resource" : "$profile:open_intent_config", //新增意图二级配置文件
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+//formExtension下新增openIntent的配置文件配置
+{
+    "module":
+    {
+        "extensionAbilities": [
+            {
+                "type" : form, 
+                "metadata": [
+                    { //新增key值，定义支持的意图类型
+                        "name": "ohos.extension.supportspurposes",
+                        "resource" : "$profile:open_intent_config"
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+//$profile:form_config使用 resources/base/profile/目录下的open_intent_config.json作为开放意图的配置文件，以下配置内容全部新增：
+{
+    "appOpenIntents": [
+        {
+            "name": "",                 //开发者捐赠的意图名
+            "intentType": "system",     //意图的类型，system代表系统预制，后期支持扩展自定义类型
+            "target": {                 //定义intent的目标action
+                "abilityName":"",       //本module下的UIAbility，用于意图的跳转
+                "form": {               //本module下的卡片，用于意图在各个入口的推荐展示
+                    "abilityName": "",  //FA模型时，abilityName为卡片的pageAbility；stage模型时，该字段为空
+                    "formName": "",     //卡片的form name，该form name下的所有dimension都支持
+                    ......，            //后期可以扩展更多的目标action，如shortcut、UIExtension等
+                }
+            }
+        }
+    ]
+}
+
