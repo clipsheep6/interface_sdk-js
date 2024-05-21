@@ -55,7 +55,7 @@ def copy_files(options):
 
 
 def format_path(filepath):
-    return re.sub(r'.*(?=api/)', '', filepath);
+    return re.sub(r'.*(?=api/)', '', filepath)
 
 
 def parse_args(args):
