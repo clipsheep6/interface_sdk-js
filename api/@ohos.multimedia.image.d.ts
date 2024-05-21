@@ -7119,6 +7119,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @throws { BusinessError } 62980101 - Data abnormal, failed to get output target.
+     * @throws { BusinessError } 62980112 - Mismatched format, failed to get encoder by format.
+     * @throws { BusinessError } 62980115 - Invalid parameter, failed to parse or out of range.
+     * @throws { BusinessError } 62980119 - Encode failed, encoder internal error occured during encoding.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11
@@ -7132,6 +7136,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 62980101 - Data abnormal, failed to get output target.
+     * @throws { BusinessError } 62980112 - Mismatched format, failed to get encoder by format.
+     * @throws { BusinessError } 62980115 - Invalid parameter, failed to parse or out of range.
+     * @throws { BusinessError } 62980119 - Encode failed, encoder internal error occured during encoding.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11
@@ -7145,6 +7153,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @throws { BusinessError } 62980101 - Data abnormal, failed to get output target.
+     * @throws { BusinessError } 62980112 - Mismatched format, failed to get encoder by format.
+     * @throws { BusinessError } 62980115 - Invalid parameter, failed to parse or out of range.
+     * @throws { BusinessError } 62980119 - Encode failed, encoder internal error occured during encoding.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11
@@ -7158,6 +7170,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 62980101 - Data abnormal, failed to get output target.
+     * @throws { BusinessError } 62980112 - Mismatched format, failed to get encoder by format.
+     * @throws { BusinessError } 62980115 - Invalid parameter, failed to parse or out of range.
+     * @throws { BusinessError } 62980119 - Encode failed, encoder internal error occured during encoding.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11
