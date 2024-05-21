@@ -29,6 +29,8 @@ import type rpc from './@ohos.rpc';
  * @syscap SystemCapability.Account.AppAccount
  * @since 7
  */
+
+
 declare namespace appAccount {
   /**
    * Obtains the AppAccountManager instance.
