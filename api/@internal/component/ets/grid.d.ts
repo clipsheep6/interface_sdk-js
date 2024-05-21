@@ -639,6 +639,15 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   onScrollIndex(event: (first: number, last: number) => void): GridAttribute;
 
   /**
+   * After binding, a callback is triggered when the start item has changed.
+   * @param { (groupIndex: number, itemIndex: number) => void } event - callback get first item and GridItemGroup index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { GridAttribute }
+   * @since 10
+   */
+  onScrollGroupAndIndex(event: (groupIndex: number, itemIndex: number) => void): GridAttribute;
+
+  /**
    * cached Count
    *
    * @param { number } value
