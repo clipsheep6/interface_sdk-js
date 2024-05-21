@@ -76,6 +76,7 @@ backgrounding
 backpress
 backs
 base64
+baselines
 bassboost
 batching
 beta1
@@ -404,6 +405,7 @@ hierarchically
 hifi
 hilog
 hinote
+hinting
 hisysevent
 hitrace
 hiview
