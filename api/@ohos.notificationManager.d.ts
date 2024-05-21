@@ -71,10 +71,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
-   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
-   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
@@ -89,11 +89,11 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
-   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
-   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600014 - No relevant right.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
@@ -114,10 +114,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
-   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
-   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
@@ -132,11 +132,11 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
-   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
-   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600014 - No relevant right.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
@@ -159,11 +159,11 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
-   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
    * @throws { BusinessError } 1600008 - The user does not exist.
-   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -181,12 +181,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
-   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 1600008 - The user does not exist.
-   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600014 - No relevant right.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
@@ -210,11 +210,11 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
-   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
    * @throws { BusinessError } 1600008 - The user does not exist.
-   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -232,12 +232,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
-   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 1600008 - The user does not exist.
-   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600014 - No relevant right.
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate configurations.
@@ -262,11 +262,11 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
-   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
    * @throws { BusinessError } 1600008 - The user does not exist.
-   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -292,11 +292,11 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
-   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
    * @throws { BusinessError } 1600008 - The user does not exist.
-   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -316,11 +316,11 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
-   * @throws { BusinessError } 1600005 - Notification slot is not enabled.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
+   * @throws { BusinessError } 1600005 - Notification slot disabled.
    * @throws { BusinessError } 1600008 - The user does not exist.
-   * @throws { BusinessError } 1600009 - Over max number notifications per second.
+   * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -336,8 +336,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -352,8 +352,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -368,8 +368,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -385,8 +385,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600017 - There is no corresponding agent relationship configuration.
    * @syscap SystemCapability.Notification.Notification
@@ -408,8 +408,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -435,8 +435,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -456,8 +456,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
@@ -473,7 +473,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -486,7 +486,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -503,7 +503,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -522,7 +522,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -538,7 +538,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
@@ -553,7 +553,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
@@ -571,7 +571,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -590,7 +590,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -606,7 +606,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -620,7 +620,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -634,7 +634,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -647,7 +647,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -662,7 +662,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
@@ -677,7 +677,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -691,7 +691,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -704,7 +704,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -717,7 +717,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -735,7 +735,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -755,7 +755,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -774,7 +774,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -793,7 +793,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -811,7 +811,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -823,7 +823,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
@@ -841,7 +841,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -853,13 +853,25 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @since 11
    */
   function isNotificationEnabled(): Promise<boolean>;
+
+  /**
+   * Checks whether this application allows to publish notifications.
+   *
+   * @returns { boolean } Returned by the function.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @since 12
+   */
+  function isNotificationEnabledSync(): boolean;
 
   /**
    * Checks whether this application allows to publish notifications under the user.
@@ -872,7 +884,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -891,7 +903,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -911,7 +923,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -931,7 +943,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -950,7 +962,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -969,7 +981,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -989,7 +1001,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1009,7 +1021,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1028,7 +1040,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1048,7 +1060,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
@@ -1068,7 +1080,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1087,7 +1099,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1106,7 +1118,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1125,7 +1137,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -1143,7 +1155,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -1157,7 +1169,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -1170,7 +1182,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -1183,7 +1195,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -1196,7 +1208,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -1210,7 +1222,7 @@ declare namespace notificationManager {
    * @param { NotificationFilter } filter - The bundle, notification key and additional information filter of the live view notification.
    * @param { AsyncCallback<NotificationRequest> } callback - The callback of getActiveNotificationByFilter.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1226,7 +1238,7 @@ declare namespace notificationManager {
    * @param { NotificationFilter } filter - The bundle, notification key and additional information filter of the live view notification.
    * @returns { Promise<NotificationRequest> } The promise returned by the function.
    * @throws { BusinessError } 401 - The parameter check failed.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1242,7 +1254,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -1256,7 +1268,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -1274,7 +1286,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1294,7 +1306,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1313,7 +1325,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1332,7 +1344,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1352,7 +1364,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
@@ -1373,7 +1385,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
@@ -1392,7 +1404,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1410,7 +1422,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1429,7 +1441,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
@@ -1449,7 +1461,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
@@ -1469,7 +1481,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -1486,7 +1498,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -1501,7 +1513,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -1515,7 +1527,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -1528,7 +1540,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -1539,8 +1551,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
    * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
    * @syscap SystemCapability.Notification.Notification
    * @since 11
@@ -1555,7 +1567,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @StageModelOnly
    * @since 10
@@ -1568,8 +1580,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
    * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
    * @syscap SystemCapability.Notification.Notification
    * @StageModelOnly
@@ -1584,7 +1596,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
    */
@@ -1595,8 +1607,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
    * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
    * @syscap SystemCapability.Notification.Notification
    * @since 11
@@ -1611,7 +1623,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @StageModelOnly
    * @since 10
@@ -1624,8 +1636,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600004 - Notification is not enabled.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600004 - Notification disabled.
    * @throws { BusinessError } 1600013 - Enable Notification Dialog has been popping already.
    * @syscap SystemCapability.Notification.Notification
    * @StageModelOnly
@@ -1644,7 +1656,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1663,7 +1675,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1679,7 +1691,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
@@ -1693,7 +1705,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @since 9
@@ -1712,7 +1724,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
@@ -1733,7 +1745,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
@@ -1755,7 +1767,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
@@ -1777,7 +1789,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
@@ -1797,7 +1809,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
@@ -1818,7 +1830,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
@@ -1840,7 +1852,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
@@ -1861,7 +1873,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
@@ -1881,7 +1893,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -1898,7 +1910,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9
@@ -1918,7 +1930,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1937,7 +1949,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
@@ -1966,7 +1978,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
@@ -1994,7 +2006,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2015,7 +2027,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
@@ -2036,7 +2048,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2056,7 +2068,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2076,7 +2088,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2096,7 +2108,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2115,7 +2127,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2134,7 +2146,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2150,7 +2162,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @since 10
@@ -2165,7 +2177,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @since 10
@@ -2182,7 +2194,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600017 - There is no corresponding agent relationship configuration.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
@@ -2219,7 +2231,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11
@@ -2259,8 +2271,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
-   * @throws { BusinessError } 1600007 - The notification is not exist.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2277,7 +2289,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2297,7 +2309,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2316,7 +2328,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2335,7 +2347,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2354,7 +2366,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2374,7 +2386,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 401 - The parameter check failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
-   * @throws { BusinessError } 1600003 - Failed to connect service.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12
