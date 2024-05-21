@@ -159,4 +159,13 @@ export interface ProcessInformation {
    * @since 12
    */
   bundleType: bundleManager.BundleType;
+
+  /**
+   * The app clone index of current process if app is multi app mode.
+   * @type { ?number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 12
+   */
+   appCloneIndex?: number;
 }

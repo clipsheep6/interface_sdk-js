@@ -504,4 +504,43 @@ export default class ApplicationContext extends Context {
    * @since 12
    */
   setSupportedProcessCache(isSupported : boolean): void;
+
+  /**
+   * Get current app key of current running app instance.
+   *
+   * @returns { string } Returns the key of current running app instance.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000070 - The MultiAppMode is not {@link MULTI_INSTANCE}.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+   getCurrentInstanceKey(): string;
+
+  /**
+   * Get all running app instance key for current bundle
+   *
+   * @returns { Array<string> } Returns the array of all running app instance keys.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000070 - The MultiAppMode is not {@link MULTI_INSTANCE}.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+    getAllRunningInstanceKeys(): Promise<Array<string>>;
+
+  /**
+   * Get current app clone index.
+   *
+   * @returns { number } Returns the app clone index for current app.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000071 - The MultiAppMode is not {@link APP_CLONE}.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+   getCurrentAppCloneIndex(): number;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,68 +19,41 @@
  */
 
 /**
- * The class of auto startup info.
+ * The class of app running instance information.
  *
- * @typedef AutoStartupInfo
+ * @typedef RunningMultiInstanceInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @StageModelOnly
- * @since 11
+ * @since 12
  */
-export interface AutoStartupInfo {
+export interface RunningMultiInstanceInfo {
   /**
-   * Bundle name
+   * The index of current instance.
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
-   * @since 11
-   */
-  bundleName: string;
-
-  /**
-   * Module name
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
-   * @since 11
-   */
-  moduleName?: string;
-
-  /**
-   * Ability Name
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
-   * @since 11
-   */
-  abilityName: string;
-
-  /**
-   * Ability Type Name
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
-   * @since 11
-   */
-  abilityTypeName?: string;
-
-  /**
-   * The app clone index of ability instance.
-   * @type { ?number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @StageModelOnly
    * @since 12
    */
-   appCloneIndex?: number;
-}
+   instanceKey: string;
 
-export default AutoStartupInfo;
+  /**
+   * The uid of current app instance.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  uid: number;
+
+  /**
+   * All pids of current app instance.
+   *
+   * @type { Array<number> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 12
+   */
+  pids: Array<number>;
+}
