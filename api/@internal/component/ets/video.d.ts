@@ -918,6 +918,13 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onPause(event: () => void): VideoAttribute;
 
   /**
+   * Called when the video is stopped.
+   * @crossplatform
+   * @since 10
+   */
+  onStop(event: () => void): VideoAttribute;
+
+  /**
    * Called when the video playback ends.
    *
    * @param { function } event
