@@ -2618,42 +2618,118 @@ declare interface SelectionMenuOptions {
 declare class RichEditorBaseController implements TextEditControllerEx {
   /**
    * Get caret offset from controller.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Get caret offset from controller.
+   * Move from class RichEditorController to it's base class RichEditorBaseController
    *
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @since 12
    */
   getCaretOffset(): number;
 
   /**
    * Set caret offset.
+   * Move from class RichEditorController to it's base class RichEditorBaseController
    *
    * @param { number } offset - caret offset.
-   * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Set caret offset.
-   *
-   * @param { number } offset - caret offset.
-   * @returns { boolean }
+   * @returns { boolean } - Return true if the caret offset was successfully set, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @since 12
    */
   setCaretOffset(offset: number): boolean;
 
+  /**
+   * close the select menu when menu is on.
+   * Move from class RichEditorController to it's base class RichEditorBaseController
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  closeSelectionMenu(): void;
+
+  /**
+   * Get the typing text style.
+   * Move from class RichEditorController to it's base class RichEditorBaseController
+   *
+   * @returns { RichEditorTextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  getTypingStyle(): RichEditorTextStyle;
+
+  /**
+   * Set the typing text style.
+   * Move from class RichEditorController to it's base class RichEditorBaseController
+   *
+   * @param { RichEditorTextStyle } style - set the typing text style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setTypingStyle(style: RichEditorTextStyle): void;
+
+  /**
+   * Specify the start and end positions to select a range of content.
+   * Move from class RichEditorController to it's base class RichEditorBaseController
+   *
+   * @param { number } selectionStart - The start position of the selected text.
+   * @param { number } selectionEnd - The end position of the selected text.
+   * @param { SelectionOptions } [options] - Indicates the options of selection.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
+
+  /**
+   * Judge whether is in editing state
+   * Move from class RichEditorController to it's base class RichEditorBaseController
+   * 
+   * @returns { boolean } - true is editing state, false is non editing status
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  isEditing(): boolean;
+
+  /**
+   * Stop editing state.
+   * Move from class RichEditorController to it's base class RichEditorBaseController
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  stopEditing(): void;
+}
+
+/**
+ * Provides Controller for RichEditor.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 10
+ */
+/**
+ * Provides Controller for RichEditor.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 11
+ */
+/**
+ * Provides Controller for RichEditor.
+ *
+ * @extends RichEditorBaseController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare class RichEditorController extends RichEditorBaseController {
   /**
    * close the select menu when menu is on.
    *
