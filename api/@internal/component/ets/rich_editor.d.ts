@@ -132,6 +132,15 @@ declare enum RichEditorSpanType {
    * @since 11
    */
   MIXED = 2,
+
+  /**
+   * builder.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  BUILDER = 3,
 }
 
 /**
