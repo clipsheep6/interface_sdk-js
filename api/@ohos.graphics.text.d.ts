@@ -617,6 +617,27 @@ declare namespace text {
   }
 
   /**
+   * Describes font feature of text.
+   * @typedef FontFeature
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface FontFeature {
+    /**
+     * The name of font feature.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    name: string,
+    /**
+     * The value of font feature.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    value: number,
+  }
+
+  /**
    * Describes text style.
    * @typedef TextStyle
    * @syscap SystemCapability.Graphics.Drawing
@@ -744,6 +765,22 @@ declare namespace text {
      * @since 12
      */
     locale?: string;
+
+    /**
+     * The underlined text offset distance.
+     * @type { ?number } it is double type data.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    baselineShift?: number;
+
+    /**
+     * Text Style available font features.
+     * @type { ?Array<FontFeature> } A collection of font features.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    fontFeatures?: Array<FontFeature>;
 
     /**
      * Text shadows of text.
@@ -1432,6 +1469,13 @@ declare namespace text {
      * @since 12
      */
     build(): Paragraph;
+
+    /**
+     * Add symbolId.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    addSymbol(symbolId: number): void;
   }
 
   /**
