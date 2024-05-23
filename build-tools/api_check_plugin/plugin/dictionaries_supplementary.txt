@@ -809,6 +809,7 @@ screensaver
 scrolldown
 scrollup
 sdpi
+sdr
 searchsetter
 sece
 secinfo
@@ -1107,6 +1108,7 @@ aec
 zoomreset
 zooms
 zpass
+tones
 commonevent
 clouddata
 unadjustable
@@ -1131,3 +1133,5 @@ ocsp
 encipherment
 reconfirmed
 subresource
+euc
+
