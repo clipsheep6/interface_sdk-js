@@ -132,6 +132,7 @@ declare namespace hiSysEvent {
    *
    * @param {SysEventInfo} info - system event information to be written.
    * @returns {Promise<void>} - Return Promise
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
    *                         1. Mandatory parameters are left unspecified.
    *                         2. Incorrect parameter types.
@@ -155,6 +156,7 @@ declare namespace hiSysEvent {
    *
    * @param {SysEventInfo} info - system event information to be written.
    * @param {AsyncCallback<void>} callback - callback function.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
    *                         1. Mandatory parameters are left unspecified.
    *                         2. Incorrect parameter types.
