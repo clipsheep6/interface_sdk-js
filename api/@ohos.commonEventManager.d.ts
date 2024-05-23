@@ -1385,6 +1385,7 @@ declare namespace commonEventManager {
 
     /**
      * Sent when ability is added.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
@@ -1393,6 +1394,7 @@ declare namespace commonEventManager {
 
     /**
      * Sent when ability is removed.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
@@ -1401,6 +1403,7 @@ declare namespace commonEventManager {
 
     /**
      * Sent when ability is updated.
+     * This API can be called only by system applications.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9
