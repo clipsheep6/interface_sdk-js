@@ -66,7 +66,7 @@ export declare class AlbumPickerOptions {
    * @atomicservice
    * @since 12
    */
-  themeColorMode?: PickerColorMode;
+  public themeColorMode?: PickerColorMode;
 }
 
 

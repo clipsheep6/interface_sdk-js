@@ -277,7 +277,7 @@ export declare class ItemInfo {
    * @atomicservice
    * @since 12
    */
-  itemType?: ItemType;
+  public itemType?: ItemType;
 
   /**
    * Uri. if the itemType is CAMERA, it will be null
@@ -287,7 +287,7 @@ export declare class ItemInfo {
    * @atomicservice
    * @since 12
    */
-  uri?: string;
+  public uri?: string;
 
   /**
    * MimeType. if the itemType is CAMERA, it will be null
@@ -297,7 +297,7 @@ export declare class ItemInfo {
    * @atomicservice
    * @since 12
    */
-  mimeType?: string;
+  public mimeType?: string;
 
   /**
    * Width. if the itemType is CAMERA, it will be null
@@ -307,7 +307,7 @@ export declare class ItemInfo {
    * @atomicservice
    * @since 12
    */
-  width?: number;
+  public width?: number;
 
   /**
    * Height. if the itemType is CAMERA, it will be null
@@ -317,7 +317,7 @@ export declare class ItemInfo {
    * @atomicservice
    * @since 12
    */
-  height?: number;
+  public height?: number;
 
   /**
    * Size. if the itemType is CAMERA, it will be null
@@ -327,7 +327,7 @@ export declare class ItemInfo {
    * @atomicservice
    * @since 12
    */
-  size?: number;
+  public size?: number;
 
   /**
    * Duration. if the itemType is CAMERA, it will be null; if photos, return -1
@@ -337,7 +337,7 @@ export declare class ItemInfo {
    * @atomicservice
    * @since 12
    */
-  duration?: number;
+  public duration?: number;
 }
 
 /**
@@ -356,7 +356,7 @@ export declare class PhotoBrowserInfo {
    * @atomicservice
    * @since 12
    */
-  animateParams?: AnimateParams;
+  public animateParams?: AnimateParams;
 }
 
 /**
@@ -375,7 +375,7 @@ export declare class AnimateParams {
    * @atomicservice
    * @since 12
    */
-  duration?: number;
+  public duration?: number;
 
   /**
    * Animate curve
@@ -385,7 +385,7 @@ export declare class AnimateParams {
    * @atomicservice
    * @since 12
    */
-  curve?: Curve | ICurve | string;
+  public curve?: Curve | ICurve | string;
 }
 
 /**
@@ -404,7 +404,7 @@ export declare class MaxSelectCountData {
    * @atomicservice
    * @since 12
    */
-  data?: Map<MaxCountType, number>;
+  public data?: Map<MaxCountType, number>;
 }
 
 /**
