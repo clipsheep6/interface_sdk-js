@@ -61,6 +61,7 @@ export declare class AlbumPickerOptions {
   /**
    * AlbumPickerComponent theme color
    *
+   * @type { ?PickerColorMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
@@ -80,6 +81,7 @@ export declare class AlbumInfo {
   /**
    * Album uri
    *
+   * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
