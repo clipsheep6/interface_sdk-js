@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,7 +14,7 @@
  */
 
 /**
- * @file A component which support applications to select album
+ * @file A component which supports applications to select album
  * @kit MediaLibraryKit
  */
 
@@ -59,7 +59,7 @@ export declare struct AlbumPickerComponent {
  */
 export declare class AlbumPickerOptions {
   /**
-   * themeColorMode: can set AlbumPickerComponent theme color
+   * AlbumPickerComponent theme color
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
@@ -77,5 +77,12 @@ export declare class AlbumPickerOptions {
  * @since 12
  */
 export declare class AlbumInfo {
+  /**
+   * Album uri
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 12
+   */
   uri?: string;
 }

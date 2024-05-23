@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -77,7 +77,7 @@ export declare struct PhotoPickerComponent {
    * @atomicservice
    * @since 12
    */
-  onEnterPhotoBrowser?:(photoBrowserInfo: PhotoBrowserInfo) => boolean;
+  onEnterPhotoBrowser?: (photoBrowserInfo: PhotoBrowserInfo) => boolean;
 
   /**
    * Callback when exit photo browser, will return photoBrowserInfo
@@ -87,18 +87,18 @@ export declare struct PhotoPickerComponent {
    * @atomicservice
    * @since 12
    */
-  onExitPhotoBrowser?:(photoBrowserInfo: PhotoBrowserInfo) => boolean;
+  onExitPhotoBrowser?: (photoBrowserInfo: PhotoBrowserInfo) => boolean;
 
   /**
    * Callback when pickerController ready.
-   * set data to picker component by pickerController is Supported after pickerController ready
+   * Set data to picker component by pickerController is supported after pickerController is ready
    *
    * @type { ?function }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
    */
-  onPickerControllerReady?:() => void;
+  onPickerControllerReady?: () => void;
 
   /**
    * PickerController
@@ -144,7 +144,7 @@ export declare class PickerController {
   /**
    * Set max select count to picker component, include max_total_count, max_photo_count and max_video_count.
    *
-   * @param { MaxSelectCountData } MaxSelectCountData - max select count
+   * @param { MaxSelectCountData } data - max select count data
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
@@ -280,7 +280,7 @@ export declare class ItemInfo {
   itemType?: ItemType;
 
   /**
-   * uri. if the itemType is CAMERA, it will be null
+   * Uri. if the itemType is CAMERA, it will be null
    *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -290,7 +290,7 @@ export declare class ItemInfo {
   uri?: string;
 
   /**
-   * mimeType. if the itemType is CAMERA, it will be null
+   * MimeType. if the itemType is CAMERA, it will be null
    *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -300,7 +300,7 @@ export declare class ItemInfo {
   mimeType?: string;
 
   /**
-   * width. if the itemType is CAMERA, it will be null
+   * Width. if the itemType is CAMERA, it will be null
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -310,7 +310,7 @@ export declare class ItemInfo {
   width?: number;
 
   /**
-   * height. if the itemType is CAMERA, it will be null
+   * Height. if the itemType is CAMERA, it will be null
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -320,7 +320,7 @@ export declare class ItemInfo {
   height?: number;
 
   /**
-   * size. if the itemType is CAMERA, it will be null
+   * Size. if the itemType is CAMERA, it will be null
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -330,7 +330,7 @@ export declare class ItemInfo {
   size?: number;
 
   /**
-   * duration. if the itemType is CAMERA, it will be null; if photos, return -1
+   * Duration. if the itemType is CAMERA, it will be null; if photos, return -1
    *
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -385,7 +385,7 @@ export declare class AnimateParams {
    * @atomicservice
    * @since 12
    */
-  curve?: Curve | ICurve | string
+  curve?: Curve | ICurve | string;
 }
 
 /**
@@ -399,7 +399,7 @@ export declare class MaxSelectCountData {
   /**
    * data. support to set max_total_count, max_photo_count and max_video_count.
    *
-   * @type { ?Curve | ICurve | string }
+   * @type { ?Map<MaxCountType, number> }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 12
