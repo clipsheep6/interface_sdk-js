@@ -4013,6 +4013,7 @@ declare namespace audio {
    * @typedef { Array<Readonly<AudioDeviceDescriptor>> } AudioDeviceDescriptors
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @atomicservice
+   * @since 11
    */
   type AudioDeviceDescriptors = Array<Readonly<AudioDeviceDescriptor>>;
 
