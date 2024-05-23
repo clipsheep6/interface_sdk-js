@@ -1071,6 +1071,19 @@ declare namespace media {
   type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
 
   /**
+   * Subtitle source descriptor. User can set Subtitle information
+
+   * @typedef SubtitleInfo
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @since 12
+   */
+  interface SubtitleInfo {
+    text: string;
+    pts: number;
+    duration: number;
+  }
+
+  /**
    * Manages and plays media. Before calling an AVPlayer method, you must use createAVPlayer()
    * to create an AVPlayer instance.
    *
@@ -1312,7 +1325,28 @@ declare namespace media {
      * @since 11
      */
     seek(timeMs: number, mode?: SeekMode): void;
-
+    /**
+     * Add subtitle tracks.
+     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * @param { string } url - Subtitle track path.
+     * @param { mimeType } String  - MIME type representing subtitle data.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    addSubtitleUrl(url: string, mimeType:String): void;
+    /**
+     * Add subtitle tracks.
+     * @returns { Promise<void> } A Promise instance used to return when release completed.
+     * @param { number } fd - Refers to files or other I/O resources opened by a process.
+     * @param { number } offset - This is an offset that indicates where to start reading subtitle data from within the file.
+     * @param { number } size - This represents the size of the data to be read (in bytes).
+     * @param { number } mimeType - MIME type representing subtitle data.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @atomicservice
+     * @since 12
+     */
+    addSubtitleFdSrc(fd:number, offset:number, size:number, mimeType:String): void;
     /**
      * Sets the volume.
      * @param { number } volume - Relative volume. The value ranges from 0.00 to 1.00. The value 1 indicates the maximum volume (100%).
@@ -1764,6 +1798,22 @@ declare namespace media {
      * @since 9
      */
     off(type: 'bufferingUpdate'): void;
+    /**
+     * Register listens for video set subtitle events.
+     * @param { 'subtitleUpdate' } type - Type of the set subtitle event to listen for.
+     * @param { function } callback - Callback used to listen for the subtitle update event,
+	   * return SubtitleInfoType and the value.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    on(type: 'subtitleUpdate', callback: (info: SubtitleInfo) => void): void;
+    /**
+     * Register listens for video set subtitle events.
+     * @param { 'subtitleUpdate' } type - Type of the set subtitle event to listen for.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 12
+     */
+    off(type: 'subtitleUpdate', callback: (info?: SubtitleInfo) => void): void;
     /**
      * Register listens for start render video frame events.
      * @param { 'startRenderFrame' } type - Type of the playback event to listen for.
