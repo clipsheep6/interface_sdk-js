@@ -90,7 +90,7 @@ export declare struct PhotoPickerComponent {
   onExitPhotoBrowser?: (photoBrowserInfo: PhotoBrowserInfo) => boolean;
 
   /**
-   * Callback when pickerController ready.
+   * Callback when pickerController is ready.
    * Set data to picker component by pickerController is supported after pickerController is ready
    *
    * @type { ?function }
