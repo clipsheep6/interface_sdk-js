@@ -86,5 +86,5 @@ export declare class AlbumInfo {
    * @atomicservice
    * @since 12
    */
-  uri?: string;
+  public uri?: string;
 }
