@@ -330,6 +330,7 @@ export interface MeasureOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 export default class MeasureText {
