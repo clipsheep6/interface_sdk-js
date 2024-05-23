@@ -488,7 +488,7 @@ export declare enum ClickType {
    * @atomicservice
    * @since 12
    */
-  DESELECT = 1,
+  DESELECT = 1
 }
 
 /**
