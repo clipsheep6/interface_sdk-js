@@ -4257,8 +4257,8 @@ declare namespace audio {
      * Audio device descriptors after change.
      * @type {AudioDeviceDescriptors}
      * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 11
      * @atomicservice
+     * @since 11
      */
     devices: AudioDeviceDescriptors;
     /**
