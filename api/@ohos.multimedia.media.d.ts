@@ -3493,11 +3493,25 @@ declare namespace media {
    * @syscap SystemCapability.Multimedia.Media.VideoPlayer
    * @since 8
    */
+  /**
+   * Enumerates playback speed.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+   * @atomicservice
+   * @since 12
+   */
   enum PlaybackSpeed {
     /**
      * playback at 0.75x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
+     */
+    /**
+     * playback at 0.75x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @atomicservice
+     * @since 12
      */
     SPEED_FORWARD_0_75_X = 0,
     /**
@@ -3505,11 +3519,23 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
      */
+    /**
+     * playback at normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @atomicservice
+     * @since 12
+     */
     SPEED_FORWARD_1_00_X = 1,
     /**
      * playback at 1.25x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
+     */
+    /**
+     * playback at 1.25x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @atomicservice
+     * @since 12
      */
     SPEED_FORWARD_1_25_X = 2,
     /**
@@ -3517,25 +3543,53 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
      */
+    /**
+     * playback at 1.75x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @atomicservice
+     * @since 12
+     */
     SPEED_FORWARD_1_75_X = 3,
     /**
      * playback at 2.0x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8
      */
+    /**
+     * playback at 2.0x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @atomicservice
+     * @since 12
+     */
     SPEED_FORWARD_2_00_X = 4,
     /**
      * playback at 0.5x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @atomicservice
      * @since 12
      */
     SPEED_FORWARD_0_50_X = 5,
     /**
      * playback at 1.5x normal speed
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @atomicservice
      * @since 12
      */
     SPEED_FORWARD_1_50_X = 6,
+    /**
+     * playback at 0.25x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @atomicservice
+     * @since 12
+     */
+    SPEED_FORWARD_0_25_X = 8,
+    /**
+     * playback at 0.125x normal speed
+     * @syscap SystemCapability.Multimedia.Media.VideoPlayer
+     * @atomicservice
+     * @since 12
+     */
+    SPEED_FORWARD_0_125_X = 9,
   }
 
   /**
