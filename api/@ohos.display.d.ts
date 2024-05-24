@@ -145,8 +145,8 @@ declare namespace display {
    *
    * @param { number } displayId Display id to query. This parameter should be greater than or equal to 0.
    * @returns { boolean } true means there is a privacy window on the current display
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -159,8 +159,8 @@ declare namespace display {
    *
    * @param { 'add' | 'remove' | 'change' } type the event of display change
    * @param { Callback<number> } callback the display id of changed
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
@@ -182,8 +182,8 @@ declare namespace display {
    *
    * @param { 'add' | 'remove' | 'change' } type the event of display change event
    * @param { Callback<number> } callback the display id of changed
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @since 7
    */
@@ -205,8 +205,8 @@ declare namespace display {
    *
    * @param { 'privateModeChange' } type the event of private mode changes
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -218,8 +218,8 @@ declare namespace display {
    *
    * @param { 'privateModeChange' } type the event of private mode changes
    * @param { Callback<boolean> } callback Callback used to return the result whether display is on private mode or not
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10
@@ -230,7 +230,7 @@ declare namespace display {
    * Check whether the device is foldable.
    *
    * @returns { boolean } true means the device is foldable.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
@@ -241,7 +241,7 @@ declare namespace display {
    * Get the current fold status of the foldable device.
    *
    * @returns { FoldStatus } fold status of device.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
@@ -253,9 +253,9 @@ declare namespace display {
    *
    * @param { 'foldStatusChange' } type the event of fold status changes
    * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * 2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
@@ -280,9 +280,9 @@ declare namespace display {
    *
    * @param { 'foldStatusChange' } type the event of fold status changes
    * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
@@ -307,9 +307,9 @@ declare namespace display {
    *
    * @param { 'foldAngleChange' } type the event of fold angle changes.
    * @param { Callback<Array<number>> } callback Callback used to return the current fold angle of device.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -322,9 +322,9 @@ declare namespace display {
    *
    * @param { 'foldAngleChange' } type the event of fold angle changes.
    * @param { Callback<Array<number>> } callback Callback used to return the current fold angle of device.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -337,9 +337,9 @@ declare namespace display {
    *
    * @param { 'captureStatusChange' } type the event of capture status changes.
    * @param { Callback<boolean> } callback Callback used to return the device capture status.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -352,9 +352,9 @@ declare namespace display {
    *
    * @param { 'captureStatusChange' } type the event of capture status changes.
    * @param { Callback<boolean> } callback Callback used to return the device capture status.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -367,7 +367,7 @@ declare namespace display {
    * Check whether the device is captured.
    *
    * @returns { boolean } true means the device is captured.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 12
@@ -378,7 +378,7 @@ declare namespace display {
    * Get the display mode of the foldable device.
    *
    * @returns { FoldDisplayMode } display mode of the foldable device.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
@@ -389,10 +389,10 @@ declare namespace display {
    * Change the display mode of the foldable device.
    *
    * @param { FoldDisplayMode } mode target display mode to change.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
@@ -405,9 +405,9 @@ declare namespace display {
    *
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
@@ -432,9 +432,9 @@ declare namespace display {
    *
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
@@ -458,7 +458,7 @@ declare namespace display {
    * Get the fold crease region in the current display mode.
    *
    * @returns { FoldCreaseRegion } fold crease region in the current display mode.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
@@ -469,10 +469,10 @@ declare namespace display {
    * set fold status locked or not.
    *
    * @param { boolean } locked - fold status is locked or not.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
@@ -1127,7 +1127,7 @@ declare namespace display {
      * Check if current display has immersive window.
      *
      * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -1140,7 +1140,7 @@ declare namespace display {
      * Check if current display has immersive window.
      *
      * @returns { Promise<boolean> }
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -1153,8 +1153,8 @@ declare namespace display {
      * Obtain the available area of the display.
      *
      * @returns { Promise<Rect> }
-     * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported on this device.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
@@ -1167,10 +1167,10 @@ declare namespace display {
     *
     * @param { 'availableAreaChange' } type - the event of available area changes
     * @param { Callback<Rect> } callback - Callback used to return the available area
-    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-    * <br>2.Incorrect parameter types.
-    * @throws { BusinessError } 801 - Capability not supported on this device.
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+    * <br>2. Incorrect parameter types.
+    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
     * @systemapi Hide this for inner system use.
@@ -1183,10 +1183,10 @@ declare namespace display {
     *
     * @param { 'availableAreaChange' } type - the event of available area changes
     * @param { Callback<Rect> } [callback] - Callback used to return the available area
-    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-    * <br>2.Incorrect parameter types.
-    * @throws { BusinessError } 801 - Capability not supported on this device.
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+    * <br>2. Incorrect parameter types.
+    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
     * @systemapi Hide this for inner system use.
