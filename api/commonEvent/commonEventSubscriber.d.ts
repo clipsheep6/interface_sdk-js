@@ -143,6 +143,14 @@ export interface CommonEventSubscriber {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets the result code of the current ordered common event.
+   *
+   * @param { number } code - Indicates the custom result code to set. You can set it to any value.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 12
+   */
   setCodeSync(code: number): void;
 
   /**
@@ -251,6 +259,14 @@ export interface CommonEventSubscriber {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets the result data of the current ordered common event.
+   *
+   * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 12
+   */
   setDataSync(data: string): void;
 
   /**
@@ -313,6 +329,15 @@ export interface CommonEventSubscriber {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets the result of the current ordered common event.
+   *
+   * @param { number } code - Indicates the custom result code to set. You can set it to any value.
+   * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 12
    */
   setCodeAndDataSync(code: number, data: string): void;
 

@@ -73,7 +73,7 @@ declare namespace commonEventManager {
    *
    * @param { string } event - name of the common event.
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 1500004 - not System services
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -123,7 +123,7 @@ declare namespace commonEventManager {
    * @param { CommonEventPublishData } options - Indicate the CommonEventPublishData containing the common event
    *                                             content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publish.
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 1500004 - not System services
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
@@ -151,6 +151,22 @@ declare namespace commonEventManager {
    * @systemapi
    * @since 9
    */
+  /**
+   * Publishes an ordered, sticky, or standard common event to a specified user.
+   *
+   * @param { string } event - Specified the names of the common events.
+   * @param { number } userId - Specified the user to receive the common events.
+   * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @throws { BusinessError } 1500004 - not System services
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 12
+   */
   function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
 
   /**
@@ -170,6 +186,24 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9
+   */
+  /**
+   * Publishes an ordered, sticky, or standard common event to a specified user.
+   *
+   * @param { string } event - Specified the names of the common events.
+   * @param { number } userId - Specified the user to receive the common events.
+   * @param { CommonEventPublishData } options - Indicates the CommonEventPublishData containing the common event
+   *                                             content and attributes.
+   * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @throws { BusinessError } 1500004 - not System services or System app
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @throws { BusinessError } 1500009 - error obtaining system parameters
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 12
    */
   function publishAsUser(
     event: string,
@@ -200,6 +234,18 @@ declare namespace commonEventManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @param { AsyncCallback<CommonEventSubscriber> } callback - The callback is used to return the
+   *                                                            CommonEventSubscriber object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function createSubscriber(
     subscribeInfo: CommonEventSubscribeInfo,
     callback: AsyncCallback<CommonEventSubscriber>
@@ -225,6 +271,17 @@ declare namespace commonEventManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @returns { Promise<CommonEventSubscriber> } Returns the CommonEventSubscriber object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
 
   /**
@@ -245,6 +302,17 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Creates a CommonEventSubscriber for the SubscriberInfo.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Indicates the information of the subscriber.
+   * @returns { CommonEventSubscriber } Returns the CommonEventSubscriber object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types. 3.Parameter verification failed.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 12
    */
   function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
 
@@ -274,6 +342,20 @@ declare namespace commonEventManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Subscribe an ordered, sticky, or standard common event.
+   *
+   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
+   * @param { AsyncCallback<CommonEventData> } callback - The callback is used to return the CommonEventData object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - capability not supported
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
   /**
@@ -302,6 +384,20 @@ declare namespace commonEventManager {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Unsubscribe from an ordered, sticky, or standard common event.
+   *
+   * @param { CommonEventSubscriber } subscriber - Indicate the subscriber of the common event.
+   * @param { AsyncCallback<void> } [callback] - The callback of unsubscribe.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @throws { BusinessError } 801 - capability not supported
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   function unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void;
 
   /**
@@ -319,6 +415,22 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 10
+   */
+  /**
+   * Remove sticky common event.
+   *
+   * @permission ohos.permission.COMMONEVENT_STICKY
+   * @param { string } event - name of the common event.
+   * @param { AsyncCallback<void> } callback - The callback of removeStickyCommonEvent.
+   * @throws { BusinessError } 201 - The application dose not have permission to call the interface
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
+   * @throws { BusinessError } 1500004 - not system service
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 12
    */
   function removeStickyCommonEvent(event: string, callback: AsyncCallback<void>): void;
 
@@ -338,6 +450,22 @@ declare namespace commonEventManager {
    * @systemapi
    * @since 10
    */
+  /**
+   * Remove sticky common event.
+   *
+   * @permission ohos.permission.COMMONEVENT_STICKY
+   * @param { string } event - name of the common event.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - The application dose not have permission to call the interface
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.
+   * @throws { BusinessError } 1500004 - not system service
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 12
+   */
   function removeStickyCommonEvent(event: string): Promise<void>;
 
   /**
@@ -353,6 +481,21 @@ declare namespace commonEventManager {
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
    * @since 10
+   */
+  /**
+   * Set static subscriber state.
+   *
+   * @param { boolean } enable - static subscribe event enable/disable state.
+   * @param { AsyncCallback<void> } callback - Specified callback method.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 12
    */
   function setStaticSubscriberState(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -370,6 +513,21 @@ declare namespace commonEventManager {
    * @StageModelOnly
    * @since 10
    */
+  /**
+   * Set static subscriber state.
+   *
+   * @param { boolean } enable - static subscribe event enable/disable state.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types. 3.Parameter verification failed.
+   * @throws { BusinessError } 1500007 - error sending message to Common Event Service
+   * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 12
+   */
   function setStaticSubscriberState(enable: boolean): Promise<void>;
 
   /**
@@ -379,7 +537,8 @@ declare namespace commonEventManager {
    * @param { Array<string> } events - The events array.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - parameter error
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 1500007 - error sending message to Common Event Service
    * @throws { BusinessError } 1500008 - Common Event Service does not complete initialization
    * @syscap SystemCapability.Notification.CommonEvent
