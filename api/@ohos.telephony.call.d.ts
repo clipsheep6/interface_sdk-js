@@ -1,4 +1,4 @@
- /*
+/*
  * Copyright (C) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -3954,25 +3954,25 @@ declare namespace call {
     EVENT_SHOW_FLOAT_WINDOW,
  
     /**
-     * Indicates voip call mute off.
+     * Indicates voip call muted.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    EVENT_CALL_MUTE_ON,
+    EVENT_CALL_MUTED,
 
     /**
-     * Indicates voip call mute off.
+     * Indicates voip call unmuted.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 12
      */
-    EVENT_CALL_MUTE_OFF,
+    EVENT_CALL_UNMUTED,
 
     /**
-     *  Indicates voip call speaker off.
+     *  Indicates voip call speaker on.
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
