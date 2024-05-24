@@ -9506,47 +9506,6 @@ declare enum TextDecorationStyle {
   WAVY = 4,
 }
 
-/**
- * Sensitivity of rotating crown.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-declare enum CrownSensitivity {
-  /**
-   * Low sensitivity.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-   LOW = 0,
-
-  /**
-   * Medium sensitivity.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-   MEDIUM = 1,
-
-  /**
-   * High sensitivity.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-   HIGH = 2
-}
-
 declare module 'borderStyle' {
   module 'borderStyle' {
     // @ts-ignore

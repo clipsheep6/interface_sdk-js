@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,7 +22,7 @@
  * Values in the list
  *
  * @interface ArcListItemInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Arc
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -33,7 +33,7 @@ interface ArcListItemInterface {
 
 /**
  * @extends CommonMethod<ArcListItemAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Arc
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -44,7 +44,7 @@ declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttribute> {
    *
    * @param { boolean } value
    * @returns { ArcListItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -55,7 +55,7 @@ declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttribute> {
 /**
  * Defines ArcListItem Component instance.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Arc
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -65,7 +65,7 @@ declare const ArcListItemInstance: ArcListItemAttribute;
 /**
  * Defines ArcListItem Component.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Arc
  * @crossplatform
  * @atomicservice
  * @since 12

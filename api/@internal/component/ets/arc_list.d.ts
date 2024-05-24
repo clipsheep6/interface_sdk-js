@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,7 +22,7 @@
  * The arc list interface is extended.
  *
  * @interface ArcListInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Arc
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -33,28 +33,28 @@ interface ArcListInterface {
    *
    * @param { object } value
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  (value?: { initialIndex?: number; space?: number | string; scroller?: Scroller; header?: CustomBuilder; }): ArcListAttribute;
+  (value?: { initialIndex?: number; space?: number | string; scroller?: Scroller; header?: CustomBuilder }): ArcListAttribute;
 }
 
 /**
- * @extends ScrollableCommonMethod<ArcListAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @extends CommonMethod<ArcListAttribute>
+ * @syscap SystemCapability.ArkUI.ArkUI.Arc
  * @crossplatform
  * @atomicservice
  * @since 12
  */
-declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> {
+declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   /**
    * Called to setting the digital crown sensitivity.
    *
    * @param { CrownSensitivity } value
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -66,7 +66,7 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    *
    * @param { BarState } value
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -78,7 +78,7 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    *
    * @param { number } value
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -90,8 +90,9 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    *
    * @param { ChildrenMainSize } value - children main size for List
    * @returns { ArcListAttribute } the attribute of the list.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   childrenMainSize(value: ChildrenMainSize): ArcListAttribute;
@@ -101,7 +102,7 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    *
    * @param { boolean } value
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -113,7 +114,7 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    *
    * @param { number | Resource } value - options for scrolling friction.
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -126,7 +127,7 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    * @param { number } value - Max fling speed, the minimum value is 0, the maximum value is not limited.
    *                           The unit is vp/s.
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -138,7 +139,7 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    *
    * @param { function } event
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -150,7 +151,7 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    *
    * @param { function } event
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -162,7 +163,7 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    *
    * @param { function } event
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -174,7 +175,7 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    *
    * @param { function } event
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -186,7 +187,7 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    *
    * @param { function } event
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -198,8 +199,9 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    *
    * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onWillScroll(handler: Optional<OnWillScrollCallback>): ArcListAttribute;
@@ -210,8 +212,9 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    * @param { OnScrollCallback } handler - callback of scrollable,
    * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
    * @returns { ArcListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   onDidScroll(handler: OnScrollCallback): ArcListAttribute;
@@ -220,7 +223,7 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
 /**
  * Defines ArcList Component.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Arc
  * @crossplatform
  * @atomicservice
  * @since 12
@@ -230,7 +233,7 @@ declare const ArcList: ArcListInterface;
 /**
  * Defines ArcList Component instance.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Arc
  * @crossplatform
  * @atomicservice
  * @since 12
