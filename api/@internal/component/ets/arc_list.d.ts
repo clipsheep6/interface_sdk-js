@@ -19,47 +19,6 @@
  */
 
 /**
- * Declare digital crown sensitivity.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
- */
-declare enum DigitalCrownSensitivity {
-  /**
-   * Low.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  Low = 0,
-
-  /**
-   * Medium.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  Medium = 1,
-
-  /**
-   * High.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  High = 2,
-}
-
-/**
  * The arc list interface is extended.
  *
  * @interface ArcListInterface
@@ -93,14 +52,14 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
   /**
    * Called to setting the digital crown sensitivity.
    *
-   * @param { DigitalCrownSensitivity } value
+   * @param { CrownSensitivity } value
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  digitalCrownSensitivity(value: DigitalCrownSensitivity): ArcListAttribute;
+  digitalCrownSensitivity(value: CrownSensitivity): ArcListAttribute;
 
   /**
    * Called when the display mode of the side slider is set.
@@ -127,16 +86,15 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
   cachedCount(value: number): ArcListAttribute;
 
   /**
-   * Called to setting the nested scroll options.
+   * Set children main size for List.
    *
-   * @param { NestedScrollOptions } value - options for nested scrolling.
-   * @returns { ArcListAttribute }
+   * @param { ChildrenMainSize } value - children main size for List
+   * @returns { ArcListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
    */
-  nestedScroll(value: NestedScrollOptions): ArcListAttribute;
+  childrenMainSize(value: ChildrenMainSize): ArcListAttribute;
 
   /**
    * Called when setting whether to enable scroll by gesture or mouse.
@@ -161,6 +119,19 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
    * @since 12
    */
   friction(value: number | Resource): ArcListAttribute;
+
+  /**
+   * Limit the max speed when fling.
+   *
+   * @param { number } value - Max fling speed, the minimum value is 0, the maximum value is not limited.
+   *                           The unit is vp/s.
+   * @returns { ArcListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  flingSpeedLimit(value: number): ArcListAttribute;
 
   /**
    * Called when the start and end positions of the display change.
@@ -223,16 +194,27 @@ declare class ArcListAttribute extends ScrollableCommonMethod<ArcListAttribute> 
   onScrollStop(event: () => void): ArcListAttribute;
 
   /**
-   * Called when scrolling begin each frame.
+   * Called when the scrollable will scroll.
    *
-   * @param { function } event
+   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @atomicservice
    * @since 12
    */
-  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ArcListAttribute;
+  onWillScroll(handler: Optional<OnWillScrollCallback>): ArcListAttribute;
+
+  /**
+   * Called when the scrollable did scroll.
+   *
+   * @param { OnScrollCallback } handler - callback of scrollable,
+   * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
+   * @returns { ArcListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  onDidScroll(handler: OnScrollCallback): ArcListAttribute;
 }
 
 /**
