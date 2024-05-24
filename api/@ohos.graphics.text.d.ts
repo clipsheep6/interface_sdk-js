@@ -432,6 +432,36 @@ declare namespace text {
   }
 
   /**
+   * Describes text-shadow.
+   * @typedef TextShadow
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  interface TextShadow {
+    /**
+     * The color of text-shadow.
+     * @type { common2D.Color } The color of text-shadow
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    color: common2D.Color;
+    /**
+     * The value sets offset of text-shadow that based on the original text.
+     * @type { common2D.Point } The point of shadow
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    point: common2D.Point;
+    /**
+     * The value sets special effect radius of bluring text, it default is 0.
+     * @type { ?number } The value about radius of blur , it type is "double"
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    blurRadius?: number;
+  }
+
+  /**
    * Describes text style.
    * @typedef TextStyle
    * @syscap SystemCapability.Graphics.Drawing
@@ -559,6 +589,14 @@ declare namespace text {
      * @since 12
      */
     locale?: string;
+
+    /**
+     * The one of spcial effect in text.
+     * @type { ?Array<TextShadow> } it is text-shadow array of type.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    textShadow?: Array<TextShadow>;
   }
 
   /**
