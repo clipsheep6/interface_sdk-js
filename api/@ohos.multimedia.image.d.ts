@@ -6727,10 +6727,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<Record<PropertyKey, string|null>> } Array of Records instance used to return the
      * property values. If the operation fails, the null is returned.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;3.Parameter verification failed;
-     * @throws { BusinessError } 62980096 - The operation failed.
-     * @throws { BusinessError } 62980110 - The image source data is incorrect.
-     * @throws { BusinessError } 62980113 - Unknown image format.
-     * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 62980123 - Images in EXIF format are not supported.
+     * @throws { BusinessError } 62980133 - The EXIF data is out of range.
+     * @throws { BusinessError } 62980135 - The EXIF value is invalid.
+     * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12
