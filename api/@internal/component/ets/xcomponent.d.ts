@@ -73,6 +73,7 @@ declare interface SurfaceRect {
  *
  * @interface SurfaceRotationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
  * @since 12
  */
 declare interface SurfaceRotationOptions {
@@ -81,6 +82,7 @@ declare interface SurfaceRotationOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   lock?: boolean;
@@ -199,6 +201,7 @@ declare class XComponentController {
    *
    * @param { SurfaceRotationOptions } rotationOptions - The surface rotation options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   setXComponentSurfaceRotation(rotationOptions: SurfaceRotationOptions): void;
@@ -208,6 +211,7 @@ declare class XComponentController {
    *
    * @returns { Required<SurfaceRotationOptions> } The surface rotation options result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
    * @since 12
    */
   getXComponentSurfaceRotation(): Required<SurfaceRotationOptions>;

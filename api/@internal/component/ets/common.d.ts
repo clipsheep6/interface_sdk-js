@@ -7398,7 +7398,7 @@ declare interface BaseEvent {
    * @crossplatform
    * @since 12
    */
-  getModifierKeyState(keys: Array<string>): boolean;
+  getModifierKeyState?(keys: Array<string>): boolean;
 }
 
 /**
@@ -9433,7 +9433,7 @@ declare interface DragEvent {
    * @crossplatform
    * @since 12
    */
-  getModifierKeyState(keys: Array<string>): boolean;
+  getModifierKeyState?(keys: Array<string>): boolean;
 }
 
 /**
@@ -9716,7 +9716,7 @@ declare interface KeyEvent {
    * @crossplatform
    * @since 12
    */
-  getModifierKeyState(keys: Array<string>): boolean;
+  getModifierKeyState?(keys: Array<string>): boolean;
 }
 
 /**
@@ -12142,6 +12142,16 @@ interface ContextMenuAnimationOptions {
    * @since 12
    */
   transition?: TransitionEffect;
+
+  /**
+   * Sets the scale start and end animator of the image displayed before the custom builder preview is displayed.
+   *
+   * @type { ?AnimationRange<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  hoverScale?: AnimationRange<number>;
 }
 
 /**
@@ -18268,7 +18278,19 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
+  /**
+   * Bind content cover
+   *
+   * @param { Optional<boolean> } isShow - true means display content, false means hide content.
+   * @param { CustomBuilder } builder - the content to be displayed.
+   * @param { ModalTransition } [type] - transition type.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  bindContentCover(isShow: Optional<boolean>, builder: CustomBuilder, type?: ModalTransition): T;
 
   /**
    * Bind content cover
@@ -18293,7 +18315,19 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  bindContentCover(isShow: boolean, builder: CustomBuilder, options?: ContentCoverOptions): T;
+  /**
+   * Bind content cover
+   *
+   * @param { Optional<boolean> } isShow - true means display content, false means hide content.
+   * @param { CustomBuilder } builder - the content to be displayed.
+   * @param { ContentCoverOptions } [options] - options of content cover.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  bindContentCover(isShow: Optional<boolean>, builder: CustomBuilder, options?: ContentCoverOptions): T;
 
   /**
    * Bind sheet
@@ -18318,7 +18352,19 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
-  bindSheet(isShow: boolean, builder: CustomBuilder, options?: SheetOptions): T;
+  /**
+   * Bind sheet
+   *
+   * @param { Optional<boolean> } isShow - true means display sheet, false means hide sheet.
+   * @param { CustomBuilder } builder - the sheet to be displayed.
+   * @param { SheetOptions } [options] - options of sheet.
+   * @returns { T } - template type
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  bindSheet(isShow: Optional<boolean>, builder: CustomBuilder, options?: SheetOptions): T;
 
   /**
    * Sets styles for component state.
@@ -18491,6 +18537,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets accessibilityGroup
+   *
+   * @param { boolean } value - set group with accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   accessibilityGroup(value: boolean): T;
 
   /**
@@ -18512,6 +18569,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets accessibilityText
+   *
+   * @param { string } value - set accessibility text
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   accessibilityText(value: string): T;
 
   /**
@@ -18521,6 +18589,7 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
    */
@@ -18545,6 +18614,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets accessibilityDescription
+   *
+   * @param { string } value - set description of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   accessibilityDescription(value: string): T;
 
   /**
@@ -18566,6 +18646,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Sets accessibilityLevel
+   *
+   * @param { string } value - set accessibility level
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   accessibilityLevel(value: string): T;
 
   /**
@@ -18577,6 +18668,17 @@ declare class CommonMethod<T> {
    * @crossplatform
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Sets accessibilityVirtualNode
+   *
+   * @param { CustomBuilder } builder - set virtual node of accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   accessibilityVirtualNode(builder: CustomBuilder): T;
 
@@ -21399,6 +21501,7 @@ declare interface EdgeEffectOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare class ChildrenMainSize {
@@ -21413,6 +21516,7 @@ declare class ChildrenMainSize {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor(childDefaultSize: number);
@@ -21428,6 +21532,7 @@ declare class ChildrenMainSize {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   set childDefaultSize(value: number);
@@ -21439,6 +21544,7 @@ declare class ChildrenMainSize {
    * If the main axis is horizontal, it indicates width.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   get childDefaultSize(): number;
@@ -21455,6 +21561,7 @@ declare class ChildrenMainSize {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    * @example splice(1, 0, [100]), Insert a child after first child, the child's main size is 100vp.
    * splice(1, 1), Delete the second child.
@@ -21473,6 +21580,7 @@ declare class ChildrenMainSize {
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   update(index: number, childSize: number): void;
