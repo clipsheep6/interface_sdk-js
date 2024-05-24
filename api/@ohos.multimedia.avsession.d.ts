@@ -4622,7 +4622,8 @@ declare namespace avSession {
      * Send media key event to this session
      * @param { KeyEvent } event - The KeyEvent
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
-     * @throws { BusinessError } 401 - parameter check failed
+     * @throws { BusinessError } 401 - parameter check failed. Possible causes: 1.Mandatory parameters are left unspecified.
+     * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 600101 - Session service exception.
      * @throws { BusinessError } 600102 - The session does not exist.
      * @throws { BusinessError } 600103 - The session controller does not exist.
