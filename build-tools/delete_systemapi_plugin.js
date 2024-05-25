@@ -187,7 +187,7 @@ function hasFileByImportPath(importPath) {
   if (importPath.startsWith('@arkts')) {
     fileDir = path.resolve(apiSourcePath, '../arkts');
   }
-  const flag = ['.d.ts', '.d.ets'].some(ext => {
+  const flag = ['.d.ts', '.d.ets'].some((ext) => {
     const filePath = path.resolve(fileDir, `${importPath}${ext}`);
     return fs.existsSync(filePath);
   });
@@ -364,13 +364,17 @@ const globalModules = new Map();
  * @param {string} url 文件路径
  * @returns {Function}
  */
-function formatImportDeclaration(url, copyrightMessage = '', isCopyrightDeleted = false) {
+function formatImportDeclaration(url, copyrightMessage = '', deleteNode) {
+  isCopyrightDeleted = false;
+  if (deleteNode.isCopyrightDeleted) {
+    isCopyrightDeleted = deleteNode.isCopyrightDeleted;
+  }
   return (context) => {
     const allIdentifierSet = new Set([]);
     return (node) => {
       sourceFile = node;
       collectAllIdentifier(node); // 获取所有标识符
-      formatValue = formatAllNodes(url, node, allIdentifierSet); // 获取所有节点
+      formatValue = formatAllNodes(url, node, deleteNode.allIdentifierSetBefore, allIdentifierSet); // 获取所有节点
       node = formatValue.node;
       const referencesMessage = formatValue.referencesMessage;
       if (formatValue.isCopyrightDeleted) {
@@ -408,14 +412,14 @@ function formatImportDeclaration(url, copyrightMessage = '', isCopyrightDeleted 
     }
     function collectAllNodes(node) {
       if (ts.isIdentifier(node)) {
-        allIdentifierSet.add(node.escapedText.toString());
+        allIdentifierSet.add(node.escapedText.toString().trim());
       }
       return ts.visitEachChild(node, collectAllNodes, context);
     }
   };
 }
 
-function formatAllNodes(url, node, allIdentifierSet, copyrightMessage = '', isCopyrightDeleted = false) {
+function formatAllNodes(url, node, allIdentifierSetBefore, allIdentifierSet, copyrightMessage = '', isCopyrightDeleted = false) {
   let referencesMessage = '';
   let currReferencesModule = formatAllNodesReferences(url);
   if (ts.isSourceFile(node) && node.statements) {
@@ -427,6 +431,7 @@ function formatAllNodes(url, node, allIdentifierSet, copyrightMessage = '', isCo
           statement,
           url,
           currReferencesModule,
+          allIdentifierSetBefore,
           allIdentifierSet
         );
         if (importInfo.statement) {
@@ -498,11 +503,12 @@ function formatAllNodesReferences(url) {
  * @param {ts.node} node 当前节点
  * @param {ts.ImportDeclaration} statement 导入节点
  * @param {string} url 文件路径
- * @param {string} url 文件路径
- * @param {Set} allIdentifierSet 该文件的所有Identifier关键字
+ * @param {Array} currReferencesModule reference数据
+ * @param {Set} allIdentifierSetBefore 该文件处理前的所有Identifier关键字
+ * @param {Set} allIdentifierSet 该文件处理之后的所有Identifier关键字
  * @returns {{statement:ts.ImportDeclaration,copyrightMessage:string,isCopyrightDeleted:boolean}} statement 处理完成的导入节点、copyrightMessage
  */
-function formatAllNodesImportDeclaration(node, statement, url, currReferencesModule, allIdentifierSet) {
+function formatAllNodesImportDeclaration(node, statement, url, currReferencesModule, allIdentifierSetBefore, allIdentifierSet) {
   // 是import节点 import { AsyncCallback } from './@ohos.base';
   const clauseSet = new Set([]);
   if (statement.importClause && ts.isImportClause(statement.importClause)) {
@@ -528,11 +534,8 @@ function formatAllNodesImportDeclaration(node, statement, url, currReferencesMod
     }
   }
   const importSpecifier = statement.moduleSpecifier.getText().replace(/[\'\"]/g, '');
-  const dtsImportSpecifierPath = path.resolve(url, `../${importSpecifier}.d.ts`); // import 文件路径判断
-  const detsImportSpecifierPath = path.resolve(url, `../${importSpecifier}.d.ets`); // import 文件路径判断
-  let hasImportSpecifierFile = fs.existsSync(dtsImportSpecifierPath) || fs.existsSync(detsImportSpecifierPath);
   let hasImportSpecifierInModules = globalModules.has(importSpecifier);
-  if ((hasImportSpecifierFile || hasImportSpecifierInModules) && clauseSet.size > 0) {
+  if (clauseSet.size > 0) {
     let currModule = [];
     if (hasImportSpecifierInModules) {
       let index = globalModules.get(importSpecifier);
@@ -541,16 +544,17 @@ function formatAllNodesImportDeclaration(node, statement, url, currReferencesMod
     const clasueCheckList = [];
     let exsitClauseSet = new Set([]);
     for (const clause of clauseSet) {
-      let flag = allIdentifierSet.has(clause);
+      let hasUseIdentifer = allIdentifierSet.has(clause);
       if (hasImportSpecifierInModules) {
-        flag = allIdentifierSet.has(clause) && currModule.includes(clause);
+        hasUseIdentifer = allIdentifierSet.has(clause) && currModule.includes(clause);
       }
-      if (flag) {
+      const hasUseIdentiferBefore = allIdentifierSetBefore.has(clause)
+      if (hasUseIdentiferBefore && !hasUseIdentifer) {
+        clasueCheckList.push('non-exist');
+      } else {
         // 标识符使用到了当前import中的引用
         exsitClauseSet.add(clause);
         clasueCheckList.push('exist');
-      } else {
-        clasueCheckList.push('non-exist');
       }
     }
     let hasExsitStatus = false;
@@ -607,8 +611,8 @@ function deleteSystemApi(url) {
         kitName = RegExp.$1.replace(/\s/g, '');
       }
       sourceFile = node;
-      const deleteNode = processSourceFile(node, kitName); // 处理最外层节点
-      node = processVisitEachChild(context, deleteNode.node);
+      let deleteNode = processSourceFile(node, kitName, context); // 处理最外层节点
+      node = processVisitEachChild(context, deleteNode);
       if (!isEmptyFile(node)) {
         const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
         const result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
@@ -621,7 +625,7 @@ function deleteSystemApi(url) {
             target: ts.ScriptTarget.ES2017,
           },
           fileName: fileName,
-          transformers: { before: [formatImportDeclaration(url, copyrightMessage, deleteNode.isCopyrightDeleted)] },
+          transformers: { before: [formatImportDeclaration(url, copyrightMessage, deleteNode)] },
         });
       }
       return node;
@@ -643,17 +647,19 @@ exports.deleteSystemApi = deleteSystemApi;
  * @param kitName 当前文件kitName
  * @returns
  */
-function processSourceFile(node, kitName) {
+function processSourceFile(node, kitName, context) {
   let isCopyrightDeleted = false;
   const newStatements = [];
   const newStatementsWithoutExport = [];
   const deleteSystemApiSet = new Set();
+  const allIdentifierSetBefore = new Set([]);
   let needDeleteExport = {
     fileName: '',
     default: '',
     exportName: new Set(),
   };
   isCopyrightDeleted = addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExport);
+  collectAllIdentifierBefore(node, context, allIdentifierSetBefore);
   newStatements.forEach((statement) => {
     const names = getExportIdentifierName(statement);
     if (names.length === 0) {
@@ -681,7 +687,24 @@ function processSourceFile(node, kitName) {
   return {
     node: ts.factory.updateSourceFile(node, newStatementsWithoutExport, node.isDeclarationFile, node.referencedFiles),
     isCopyrightDeleted,
+    allIdentifierSetBefore,
   };
+}
+
+function collectAllIdentifierBefore(node, context, allIdentifierSetBefore) {
+  if (ts.isSourceFile(node) && node.statements) {
+    node.statements.forEach((stat) => {
+      if (!ts.isImportDeclaration(stat)) {
+        ts.visitEachChild(stat, collectAllNodesBefore, context);
+      }
+    });
+  }
+  function collectAllNodesBefore(node) {
+    if (ts.isIdentifier(node)) {
+      allIdentifierSetBefore.add(node.escapedText.toString().trim());
+    }
+    return ts.visitEachChild(node, collectAllNodesBefore, context);
+  }
 }
 
 function processExportNode(statement, node, needDeleteExport, names, deleteSystemApiSet, newStatementsWithoutExport) {
@@ -809,11 +832,11 @@ function getExportIdentifierName(statement) {
 /**
  * 遍历处理tsnode节点
  * @param  context 解析过后的内容
- * @param  node 解析过后的节点
+ * @param  processVisitEachChild 解析过后的节点及identitier信息
  * @returns ts.node
  */
-function processVisitEachChild(context, node) {
-  return ts.visitEachChild(node, processAllNodes, context); // 遍历所有子节点
+function processVisitEachChild(context, deleteNode) {
+  return ts.visitEachChild(deleteNode.node, processAllNodes, context); // 遍历所有子节点
   function processAllNodes(node) {
     if (ts.isInterfaceDeclaration(node)) {
       const newMembers = [];
@@ -963,7 +986,7 @@ function resolveCallback(url) {
         return;
       }
       if (ts.isIdentifier(node)) {
-        allReferencesIdentifierSet.add(node.escapedText.toString());
+        allReferencesIdentifierSet.add(node.escapedText.toString().trim());
       }
       return ts.visitEachChild(node, collectAllIdentifier, context);
     }
