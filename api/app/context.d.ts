@@ -36,7 +36,7 @@ import bundle from '../@ohos.bundle';
  * @interface Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @FAModelOnly
- * @since 6
+ * @since 7
  */
 export interface Context extends BaseContext {
   /**
