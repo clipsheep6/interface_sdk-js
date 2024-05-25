@@ -584,8 +584,8 @@ declare namespace camera {
 
     /**
      * Creates a PreviewOutput instance without prefile.
-     * You can use the method to create preview output without prefile, then you must add this output
-     * to a session which already preconfiged.
+     * You can use this method to create a preview output instance without a profile, This instance can
+     * only be used in a preconfiged session.
      *
      * @param { string } surfaceId - Surface object id used in camera photo output.
      * @returns { PreviewOutput } The PreviewOutput instance.
@@ -625,8 +625,8 @@ declare namespace camera {
      * Creates a PhotoOutput instance without surfaceId.
      * Call PhotoOutput capture interface will give a callback,
      * {@link on(type: 'photoAvailable', callback: AsyncCallback<Photo>)}
-     * You can use the method to create video output without prefile, then you must add this output
-     * to a session which already preconfiged.
+     * You can use this method to create a photo output instance without a profile, This instance can
+     * only be used in a preconfiged session.
      *
      * @param { Profile } profile - Photo output profile.
      * @returns { PhotoOutput } The PhotoOutput instance.
@@ -662,8 +662,8 @@ declare namespace camera {
 
     /**
      * Creates a VideoOutput instance without prefile.
-     * You can use the method to create video output without prefile, then you must add this output
-     * to a session which already preconfiged.
+     * You can use this method to create a video output instance without a profile, This instance can
+     * only be used in a preconfiged session.
      *
      * @param { string } surfaceId - Surface object id used in camera video output.
      * @returns { VideoOutput } The VideoOutput instance.
