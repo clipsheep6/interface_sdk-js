@@ -661,7 +661,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    statusBarContentColor: string;
+    statusBarContentColor?: string;
   }
 
   /**
