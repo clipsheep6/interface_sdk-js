@@ -147,6 +147,8 @@ export interface CommonEventSubscriber {
    * Sets the result code of the current ordered common event.
    *
    * @param { number } code - Indicates the custom result code to set. You can set it to any value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 12
@@ -263,6 +265,8 @@ export interface CommonEventSubscriber {
    * Sets the result data of the current ordered common event.
    *
    * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 12
@@ -335,6 +339,8 @@ export interface CommonEventSubscriber {
    *
    * @param { number } code - Indicates the custom result code to set. You can set it to any value.
    * @param { string } data - Indicates the custom result data to set. You can set it to any character string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                 2. Incorrect parameter types. 3.Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 12
