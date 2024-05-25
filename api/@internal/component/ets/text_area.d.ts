@@ -301,6 +301,26 @@ interface TextAreaInterface {
 }
 
 /**
+ * CaretStyle object.
+ *
+ * @interface CaretStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+interface CaretStyle {
+  /**
+   * Define the cursor width of CaretStyle.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  width?: Length;
+}
+
+/**
  * Declare the type of input box
  *
  * @enum { number }
