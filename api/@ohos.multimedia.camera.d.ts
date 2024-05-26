@@ -21,6 +21,7 @@
 import { ErrorCallback, AsyncCallback } from './@ohos.base';
 import type Context from './application/BaseContext';
 import image from './@ohos.multimedia.image';
+import PhotoAsset from './@ohos.file.photoAccessHelper';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 
@@ -1533,7 +1534,15 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 11
      */
-    CAMERA_FORMAT_YCRCB_P010
+    CAMERA_FORMAT_YCRCB_P010,
+
+    /**
+     * HEIC Format.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    CAMERA_FORMAT_HEIC = 2003
   }
 
   /**
@@ -5036,6 +5045,26 @@ declare namespace camera {
      * @since 11
      */
     deferImageDelivery(type: DeferredDeliveryImageType): void;
+
+    /**
+     * Subscribes photo asset event callback.
+     *
+     * @param { 'photoAssetAvailable' } type - Event type.
+     * @param { AsyncCallback<PhotoAsset> } callback - Callback used to get the asset.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+     on(type: 'photoAssetAvailable', callback: AsyncCallback<PhotoAsset>): void;
+
+    /**
+     * Unsubscribes photo asset event callback.
+     *
+     * @param { 'photoAssetAvailable' } type - Event type.
+     * @param { AsyncCallback<PhotoAsset> } callback - Callback used to get the asset.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+     off(type: 'photoAssetAvailable', callback?: AsyncCallback<PhotoAsset>): void;
 
     /**
      * Subscribes photo available event callback.
