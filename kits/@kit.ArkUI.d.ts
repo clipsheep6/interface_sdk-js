@@ -104,6 +104,7 @@ import SystemRouter, {
   BackRouterOptions, DisableAlertBeforeBackPageOptions, EnableAlertBeforeBackPageOptions,
   RouterOptions, RouterState
 } from '@system.router';
+import { AtomicServiceTabs, TabBarOption, TabBarPosition, TabContentBuilder } form '@ohos.atomicservice.AtomicServiceTabs';
 
 export {
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, App, AppResponse, AtomicServiceBar,
@@ -129,5 +130,6 @@ export {
   WindowExtensionContext, XComponentNode, ComponentContent, componentSnapshot, componentUtils, curves, display, dragController, dragInteraction,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, prompt, promptAction, router,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog,
-  IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup
+  IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
+  AtomicServiceTabs, TabBarOption, TabBarPosition, TabContentBuilder
 };
