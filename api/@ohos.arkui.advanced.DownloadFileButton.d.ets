@@ -345,5 +345,5 @@ export declare struct DownloadFileButton {
    * @atomicservice
    * @since 12
    */
-  @State styleOption: DownloadStyleOption;
+  @State styleOptions: DownloadStyleOptions;
 }
