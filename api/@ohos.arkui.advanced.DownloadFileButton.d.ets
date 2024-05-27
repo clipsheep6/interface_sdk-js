@@ -186,7 +186,7 @@ export declare enum DownloadLayoutDirection {
  * @since 12
  */
 
-export interface DownloadContentOption {
+export interface DownloadContentOptions {
   /**
    * Download icon Style.
    *
