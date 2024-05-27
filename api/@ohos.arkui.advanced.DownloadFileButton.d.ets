@@ -337,7 +337,7 @@ export declare struct DownloadFileButton {
    * @atomicservice
    * @since 12
    */
-  @State contentOption: DownloadContentOption;
+  @State contentOptions: DownloadContentOptions;
   /**
    * Sets the DownloadFileButton Content.
    * @type { DownloadStyleOption }.
