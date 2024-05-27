@@ -220,7 +220,7 @@ export interface DownloadContentOptions {
  * @since 12
  */
 
-export interface DownloadStyleOption {
+export interface DownloadStyleOptions {
 
   /**
    * Icon size.
