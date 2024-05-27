@@ -19,6 +19,7 @@ const SECOND_PARAM = 2;
 
 function checkEntry(prId) {
   let result = ['api_check: false'];
+  let newToolResult = [];
   const sourceDirname = __dirname;
   __dirname = 'interface/sdk-js/build-tools/api_check_plugin';
   const mdFilesPath = path.resolve(sourceDirname, '../../../../', 'all_files.txt');
@@ -34,27 +35,54 @@ function checkEntry(prId) {
           timeout: 120000,
         });
         execute = true;
-      } catch (error) {}
+      } catch (error) { }
     } while (++i < MAX_TIMES && !execute);
     if (!execute) {
       throw 'npm install timeout';
     }
-    const { scanEntry, reqGitApi } = require(path.resolve(__dirname, './src/api_check_plugin'));
+    const { scanEntry, reqGitApi, getMdFiles } = require(path.resolve(__dirname, './src/api_check_plugin'));
     result = scanEntry(mdFilesPath, prId, false);
     result = reqGitApi(result, prId);
+
+    const filePathArr = getMdFiles(mdFilesPath, false);
+    const filePath = filePathArr.join(',');
+    const resultPath = path.resolve(__dirname, './newResult.json');
+    buffer = execSync(`cd interface/sdk-js/build-tools/dts_parser/package && node ./JS_API_CHECK.js -N checkOnline --path ${filePath} --checker all  --output ${resultPath} --excel false`, {
+      timeout: 120000,
+    });
+    newToolResult.push(`resultPath:${resultPath}`);
+    newToolResult.push(`resultJsonPath:${path.resolve(__dirname, resultPath)}`);
+    if (fs.existsSync(path.resolve(__dirname, resultPath))) {
+      const newToolResultArr = require(resultPath);
+      if (newToolResultArr.length === 0) {
+        newToolResult.push('api_check: true');
+        return;
+      }
+      newToolResultArr.forEach(newToolResultInfo => {
+        const filePath = newToolResultInfo.buggyFilePath;
+        newToolResultInfo.buggyFilePath = filePath.slice(filePath.indexOf('api'), filePath.length);
+        newToolResult.push('filePath==',filePath)
+        newToolResult.push(newToolResultInfo)
+        newToolResult.push(newToolResultInfo);
+      });
+      newToolResult.push('api_check: false');
+    }
+
     removeDir(path.resolve(__dirname, '../api_diff/node_modules'));
     removeDir(path.resolve(__dirname, 'node_modules'));
   } catch (error) {
     // catch error
     result.push(`API_CHECK_ERROR : ${error}`);
     result.push(`buffer : ${buffer.toString()}`);
+    newToolResult.push(`API_CHECK_ERROR : ${error}`);
+    newToolResult.push(`buffer : ${buffer.toString()}`);
   } finally {
     const { apiCheckInfoArr, removeDuplicateObj } = require('./src/utils');
     const apiCheckResultArr = removeDuplicateObj(apiCheckInfoArr);
     apiCheckResultArr.forEach((errorInfo) => {
       result.unshift(errorInfo);
     });
-    writeResultFile(result, path.resolve(__dirname, './Result.txt'), {});
+    writeResultFile(newToolResult, path.resolve(__dirname, './Result.txt'), {});
   }
 }
 
