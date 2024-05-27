@@ -18,31 +18,29 @@
  * @kit ArkUI
  */
 
-
+/**
+ * Serialization and Deserialization of Classes.
+ * @interface Classify 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+export interface Classify {
   /**
-   * Serialization and Deserialization of Classes.
-   * @interface Classify 
+   * Serialize and preserve V2 decorator info.
+   * @param { Object) } (obj - The object to be serialized
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
-  export interface Classify {
- 
-    /**
-     * Serialize  and preserve V2 decorator info.
-     * @param { Object) } (obj - The object to be serialized
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    serialize<T extends Object>(obj : Object) : string;
+  serialize<T extends Object>(obj : Object) : string;
 
-     /**
-     * Deserialize to observable objects.
-     * @param { Object) } (obj - The object to be serialized
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12
-     */
-    deserialize<T extends Object>(s : string): T
+  /**
+   * Deserialize to observable objects.
+   * @param { Object) } (obj - The object to be serialized
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  deserialize<T extends Object>(s : string): T
 }
