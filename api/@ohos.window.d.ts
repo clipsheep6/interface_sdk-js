@@ -650,7 +650,7 @@ declare namespace window {
    * Properties of status bar, it couldn't update automatically
    *
    * @interface SystemBarStyle
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @的 SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12
    */
