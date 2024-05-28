@@ -82,6 +82,7 @@ declare namespace Environment {
 
   /**
    * Get the public download directory.
+   * This API can be called only by system applications.
    *
    * @permission ohos.permission.READ_WRITE_DOWNLOAD_DIRECTORY
    * @returns { string } Return the public download directory.
@@ -95,6 +96,7 @@ declare namespace Environment {
 
   /**
    * Get the public desktop directory.
+   * This API can be called only by system applications.
    *
    * @permission ohos.permission.READ_WRITE_DESKTOP_DIRECTORY
    * @returns { string } Return the public desktop directory.
@@ -108,6 +110,7 @@ declare namespace Environment {
 
   /**
    * Get the public document directory.
+   * This API can be called only by system applications.
    *
    * @permission ohos.permission.READ_WRITE_DOCUMENTS_DIRECTORY
    * @returns { string } Return the public document directory.
