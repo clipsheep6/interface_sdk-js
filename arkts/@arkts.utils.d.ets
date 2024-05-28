@@ -173,7 +173,7 @@ declare namespace utils {
        * @atomicservice
        * @since 12
        */
-      readonly name: string;
+      public readonly name: string;
     }
 
     /**
@@ -236,7 +236,7 @@ declare namespace utils {
        * @atomicservice
        * @since 12
        */
-      isAvailable: boolean;
+      public isAvailable: boolean;
       /**
        * The object used to abort the async operation. If signal.aborted is true, the callback will not be called.
        *
@@ -246,7 +246,7 @@ declare namespace utils {
        * @atomicservice
        * @since 12
        */
-      signal: AbortSignal<T> | null;
+      public signal: AbortSignal<T> | null;
       /**
        * Lock operation timeout in milliseconds. If it is greater than zero, lockAsync will reject the resulting promise
        * when the timeout is exceeded.
@@ -257,7 +257,7 @@ declare namespace utils {
        * @atomicservice
        * @since 12
        */
-      timeout: number;
+      public timeout: number;
     }
 
     /**
@@ -278,7 +278,7 @@ declare namespace utils {
        * @atomicservice
        * @since 12
        */
-      held: AsyncLockInfo[];
+      public held: AsyncLockInfo[];
       /**
        * Pending locks information.
        *
@@ -288,7 +288,7 @@ declare namespace utils {
        * @atomicservice
        * @since 12
        */
-      pending: AsyncLockInfo[];
+      public pending: AsyncLockInfo[];
     }
 
     /**
@@ -309,7 +309,7 @@ declare namespace utils {
        * @atomicservice
        * @since 12
        */
-      name: string;
+      public name: string;
       /**
        * Lock operation mode.
        *
@@ -319,7 +319,7 @@ declare namespace utils {
        * @atomicservice
        * @since 12
        */
-      mode: AsyncLockMode;
+      public mode: AsyncLockMode;
       /**
        * lockAsync caller's execution context identifier.
        *
@@ -329,7 +329,7 @@ declare namespace utils {
        * @atomicservice
        * @since 12
        */
-      contextId: number;
+      public contextId: number;
     }
 
     /**
@@ -352,7 +352,7 @@ declare namespace utils {
        * @atomicservice
        * @since 12
        */
-      aborted: boolean;
+      public aborted: boolean;
 
       /**
        * Reason for the abort. This value will be used to reject the promise returned from lockAsync.
@@ -363,7 +363,7 @@ declare namespace utils {
        * @atomicservice
        * @since 12
        */
-      reason: T
+      public reason: T
     }
   }
   /**
