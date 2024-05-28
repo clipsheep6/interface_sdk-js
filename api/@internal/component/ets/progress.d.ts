@@ -1423,7 +1423,18 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @since 11
    * @form
    */
-  value(value: number): ProgressAttribute<Type>;
+  /**
+   * Called when the current progress value is set.
+   *
+   * @param { Optional<number> } value
+   * @returns { ProgressAttribute<Type> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  value(value: Optional<number>): ProgressAttribute<Type>;
 
   /**
    * Called when the progress bar foreground is set.
@@ -1463,7 +1474,18 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @since 11
    * @form
    */
-  color(value: ResourceColor | LinearGradient): ProgressAttribute<Type>;
+  /**
+   * Called when the progress bar foreground is set.
+   *
+   * @param { Optional<ResourceColor | LinearGradient> } value - indicates the color of the progress.
+   * @returns { ProgressAttribute<Type> } the attribute of the progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  color(value: Optional<ResourceColor | LinearGradient>): ProgressAttribute<Type>;
 
   /**
    * Called when the style of progress bar is set.
@@ -1503,7 +1525,18 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @since 11
    * @form
    */
-  style(value: Style): ProgressAttribute<Type>;
+  /**
+   * Called when the style of progress bar is set.
+   *
+   * @param { Optional<Style> } value - indicates the style of the progress.
+   * @returns { ProgressAttribute<Type> } the attribute of the progress.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  style(value: Optional<Style>): ProgressAttribute<Type>;
 
   /**
    * Sets if mark to privacy sensitive.
@@ -1520,13 +1553,13 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
   /**
    * Set the contentModifier of progress.
    *
-   * @param { ContentModifier<ProgressConfiguration> } modifier - The contentModifier of progress.
+   * @param { Optional<ContentModifier<ProgressConfiguration>> } modifier - The contentModifier of progress.
    * @returns { ProgressAttribute<Type> } the attribute of the progress.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  contentModifier(modifier: ContentModifier<ProgressConfiguration>): ProgressAttribute<Type>;
+  contentModifier(modifier: Optional<ContentModifier<ProgressConfiguration>>): ProgressAttribute<Type>;
 }
 
 /**

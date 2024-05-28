@@ -566,7 +566,18 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @since 11
    * @form
    */
-  closeEffect(value: boolean): DataPanelAttribute;
+  /**
+   * Disable the special effect of the data ratio chart.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { DataPanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  closeEffect(value: Optional<boolean>): DataPanelAttribute;
 
   /**
    * Set the value colors of the data ratio chart.
@@ -587,7 +598,17 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @atomicservice
    * @since 11
    */
-  valueColors(value: Array<ResourceColor | LinearGradient>): DataPanelAttribute;
+  /**
+   * Set the value colors of the data ratio chart.
+   *
+   * @param { Optional<Array<ResourceColor | LinearGradient>> } value - the value colors of the data ratio chart.
+   * @returns { DataPanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  valueColors(value: Optional<Array<ResourceColor | LinearGradient>>): DataPanelAttribute;
 
   /**
    * Set track background color of the data ratio chart.
@@ -608,7 +629,17 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @atomicservice
    * @since 11
    */
-  trackBackgroundColor(value: ResourceColor): DataPanelAttribute;
+  /**
+   * Set track background color of the data ratio chart.
+   *
+   * @param { Optional<ResourceColor> } value - track background color of the data ratio chart.
+   * @returns { DataPanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  trackBackgroundColor(value: Optional<ResourceColor>): DataPanelAttribute;
 
   /**
    * Set the stroke width of the data ratio chart.
@@ -629,7 +660,17 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @atomicservice
    * @since 11
    */
-  strokeWidth(value: Length): DataPanelAttribute;
+  /**
+   * Set the stroke width of the data ratio chart.
+   *
+   * @param { Optional<Length> } value - the stroke width of the data ratio chart.
+   * @returns { DataPanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  strokeWidth(value: Optional<Length>): DataPanelAttribute;
 
   /**
    * Set the shadow width of the data ratio chart.
@@ -650,18 +691,27 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * @atomicservice
    * @since 11
    */
-  trackShadow(value: DataPanelShadowOptions): DataPanelAttribute;
-
   /**
-   * Set the content modifier of data panel.
+   * Set the shadow width of the data ratio chart.
    *
-   * @param { ContentModifier<DataPanelConfiguration> } modifier - The content modifier of data panel.
+   * @param { Optional<DataPanelShadowOptions> } value - the track shadow width of the data ratio chart.
    * @returns { DataPanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  contentModifier(modifier: ContentModifier<DataPanelConfiguration>): DataPanelAttribute;
+  trackShadow(value: Optional<DataPanelShadowOptions>): DataPanelAttribute;
+
+  /**
+   * Set the content modifier of data panel.
+   *
+   * @param { Optional<ContentModifier<DataPanelConfiguration>> } modifier - The content modifier of data panel.
+   * @returns { DataPanelAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  contentModifier(modifier: Optional<ContentModifier<DataPanelConfiguration>>): DataPanelAttribute;
 }
 
 /**

@@ -163,7 +163,18 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @since 11
    * @form
    */
-  onInc(event: () => void): CounterAttribute;
+  /**
+   * Listen to the event that the value increases.
+   *
+   * @param { Optional<Callback<void>> } event
+   * @returns { CounterAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  onInc(handler: Optional<Callback<void>>): CounterAttribute;
 
   /**
    * Listens to the number decrease event.
@@ -203,7 +214,18 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @since 11
    * @form
    */
-  onDec(event: () => void): CounterAttribute;
+  /**
+   * Listens to the number decrease event.
+   *
+   * @param { Optional<Callback<void>> } event
+   * @returns { CounterAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  onDec(handler: Optional<Callback<void>>): CounterAttribute;
 
   /**
    * Indicates whether the decrease button of counter component is available or not.
@@ -224,7 +246,17 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @atomicservice
    * @since 11
    */
-  enableDec(value: boolean): CounterAttribute;
+  /**
+   * Indicates whether the decrease button of counter component is available or not.
+   *
+   * @param { Optional<boolean> } value - If true, the decrease button is available and can respond to operations such as clicking. If false, click operations are not responded.
+   * @returns { CounterAttribute } The attribute of the counter.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enableDec(value: Optional<boolean>): CounterAttribute;
 
   /**
    * Indicates whether the increase button of counter component is available or not.
@@ -245,7 +277,17 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @atomicservice
    * @since 11
    */
-  enableInc(value: boolean): CounterAttribute;
+  /**
+   * Indicates whether the increase button of counter component is available or not.
+   *
+   * @param { Optional<boolean> } value - If true, the increase button is available and can respond to operations such as clicking. If false, click operations are not responded.
+   * @returns { CounterAttribute } The attribute of the counter.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  enableInc(value: Optional<boolean>): CounterAttribute;
 }
 
 /**

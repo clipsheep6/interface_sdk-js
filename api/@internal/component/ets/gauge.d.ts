@@ -288,7 +288,18 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @since 11
    * @form
    */
-  value(value: number): GaugeAttribute;
+  /**
+   * Sets the value for the current profile.
+   *
+   * @param { Optional<number> } value
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  value(value: Optional<number>): GaugeAttribute;
 
   /**
    * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
@@ -328,7 +339,18 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @since 11
    * @form
    */
-  startAngle(angle: number): GaugeAttribute;
+  /**
+   * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
+   *
+   * @param { Optional<number> } angle
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  startAngle(angle: Optional<number>): GaugeAttribute;
 
   /**
    * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
@@ -368,7 +390,18 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @since 11
    * @form
    */
-  endAngle(angle: number): GaugeAttribute;
+  /**
+   * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
+   *
+   * @param { Optional<number> } angle
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  endAngle(angle: Optional<number>): GaugeAttribute;
 
   /**
    * Set the color of the chart. You can set the solid color and segmented gradient color.
@@ -408,7 +441,18 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @since 11
    * @form
    */
-  colors(colors: ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]>): GaugeAttribute;
+  /**
+   * Set the color of the chart. You can set the solid color and segmented gradient color.
+   * 
+   * @param { Optional<ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]>> } colors - section colors of gauge drawing.
+   * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  colors(colors: Optional<ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]>>): GaugeAttribute;
 
   /**
    * Sets the thickness of the ring chart.
@@ -448,7 +492,18 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @since 11
    * @form
    */
-  strokeWidth(length: Length): GaugeAttribute;
+  /**
+   * Sets the thickness of the ring chart.
+   *
+   * @param { Optional<Length> } length
+   * @returns { GaugeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  strokeWidth(length: Optional<Length>): GaugeAttribute;
 
   /**
    * Sets description content of the ring chart.
@@ -462,14 +517,14 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
   /**
    * Sets description content of the ring chart.
    *
-   * @param { CustomBuilder } value - description content builder of the gauge drawing.
+   * @param { Optional<CustomBuilder> } value - description content builder of the gauge drawing.
    * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  description(value: CustomBuilder): GaugeAttribute;
+  description(value: Optional<CustomBuilder>): GaugeAttribute;
 
   /**
    * Sets track shadow of the ring chart.
@@ -483,14 +538,14 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
   /**
    * Sets track shadow of the ring chart.
    *
-   * @param { GaugeShadowOptions } value - track shadow options of the gauge drawing.
+   * @param { Optional<GaugeShadowOptions> } value - track shadow options of the gauge drawing.
    * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  trackShadow(value: GaugeShadowOptions): GaugeAttribute;
+  trackShadow(value: Optional<GaugeShadowOptions>): GaugeAttribute;
 
   /**
    * Sets indicator options of the ring chart.
@@ -504,14 +559,14 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
   /**
    * Sets indicator options of the ring chart.
    *
-   * @param { GaugeIndicatorOptions } value - indicator options of the gauge drawing.
+   * @param { Optional<GaugeIndicatorOptions> } value - indicator options of the gauge drawing.
    * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  indicator(value: GaugeIndicatorOptions): GaugeAttribute;
+  indicator(value: Optional<GaugeIndicatorOptions>): GaugeAttribute;
 
   /**
    * Sets if mark to privacy sensitive.
@@ -528,13 +583,13 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
   /**
    * Set the content modifier of gauge.
    *
-   * @param { ContentModifier<GaugeConfiguration> } modifier - The content modifier of gauge.
+   * @param { Optional<ContentModifier<GaugeConfiguration>> } modifier - The content modifier of gauge.
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  contentModifier(modifier: ContentModifier<GaugeConfiguration>): GaugeAttribute;
+  contentModifier(modifier: Optional<ContentModifier<GaugeConfiguration>>): GaugeAttribute;
 }
 
 /**

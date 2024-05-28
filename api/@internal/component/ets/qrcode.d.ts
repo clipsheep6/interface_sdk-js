@@ -167,7 +167,18 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @since 11
    * @form
    */
-  color(value: ResourceColor): QRCodeAttribute;
+  /**
+   * Called when the QR code color is set.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { QRCodeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  color(value: Optional<ResourceColor>): QRCodeAttribute;
 
   /**
    * Called when setting the QR code background color.
@@ -207,7 +218,18 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @since 11
    * @form
    */
-  backgroundColor(value: ResourceColor): QRCodeAttribute;
+  /**
+   * Called when setting the QR code background color.
+   *
+   * @param { Optional<ResourceColor> } value
+   * @returns { QRCodeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  backgroundColor(value: Optional<ResourceColor>): QRCodeAttribute;
 
   /**
    * Set the opacity of the QR code content color.
@@ -219,14 +241,14 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    */
   /**
    * Set the opacity of the QR code content color.
-   * @param { number | Resource } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
+   * @param { Optional<number | Resource> } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
    * @returns { QRCodeAttribute } the attribute of the QR code
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  contentOpacity(value: number | Resource): QRCodeAttribute;
+  contentOpacity(value: Optional<number | Resource>): QRCodeAttribute;
 }
 
 /**
