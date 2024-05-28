@@ -379,7 +379,7 @@ declare namespace text {
   }
 
   /**
-   * @brief Enumeration of font width of text.
+   * Enumeration of font width of text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
@@ -450,10 +450,10 @@ declare namespace text {
   }
 
   /**
-   * @brief Enumerates of heightmode of text.
-   *
+   * Enumerates of height mode of text.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
    * @since 12
-   * @version 1.0
    */
   enum TextHeightBehavior {
     /**
@@ -547,20 +547,20 @@ declare namespace text {
   interface TextShadow {
     /**
      * The color of text shadow.
-     * @type { common2D.Color } The color of text shadow
+     * @type { ?common2D.Color } The color of text shadow
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    color: common2D.Color;
+    color?: common2D.Color;
     /**
      * The value sets offset of text shadow that based on the original text.
-     * @type { common2D.Point } The point of shadow
+     * @type { ?common2D.Point } The point of shadow
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    point: common2D.Point;
+    point?: common2D.Point;
     /**
-     * The value sets special effect radius of bluring text, it default is 0.
+     * The value sets special effect radius of blurring text, it default is 0.
      * @type { ?number } The value about radius of blur, it type is "double"
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -625,16 +625,18 @@ declare namespace text {
   interface FontFeature {
     /**
      * The name of font feature.
+     * @type { string } feature name
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    name: string,
+    name: string;
     /**
      * The value of font feature.
+     * @type { number } feature value
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    value: number,
+    value: number;
   }
 
   /**
@@ -767,7 +769,7 @@ declare namespace text {
     locale?: string;
 
     /**
-     * The underlined text offset distance.
+     * The offset distance that the underline of text.
      * @type { ?number } it is double type data.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -1480,6 +1482,7 @@ declare namespace text {
 
     /**
      * Add symbolId.
+     * @param { number } symbolId - Symbol Id
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
