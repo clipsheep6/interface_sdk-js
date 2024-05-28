@@ -941,6 +941,19 @@ declare namespace drawing {
      * @since 12
      */
     static createDashPathEffect(intervals: Array<number>, phase: number): PathEffect;
+
+    /**
+     * Makes a corner PathEffect.
+     * @param { number } radius - Indicates the radius of the tangent circle at the corners of the path.
+     * The radius must be greater than 0.
+     * @returns { PathEffect } PathEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createCornerPathEffect(radius: number): PathEffect;
   }
 
   /**
