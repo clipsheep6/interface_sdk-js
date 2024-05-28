@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -98,9 +98,9 @@ declare namespace sim {
    * If no SIM card is inserted or the SIM card is deactivated will be return {@code false}.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7
    */
@@ -116,9 +116,9 @@ declare namespace sim {
    * return {@code false}.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7
    */
@@ -133,10 +133,10 @@ declare namespace sim {
    * in ISO 3166-2; returns an empty string if no SIM card is inserted.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6
    */
@@ -151,10 +151,10 @@ declare namespace sim {
    * returns an empty string if no SIM card is inserted.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6
    */
@@ -184,10 +184,10 @@ declare namespace sim {
    * returns an empty string if no SIM card is inserted.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6
    */
@@ -204,10 +204,10 @@ declare namespace sim {
    * @returns { Promise<string> } Returns the PLMN number; returns an empty string if no SIM card is inserted.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6
    */
@@ -239,10 +239,10 @@ declare namespace sim {
    * returns an empty string if no SIM card is inserted or no EFSPN file in the SIM card.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6
    */
@@ -260,10 +260,10 @@ declare namespace sim {
    * no EFSPN file in the SIM card.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6
    */
@@ -300,9 +300,9 @@ declare namespace sim {
    * </ul>
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6
    */
@@ -324,9 +324,9 @@ declare namespace sim {
    * </ul>
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6
    */
@@ -359,10 +359,10 @@ declare namespace sim {
    * @param { AsyncCallback<CardType> } callback - Indicates the callback for getting the SIM card type.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7
    */
@@ -376,10 +376,10 @@ declare namespace sim {
    * @returns { Promise<CardType> } Returns the SIM card type.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7
    */
@@ -411,10 +411,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -435,10 +435,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -457,10 +457,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -479,10 +479,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -501,10 +501,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -523,10 +523,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -546,11 +546,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -570,11 +570,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -595,10 +595,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -618,10 +618,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -641,10 +641,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -664,10 +664,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -696,10 +696,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 6
@@ -717,10 +717,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 6
@@ -737,10 +737,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -756,9 +756,9 @@ declare namespace sim {
    * Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7
    */
@@ -772,9 +772,9 @@ declare namespace sim {
    * @returns { Promise<boolean> } Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7
    */
@@ -802,11 +802,11 @@ declare namespace sim {
    * if has no ohos.permission.GET_TELEPHONY_STATE.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10
    */
@@ -822,11 +822,11 @@ declare namespace sim {
    * will be null if has no ohos.permission.GET_TELEPHONY_STATE.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10
    */
@@ -841,10 +841,10 @@ declare namespace sim {
    * if has no ohos.permission.GET_TELEPHONY_STATE.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10
    */
@@ -856,10 +856,10 @@ declare namespace sim {
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @returns { Promise<Array<IccAccountInfo>> } Returns the array of {@link IccAccountInfo}. The ICCID
    * and phone number will be null if has no ohos.permission.GET_TELEPHONY_STATE.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10
    */
@@ -876,10 +876,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
@@ -898,10 +898,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
@@ -920,10 +920,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -941,10 +941,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -962,10 +962,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -983,10 +983,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1005,10 +1005,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1027,10 +1027,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1048,10 +1048,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1069,10 +1069,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1091,10 +1091,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1113,10 +1113,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1134,10 +1134,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1155,10 +1155,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1178,9 +1178,9 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1199,9 +1199,9 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1221,11 +1221,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -1245,11 +1245,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -1270,11 +1270,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -1295,11 +1295,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -1320,11 +1320,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -1345,11 +1345,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -1369,11 +1369,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -1393,11 +1393,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7
@@ -1417,11 +1417,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1441,11 +1441,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1466,11 +1466,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1491,11 +1491,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1516,11 +1516,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1541,11 +1541,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1565,11 +1565,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1588,11 +1588,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1612,11 +1612,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1636,11 +1636,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1660,11 +1660,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1684,11 +1684,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1708,11 +1708,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1732,11 +1732,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1755,11 +1755,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1778,11 +1778,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1801,10 +1801,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1823,10 +1823,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1845,10 +1845,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1867,10 +1867,10 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1891,11 +1891,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1915,11 +1915,11 @@ declare namespace sim {
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @throws { BusinessError } 8301002 - SIM card operation error.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
+   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8
@@ -1936,9 +1936,9 @@ declare namespace sim {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 9
    */
@@ -1954,9 +1954,9 @@ declare namespace sim {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 9
    */
@@ -1984,9 +1984,9 @@ declare namespace sim {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 9
    */
@@ -2002,9 +2002,9 @@ declare namespace sim {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 9
    */
@@ -2029,10 +2029,10 @@ declare namespace sim {
    * and SIM ID will increase from 1.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10
@@ -2045,10 +2045,10 @@ declare namespace sim {
    * @returns { Promise<number> } Returns the SIM ID of the default voice sim
    * and SIM ID will increase from 1.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - Do not have sim card.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300004 - No SIM card found.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10
@@ -2073,7 +2073,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to
    *     service.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 11
@@ -2098,7 +2098,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to
    *     service.
    * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 11
