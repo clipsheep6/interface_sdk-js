@@ -317,6 +317,17 @@ declare interface TextBaseController {
    * @since 12
    */
   closeSelectionMenu(): void;
+
+  /**
+   * Get LayoutManager.
+   * 
+   * @returns { LayoutManager } - Return the LayoutManager.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getLayoutManager(): LayoutManager;
 }
 
 /**
@@ -457,6 +468,141 @@ interface StyledStringChangeValue {
    * @since 12
    */
   replacementString: StyledString;
+}
+
+/**
+ * Define the LayoutManager for querying layout infomation.
+ *
+ * @interface LayoutManager
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface LayoutManager {
+  /**
+   * Get the line count.
+   * 
+   * @returns { number } The line count value returned to the caller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getLineCount(): number;
+
+  /**
+   * Get the rects for range.
+   * 
+   * @param { Range } range - the range of the Text area to get.
+   * @param { RectWidthStyle } widthStyle - the Width style of the rects.
+   * @param { RectHeightStyle } heightStyle - the Height style of the rects.
+   * @returns { Array<TextBox> } The rects for range.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
+
+  /**
+   * Get the glyph position at coordinate.
+   * 
+   * @param { number } x - the positionX of typography.
+   * @param { number } y - the positionY of typography.
+   * @returns { PositionWithAffinity } TextBlob object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity;
+
+  /**
+   * Get whether it exceed the maximum lines of typography.
+   * 
+   * @returns { boolean } The true indicates exceeding, the false indicates not exceeding.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  didExceedMaxLines(): boolean;
+
+  /**
+   * Get LineMetrics.
+   * 
+   * @param { number } lineNumber - the number of line.
+   * @returns { LineMetrics } The line Metrics.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  getLineMetrics(lineNumber: number): LineMetrics;
+}
+
+/**
+ * Define the Affinity type.
+ * 
+ * @typedef { import('../api/@ohos.graphics.text').default.Affinity } Affinity
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type Affinity = import('../api/@ohos.graphics.text').default.Affinity;
+
+/**
+ * Define the LineMetrics type.
+ * 
+ * @typedef { import('../api/@ohos.graphics.text').default.LineMetrics } LineMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type LineMetrics = import('../api/@ohos.graphics.text').default.LineMetrics; 
+
+/**
+ * Define the TextBox type.
+ * 
+ * @typedef { import('../api/@ohos.graphics.text').default.TextBox } TextBox
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox; 
+
+/**
+ * Position and affinity.
+ * @typedef PositionWithAffinity
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+interface PositionWithAffinity {
+  /**
+   * Position of text.
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  position: number;
+
+  /**
+   * Affinity of text.
+   * @type { Affinity }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  affinity: Affinity;
 }
 
 /**
