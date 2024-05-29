@@ -333,8 +333,8 @@ declare namespace unifiedDataChannel {
     /**
      * Create unified record by type and value.
      *
-     * @param { string } type - indicates to data type of unified record. It can not be empty. When type of value is object, parameter type must be pixel-map or want UTD type.
-     * @param { ValueType } value - indicates to value of unified record.
+     * @param { string } type - indicates to data type of unified record. It can not be empty.
+     * @param { ValueType | object } value - indicates to value of unified record.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect Parameters types;
      * <br>3.Parameter verification failed.
@@ -342,17 +342,28 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 12
      */
-    constructor(type: string, value: ValueType);
+    constructor(type: string, value: ValueType | object);
 
     /**
-     * Get the value of unified record.
+     * Get the value of unified record. GetObject is recommended when GetValue returns undefined.
      *
-     * @returns { ValueType } Return the value of unified record.
+     * @returns { ValueType | undefined } Return the value of unified record.
+     * If the type of return value is object other than Want and PixelMap, undefined will be returned.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
      */
-    getValue(): ValueType;
+    getValue(): ValueType | undefined;
+
+    /**
+     * Get the object of unified record.
+     *
+     * @returns { object } Return the value of unified record.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 12
+     */
+    getObject(): Object;
   }
 
   /**
