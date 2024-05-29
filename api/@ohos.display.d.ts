@@ -954,7 +954,7 @@ declare namespace display {
     refreshRate: number;
 
     /**
-     * Rotation degrees of the display.
+     * An enumeration value for rotation degrees of the display.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
