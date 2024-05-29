@@ -387,6 +387,16 @@ declare enum TextAreaType {
   EMAIL = 5,
 
   /**
+   * URL decimal entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  URL = 6,
+
+  /**
    * Number decimal entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full

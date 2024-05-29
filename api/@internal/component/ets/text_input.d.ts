@@ -136,6 +136,16 @@ declare enum InputType {
   Email,
 
   /**
+   * URL decimal entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  URL = 6,
+
+  /**
    * Password entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
