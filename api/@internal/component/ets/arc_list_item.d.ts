@@ -28,10 +28,22 @@
  * @since 12
  */
 interface ArcListItemInterface {
+  /**
+   * Called when an interface is used.
+   *
+   * @param { void }
+   * @returns { ArcListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   (): ArcListItemAttribute;
 }
 
 /**
+ * Defines the arc list item attribute functions.
+ * 
  * @extends CommonMethod<ArcListItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Arc
  * @crossplatform
@@ -50,6 +62,18 @@ declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttribute> {
    * @since 12
    */
   autoScale(value: boolean): ArcListItemAttribute;
+
+  /**
+   * Sets the action item that appears when the list item slides in the cross axis direction of the list.
+   *
+   * @param { SwipeActionOptions } value - items defines in the SwipeActionOption.
+   * @returns { ArcListItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  swipeAction(value: SwipeActionOptions): ArcListItemAttribute;
 }
 
 /**

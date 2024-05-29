@@ -19,6 +19,36 @@
  */
 
 /**
+ * Called when the start, end and center positions of the display change.
+ *
+ * @typedef { function } OnScrollIndexCallback
+ * @param { number } start - the start index of the display area.
+ * @param { number } end - the end index of the display area.
+ * @param { number } center - the center index of the display area.
+ * @returns { void }
+ * @syscap SystemCapability.ArkUI.ArkUI.Arc
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type OnScrollIndexCallback = (start: number, end: number, center: number) => void;
+
+/**
+ * Defines the arc list options.
+ *
+ * @interface ArkListOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Arc
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface ArkListOptions {
+  initialIndex?: number;
+  scroller?: Scroller;
+  header?: ComponentContent;
+}
+
+/**
  * The arc list interface is extended.
  *
  * @interface ArcListInterface
@@ -38,10 +68,12 @@ interface ArcListInterface {
    * @atomicservice
    * @since 12
    */
-  (value?: { initialIndex?: number; space?: number | string; scroller?: Scroller; header?: CustomBuilder }): ArcListAttribute;
+  (value?: ArkListOptions): ArcListAttribute;
 }
 
 /**
+ * Defines the arc list attribute functions.
+ * 
  * @extends CommonMethod<ArcListAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Arc
  * @crossplatform
@@ -62,6 +94,18 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   digitalCrownSensitivity(value: CrownSensitivity): ArcListAttribute;
 
   /**
+   * Called when setting the space between items
+   *
+   * @param { number | string } value
+   * @returns { ArcListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  space(value: number | string): ArcListAttribute;
+
+  /**
    * Called when the display mode of the side slider is set.
    *
    * @param { BarState } value
@@ -74,6 +118,30 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   scrollBar(value: BarState): ArcListAttribute;
 
   /**
+   * Color of the scrollbar.
+   *
+   * @param { Color | number | string } value - Color of the scrollbar.
+   * @returns { ArcListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollBarColor(value: Color | number | string): ArcListAttribute;
+
+  /**
+   * Width of the scrollbar.
+   *
+   * @param { number | string } value  - Width of the scrollbar.
+   * @returns { ArcListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollBarWidth(value: number | string): ArcListAttribute;
+
+  /**
    * Called when the minimum number of list item caches is set for long list deferred loading.
    *
    * @param { number } value
@@ -84,6 +152,18 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @since 12
    */
   cachedCount(value: number): ArcListAttribute;
+
+  /**
+   * Called when setting whether to enable chain linkage dynamic effect.
+   *
+   * @param { boolean } value
+   * @returns { ArcListAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  chainAnimation(value: boolean): ArcListAttribute;
 
   /**
    * Set children main size for List.
@@ -108,6 +188,18 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @since 12
    */
   enableScrollInteraction(value: boolean): ArcListAttribute;
+
+  /**
+   * Called when setting whether to enable fading Edge effect.
+   *
+   * @param { Optional<boolean> } value - Whether to turn on the edge fade effect
+   * @returns { ArcListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  fadingEdge(value: Optional<boolean>): ArcListAttribute;
 
   /**
    * Called to setting the friction.
@@ -135,7 +227,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   flingSpeedLimit(value: number): ArcListAttribute;
 
   /**
-   * Called when the start and end positions of the display change.
+   * Called when the start, end and center positions of the display change.
    *
    * @param { function } event
    * @returns { ArcListAttribute }
@@ -144,55 +236,55 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @atomicservice
    * @since 12
    */
-  onScrollIndex(event: (start: number, end: number, center: number) => void): ArcListAttribute;
+  onScrollIndex(event: OnScrollIndexCallback): ArcListAttribute;
 
   /**
    * Called when the list begins to arrive.
    *
-   * @param { function } event
+   * @param { VoidCallback } event
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onReachStart(event: () => void): ArcListAttribute;
+  onReachStart(event: VoidCallback): ArcListAttribute;
 
   /**
    * Called when the list reaches the end.
    *
-   * @param { function } event
+   * @param { VoidCallback } event
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onReachEnd(event: () => void): ArcListAttribute;
+  onReachEnd(event: VoidCallback): ArcListAttribute;
 
   /**
    * Called when the slider start.
    *
-   * @param { function } event
+   * @param { VoidCallback } event
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onScrollStart(event: () => void): ArcListAttribute;
+  onScrollStart(event: VoidCallback): ArcListAttribute;
 
   /**
    * Called when the slider stops.
    *
-   * @param { function } event
+   * @param { VoidCallback } event
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onScrollStop(event: () => void): ArcListAttribute;
+  onScrollStop(event: VoidCallback): ArcListAttribute;
 
   /**
    * Called when the scrollable will scroll.
