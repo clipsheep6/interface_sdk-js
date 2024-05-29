@@ -21,7 +21,7 @@
 /**
  * Called when the start, end and center positions of the display change.
  *
- * @typedef { function } OnScrollIndexCallback
+ * @typedef { function } ScrollIndexHandler
  * @param { number } start - the start index of the display area.
  * @param { number } end - the end index of the display area.
  * @param { number } center - the center index of the display area.
@@ -31,7 +31,7 @@
  * @atomicservice
  * @since 12
  */
-declare type OnScrollIndexCallback = (start: number, end: number, center: number) => void;
+declare type ScrollIndexHandler = (start: number, end: number, center: number) => void;
 
 /**
  * Defines the arc list options.
@@ -43,8 +43,37 @@ declare type OnScrollIndexCallback = (start: number, end: number, center: number
  * @since 12
  */
 declare interface ArkListOptions {
+  /**
+   * Describes the index of initial item.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   initialIndex?: number;
+
+  /**
+   * Describes the controller for scrollable container.
+   *
+   * @type { ?Scroller }
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   scroller?: Scroller;
+
+  /**
+   * Describes the header.
+   *
+   * @type { ?ComponentContent }
+   * @syscap SystemCapability.ArkUI.ArkUI.Arc
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   header?: ComponentContent;
 }
 
@@ -61,14 +90,14 @@ interface ArcListInterface {
   /**
    * Called when interface data is called.
    *
-   * @param { object } value
+   * @param { ArkListOptions } options
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  (value?: ArkListOptions): ArcListAttribute;
+  (options?: ArkListOptions): ArcListAttribute;
 }
 
 /**
@@ -84,207 +113,207 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   /**
    * Called to setting the digital crown sensitivity.
    *
-   * @param { CrownSensitivity } value
+   * @param { Optional<CrownSensitivity> } sensitivity
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  digitalCrownSensitivity(value: CrownSensitivity): ArcListAttribute;
+  digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): ArcListAttribute;
 
   /**
    * Called when setting the space between items
    *
-   * @param { number | string } value
+   * @param { Optional<number | string> } space
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  space(value: number | string): ArcListAttribute;
+  space(space: Optional<number | string>): ArcListAttribute;
 
   /**
    * Called when the display mode of the side slider is set.
    *
-   * @param { BarState } value
+   * @param { Optional<BarState> } status
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  scrollBar(value: BarState): ArcListAttribute;
+  scrollBar(status: Optional<BarState>): ArcListAttribute;
 
   /**
    * Color of the scrollbar.
    *
-   * @param { Color | number | string } value - Color of the scrollbar.
+   * @param { Optional<Color | number | string> } color
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  scrollBarColor(value: Color | number | string): ArcListAttribute;
+  scrollBarColor(color: Optional<Color | number | string>): ArcListAttribute;
 
   /**
    * Width of the scrollbar.
    *
-   * @param { number | string } value  - Width of the scrollbar.
+   * @param { Optional<number | string> } width  - Width of the scrollbar.
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  scrollBarWidth(value: number | string): ArcListAttribute;
+  scrollBarWidth(width: Optional<number | string>): ArcListAttribute;
 
   /**
    * Called when the minimum number of list item caches is set for long list deferred loading.
    *
-   * @param { number } value
+   * @param { Optional<number> } count
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  cachedCount(value: number): ArcListAttribute;
+  cachedCount(count: Optional<number>): ArcListAttribute;
 
   /**
    * Called when setting whether to enable chain linkage dynamic effect.
    *
-   * @param { boolean } value
+   * @param { Optional<boolean> } enable
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  chainAnimation(value: boolean): ArcListAttribute;
+  chainAnimation(enable: Optional<boolean>): ArcListAttribute;
 
   /**
    * Set children main size for List.
    *
-   * @param { ChildrenMainSize } value - children main size for List
+   * @param { Optional<ChildrenMainSize> } size - children main size for List
    * @returns { ArcListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  childrenMainSize(value: ChildrenMainSize): ArcListAttribute;
+  childrenMainSize(size: Optional<ChildrenMainSize>): ArcListAttribute;
 
   /**
    * Called when setting whether to enable scroll by gesture or mouse.
    *
-   * @param { boolean } value
+   * @param { Optional<boolean> } enable
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  enableScrollInteraction(value: boolean): ArcListAttribute;
+  enableScrollInteraction(enable: Optional<boolean>): ArcListAttribute;
 
   /**
    * Called when setting whether to enable fading Edge effect.
    *
-   * @param { Optional<boolean> } value - Whether to turn on the edge fade effect
+   * @param { Optional<boolean> } enable - Whether to turn on the edge fade effect
    * @returns { ArcListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  fadingEdge(value: Optional<boolean>): ArcListAttribute;
+  fadingEdge(enable: Optional<boolean>): ArcListAttribute;
 
   /**
    * Called to setting the friction.
    *
-   * @param { number | Resource } value - options for scrolling friction.
+   * @param { Optional<number | Resource> } friction - options for scrolling friction.
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  friction(value: number | Resource): ArcListAttribute;
+  friction(friction: Optional<number | Resource>): ArcListAttribute;
 
   /**
    * Limit the max speed when fling.
    *
-   * @param { number } value - Max fling speed, the minimum value is 0, the maximum value is not limited.
-   *                           The unit is vp/s.
+   * @param { Optional<number> } speed - Max fling speed, the minimum value is 0, the maximum value is not limited.
+   *                             The unit is vp/s.
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  flingSpeedLimit(value: number): ArcListAttribute;
+  flingSpeedLimit(speed: Optional<number>): ArcListAttribute;
 
   /**
    * Called when the start, end and center positions of the display change.
    *
-   * @param { function } event
+   * @param { Optional<ScrollIndexHandler> } handler
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onScrollIndex(event: OnScrollIndexCallback): ArcListAttribute;
+  onScrollIndex(handler: Optional<ScrollIndexHandler>): ArcListAttribute;
 
   /**
    * Called when the list begins to arrive.
    *
-   * @param { VoidCallback } event
+   * @param { Optional<VoidCallback> } handler
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onReachStart(event: VoidCallback): ArcListAttribute;
+  onReachStart(handler: Optional<VoidCallback>): ArcListAttribute;
 
   /**
    * Called when the list reaches the end.
    *
-   * @param { VoidCallback } event
+   * @param { Optional<VoidCallback> } handler
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onReachEnd(event: VoidCallback): ArcListAttribute;
+  onReachEnd(handler: Optional<VoidCallback>): ArcListAttribute;
 
   /**
    * Called when the slider start.
    *
-   * @param { VoidCallback } event
+   * @param { Optional<VoidCallback> } handler
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onScrollStart(event: VoidCallback): ArcListAttribute;
+  onScrollStart(handler: Optional<VoidCallback>): ArcListAttribute;
 
   /**
    * Called when the slider stops.
    *
-   * @param { VoidCallback } event
+   * @param { Optional<VoidCallback> } handler
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onScrollStop(event: VoidCallback): ArcListAttribute;
+  onScrollStop(handler: Optional<VoidCallback>): ArcListAttribute;
 
   /**
    * Called when the scrollable will scroll.
@@ -301,7 +330,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   /**
    * Called when the scrollable did scroll.
    *
-   * @param { OnScrollCallback } handler - callback of scrollable,
+   * @param { Optional<OnScrollCallback> } handler - callback of scrollable,
    * scrollOffset is offset this frame did scroll, scrollState is current scroll state.
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
@@ -309,7 +338,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * @atomicservice
    * @since 12
    */
-  onDidScroll(handler: OnScrollCallback): ArcListAttribute;
+  onDidScroll(handler: Optional<OnScrollCallback>): ArcListAttribute;
 }
 
 /**

@@ -54,26 +54,26 @@ declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttribute> {
   /**
    * Called when judging whether it is auto scale when layout.
    *
-   * @param { boolean } value
+   * @param { Optional<boolean> } enable
    * @returns { ArcListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  autoScale(value: boolean): ArcListItemAttribute;
+  autoScale(enable: Optional<boolean>): ArcListItemAttribute;
 
   /**
    * Sets the action item that appears when the list item slides in the cross axis direction of the list.
    *
-   * @param { SwipeActionOptions } value - items defines in the SwipeActionOption.
+   * @param { Optional<SwipeActionOptions> } options - items defines in the SwipeActionOption.
    * @returns { ArcListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  swipeAction(value: SwipeActionOptions): ArcListItemAttribute;
+  swipeAction(options: Optional<SwipeActionOptions>): ArcListItemAttribute;
 }
 
 /**
