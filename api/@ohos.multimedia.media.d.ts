@@ -1334,7 +1334,7 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    addSubtitleUrl(url: string, mimeType:String): void;
+    addSubtitleUrl(url: string, mimeType?:String): void;
     /**
      * Add subtitle tracks.
      * @returns { Promise<void> } A Promise instance used to return when release completed.
@@ -1346,7 +1346,8 @@ declare namespace media {
      * @atomicservice
      * @since 12
      */
-    addSubtitleFdSrc(fd:number, offset:number, size:number, mimeType:String): void;
+    addSubtitleFdSrc(fd:number, offset:number, size:number, mimeType?:String): void;
+
     /**
      * Sets the volume.
      * @param { number } volume - Relative volume. The value ranges from 0.00 to 1.00. The value 1 indicates the maximum volume (100%).
