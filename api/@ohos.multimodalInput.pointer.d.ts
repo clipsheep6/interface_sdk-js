@@ -446,6 +446,33 @@ declare namespace pointer {
   }
 
   /**
+   * HardwareCursorStats
+   *
+   * @interface Pointer
+   * @syscap SystemCapability.MultimodalInput.Input.Pointer
+   * @since 12
+   */
+  interface HardwareCursorStats {
+    /**
+     * Counting the frame rate of continuous mouse movement
+     *
+     * @type { number }
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 12
+     */
+    frameCount: number;
+    
+    /**
+     * Statistics of mouse continuous movement synchronization frame rate
+     *
+     * @type { number }
+     * @syscap SystemCapability.MultimodalInput.Input.Pointer
+     * @since 12
+     */
+    vsyncCount: number;
+  }
+
+  /**
    * Sets the pointer moving speed.
    *
    * @param { number } speed - Pointer moving speed, which is any number.
@@ -1384,6 +1411,26 @@ declare namespace pointer {
    * @since 11
    */
   function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
+  
+   /**
+    * Enables or disables the hard cursor recording function.
+    *
+    * @param { boolean } enable - Enables or disables the hard cursor drawing function.
+    * @throws { BusinessError } 401 - Parameter error.
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 12
+    */
+    function enableHardwareCursorStats(enable: boolean ): void
+
+   /**
+    * Query mouse hard cursor information.
+    *
+    * @returns { HardwareCursorStats } Returns the result HardwareCursorStats.
+    * @throws { BusinessError } 401 - Parameter error.
+    * @syscap SystemCapability.MultimodalInput.Input.Pointer
+    * @since 12
+    */
+    function getHardwareCursorStats(): HardwareCursorStats;
 }
 
 export default pointer;
