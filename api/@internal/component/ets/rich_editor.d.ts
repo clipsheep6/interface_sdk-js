@@ -3446,6 +3446,30 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
     * @since 12
     */
   onCopy(callback: Callback<CopyEvent>): RichEditorAttribute;
+
+  /**
+   * Called when the input of the input box changes when has preview text.
+   *
+   * @param { OnPreviewTextChangeCallback } OnPreviewTextChangeCallback
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onPreviewTextChange(callback: OnPreviewTextChangeCallback): RichEditorAttribute;
+
+  /**
+   * Define the preview text mode of the text input.
+   *
+   * @param { boolean } enable - Indicates the preview text mode.
+   * @returns { RichEditorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enablePreviewText(enable: boolean): RichEditorAttribute;
 }
 
 /**

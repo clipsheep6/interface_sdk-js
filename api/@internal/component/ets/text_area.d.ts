@@ -1585,6 +1585,30 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 12
    */
   onDidDelete(callback: Callback<DeleteValue>): TextAreaAttribute;
+
+  /**
+   * Called when the input of the input box changes when has preview text.
+   *
+   * @param { OnPreviewTextChangeCallback } OnPreviewTextChangeCallback
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onPreviewTextChange(callback: OnPreviewTextChangeCallback): TextAreaAttribute;
+
+  /**
+   * Define the preview text mode of the text input.
+   *
+   * @param { boolean } enable - Indicates the preview text mode.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enablePreviewText(enable: boolean): TextAreaAttribute;
 }
 
 /**

@@ -289,6 +289,18 @@ declare interface DeleteValue {
 declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange) => void;
 
 /**
+ * Callback when input with info of previewText.
+ * 
+ * @typedef { function } OnPreviewTextChangeCallback
+ * @param { InsertValue } previewTextInfo - Value of previewText and start index.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type OnPreviewTextChangeCallback = (value: InsertValue) => void;
+
+/**
  * Define the text selection controller.
  *
  * @interface TextBaseController
