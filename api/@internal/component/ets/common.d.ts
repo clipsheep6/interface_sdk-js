@@ -22617,6 +22617,37 @@ declare interface SelectionOptions {
   menuPolicy?: MenuPolicy;
 }
 
+declare interface ExpandedMenuItemOptions {
+  /**
+   * Customize what the menu displays.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  content: ResourceStr;
+  /**
+   * Customize the icon before the menu displays content.
+   *
+   * @type { ?ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  startIcon?: ResourceStr;
+  /**
+   * Get the selected text information.
+   *
+   * @type { function }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  action: (selectedText: {plainText: string}) => void;
+}
+
+
 declare module 'commonEvent' {
   module 'commonEvent' {
     // @ts-ignore

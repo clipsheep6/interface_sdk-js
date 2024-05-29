@@ -1083,6 +1083,16 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 12
    */
   privacySensitive(supported: boolean): TextAttribute;
+
+  /**
+   * Set the custom text menu.
+   *
+   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): TextAttribute;
 }
 
 /**

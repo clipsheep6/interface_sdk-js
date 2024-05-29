@@ -279,6 +279,16 @@ declare enum SearchType {
   EMAIL = 5,
 
   /**
+   * URL decimal entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  URL = 6,
+
+  /**
    * Number decimal entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1311,6 +1321,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 12
    */
   onDidDelete(callback: Callback<DeleteValue>): SearchAttribute;
+
+  /**
+   * Set the custom text menu.
+   *
+   * @param { Array<ExpandedMenuItemOptions> } expandedMenuOptions - Customize text menu options.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  selectionMenuOptions(expandedMenuOptions: Array<ExpandedMenuItemOptions>): SearchAttribute;
 }
 
 /**
