@@ -142,7 +142,7 @@ declare namespace drawing {
      */
     DARKEN = 16,
     /**
-     * Choose a lighter background and source color. 
+     * Choose a lighter background and source color.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -166,7 +166,7 @@ declare namespace drawing {
      */
     HARD_LIGHT = 20,
     /**
-     * Lightens or Darkens the colors, depending on the source. 
+     * Lightens or Darkens the colors, depending on the source.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
@@ -217,7 +217,7 @@ declare namespace drawing {
 
   /**
    * Describes a path object.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -247,7 +247,7 @@ declare namespace drawing {
     /**
      * This is done by using angle arc mode. In this mode, a rectangle that encloses an ellipse is specified first,
      * and then a start angle and a sweep angle are specified.
-     * The arc is a portion of the ellipse defined by the start angle and the sweep angle. 
+     * The arc is a portion of the ellipse defined by the start angle and the sweep angle.
      * By default, a line segment from the last point of the path to the start point of the arc is also added.
      * @param { number } x1 - Indicates the x coordinate of the upper left corner of the rectangle.
      * @param { number } y1 - Indicates the y coordinate of the upper left corner of the rectangle.
@@ -713,7 +713,7 @@ declare namespace drawing {
 
   /**
    * Provide a description of the text
-   * 
+   *
    * class TextBlob
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
@@ -755,10 +755,10 @@ declare namespace drawing {
      */
     bounds(): common2D.Rect;
   }
-  
+
   /**
    * The Typeface class specifies the typeface and intrinsic style of a font.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -770,11 +770,21 @@ declare namespace drawing {
      * @since 11
      */
     getFamilyName(): string;
+
+    /**
+     * Generate typeface from file.
+     * @param { string } filePath - filePath for typeface.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @returns { Typeface } Typeface.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 11
+     */
+    static makeFromFile(filePath: string): Typeface;
   }
 
   /**
    * Font controls options applied when drawing and measuring text.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -967,7 +977,7 @@ declare namespace drawing {
       * @since 12
       */
      maxCharWidth?: number;
- 
+
      /**
       * Greatest extent to left of origin of any glyph bounding box, typically negative; deprecated with variable fonts.
       * @type { ?number }
@@ -975,7 +985,7 @@ declare namespace drawing {
       * @since 12
       */
      xMin?: number;
- 
+
      /**
       * Greatest extent to right of origin of any glyph bounding box, typically positive; deprecated with variable fonts.
       * @type { ?number }
@@ -983,7 +993,7 @@ declare namespace drawing {
       * @since 12
       */
      xMax?: number;
- 
+
      /**
       * Height of lower-case 'x', zero if unknown, typically negative.
       * @type { ?number }
@@ -991,7 +1001,7 @@ declare namespace drawing {
       * @since 12
       */
      xHeight?: number;
- 
+
      /**
       * Height of an upper-case letter, zero if unknown, typically negative.
       * @type { ?number }
@@ -999,7 +1009,7 @@ declare namespace drawing {
       * @since 12
       */
      capHeight?: number;
- 
+
      /**
       * Underline thickness.
       * @type { ?number }
@@ -1007,7 +1017,7 @@ declare namespace drawing {
       * @since 12
       */
      underlineThickness?: number;
- 
+
      /**
       * Distance from baseline to top of stroke, typically positive.
       * @type { ?number }
@@ -1015,7 +1025,7 @@ declare namespace drawing {
       * @since 12
       */
      underlinePosition?: number;
- 
+
      /**
       * Strikethrough thickness.
       * @type { ?number }
@@ -1023,7 +1033,7 @@ declare namespace drawing {
       * @since 12
       */
      strikethroughThickness?: number;
- 
+
      /**
       * Distance from baseline to bottom of stroke, typically negative.
       * @type { ?number }
@@ -1099,7 +1109,7 @@ declare namespace drawing {
 
   /**
    * ColorFilters are optional objects in the drawing pipeline.
-   * 
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11
    */
@@ -1271,7 +1281,7 @@ declare namespace drawing {
     setColor(color: common2D.Color): void;
     /**
     * Sets the thickness of the pen used by the paint to outline the shape.
-    * 
+    *
     * @param { number } width - Zero thickness for hairline; greater than zero for pen thickness.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1290,7 +1300,7 @@ declare namespace drawing {
     setAntiAlias(aa: boolean): void;
     /**
     * Replaces alpha, leaving RGB
-    * 
+    *
     * @param { number } alpha - Alpha channel of color. The range of alpha must be [0, 255].
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1300,7 +1310,7 @@ declare namespace drawing {
     setAlpha(alpha: number): void;
     /**
     * Sets ColorFilter to pen
-    * 
+    *
     * @param { ColorFilter } filter - ColorFilter to apply to subsequent draw.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1340,7 +1350,7 @@ declare namespace drawing {
     setShadowLayer(shadowLayer: ShadowLayer): void;
     /**
     * Sets a blender that implements the specified blendmode enum.
-    * 
+    *
     * @param { BlendMode } mode - Blendmode.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
@@ -1350,7 +1360,7 @@ declare namespace drawing {
     setBlendMode(mode: BlendMode): void;
     /**
     * Request color distribution error.
-    * 
+    *
     * @param { boolean } dither - Whether the color is distributed incorrectly.
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
