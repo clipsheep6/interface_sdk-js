@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,7 +19,7 @@
  */
 
 /**
- * Alphabet arc index bar.
+ * Arc alphabet index bar.
  *
  * @interface ArcAlphabetIndexerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Arc
@@ -43,7 +43,7 @@ interface ArcAlphabetIndexerInterface {
 }
 
 /**
- * Defines the alphabet arc index bar attribute functions.
+ * Defines the arc alphabet index bar attribute functions.
  *
  * @extends CommonMethod<ArcAlphabetIndexerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Arc
