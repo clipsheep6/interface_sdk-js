@@ -42,6 +42,7 @@ declare namespace mdns {
    * @since 10
    */
   /**
+  /**
    * Get a network address.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
