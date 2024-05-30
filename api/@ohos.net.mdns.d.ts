@@ -38,18 +38,16 @@ import Context from "./application/Context";
 declare namespace mdns {
   /**
    * Get a network address.
-   * @typedef { connection.NetAddress }
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10
    */
   /**
    * Get a network address.
-   * @typedef { connection.NetAddress }
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since 11
    */
-  type NetAddress = connection.NetAddress;
+  export type NetAddress = connection.NetAddress;
 
   /**
    * Adds an mDNS service.
