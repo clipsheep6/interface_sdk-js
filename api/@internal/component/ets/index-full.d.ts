@@ -21,6 +21,7 @@
 /// <reference path="./action_sheet.d.ts" />
 /// <reference path="./alert_dialog.d.ts" />
 /// <reference path="./alphabet_indexer.d.ts" />
+/// <reference path="./arc_alphabet_indexer.d.ts" />
 /// <reference path="./animator.d.ts" />
 /// <reference path="./badge.d.ts" />
 /// <reference path="./blank.d.ts" />

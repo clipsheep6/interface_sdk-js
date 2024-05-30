@@ -9,6 +9,7 @@
       "components": [
         "AbilityComponent",
         "AlphabetIndexer",
+		"ArcAlphabetIndexer",
         "Animator",
         "Badge",
         "Blank",
@@ -117,6 +118,11 @@
             "type": "AlphabetIndexerAttribute",
             "instance": "AlphabetIndexerInstance"
           },
+		  {
+			"name": "ArcAlphabetIndexer",
+            "type": "ArcAlphabetIndexerAttribute",
+            "instance": "ArcAlphabetIndexerInstance"
+		  },
           {
             "name": "Animator",
             "type": "AnimatorAttribute",
