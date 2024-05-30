@@ -43,9 +43,10 @@ declare namespace mdns {
    */
   /**
    * Get a network address.
+   * @typedef { connection.NetAddress }
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since 12
+   * @since 11
    */
   type NetAddress = connection.NetAddress;
 
