@@ -47,7 +47,7 @@ declare namespace mdns {
    * @atomicservice
    * @since 11
    */
-  export type NetAddress = connection.NetAddress;
+  type NetAddress = connection.NetAddress;
 
   /**
    * Adds an mDNS service.
