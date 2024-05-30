@@ -354,6 +354,30 @@ export default class UIAbility extends Ability {
    * Called back when an ability is started for initialization.
    *
    * @param { Want } want - Indicates the want info of the created ability.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onWillNewWant(want: Want): void;
+
+  /**
+   * Called back when an ability is started for initialization.
+   *
+   * @param { Want } want - Indicates the want info of the created ability.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  onNewWant(want: Want): void;
+
+  /**
+   * Called back when an ability is started for initialization.
+   *
+   * @param { Want } want - Indicates the want info of the created ability.
    * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch param.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
