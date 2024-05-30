@@ -19,7 +19,20 @@
  */
 
 /**
- * Arc alphabet index bar.
+ * Called after an index is selected.
+ *
+ * @typedef { function } onRequestPopupDataCallback
+ * @param { number } index - the selected index
+ * @returns { Array<string> } -An array of strings corresponding to the index
+ * @syscap SystemCapability.ArkUI.ArkUI.Arc
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare type onRequestPopupDataCallback = (index: number) => Array<string>;
+
+/**
+ * Alphabet arc index bar.
  *
  * @interface ArcAlphabetIndexerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Arc
@@ -55,291 +68,291 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   /**
    * Definitions color.
    *
-   * @param { ResourceColor } value
+   * @param { Optional<ResourceColor> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  color(value: ResourceColor): ArcAlphabetIndexerAttribute;
+  color(value: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
 
   /**
    * Select the text color.
    *
-   * @param { ResourceColor } value
+   * @param { Optional<ResourceColor> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  selectedColor(value: ResourceColor): ArcAlphabetIndexerAttribute;
+  selectedColor(value: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
 
   /**
    * Font color of the pop-up prompt text.
    *
-   * @param { ResourceColor } value
+   * @param { Optional<ResourceColor> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  popupColor(value: ResourceColor): ArcAlphabetIndexerAttribute;
+  popupColor(value: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
 
   /**
    * Select the text background color.
    *
-   * @param { ResourceColor } value
+   * @param { Optional<ResourceColor> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  selectedBackgroundColor(value: ResourceColor): ArcAlphabetIndexerAttribute;
+  selectedBackgroundColor(value: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
 
   /**
    * Background color of the pop-up window index.
    *
-   * @param { ResourceColor } value
+   * @param { Optional<ResourceColor> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  popupBackground(value: ResourceColor): ArcAlphabetIndexerAttribute;
+  popupBackground(value: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
 
   /**
    * Whether to use pop-up index hints.
    *
-   * @param { boolean } value
+   * @param { Optional<boolean> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  usingPopup(value: boolean): ArcAlphabetIndexerAttribute;
+  usingPopup(value: Optional<boolean>): ArcAlphabetIndexerAttribute;
 
   /**
    * Select the text text style,
    *
-   * @param { Font } value
+   * @param { Optional<Font> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  selectedFont(value: Font): ArcAlphabetIndexerAttribute;
+  selectedFont(value: Optional<Font>): ArcAlphabetIndexerAttribute;
 
   /**
    * Select the text background color.
    *
-   * @param { Font } value
+   * @param { Optional<Font> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  popupFont(value: Font): ArcAlphabetIndexerAttribute;
+  popupFont(value: Optional<Font>): ArcAlphabetIndexerAttribute;
 
   /**
    * Definitions fonts.
    *
-   * @param { Font } value
+   * @param { Optional<Font> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  font(value: Font): ArcAlphabetIndexerAttribute;
+  font(value: Optional<Font>): ArcAlphabetIndexerAttribute;
 
   /**
    * Size of the letter area on the letter index bar. The letter area is a square. Set the length of the square side.
    *
-   * @param { string | number } value
+   * @param { Optional<string | number> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  itemSize(value: string | number): ArcAlphabetIndexerAttribute;
+  itemSize(value: Optional<string | number>): ArcAlphabetIndexerAttribute;
 
   /**
    * Sets the selected index.
    *
-   * @param { number } index
+   * @param { Optional<number> } index
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  selected(index: number): ArcAlphabetIndexerAttribute;
+  selected(index: Optional<number>): ArcAlphabetIndexerAttribute;
 
   /**
    * Position of the pop-up windows, relative to the midpoint of the top border of the indexer bar.
    * 
-   * @param { Position } value
+   * @param { Optional<Position> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  popupPosition(value: Position): ArcAlphabetIndexerAttribute;
+  popupPosition(value: Optional<Position>): ArcAlphabetIndexerAttribute;
 
   /**
    * Set the selected font color of non-alphabetic part of the pop-up window.
    *
-   * @param { ResourceColor } value - indicates the color of the selected font.
+   * @param { Optional<ResourceColor> } value - indicates the color of the selected font.
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  popupSelectedColor(value: ResourceColor): ArcAlphabetIndexerAttribute;
+  popupSelectedColor(value: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
 
   /**
    * Set the unselected font color of non-alphabetic part of the pop-up window.
    *
-   * @param { ResourceColor } value - indicates the color of the unselected font.
+   * @param { Optional<ResourceColor> } value - indicates the color of the unselected font.
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  popupUnselectedColor(value: ResourceColor): ArcAlphabetIndexerAttribute;
+  popupUnselectedColor(value: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
 
   /**
    * Set the font style of non-alphabetic part of the prompt pop-up window.
    * Family and style are not supported currently and will be fixed in future.
    *
-   * @param { Font } value - indicates the style of the font.
+   * @param { Optional<Font> } value - indicates the style of the font.
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  popupItemFont(value: Font): ArcAlphabetIndexerAttribute;
+  popupItemFont(value: Optional<Font>): ArcAlphabetIndexerAttribute;
 
   /**
    * Set the background color of non-alphabetic part of the pop-up window.
    *
-   * @param { ResourceColor } value - indicates the color of background.
+   * @param { Optional<ResourceColor> } value - indicates the color of background.
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  popupItemBackgroundColor(value: ResourceColor): ArcAlphabetIndexerAttribute;
+  popupItemBackgroundColor(value: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
 
   /**
    * Automatically collapses the characters when the indexer bar not high enough to display all characters.
    *
-   * @param { boolean } value - A boolean value determines whether auto collapses is enabled for indexer bar.
+   * @param { Optional<boolean> } value - A boolean value determines whether auto collapses is enabled for indexer bar.
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  autoCollapse(value: boolean): ArcAlphabetIndexerAttribute;
+  autoCollapse(value: Optional<boolean>): ArcAlphabetIndexerAttribute;
 
   /**
    * Set the radius of the item of the pop-up window.
    *
-   * @param { number } value
+   * @param { Optional<number> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  popupItemBorderRadius(value: number): ArcAlphabetIndexerAttribute;
+  popupItemBorderRadius(value: Optional<number>): ArcAlphabetIndexerAttribute;
 
   /**
    * Set the radius of the item of the indexer.
    *
-   * @param { number } value
+   * @param { Optional<number> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  itemBorderRadius(value: number): ArcAlphabetIndexerAttribute;
+  itemBorderRadius(value: Optional<number>): ArcAlphabetIndexerAttribute;
 
   /**
    * Set the background blurStyle of title of the pop-up window.
    *
-   * @param { BlurStyle } value
+   * @param { Optional<BlurStyle> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  popupBackgroundBlurStyle(value: BlurStyle): ArcAlphabetIndexerAttribute;
+  popupBackgroundBlurStyle(value: Optional<BlurStyle>): ArcAlphabetIndexerAttribute;
 
   /**
    * Set the background color of title of the pop-up window.
    *
-   * @param { ResourceColor } value
+   * @param { Optional<ResourceColor> } value
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  popupTitleBackground(value: ResourceColor): ArcAlphabetIndexerAttribute;
+  popupTitleBackground(value: Optional<ResourceColor>): ArcAlphabetIndexerAttribute;
 
   /**
    * Index bar selection callback.
    *
-   * @param { function } callback
+   * @param { Optional<Callback<number>> } callback
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onSelect(callback: (index: number) => void): ArcAlphabetIndexerAttribute;
+  onSelect(callback: Optional<Callback<number>>): ArcAlphabetIndexerAttribute;
 
   /**
    * Index bar selection callback and return the strings which display on pop-up.
    * 
-   * @param { function } callback
+   * @param { Optional<onRequestPopupDataCallback> } callback - callback of ArcAlphabetIndexer
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onRequestPopupData(callback: (index: number) => Array<string>): ArcAlphabetIndexerAttribute;
+  onRequestPopupData(callback: Optional<onRequestPopupDataCallback>): ArcAlphabetIndexerAttribute;
   
   /**
    * Pop-up selection callback.
    *
-   * @param { function } callback
+   * @param { Optional<Callback<number>> } callback
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onPopupSelect(callback: (index: number) => void): ArcAlphabetIndexerAttribute;
+  onPopupSelect(callback: Optional<Callback<number>>): ArcAlphabetIndexerAttribute;
 }
 
 /**
