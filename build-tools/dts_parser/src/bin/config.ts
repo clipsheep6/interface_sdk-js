@@ -457,9 +457,9 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
     let runningCommand: string = '';
 
     if (process.env.NODE_ENV === 'development') {
-      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), '../api_label_detection/src/main.py')} -N detection -L ${options.checkLabels} -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+      runningCommand = `python '${path.resolve(FileUtils.getBaseDirName(), '../api_label_detection/src/main.py')}' -N detection -L ${options.checkLabels} -P '${path.resolve(path.dirname(options.output), 'detection.json')}' -O '${path.resolve(options.output)}'`;
     } else if (process.env.NODE_ENV === 'production') {
-      runningCommand = `${path.resolve(FileUtils.getBaseDirName(), './main.exe')} -N detection -L ${options.checkLabels} -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+      runningCommand = `"${path.resolve(FileUtils.getBaseDirName(), './main.exe')}" -N detection -L ${options.checkLabels} -P "${path.resolve(path.dirname(options.output), 'detection.json')}" -O "${path.resolve(options.output)}"`;
     }
     buffer = execSync(runningCommand, {
       timeout: 120000,
@@ -468,7 +468,7 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
     const error = exception as Error;
     LogUtil.e(`error collect`, error.stack ? error.stack : error.message);
   } finally {
-    LogUtil.i(`detection run over`, buffer.toString());
+    LogUtil.e(`detection run over`, buffer.toString());
   }
   return {
     data: [],
