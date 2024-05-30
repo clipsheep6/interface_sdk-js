@@ -162,6 +162,15 @@ export interface AnimatorOptions {
    * @atomicservice
    * @since 11
    */
+  /**
+   * Delay for the animation start,play the animation in advance when it is negative. The default value indicates no delay.
+   * The default value is 0.
+   * @type {number}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   delay: number;
 
   /**
