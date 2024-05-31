@@ -276,6 +276,20 @@ declare namespace drawing {
     quadTo(ctrlX: number, ctrlY: number, endX: number, endY: number): void;
 
     /**
+     * Draws a conic from the last point of a path to the target point.
+     * @param { number } ctrlX - Indicates the x coordinate of the control point.
+     * @param { number } ctrlY - Indicates the y coordinate of the control point.
+     * @param { number } endX - Indicates the x coordinate of the target point.
+     * @param { number } endY - Indicates the y coordinate of the target point.
+     * @param { number } weight - Indicates the weight of added conic.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    conicTo(ctrlX: number, ctrlY: number, endX: number, endY: number, weight: number): void;
+
+    /**
      * Draws a cubic Bezier curve from the last point of a path to the target point.
      * @param { number } ctrlX1 - Indicates the x coordinate of the first control point.
      * @param { number } ctrlY1 - Indicates the y coordinate of the first control point.
@@ -291,11 +305,99 @@ declare namespace drawing {
     cubicTo(ctrlX1: number, ctrlY1: number, ctrlX2: number, ctrlY2: number, endX: number, endY: number): void;
 
     /**
+     * Sets the relative starting point of a path.
+     * @param { number } dx - Indicates the x coordinate of the relative starting point.
+     * @param { number } dy - Indicates the y coordinate of the relative starting point.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    rMoveTo(dx : number, dy : number): void;
+
+    /**
+     * Draws a line segment from the last point of a path to the relative target point.
+     * @param { number } dx - Indicates the x coordinate of the relative target point.
+     * @param { number } dy - Indicates the y coordinate of the relative target point.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    rLineTo(dx : number, dy : number): void;
+
+    /**
+     * Draws a quadratic bezier curve from the last point of a path to the relative target point.
+     * @param { number } dx1 - Indicates the x coordinate of the relative control point.
+     * @param { number } dy1 - Indicates the y coordinate of the relative control point.
+     * @param { number } dx2 - Indicates the x coordinate of the relative target point.
+     * @param { number } dy2 - Indicates the y coordinate of the relative target point.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    rQuadTo(dx1 : number, dy1 : number, dx2 : number, dy2 : number): void;
+
+    /**
+     * Draws a conic from the last point of a path to the relative target point.
+     * @param { number } ctrlX - Indicates the x coordinate of the relative control point.
+     * @param { number } ctrlY - Indicates the y coordinate of the relative control point.
+     * @param { number } endX - Indicates the x coordinate of the relative target point.
+     * @param { number } endY - Indicates the y coordinate of the relative target point.
+     * @param { number } weight - Indicates the weight of added conic.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    rConicTo(ctrlX: number, ctrlY: number, endX: number, endY: number, weight: number): void;
+
+    /**
+     * Draws a cubic bezier curve from the last point of a path to the relative target point.
+     * @param { number } ctrlX1 - Indicates the x coordinate of the first relative control point.
+     * @param { number } ctrlY1 - Indicates the y coordinate of the first relative control point.
+     * @param { number } ctrlX2 - Indicates the x coordinate of the second relative control point.
+     * @param { number } ctrlY2 - Indicates the y coordinate of the second relative control point.
+     * @param { number } endX - Indicates the x coordinate of the relative target point.
+     * @param { number } endY - Indicates the y coordinate of the relative target point.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    rCubicTo(ctrlX1: number, ctrlY1: number, ctrlX2: number, ctrlY2: number, endX: number, endY: number): void;
+
+    /**
+     * Adds contour created from point array, adding (count - 1) line segments.
+     * @param { Array<common2D.Point> } points - Indicates the point array.
+     * @param { number } count - Indicates the size of point array.
+     * @param { boolean } close - Indicates Whether to add lines that connect the end and start.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    addPolygon(points: Array<common2D.Point>, count: number, close: boolean): void;
+
+    /**
      * Closes a path. A line segment from the start point to the last point of the path is added.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
     close(): void;
+
+    /**
+     * Offset path replaces dst.
+     * @param { Path } dst - Indicates the pointer to an <b>OH_Drawing_Path</b> object.
+     * @param { number } dx - Indicates offset added to dst path x-axis coordinates.
+     * @param { number } dy - Indicates offset added to dst path y-axis coordinates.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    offset(dst: Path, dx: number, dy: number): void;
 
     /**
      * Resets path data.
@@ -513,6 +615,16 @@ declare namespace drawing {
      */
     drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number,
       vertices: Array<number>, vertOffset: number, colors: Array<number>, colorOffset: number): void;
+
+    /**
+     * Draws region using clip, matrix and paint.
+     * @param { Region } region - Region object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    drawRegion(region: Region): void;
 
     /**
      * Set pen to a canvas.
@@ -835,6 +947,54 @@ declare namespace drawing {
      */
     enableLinearMetrics(isLinearMetrics: boolean): void;
     /**
+     * Sets whether the font baselines and pixels alignment when the transformation matrix is ​​axis aligned.
+     * @param { boolean } baselineSnap - Indicates whether the font baselines and pixels alignment.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setBaselineSnap(baselineSnap: boolean): void;
+    /**
+     * Gets whether the font baselines and pixels alignment when the transformation matrix is ​​axis aligned.
+     * @returns { boolean } Returns true if the font baselines and pixels alignment; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isBaselineSnap(): boolean;
+    /**
+     * Sets whether to use bitmaps instead of outlines in the object.
+     * @param { boolean } embeddedBitmaps - Indicates whether to use bitmaps instead of outlines.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setEmbeddedBitmaps(embeddedBitmaps: boolean): void;
+    /**
+     * Gets whether to use bitmaps instead of outlines in the object.
+     * @returns { boolean } if using bitmaps instead of outlines; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isEmbeddedBitmaps(): boolean;
+    /**
+     * Sets whether the font outline is automatically adjusted.
+     * @param { boolean } isForceAutoHinting - Indicates whether the font outline is automatically adjusted.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    setForceAutoHinting(isForceAutoHinting: boolean): void;
+    /**
+     * Gets whether the font outline is automatically adjusted.
+     * @returns { boolean } Returns true if the font outline is automatically adjusted; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    isForceAutoHinting(): boolean;
+    /**
      * Sets text size in points. Has no effect if textSize is not greater than or equal to zero.
      * @param { number } textSize - Typographic height of text. The height of the text must be greater than 0.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -874,6 +1034,17 @@ declare namespace drawing {
      */
     getMetrics(): FontMetrics;
     /**
+     * Retrieves the advance and bounds for each glyph in glyphs.
+     * @param { Array<number> } glyphs - Array of glyph indices to be measured.
+     * @param { number } count - Number of glyphs.
+     * @param { Array<number> } widths - Text advances for each glyph returned to the caller.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    getWidths(glyphs: Array<number>, count: number,  widths: Array<number>): void;
+    /**
      * Measure the width of text.
      * @param { string } text - Text Symbol Content.
      * @param { TextEncoding } encoding - Encoding format.
@@ -884,6 +1055,19 @@ declare namespace drawing {
      * @since 11
      */
     measureText(text: string, encoding: TextEncoding): number;
+    /**
+     * Converts text into glyph indices.
+     * @param { string } text - Indicates the character storage encoded with text encoding.
+     * @param { TextEncoding } encoding - Indicates the text encoding.
+     * @param { Array<number> } glyphs - Indicates the storage for glyph indices.
+     * @param { number } maxGlyphCount - Indicates the storage capacity.
+     * @returns { number } Number of glyphs represented by text of length byteLength.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    textToGlyphs(text: string, encoding:TextEncoding, glyphs: Array<number>, maxGlyphCount: number): number;
   }
 
   /**
@@ -1519,6 +1703,57 @@ declare namespace drawing {
      */
     setBlendMode(mode: BlendMode): void;
   }
+
+  /**
+   * Provides settings for region when drawing.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+    class Region {
+      /**
+      * Determines whether the test point is in the region.
+      * @param { number } x - Indicates the x coordinate of the point.
+      * @param { number } y - Indicates the y coordinate of the point.
+      * @returns { boolean } Returns true if (x, y) is inside region; returns false otherwise.
+      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+      * <br>2. Incorrect parameter types.
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 12
+      */
+      isContainsPoint(x: number, y:number): boolean;
+      /**
+      * Determines whether other region is in the region.
+      * @param { Region } other - Other region object.
+      * @returns { boolean } Returns true if other region is completely inside the region object; 
+      * <br>returns false otherwise.
+      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+      * <br>2. Incorrect parameter types.
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 12
+      */
+      isContainsRegion(other: Region): boolean;
+      /**
+      * Sets the region to match outline of path within clip.
+      * @param { Path } path - Providing outline.
+      * @param { Region } clip - Region object.
+      * @returns { boolean } Returns true if constructed region is not empty; returns false otherwise.
+      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+      * <br>2. Incorrect parameter types.
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 12
+      */
+      setPath(path: Path, clip: Region): boolean;
+      /**
+      * Sets a rect to region.
+      * @param { common2D.Rect } rect - Rect.
+      * @returns { boolean } Returns true if constructed region is not empty; returns false otherwise.
+      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+      * <br>2. Incorrect parameter types.
+      * @syscap SystemCapability.Graphics.Drawing
+      * @since 12
+      */
+      setRect(rect: common2D.Rect): boolean;
+    }
 }
 
 export default drawing;
