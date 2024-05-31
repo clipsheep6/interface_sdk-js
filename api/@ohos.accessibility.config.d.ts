@@ -96,7 +96,7 @@ declare namespace config {
    * @systemapi
    * @since 9
    */
-  var animationOff: Config<boolean>;
+  var animationOff: Config<number>;
   /**
    * Indicates the configuration of brightness discount.
    *
