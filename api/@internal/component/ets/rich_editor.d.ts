@@ -3446,6 +3446,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
     * @since 12
     */
   onCopy(callback: Callback<CopyEvent>): RichEditorAttribute;
+
+  /**
+   * Enable collaboration service.
+   *
+   * @param { boolean } enable - Enable collaboration service.
+   * @returns { RichEditorAttribute } The attribute of the rich editor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enableCollaborationService(enable: boolean): RichEditorAttribute;
 }
 
 /**
