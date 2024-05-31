@@ -1479,30 +1479,12 @@ declare namespace camera {
     SLOW_MOTION_VIDEO = 7,
 
     /**
-     * Macro photo mode.
-     *
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 12
-     */
-    MACRO_PHOTO = 8,
-
-    /**
-     * Macro video mode.
-     *
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
-     * @since 12
-     */
-    MACRO_VIDEO = 9,
-
-    /**
      * Secure camera mode.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @since 12
      */
-    SECURE_PHOTO = 12
+    SECURE_PHOTO = 12,
   }
 
   /**
