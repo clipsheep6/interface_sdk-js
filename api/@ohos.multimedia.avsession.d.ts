@@ -2683,7 +2683,7 @@ declare namespace avSession {
   /**
    * The callback of key request.
    *
-   * @typedef { Function } KeyRequestCallback
+   * @typedef { function } KeyRequestCallback
    * @param { string } assetId - request key for current assetId
    * @param { Uint8Array } requestData - media key request data sent to media key server
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -3745,6 +3745,7 @@ declare namespace avSession {
     /**
      * Current custom media packets
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @type { ExtrasType }
      * @atomicservice
      * @since 12
      */
@@ -3752,11 +3753,12 @@ declare namespace avSession {
   }
 
   /**
-     * provide extras type
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice
-     * @since 12
-     */
+   * provide extras type
+   * @typedef ExtrasType
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 12
+   */
   type ExtrasType = {
     [key: string]: Object;
   }
