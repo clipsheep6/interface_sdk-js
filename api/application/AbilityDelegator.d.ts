@@ -58,7 +58,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object
    * @param { AsyncCallback<void> } callback - The callback of addAbilityMonitor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -69,7 +69,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object
    * @param { AsyncCallback<void> } callback - The callback of addAbilityMonitor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -81,7 +81,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object
    * @param { AsyncCallback<void> } callback - The callback of addAbilityMonitor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -96,7 +96,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -107,7 +107,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -119,7 +119,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -133,7 +133,7 @@ export interface AbilityDelegator {
    *
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -144,7 +144,7 @@ export interface AbilityDelegator {
    *
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -159,7 +159,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @param { AsyncCallback<void> } callback - The callback of addAbilityStageMonitor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -170,7 +170,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @param { AsyncCallback<void> } callback - The callback of addAbilityStageMonitor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -182,7 +182,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @param { AsyncCallback<void> } callback - The callback of addAbilityStageMonitor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -197,7 +197,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -208,7 +208,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -220,7 +220,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -234,7 +234,7 @@ export interface AbilityDelegator {
    *
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityStageMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -245,7 +245,7 @@ export interface AbilityDelegator {
    *
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - AddAbilityStageMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -260,7 +260,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @param { AsyncCallback<void> } callback - The callback of removeAbilityMonitor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -271,7 +271,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @param { AsyncCallback<void> } callback - The callback of removeAbilityMonitor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -283,7 +283,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @param { AsyncCallback<void> } callback - The callback of removeAbilityMonitor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -298,7 +298,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -309,7 +309,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -321,7 +321,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -335,7 +335,7 @@ export interface AbilityDelegator {
    *
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -346,7 +346,7 @@ export interface AbilityDelegator {
    *
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -361,7 +361,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @param { AsyncCallback<void> } callback - The callback of removeAbilityStageMonitor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -372,7 +372,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @param { AsyncCallback<void> } callback - The callback of removeAbilityStageMonitor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -384,7 +384,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @param { AsyncCallback<void> } callback - The callback of removeAbilityStageMonitor.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -399,7 +399,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -410,7 +410,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -422,7 +422,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -436,7 +436,7 @@ export interface AbilityDelegator {
    *
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -447,7 +447,7 @@ export interface AbilityDelegator {
    *
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - RemoveAbilityStageMonitorSync failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -462,7 +462,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -473,7 +473,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -485,7 +485,7 @@ export interface AbilityDelegator {
    * @param { AbilityMonitor } monitor - AbilityMonitor object.
    * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -501,7 +501,7 @@ export interface AbilityDelegator {
    * @param { number } timeout - Maximum wait time, in milliseconds.
    * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -513,7 +513,7 @@ export interface AbilityDelegator {
    * @param { number } timeout - Maximum wait time, in milliseconds.
    * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -526,7 +526,7 @@ export interface AbilityDelegator {
    * @param { number } timeout - Maximum wait time, in milliseconds.
    * @param { AsyncCallback<UIAbility> } callback - The callback is used to return the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -542,7 +542,7 @@ export interface AbilityDelegator {
    * @param { number } [timeout] - Maximum wait time, in milliseconds.
    * @returns { Promise<UIAbility> } Returns the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -554,7 +554,7 @@ export interface AbilityDelegator {
    * @param { number } [timeout] - Maximum wait time, in milliseconds.
    * @returns { Promise<UIAbility> } Returns the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -567,7 +567,7 @@ export interface AbilityDelegator {
    * @param { number } [timeout] - Maximum wait time, in milliseconds.
    * @returns { Promise<UIAbility> } Returns the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -582,7 +582,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -593,7 +593,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -605,7 +605,7 @@ export interface AbilityDelegator {
    * @param { AbilityStageMonitor } monitor - AbilityStageMonitor object.
    * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -621,7 +621,7 @@ export interface AbilityDelegator {
    * @param { number } timeout - Maximum wait time, in milliseconds.
    * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -633,7 +633,7 @@ export interface AbilityDelegator {
    * @param { number } timeout - Maximum wait time, in milliseconds.
    * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -646,7 +646,7 @@ export interface AbilityDelegator {
    * @param { number } timeout - Maximum wait time, in milliseconds.
    * @param { AsyncCallback<AbilityStage> } callback - The callback is used to return the AbilityStage object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -662,7 +662,7 @@ export interface AbilityDelegator {
    * @param { number } [timeout] - Maximum wait time, in milliseconds.
    * @returns { Promise<AbilityStage> } Returns the AbilityStage object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -674,7 +674,7 @@ export interface AbilityDelegator {
    * @param { number } [timeout] - Maximum wait time, in milliseconds.
    * @returns { Promise<AbilityStage> } Returns the AbilityStage object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -687,7 +687,7 @@ export interface AbilityDelegator {
    * @param { number } [timeout] - Maximum wait time, in milliseconds.
    * @returns { Promise<AbilityStage> } Returns the AbilityStage object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - WaitAbilityStageMonitor failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -728,7 +728,7 @@ export interface AbilityDelegator {
    * @param { UIAbility } ability - The Ability object.
    * @returns { number } Returns the state of the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -738,7 +738,7 @@ export interface AbilityDelegator {
    * @param { UIAbility } ability - The Ability object.
    * @returns { number } Returns the state of the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
@@ -749,7 +749,7 @@ export interface AbilityDelegator {
    * @param { UIAbility } ability - The Ability object.
    * @returns { number } Returns the state of the Ability object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
@@ -827,7 +827,7 @@ export interface AbilityDelegator {
    * @param { Want } want - Indicates the ability to start
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -850,7 +850,7 @@ export interface AbilityDelegator {
    * @param { Want } want - Indicates the ability to start
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -876,7 +876,7 @@ export interface AbilityDelegator {
    * @param { Want } want - Indicates the ability to start
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Can not start invisible component.
@@ -1199,7 +1199,7 @@ export interface AbilityDelegator {
    *
    * @param { string } msg - Log information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
    */
@@ -1209,7 +1209,7 @@ export interface AbilityDelegator {
    *
    * @param { string } msg - Log information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @since 10
@@ -1220,7 +1220,7 @@ export interface AbilityDelegator {
    *
    * @param { string } msg - Log information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
@@ -1297,7 +1297,7 @@ export interface AbilityDelegator {
    * @param { number } code - Result code.
    * @param { AsyncCallback<void> } callback - The callback of finishTest.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - FinishTest failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -1310,7 +1310,7 @@ export interface AbilityDelegator {
    * @param { number } code - Result code.
    * @param { AsyncCallback<void> } callback - The callback of finishTest.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - FinishTest failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -1324,7 +1324,7 @@ export interface AbilityDelegator {
    * @param { number } code - Result code.
    * @param { AsyncCallback<void> } callback - The callback of finishTest.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - FinishTest failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -1341,7 +1341,7 @@ export interface AbilityDelegator {
    * @param { number } code - Result code.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - FinishTest failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9
@@ -1354,7 +1354,7 @@ export interface AbilityDelegator {
    * @param { number } code - Result code.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - FinishTest failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
@@ -1368,7 +1368,7 @@ export interface AbilityDelegator {
    * @param { number } code - Result code.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000100 - FinishTest failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform

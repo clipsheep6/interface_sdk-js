@@ -62,7 +62,7 @@ export default class ApplicationContext extends Context {
    * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9
@@ -74,7 +74,7 @@ export default class ApplicationContext extends Context {
    * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -87,7 +87,7 @@ export default class ApplicationContext extends Context {
    * @param { AbilityLifecycleCallback } callback - The ability lifecycle callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -103,7 +103,7 @@ export default class ApplicationContext extends Context {
    * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9
@@ -115,7 +115,7 @@ export default class ApplicationContext extends Context {
    * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -128,7 +128,7 @@ export default class ApplicationContext extends Context {
    * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -144,7 +144,7 @@ export default class ApplicationContext extends Context {
    * @param { number } callbackId - Indicates the number code of the callback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9
@@ -156,7 +156,7 @@ export default class ApplicationContext extends Context {
    * @param { number } callbackId - Indicates the number code of the callback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -171,7 +171,7 @@ export default class ApplicationContext extends Context {
    * @param { EnvironmentCallback } callback - The environment callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9
@@ -183,7 +183,7 @@ export default class ApplicationContext extends Context {
    * @param { EnvironmentCallback } callback - The environment callback.
    * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -198,7 +198,7 @@ export default class ApplicationContext extends Context {
    * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9
@@ -210,7 +210,7 @@ export default class ApplicationContext extends Context {
    * @param { number } callbackId - Indicates the number code of the callback.
    * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -225,7 +225,7 @@ export default class ApplicationContext extends Context {
    * @param { number } callbackId - Indicates the number code of the callback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 9
@@ -237,7 +237,7 @@ export default class ApplicationContext extends Context {
    * @param { number } callbackId - Indicates the number code of the callback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -251,7 +251,7 @@ export default class ApplicationContext extends Context {
    * @param { 'applicationStateChange' } type - applicationStateChange.
    * @param { ApplicationStateChangeCallback } callback - The applicationStateChange callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10
@@ -262,7 +262,7 @@ export default class ApplicationContext extends Context {
    * @param { 'applicationStateChange' } type - applicationStateChange.
    * @param { ApplicationStateChangeCallback } callback - The applicationStateChange callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -276,7 +276,7 @@ export default class ApplicationContext extends Context {
    * @param { 'applicationStateChange' } type - applicationStateChange.
    * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10
@@ -287,7 +287,7 @@ export default class ApplicationContext extends Context {
    * @param { 'applicationStateChange' } type - applicationStateChange.
    * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -432,7 +432,7 @@ export default class ApplicationContext extends Context {
    *
    * @param { ConfigurationConstant.ColorMode } colorMode - Color mode.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -446,7 +446,7 @@ export default class ApplicationContext extends Context {
    *
    * @param { string } language - Language.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types; 3. Parameter verification failed.
+   * <br>2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
