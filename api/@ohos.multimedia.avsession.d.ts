@@ -3748,7 +3748,17 @@ declare namespace avSession {
      * @atomicservice
      * @since 12
      */
-    extras?: {[key: string]: Object};
+    extras?: ExtrasType;
+  }
+
+  /**
+     * provide extras type
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 12
+     */
+  type ExtrasType = {
+    [key: string]: Object;
   }
 
   /**
