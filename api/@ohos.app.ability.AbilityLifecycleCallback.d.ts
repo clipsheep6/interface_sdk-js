@@ -19,6 +19,7 @@
  */
 
 import UIAbility from './@ohos.app.ability.UIAbility';
+import Want from './@ohos.app.ability.Want';
 import dataAbility from './@ohos.data.dataAbility';
 import window from './@ohos.window';
 
@@ -47,6 +48,30 @@ import window from './@ohos.window';
  * @since 11
  */
 export default class AbilityLifecycleCallback {
+  /**
+   * Called back before ability' want create.
+   *
+   * @param { Want } want - Indicates the want info of ability.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onWillNewWant(want: Want): void;
+
+  /**
+   * Called back ability' want create.
+   *
+   * @param { Want } want - Indicates the want info of ability.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onNewWant(want: Want): void;
+
   /**
    * Called back when an ability is started for initialization.
    *
