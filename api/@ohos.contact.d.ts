@@ -2248,25 +2248,6 @@ declare namespace contact {
    */
   class Event {
     /**
-     * Indicates a custom label.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @since 7
-     */
-    /**
-     * Indicates a custom label.
-     *
-     * @readonly
-     * @static
-     * @syscap SystemCapability.Applications.ContactsData
-     * @atomicservice
-     * @since 11
-     */
-    static readonly CUSTOM_LABEL: 0
-
-    /**
      * Indicates an anniversary event.
      *
      * @readonly
@@ -2283,7 +2264,7 @@ declare namespace contact {
      * @atomicservice
      * @since 11
      */
-    static readonly EVENT_ANNIVERSARY: 1
+    static readonly EVENT_ANNIVERSARY: 3
 
     /**
      * Indicates an event of the OTHER type.
@@ -2302,7 +2283,7 @@ declare namespace contact {
      * @atomicservice
      * @since 11
      */
-    static readonly EVENT_OTHER: 2
+    static readonly EVENT_OTHER: 0
 
     /**
      * Indicates an birthday event.
@@ -2321,7 +2302,7 @@ declare namespace contact {
      * @atomicservice
      * @since 11
      */
-    static readonly EVENT_BIRTHDAY: 3
+    static readonly EVENT_BIRTHDAY: 1
 
     /**
      * Indicates an invalid label ID.
