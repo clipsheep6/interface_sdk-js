@@ -581,6 +581,27 @@ export default class UIExtensionContext extends ExtensionContext {
   reportDrawnCompleted(callback: AsyncCallback<void>): void;
 
   /**
+   * Full-screen pop-us startup atomic service.
+   *
+   * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
+   * @param { AtomicServiceOptions } [options] - Indicates the atomic service start options.
+   * @returns { Promise<AbilityResult> } Returns the result of openAtomicService.
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   * @throws { BusinessError } 16000002 - Incorrect ability type.
+   * @throws { BusinessError } 16000003 - The appId does not exist.
+   * @throws { BusinessError } 16000004 - Can not start invisible component
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000012 - The application is controlled.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
+   * @throws { BusinessError } 16200001 - The caller has been released.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 12
+   */
+  openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
+
+  /**
    * Destroys the UI extension.
    *
    * @param { AsyncCallback<void> } callback - The callback of terminateSelf.
@@ -624,25 +645,4 @@ export default class UIExtensionContext extends ExtensionContext {
    * @since 12
    */
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
-
-  /**
-   * Full-screen pop-us startup atomic service.
-   *
-   * @param { string } appId - Globally unique identifier of an application, which is allocated by the cloud.
-   * @param { AtomicServiceOptions } [options] - Indicates the atomic service start options.
-   * @returns { Promise<AbilityResult> } Returns the result of openAtomicService.
-   * @throws { BusinessError } 401 - Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * @throws { BusinessError } 16000002 - Incorrect ability type.
-   * @throws { BusinessError } 16000003 - The appId does not exist.
-   * @throws { BusinessError } 16000004 - Can not start invisible component
-   * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000012 - The application is controlled.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @throws { BusinessError } 16000069 - The extension cannot start the third party application.
-   * @throws { BusinessError } 16200001 - The caller has been released.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 12
-   */
-  openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
 }
