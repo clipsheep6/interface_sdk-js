@@ -9512,3 +9512,38 @@ declare module 'borderStyle' {
     export type { BorderStyle };
   }
 }
+
+/**
+ * common enum of the toggle shape
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
+declare enum ToggleShape {
+  /**
+   * Circle.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  CIRCLE = 0,
+
+  /**
+   * Rounded Square.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  ROUNDED_SQUARE = 1,
+}
+
