@@ -210,6 +210,42 @@ declare enum ScrollAlign {
 }
 
 /**
+ * scroll shape mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum ShapeMode {
+  /**
+   * unspecified, follow theme.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  DEFAULT = 0,
+  /**
+   * rect scrollbar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  RECT,
+  /**
+   * round scrollbar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  ROUND,
+}
+
+/**
  * OffsetResult info.
  *
  * @interface OffsetResult
@@ -1355,6 +1391,17 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @since 12
    */
   initialOffset(value: OffsetOptions): ScrollAttribute;
+
+  /**
+   * set scroll shape mode
+   *
+   * @param { ShapeMode } value
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  setShapeMode(value: ShapeMode): ScrollAttribute;
 }
 
 /**
