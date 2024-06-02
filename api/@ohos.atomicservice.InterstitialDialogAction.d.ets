@@ -74,6 +74,32 @@ export declare enum TitlePosition {
     BOTTOM = 1
 }
 /**
+ * dialog relative to bottom distance if tabs are present.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+export declare enum BottomOffset {
+    /**
+     * dialog distance relative to the bottom in the presence of tabs.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    OFFSET_FOR_BAR = 0,
+    /**
+     * dialog is the distance relative to the bottom without tabs.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    OFFSET_FOR_NONE = 1
+}
+/**
  * Defines the properties required by the dialog.
  *
  * @interface DialogOptions
@@ -109,6 +135,24 @@ export declare interface DialogOptions {
      * @since 12
      */
     subtitle?: ResourceStr;
+    /**
+     * The color of the title.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    titleColor: ResourceStr | Color;
+    /**
+     * The color of the subtitle.
+     *
+     * @type { ?ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 12
+     */
+    subtitleColor: ResourceStr | Color;
     /**
      * The background of the dialog.
      *
@@ -148,21 +192,21 @@ export declare interface DialogOptions {
     /**
      * The action after clicking dialog.
      *
-     * @type { ?() => void }
+     * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
      */
-    onDialogClick?: () => void;
+    onDialogClick?: Callback<void>;
     /**
      * The action after clicking close button.
      *
-     * @type { ?() => void }
+     * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
      */
-    onDialogClose?: () => void;
+    onDialogClose?: Callback<void>;
 }
 /**
  * Declare dialog action.
