@@ -15907,7 +15907,19 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  transition(value: TransitionOptions | TransitionEffect): T;
+  /**
+   * Transition parameter
+   *
+   * @param { TransitionOptions | TransitionEffect } value - transition options or transition effect
+   * @param { ?function } onFinish - transition finish callback. The function entry indicates whether it is an transitionIn animation
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  transition(value: TransitionOptions | TransitionEffect, onFinish?: (transitionIn: boolean) => void): T;
 
   /**
    * Bind gesture recognition.
