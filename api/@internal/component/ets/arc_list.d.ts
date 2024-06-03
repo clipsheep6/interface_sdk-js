@@ -44,7 +44,7 @@ declare type ScrollIndexHandler = (start: number, end: number, center: number) =
  */
 declare interface ArkListOptions {
   /**
-   * Describes the index of initial item.
+   * Describes the index of initial item, the default value is 0.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
@@ -78,7 +78,7 @@ declare interface ArkListOptions {
 }
 
 /**
- * The arc list interface is extended.
+ * Defines the arc list component.
  *
  * @interface ArcListInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Arc
@@ -88,7 +88,7 @@ declare interface ArkListOptions {
  */
 interface ArcListInterface {
   /**
-   * Called when interface data is called.
+   * Creates the arc list component.
    *
    * @param { ArkListOptions } options
    * @returns { ArcListAttribute }
@@ -111,7 +111,7 @@ interface ArcListInterface {
  */
 declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   /**
-   * Called to setting the digital crown sensitivity.
+   * Set the digital crown sensitivity.
    *
    * @param { Optional<CrownSensitivity> } sensitivity
    * @returns { ArcListAttribute }
@@ -123,19 +123,19 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): ArcListAttribute;
 
   /**
-   * Called when setting the space between items
+   * Set the space between items.
    *
-   * @param { Optional<number | string> } space
+   * @param { Optional<Length> } space - The space between items.
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  space(space: Optional<number | string>): ArcListAttribute;
+  space(space: Optional<Length>): ArcListAttribute;
 
   /**
-   * Called when the display mode of the side slider is set.
+   * Set the display mode of the side slider.
    *
    * @param { Optional<BarState> } status
    * @returns { ArcListAttribute }
@@ -149,29 +149,29 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   /**
    * Color of the scrollbar.
    *
-   * @param { Optional<Color | number | string> } color
+   * @param { Optional<ResourceColor> } color  - Color of the scrollbar.
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  scrollBarColor(color: Optional<Color | number | string>): ArcListAttribute;
+  scrollBarColor(color: Optional<ResourceColor>): ArcListAttribute;
 
   /**
    * Width of the scrollbar.
    *
-   * @param { Optional<number | string> } width  - Width of the scrollbar.
+   * @param { Optional<Length> } width  - Width of the scrollbar.
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  scrollBarWidth(width: Optional<number | string>): ArcListAttribute;
+  scrollBarWidth(width: Optional<Length>): ArcListAttribute;
 
   /**
-   * Called when the minimum number of list item caches is set for long list deferred loading.
+   * Set the minimum number of list item caches for long list deferred loading.
    *
    * @param { Optional<number> } count
    * @returns { ArcListAttribute }
@@ -183,7 +183,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   cachedCount(count: Optional<number>): ArcListAttribute;
 
   /**
-   * Called when setting whether to enable chain linkage dynamic effect.
+   * Whether to enable chain linkage dynamic effect.
    *
    * @param { Optional<boolean> } enable
    * @returns { ArcListAttribute }
@@ -195,10 +195,10 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   chainAnimation(enable: Optional<boolean>): ArcListAttribute;
 
   /**
-   * Set children main size for List.
+   * Set the children main size for arc list.
    *
-   * @param { Optional<ChildrenMainSize> } size - children main size for List
-   * @returns { ArcListAttribute } the attribute of the list.
+   * @param { Optional<ChildrenMainSize> } size - children main size for arc list
+   * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
@@ -207,7 +207,7 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   childrenMainSize(size: Optional<ChildrenMainSize>): ArcListAttribute;
 
   /**
-   * Called when setting whether to enable scroll by gesture or mouse.
+   * Whether to enable scroll by gesture or mouse.
    *
    * @param { Optional<boolean> } enable
    * @returns { ArcListAttribute }
@@ -219,10 +219,10 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   enableScrollInteraction(enable: Optional<boolean>): ArcListAttribute;
 
   /**
-   * Called when setting whether to enable fading Edge effect.
+   * Whether to enable fading Edge effect.
    *
-   * @param { Optional<boolean> } enable - Whether to turn on the edge fade effect
-   * @returns { ArcListAttribute } the attribute of the list.
+   * @param { Optional<boolean> } enable
+   * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
@@ -231,16 +231,16 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   fadingEdge(enable: Optional<boolean>): ArcListAttribute;
 
   /**
-   * Called to setting the friction.
+   * Friction coefficient.
    *
-   * @param { Optional<number | Resource> } friction - options for scrolling friction.
+   * @param { Optional<number> } friction - friction coefficient.
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  friction(friction: Optional<number | Resource>): ArcListAttribute;
+  friction(friction: Optional<number>): ArcListAttribute;
 
   /**
    * Limit the max speed when fling.

@@ -19,7 +19,7 @@
  */
 
 /**
- * Values in the list
+ * Defines the arc list item component.
  *
  * @interface ArcListItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Arc
@@ -29,9 +29,8 @@
  */
 interface ArcListItemInterface {
   /**
-   * Called when an interface is used.
+   * Creates the arc list item component.
    *
-   * @param { void }
    * @returns { ArcListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
@@ -52,7 +51,7 @@ interface ArcListItemInterface {
  */
 declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttribute> {
   /**
-   * Called when judging whether it is auto scale when layout.
+   * Whether to enable auto scale when layout.
    *
    * @param { Optional<boolean> } enable
    * @returns { ArcListItemAttribute }
@@ -95,4 +94,3 @@ declare const ArcListItemInstance: ArcListItemAttribute;
  * @since 12
  */
 declare const ArcListItem: ArcListItemInterface;
-
