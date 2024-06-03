@@ -405,6 +405,16 @@ declare namespace formInfo {
      * @since 11
      */
     transparencyEnabled: boolean;
+
+    /**
+     * Obtains the shape supported by this form.
+     *
+     * @type { Array<number> }
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    supportedShapes: Array<number>;
   }
 
   /**
@@ -875,6 +885,20 @@ declare namespace formInfo {
     ABILITY_NAME_KEY = 'ohos.extra.param.key.ability_name',
 
     /**
+     * Indicates the key specifying whether a form type is theme, which is represented as
+     * want: {
+     *   "parameters": {
+     *       THEME_KEY: true
+     *    }
+     * }
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    THEME_KEY = 'ohos.extra.param.key.form_is_theme',
+
+    /**
      * Indicates the key specifying the the device ID, which is represented as
      * want: {
      *   "parameters": {
@@ -993,6 +1017,34 @@ declare namespace formInfo {
      * @since 12
      */
     HOST_BG_INVERSE_COLOR_KEY = 'ohos.extra.param.key.host_bg_inverse_color',
+
+    /**
+     * Indicates the key specifying the user granted permission name, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_PERMISSION_NAME_KEY: "permissionName"
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    FORM_PERMISSION_NAME_KEY = 'ohos.extra.param.key.permission_name',
+
+    /**
+     * Indicates the key specifying whether the user granted, which is represented as
+     * want: {
+     *   "parameters": {
+     *       FORM_PERMISSION_GRANTED_KEY: true
+     *    }
+     * }.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    FORM_PERMISSION_GRANTED_KEY = 'ohos.extra.param.key.permission_granted',
   }
 
   /**
@@ -1053,27 +1105,17 @@ declare namespace formInfo {
      * @since 12
      */
     supportedDimensions?: Array<number>;
-  }
 
-  /**
-   * Configuration update flags.
-   *
-   * @typedef ConfigurationUpdateFlags
-   * @syscap SystemCapability.Ability.Form
-   * @atomicservice
-   * @since 12
-   */
-  interface ConfigurationUpdateFlags {
     /**
-     * Indicates whether font update enabled.
+     * optional supportedShapes that used to ask getFormsInfo to return
+     * form infos with the same supportedShapes.
      *
-     * @type { ?boolean }
-     * @default true
+     * @type { ?Array<number> }
      * @syscap SystemCapability.Ability.Form
-     * @atomicservice
+     * @systemapi
      * @since 12
      */
-    fontEnabled?: boolean;
+    supportedShapes?: Array<number>;
   }
 
   /**
@@ -1185,6 +1227,35 @@ declare namespace formInfo {
      */
     DIMENSION_6_4,
   }
+
+   /**
+   * Defines the FormShape enum.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.Form
+   * @atomicservice
+   * @since 12
+   */
+  enum FormShape {
+    /**
+     * The rect shape.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    RECT = 1,
+
+    /**
+     * The circle shape.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @atomicservice
+     * @since 12
+     */
+    CIRCLE,
+  }
+
   /**
    * The visibility of a form.
    *
@@ -1301,6 +1372,90 @@ declare namespace formInfo {
      * @since 11
      */
     FORM_SHARE
+  }
+
+  /**
+   * The result of publish form.
+   *
+   * @typedef PublishFormResult
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  interface PublishFormResult {
+    /**
+     * The error code.
+     *
+     * @type { PublishFormErrorCode }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    code: PublishFormErrorCode;
+
+    /**
+     * The message.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    message: string;
+  }
+
+  /**
+   * The error code of publish form.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  enum PublishFormErrorCode {
+    /**
+     * Publish form success.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    SUCCESS,
+
+    /**
+     * Host has no space to publish form.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    NO_SPACE,
+
+    /**
+     * Check param failed.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    PARAM_ERROR,
+
+    /**
+     * Internal error occurs during form processing.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    INTERNAL_ERROR,
   }
 
   /**
@@ -1500,6 +1655,18 @@ declare namespace formInfo {
      * @since 11
      */
     readonly formDescription: string;
+
+    /**
+     * Obtains the extra data of the this form.
+     *
+     * @type { ?Record<string, Object> }
+     * @default -
+     * @readonly
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @since 12
+     */
+    readonly extraData?: Record<string, Object>;
   }
 
   /**

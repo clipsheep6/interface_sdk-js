@@ -18,17 +18,20 @@
  * @kit ArkUI
  */
 
+import { Content } from './Content';
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { WrappedBuilder } from 'wrappedBuilderObject';
 
 /**
  * Defines ComponentContent.
  *
+ * @extends Content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
-export class ComponentContent<T extends Object> {
+export class ComponentContent<T extends Object> extends Content{
   /**
    * Constructor.
    *
@@ -36,6 +39,7 @@ export class ComponentContent<T extends Object> {
    * @param { WrappedBuilder<[]> } builder - Defined the builder will be called to build ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<[]>);
@@ -48,6 +52,7 @@ export class ComponentContent<T extends Object> {
    * @param { T } args - Parameters used to update the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<[T]>, args: T);
@@ -58,7 +63,27 @@ export class ComponentContent<T extends Object> {
    * @param { T } args - Parameters used to update the ComponentContent, which must match the types required by the builder bound to the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   update(args: T): void;
+
+  /**
+   * Reuse the ComponentContent based on the provided parameters.
+   *
+   * @param { Object } [param] - Parameters for reusing ComponentContent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reuse(param?: Object): void;
+
+  /**
+   * Recycle the ComponentContent.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  recycle(): void;
 }

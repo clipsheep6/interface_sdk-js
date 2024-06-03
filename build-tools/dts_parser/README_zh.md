@@ -70,19 +70,50 @@
 5. getParseEachSince(apiMap)
    将接口1、2的树形结构的数据遍历展开，进行特殊处理，根据since来区分子节点
 
-### check工具
+### check工具（线上版本）
 
 [代码](src/coreImpl/checker/local_entry.ts)
 
 提供接口
 
-1. checkEntryLocal(filePath, fileRule, output, excel)
+1. checkEntryLocal(filePathArr, fileRuleArr, output, prId, excel)
    根据传入的文件路径和检查规则检查文件中存在的规范错误
 
 工具调用命令
 
 ```
-node --nolazy -r ts-node/register ./src/main.ts -N checkOnline --path 待检查文件路径（非build-tools） --checker 检查规则  --output 报告输出目录 --excel false
+node --nolazy -r ts-node/register ./src/main.ts -N checkOnline --path 待检查文件路径（非build-tools） --checker 检查规则 --prId 兼容性检查文件路径  --output 报告输出目录 --excel false
+```
+
+
+### check工具（线下版本）
+
+[代码](src/coreImpl/checker/local_entry.ts)
+
+提供接口
+
+1. checkEntryLocal(filePathArr, fileRuleArr, output, prId, excel)
+   根据传入的文件路径和检查规则检查文件中存在的规范错误（默认生成excel表格，默认不执行兼容性变更校验）
+
+工具调用命令
+
+```
+node --nolazy -r ts-node/register ./src/main.ts -N check
+```
+
+### api change check工具
+
+[代码](src/coreImpl/checker/local_entry.ts)
+
+提供接口
+
+1. apiChangeCheckEntryLocal(prId, fileRuleArr, output, excel)
+   根据传入的文件路径和检查规则检查文件中存在的修改不兼容规范错误
+
+工具调用命令
+
+```
+node --nolazy -r ts-node/register ./src/main.ts -N apiChangeCheck --prId 待检查文件路径 --checker 检查规则 --output 报告输出目录 --excel false
 ```
 
 ### diff工具
@@ -100,8 +131,6 @@ node --nolazy -r ts-node/register ./src/main.ts -N checkOnline --path 待检查�
 node --nolazy -r ts-node/register ./src/main.ts -N diff --old 旧版本目录/文件（sdk/windows/ets） --new 新版本目录/文件（sdk/windows/ets) --old-version 旧版本号 --new-version 新版本号 --output 报告输出目录 --format excel
 ```
 
-
-
 ### api统计工具
 
 [代码](src/coreImpl/statistics/ApiStatistics.ts)
@@ -117,9 +146,21 @@ node --nolazy -r ts-node/register ./src/main.ts -N diff --old 旧版本目录/�
 node --nolazy -r ts-node/register ./src/main.ts -N collect -C 目录路径/文件路径 --output 报告输出目录 --format excel
 ```
 
+### 元服务API集标签检测工具
 
+[代码](..\api_label_detection\src\main.py)
 
-## 工具调用
+对于元服务标签@atomicservice的漏标误标场景做出识别，辅助API标签排查，将不符合规定标签详情信息汇总至Excel表格中输出.也可根据需求对@form、@crossplatform标签进行校验
+
+工具调用命令
+
+```
+node --nolazy -r ts-node/register ./src/main.ts -N detection -L 验证标签 -C api全文件 -F 统计目录/文件 -O 报告输出目录
+```
+
+详细内容见[元服务API集标签检测工具](..\api_label_detection\README_zh.md)
+
+## 工具xiangx调用
 
 通过commander调用相关工具，[调用入口](src/main.ts)只有（src/main.ts），到当前目录下，执行命令 ts-node ./src/main.ts 后接相关参数。
 
@@ -130,6 +171,7 @@ node --nolazy -r ts-node/register ./src/main.ts -N collect -C 目录路径/文�
   -C,--collect-Path `<string>`         collect api path (default: "./api")
   --path `<string>`                    check file path
   --checker `<string>`                 check file rule
+  --prId `<string>`                    check file change rule
   --excel `<string>`                   check ouput file contain excel
   --old `<string>`                     diff old sdk path (default: "./api")
   --new `<string>`                     diff new sdk path (default: "./api")

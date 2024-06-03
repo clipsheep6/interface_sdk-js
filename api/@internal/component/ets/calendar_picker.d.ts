@@ -351,6 +351,26 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
+   * Style of accept button.
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  acceptButtonStyle?: PickerDialogButtonStyle;
+
+  /**
+   * Style of cancel button.
+   *
+   * @type { ?PickerDialogButtonStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  cancelButtonStyle?: PickerDialogButtonStyle;
+
+  /**
    * Callback function when the dialog appears.
    *
    * @type { ?function }
@@ -391,6 +411,16 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @since 12
    */
   onWillDisappear?: () => void;
+
+  /**
+   * Defines the dialog's shadow.
+   *
+   * @type { ?(ShadowOptions | ShadowStyle) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  shadow?: ShadowOptions | ShadowStyle;
 }
 
 /**

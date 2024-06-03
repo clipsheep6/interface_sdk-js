@@ -14,9 +14,11 @@
  */
 
 /**
- * @file
+ * @file Defines the utils for ArkTS
  * @kit ArkTS
  */
+
+import lang from './@arkts.lang';
 
 /**
  * @namespace utils
@@ -42,8 +44,8 @@ declare namespace utils {
      * @atomicservice
      * @since 12
      */
-    type AsyncLockCallback<T> = () => T|Promise<T>;
-  
+    type AsyncLockCallback<T> = () => T | Promise<T>;
+
     /**
      * Class to execute an asynchronous operation under lock.
      *
@@ -75,7 +77,7 @@ declare namespace utils {
        * @since 12
        */
       static request(name: string): AsyncLock;
-  
+
       /**
        * Query information about the specified lock.
        *
@@ -90,7 +92,7 @@ declare namespace utils {
        * @since 12
        */
       static query(name: string): AsyncLockState;
-  
+
       /**
        * Query information about all locks.
        *
@@ -102,7 +104,7 @@ declare namespace utils {
        * @since 12
        */
       static queryAll(): AsyncLockState[];
-  
+
       /**
        * Perform an operation with the acquired lock exclusively.
        * The method acquires the lock first, then calls the callback, and then releases the lock.
@@ -118,7 +120,7 @@ declare namespace utils {
        * @since 12
        */
       lockAsync<T>(callback: AsyncLockCallback<T>): Promise<T>;
-  
+
       /**
        * Perform an operation with the acquired lock.
        * The method acquires the lock first, then calls the callback, and then releases the lock.
@@ -135,29 +137,32 @@ declare namespace utils {
        * @since 12
        */
       lockAsync<T>(callback: AsyncLockCallback<T>, mode: AsyncLockMode): Promise<T>;
-  
+
       /**
        * Perform an operation with the acquired lock.
        * The method acquires the lock first, then calls the callback, and then releases the lock.
        * The callback is called asynchronously in the same thread where lockAsync was called.
        * An optional timeout value can be provided in {@link AsyncLockOptions}. In this case, lockAsync will reject the
        * resulting promise with a BusinessError instance if the lock is not acquired before timeout exceeds.
-       * The error message, in this case, will contain the held and waited locks information and possible deadlock warnings.
+       * The error message, in this case, will contain the held and waited locks information and possible deadlock
+       * warnings.
        *
        * @param { AsyncLockCallback<T> } callback - function to call when the lock gets acquired.
        * @param { AsyncLockMode } mode - mode of the lock operation.
        * @param { AsyncLockOptions<U> } options - lock operation options.
-       * @returns { Promise<T|U> } Promise that will be resolved after the callback gets executed or rejected in case timeout
-       * exceeded.
+       * @returns { Promise<T | U> } Promise that will be resolved after the callback gets executed or rejected in case
+       *     timeout exceeded.
        * @throws { BusinessError } 401 - The input parameters are invalid.
        * @throws { BusinessError } 10200030 - No such lock.
+       * @throws { BusinessError } 10200031 - Timeout exceeded.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
        * @since 12
        */
-      lockAsync<T, U>(callback: AsyncLockCallback<T>, mode: AsyncLockMode, options: AsyncLockOptions<U>): Promise<T|U>;
-  
+      lockAsync<T, U>(callback: AsyncLockCallback<T>, mode: AsyncLockMode,
+        options: AsyncLockOptions<U>): Promise<T | U>;
+
       /**
        * Name of the lock.
        *
@@ -170,7 +175,7 @@ declare namespace utils {
        */
       readonly name: string;
     }
-  
+
     /**
      * Mode of lock operations.
      *
@@ -202,7 +207,7 @@ declare namespace utils {
        */
       EXCLUSIVE = 2,
     }
-  
+
     /**
      * Lock operation's options
      *
@@ -221,7 +226,7 @@ declare namespace utils {
        * @since 12
        */
       constructor();
-  
+
       /**
        * If the value is true and lockAsync cannot acquire the lock immediately, the operation is canceled.
        *
@@ -235,13 +240,13 @@ declare namespace utils {
       /**
        * The object used to abort the async operation. If signal.aborted is true, the callback will not be called.
        *
-       * @type { AbortSignal<T>|null }
+       * @type { AbortSignal<T> | null }
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
        * @since 12
        */
-      signal: AbortSignal<T>|null;
+      signal: AbortSignal<T> | null;
       /**
        * Lock operation timeout in milliseconds. If it is greater than zero, lockAsync will reject the resulting promise
        * when the timeout is exceeded.
@@ -254,7 +259,7 @@ declare namespace utils {
        */
       timeout: number;
     }
-  
+
     /**
      * Information about all lock operations on the AsyncLock instance.
      *
@@ -285,7 +290,7 @@ declare namespace utils {
        */
       pending: AsyncLockInfo[];
     }
-  
+
     /**
      * Information about a lock.
      *
@@ -326,7 +331,7 @@ declare namespace utils {
        */
       contextId: number;
     }
-  
+
     /**
      * Object used to abort an async operation.
      * An instance of this class must be accessed in the same thread where the instance is created.
@@ -348,7 +353,7 @@ declare namespace utils {
        * @since 12
        */
       aborted: boolean;
-  
+
       /**
        * Reason for the abort. This value will be used to reject the promise returned from lockAsync.
        *
@@ -360,6 +365,50 @@ declare namespace utils {
        */
       reason: T
     }
+  }
+  /**
+   * ArkTS JSON utils.
+   *
+   * @namespace ASON
+   * @syscap SystemCapability.Utils.Lang
+   * @atomicservice
+   * @since 12
+   */
+  namespace ASON {
+    /**
+     * Redefines ISendable for convenience.
+     *
+     * @typedef { lang.ISendable } ISendable
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    type ISendable = lang.ISendable;
+    /**
+     * Converts a JavaScript Object Notation (JSON) string into an ArkTS Value.
+     *
+     * @param { string } text - A valid JSON string.
+     * @returns { ISendable | null } Return an ArkTS Value.
+     * @throws { BusinessError } 401 - Parameter error. Invalid JSON string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    function parse(text: string): ISendable | null;
+    /**
+     * Converts an ArkTS value to a JavaScript Object Notation (JSON) string.
+     *
+     * @param { ISendable | null | undefined } value - The value to stringify.
+     * @returns { string } The JSON string representation of the value.
+     * @throws { BusinessError } 401 - Parameter error. Invalid ArkTS value.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    function stringify(value: ISendable | null | undefined): string;
   }
 }
 export default utils;

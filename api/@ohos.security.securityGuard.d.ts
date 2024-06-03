@@ -14,6 +14,13 @@
  */
 
 /**
+ * @file This module provides the capabilities to security guard.
+ * @kit SecurityGuardKit
+ */
+
+import type { Callback } from '@ohos.base';
+
+/**
  * Provides security event management and security model management.
  * Based on event information, you will be able to analyze the running status of devices.
  *
@@ -62,6 +69,16 @@ declare namespace securityGuard {
      * @since 12
      */
     content: string;
+
+    /**
+     * The event timestamp, format is YYYYMMDDHHMMSS.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Security.SecurityGuard
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    timestamp?: string;
   }
 
   /**
@@ -71,7 +88,11 @@ declare namespace securityGuard {
    * @param { SecurityEvent } securityEvent - indicates the information to be reported.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. 
+   * Possible causes: 
+   *   1. Mandatory parameters are left unspecified. 
+   *   2. Incorrect parameter types. 
+   *   3. Parameter verification failed.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -139,6 +160,8 @@ declare namespace securityGuard {
   interface Querier {
     /**
      * Triggered when data is returned.
+     * 
+     * @type { function }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -147,6 +170,8 @@ declare namespace securityGuard {
     onQuery: (events: Array<SecurityEvent>) => void;
     /**
      * Triggered when data is complete.
+     * 
+     * @type { function }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -155,6 +180,8 @@ declare namespace securityGuard {
     onComplete: () => void;
     /**
      * Triggered when error.
+     * 
+     * @type { function }
      * @syscap SystemCapability.Security.SecurityGuard
      * @systemapi Hide this for inner system use.
      * @since 12
@@ -170,7 +197,11 @@ declare namespace securityGuard {
    * @param { Querier } querier - callback of receiving the query data.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. 
+   * Possible causes: 
+   *   1. Mandatory parameters are left unspecified. 
+   *   2. Incorrect parameter types. 
+   *   3. Parameter verification failed.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -214,7 +245,11 @@ declare namespace securityGuard {
    * @param { CollectorRule } rule - rule of collect security event information.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. 
+   * Possible causes: 
+   *   1. Mandatory parameters are left unspecified. 
+   *   2. Incorrect parameter types. 
+   *   3. Parameter verification failed.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -228,7 +263,11 @@ declare namespace securityGuard {
    * @param { CollectorRule } rule - rule of collect security event information.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. 
+   * Possible causes: 
+   *   1. Mandatory parameters are left unspecified. 
+   *   2. Incorrect parameter types. 
+   *   3. Parameter verification failed.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
    * @since 12
@@ -293,12 +332,76 @@ declare namespace securityGuard {
    * @returns { Promise<ModelResult> } model Results with Promises.
    * @throws { BusinessError } 201 - check permission fail.
    * @throws { BusinessError } 202 - non-system application uses the system API.
-   * @throws { BusinessError } 401 - invalid parameters.
+   * @throws { BusinessError } 401 - invalid parameters. 
+   * Possible causes: 
+   *   1. Mandatory parameters are left unspecified. 
+   *   2. Incorrect parameter types. 
+   *   3. Parameter verification failed.
    * @syscap SystemCapability.Security.SecurityGuard
    * @systemapi Hide this for inner system use.
    * @since 12
    */
   function getModelResult(rule: ModelRule): Promise<ModelResult>;
+
+  /**
+   * Provides the conditions of on/off.
+   *
+   * @interface SecurityEventInfo
+   * @syscap SystemCapability.Security.SecurityGuard
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  interface SecurityEventInfo {
+    /**
+     * The security event id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Security.SecurityGuard
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    eventId: number;
+  }
+
+  /**
+   * Subscribe the security event.
+   *
+   * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
+   * @param {'securityEventOccur'} type
+   * @param { SecurityEventInfo } securityEventInfo - Indicates the subscribed event information.
+   * @param { Callback<SecurityEvent> } callback - Indicates the listener when the security event occurs.
+   * @throws { BusinessError } 201 - check permission fail.
+   * @throws { BusinessError } 202 - non-system application uses the system API.
+   * @throws { BusinessError } 401 - invalid parameters. 
+   * Possible causes: 
+   *   1. Mandatory parameters are left unspecified. 
+   *   2. Incorrect parameter types. 
+   *   3. Parameter verification failed.
+   * @syscap SystemCapability.Security.SecurityGuard
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function on(type: 'securityEventOccur', securityEventInfo: SecurityEventInfo, callback: Callback<SecurityEvent>): void;
+
+  /**
+   * Unsubscribe the security event.
+   *
+   * @permission ohos.permission.securityguard.REQUEST_SECURITY_EVENT_INFO
+   * @param {'securityEventOccur'} type
+   * @param { SecurityEventInfo } securityEventInfo - Indicates the subscribed event information.
+   * @param { Callback<SecurityEvent> } callback - Indicates the listener when the security event occurs.
+   * @throws { BusinessError } 201 - check permission fail.
+   * @throws { BusinessError } 202 - non-system application uses the system API.
+   * @throws { BusinessError } 401 - invalid parameters. 
+   * Possible causes: 
+   *   1. Mandatory parameters are left unspecified. 
+   *   2. Incorrect parameter types. 
+   *   3. Parameter verification failed.
+   * @syscap SystemCapability.Security.SecurityGuard
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function off(type: 'securityEventOccur', securityEventInfo: SecurityEventInfo, callback?: Callback<SecurityEvent>): void;
 }
 
 export default securityGuard;

@@ -398,6 +398,61 @@ declare type Padding = {
 };
 
 /**
+ * Defines the localized padding property.
+ *
+ * @interface LocalizedPadding
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 12
+ */
+declare interface LocalizedPadding {
+  /**
+   * top property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  top?: LengthMetrics;
+
+  /**
+   * end property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  end?: LengthMetrics;
+
+  /**
+   * bottom property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  bottom?: LengthMetrics;
+
+  /**
+   * start property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  start?: LengthMetrics;
+};
+
+/**
  * Defines the margin property.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -589,11 +644,75 @@ declare type EdgeWidths = {
 };
 
 /**
+ * Defines the localized border width property.
+ *
+ * @interface LocalizedEdgeWidths
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 12
+ */
+declare interface LocalizedEdgeWidths {
+  /**
+   * top property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  top?: LengthMetrics;
+
+  /**
+   * end property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  end?: LengthMetrics;
+
+  /**
+   * bottom property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  bottom?: LengthMetrics;
+
+  /**
+   * start property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  start?: LengthMetrics;
+};
+
+/**
  * Defines the outline width property.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
+ */
+/**
+ * Defines the outline width property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  * @form
  */
 declare type EdgeOutlineWidths = {
@@ -785,11 +904,75 @@ declare type BorderRadiuses = {
 };
 
 /**
+ * Defines the localized border radius property.
+ *
+ * @interface LocalizedBorderRadiuses
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 12
+ */
+declare interface LocalizedBorderRadiuses  {
+  /**
+   * top-start property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  topStart?: LengthMetrics;
+
+  /**
+   * top-end property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  topEnd?: LengthMetrics;
+
+  /**
+   * bottom-start property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  bottomStart?: LengthMetrics;
+
+  /**
+   * bottom-end property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  bottomEnd?: LengthMetrics;
+};
+
+/**
  * Defines the outline radius property.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
+ */
+/**
+ * Defines the outline radius property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  * @form
  */
 declare type OutlineRadiuses = {
@@ -981,6 +1164,77 @@ declare type EdgeColors = {
 };
 
 /**
+ * Defines the localized border color property.
+ *
+ * @interface LocalizedEdgeColors
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12
+ */
+declare interface LocalizedEdgeColors  {
+  /**
+   * top property.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  top?: ResourceColor;
+
+  /**
+   * end property.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  end?: ResourceColor;
+
+  /**
+   * bottom property.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  bottom?: ResourceColor;
+
+  /**
+   * start property.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  start?: ResourceColor;
+};
+
+/**
+ * Defines the localized margin property.
+ *
+ * @typedef { LocalizedPadding } LocalizedMargin
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 12
+*/
+declare type LocalizedMargin = LocalizedPadding;
+
+/**
  * Defines the border style property.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1128,6 +1382,15 @@ declare type EdgeStyles = {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 11
+ * @form
+ */
+/**
+ * Defines the outline style property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
  * @form
  */
 declare type EdgeOutlineStyles = {
@@ -1376,6 +1639,37 @@ declare type LengthConstrain = {
  * @since 12
  */
 declare type VoidCallback  = () => void;
+
+/**
+ * Defines length metrics unit.
+ *
+ * @typedef { import('../api/arkui/Graphics').LengthMetricsUnit } LengthMetricsUnit
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 12
+ */
+declare type LengthMetricsUnit = import('../api/arkui/Graphics').LengthMetricsUnit;
+
+/**
+ * Defines LengthMetrics.
+ *
+ * @typedef { import('../api/arkui/Graphics').LengthMetrics } LengthMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type LengthMetrics = import('../api/arkui/Graphics').LengthMetrics;
+
+/**
+ * Defines ColorMetrics.
+ *
+ * @typedef { import('../api/arkui/Graphics').ColorMetrics } ColorMetrics
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare type ColorMetrics = import('../api/arkui/Graphics').ColorMetrics;
 
 /**
  * Defines the font used for text.
@@ -1796,6 +2090,36 @@ declare interface Position {
 }
 
 /**
+ * Defines the LocalizedPosition.
+ *
+ * @interface LocalizedPosition
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface LocalizedPosition {
+  /**
+   * Coordinate start of the Position.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  start?: LengthMetrics;
+
+  /**
+   * Coordinate top of the Position.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  top?: LengthMetrics;
+}
+
+/**
  * Defines the Edges.
  *
  * @interface Edges
@@ -1853,6 +2177,56 @@ declare interface Edges {
    * @form
    */
   right?: Dimension;
+}
+
+/**
+ * Defines the LocalizedEdges.
+ *
+ * @interface LocalizedEdges
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface LocalizedEdges {
+  /**
+   * top property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  top?: LengthMetrics;
+
+  /**
+   * start property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  start?: LengthMetrics;
+
+  /**
+   * bottom property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  bottom?: LengthMetrics;
+
+  /**
+   * end property.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  end?: LengthMetrics;
 }
 
 /**
@@ -2269,7 +2643,17 @@ declare interface BorderOptions {
    * @since 11
    * @form
    */
-  width?: EdgeWidths | Length;
+  /**
+   * Defines the border width.
+   *
+   * @type { ?(EdgeWidths | Length | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  width?: EdgeWidths | Length | LocalizedEdgeWidths;
 
   /**
    * Defines the border color.
@@ -2305,7 +2689,17 @@ declare interface BorderOptions {
    * @since 11
    * @form
    */
-  color?: EdgeColors | ResourceColor;
+  /**
+   * Defines the border color.
+   *
+   * @type { ?(EdgeColors | ResourceColor | LocalizedEdgeColors) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  color?: EdgeColors | ResourceColor | LocalizedEdgeColors;
 
   /**
    * Defines the border radius.
@@ -2341,7 +2735,17 @@ declare interface BorderOptions {
    * @since 11
    * @form
    */
-  radius?: BorderRadiuses | Length;
+  /**
+   * Defines the border radius.
+   *
+   * @type { ?(BorderRadiuses | Length | LocalizedBorderRadiuses) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  radius?: BorderRadiuses | Length | LocalizedBorderRadiuses;
 
   /**
    * Defines the border style.
@@ -2378,6 +2782,26 @@ declare interface BorderOptions {
    * @form
    */
   style?: EdgeStyles | BorderStyle;
+
+  /**
+   * Defines the gap of dash when BorderStyle is dashed.
+   *
+   * @type { ?(EdgeWidths | LengthMetrics | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dashGap?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
+
+  /**
+   * Defines the length of dash when BorderStyle is dashed.
+   *
+   * @type { ?(EdgeWidths | LengthMetrics | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dashWidth?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
 }
 
 /**
@@ -2433,14 +2857,14 @@ declare interface OutlineOptions {
   /**
    * Defines the outline color.
    *
-   * @type { ?(EdgeColors | ResourceColor) }
+   * @type { ?(EdgeColors | ResourceColor | LocalizedEdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 12
-   * @form
    */
-  color?: EdgeColors | ResourceColor;
+  color?: EdgeColors | ResourceColor | LocalizedEdgeColors;
 
   /**
    * Defines the outline radius.
@@ -2665,6 +3089,111 @@ declare interface TouchPoint {
    * @since 12
    */
   y: Dimension;
+}
+
+/**
+ * Defines the DirectionalEdgesT interface.
+ *
+ * @interface DirectionalEdgesT
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @since 12
+ */
+declare interface DirectionalEdgesT<T> {
+  /**
+   * Start property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  start: T;
+
+  /**
+   * End property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  end: T;
+
+  /**
+   * Top property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  top: T;
+
+  /**
+   * Bottom property.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @since 12
+   */
+  bottom: T;
+}
+
+/**
+ * Defines the struct of DividerStyleOptions.
+ *
+ * @interface DividerStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare interface DividerStyleOptions {
+  /**
+   * The strokeWidth of Divider.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  strokeWidth?: LengthMetrics;
+
+  /**
+   * The color of Divider.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  color?: ResourceColor;
+
+  /**
+   * The startMargin of Divider.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  startMargin?: LengthMetrics;
+
+  /**
+   * The endMargin of Divider.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  endMargin?: LengthMetrics;
 }
 
 declare module "GlobalResource" {

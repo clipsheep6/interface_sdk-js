@@ -21,6 +21,7 @@
 /// <reference path="../component/units.d.ts" />
 
 import { ResourceStr } from 'GlobalResource';
+import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 
 /**
  * Enum for ChipSize
@@ -227,6 +228,37 @@ export interface SuffixIconOptions extends IconCommonOptions {
 export interface PrefixIconOptions extends IconCommonOptions {}
 
 /**
+ * Defines symbol options.
+ *
+ * @interface SymbolOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface SymbolOptions {
+
+  /**
+   * Symbol normal.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  normal?: SymbolGlyphModifier;
+
+  /**
+   * Symbol activated.
+   *
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  activated?: SymbolGlyphModifier;
+}
+
+/**
  * Defines label margin.
  *
  * @interface LabelMarginOptions
@@ -282,6 +314,37 @@ export interface LabelMarginOptions {
    * @since 12
    */
   right?: Dimension;
+}
+
+/**
+ * Defines localized label margin.
+ *
+ * @interface LocalizedLabelMarginOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+export interface LocalizedLabelMarginOptions {
+
+   /**
+   * start localized label margin length.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+   start?: LengthMetrics;
+
+   /**
+   * end localized label margin length.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  end?: LengthMetrics;
 }
 
 /**
@@ -407,6 +470,16 @@ export interface LabelOptions {
    * @since 12
    */
   labelMargin?: LabelMarginOptions;
+
+   /**
+   * Localized label margin.
+   *
+   * @type { ?LocalizedLabelMarginOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  localizedLabelMargin?: LocalizedLabelMarginOptions;
 }
 
 /**
@@ -447,6 +520,16 @@ export interface ChipOptions {
   prefixIcon?: PrefixIconOptions;
 
   /**
+   * Chip prefix symbol.
+   *
+   * @type { ?SymbolOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  prefixSymbol?: SymbolOptions;
+
+  /**
    * Chip label.
    *
    * @type { LabelOptions }
@@ -483,6 +566,16 @@ export interface ChipOptions {
    * @since 12
    */
   suffixIcon?: SuffixIconOptions;
+
+  /**
+   * Chip suffix symbol.
+   *
+   * @type { ?SymbolOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  suffixSymbol?: SymbolOptions;
 
   /**
    * Show close icon.
@@ -627,6 +720,16 @@ export interface ChipOptions {
    * @since 12
    */
   onClicked?: Callback<void>;
+
+  /**
+   * Indicates the attribute of the current chip direction.
+   *
+   * @type { ?Direction }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+   direction?: Direction;
 }
 
 /**

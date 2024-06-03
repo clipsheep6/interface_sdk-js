@@ -263,6 +263,7 @@ declare enum ListItemAlign {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare enum ListItemGroupArea {
@@ -271,6 +272,7 @@ declare enum ListItemGroupArea {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   NONE = 0,
@@ -280,6 +282,7 @@ declare enum ListItemGroupArea {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   IN_LIST_ITEM_AREA = 1,
@@ -289,6 +292,7 @@ declare enum ListItemGroupArea {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   IN_HEADER_AREA = 2,
@@ -298,6 +302,7 @@ declare enum ListItemGroupArea {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   IN_FOOTER_AREA = 3,
@@ -652,6 +657,7 @@ declare interface CloseSwipeActionOptions {
  * @interface VisibleListContentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare interface VisibleListContentInfo {
@@ -661,6 +667,7 @@ declare interface VisibleListContentInfo {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   index: number
@@ -671,6 +678,7 @@ declare interface VisibleListContentInfo {
    * @type { ?ListItemGroupArea }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   itemGroupArea?: ListItemGroupArea
@@ -681,6 +689,7 @@ declare interface VisibleListContentInfo {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @atomicservice
    * @since 12
    */
   itemIndexInGroup?: number
@@ -692,6 +701,7 @@ declare interface VisibleListContentInfo {
  * @typedef {function} OnScrollVisibleContentChangeCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @atomicservice
  * @since 12
  */
 declare type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInfo, end: VisibleListContentInfo) => void;
@@ -716,7 +726,10 @@ declare class ListScroller extends Scroller {
    * @param { number } index - Index of the ListItemGroup in List.
    * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
    * @returns { RectResult } Returns the size and position.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -728,7 +741,10 @@ declare class ListScroller extends Scroller {
    * @param { number } index - Index of the ListItemGroup in List.
    * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
    * @returns { RectResult } Returns the size and position.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -744,7 +760,10 @@ declare class ListScroller extends Scroller {
    * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
    * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
    * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -757,7 +776,10 @@ declare class ListScroller extends Scroller {
    * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
    * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
    * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -770,7 +792,10 @@ declare class ListScroller extends Scroller {
    * Collapse all listItem.
    *
    * @param { CloseSwipeActionOptions } options - Options of close Swipe items.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -780,7 +805,10 @@ declare class ListScroller extends Scroller {
    * Collapse all listItem.
    *
    * @param { CloseSwipeActionOptions } options - Options of close Swipe items.
-   * @throws { BusinessError } 401 - The parameter check failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1079,6 +1107,17 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @form
    */
   edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): ListAttribute;
+
+  /**
+   * Called when setting whether to enable fading Edge effect.
+   *
+   * @param { Optional<boolean> } value - Whether to turn on the edge fade effect
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  fadingEdge(value: Optional<boolean>): ListAttribute;
 
   /**
    * Called when need to decide contentStartOffset the list will show.
@@ -1420,6 +1459,18 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 11
    */
   friction(value: number | Resource): ListAttribute;
+
+  /**
+   * Set children main size for List.
+   *
+   * @param { ChildrenMainSize } value - children main size for List
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  childrenMainSize(value: ChildrenMainSize): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.

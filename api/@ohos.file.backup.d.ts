@@ -242,7 +242,8 @@ declare namespace backup {
    * deleted automatically when closed.
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 13600001 - IPC error
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900011 - Out of memory
@@ -262,13 +263,31 @@ declare namespace backup {
     * @returns { string } Return the backup application's info.
     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-    * @throws { BusinessError } 401 - The input parameter is invalid.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+    * <br>2. Incorrect parameter types. 3.Parameter verification failed.
     * @syscap SystemCapability.FileManagement.StorageService.Backup
     * @systemapi
     * @since 12
     */
   function getBackupInfo(bundleToBackup: string): string;
-  
+
+  /**
+   * Update backup or restore timeout.
+   *
+   * @permission ohos.permission.BACKUP
+   * @param { string } bundleName set update to bundleName app.
+   * @param { number } timeout Update backup or restore timeout(unit:ms).
+   * @returns { boolean } Return update result, true is success, false is fail.
+   * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @since 12
+   */
+  function updateTimer(bundleName: string, timeout: number): boolean;
+
   /**
    * General callbacks for both backup and restore procedure.
    * The backup service will notify the client by these callbacks.
@@ -316,7 +335,8 @@ declare namespace backup {
      * The second return string parameter indicates that when BusinessError errors occur,
      * the callback data is the name of the bundle.
      *
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 13500001 - The application is not added to the backup or restore
      * @throws { BusinessError } 13500002 - Failed to start application extension Procedure
      * @throws { BusinessError } 13600001 - IPC error
@@ -350,7 +370,8 @@ declare namespace backup {
      * The second return string parameter indicates that when BusinessError errors occur,
      * the callback data is the name of the bundle.
      *
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 13500003 - Backup or restore timed out
      * @throws { BusinessError } 13500004 - Application extension death
      * @throws { BusinessError } 13600001 - IPC error
@@ -393,7 +414,8 @@ declare namespace backup {
      * The first return string parameter indicates the result of the bundle.
      *
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900011 - Out of memory
@@ -442,7 +464,25 @@ declare namespace backup {
      * @systemapi
      * @since 10
      */
-    appendBundles(bundlesToBackup: string[]): Promise<void>;
+    /**
+     * Append new bundles and backupInfos to backup.
+     *
+     * @permission ohos.permission.BACKUP
+     * @param { string[] } bundlesToBackup Bundles to backup.
+     * @param { string[] } infos Infos to backup.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 12
+     */
+    appendBundles(bundlesToBackup: string[], infos?: string[]): Promise<void>;
 
     /**
      * Append new bundles to backup.
@@ -470,7 +510,8 @@ declare namespace backup {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900005 - I/O error
@@ -644,7 +685,8 @@ declare namespace backup {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900005 - I/O error
@@ -671,7 +713,8 @@ declare namespace backup {
      * @param { GeneralCallbacks } callbacks Callbacks to be registered for the backup.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @since 12
@@ -686,7 +729,8 @@ declare namespace backup {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900005 - I/O error
@@ -706,7 +750,8 @@ declare namespace backup {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - The input parameter is invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 13600001 - IPC error
      * @throws { BusinessError } 13900001 - Operation not permitted
      * @throws { BusinessError } 13900005 - I/O error

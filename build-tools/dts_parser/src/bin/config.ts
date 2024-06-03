@@ -15,7 +15,7 @@
 import ExcelJS from 'exceljs';
 import path from 'path';
 import fs from 'fs';
-import { execSync } from "child_process";
+import { execSync } from 'child_process';
 import { EnumUtils } from '../utils/EnumUtils';
 import { FileUtils } from '../utils/FileUtils';
 import { LogUtil } from '../utils/logUtil';
@@ -30,6 +30,9 @@ import { ApiStatisticsHelper } from '../coreImpl/statistics/Statistics';
 import { ApiStatisticsInfo } from '../typedef/statistics/ApiStatistics';
 import { SyscapProcessorHelper } from '../coreImpl/diff/syscapFieldProcessor';
 import { FunctionUtils } from '../utils/FunctionUtils';
+import { CommonFunctions } from '../utils/checkUtils';
+import { ApiCountInfo } from '../typedef/count/ApiCount';
+import { ApiCountHelper } from '../coreImpl/count/count'
 
 /**
  * 工具名称的枚举值，用于判断执行哪个工具
@@ -50,6 +53,10 @@ export enum toolNameType {
    */
   CHECKONLINE = 'checkOnline',
   /**
+   * 兼容性变更检查工具 线上版
+   */
+  APICHANGECHECK = 'apiChangeCheck',
+  /**
    * diff工具
    */
   DIFF = 'diff',
@@ -57,6 +64,10 @@ export enum toolNameType {
    * 标签漏标检查
    */
   LABELDETECTION = 'detection',
+  /**
+   * API个数统计
+   */
+  COUNT = 'count'
 }
 
 /**
@@ -101,11 +112,23 @@ export const Plugin: PluginType = {
       },
       {
         isRequiredOption: false,
+        options: ['-L,--check-labels <string>', 'detection check labels', ''],
+      },
+      {
+        isRequiredOption: false,
+        options: ['--isOH <string>', 'detection check labels', ''],
+      },
+      {
+        isRequiredOption: false,
         options: ['--path <string>', 'check api path, split with comma', ''],
       },
       {
         isRequiredOption: false,
         options: ['--checker <string>', 'check api rule, split with comma', 'all'],
+      },
+      {
+        isRequiredOption: false,
+        options: ['--prId <string>', 'check api prId', ''],
       },
       {
         isRequiredOption: false,
@@ -156,8 +179,11 @@ export const Plugin: PluginType = {
       toolName: toolName,
       collectPath: argv.collectPath,
       collectFile: argv.collectFile,
+      checkLabels: argv.checkLabels,
+      isOH: argv.isOH,
       path: argv.path,
       checker: argv.checker,
+      prId: argv.prId,
       old: argv.old,
       new: argv.new,
       oldVersion: argv.oldVersion,
@@ -186,15 +212,20 @@ let startTime = Date.now();
  */
 function outputInfos(infos: ToolReturnData, options: OptionObjType, callback: ToolNameExcelCallback | undefined): void {
   const format = options.format;
+  let jsonFileName = `${options.toolName}_${options.oldVersion}_${options.newVersion}.json`;
+
   if (!format) {
     return;
+  }
+  if (options.toolName === toolNameType.COUNT) {
+    jsonFileName = 'api_kit_js.json';
   }
   switch (format) {
     case formatType.JSON:
       WriterHelper.JSONReporter(
         String(infos[0]),
         options.output,
-        `${options.toolName}_${options.oldVersion}_${options.newVersion}.json`
+        jsonFileName
       );
       break;
     case formatType.EXCEL:
@@ -260,29 +291,15 @@ function collectApi(options: OptionObjType): ToolNameValueType {
 
 function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Worksheet): void {
   const apiRelationsSet: Set<string> = new Set();
-  const subsystemMap: Map<string, string> = FunctionUtils.readSubsystemFile().subsystemMap;
+  const kitObject = FunctionUtils.readKitFile();
+  const subsystemMap: Map<string, string> = kitObject.subsystemMap;
+  const kitMap: Map<string, string> = kitObject.kitNameMap;
   sheet.name = 'JsApi';
   sheet.views = [{ xSplit: 1 }];
-  sheet.getRow(1).values = [
-    '模块名',
-    '类名',
-    '方法名',
-    '函数',
-    '类型',
-    '起始版本',
-    '废弃版本',
-    'syscap',
-    '错误码',
-    '是否为系统API',
-    '模型限制',
-    '权限',
-    '是否支持跨平台',
-    '是否支持卡片应用',
-    '是否为高阶API',
-    '装饰器',
-    'kit',
-    '文件路径',
-    '子系统',
+  sheet.getRow(1).values = ['模块名', '类名', '方法名', '函数', '类型',
+    '起始版本', '废弃版本', 'syscap', '错误码', '是否为系统API',
+    '模型限制', '权限', '是否支持跨平台', '是否支持卡片应用', '是否为高阶API',
+    '装饰器', 'kit', '文件路径', '子系统',
   ];
   let lineNumber = 2;
   apiData.forEach((apiInfo: ApiStatisticsInfo) => {
@@ -290,7 +307,6 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
     if (apiRelationsSet.has(apiRelations)) {
       return;
     }
-
     sheet.getRow(lineNumber).values = [
       apiInfo.getPackageName(),
       apiInfo.getParentModuleName(),
@@ -308,37 +324,30 @@ function collectApiCallback(apiData: ApiStatisticsInfo[], sheet: ExcelJS.Workshe
       apiInfo.getIsForm(),
       apiInfo.getIsAutomicService(),
       apiInfo.getDecorators()?.join(),
-      apiInfo.getKitInfo(),
+      apiInfo.getKitInfo() === '' ? kitMap.get(apiInfo.getFilePath().replace(/\\/g, '/')) : apiInfo.getKitInfo() ,
       apiInfo.getFilePath(),
-      subsystemMap.get(FunctionUtils.handleSyscap(apiInfo.getSyscap())),
+      subsystemMap.get(apiInfo.getFilePath().replace(/\\/g, '/')),
     ];
     lineNumber++;
     apiRelationsSet.add(apiRelations);
   });
 }
 /**
- * 收集api工具调用方法
+ * api检查工具调用方法
  *
  * @param { OptionObjType } options
  * @return { ToolNameValueType }
  */
-function checkApi(options: OptionObjType): ToolNameValueType {
-  let allApis: FilesMap;
+function checkApi(): ToolNameValueType {
   try {
-    let fileContent: ApiResultMessage[] = [];
-    if (process.env.NODE_ENV === 'development') {
-
-      fileContent = LocalEntry.checkEntryLocal([], [], "", 'false');
-    } else if (process.env.NODE_ENV === 'production') {
+    let mdApiFiles: string[] = [];
+    const filePathTxt: string = path.resolve(FileUtils.getBaseDirName(), '../mdFiles.txt');
+    if (fs.existsSync(filePathTxt)) {
+      mdApiFiles = CommonFunctions.getMdFiles(filePathTxt);
     }
-    let finalData: (string | ApiResultMessage)[] = [];
-    if (options.format === formatType.JSON) {
-      finalData = [JSON.stringify(fileContent, null, NumberConstant.INDENT_SPACE)];
-    } else {
-      finalData = fileContent;
-    }
+     LocalEntry.checkEntryLocal(mdApiFiles, ['all'], './result.json', '', 'true');
     return {
-      data: finalData,
+      data: [],
     };
   } catch (exception) {
     const error = exception as Error;
@@ -349,15 +358,16 @@ function checkApi(options: OptionObjType): ToolNameValueType {
   }
 }
 /**
- * 收集api工具调用方法
+ * api检查工具调用方法
  *
  * @param { OptionObjType } options
  * @return { ToolNameValueType }
  */
 function checkOnline(options: OptionObjType): ToolNameValueType {
-  options.format = formatType.NULL
+  options.format = formatType.NULL;
   try {
-    LocalEntry.checkEntryLocal(options.path.split(','), options.checker.split(','), options.output, options.excel);
+    LocalEntry.checkEntryLocal(options.path.split(','), options.checker.split(','), options.output, options.prId,
+      options.excel);
     return {
       data: [],
     };
@@ -365,10 +375,33 @@ function checkOnline(options: OptionObjType): ToolNameValueType {
     const error = exception as Error;
     LogUtil.e('error check', error.stack ? error.stack : error.message);
   } finally {
+  }
+  return {
+    data: [],
+  };
+}
+
+/**
+ * api检查工具调用方法
+ *
+ * @param { OptionObjType } options
+ * @return { ToolNameValueType }
+ */
+function apiChangeCheck(options: OptionObjType): ToolNameValueType {
+  options.format = formatType.NULL;
+  try {
+    LocalEntry.apiChangeCheckEntryLocal(options.prId, options.checker.split(','), options.output, options.excel);
     return {
       data: [],
     };
+  } catch (exception) {
+    const error = exception as Error;
+    LogUtil.e('error api change check', error.stack ? error.stack : error.message);
+  } finally {
   }
+  return {
+    data: [],
+  };
 }
 
 /**
@@ -412,8 +445,9 @@ function diffApi(options: OptionObjType): ToolNameValueType {
   }
 }
 function detectionApi(options: OptionObjType): ToolNameValueType {
-  process.env.NEED_DETECTION = "true";
-  options.format = formatType.NULL
+  process.env.NEED_DETECTION = 'true';
+  process.env.IS_OH = options.isOH;
+  options.format = formatType.NULL;
   const fileDir: string = path.resolve(FileUtils.getBaseDirName(), options.collectPath);
   let collectFile: string = '';
   if (options.collectFile !== '') {
@@ -436,9 +470,9 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
     let runningCommand: string = '';
 
     if (process.env.NODE_ENV === 'development') {
-      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), '../api_label_detection/src/main.py')} -N detection -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), '../api_label_detection/src/main.py')} -N detection -L ${options.checkLabels} -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
     } else if (process.env.NODE_ENV === 'production') {
-      runningCommand = `python ${path.resolve(FileUtils.getBaseDirName(), './main.exe')} -N detection -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
+      runningCommand = `${path.resolve(FileUtils.getBaseDirName(), './main.exe')} -N detection -L ${options.checkLabels} -P ${path.resolve(path.dirname(options.output), 'detection.json')} -O ${path.resolve(options.output)}`;
     }
     buffer = execSync(runningCommand, {
       timeout: 120000,
@@ -447,12 +481,67 @@ function detectionApi(options: OptionObjType): ToolNameValueType {
     const error = exception as Error;
     LogUtil.e(`error collect`, error.stack ? error.stack : error.message);
   } finally {
-    return {
-      data: []
-    }
-
+    LogUtil.i(`detection run over`, buffer.toString());
   }
+  return {
+    data: [],
+  };
 
+}
+
+/**
+ * api个数统计工具的入口函数
+ * 
+ * @param { OptionObjType } options 
+ * @returns { ToolNameValueType }
+ */
+function countApi(options: OptionObjType): ToolNameValueType {
+  const fileDir: string = path.resolve(FileUtils.getBaseDirName(), '../../api')
+  let collectFile: string = '';
+  if (options.collectFile !== '') {
+    collectFile = path.resolve(FileUtils.getBaseDirName(), options.collectFile);
+  }
+  let allApis: FilesMap;
+  try {
+    if (FileUtils.isDirectory(fileDir)) {
+      allApis = Parser.parseDir(fileDir, collectFile);
+    } else {
+      allApis = Parser.parseFile(path.resolve(fileDir, '..'), fileDir);
+    }
+    const statisticApiInfos: ApiStatisticsInfo[] = ApiStatisticsHelper.getApiStatisticsInfos(allApis).apiStatisticsInfos;
+    const apiCountInfos: ApiCountInfo[] = ApiCountHelper.countApi(statisticApiInfos);
+    let finalData: (string | ApiCountInfo)[] = [];
+    if (options.format === formatType.JSON) {
+      finalData = [JSON.stringify(apiCountInfos, null, NumberConstant.INDENT_SPACE)];
+    }else {
+      finalData = apiCountInfos;
+    }
+    return {
+      data: finalData,
+      callback: countApiCallback as ToolNameExcelCallback,
+    };
+  } catch (exception) {
+    const error = exception as Error;
+    LogUtil.e(`error count`, error.stack ? error.stack : error.message);
+    return {
+      data: [],
+      callback: countApiCallback as ToolNameExcelCallback,
+    };
+  }
+}
+
+function countApiCallback(data: ApiCountInfo[], sheet: ExcelJS.Worksheet) {
+  sheet.name = 'api数量';
+  sheet.views = [{ xSplit: 1 }];
+  sheet.getRow(1).values = ['子系统', 'kit', '文件', 'api数量'];
+  data.forEach((countInfo: ApiCountInfo, index: number) => {
+    sheet.getRow(index + NumberConstant.LINE_IN_EXCEL).values = [
+      countInfo.getsubSystem(),
+      countInfo.getKitName(),
+      countInfo.getFilePath(),
+      countInfo.getApiNumber()      
+    ];
+  });
 }
 
 /**
@@ -474,7 +563,7 @@ function diffApiCallback(data: BasicDiffInfo[], sheet: ExcelJS.Worksheet, dest?:
       dtsName.replace(/\\/g, '/'),
       SyscapProcessorHelper.matchSubsystem(diffInfo),
       SyscapProcessorHelper.getSingleKitInfo(diffInfo)
-      
+
     ];
   });
 
@@ -518,8 +607,10 @@ export const toolNameMethod: Map<string, ToolNameMethodType> = new Map([
   [toolNameType.COLLECT, collectApi],
   [toolNameType.CHECK, checkApi],
   [toolNameType.CHECKONLINE, checkOnline],
+  [toolNameType.APICHANGECHECK, apiChangeCheck],
   [toolNameType.DIFF, diffApi],
   [toolNameType.LABELDETECTION, detectionApi],
+  [toolNameType.COUNT, countApi]
 ]);
 
 /**
@@ -529,8 +620,11 @@ export type OptionObjType = {
   toolName: toolNameType;
   path: string;
   checker: string;
+  prId: string;
   collectPath: string;
   collectFile: string;
+  checkLabels: string;
+  isOH: string;
   old: string;
   new: string;
   oldVersion: string;
@@ -567,7 +661,7 @@ export type ToolNameValueType = {
    */
   callback?: ToolNameExcelCallback;
 };
-export type ToolReturnData = (string | ApiStatisticsInfo | ApiResultMessage | BasicDiffInfo)[];
+export type ToolReturnData = (string | ApiStatisticsInfo | ApiResultMessage | BasicDiffInfo | ApiCountInfo)[];
 
 /**
  * 各个工具调用方法

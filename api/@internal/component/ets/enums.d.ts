@@ -5478,6 +5478,15 @@ declare enum ImageSize {
    * @form
    */
   Contain,
+
+  /**
+   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FILL = 3,
 }
 
 /**
@@ -7560,17 +7569,9 @@ declare enum CopyOptions {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @since 11
-   * @form
-   */
-  /**
-   * Share in cross Device
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   * @form
+   * @deprecated since 12
    */
   CROSS_DEVICE = 3,
 }
@@ -8085,6 +8086,51 @@ declare enum FunctionKey {
    * @since 11
    */
   F12,
+    
+  /**
+   * Tab key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  TAB,
+
+  /**
+   * Up arrow key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DPAD_UP,
+
+  /**
+   * Down arrow key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DPAD_DOWN,
+
+  /**
+   * Left arrow key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DPAD_LEFT,
+
+  /**
+   * Right arrow key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DPAD_RIGHT,
 }
 
 /**
@@ -8355,6 +8401,15 @@ declare enum ClickEffectLevel {
  * @atomicservice
  * @since 11
  */
+/**
+ * The type of XComponent
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
 declare enum XComponentType {
   /**
    * Surface type. The default type is used.
@@ -8368,6 +8423,14 @@ declare enum XComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
+   */
+  /**
+   * Surface type. The default type is used.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   SURFACE,
 
@@ -8491,6 +8554,79 @@ declare enum NestedScrollMode {
    * @since 11
    */
   PARALLEL,
+}
+
+/**
+ * The possible source of scroll event
+ * @enum { number } ScrollSource
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum ScrollSource {
+  /**
+   * Drag events.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DRAG = 0,
+
+  /**
+   * Fling after the drag has ended with velocity.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  FLING,
+
+  /**
+   * Over scroll with EdgeEffect.Spring.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  EDGE_EFFECT,
+
+  /**
+   * Other user input except drag, such as mouse wheel, key event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  OTHER_USER_INPUT,
+
+  /**
+   * Drag events of scroll bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SCROLL_BAR,
+
+  /**
+   * Fling after the drag on scroll bar has ended with velocity.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SCROLL_BAR_FLING,
+
+  /**
+   * Member methods of Scroller without animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SCROLLER,
+
+  /**
+   * Member methods of Scroller with animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SCROLLER_ANIMATION,
 }
 
 /**
@@ -8899,6 +9035,46 @@ declare enum WordBreak {
 }
 
 /**
+ * Enum of line break strategy
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum LineBreakStrategy  {
+  /**
+   * By default. Display as many characters as possible on each line until no more characters
+   * can be displayed on that line, and do not automatically add hyphens under this strategy
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  GREEDY = 0,
+
+  /**
+   * High quality folding. Optimize the layout of the entire text's line breaks and automatically
+   * add hyphens if necessary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  HIGH_QUALITY  = 1,
+
+  /**
+   * Balanced folding. We will try our best to ensure that the width of each line in a paragraph
+   * is the same, and if necessary, we will add conjunction
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  BALANCED  = 2,
+}
+
+/**
  * Enum of ellipsisMode
  *
  * @enum { number }
@@ -9273,6 +9449,102 @@ declare enum MarqueeUpdateStrategy  {
    * @since 12
    */
   PRESERVE_POSITION = 1
+}
+
+/**
+ * Type of text decoration line style.
+ * 
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 12
+ */
+declare enum TextDecorationStyle {
+  /**
+   * Solid line.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  SOLID = 0,
+
+  /**
+   * Double lines.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DOUBLE = 1,
+
+  /**
+   * Dotted line.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DOTTED = 2,
+
+  /**
+   * Dashed line.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  DASHED = 3,
+
+  /**
+   * Wavy line.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  WAVY = 4,
+}
+
+/**
+ * Type of text selectable.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare enum TextSelectableMode {
+  /**
+   * set text selectable and unfocusable.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  SELECTABLE_UNFOCUSABLE = 0,
+
+  /**
+   * set text selectable and focusable.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  SELECTABLE_FOCUSABLE = 1,
+
+  /**
+   * set text unselectable and unfocusable.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  UNSELECTABLE = 2,
 }
 
 declare module 'borderStyle' {

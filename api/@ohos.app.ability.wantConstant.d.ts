@@ -227,7 +227,25 @@ declare namespace wantConstant {
      * @atomicservice
      * @since 12
      */
-    SHOW_MODE_KEY = 'ohos.extra.param.key.showMode'
+    SHOW_MODE_KEY = 'ohos.extra.param.key.showMode',
+
+    /**
+     * Cross-application sharing of file URIs.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    PARAMS_STREAM = 'ability.params.stream',
+
+    /**
+     * Indicates the param of app clone index.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @atomicservice
+     * @since 12
+     */
+    APP_CLONE_INDEX_KEY = 'ohos.extra.param.key.appCloneIndex',
   }
 
   /**

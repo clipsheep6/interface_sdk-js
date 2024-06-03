@@ -268,6 +268,32 @@ declare class Indicator<T> {
    * @form
    */
   bottom(value: Length): T;
+  
+  /**
+   * Set the indicator to the left in LTR
+   * Set the indicator to the right in RTL
+   *
+   * @param { LengthMetrics } value - the indicator to the right in LTR, indicator to the left in RTL
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  start(value: LengthMetrics): T;
+
+  /**
+   * Set the indicator to the left in RTL 
+   * Set the indicator to the right in LTR
+   *
+   * @param { LengthMetrics } value - the indicator to the left in RTL, Set the indicator to the right in LTR
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  end(value: LengthMetrics): T;   
 
   /**
    * DotIndicator class object.
@@ -515,6 +541,17 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @form
    */
   selectedColor(value: ResourceColor): DotIndicator;
+
+  /**
+   * Set the Indicator maxDisplayCount when selected.
+   *
+   * @param { number } maxDisplayCount - the indicator item maxDisplayCount when selected.
+   * @returns { DotIndicator } return the DotIndicator
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  maxDisplayCount(maxDisplayCount: number): DotIndicator;
 }
 
 /**
@@ -910,9 +947,11 @@ declare enum SwiperDisplayMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11
-   * @form
+   * @deprecated since 12
+   * @useinstead Scroller#scrollTo
    */
   AUTO_LINEAR,
 }
@@ -1726,7 +1765,18 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  prevMargin(value: Length): SwiperAttribute;
+  /**
+   * When the previous item is empty, do not display blank space.
+   *
+   * @param { Length } value - The length of previous margin.
+   * @param { boolean } [ignoreBlank] - Ignoring blank space at the end of the page.
+   * @returns { SwiperAttribute } The attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  prevMargin(value: Length, ignoreBlank?: boolean): SwiperAttribute;
 
   /**
    * The next margin which can be used to expose a small portion of the latter item.
@@ -1746,7 +1796,18 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @atomicservice
    * @since 11
    */
-  nextMargin(value: Length): SwiperAttribute;
+  /**
+   * When the next item is empty, do not display blank space.
+   *
+   * @param { Length } value - The length of next margin.
+   * @param { boolean } [ignoreBlank] - Ignoring blank space on homepage.
+   * @returns { SwiperAttribute } The attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  nextMargin(value: Length, ignoreBlank?: boolean): SwiperAttribute;
 
   /**
    * Called when the swiper animation start.

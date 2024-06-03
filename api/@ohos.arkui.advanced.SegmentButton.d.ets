@@ -276,6 +276,16 @@ interface CommonSegmentButtonOptions {
    * @crossplatform
    * @since 11
    */
+   /**
+   * The font size of buttons.
+   *
+   * @type { ?DimensionNoPercentage }
+   * @default $r('sys.float.ohos_id_text_size_body2')
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   fontSize?: DimensionNoPercentage;
 
   /**
@@ -286,6 +296,16 @@ interface CommonSegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+   /**
+   * The font size of selected button.
+   *
+   * @type { ?DimensionNoPercentage }
+   * @default $r('sys.float.ohos_id_text_size_body2')
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   selectedFontSize?: DimensionNoPercentage;
 
@@ -415,6 +435,20 @@ interface CommonSegmentButtonOptions {
    */
   buttonPadding?: Padding | Dimension;
 
+   /**
+   * The localized padding of buttons.
+   *
+   * @type { ?LocalizedPadding }
+   * @default For text only / icon only buttons LocalizedPadding
+   * { top: LengthMetrics.vp(4), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(4), start: LengthMetrics.vp(8) }.
+   * For text & icon buttons LocalizedPadding
+   * {{ top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6), start: LengthMetrics.vp(8) }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  localizedButtonPadding?: LocalizedPadding;
+
   /**
    * The padding of text in button.
    *
@@ -436,6 +470,16 @@ interface CommonSegmentButtonOptions {
    */
   textPadding?: Padding | Dimension;
 
+   /**
+   * The localized padding of text in button.
+   *
+   * @type { ?LocalizedPadding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  localizedTextPadding?: LocalizedPadding;
+
   /**
    * The blurStyle of background.
    *
@@ -454,6 +498,16 @@ interface CommonSegmentButtonOptions {
    * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
+
+  /**
+   * Indicates the attribute of the current segment button direction.
+   *
+   * @type { ?Direction }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  direction?: Direction;
 }
 
 /**
@@ -565,6 +619,15 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+   /**
+   * The items of capsule type of SegmentButton.
+   *
+   * @type { SegmentButtonItemTuple }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   buttons: SegmentButtonItemTuple;
 
@@ -856,6 +919,15 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @crossplatform
    * @since 11
    */
+   /**
+   * The constructor used to create a SegmentButtonItemOptionsArray object.
+   *
+   * @param { SegmentButtonItemTuple } elements - The SegmentButton items.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   constructor(elements: SegmentButtonItemTuple);
 
   /**
@@ -972,6 +1044,16 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * @crossplatform
    * @since 11
    */
+   /**
+   * The function used to create a SegmentButtonItemOptionsArray object.
+   *
+   * @param { SegmentButtonItemTuple } elements - The SegmentButton items.
+   * @returns { SegmentButtonItemOptionsArray } Returns the a new SegmentButtonItemOptionsArray object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray;
 }
 
@@ -1057,6 +1139,15 @@ declare class SegmentButtonOptions {
    * @crossplatform
    * @since 11
    */
+   /**
+   * The font color of buttons.
+   *
+   * @type { ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   fontColor: ResourceColor;
 
   /**
@@ -1086,6 +1177,15 @@ declare class SegmentButtonOptions {
    * @crossplatform
    * @since 11
    */
+   /**
+   * The font size of buttons.
+   *
+   * @type { DimensionNoPercentage }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
   fontSize: DimensionNoPercentage;
 
   /**
@@ -1095,6 +1195,15 @@ declare class SegmentButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
+   */
+   /**
+   * The font size of selected button.
+   *
+   * @type { DimensionNoPercentage }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   selectedFontSize: DimensionNoPercentage;
 
@@ -1212,6 +1321,16 @@ declare class SegmentButtonOptions {
    */
   buttonPadding: Padding | Dimension;
 
+   /**
+   * The localized padding of buttons.
+   *
+   * @type { ?LocalizedPadding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  localizedButtonPadding?: LocalizedPadding;
+
   /**
    * The padding of text in button.
    *
@@ -1230,6 +1349,16 @@ declare class SegmentButtonOptions {
    * @since 12
    */
   textPadding: Padding | Dimension;
+
+   /**
+   * The localized padding of text in button.
+   *
+   * @type { ?LocalizedPadding }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  localizedTextPadding?: LocalizedPadding;
 
   /**
    * The blurStyle of background.
@@ -1314,6 +1443,16 @@ declare class SegmentButtonOptions {
    * @since 12
    */
   static capsule(options: CapsuleSegmentButtonConstructionOptions): SegmentButtonOptions;
+
+  /**
+   * Indicates the attribute of the current segment button direction.
+   *
+   * @type { ?Direction }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  direction?: Direction;
 }
 
 /**

@@ -41,15 +41,19 @@ import { EventMethodChecker } from './event_method_check';
 import { EventMethodData } from '../../../typedef/checker/event_method_check_interface';
 import { ApiChangeCheck } from './check_api_diff';
 import { TagInheritCheck } from './tag_inherit_check';
+import { ChineseCheck } from "./check_chinese";
+
+let currentFilePath: string = '';
 
 export class Check {
   /**
    * checker tool main entrance
    * @param { string[] } files -File path for storing file information.
    */
-  static scanEntry(files: string[]): void {
-    ApiChangeCheck.checkApiChange();
+  static scanEntry(files: string[], prId: string): void {
+    ApiChangeCheck.checkApiChange(prId);
     files.forEach((filePath: string, index: number) => {
+      currentFilePath = filePath;
       if (filePath.indexOf('build-tools') !== -1) {
         return;
       }
@@ -108,7 +112,7 @@ export class Check {
         AddErrorLogs.addAPICheckErrorLogs(
           ErrorID.NO_JSDOC_ID,
           ErrorLevel.MIDDLE,
-          singleApi.getFilePath(),
+          currentFilePath,
           singleApi.getPos(),
           ErrorType.NO_JSDOC,
           LogType.LOG_JSDOC,
@@ -119,160 +123,179 @@ export class Check {
           compositiveResult,
           compositiveLocalResult
         );
-      } else {
-        // legality check
-        const tagLegalityCheckResult: ErrorTagFormat[] = LegalityCheck.apiLegalityCheck(singleApi, apiJsdoc);
-        // order check
-        const orderCheckResult: ErrorTagFormat = OrderCheck.orderCheck(singleApi, apiJsdoc);
-        // api naming check
-        const namingCheckResult: ErrorTagFormat = ApiNamingCheck.namingCheck(singleApi);
-        // tags name check
-        const tagNamseCheckResult: ErrorTagFormat = TagNameCheck.tagNameCheck(apiJsdoc);
-        // tags inherit check
-        const tagInheritCheckResult: ErrorTagFormat = TagInheritCheck.tagInheritCheck(singleApi);
-        // tags value check
-        const tagValueCheckResult: ErrorTagFormat[] = TagValueCheck.tagValueCheck(singleApi, apiJsdoc);
-        // tags repeat check
-        const tagRepeatCheckResult: ErrorTagFormat[] = TagRepeatCheck.tagRepeatCheck(apiJsdoc);
-        // api forbidden wors check
-        const forbiddenWorsCheckResult: ErrorTagFormat = ForbiddenWordsCheck.forbiddenWordsCheck(singleApi as ClassInfo);
-        if (!orderCheckResult.state) {
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.WRONG_ORDER_ID,
-            ErrorLevel.MIDDLE,
-            singleApi.getFilePath(),
-            singleApi.getPos(),
-            ErrorType.WRONG_ORDER,
-            LogType.LOG_JSDOC,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            orderCheckResult.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
-          );
-        }
-        if (!tagNamseCheckResult.state) {
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.UNKNOW_DECORATOR_ID,
-            ErrorLevel.MIDDLE,
-            singleApi.getFilePath(),
-            singleApi.getPos(),
-            ErrorType.UNKNOW_DECORATOR,
-            LogType.LOG_JSDOC,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            tagNamseCheckResult.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
-          );
-        }
-        if (!forbiddenWorsCheckResult.state) {
-          const isTsFile: boolean = /\.d\.ts/.test(singleApi.getFilePath());
-          const isAnyError: boolean = /any/.test(forbiddenWorsCheckResult.errorInfo);
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.FORBIDDEN_WORDS_ID,
-            ErrorLevel.MIDDLE,
-            singleApi.getFilePath(),
-            singleApi.getPos(),
-            ErrorType.FORBIDDEN_WORDS,
-            LogType.LOG_API,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            forbiddenWorsCheckResult.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
-          );
-        }
-        if (!namingCheckResult.state) {
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.NAMING_ERRORS_ID,
-            ErrorLevel.MIDDLE,
-            singleApi.getFilePath(),
-            singleApi.getPos(),
-            ErrorType.NAMING_ERRORS,
-            LogType.LOG_API,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            namingCheckResult.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
-          );
-        }
-        if (!tagInheritCheckResult.state) {
-          AddErrorLogs.addAPICheckErrorLogs(
-            ErrorID.WRONG_SCENE_ID,
-            ErrorLevel.MIDDLE,
-            singleApi.getFilePath(),
-            singleApi.getPos(),
-            ErrorType.WRONG_SCENE,
-            LogType.LOG_JSDOC,
-            toNumber(apiJsdoc.since),
-            singleApi.getApiName(),
-            singleApi.getDefinedText(),
-            tagInheritCheckResult.errorInfo,
-            compositiveResult,
-            compositiveLocalResult
-          );
-        }
-        tagLegalityCheckResult.forEach((legalityResult) => {
-          if (legalityResult.state === false) {
-            AddErrorLogs.addAPICheckErrorLogs(
-              ErrorID.WRONG_SCENE_ID,
-              ErrorLevel.MIDDLE,
-              singleApi.getFilePath(),
-              singleApi.getPos(),
-              ErrorType.WRONG_SCENE,
-              LogType.LOG_JSDOC,
-              toNumber(apiJsdoc.since),
-              singleApi.getApiName(),
-              singleApi.getDefinedText(),
-              legalityResult.errorInfo,
-              compositiveResult,
-              compositiveLocalResult
-            );
-          }
-        });
-        tagValueCheckResult.forEach((valueResult) => {
-          if (valueResult.state === false) {
-            AddErrorLogs.addAPICheckErrorLogs(
-              ErrorID.WRONG_VALUE_ID,
-              ErrorLevel.MIDDLE,
-              singleApi.getFilePath(),
-              singleApi.getPos(),
-              ErrorType.WRONG_VALUE,
-              LogType.LOG_JSDOC,
-              toNumber(apiJsdoc.since),
-              singleApi.getApiName(),
-              singleApi.getDefinedText(),
-              valueResult.errorInfo,
-              compositiveResult,
-              compositiveLocalResult
-            );
-          }
-        });
-        tagRepeatCheckResult.forEach((repeatResult) => {
-          if (repeatResult.state === false) {
-            AddErrorLogs.addAPICheckErrorLogs(
-              ErrorID.WRONG_SCENE_ID,
-              ErrorLevel.MIDDLE,
-              singleApi.getFilePath(),
-              singleApi.getPos(),
-              ErrorType.WRONG_SCENE,
-              LogType.LOG_JSDOC,
-              toNumber(apiJsdoc.since),
-              singleApi.getApiName(),
-              singleApi.getDefinedText(),
-              repeatResult.errorInfo,
-              compositiveResult,
-              compositiveLocalResult
-            );
-          }
-        });
+        return;
       }
+      // legality check
+      const tagLegalityCheckResult: ErrorTagFormat[] = LegalityCheck.apiLegalityCheck(singleApi, apiJsdoc);
+      // order check
+      const orderCheckResult: ErrorTagFormat = OrderCheck.orderCheck(singleApi, apiJsdoc);
+      // api naming check
+      const namingCheckResult: ErrorTagFormat = ApiNamingCheck.namingCheck(singleApi);
+      // check jsdoc chinese
+      const chineseCheckResult: ErrorTagFormat = ChineseCheck.checkChinese(apiJsdoc);
+      // tags name check
+      const tagNamseCheckResult: ErrorTagFormat = TagNameCheck.tagNameCheck(apiJsdoc);
+      // tags inherit check
+      const tagInheritCheckResult: ErrorTagFormat = TagInheritCheck.tagInheritCheck(singleApi);
+      // tags value check
+      const tagValueCheckResult: ErrorTagFormat[] = TagValueCheck.tagValueCheck(singleApi, apiJsdoc);
+      // tags repeat check
+      const tagRepeatCheckResult: ErrorTagFormat[] = TagRepeatCheck.tagRepeatCheck(apiJsdoc);
+      // api forbidden wors check
+      const forbiddenWorsCheckResult: ErrorTagFormat = ForbiddenWordsCheck.forbiddenWordsCheck(singleApi as ClassInfo);
+      if (!orderCheckResult.state) {
+        AddErrorLogs.addAPICheckErrorLogs(
+          ErrorID.WRONG_ORDER_ID,
+          ErrorLevel.MIDDLE,
+          currentFilePath,
+          singleApi.getPos(),
+          ErrorType.WRONG_ORDER,
+          LogType.LOG_JSDOC,
+          toNumber(apiJsdoc.since),
+          singleApi.getApiName(),
+          singleApi.getDefinedText(),
+          orderCheckResult.errorInfo,
+          compositiveResult,
+          compositiveLocalResult
+        );
+      }
+      if (!tagNamseCheckResult.state) {
+        AddErrorLogs.addAPICheckErrorLogs(
+          ErrorID.UNKNOW_DECORATOR_ID,
+          ErrorLevel.MIDDLE,
+          currentFilePath,
+          singleApi.getPos(),
+          ErrorType.UNKNOW_DECORATOR,
+          LogType.LOG_JSDOC,
+          toNumber(apiJsdoc.since),
+          singleApi.getApiName(),
+          singleApi.getDefinedText(),
+          tagNamseCheckResult.errorInfo,
+          compositiveResult,
+          compositiveLocalResult
+        );
+      }
+      if (!forbiddenWorsCheckResult.state) {
+        AddErrorLogs.addAPICheckErrorLogs(
+          ErrorID.FORBIDDEN_WORDS_ID,
+          ErrorLevel.MIDDLE,
+          currentFilePath,
+          singleApi.getPos(),
+          ErrorType.FORBIDDEN_WORDS,
+          LogType.LOG_API,
+          toNumber(apiJsdoc.since),
+          singleApi.getApiName(),
+          singleApi.getDefinedText(),
+          forbiddenWorsCheckResult.errorInfo,
+          compositiveResult,
+          compositiveLocalResult
+        );
+      }
+      if (!namingCheckResult.state) {
+        AddErrorLogs.addAPICheckErrorLogs(
+          ErrorID.NAMING_ERRORS_ID,
+          ErrorLevel.MIDDLE,
+          currentFilePath,
+          singleApi.getPos(),
+          ErrorType.NAMING_ERRORS,
+          LogType.LOG_API,
+          toNumber(apiJsdoc.since),
+          singleApi.getApiName(),
+          singleApi.getDefinedText(),
+          namingCheckResult.errorInfo,
+          compositiveResult,
+          compositiveLocalResult
+        );
+      }
+      if (!chineseCheckResult.state) {
+        AddErrorLogs.addAPICheckErrorLogs(
+            ErrorID.JSDOC_HAS_CHINESE,
+            ErrorLevel.MIDDLE,
+            singleApi.getFilePath(),
+            singleApi.getPos(),
+            ErrorType.JSDOC_HAS_CHINESE,
+            LogType.LOG_JSDOC,
+            toNumber(apiJsdoc.since),
+            singleApi.getApiName(),
+            singleApi.getDefinedText(),
+            chineseCheckResult.errorInfo,
+            compositiveResult,
+            compositiveLocalResult
+        );
+      }
+      if (!tagInheritCheckResult.state) {
+        AddErrorLogs.addAPICheckErrorLogs(
+          ErrorID.WRONG_SCENE_ID,
+          ErrorLevel.MIDDLE,
+          currentFilePath,
+          singleApi.getPos(),
+          ErrorType.WRONG_SCENE,
+          LogType.LOG_JSDOC,
+          toNumber(apiJsdoc.since),
+          singleApi.getApiName(),
+          singleApi.getDefinedText(),
+          tagInheritCheckResult.errorInfo,
+          compositiveResult,
+          compositiveLocalResult
+        );
+      }
+      tagLegalityCheckResult.forEach((legalityResult) => {
+        if (legalityResult.state !== false) {
+          return;
+        }
+        AddErrorLogs.addAPICheckErrorLogs(
+          ErrorID.WRONG_SCENE_ID,
+          ErrorLevel.MIDDLE,
+          currentFilePath,
+          singleApi.getPos(),
+          ErrorType.WRONG_SCENE,
+          LogType.LOG_JSDOC,
+          toNumber(apiJsdoc.since),
+          singleApi.getApiName(),
+          singleApi.getDefinedText(),
+          legalityResult.errorInfo,
+          compositiveResult,
+          compositiveLocalResult
+        );
+      });
+      tagValueCheckResult.forEach((valueResult) => {
+        if (valueResult.state !== false) {
+          return;
+        }
+        AddErrorLogs.addAPICheckErrorLogs(
+          ErrorID.WRONG_VALUE_ID,
+          ErrorLevel.MIDDLE,
+          currentFilePath,
+          singleApi.getPos(),
+          ErrorType.WRONG_VALUE,
+          LogType.LOG_JSDOC,
+          toNumber(apiJsdoc.since),
+          singleApi.getApiName(),
+          singleApi.getDefinedText(),
+          valueResult.errorInfo,
+          compositiveResult,
+          compositiveLocalResult
+        );
+      });
+      tagRepeatCheckResult.forEach((repeatResult) => {
+        if (repeatResult.state !== false) {
+          return;
+        }
+        AddErrorLogs.addAPICheckErrorLogs(
+          ErrorID.WRONG_SCENE_ID,
+          ErrorLevel.MIDDLE,
+          currentFilePath,
+          singleApi.getPos(),
+          ErrorType.WRONG_SCENE,
+          LogType.LOG_JSDOC,
+          toNumber(apiJsdoc.since),
+          singleApi.getApiName(),
+          singleApi.getDefinedText(),
+          repeatResult.errorInfo,
+          compositiveResult,
+          compositiveLocalResult
+        );
+      });
     });
   }
   /**

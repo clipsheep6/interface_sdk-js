@@ -154,7 +154,7 @@ declare namespace dragController {
      * trigger drag action
      *
      * @returns { Promise<void> } A Promise can indicate the start result.
-     * @throws { BusinessError } 100001 - if some internal handling failed.
+     * @throws { BusinessError } 100001 - Internal handling failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
@@ -162,7 +162,7 @@ declare namespace dragController {
      * trigger drag action
      *
      * @returns { Promise<void> } A Promise can indicate the start result.
-     * @throws { BusinessError } 100001 - if some internal handling failed.
+     * @throws { BusinessError } 100001 - Internal handling failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
@@ -369,8 +369,11 @@ declare namespace dragController {
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains the drag event information.
-   * @throws { BusinessError } 401 - if the parameters checking failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -383,8 +386,11 @@ declare namespace dragController {
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
-   * @throws { BusinessError } 401 - if the parameters checking failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -399,8 +405,11 @@ declare namespace dragController {
    * displayed when the objects are dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { DragAction } one drag action object
-   * @throws { BusinessError } 401 - if the parameters checking failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -411,8 +420,11 @@ declare namespace dragController {
    * displayed when the objects are dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { DragAction } one drag action object
-   * @throws { BusinessError } 401 - if the parameters checking failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12

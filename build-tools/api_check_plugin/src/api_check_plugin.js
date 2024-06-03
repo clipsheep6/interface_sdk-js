@@ -52,9 +52,10 @@ function getMdFiles(url, isTestCase) {
     if (!pathElements.has('build-tools') || isTestCase) {
       mdFiles.push(filePath);
     }
-  })
+  });
   return mdFiles;
 }
+exports.getMdFiles = getMdFiles;
 
 function tsTransform(uFiles, callback) {
   uFiles.forEach((filePath, index) => {

@@ -12,14 +12,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import path from 'path';
+import path, { ParsedPath } from 'path';
 import fs, { Stats } from 'fs';
 import { Workbook, Worksheet } from 'exceljs';
 import ts, { LineAndCharacter } from 'typescript';
 import { ApiResultSimpleInfo, ApiResultInfo, ApiResultMessage } from '../typedef/checker/result_type';
 import { ApiInfo, ClassInfo, ParentClass } from '../typedef/parser/ApiInfoDefination';
 import { FileUtils } from './FileUtils';
-import { ApiCheckVersion } from '../coreImpl/checker/config/api_check_version.json'
+import { ApiCheckVersion } from '../coreImpl/checker/config/api_check_version.json';
 
 
 export class PosOfNode {
@@ -157,10 +157,8 @@ export class ObtainFullPath {
         const status: Stats = fs.statSync(filePath);
         if (status.isDirectory()) {
           ObtainFullPath.getFullFiles(filePath, utFiles);
-        } else {
-          if (/\.d\.ts/.test(filePath) || /\.d\.ets/.test(filePath) || /\.ts/.test(filePath)) {
-            utFiles.push(filePath);
-          }
+        } else if (/\.d\.ts/.test(filePath) || /\.d\.ets/.test(filePath) || /\.ts/.test(filePath)) {
+          utFiles.push(filePath);
         }
       });
     } catch (e) {
@@ -242,6 +240,28 @@ export class CommonFunctions {
       }
     });
     return implementsApiValue;
+  }
+
+  static getMdFiles(url: string) {
+    const mdFiles: string[] = [];
+    const content: string = fs.readFileSync(url, 'utf-8');
+    const filePathArr: string[] = content.split(/[(\r\n)\r\n]+/);
+    filePathArr.forEach((filePath: string) => {
+      const pathElements: Set<string> = new Set();
+      CommonFunctions.splitPath(filePath, pathElements);
+      if (!pathElements.has('build-tools')) {
+        mdFiles.push(filePath);
+      }
+    });
+    return mdFiles;
+  }
+
+  static splitPath(filePath: string, pathElements: Set<string>) {
+    let spliteResult: ParsedPath = path.parse(filePath);
+    if (spliteResult.base !== '') {
+      pathElements.add(spliteResult.base);
+      CommonFunctions.splitPath(spliteResult.dir, pathElements);
+    }
   }
 }
 
