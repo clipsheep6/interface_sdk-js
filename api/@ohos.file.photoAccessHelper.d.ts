@@ -1564,7 +1564,21 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12
      */
-    PHOTO_SUBTYPE = 'subtype'
+    PHOTO_SUBTYPE = 'subtype',
+    /**
+     * width and height of LCD size, read only
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    LCD_SIZE = 'lcd_size',
+    /**
+     * width and height of THUMB size, read only
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    THUMB_SIZE = 'thumb_size'
   }
 
   /**
