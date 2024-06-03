@@ -1803,6 +1803,44 @@ export interface AtomicServiceBar {
 }
 
 /**
+ * Represents a dynamic synchronization scene.
+ * 
+ * @interface DynamicSyncScene
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+export interface DynamicSyncScene {
+  /**
+   * Type of the DynamicSyncScene.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  readonly Type: DynamicSyncSceneType;
+
+  /**
+   * Sets the FrameRateRange of the DynamicSyncScene.
+   * 
+   * @param { ExpectedFrameRateRange } range - The range of frameRate.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  setFrameRateRange(range: ExpectedFrameRateRange): void;
+
+  /**
+   * Gets the FrameRateRange of the DynamicSyncScene.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { ExpectedFrameRateRange } The range of frameRate.
+   * @atomicservice
+   * @since 12
+   */
+  getFrameRateRange(): ExpectedFrameRateRange;
+}
+/**
  * class DragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
@@ -2739,6 +2777,16 @@ export class UIContext {
    * @since 12
    */
   postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void;
+
+  /**
+   * Get the DynamicSyncScene by id.
+   * @param { string } id - The id of DynamicSyncScene.
+   * @returns { Array<DynamicSyncScene>} The instance of DynamicSyncScene.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  requireDynamicSyncScene(id:string): Array<DynamicSyncScene>;
 }
 
 /**
@@ -2769,4 +2817,32 @@ export const enum KeyboardAvoidMode {
    * @since 11
    */
   RESIZE = 1
+}
+
+/**
+ * Enum of DynamicSyncSceneType
+ * 
+ * @enum { number } DynamicSyncSceneType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
+ */
+export const enum DynamicSyncSceneType {
+  /**
+   * Scene type is GESTURE.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  GESTURE = 0,
+
+  /**
+   * Scene type is ANIMATION.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  ANIMATION = 1
 }
