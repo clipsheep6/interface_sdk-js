@@ -5792,7 +5792,7 @@ declare namespace window {
 
     /**
      * Maximize app main window.
-     *
+     * @param { boolean } immersive - set window immersive mode when maximize.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -5802,7 +5802,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 12
      */
-    maximize(): Promise<void>;
+    maximize(immersive?: boolean): Promise<void>;
 
     /**
      * Set whether to enable a window to resize by drag.
