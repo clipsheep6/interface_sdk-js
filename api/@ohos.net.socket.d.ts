@@ -681,6 +681,16 @@ declare namespace socket {
     bind(address: NetAddress): Promise<void>;
 
     /**
+     * Obtains the peer address of a UDPSocket connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<NetAddress>;
+
+    /**
      * Sends data over a UDPSocket connection.
      * @permission ohos.permission.INTERNET
      * @param { UDPSendOptions } options - Optional parameters {@link UDPSendOptions}.
@@ -2433,6 +2443,16 @@ declare namespace socket {
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
+     * Obtains the peer address of a UDPSocket connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<NetAddress>;
+
+    /**
      * Listens for message receiving events of the TCPSocket connection.
      * @param { 'message' } type - Indicates Event name.
      * @param { Callback<{ message: ArrayBuffer, remoteInfo: SocketRemoteInfo }> } callback - the callback used to return the result.
@@ -2741,6 +2761,16 @@ declare namespace socket {
      * @since 10
      */
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
+
+    /**
+     * Obtains the peer address of a TLSSocket connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<NetAddress>;
 
     /**
      * Listens for message receiving events of the TLSSocket connection.
@@ -3867,6 +3897,16 @@ declare namespace socket {
     setExtraOptions(options: TCPExtraOptions): Promise<void>;
 
     /**
+     * Obtains the peer address of a TLSSocketServer connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<NetAddress>;
+
+    /**
      * Listens for connect events of the TCPSocketServer connection.
      * @param { 'connect' } type - Indicates Event name.
      * @param { Callback<TCPSocketConnection> } callback - The callback of on.
@@ -4369,6 +4409,16 @@ declare namespace socket {
      * @since 10
      */
     getProtocol(): Promise<string>;
+
+    /**
+     * Obtains the peer address of a TLSSocketServer connection.
+     * @returns { Promise<NetAddress> } The promise returned by the function.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @throws { BusinessError } 2303188 - Socket operation on non-socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    getLocalAddress(): Promise<NetAddress>;
 
     /**
      * Listens for connect events of the TLSSocketServer connection.
