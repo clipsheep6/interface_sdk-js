@@ -337,6 +337,7 @@ declare namespace accessibility {
      * @since 8
      */
     enabled: boolean;
+
     /**
      * Indicates the style of captions.
      *
@@ -420,6 +421,7 @@ declare namespace accessibility {
      * @since 8
      */
     fontFamily: CaptionsFontFamily;
+
     /**
      * Indicates the font scaling of captions.
      *
@@ -427,6 +429,7 @@ declare namespace accessibility {
      * @since 8
      */
     fontScale: number;
+
     /**
      * Indicates the font color of captions.
      *
@@ -434,6 +437,7 @@ declare namespace accessibility {
      * @since 8
      */
     fontColor: number | string;
+
     /**
      * Indicates the edge type of the captions font.
      *
@@ -441,6 +445,7 @@ declare namespace accessibility {
      * @since 8
      */
     fontEdgeType: CaptionsFontEdgeType;
+
     /**
      * Indicates the background color of captions.
      *
@@ -448,6 +453,7 @@ declare namespace accessibility {
      * @since 8
      */
     backgroundColor: number | string;
+
     /**
      * Indicates the window color of captions.
      *
@@ -519,6 +525,24 @@ declare namespace accessibility {
      * @since 7
      */
     readonly eventTypes: Array<EventType>;
+
+    /**
+     * Indicates whether the extended service needs to be hidden.
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 12
+     */
+    readonly needHide: boolean;
+
+    /**
+     * The label of the ability.
+     * @type { string }
+     * @readonly
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 12
+     */
+    readonly label: string;
   }
 
   /**
@@ -529,6 +553,7 @@ declare namespace accessibility {
    */
   class EventInfo {
     constructor(jsonObject);
+
     /**
      * The type of an accessibility event.
      *
@@ -642,4 +667,5 @@ declare namespace accessibility {
     itemCount?: number;
   }
 }
+
 export default accessibility;
