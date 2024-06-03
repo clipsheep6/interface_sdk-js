@@ -53,6 +53,7 @@ declare namespace power {
    * @param { string } reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
    * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
    * @since 7
    * @deprecated since 9
    * @useinstead power#reboot
