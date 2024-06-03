@@ -3744,8 +3744,8 @@ declare namespace avSession {
      */
     /**
      * Current custom media packets
+     * @type { ?ExtrasType }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @type { ExtrasType }
      * @atomicservice
      * @since 12
      */
@@ -3754,7 +3754,7 @@ declare namespace avSession {
 
   /**
    * provide extras type
-   * @typedef ExtrasType
+   * @typedef { Object }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
    * @since 12
