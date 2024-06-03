@@ -417,6 +417,19 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   canLoop(value: boolean): TextPickerAttribute;
 
   /**
+   * Can scroll loop if true is set, Scroll direction setting.
+   *
+   * @param { number } value
+   * @returns { TextPickerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+
+   slideDirection(value: number): TextPickerAttribute;
+
+  /**
    * Sets the text style of disappearing items
    *
    * @param { PickerTextStyle } value - indicates the text style of disappearing items.
