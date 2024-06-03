@@ -49,7 +49,7 @@ import window from './@ohos.window';
  */
 export default class AbilityLifecycleCallback {
   /**
-   * Called back before ability' want create.
+   * Called back before uiAbility newWant create.
    *
    * @param { Want } want - Indicates the want info of ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -58,10 +58,10 @@ export default class AbilityLifecycleCallback {
    * @atomicservice
    * @since 12
    */
-  onWillNewWant(want: Want): void;
+  onWillNewWant(ability: UIAbility): void;
 
   /**
-   * Called back ability' want create.
+   * Called back on uiAbility newWant create.
    *
    * @param { Want } want - Indicates the want info of ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -70,7 +70,7 @@ export default class AbilityLifecycleCallback {
    * @atomicservice
    * @since 12
    */
-  onNewWant(want: Want): void;
+  onNewWant(ability: UIAbility): void;
 
   /**
    * Called back when an ability is started for initialization.
