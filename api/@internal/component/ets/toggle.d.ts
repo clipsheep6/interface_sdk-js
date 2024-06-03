@@ -493,6 +493,18 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @since 12
    */
   switchStyle(value: SwitchStyle): ToggleAttribute;
+
+  /**
+   * Set the press to overlay the back panel color.
+   *
+   * @param { ToggleShape } value - The configuration of toggle shape.
+   * @returns { ToggleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  bgShape(value: ToggleShape): ToggleAttribute;
 }
 
 /**
