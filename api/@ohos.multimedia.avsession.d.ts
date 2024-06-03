@@ -3754,7 +3754,7 @@ declare namespace avSession {
 
   /**
    * provide extras type
-   * @typedef { Object }
+   * @typedef { object }
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice
    * @since 12
