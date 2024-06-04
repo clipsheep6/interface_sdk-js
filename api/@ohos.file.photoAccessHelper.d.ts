@@ -2025,7 +2025,13 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    IMAGE,
+    /**
+     * Image album
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 12
+     */
+    IMAGE = 1031,
     /**
      * Source album
      *
