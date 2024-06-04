@@ -48,6 +48,28 @@ import window from './@ohos.window';
  */
 export default class AbilityLifecycleCallback {
   /**
+   * Called back before uiAbility newWant create.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 12
+   */
+  onWillNewWant(ability: UIAbility): void;
+
+  /**
+   * Called back on uiAbility newWant create.
+   *
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @StageModelOnly
+   * @atomicservice
+   * @since 12
+   */
+  onNewWant(ability: UIAbility): void;
+
+  /**
    * Called back when an ability is started for initialization.
    *
    * @param { UIAbility } ability - Indicates the ability to register for listening.
