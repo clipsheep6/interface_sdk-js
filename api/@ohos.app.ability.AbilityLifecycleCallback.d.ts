@@ -19,7 +19,6 @@
  */
 
 import UIAbility from './@ohos.app.ability.UIAbility';
-import Want from './@ohos.app.ability.Want';
 import dataAbility from './@ohos.data.dataAbility';
 import window from './@ohos.window';
 
