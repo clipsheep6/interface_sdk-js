@@ -2380,6 +2380,30 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 12
    */
   onDidDelete(callback: Callback<DeleteValue>): TextInputAttribute;
+
+  /**
+   * Called when the input of the input box changes when has preview text.
+   *
+   * @param { OnPreviewTextChangeCallback } OnPreviewTextChangeCallback
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onPreviewTextChange(callback: OnPreviewTextChangeCallback): TextInputAttribute;
+
+  /**
+   * Define the preview text mode of the text input.
+   *
+   * @param { boolean } enable - Indicates the preview text mode.
+   * @returns { TextInputAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enablePreviewText(enable: boolean): TextInputAttribute;
 }
 
 /**

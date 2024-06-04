@@ -1311,6 +1311,30 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 12
    */
   onDidDelete(callback: Callback<DeleteValue>): SearchAttribute;
+
+  /**
+   * Called when the input of the input box changes when has preview text.
+   *
+   * @param { OnPreviewTextChangeCallback } OnPreviewTextChangeCallback
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onPreviewTextChange(callback: OnPreviewTextChangeCallback): SearchAttribute;
+
+  /**
+   * Define the preview text mode of the text input.
+   *
+   * @param { boolean } enable - Indicates the preview text mode.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enablePreviewText(enable: boolean): SearchAttribute;
 }
 
 /**
