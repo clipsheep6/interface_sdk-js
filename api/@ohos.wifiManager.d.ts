@@ -3537,7 +3537,7 @@ declare namespace wifiManager {
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 10
      */
-    randomGlobalIpv6Address: string;
+    randGlobalIpv6Address: string;
 
     /**
      * The gateway of the Wi-Fi connection
