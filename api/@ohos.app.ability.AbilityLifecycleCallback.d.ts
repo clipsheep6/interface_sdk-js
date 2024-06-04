@@ -50,10 +50,9 @@ export default class AbilityLifecycleCallback {
   /**
    * Called back before uiAbility newWant create.
    *
-   * @param { Want } want - Indicates the want info of ability.
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
@@ -62,10 +61,9 @@ export default class AbilityLifecycleCallback {
   /**
    * Called back on uiAbility newWant create.
    *
-   * @param { Want } want - Indicates the want info of ability.
+   * @param { UIAbility } ability - Indicates the ability to register for listening.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
-   * @crossplatform
    * @atomicservice
    * @since 12
    */
