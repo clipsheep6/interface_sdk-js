@@ -296,6 +296,24 @@ declare namespace formObserver {
    * @systemapi
    * @since 11
    */
+  /**
+   * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - The callback is used to return the
+   *                                                                      RunningFormInfo.
+   * @param { boolean } isUnusedIncluded - Indicates whether to include unused form.
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
+   */
   function getRunningFormInfos(
     callback: AsyncCallback<Array<formInfo.RunningFormInfo>>,
     isUnusedIncluded: boolean,
@@ -336,6 +354,23 @@ declare namespace formObserver {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
+   */
+  /**
+   * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { boolean } isUnusedIncluded - Indicates whether to include unused form.
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @returns { Promise<Array<formInfo.RunningFormInfo>> } Returns the RunningFormInfo.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
    */
   function getRunningFormInfos(
     isUnusedIncluded: boolean,
@@ -426,6 +461,25 @@ declare namespace formObserver {
    * @stagemodelonly
    * @since 11
    */
+  /**
+   * Obtains the RunningFormInfo object by formId.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } formId - Indicates the form provider formId.
+   * @param { boolean } isUnusedIncluded - Indicates whether to include unused form.
+   * @returns { Promise<formInfo.RunningFormInfo> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
   function getRunningFormInfoById(formId: string, isUnusedIncluded: boolean): Promise<formInfo.RunningFormInfo>;
 
   /**
@@ -466,6 +520,25 @@ declare namespace formObserver {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   */
+  /**
+   * Obtains the RunningFormInfo object by formId.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } formId - Indicates the form provider formId.
+   * @param { boolean } isUnusedIncluded - Indicates whether to include unused form.
+   * @param { AsyncCallback<formInfo.RunningFormInfo> } callback - The callback of getFormInstancesById.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
    */
   function getRunningFormInfoById(
     formId: string,

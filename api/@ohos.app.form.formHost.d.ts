@@ -940,6 +940,25 @@ declare namespace formHost {
    * @StageModelOnly
    * @since 11
    */
+  /**
+   * Acquire form data by formId.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { string } formId - Indicates the form ID.
+   * @param { AsyncCallback<Record<string, Object>> } callback - The callback of acquireFormData.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   *                                      invalid input parameter during form operation
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
   function acquireFormData(formId: string, callback: AsyncCallback<Record<string, Object>>): void;
 
   /**
@@ -980,6 +999,25 @@ declare namespace formHost {
    * @StageModelOnly
    * @since 11
    */
+  /**
+   * Acquire form data by formId.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { string } formId - Indicates the form ID.
+   * @returns { Promise<Record<string, Object>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   *                                      invalid input parameter during form operation
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @StageModelOnly
+   * @since 12
+   */
   function acquireFormData(formId: string): Promise<Record<string, Object>>;
 
   /**
@@ -1002,6 +1040,27 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11
+   */
+  /**
+   * Notify the form framework to set a router proxy for the specified cards.
+   * <p>Once a card sets up a router proxy, the form framework will no longer invoke its onRouter callback,
+   * and FMS will not trigger the actual jump.</p>
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Indicates the IDs of the forms that requires setting up a router proxy.
+   * @param { Callback<Want> } proxy - Indicates the router proxy to be set up.
+   * @param { AsyncCallback<void> } callback - The callback of setRouterProxy.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
    */
   function setRouterProxy(formIds: Array<string>, proxy: Callback<Want>, callback: AsyncCallback<void>): void;
 
@@ -1026,6 +1085,27 @@ declare namespace formHost {
     * @systemapi
     * @since 11
     */
+   /**
+    * Notify the form framework to set a router proxy for the specified cards.
+    * <p>Once a card sets up a router proxy, the form framework will no longer invoke its onRouter callback,
+    * and FMS will not trigger the actual jump.</p>
+    *
+    * @permission ohos.permission.REQUIRE_FORM
+    * @param { Array<string> } formIds - Indicates the IDs of the forms that requires setting up a router proxy.
+    * @param { Callback<Want> } proxy - Indicates the router proxy to be set up.
+    * @returns { Promise<void> } The promise returned by the function.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+    * @throws { BusinessError } 16500050 - IPC connection error.
+    * @throws { BusinessError } 16500060 - Service connection error.
+    * @throws { BusinessError } 16501000 - An internal functional error occurred.
+    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @since 12
+    */
   function setRouterProxy(formIds: Array<string>, proxy: Callback<Want>): Promise<void>;
 
    /**
@@ -1046,6 +1126,24 @@ declare namespace formHost {
     * @systemapi
     * @since 11
     */
+   /**
+    * Notify the form framework to clear the router proxy set for the specified cards.
+    *
+    * @permission ohos.permission.REQUIRE_FORM
+    * @param { Array<string> } formIds - Indicates the IDs of the forms that requires clearing of router proxy.
+    * @param { AsyncCallback<void> } callback - The callback of clearRouterProxy.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+    * @throws { BusinessError } 16500050 - IPC connection error.
+    * @throws { BusinessError } 16500060 - Service connection error.
+    * @throws { BusinessError } 16501000 - An internal functional error occurred.
+    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @since 12
+    */
   function clearRouterProxy(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
    /**
@@ -1065,6 +1163,24 @@ declare namespace formHost {
     * @syscap SystemCapability.Ability.Form
     * @systemapi
     * @since 11
+    */
+   /**
+    * Notify the form framework to clear the router proxy set for the specified cards.
+    *
+    * @permission ohos.permission.REQUIRE_FORM
+    * @param { Array<string> } formIds - Indicates the IDs of the forms that requires clearing of router proxy.
+    * @returns { Promise<void> } The promise returned by the function.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+    * @throws { BusinessError } 16500050 - IPC connection error.
+    * @throws { BusinessError } 16500060 - Service connection error.
+    * @throws { BusinessError } 16501000 - An internal functional error occurred.
+    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @since 12
     */
   function clearRouterProxy(formIds: Array<string>): Promise<void>;
 
@@ -1106,6 +1222,24 @@ declare namespace formHost {
    * @stagemodelonly
    * @since 11
    */
+  /**
+   * Set permanent dynamic ArkTS forms recyclable, they will be recycled when memory is low.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Indicates the form id list of permanent dynamic ArkTS forms.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
   function setFormsRecyclable(formIds: Array<string>): Promise<void>;
 
   /**
@@ -1125,6 +1259,24 @@ declare namespace formHost {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   */
+  /**
+   * Set permanent dynamic ArkTS forms recyclable, they will be recycled when memory is low.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Indicates the form id list of permanent dynamic ArkTS forms.
+   * @param { AsyncCallback<void> } callback - The callback of setFormsRecyclable.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
    */
   function setFormsRecyclable(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1166,6 +1318,24 @@ declare namespace formHost {
    * @stagemodelonly
    * @since 11
    */
+  /**
+   * Recover recycled permanent dynamic ArkTS forms.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Indicates the form id list of recycled permanent dynamic ArkTS forms.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
   function recoverForms(formIds: Array<string>): Promise<void>;
 
   /**
@@ -1185,6 +1355,24 @@ declare namespace formHost {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   */
+  /**
+   * Recover recycled permanent dynamic ArkTS forms.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Indicates the form id list of recycled permanent dynamic ArkTS forms.
+   * @param { AsyncCallback<void> } callback - The callback of recoverForms.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
    */
   function recoverForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
