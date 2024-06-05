@@ -731,7 +731,7 @@ declare namespace picker {
      * @atomicservice
      * @since 12
      */
-    getSelection(): number;
+    getSelectedIndex(): number;
   }
 
   /**
