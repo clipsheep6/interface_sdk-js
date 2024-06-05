@@ -724,7 +724,7 @@ declare namespace picker {
     save(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Obtain the saving type selected by the user.
+     * Gets the save type selected by the user. Returns the index of the suffix array fileSuffixChoices configured by the user in DocumentSaveOptions.
      *
      * @returns { number } Returns the index of the save type selected by the user.
      * @syscap SystemCapability.FileManagement.UserFileService
