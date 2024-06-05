@@ -276,6 +276,23 @@ declare namespace formObserver {
    * @systemapi
    * @since 10
    */
+  /**
+   * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - The callback is used to return the
+   *                                                                      RunningFormInfo.
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
+   */
   function getRunningFormInfos(callback: AsyncCallback<Array<formInfo.RunningFormInfo>>, hostBundleName?: string): void;
 
   /**
@@ -336,6 +353,22 @@ declare namespace formObserver {
    * @systemapi
    * @since 10
    */
+  /**
+   * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
+   * @returns { Promise<Array<formInfo.RunningFormInfo>> } Returns the RunningFormInfo.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
+   */
   function getRunningFormInfos(hostBundleName?: string): Promise<Array<formInfo.RunningFormInfo>>;
 
   /**
@@ -395,6 +428,24 @@ declare namespace formObserver {
    * @stagemodelonly
    * @since 10
    */
+  /**
+   * Obtains the RunningFormInfo objects by FormProviderFilter.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { formInfo.FormProviderFilter } formProviderFilter - Indicates the form provider app info.
+   * @returns { Promise<Array<formInfo.RunningFormInfo>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
   function getRunningFormInfosByFilter(
     formProviderFilter: formInfo.FormProviderFilter
   ): Promise<Array<formInfo.RunningFormInfo>>;
@@ -416,6 +467,24 @@ declare namespace formObserver {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   */
+  /**
+   * Obtains the RunningFormInfo objects by FormProviderFilter.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { formInfo.FormProviderFilter } formProviderFilter - Indicates the form provider app info.
+   * @param { AsyncCallback<Array<formInfo.RunningFormInfo>> } callback - The callback of getFormInstancesByFilter.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
    */
   function getRunningFormInfosByFilter(
     formProviderFilter: formInfo.FormProviderFilter,
@@ -439,6 +508,24 @@ declare namespace formObserver {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   */
+  /**
+   * Obtains the RunningFormInfo object by formId.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } formId - Indicates the form provider formId.
+   * @returns { Promise<formInfo.RunningFormInfo> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
    */
   function getRunningFormInfoById(formId: string): Promise<formInfo.RunningFormInfo>;
 

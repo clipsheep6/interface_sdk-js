@@ -426,6 +426,22 @@ declare namespace formProvider {
    * @systemapi
    * @since 9
    */
+  /**
+   * Request to publish a form to the form host.
+   *
+   * @param { Want } want - The want of the form to publish.
+   * @param { formBindingData.FormBindingData } formBindingData - Indicates the form data.
+   * @param { AsyncCallback<string> } callback - The callback is used to return the form id.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
+   */
   function requestPublishForm(
     want: Want,
     formBindingData: formBindingData.FormBindingData,
@@ -447,6 +463,21 @@ declare namespace formProvider {
    * @systemapi
    * @since 9
    */
+  /**
+   * Request to publish a form to the form host.
+   *
+   * @param { Want } want - The want of the form to publish.
+   * @param { AsyncCallback<string> } callback - The callback is used to return the form id.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
+   */
   function requestPublishForm(want: Want, callback: AsyncCallback<string>): void;
 
   /**
@@ -465,6 +496,22 @@ declare namespace formProvider {
    * @systemapi
    * @since 9
    */
+  /**
+   * Request to publish a form to the form host.
+   *
+   * @param { Want } want - The want of the form to publish.
+   * @param { formBindingData.FormBindingData } [formBindingData] - Indicates the form data.
+   * @returns { Promise<string> } Returns the form id.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
+   */
   function requestPublishForm(want: Want, formBindingData?: formBindingData.FormBindingData): Promise<string>;
 
   /**
@@ -480,6 +527,19 @@ declare namespace formProvider {
    * @systemapi
    * @since 9
    */
+  /**
+   * Check if the request of publishing a form is supported by the host
+   *
+   * @param { AsyncCallback<boolean> } callback - The callback is used to return true if the request is supported.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
+   */
   function isRequestPublishFormSupported(callback: AsyncCallback<boolean>): void;
 
   /**
@@ -492,6 +552,17 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 9
+   */
+  /**
+   * Check if the request of publishing a form is supported by the host
+   *
+   * @returns { Promise<boolean> } Returns true if the request is supported.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 12
    */
   function isRequestPublishFormSupported(): Promise<boolean>;
 }
