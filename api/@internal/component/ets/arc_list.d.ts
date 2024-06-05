@@ -21,7 +21,7 @@
 /**
  * Called when the start, end and center positions of the display change.
  *
- * @typedef { function } ScrollIndexHandler
+ * @typedef { function } ArcScrollIndexHandler
  * @param { number } start - the start index of the display area.
  * @param { number } end - the end index of the display area.
  * @param { number } center - the center index of the display area.
@@ -31,7 +31,7 @@
  * @atomicservice
  * @since 12
  */
-declare type ScrollIndexHandler = (start: number, end: number, center: number) => void;
+declare type ArcScrollIndexHandler = (start: number, end: number, center: number) => void;
 
 /**
  * Defines the arc list options.
@@ -258,14 +258,14 @@ declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   /**
    * Called when the start, end and center positions of the display change.
    *
-   * @param { Optional<ScrollIndexHandler> } handler
+   * @param { Optional<ArcScrollIndexHandler> } handler
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Arc
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  onScrollIndex(handler: Optional<ScrollIndexHandler>): ArcListAttribute;
+  onScrollIndex(handler: Optional<ArcScrollIndexHandler>): ArcListAttribute;
 
   /**
    * Called when the list begins to arrive.
