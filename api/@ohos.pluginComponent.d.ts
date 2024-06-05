@@ -70,6 +70,7 @@ declare namespace pluginComponentManager {
    * @interface PushParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 12
    */
   interface PushParameters {
     /**
@@ -194,6 +195,7 @@ declare namespace pluginComponentManager {
    * @interface RequestParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 12
    */
   interface RequestParameters {
     /**
