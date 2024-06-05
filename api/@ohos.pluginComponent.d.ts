@@ -390,6 +390,7 @@ declare namespace pluginComponentManager {
    * @param { AsyncCallback<void> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 12
    */
   function push(param: PushParameters, callback: AsyncCallback<void>): void;
 
@@ -400,6 +401,7 @@ declare namespace pluginComponentManager {
    * @param { AsyncCallback<RequestCallbackParameters> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 12
    */
   function request(param: RequestParameters, callback: AsyncCallback<RequestCallbackParameters>): void;
 
