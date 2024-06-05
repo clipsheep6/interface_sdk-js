@@ -726,6 +726,7 @@ declare namespace picker {
     /**
      * Obtain the saving type selected by the user.
      *
+     * @returns { number } Returns the index of the save type selected by the user.
      * @syscap SystemCapability.FileManagement.UserFileService
      * @crossplatform
      * @atomicservice
