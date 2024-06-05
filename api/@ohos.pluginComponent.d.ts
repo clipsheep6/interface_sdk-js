@@ -79,6 +79,7 @@ declare namespace pluginComponentManager {
      * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */    
     want: Want;
 
@@ -88,6 +89,7 @@ declare namespace pluginComponentManager {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */ 
     name: string;
 
@@ -97,6 +99,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */ 
     data: KVObject;
 
@@ -106,6 +109,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */ 
     extraData: KVObject;
 
@@ -115,6 +119,7 @@ declare namespace pluginComponentManager {
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */ 
     jsonPath?: string;
   }
@@ -204,6 +209,7 @@ declare namespace pluginComponentManager {
      * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */  
     want: Want;
 
@@ -213,6 +219,7 @@ declare namespace pluginComponentManager {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */  
     name: string;
   
@@ -222,6 +229,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */  
     data: KVObject;
 
@@ -231,6 +239,7 @@ declare namespace pluginComponentManager {
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */ 
     jsonPath?: string;
   }
