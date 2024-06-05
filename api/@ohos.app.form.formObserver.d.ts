@@ -587,6 +587,24 @@ declare namespace formObserver {
    * @stagemodelonly
    * @since 10
    */
+  /**
+   * Obtains the RunningFormInfo object by formId.
+   *
+   * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } formId - Indicates the form provider formId.
+   * @param { AsyncCallback<formInfo.RunningFormInfo> } callback - The callback of getFormInstancesById.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
   function getRunningFormInfoById(formId: string, callback: AsyncCallback<formInfo.RunningFormInfo>): void;
 
   /**

@@ -140,7 +140,7 @@ declare namespace formProvider {
    * @param { string } formId - Indicates the form ID.
    * @param { number } minute - Indicates duration minute before next update.
    * @returns { Promise<void> } The promise returned by the function.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500060 - Service connection error.

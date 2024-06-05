@@ -1763,8 +1763,8 @@ declare namespace formHost {
     * @returns { Promise<void> } The promise returned by the function.
     * @throws { BusinessError } 201 - Permissions denied.
     * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:
+    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
     * @throws { BusinessError } 16500050 - IPC connection error.
     * @throws { BusinessError } 16500060 - Service connection error.
     * @throws { BusinessError } 16501000 - An internal functional error occurred.
@@ -1801,8 +1801,8 @@ declare namespace formHost {
     * @param { AsyncCallback<void> } callback - The callback of clearRouterProxy.
     * @throws { BusinessError } 201 - Permissions denied.
     * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:
+    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
     * @throws { BusinessError } 16500050 - IPC connection error.
     * @throws { BusinessError } 16500060 - Service connection error.
     * @throws { BusinessError } 16501000 - An internal functional error occurred.
@@ -1839,8 +1839,8 @@ declare namespace formHost {
     * @returns { Promise<void> } The promise returned by the function.
     * @throws { BusinessError } 201 - Permissions denied.
     * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:
+    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
     * @throws { BusinessError } 16500050 - IPC connection error.
     * @throws { BusinessError } 16500060 - Service connection error.
     * @throws { BusinessError } 16501000 - An internal functional error occurred.
