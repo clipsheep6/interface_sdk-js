@@ -334,7 +334,7 @@ declare namespace unifiedDataChannel {
      * Create unified record by type and value.
      *
      * @param { string } type - indicates to data type of unified record. It can not be empty.
-     * @param { ValueType | object } value - indicates to the value of unified record.
+     * @param { ValueType} value - indicates to the value of unified record.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect Parameters types;
      * <br>3. Parameter verification failed.
@@ -342,14 +342,14 @@ declare namespace unifiedDataChannel {
      * @atomicservice
      * @since 12
      */
-    constructor(type: string, value: ValueType | object);
+    constructor(type: string, value: ValueType);
 
     /**
      * Get the value of unified record. GetObject is recommended when GetValue returns undefined.
      *
      * @returns { ValueType } Return the value of unified record.
      * If the type of return value is object other than Want and PixelMap, error code 20400000 will be returned.
-     * @throws { BusinessError } 20400000 - Inner error.
+     * @throws { BusinessError } 20400000 - The stored data does not support parsing.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
@@ -360,7 +360,7 @@ declare namespace unifiedDataChannel {
      * Get the object of unified record.
      *
      * @returns { object } Return the value of unified record.
-     * @throws { BusinessError } 20400000 - Inner error.
+     * @throws { BusinessError } 20400002 - The stored data does not support parsing.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 12
