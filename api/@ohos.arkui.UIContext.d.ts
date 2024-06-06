@@ -1650,43 +1650,43 @@ export class OverlayManager {
   /**
    * Add the ComponentContent to the OverlayManager.
    *
-   * @param { ComponentContent } content - The content will be added to the OverlayManager.
+   * @param { ComponentContent<T> } content - The content will be added to the OverlayManager.
    * @param { number } [ index ] - The index at which to add the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  addComponentContent(content: ComponentContent, index?: number): void;
+  addComponentContent<T extends Object>(content: ComponentContent<T>, index?: number): void;
 
   /**
    * Remove the ComponentContent from the OverlayManager.
    *
-   * @param { ComponentContent } content - The content will be removed from the OverlayManager.
+   * @param { ComponentContent<T> } content - The content will be removed from the OverlayManager.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  removeComponentContent(content: ComponentContent): void;
+  removeComponentContent<T extends Object>(content: ComponentContent<T>): void;
 
   /**
    * Show the ComponentContent.
    *
-   * @param { ComponentContent } content - The content will be shown.
+   * @param { ComponentContent<T> } content - The content will be shown.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  showComponentContent(content: ComponentContent): void;
+  showComponentContent<T extends Object>(content: ComponentContent<T>): void;
 
   /**
    * Hide the ComponentContent.
    *
-   * @param { ComponentContent } content - The content will be hidden.
+   * @param { ComponentContent<T> } content - The content will be hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  hideComponentContent(content: ComponentContent): void;
+  hideComponentContent<T extends Object>(content: ComponentContent<T>): void;
 
   /**
    * Show all ComponentContents on the OverlayManager.
