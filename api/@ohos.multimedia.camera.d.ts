@@ -6424,19 +6424,6 @@ declare namespace camera {
      * Start burst capture.
      *
      * @param { PhotoCaptureSetting } setting - Photo capture settings.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
-     * @throws { BusinessError } 7400104 - Session not running.
-     * @throws { BusinessError } 7400201 - Camera service fatal error.
-     * @syscap SystemCapability.Multimedia.Camera.Core
-     * @since 12
-     */
-    burstCapture(setting: PhotoCaptureSetting, callback: AsyncCallback<void>): void;
-
-    /**
-     * Start burst capture.
-     *
-     * @param { PhotoCaptureSetting } setting - Photo capture settings.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400104 - Session not running.
