@@ -53,7 +53,6 @@ declare namespace power {
    * @param { string } reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
    * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @systemapi
    * @since 7
    * @deprecated since 9
    * @useinstead power#reboot
@@ -217,7 +216,7 @@ declare namespace power {
   * Sets the timeout duration(ms) for turning off the screen.
   *
   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
-  * @throws { BusinessError } 201 – If the permission is denied.
+  * @throws { BusinessError } 401 – Parameter error. Possible causes: 1. Parameter verification failed.
   * @throws { BusinessError } 202 - If the system permission is denied.
   * @throws { BusinessError } 4900101 - If connecting to the service failed.
   * @syscap SystemCapability.PowerManager.PowerManager.Core
