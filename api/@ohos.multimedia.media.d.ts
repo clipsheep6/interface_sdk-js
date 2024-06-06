@@ -1092,7 +1092,7 @@ declare namespace media {
      * Prepare audio/video playback, it will request resource for playing.
      * @param { AsyncCallback<void> } callback - instance used to return when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
-     * @throws { BusinessError } 5400106 - Unsupport format. Return by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
@@ -1100,7 +1100,7 @@ declare namespace media {
      * Prepare audio/video playback, it will request resource for playing.
      * @param { AsyncCallback<void> } callback - instance used to return when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
-     * @throws { BusinessError } 5400106 - Unsupport format. Return by callback.
+     * @throws { BusinessError } 5400106 - Unsupported format. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
@@ -1111,7 +1111,7 @@ declare namespace media {
      * Prepare audio/video playback, it will request resource for playing.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     * @throws { BusinessError } 5400106 - Unsupport format. Return by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
@@ -1119,7 +1119,7 @@ declare namespace media {
      * Prepare audio/video playback, it will request resource for playing.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     * @throws { BusinessError } 5400106 - Unsupport format. Return by promise.
+     * @throws { BusinessError } 5400106 - Unsupported format. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
@@ -2068,7 +2068,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 9
      */
@@ -2085,7 +2085,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 11
@@ -2352,6 +2352,7 @@ declare namespace media {
      * Set Media Mime Type to help player handle extended Media source.
      * @param { AVMimeTypes } mimeType - for MediaSource define. see @ AVMimeTypes.
      * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
      * @since 12
      */
     setMimeType(mimeType: AVMimeTypes): void;
@@ -2361,12 +2362,14 @@ declare namespace media {
    * Enumerates Media Mime types, used for MediaSource define;
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Media.Core
+   * @atomicservice
    * @since 12
    */
   enum AVMimeTypes {
     /**
      * Indicate current file is index file for hls Media.
      * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
      * @since 12
      */
     APPLICATION_M3U8 = 'application/m3u8',
@@ -3218,7 +3221,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9
      */
@@ -3234,7 +3237,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 5400107 - Audio interrupted.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11
@@ -3252,7 +3255,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 5400107 - Audio interrupted.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
