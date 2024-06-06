@@ -75,7 +75,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<CheckResult> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -88,7 +88,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<CheckResult> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -101,7 +101,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<NewVersionInfo> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -114,7 +114,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<NewVersionInfo> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -130,7 +130,7 @@ declare namespace update {
      * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -150,7 +150,7 @@ declare namespace update {
      * @returns { Promise<Array<ComponentDescription>> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -166,7 +166,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<CurrentVersionInfo> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -179,7 +179,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<CurrentVersionInfo> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -194,7 +194,7 @@ declare namespace update {
      * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -212,7 +212,7 @@ declare namespace update {
      * @returns { Promise<Array<ComponentDescription>> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -225,7 +225,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<TaskInfo> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -238,7 +238,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<TaskInfo> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -256,7 +256,7 @@ declare namespace update {
      *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -277,7 +277,7 @@ declare namespace update {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -295,7 +295,7 @@ declare namespace update {
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -316,7 +316,7 @@ declare namespace update {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -334,7 +334,7 @@ declare namespace update {
      *    If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -355,7 +355,7 @@ declare namespace update {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -373,7 +373,7 @@ declare namespace update {
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -390,7 +390,7 @@ declare namespace update {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -407,7 +407,7 @@ declare namespace update {
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -423,7 +423,7 @@ declare namespace update {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -436,7 +436,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { AsyncCallback<UpgradePolicy> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -449,7 +449,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<UpgradePolicy> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -463,7 +463,7 @@ declare namespace update {
      * @param { UpgradePolicy } policy - Update policy.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -477,7 +477,7 @@ declare namespace update {
      * @param { UpgradePolicy } policy - Update policy.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -491,7 +491,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      *     If the operation is successful, 'err' is 'undefined'; otherwise, 'err' is an 'Error' object.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -504,7 +504,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -550,7 +550,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the result. 
      *   If the operation is successful, `err` is `undefined`; otherwise, `err` is an `Error` object.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -563,7 +563,7 @@ declare namespace update {
      * @permission ohos.permission.FACTORY_RESET
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -589,7 +589,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the verify upgrade package result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -605,7 +605,7 @@ declare namespace update {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -621,7 +621,7 @@ declare namespace update {
      * @param { AsyncCallback<void> } callback - Callback used to return the apply new version result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
@@ -637,7 +637,7 @@ declare namespace update {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter verification failed.
-     * @throws { BusinessError } 11500104 - IPC error.
+     * @throws IPC error.
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @since 9
