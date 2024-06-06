@@ -3133,7 +3133,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
-    rebuilt: RebuildType;
+    readonly rebuilt: RebuildType;
 
     /**
      * Inserts a row of data into the target table.
