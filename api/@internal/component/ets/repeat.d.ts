@@ -76,6 +76,41 @@ declare class RepeatAttribute<T> {
    * @form
    */
   key(keyGenerator: (item: T, index: number) => string): RepeatAttribute<T>;
+  /**
+   * Obtains key of each item.
+   *
+   * @param { function } options
+   * @returns { RepeatAttribute<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  virtualScroll(options: { totalCount: number}): RepeatAttribute<T>;
+  /**
+   * Obtains key of each item.
+   *
+   * @param { string } type
+   * @param { function } itemGenerator
+   * @returns { RepeatAttribute<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  template(type : string, itemGenerator: (repeatItem: RepeatItem<T>) => void, options?: {cacheCount? : number}): RepeatAttribute<T>;
+  /**
+   * Obtains key of each item.
+   *
+   * @param { function } typeFunc
+   * @returns { RepeatAttribute<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   * @form
+   */
+  tempateId(typeFunc: (item : T, index : number) =>string): RepeatAttribute<T>;
+
 }
 
 /**
