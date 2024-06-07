@@ -83,6 +83,17 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Create calendar instance.
+     * @permission ohos.permission.WRITE_CALENDAR
+     * @param { CalendarAccount } calendarAccount - calendar account to create calendar
+     * @returns { Promise<Calendar> } the promise with calendar corresponding to account
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 12
+     */
     createCalendar(calendarAccount: CalendarAccount): Promise<Calendar>;
 
     /**
@@ -96,6 +107,18 @@ declare namespace calendarManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Create calendar instance.
+     *
+     * @permission ohos.permission.WRITE_CALENDAR
+     * @param { CalendarAccount } calendarAccount - calendar account to create calendar
+     * @param { AsyncCallback<Calendar> } callback - the callback of createCalendar
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 12
      */
     createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
 
@@ -111,6 +134,18 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Delete calendar instance.
+     *
+     * @permission ohos.permission.WRITE_CALENDAR
+     * @param { Calendar } calendar - calendar to be deleted
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 12
+     */
     deleteCalendar(calendar: Calendar): Promise<void>;
 
     /**
@@ -124,6 +159,18 @@ declare namespace calendarManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Delete calendar instance.
+     *
+     * @permission ohos.permission.WRITE_CALENDAR
+     * @param { Calendar } calendar - calendar to be deleted
+     * @param { AsyncCallback<void> } callback - the callback of deleteCalendar
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 12
      */
     deleteCalendar(calendar: Calendar, callback: AsyncCallback<void>): void;
 
@@ -152,6 +199,19 @@ declare namespace calendarManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get calendar instance from database.
+     *
+     * @permission ohos.permission.READ_CALENDAR
+     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
+     * @returns { Promise<Calendar> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
     getCalendar(calendarAccount?: CalendarAccount): Promise<Calendar>;
 
     /**
@@ -179,6 +239,19 @@ declare namespace calendarManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get calendar instance from database by specified account.
+     *
+     * @permission ohos.permission.READ_CALENDAR
+     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
+     * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
     getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
 
     /**
@@ -204,6 +277,18 @@ declare namespace calendarManager {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Get default calendar instance from database.
+     *
+     * @permission ohos.permission.READ_CALENDAR
+     * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
     getCalendar(callback: AsyncCallback<Calendar>): void;
 
     /**
@@ -217,6 +302,17 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Get all calendar instance.
+     *
+     * @permission ohos.permission.READ_CALENDAR
+     * @returns { Promise<Calendar[]> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 12
+     */
     getAllCalendars(): Promise<Calendar[]>;
 
     /**
@@ -229,6 +325,17 @@ declare namespace calendarManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Get all calendar instance.
+     *
+     * @permission ohos.permission.READ_CALENDAR
+     * @param {AsyncCallback<Calendar[]>} callback - the callback of getAllCalendars
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @since 12
      */
     getAllCalendars(callback: AsyncCallback<Calendar[]>): void;
 
@@ -747,6 +854,15 @@ declare namespace calendarManager {
      * @since 12
      */
     identifier?: string;
+
+    /**
+     * Whether the event is lunar.
+     * @type { ?boolean }
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 12
+     */
+    isLunar?: boolean;
   }
 
   /**
