@@ -138,7 +138,7 @@ declare namespace power {
    * Suspends the device to turn off the screen.
    *
    * @param { boolean } isImmediate Indicates whether suspend the device immediately.
-   * @throws { BusinessError } 202 - If the system permission is denied.
+   * @throws { BusinessError } 202 - If the system permission is denied(Only throw when the parameter isImmediate is false).
    * @throws { BusinessError } 4900101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
@@ -204,7 +204,8 @@ declare namespace power {
   * hibernate the device.
   *
   * @param { boolean } clearMemory - Indicates whether to clear the memory before the device hibernates.
-  * @throws { BusinessError } 202 - If the system permission is denied.
+  * @throws { BusinessError } 1 - Function execution failed.
+  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
   * @throws { BusinessError } 4900101 - If connecting to the service failed.
   * @syscap SystemCapability.PowerManager.PowerManager.Core
   * @systemapi
@@ -216,8 +217,8 @@ declare namespace power {
   * Sets the timeout duration(ms) for turning off the screen.
   *
   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
-  * @throws { BusinessError } 201 – If the permission is denied.
-  * @throws { BusinessError } 202 - If the system permission is denied.
+  * @throws { BusinessError } 1 - Function execution failed.
+  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
   * @throws { BusinessError } 4900101 - If connecting to the service failed.
   * @syscap SystemCapability.PowerManager.PowerManager.Core
   * @systemapi
