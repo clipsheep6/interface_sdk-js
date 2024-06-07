@@ -1273,6 +1273,20 @@ declare namespace worker {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Creates a worker instance
+     *
+     * @param { string } scriptURL - scriptURL URL of the script to be executed by the worker
+     * @param { WorkerOptions } [options] - options Options that can be set for the worker
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 10200003 - Worker initialization failed.
+     * @throws { BusinessError } 10200007 - The worker file path is invalid path.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     constructor(scriptURL: string, options?: WorkerOptions);
     /**
      * The onexit attribute of the worker specifies the event handler to be called
@@ -1812,6 +1826,18 @@ declare namespace worker {
      * @throws { BusinessError } 10200007 - The worker file patch is invalid path.
      * @syscap SystemCapability.Utils.Lang
      * @since 11
+     */
+    /**
+     * Creates a worker instance
+     *
+     * @param { string } scriptURL - scriptURL URL of the script to be executed by the worker
+     * @param { WorkerOptions } [options] - options Options that can be set for the worker
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 10200003 - Worker initialization failed.
+     * @throws { BusinessError } 10200007 - The worker file path is invalid path.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
      */
     constructor(scriptURL: string, options?: WorkerOptions);
   }
