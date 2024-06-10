@@ -808,6 +808,16 @@ declare namespace drawing {
      * @since 11
      */
     getFamilyName(): string;
+    
+    /**
+     * Generate typeface from file.
+     * @param { string } filePath - filePath for typeface.
+     * @returns { Typeface } Typeface.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 11
+     */
+    static makeFromFile(filePath: string): Typeface;
   }
 
   /**
