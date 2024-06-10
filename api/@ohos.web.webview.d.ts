@@ -5704,6 +5704,15 @@ declare namespace webview {
      */
     getRequestUrl(): string;
     /**
+     * Gets the URL of frame which tigger this request.
+     *
+     * @returns { string } Return the URL of frame which tigger this request.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    getFrameUrl(): string;
+    /**
      * Get request method.
      *
      * @returns { string } Return the request method.
