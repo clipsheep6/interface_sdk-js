@@ -55,7 +55,7 @@ declare namespace calendarManager {
    * @since 11
    */
   function getCalendarManager(context: Context) : CalendarManager;
-  
+
   /**
    * Defines the CalendarManager class and provides functions to access the calendar data.
    *
