@@ -93,6 +93,15 @@ declare enum TextDataDetectorType {
    * @since 12
    */
   ADDRESS = 3,
+
+  /**
+   * Detector type datetime.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  DATETIME = 4,
 }
   
 /**
