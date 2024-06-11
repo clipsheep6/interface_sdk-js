@@ -978,7 +978,17 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @atomicservice
    * @since 11
    */
-  scrollable(value: ScrollDirection): ScrollAttribute;
+  /**
+   * Called when the scroll method is slid.
+   *
+   * @param { Optional<ScrollDirection> } value
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollable(value: Optional<ScrollDirection>): ScrollAttribute;
 
   /**
    * Called when the setting slides to the specified position.
@@ -1026,14 +1036,14 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   /**
    * Called when the Scroll did scroll.
    *
-   * @param { ScrollOnScrollCallback } handler - callback of Scroll,
+   * @param { Optional<ScrollOnScrollCallback> } handler - handler of Scroll,
    * xOffset and yOffset are offsets this frame did scroll, scrollState is current scroll state.
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  onDidScroll(handler: ScrollOnScrollCallback): ScrollAttribute;
+  onDidScroll(handler: Optional<ScrollOnScrollCallback>): ScrollAttribute;
 
   /**
    * Called when scrolling to the edge of the container.
@@ -1062,7 +1072,17 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @atomicservice
    * @since 11
    */
-  onScrollEdge(event: (side: Edge) => void): ScrollAttribute;
+  /**
+   * Called when scrolling to the edge of the container.
+   *
+   * @param { Optional<Callback<Edge>> } handler - handler of Scroll
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onScrollEdge(handler: Optional<Callback<Edge>>): ScrollAttribute;
 
   /**
    * Called when scrolling start.
@@ -1091,7 +1111,17 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @atomicservice
    * @since 11
    */
-  onScrollStart(event: () => void): ScrollAttribute;
+  /**
+   * Called when scrolling start.
+   *
+   * @param { Optional<Callback<void>> } handler - handler of Scroll
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onScrollStart(handler: Optional<Callback<void>>): ScrollAttribute;
 
   /**
    * Called when scrolling has stopped.
@@ -1132,7 +1162,17 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @atomicservice
    * @since 11
    */
-  onScrollStop(event: () => void): ScrollAttribute;
+  /**
+   * Called when scrolling has stopped.
+   *
+   * @param { Optional<Callback<void>> } handler - handler of Scroll
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onScrollStop(handler: Optional<Callback<void>>): ScrollAttribute;
 
   /**
    * Called when the status of the scroll bar is set.
@@ -1161,7 +1201,17 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @atomicservice
    * @since 11
    */
-  scrollBar(barState: BarState): ScrollAttribute;
+  /**
+   * Called when the status of the scroll bar is set.
+   *
+   * @param { Optional<BarState> } barState
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollBar(barState: Optional<BarState>): ScrollAttribute;
 
   /**
    * Called when the color of the scroll bar is set.
@@ -1190,7 +1240,17 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @atomicservice
    * @since 11
    */
-  scrollBarColor(color: Color | number | string): ScrollAttribute;
+  /**
+   * Called when the color of the scroll bar is set.
+   *
+   * @param { Optional<Color | number | string> } color
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollBarColor(color: Optional<Color | number | string>): ScrollAttribute;
 
   /**
    * Called when the width of the scroll bar is set.
@@ -1219,7 +1279,17 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @atomicservice
    * @since 11
    */
-  scrollBarWidth(value: number | string): ScrollAttribute;
+  /**
+   * Called when the width of the scroll bar is set.
+   *
+   * @param { Optional<number | string> } value
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  scrollBarWidth(value: Optional<number | string>): ScrollAttribute;
 
   /**
    * Called when the sliding effect is set.
@@ -1249,7 +1319,18 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @atomicservice
    * @since 11
    */
-  edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): ScrollAttribute;
+  /**
+   * Called when the sliding effect is set.
+   *
+   * @param { Optional<EdgeEffect> } edgeEffect
+   * @param { EdgeEffectOptions } [options]
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  edgeEffect(edgeEffect: Optional<EdgeEffect>, options?: EdgeEffectOptions): ScrollAttribute;
 
   /**
    * Called when scrolling begin each frame.
@@ -1278,7 +1359,17 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @atomicservice
    * @since 11
    */
-  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ScrollAttribute;
+  /**
+   * Called when scrolling begin each frame.
+   *
+   * @param { Optional<OnScrollFrameBeginHandler> } handler - handler of Scroll.
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onScrollFrameBegin(handler: Optional<OnScrollFrameBeginHandler>): ScrollAttribute;
 
   /**
    * Called to setting the nested scroll options.
@@ -1298,100 +1389,139 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @atomicservice
    * @since 11
    */
-  nestedScroll(value: NestedScrollOptions): ScrollAttribute;
-
   /**
-   * Called when setting whether to enable scroll by gesture or mouse.
+   * Called to setting the nested scroll options.
    *
-   * @param { boolean } value
-   * @returns { ScrollAttribute } The attribute of the scroll
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when setting whether to enable scroll by gesture or mouse.
-   *
-   * @param { boolean } value
-   * @returns { ScrollAttribute } The attribute of the scroll
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  enableScrollInteraction(value: boolean): ScrollAttribute;
-
-  /**
-   * Called to setting the friction.
-   *
-   * @param { number | Resource } value - options for scrolling friction.
-   * @returns { ScrollAttribute } the attribute of the scroll.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called to setting the friction.
-   *
-   * @param { number | Resource } value - options for scrolling friction.
-   * @returns { ScrollAttribute } the attribute of the scroll.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  friction(value: number | Resource): ScrollAttribute;
-
-  /**
-   * Called to setting the scroll snap options.
-   *
-   * @param { ScrollSnapOptions } value - options for scroll snap.
-   * @returns { ScrollAttribute } the attribute of the scroll.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Called to setting the scroll snap options.
-   *
-   * @param { ScrollSnapOptions } value - options for scroll snap.
-   * @returns { ScrollAttribute } the attribute of the scroll.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  scrollSnap(value: ScrollSnapOptions): ScrollAttribute;
-
-  /**
-   * Determines whether the scroll view stops on multiples of the content size when the user scrolls.
-   *
-   * @param { boolean } value - A boolean value determines whether paging is enabled for scroll.
-   * @returns { ScrollAttribute } the attribute of the scroll.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Determines whether the scroll view stops on multiples of the content size when the user scrolls.
-   *
-   * @param { boolean } value - A boolean value determines whether paging is enabled for scroll.
+   * @param { Optional<NestedScrollOptions> } value - options for nested scrolling.
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  enablePaging(value: boolean): ScrollAttribute;
+  nestedScroll(value: Optional<NestedScrollOptions>): ScrollAttribute;
+
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   *
+   * @param { boolean } value
+   * @returns { ScrollAttribute } The attribute of the scroll
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   *
+   * @param { boolean } value
+   * @returns { ScrollAttribute } The attribute of the scroll
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   *
+   * @param { Optional<boolean> } value
+   * @returns { ScrollAttribute } The attribute of the scroll
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enableScrollInteraction(value: Optional<boolean>): ScrollAttribute;
+
+  /**
+   * Called to setting the friction.
+   *
+   * @param { number | Resource } value - options for scrolling friction.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Called to setting the friction.
+   *
+   * @param { number | Resource } value - options for scrolling friction.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Called to setting the friction.
+   *
+   * @param { Optional<number | Resource> } value - options for scrolling friction.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  friction(value: Optional<number | Resource>): ScrollAttribute;
+
+  /**
+   * Called to setting the scroll snap options.
+   *
+   * @param { ScrollSnapOptions } value - options for scroll snap.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
+  /**
+   * Called to setting the scroll snap options.
+   *
+   * @param { ScrollSnapOptions } value - options for scroll snap.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Called to setting the scroll snap options.
+   *
+   * @param { Optional<ScrollSnapOptions> } value - options for scroll snap.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
+   */
+  scrollSnap(value: Optional<ScrollSnapOptions>): ScrollAttribute;
+
+  /**
+   * Determines whether the scroll view stops on multiples of the content size when the user scrolls.
+   *
+   * @param { boolean } value - A boolean value determines whether paging is enabled for scroll.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  /**
+   * Determines whether the scroll view stops on multiples of the content size when the user scrolls.
+   *
+   * @param { Optional<boolean> } value - A boolean value determines whether paging is enabled for scroll.
+   * @returns { ScrollAttribute } the attribute of the scroll.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enablePaging(value: Optional<boolean>): ScrollAttribute;
   
   /**
    * Called to setting the initial offset
    *
-   * @param { OffsetOptions } value - options for scroll initial offset.
+   * @param { Optional<OffsetOptions> } value - options for scroll initial offset.
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  initialOffset(value: OffsetOptions): ScrollAttribute;
+  initialOffset(value: Optional<OffsetOptions>): ScrollAttribute;
 }
 
 /**

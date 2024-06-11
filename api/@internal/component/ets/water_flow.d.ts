@@ -411,7 +411,17 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @atomicservice
    * @since 11
    */
-  columnsTemplate(value: string): WaterFlowAttribute;
+  /**
+   * This parameter specifies the number of columns in the current waterflow.
+   *
+   * @param { Optional<string> } value
+   * @returns { WaterFlowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  columnsTemplate(value: Optional<string>): WaterFlowAttribute;
 
   /**
    * This parameter specifies the min or max size of each item.
@@ -440,7 +450,17 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @atomicservice
    * @since 11
    */
-  itemConstraintSize(value: ConstraintSizeOptions): WaterFlowAttribute;
+  /**
+   * This parameter specifies the min or max size of each item.
+   *
+   * @param { Optional<ConstraintSizeOptions> } value
+   * @returns { WaterFlowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  itemConstraintSize(value: Optional<ConstraintSizeOptions>): WaterFlowAttribute;
 
   /**
    * Set the number of rows in the current waterflow.
@@ -469,7 +489,17 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @atomicservice
    * @since 11
    */
-  rowsTemplate(value: string): WaterFlowAttribute;
+  /**
+   * Set the number of rows in the current waterflow.
+   *
+   * @param { Optional<string> } value
+   * @returns { WaterFlowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  rowsTemplate(value: Optional<string>): WaterFlowAttribute;
 
   /**
    * Set the spacing between columns.
@@ -498,7 +528,17 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @atomicservice
    * @since 11
    */
-  columnsGap(value: Length): WaterFlowAttribute;
+  /**
+   * Set the spacing between columns.
+   *
+   * @param { Optional<Length> } value
+   * @returns { WaterFlowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  columnsGap(value: Optional<Length>): WaterFlowAttribute;
 
   /**
    * Set the spacing between rows.
@@ -527,7 +567,17 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @atomicservice
    * @since 11
    */
-  rowsGap(value: Length): WaterFlowAttribute;
+  /**
+   * Set the spacing between rows.
+   *
+   * @param { Optional<Length> } value
+   * @returns { WaterFlowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  rowsGap(value: Optional<Length>): WaterFlowAttribute;
 
   /**
    * Control layout direction of the WaterFlow.
@@ -556,7 +606,17 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @atomicservice
    * @since 11
    */
-  layoutDirection(value: FlexDirection): WaterFlowAttribute;
+  /**
+   * Control layout direction of the WaterFlow.
+   *
+   * @param { Optional<FlexDirection> } value
+   * @returns { WaterFlowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  layoutDirection(value: Optional<FlexDirection>): WaterFlowAttribute;
 
   /**
    * Called to setting the nested scroll options.
@@ -576,64 +636,92 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @atomicservice
    * @since 11
    */
-  nestedScroll(value: NestedScrollOptions): WaterFlowAttribute;
-
   /**
-   * Called when setting whether to enable scroll by gesture or mouse.
-   * @param { boolean } value
-   * @returns { WaterFlowAttribute } The attribute of the waterflow
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when setting whether to enable scroll by gesture or mouse.
-   * @param { boolean } value
-   * @returns { WaterFlowAttribute } The attribute of the waterflow
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  enableScrollInteraction(value: boolean): WaterFlowAttribute;
-
-  /**
-   * Called to setting the friction.
-   * @param { number | Resource } value - options for scrolling friction.
-   * @returns { WaterFlowAttribute } the attribute of the water flow.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called to setting the friction.
-   * @param { number | Resource } value - options for scrolling friction.
-   * @returns { WaterFlowAttribute } the attribute of the water flow.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  friction(value: number | Resource): WaterFlowAttribute;
-
-  /**
-   * Called to set number of flow items to be preloaded (cached) in LazyForEach. 
-   * @param { number } value - number of flow items to be preloaded (cached).
-   * @returns { WaterFlowAttribute } the attribute of the water flow.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Called to set number of flow items to be preloaded (cached) in LazyForEach. 
-   * @param { number } value - number of flow items to be preloaded (cached).
+   * Called to setting the nested scroll options.
+   *
+   * @param { Optional<NestedScrollOptions> } value - options for nested scrolling.
    * @returns { WaterFlowAttribute } the attribute of the water flow.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  cachedCount(value: number): WaterFlowAttribute;
+  nestedScroll(value: Optional<NestedScrollOptions>): WaterFlowAttribute;
+
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   * @param { boolean } value
+   * @returns { WaterFlowAttribute } The attribute of the waterflow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   * @param { boolean } value
+   * @returns { WaterFlowAttribute } The attribute of the waterflow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Called when setting whether to enable scroll by gesture or mouse.
+   * @param { Optional<boolean> } value
+   * @returns { WaterFlowAttribute } The attribute of the waterflow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  enableScrollInteraction(value: Optional<boolean>): WaterFlowAttribute;
+
+  /**
+   * Called to setting the friction.
+   * @param { number | Resource } value - options for scrolling friction.
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Called to setting the friction.
+   * @param { number | Resource } value - options for scrolling friction.
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Called to setting the friction.
+   * @param { Optional<number | Resource> } value - options for scrolling friction.
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  friction(value: Optional<number | Resource>): WaterFlowAttribute;
+
+  /**
+   * Called to set number of flow items to be preloaded (cached) in LazyForEach. 
+   * @param { number } value - number of flow items to be preloaded (cached).
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  /**
+   * Called to set number of flow items to be preloaded (cached) in LazyForEach. 
+   * @param { Optional<number> } value - number of flow items to be preloaded (cached).
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  cachedCount(value: Optional<number>): WaterFlowAttribute;
 
   /**
    * Called when the water flow begins to arrive.
@@ -662,7 +750,17 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @atomicservice
    * @since 11
    */
-  onReachStart(event: () => void): WaterFlowAttribute;
+  /**
+   * Called when the water flow begins to arrive.
+   *
+   * @param { Optional<Callback<void>> } handler - Handler function.
+   * @returns { WaterFlowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onReachStart(handler: Optional<Callback<void>>): WaterFlowAttribute;
 
   /**
    * Called when the water flow reaches the end.
@@ -691,7 +789,17 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @atomicservice
    * @since 11
    */
-  onReachEnd(event: () => void): WaterFlowAttribute;
+  /**
+   * Called when the water flow reaches the end.
+   *
+   * @param { Optional<Callback<void>> } handler - Handler function.
+   * @returns { WaterFlowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onReachEnd(handler: Optional<Callback<void>>): WaterFlowAttribute;
 
   /**
    * Called when scrolling begin each frame.
@@ -712,7 +820,17 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @atomicservice
    * @since 11
    */
-  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): WaterFlowAttribute;
+  /**
+   * Called when scrolling begin each frame.
+   *
+   * @param { Optional<OnScrollFrameBeginHandler> } handler - Handler function.
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onScrollFrameBegin(handler: Optional<OnScrollFrameBeginHandler>): WaterFlowAttribute;
 
   /**
    * Called when the first or last item displayed in the waterflow changes.
@@ -727,7 +845,17 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
    * @atomicservice
    * @since 11
    */
-  onScrollIndex(event: (first: number, last: number) => void): WaterFlowAttribute;
+  /**
+   * Called when the first or last item displayed in the waterflow changes.
+   *
+   * @param { Optional<OnScrollIndexHandler> } handler - Handler function.
+   * @returns { WaterFlowAttribute } the attribute of the water flow.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  onScrollIndex(handler: Optional<OnScrollIndexHandler>): WaterFlowAttribute;
 }
 
 /**
