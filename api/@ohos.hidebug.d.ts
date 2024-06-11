@@ -776,7 +776,6 @@ declare namespace hidebug {
    *                           3.The parameter type error or parameter order error
    * @throws { BusinessError } 11400104 - Set limit failed due to remote exception
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @atomicservice
    * @since 12
    */
   function setAppResourceLimit(type: string, value: number, enableDebugLog: boolean): void;
