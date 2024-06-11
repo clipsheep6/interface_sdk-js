@@ -36,6 +36,7 @@ declare namespace mediaLibrary {
    * @syscap SystemCapability.Multimedia.MediaLibrary.Core
    * @FAModelOnly
    * @returns Returns a MediaLibrary instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 8000001 - This API is no longer supported.
    * @deprecated since 9
    * @useinstead ohos.file.picker
    */
@@ -47,6 +48,7 @@ declare namespace mediaLibrary {
    * @StageModelOnly
    * @param context hap context information
    * @returns Instance of MediaLibrary
+   * @throws { BusinessError } 8000001 - This API is no longer supported.
    * @deprecated since 9
    * @useinstead ohos.file.picker
    */
@@ -331,6 +333,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param callback Callback return the result of isDirectory.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -340,6 +343,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -350,6 +354,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param callback no value will be returned.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -359,6 +364,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -370,6 +376,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param mode mode for open, for example: rw, r, w.
      * @param callback Callback return the fd of the file.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -380,6 +387,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param mode mode for open, for example: rw, r, w.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -391,6 +399,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param fd fd of the file which had been opened
      * @param callback no value will be returned.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -401,6 +410,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA or ohos.permission.WRITE_MEDIA
      * @param fd fd of the file which had been opened
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -411,6 +421,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param callback Callback used to return the thumbnail's pixelmap.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -422,6 +433,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @param size thumbnail's size
      * @param callback Callback used to return the thumbnail's pixelmap.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -432,6 +444,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param size thumbnail's size
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -443,6 +456,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isFavorite true is favorite file, false is not favorite file
      * @param callback Callback used to return, No value is returned.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -453,6 +467,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isFavorite true is favorite file, false is not favorite file
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -463,6 +478,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param callback Callback used to return true or false.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -472,6 +488,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -483,6 +500,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isTrash true is trashed file, false is not trashed file
      * @param callback Callback used to return, No value is returned.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -493,6 +511,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param isTrash true is trashed file, false is not trashed file
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -503,6 +522,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param callback Callback used to return true or false.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -512,6 +532,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -751,6 +772,7 @@ declare namespace mediaLibrary {
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @returns Total number of files.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -760,6 +782,7 @@ declare namespace mediaLibrary {
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @returns Whether the file is the last one.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      * You need to check whether the file is the last one before calling getNextObject,
@@ -770,6 +793,7 @@ declare namespace mediaLibrary {
      * Releases the FetchFileResult instance and invalidates it. Other methods cannot be called.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -779,6 +803,7 @@ declare namespace mediaLibrary {
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return the file in the format of a FileAsset instance.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -787,6 +812,7 @@ declare namespace mediaLibrary {
      * Obtains the first FileAsset in the file retrieval result. This method uses a promise to return the file.
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @returns A Promise instance used to return the file in the format of a FileAsset instance.
      * @deprecated since 9
      * @useinstead ohos.file.picker
@@ -800,6 +826,7 @@ declare namespace mediaLibrary {
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return the file in the format of a FileAsset instance.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -812,6 +839,7 @@ declare namespace mediaLibrary {
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @returns A Promise instance used to return the file in the format of a FileAsset instance.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -821,6 +849,7 @@ declare namespace mediaLibrary {
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback Callback used to return the file in the format of a FileAsset instance.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -830,6 +859,7 @@ declare namespace mediaLibrary {
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @returns A Promise instance used to return the file in the format of a FileAsset instance.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -841,6 +871,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param index Index of the file to obtain.
      * @param callback Callback used to return the file in the format of a FileAsset instance.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -852,6 +883,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param index Index of the file to obtain.
      * @returns A Promise instance used to return the file in the format of a FileAsset instance.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -864,8 +896,9 @@ declare namespace mediaLibrary {
     * @since 7
     * @syscap SystemCapability.Multimedia.MediaLibrary.Core
     * @param callback Callback used to return a FileAsset array.
-     * @deprecated since 9
-     * @useinstead ohos.file.picker
+    * @throws { BusinessError } 8000001 - This API is no longer supported.
+    * @deprecated since 9
+    * @useinstead ohos.file.picker
     */
     getAllObject(callback: AsyncCallback<Array<FileAsset>>): void;
     /**
@@ -876,6 +909,7 @@ declare namespace mediaLibrary {
      * @since 7
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @returns A Promise instance used to return a FileAsset array.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -954,6 +988,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param callback, no value will be returned.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -963,6 +998,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -973,6 +1009,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @permission ohos.permission.READ_MEDIA
      * @param callback Callback used to return the files in the format of a FetchFileResult instance.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -984,6 +1021,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
      * @param callback Callback used to return the files in the format of a FetchFileResult instance.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -995,6 +1033,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
      * @returns A Promise instance used to return the files in the format of a FetchFileResult instance.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1074,6 +1113,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type, public directory predefined in DirectoryType.
      * @param callback Callback return the FetchFileResult.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1084,6 +1124,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type public directory predefined in DirectoryType.
      * @returns A promise instance used to return the public directory in the format of string
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1096,6 +1137,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @param options, Media retrieval options.
      * @param callback, Callback return the FetchFileResult.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1108,6 +1150,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @param options Media retrieval options.
      * @returns A promise instance used to return the files in the format of a FetchFileResult instance
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1118,6 +1161,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','fileChange','remoteFileChange'
      * @param callback no value returned
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1128,6 +1172,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param type one of 'deviceChange','albumChange','imageChange','audioChange','videoChange','fileChange','remoteFileChange'
      * @param callback no value returned
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1141,6 +1186,7 @@ declare namespace mediaLibrary {
      * @param displayName file name
      * @param relativePath relative path
      * @param callback Callback used to return the FileAsset
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1154,6 +1200,7 @@ declare namespace mediaLibrary {
      * @param displayName file name
      * @param relativePath relative path
      * @returns A Promise instance used to return the FileAsset
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1165,6 +1212,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param uri FileAsset's URI
      * @param callback no value returned
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @systemapi
      * @deprecated since 9
      * @useinstead ohos.file.picker
@@ -1177,6 +1225,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA and ohos.permission.WRITE_MEDIA
      * @param uri, FileAsset's URI
      * @returns A Promise instance, no value returned
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @systemapi
      * @deprecated since 9
      * @useinstead ohos.file.picker
@@ -1189,6 +1238,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
      * @param callback Callback used to return an album array.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1200,6 +1250,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @param option Media retrieval options.
      * @returns A Promise instance used to return an album array.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1211,6 +1262,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media resource option.
      * @param callback Callback used to return the URI that stores the media resources.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      */
     storeMediaAsset(option: MediaAssetOption, callback: AsyncCallback<string>): void;
@@ -1220,6 +1272,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media resource option.
      * @returns Promise used to return the URI that stores the media resources.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      */
     storeMediaAsset(option: MediaAssetOption): Promise<string>;
@@ -1231,6 +1284,7 @@ declare namespace mediaLibrary {
      * @param images List of images to preview.
      * @param index Sequence number of the first image to preview.
      * @param callback Callback used for image preview. No value is returned.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      */
     startImagePreview(images: Array<string>, index: number, callback: AsyncCallback<void>): void;
@@ -1240,6 +1294,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param images List of images to preview.
      * @param callback Callback used for image preview. No value is returned.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      */
     startImagePreview(images: Array<string>, callback: AsyncCallback<void>): void;
@@ -1251,6 +1306,7 @@ declare namespace mediaLibrary {
      * @param images List of images to preview.
      * @param index Sequence number of the first image to preview.
      * @returns Promise used to return whether the operation is successful.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      */
     startImagePreview(images: Array<string>, index?: number): Promise<void>;
@@ -1261,6 +1317,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media selection option.
      * @param callback Callback used to return the list of URIs that store the selected media resources.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      */
     startMediaSelect(option: MediaSelectOption, callback: AsyncCallback<Array<string>>): void;
@@ -1271,6 +1328,7 @@ declare namespace mediaLibrary {
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param option Media selection option.
      * @returns Promise used to return the list of URIs that store the selected media resources.
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      */
     startMediaSelect(option: MediaSelectOption): Promise<Array<string>>;
@@ -1281,6 +1339,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @systemapi
      * @param callback, Callback return the list of the active peer devices' information
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1292,6 +1351,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @systemapi
      * @returns Promise used to return the list of the active peer devices' information
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1303,6 +1363,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @systemapi
      * @param callback Callback return the list of the all the peer devices' information
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1314,6 +1375,7 @@ declare namespace mediaLibrary {
      * @permission ohos.permission.READ_MEDIA
      * @systemapi
      * @returns Promise used to return the list of the all the peer devices' information
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1323,6 +1385,7 @@ declare namespace mediaLibrary {
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
      * @param callback no value returned
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
@@ -1331,6 +1394,7 @@ declare namespace mediaLibrary {
      * Release MediaLibrary instance
      * @since 8
      * @syscap SystemCapability.Multimedia.MediaLibrary.Core
+     * @throws { BusinessError } 8000001 - This API is no longer supported.
      * @deprecated since 9
      * @useinstead ohos.file.picker
      */
