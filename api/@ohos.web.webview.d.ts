@@ -4554,7 +4554,8 @@ declare namespace webview {
      * @param { boolean } enable {@code true} enable Intelligent Tracking Prevention; {@code false} otherwise.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -4577,7 +4578,8 @@ declare namespace webview {
      * Add bypassing hosts for Intelligent Tracking Prevention.
      *
      * @param { Array<string> } hostList - Hosts that bypass the Intelligent Tracking Prevention.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -4588,7 +4590,8 @@ declare namespace webview {
      * Remove bypassing hosts for Intelligent Tracking Prevention.
      *
      * @param { Array<string> } hostList - Hosts needs to remove from bypass list.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
@@ -4667,7 +4670,8 @@ declare namespace webview {
      * Set render process mode of the ArkWeb.
      *
      * @param { RenderProcessMode } mode - The render process mode for the ArkWeb.
-     * @throws { BusinessError } 401 - Invalid input parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12
