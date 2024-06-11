@@ -243,7 +243,9 @@ declare namespace uri {
      *
      * @param { string } key - Given the first value of the key。
      * @returns { string } Return decoded value.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -256,7 +258,9 @@ declare namespace uri {
      * @param { string } [key] - The key it will be encoded with.
      * @param { string } [value] - The value it will be encoded with.
      * @returns { URI } Return URI object.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -278,7 +282,9 @@ declare namespace uri {
      *
      * @param { string } key - The key it will be encoded with.
      * @returns { string[] } Return a set of decoded values.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -291,7 +297,9 @@ declare namespace uri {
      * @param { string } key - Indicates the key value to be queried.
      * @param { boolean } defaultValue - The default value returned when the key has no query parameters.
      * @returns { boolean } Query with key value returns true, otherwise returns false.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -333,7 +341,9 @@ declare namespace uri {
      *
      * @param { string } [pathSegment] - path segment to be added.
      * @returns { URI } After adding, return the URI object.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -345,7 +355,9 @@ declare namespace uri {
      *
      * @param { string } pathSegment - Encoding path segment to be added.
      * @returns { URI } After adding, return the URI object.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -390,7 +402,9 @@ declare namespace uri {
      * separator ('#'), which will get encoded.
      * @param { string } fragment - fragment, everything after the '#', null if undefined, will get encoded.
      * @returns { URI } Return Uri consisting of a given scheme, SSP, and fragment.
-     * @throws { BusinessError } 401 - if the input parameters are invalid.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
