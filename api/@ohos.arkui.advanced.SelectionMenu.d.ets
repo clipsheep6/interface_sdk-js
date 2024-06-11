@@ -244,6 +244,17 @@ export interface SelectionMenuOptions {
    * @since 12
    */
   controller?: RichEditorController;
+
+  /**
+   * Expansion of SelectionMenu with styledString.
+   *
+   * @type { ?RichEditorStyledStringController }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  styledStringController?: RichEditorStyledStringController;
+
   /**
    * Replace the built-in paste function.
    *
