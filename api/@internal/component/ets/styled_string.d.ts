@@ -855,7 +855,10 @@ declare class MutableStyledString extends StyledString {
      * Add attributes to the specified range string.
      *
      * @param { SpanStyle } spanStyle - the SpanStyle Object.
-     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * <br> 1. Mandatory parameters are left unspecified.
+     * <br> 2. Incorrect parameters types.
+     * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @since 12
