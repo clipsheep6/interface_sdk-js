@@ -46,9 +46,6 @@ declare namespace batteryInfo {
    * @param { string } sceneValue - Indicates the battery charging scene value.
    * sceneValue parameter must be of type string.
    * @returns { number } Return to set the charging configuration result.
-   * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 11
@@ -61,9 +58,6 @@ declare namespace batteryInfo {
    * @param { string } sceneName - Indicates the battery charging scene name.
    * sceneName parameter must be of type string.
    * @returns { string } Returns the battery charging configuration, returns "" otherwise.
-   * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 11
@@ -76,9 +70,6 @@ declare namespace batteryInfo {
    * @param { string } sceneName - Indicates the battery charging scene name.
    * sceneName parameter must be of type string.
    * @returns { boolean } Returns true if the device supports the charging scene, returns false otherwise.
-   * @throws { BusinessError } 202 - If the system permission is denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-   * @throws { BusinessError } 4900101 - If connecting to the service failed.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 11
