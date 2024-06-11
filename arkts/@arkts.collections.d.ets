@@ -4889,8 +4889,8 @@ declare namespace collections {
      * Gets the element number of the BitVector. This is a number one higher than the highest index in the bit vector.
      * It can be changed by resize().
      *
-     * @syscap SystemCapability.Utils.Lang
      * @readonly
+     * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 12
