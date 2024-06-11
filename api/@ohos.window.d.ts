@@ -4701,6 +4701,32 @@ declare namespace window {
     off(type: 'windowStatusChange', callback?: Callback<WindowStatusType>): void;
 
     /**
+     * Register the callback of subWindowClose
+     *
+     * @param { 'subWindowClose' } type - The value is fixed at 'subWindowClose', indicating the subwindow close event.
+     * @param { Callback<boolean> } callback - Callback used to return whather to terminate the subwindow close process.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    on(type: 'subWindowClose', callback: Callback<void>): void;
+
+    /**
+     * Unregister the callback of subWindowClose
+     *
+     * @param { 'subWindowClose' } type - The value is fixed at 'subWindowClose', indicating the subwindow close event.
+     * @param { Callback<boolean> } callback - Callback used to return whather to terminate the subwindow close process.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
+     *                                                                  2. Parameter verification failed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 12
+     */
+    off(type: 'subWindowClose', callback?: Callback<void>): void;
+
+    /**
      * Bind dialog to the target window.
      *
      * @param { rpc.RemoteObject } token - token of the target window.
