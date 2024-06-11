@@ -117,6 +117,7 @@ cancels
 capabilitys
 capturers
 ccm
+ccw
 cdma
 ce
 certsign
@@ -166,6 +167,7 @@ crl
 crls
 crops
 crosshair
+crossings
 crowdtest
 crowdtested
 crowdtesting
@@ -228,6 +230,7 @@ disables
 disallowed
 disallowing
 disallows
+discards
 discharging
 disconnecting
 disconnection
@@ -404,6 +407,7 @@ hierarchically
 hifi
 hilog
 hinote
+hinting
 hisysevent
 hitrace
 hiview
