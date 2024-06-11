@@ -70,6 +70,7 @@ declare namespace pluginComponentManager {
    * @interface PushParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 12
    */
   interface PushParameters {
     /**
@@ -78,6 +79,7 @@ declare namespace pluginComponentManager {
      * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */    
     want: Want;
 
@@ -87,6 +89,7 @@ declare namespace pluginComponentManager {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */ 
     name: string;
 
@@ -96,6 +99,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */ 
     data: KVObject;
 
@@ -105,6 +109,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */ 
     extraData: KVObject;
 
@@ -114,6 +119,7 @@ declare namespace pluginComponentManager {
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */ 
     jsonPath?: string;
   }
@@ -194,6 +200,7 @@ declare namespace pluginComponentManager {
    * @interface RequestParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 12
    */
   interface RequestParameters {
     /**
@@ -202,6 +209,7 @@ declare namespace pluginComponentManager {
      * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */  
     want: Want;
 
@@ -211,6 +219,7 @@ declare namespace pluginComponentManager {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */  
     name: string;
   
@@ -220,6 +229,7 @@ declare namespace pluginComponentManager {
      * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */  
     data: KVObject;
 
@@ -229,6 +239,7 @@ declare namespace pluginComponentManager {
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 8
+     * @deprecated since 12
      */ 
     jsonPath?: string;
   }
@@ -390,6 +401,7 @@ declare namespace pluginComponentManager {
    * @param { AsyncCallback<void> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 12
    */
   function push(param: PushParameters, callback: AsyncCallback<void>): void;
 
@@ -400,6 +412,7 @@ declare namespace pluginComponentManager {
    * @param { AsyncCallback<RequestCallbackParameters> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
+   * @deprecated since 12
    */
   function request(param: RequestParameters, callback: AsyncCallback<RequestCallbackParameters>): void;
 
