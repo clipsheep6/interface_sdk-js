@@ -1936,6 +1936,16 @@ declare namespace socket {
      * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Closes a LocalSocket server connection.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    close(): Promise<void>;
   }
 
   /**
@@ -3905,6 +3915,16 @@ declare namespace socket {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Closes a TCPSocket server connection.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 2301009 - Bad file descriptor.
+     * @throws { BusinessError } 2301088 - Not a socket.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    close(): Promise<void>;
   }
 
   /**
@@ -4409,6 +4429,19 @@ declare namespace socket {
      * @since 10
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Closes a TLSSocket server connection
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 2303501 - SSL is null.
+     * @throws { BusinessError } 2303505 - An error occurred in the TLS system call.
+     * @throws { BusinessError } 2303506 - Failed to close the TLS connection.
+     * @throws { BusinessError } 2300002 - System internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 12
+     */
+    close(): Promise<void>;
   }
 }
 
