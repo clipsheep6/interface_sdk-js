@@ -564,6 +564,16 @@ export interface ApplicationInfo {
    * @since 12
    */
   readonly appIndex: number;
+
+  /**
+   * Indicates sources to install the app
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 12
+   */
+  readonly installSource: string;
 }
 
 /**
