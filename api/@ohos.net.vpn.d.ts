@@ -63,6 +63,123 @@ declare namespace vpn {
   function createVpnConnection(context: AbilityContext): VpnConnection;
  
   /**
+   * Subscribes to vpn state changes.
+   * @permission ohos.permission.MANAGE_VPN
+   * @param { 'connect' } type - Indicates vpn connect state changes.
+   * @param { Callback<VpnConnectState> } callback - The callback of the vpn connect state.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2200001 - Invalid parameter value.
+   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function on(type: 'connect', callback: Callback<VpnConnectState>): void;
+
+  /**
+   * Unsubscribes from vpn state changes.
+   * @permission ohos.permission.MANAGE_VPN
+   * @param { 'connect' } type - Indicates vpn connect state changes.
+   * @param { Callback<VpnConnectState> } callback - The callback of the vpn connect state.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2200001 - Invalid parameter value.
+   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function off(type: 'connect', callback?: Callback<VpnConnectState>): void;
+
+  /**
+   * add the VPN config.
+   * @permission ohos.permission.MANAGE_VPN
+   * @param { SysVpnConfig } config - Indicates the {@link SysVpnConfig} configuration of the VPN network.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2200001 - Invalid parameter value.
+   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function addSysVpnConfig(config: SysVpnConfig): Promise<void>;
+
+  /**
+   * delete the VPN config.
+   * @permission ohos.permission.MANAGE_VPN
+   * @param { string } vpnId - Indicates the uuid of the VPN network.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2200001 - Invalid parameter value.
+   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function deleteSysVpnConfig(vpnId: string): Promise<void>;
+
+  /**
+   * get the VPN config list.
+   * @permission ohos.permission.MANAGE_VPN
+   * @returns { Promise<Array<SysVpnConfig>> } The promise returned by the all VPN network..
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2200001 - Invalid parameter value.
+   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getSysVpnConfigList(): Promise<Array<SysVpnConfig>>;
+
+  /**
+   * get the VPN config.
+   * @permission ohos.permission.MANAGE_VPN
+   * @param { string } vpnId - Indicates the uuid of the VPN network.
+   * @returns { Promise<SysVpnConfig> } The promise returned by the VPN network.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2200001 - Invalid parameter value.
+   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getSysVpnConfig(vpnId: string): Promise<SysVpnConfig>;
+
+  /**
+   * get the connected VPN config.
+   * @permission ohos.permission.MANAGE_VPN
+   * @returns { Promise<SysVpnConfig> } The promise returned by the connected VPN network.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2200001 - Invalid parameter value.
+   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  function getConnectedSysVpnConfig(): Promise<SysVpnConfig>;
+
+  /**
    * Defines a VPN connection.
    * @interface VpnConnection
    * @syscap SystemCapability.Communication.NetManager.Vpn
@@ -283,6 +400,483 @@ declare namespace vpn {
      * @since 10
      */
     blockedApplications?: Array<string>;
+  }
+
+  /**
+   * Define configuration of the system VPN network.
+   * @interface SysVpnConfig
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export interface SysVpnConfig extends VpnConfig {
+    /**
+     * The uuid of the VPN network.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    vpnId?: string;
+
+    /**
+     * The name of the VPN network.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    vpnName?: string;
+
+    /**
+     * The type of the VPN network.
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    vpnType?: number;
+
+    /**
+     * The vpn user name
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    userName?: string;
+
+    /**
+     * The vpn user password
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    password?: string;
+
+    /**
+     * whether save login name and password
+     * @type {?boolean}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    saveLogin?: boolean;
+
+    /**
+     * user id for system multi-user
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    userId?: number;
+
+    /**
+     * forwarding routes for system multi-user
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    forwardingRoutes?: string;
+  }
+
+  /**
+   * Define configuration of the open VPN network.
+   * @interface OpenVpnConfig
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export interface OpenVpnConfig extends SysVpnConfig {
+    /**
+     * The openvpn port
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ovpnPort?: string;
+
+    /**
+     * The openvpn protocol
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ovpnProtocol?: number;
+
+    /**
+     * The openvpn config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ovpnConfig?: string;
+
+    /**
+     * The openvpn auth type
+     * @type {?number}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ovpnAuthType?: number;
+
+    /**
+     * The openvpn ask pass
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    askpass?: string;
+
+    /**
+     * The openvpn config file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ovpnConfigFilePath?: string;
+
+    /**
+     * The openvpn ca cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ovpnCaCertFilePath?: string;
+
+    /**
+     * The openvpn user cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ovpnUserCertFilePath?: string;
+
+    /**
+     * The openvpn private key file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ovpnPrivateKeyFilePath?: string;
+  }
+
+  /**
+   * Define configuration of the ipsec VPN network.
+   * @interface IpsecVpnConfig
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export interface IpsecVpnConfig extends SysVpnConfig {
+    /**
+     * The ipsec vpn pre share key
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPreSharedKey?: string;
+
+    /**
+     * The ipsec vpn id
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecIdentifier?: string;
+
+    /**
+     * The ipsec vpn swanctl config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    swanctlConf?: string;
+
+    /**
+     * The ipsec vpn strongswan config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    strongswanConf?: string;
+
+    /**
+     * The ipsec vpn ca cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecCaCertConf?: string;
+
+    /**
+     * The ipsec vpn private user cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPrivateUserCertConf?: string;
+
+    /**
+     * The ipsec vpn public user cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPublicUserCertConf_?: string;
+
+    /**
+     * The ipsec vpn private server cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPrivateServerCertConf?: string;
+
+    /**
+     * The ipsec vpn public server cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPublicServerCertConf?: string;
+
+    /**
+     * The ipsec vpn ca cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecCaCertFilePath?: string;
+
+    /**
+     * The ipsec vpn private user cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPrivateUserCertFilePath?: string;
+
+    /**
+     * The ipsec vpn public user cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPublicUserCertFilePath?: string;
+
+    /**
+     * The ipsec vpn private server cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPrivateServerCertFilePath?: string;
+
+    /**
+     * The ipsec vpn public server cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPublicServerCertFilePath?: string;
+  }
+
+  /**
+   * Define configuration of the l2tp VPN network.
+   * @interface L2tpVpnConfig
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
+  export interface L2tpVpnConfig extends SysVpnConfig {
+    /**
+     * The ipsec vpn pre share key
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPreSharedKey?: string;
+
+    /**
+     * The ipsec vpn id
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecIdentifier?: string;
+
+    /**
+     * The ipsec vpn strongswan config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    strongswanConf?: string;
+
+    /**
+     * The ipsec vpn ca cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecCaCertConf?: string;
+
+    /**
+     * The ipsec vpn private user cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPrivateUserCertConf?: string;
+
+    /**
+     * The ipsec vpn public user cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPublicUserCertConf_?: string;
+
+    /**
+     * The ipsec vpn private server cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPrivateServerCertConf?: string;
+
+    /**
+     * The ipsec vpn public server cert config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPublicServerCertConf?: string;
+
+    /**
+     * The ipsec vpn ca cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecCaCertFilePath?: string;
+
+    /**
+     * The ipsec vpn private user cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPrivateUserCertFilePath?: string;
+
+    /**
+     * The ipsec vpn public user cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPublicUserCertFilePath?: string;
+
+    /**
+     * The ipsec vpn private server cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPrivateServerCertFilePath?: string;
+
+    /**
+     * The ipsec vpn public server cert file path
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecPublicServerCertFilePath?: string;
+
+    /**
+     * The L2TP/IPSec vpn config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecConf?: string;
+
+    /**
+     * The L2TP/IPSec vpn secrets
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    ipsecSecrets?: string;
+
+    /**
+     * The L2TP/IPSec vpn client options
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    optionsL2tpdClient?: string;
+
+    /**
+     * The L2TP/IPSec vpn xl2tpd config
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    xl2tpdConf?: string;
+
+    /**
+     * The L2TP/IPSec vpn shared key
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    l2tpSharedKey?: string;
   }
 }
 export default vpn;
