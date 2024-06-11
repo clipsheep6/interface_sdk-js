@@ -216,7 +216,7 @@ declare namespace power {
   * Sets the timeout duration(ms) for turning off the screen.
   *
   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
-  * @throws { BusinessError } 201 – If the permission is denied.
+  * @throws { BusinessError } 401 – Parameter error. Possible causes: 1. Parameter verification failed.
   * @throws { BusinessError } 202 - If the system permission is denied.
   * @throws { BusinessError } 4900101 - If connecting to the service failed.
   * @syscap SystemCapability.PowerManager.PowerManager.Core
