@@ -8472,6 +8472,16 @@ declare enum XComponentType {
    * @since 12
    */
   NODE,
+
+  /**
+   * Platform View type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  PLATFORM_VIEW = 999,
 }
 
 /**
