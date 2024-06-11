@@ -7436,6 +7436,88 @@ declare namespace window {
      */
     setDefaultDensityEnabled(enabled: boolean): void;
   }
+
+  /**
+   * The attribute of a windowStage.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  enum WindowStageAttribute {
+    /**
+     * System windowStage.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @atomicservice
+     * @since 12
+     */
+    SYSTEM_WINDOW_STAGE,
+
+    /**
+     * Sub windowStage.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @atomicservice
+     * @since 12
+     */
+    SUB_WINDOW_STAGE
+  }
+
+  /**
+   * Configuration of windowStage.
+   *
+   * @interface WindowStageConfig
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  interface WindowStageConfig {
+    /**
+     * The attribute of windowStage.
+     *
+     * @type { WindowStageAttribute }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @atomicservice
+     * @since 12
+     */
+    windowStageAttribute: WindowStageAttribute;
+
+    /**
+     * The position and size of windowStage.
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @atomicservice
+     * @since 12
+     */
+    windowStageRect: Rect;
+
+    /**
+     * The options of sub windowStage creation.
+     *
+     * @type { SubWindowOptions }
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @atomicservice
+     * @since 12
+     */
+    subWindowOptions?: SubWindowOptions;
+  }
 }
 
 export default window;
