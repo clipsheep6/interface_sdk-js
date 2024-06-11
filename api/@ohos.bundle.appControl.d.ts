@@ -75,6 +75,13 @@ declare namespace appControl {
      * @systemapi
      * @since 11
      */
+    /**
+     * All abilities of the specified application will be blocked.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since 12
+     */
     BLOCK_APPLICATION = 1,
     /**
      * Only the specified abilities will be blocked.
@@ -82,6 +89,13 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11
+     */
+    /**
+     * Only the specified ability will be blocked.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since 12
      */
     BLOCK_ABILITY = 2,
     /**
@@ -91,7 +105,15 @@ declare namespace appControl {
      * @systemapi
      * @since 11
      */
-    NON_BLOCK = 3
+    NON_BLOCK = 3,
+    /**
+     * All abilities of the specified application will be blocked, and check the returned result.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since 12
+     */
+    BLOCK_APPLICATION_WITH_RESULT = 4
   }
 
   /**
