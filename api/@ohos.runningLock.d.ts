@@ -61,7 +61,7 @@ declare namespace runningLock {
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9
      */
-    hold(timeout: number): void;
+    hold(timeout?: number): void;
 
     /**
      * Checks whether a lock is held or in use.
