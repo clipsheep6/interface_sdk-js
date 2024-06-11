@@ -285,6 +285,14 @@ declare namespace configPolicy {
    * @systemapi Hide this for inner system use.
    * @since 8
    */
+  /**
+   * Gets the config directory in the device architecture, ordered by priority from low to high.
+   *
+   * @returns { Promise<Array<string>> } the promise returns paths of config directories.
+   * @syscap SystemCapability.Customization.ConfigPolicy
+   * @systemapi Hide this for inner system use.
+   * @since 12
+   */
   function getCfgDirList(): Promise<Array<string>>;
 
   /**
@@ -295,6 +303,14 @@ declare namespace configPolicy {
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
    * @since 11
+   */
+  /**
+   * Gets the config directory in the device architecture, ordered by priority from low to high.
+   *
+   * @returns { Array<string> } the paths of config directories.
+   * @syscap SystemCapability.Customization.ConfigPolicy
+   * @systemapi Hide this for inner system use.
+   * @since 12
    */
   function getCfgDirListSync(): Array<string>;
 }
