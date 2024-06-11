@@ -3258,14 +3258,14 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Get text value information when about to input.
    *
-   * @param { Callback<RichEditorInsertValue> } callback - The triggered function when text content is about to insert.
+   * @param { Callback<RichEditorInsertValue, boolean> } callback - The triggered function when text content is about to insert.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  aboutToIMEInput(callback: Callback<RichEditorInsertValue>): RichEditorAttribute;
+  aboutToIMEInput(callback: Callback<RichEditorInsertValue, boolean>): RichEditorAttribute;
 
   /**
    * Get text value information when completed input.
@@ -3318,14 +3318,14 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Get text value information when about to delete.
    *
-   * @param { Callback<RichEditorDeleteValue> } callback - The triggered function when text content is about to delete.
+   * @param { Callback<RichEditorDeleteValue, boolean> } callback - The triggered function when text content is about to delete.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 12
    */
-  aboutToDelete(callback: Callback<RichEditorDeleteValue>): RichEditorAttribute;
+  aboutToDelete(callback: Callback<RichEditorDeleteValue, boolean>): RichEditorAttribute;
 
   /**
    * Notify that the deletion has been completed
