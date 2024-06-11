@@ -4047,6 +4047,7 @@ declare namespace image {
    * @param { ArrayBuffer } colors The image color buffer.
    * @param { InitializationOptions } options Initialization options for pixelmap.
    * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
+   * @throws { BusinessError } 7600901 - Unknown error.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @since 10
@@ -4068,6 +4069,7 @@ declare namespace image {
    * @param { ArrayBuffer } colors The image color buffer.
    * @param { InitializationOptions } options Initialization options for pixelmap.
    * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+   * @throws { BusinessError } 7600901 - Unknown error.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @since 10
@@ -4187,6 +4189,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 62980179 - Abnormal buffer size.
    * @throws { BusinessError } 62980180 - FD mapping failed.
    * @throws { BusinessError } 62980246 - Failed to read the PixelMap.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 7600901 - Unknown error.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 11
    */
@@ -4201,6 +4205,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @throws { BusinessError } 62980115 - If the image parameter invalid.
    * @throws { BusinessError } 62980105 - Failed to get the data.
    * @throws { BusinessError } 62980178 - Failed to create the PixelMap.
+   * @throws { BusinessError } 401 - Invalid parameter.
+   * @throws { BusinessError } 7600901 - Unknown error.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 11
    */
@@ -4539,6 +4545,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *            {@link ImageFormat} constants.
    * @param { number } capacity The maximum number of images the user will want to access simultaneously.
    * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - Invalid parameter.
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 9
    * @deprecated since 11
@@ -4569,6 +4576,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    *            {@link ImageFormat} constants.
    * @param { number } capacity The maximum number of images the user will want to access simultaneously.
    * @returns { ImageCreator } Returns the ImageCreator instance if the operation is successful; returns null otherwise.
+   * @throws { BusinessError } 401 - Invalid parameter.
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
    * @since 9
    * @deprecated since 11
@@ -4696,6 +4704,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -4740,6 +4751,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { ArrayBuffer } dst A buffer to which the image pixel map data will be written.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -4755,6 +4769,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -4795,6 +4810,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { PositionArea } area Area from which the image pixel map data will be read.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -4835,6 +4853,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { PositionArea } area Area from which the image pixel map data will be read.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -4850,6 +4871,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -4893,6 +4915,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { PositionArea } area Area to which the image pixel map data will be written.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -4937,6 +4962,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { PositionArea } area Area to which the image pixel map data will be written.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -4952,6 +4980,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -4995,6 +5024,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { ArrayBuffer } src A buffer from which the image data will be read.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5039,6 +5071,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { ArrayBuffer } src A buffer from which the image data will be read.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5099,6 +5134,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains pixel map information about this image. This method uses a promise to return the information.
      *
      * @returns { Promise<ImageInfo> } A Promise instance used to return the image pixel map information. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5139,6 +5176,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image pixel map information.
      * If the operation fails, an error message is returned.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5152,6 +5191,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { ImageInfo } the image information.
      * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @form
@@ -5188,6 +5228,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the number of bytes in each line of the image pixel map.
      *
      * @returns { number } Number of bytes in each line.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5224,6 +5265,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the total number of bytes of the image pixel map.
      *
      * @returns { number } Total number of bytes.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5260,6 +5302,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains the density of the image pixel map.
      *
      * @returns { number } The number of density.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5300,6 +5343,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { number } rate The value of transparent rate.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5340,6 +5387,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { number } rate The value of transparent rate.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5355,6 +5406,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -5389,6 +5441,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains new pixel map with alpha information. This method uses a promise to return the information.
      *
      * @returns { Promise<PixelMap> } A Promise instance used to return the new image pixel map. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5425,6 +5479,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Obtains new pixel map with alpha information. This method uses a callback to return the information.
      *
      * @param { AsyncCallback<PixelMap> } callback Callback used to return the new image pixel map. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5439,6 +5495,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { PixelMap } return the new image pixel map. If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -5481,6 +5538,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } x The zoom value of width.
      * @param { number } y The zoom value of height.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5525,6 +5585,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } x The zoom value of width.
      * @param { number } y The zoom value of height.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5541,6 +5604,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -5584,6 +5648,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } x The position value of width.
      * @param { number } y The position value of height.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5628,6 +5695,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } x The position value of width.
      * @param { number } y The position value of height.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5644,6 +5714,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -5683,6 +5754,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { number } angle The rotation angle.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5723,6 +5797,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { number } angle The rotation angle.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5738,6 +5815,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -5781,6 +5859,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { boolean } horizontal Is flip in horizontal.
      * @param { boolean } vertical Is flip in vertical.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5825,6 +5906,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { boolean } horizontal Is flip in horizontal.
      * @param { boolean } vertical Is flip in vertical.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5841,6 +5925,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -5880,6 +5965,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { Region } region The region to crop.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5920,6 +6008,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { Region } region The region to crop.
      * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -5935,6 +6026,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -5959,6 +6051,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980101 - If the image data abnormal.
      * @throws { BusinessError } 62980103 - If the image data unsupport.
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform  
      * @since 11
@@ -5971,6 +6064,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980097 - IPC error.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
@@ -5984,6 +6079,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980097 - IPC error.
      * @throws { BusinessError } 62980096 - The operation failed.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
@@ -6012,6 +6109,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { colorSpaceManager.ColorSpaceManager } colorSpace The color space for pixel map.
      * @throws { BusinessError } 62980111 - If the operation invalid.
      * @throws { BusinessError } 62980115 - If the image parameter invalid.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform 
      * @since 11
@@ -6041,6 +6140,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980104 - Failed to initialize the internal object.
      * @throws { BusinessError } 62980108 - Failed to convert the color space.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600201 - Unsupported operations.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7600203 - Unsupported conversion.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 11
@@ -6463,6 +6567,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7600103 - Too large data or image.
+     * @throws { BusinessError } 7600204 - Invalid region.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600102 - Unknown mime type.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -6490,6 +6603,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7600103 - Too large data or image.
+     * @throws { BusinessError } 7600204 - Invalid region.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600102 - Unknown mime type.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -6519,6 +6641,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @throws { BusinessError } 62980173 - The DMA memory does not exist.
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7600301 - Failed to allocate memory.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7600103 - Too large data or image.
+     * @throws { BusinessError } 7600204 - Invalid region.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600102 - Unknown mime type.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -6540,6 +6671,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @throws { BusinessError } 62980149 - Invalid media parameter.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600102 - Unknown mime type.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -6561,6 +6698,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @throws { BusinessError } 62980149 - Invalid media parameter.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600102 - Unknown mime type.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -6575,6 +6718,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @throws { BusinessError } 62980149 - Invalid image source mime type.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600102 - Unknown mime type.
+     * @throws { BusinessError } 7700301 - Decode failed.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12
@@ -6595,6 +6742,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
      * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
      * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7600102 - Unknown mime type.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -6615,6 +6768,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
      * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
      * @throws { BusinessError } 62980137 - Invalid media operation.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7600102 - Unknown mime type.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -6641,6 +6800,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980122 - The image decoding header is abnormal.
      * @throws { BusinessError } 62980123 - Images in EXIF format are not supported.
      * @throws { BusinessError } 62980135 - The EXIF value is invalid.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 11
@@ -6666,6 +6828,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { string } key Name of the property whose value is to be obtained.
      * @param { GetImagePropertyOptions } options Index of the image.
      * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -6691,6 +6856,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { string } key Name of the property whose value is to be obtained.
      * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, an error message is returned.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -6718,6 +6886,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { string } key Name of the property whose value is to be obtained.
      * @param { GetImagePropertyOptions } options Index of the image.
      * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, the default value is returned.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -6738,6 +6909,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980113 - Unknown image format.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12
@@ -6756,6 +6930,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980133 - The EXIF data is out of range.
      * @throws { BusinessError } 62980135 - The EXIF value is invalid.
      * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 11
@@ -6780,6 +6958,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { string } key Name of the property whose value is to be modified.
      * @param { string } value The value to be set to property.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
      * @returns { Promise<void> } A Promise instance used to return the property value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
@@ -6808,6 +6990,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { string } key Name of the property whose value is to be obtained.
      * @param { string } value The value to be set to property.
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10
@@ -6828,6 +7014,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980133 - The EXIF data is out of range.
      * @throws { BusinessError } 62980135 - The EXIF value is invalid.
      * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
+     * @throws { BusinessError } 7600901 - Unknown error.
+     * @throws { BusinessError } 7600101 - Unsupported mime type.
+     * @throws { BusinessError } 7700101 - Decode data source exception.
+     * @throws { BusinessError } 7600202 - Unsupported metadata.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12
@@ -7016,6 +7206,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ImageSource } source Image to be processed.
      * @param { PackingOption } option Option for image packing.
      * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
@@ -7048,6 +7241,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { ImageSource } source Image to be processed.
      * @param { PackingOption } option Option for image packing.
      * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
@@ -7080,6 +7276,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { PixelMap } source PixelMap to be processed.
      * @param { PackingOption } option Option for image packing.
      * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
@@ -7112,6 +7311,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { PixelMap } source PixelMap to be processed.
      * @param { PackingOption } option Option for image packing.
      * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @atomicservice
@@ -7126,6 +7328,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7800301 - Encode failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11
@@ -7139,6 +7343,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7800301 - Encode failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11
@@ -7152,6 +7358,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7800301 - Encode failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11
@@ -7165,6 +7373,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { number } fd ID of a file descriptor.
      * @param { PackingOption } options Options for image packing.
      * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7800301 - Encode failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11
@@ -7272,6 +7482,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { ComponentType } componentType The component type of image.
      * @param { AsyncCallback<Component> } callback Callback used to return the component buffer.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -7282,6 +7494,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { ComponentType } componentType The component type of image.
      * @returns { Promise<Component> } A Promise instance used to return the component buffer.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
@@ -7346,6 +7560,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * and uses a callback to return the result.
      *
      * @param { AsyncCallback<string> } callback Callback used to return the surface id.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -7356,6 +7571,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * and uses a promise to return the result.
      *
      * @returns { Promise<string> } A Promise instance used to return the surface id.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -7365,6 +7581,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Get lasted image from receiver and uses a callback to return the result.
      *
      * @param { AsyncCallback<Image> } callback Callback used to return the latest image.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -7374,6 +7591,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Get lasted image from receiver and uses a promise to return the result.
      *
      * @returns { Promise<Image> } A Promise instance used to return the latest image.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -7383,6 +7601,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Get next image from receiver and uses a callback to return the result.
      *
      * @param { AsyncCallback<Image> } callback Callback used to return the next image.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -7392,6 +7611,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Get next image from receiver and uses a promise to return the result.
      *
      * @returns { Promise<Image> } A Promise instance used to return the next image.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -7402,6 +7622,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { 'imageArrival' } type Callback used to return the next image.
      * @param { AsyncCallback<void> } callback Callback used to return image.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9
      */
@@ -7456,6 +7678,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Apply for new graphic buffer from free queue and use a callback to return the result.
      *
      * @param { AsyncCallback<Image> } callback Callback to return the operation result.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9
      */
@@ -7465,6 +7688,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Apply for new graphic buffer from free queue and uses a promise to return the result.
      *
      * @returns { Promise<Image> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9
      */
@@ -7495,6 +7719,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { 'imageRelease' } type Callback used to return the operation result.
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @throws { BusinessError } 401 - Invalid parameter.
+     * @throws { BusinessError } 7600901 - Unknown error.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9
      */
