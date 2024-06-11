@@ -21,7 +21,6 @@
 import type { AbilityResult } from './ability/abilityResult';
 import type AbilityStartCallback from './application/AbilityStartCallback';
 import type { AsyncCallback } from './@ohos.base';
-import type { LocalStorage } from 'StateManagement';
 import type Want from './@ohos.app.ability.Want';
 import type StartOptions from './@ohos.app.ability.StartOptions';
 import type uiExtensionHost from './@ohos.uiExtensionHost';
@@ -31,7 +30,7 @@ import type uiExtension from './@ohos.arkui.uiExtension';
  * class of ui extension content session.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @StageModelOnly
+ * @stagemodelonly
  * @since 10
  */
 export default class UIExtensionContentSession {
@@ -45,7 +44,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -58,7 +57,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   sendData(data: Record<string, Object>): void;
@@ -73,7 +72,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   setReceiveDataCallback(callback: (data: Record<string, Object>) => void): void;
@@ -88,7 +87,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   setReceiveDataForResultCallback(callback: (data: Record<string, Object>) => Record<string, Object>): void;
@@ -102,7 +101,7 @@ export default class UIExtensionContentSession {
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   loadContent(path: string, storage?: LocalStorage): void;
@@ -138,7 +137,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
@@ -173,7 +172,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
@@ -210,7 +209,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
@@ -246,7 +245,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   startAbilityAsCaller(want: Want, callback: AsyncCallback<void>): void;
@@ -281,7 +280,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   startAbilityAsCaller(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
@@ -318,7 +317,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   startAbilityAsCaller(want: Want, options?: StartOptions): Promise<void>;
@@ -354,7 +353,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
@@ -389,7 +388,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
@@ -426,7 +425,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
@@ -438,7 +437,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   terminateSelf(callback: AsyncCallback<void>): void;
@@ -448,7 +447,7 @@ export default class UIExtensionContentSession {
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   terminateSelf(): Promise<void>;
@@ -461,7 +460,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
@@ -474,7 +473,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
@@ -489,7 +488,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   setWindowBackgroundColor(color: string): void;
@@ -505,7 +504,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>;
@@ -521,7 +520,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 10
    */
   setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
@@ -544,8 +543,22 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
+   */
+  /**
+   * Starts the UIAbility or UIExtensionAbility by type.
+   *
+   * @param { string } type - The type of target ability.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 12
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
@@ -568,8 +581,22 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
+   */
+  /**
+   * Starts the UIAbility or UIExtensionAbility by type.
+   *
+   * @param { string } type - The type of target ability.
+   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
+   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 12
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
@@ -582,7 +609,7 @@ export default class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 11
    */
   getUIExtensionHostWindowProxy(): uiExtensionHost.UIExtensionHostWindowProxy;
@@ -593,7 +620,7 @@ export default class UIExtensionContentSession {
    * @returns { uiExtension.WindowProxy } Returns the UIExtension Window proxy.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 12
    */
   getUIExtensionWindowProxy(): uiExtension.WindowProxy;

@@ -351,6 +351,16 @@ declare interface NavDestinationContext {
    */
   pathStack: NavPathStack;
 
+  /**
+   * Get the unique id of NavDestination, which is different from common property id of Component.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  navDestinationId?: string;
+
 
   /**
    * Get configuration of current Destination in module.json
@@ -632,7 +642,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   onWillHide(callback: Callback<void>): NavDestinationAttribute;
 
   /**
-   * Set navdestination content expand types and edges.
+   * Set navDestination content expand types and edges.
    *
    * @param { Array<LayoutSafeAreaType> } [types] - Indicates the types of the safe area.
    * @param { Array<LayoutSafeAreaEdge> } [edges] - Indicates the edges of the safe area.
@@ -642,6 +652,16 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 12
    */
   ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavDestinationAttribute;
+
+  /**
+   * Set the style of system bar
+   *
+   * @param { Optional<SystemBarStyle> } style - The properties of system bar
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  systemBarStyle(style: Optional<SystemBarStyle>): NavDestinationAttribute;
 }
 
 /**

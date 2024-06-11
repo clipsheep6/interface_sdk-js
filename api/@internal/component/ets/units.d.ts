@@ -2238,6 +2238,16 @@ declare interface LocalizedEdges {
  * @since 11
  * @form
  */
+/**
+ * Defines the Bias.
+ *
+ * @interface Bias
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ * @form
+ */
 declare interface Bias {
   /**
    * Horizontal ratio of the Bias, it must be >= 0.
@@ -2782,6 +2792,26 @@ declare interface BorderOptions {
    * @form
    */
   style?: EdgeStyles | BorderStyle;
+
+  /**
+   * Defines the gap of dash when BorderStyle is dashed.
+   *
+   * @type { ?(EdgeWidths | LengthMetrics | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dashGap?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
+
+  /**
+   * Defines the length of dash when BorderStyle is dashed.
+   *
+   * @type { ?(EdgeWidths | LengthMetrics | LocalizedEdgeWidths) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  dashWidth?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
 }
 
 /**
@@ -3174,18 +3204,4 @@ declare interface DividerStyleOptions {
    * @since 12
    */
   endMargin?: LengthMetrics;
-}
-
-declare module "GlobalResource" {
-  module "GlobalResource" {
-    // @ts-ignore
-    export type { Resource, ResourceStr };
-  }
-}
-
-declare module 'DragControllerUnitParam' {
-  module 'DragControllerUnitParam' {
-    // @ts-ignore
-    export type {ResourceColor, TouchPoint };
-  }
 }

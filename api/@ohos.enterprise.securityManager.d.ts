@@ -222,6 +222,18 @@ declare namespace securityManager {
   function getPasswordPolicy(admin: Want): PasswordPolicy;
 
   /**
+   * Gets the password policy of the device.
+   * 
+   * @returns { PasswordPolicy } the password policy of the device.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  function getPasswordPolicy(): PasswordPolicy;
+
+  /**
    * Sets the application's clipboard policy of the device.
    * 
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY

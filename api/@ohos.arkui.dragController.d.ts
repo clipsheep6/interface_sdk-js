@@ -18,18 +18,23 @@
  * @kit ArkUI
  */
 
-/// <reference path="../component/common.d.ts" />
+
 
 import type { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
-import type { CustomBuilder, DragItemInfo, DragEvent, DragPreviewOptions } from 'DragControllerParam';
-import type { ResourceColor, TouchPoint } from 'DragControllerUnitParam';
 
 /**
  * This module allows developers to trigger a drag event.
  * @namespace dragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
+ */
+/**
+ * This module allows developers to trigger a drag event.
+ * @namespace dragController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 12
  */
 declare namespace dragController {
   /**
@@ -154,7 +159,7 @@ declare namespace dragController {
      * trigger drag action
      *
      * @returns { Promise<void> } A Promise can indicate the start result.
-     * @throws { BusinessError } 100001 - if some internal handling failed.
+     * @throws { BusinessError } 100001 - Internal handling failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11
      */
@@ -162,7 +167,7 @@ declare namespace dragController {
      * trigger drag action
      *
      * @returns { Promise<void> } A Promise can indicate the start result.
-     * @throws { BusinessError } 100001 - if some internal handling failed.
+     * @throws { BusinessError } 100001 - Internal handling failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12
@@ -217,6 +222,14 @@ declare namespace dragController {
    * @interface DragInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
+   */
+  /**
+   * DragInfo object description
+   * 
+   * @interface DragInfo
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 12
    */
   interface DragInfo {
     /**
@@ -373,7 +386,7 @@ declare namespace dragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -390,7 +403,7 @@ declare namespace dragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
@@ -409,7 +422,7 @@ declare namespace dragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
    */
@@ -424,7 +437,7 @@ declare namespace dragController {
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - if some internal handling failed.
+   * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12

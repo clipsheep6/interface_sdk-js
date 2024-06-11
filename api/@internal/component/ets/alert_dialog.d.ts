@@ -512,6 +512,28 @@ declare interface AlertDialogButtonOptions {
 }
 
 /**
+ * Defines TextStyle in the AlertDialog.
+ *
+ * @interface TextStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+declare interface TextStyle {
+  /**
+   * Set the word break type.
+   *
+   * @type { ?WordBreak }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  wordBreak?: WordBreak;
+}
+
+/**
  * Base param used for AlertDialog.show method.
  *
  * @interface AlertDialogParam
@@ -859,12 +881,12 @@ declare interface AlertDialogParam {
   /**
    * Defines the alertDialog's corner radius.
    *
-   * @type { ?(Dimension | BorderRadiuses) }
+   * @type { ?(Dimension | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  cornerRadius?: Dimension | BorderRadiuses;
+  cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
 
   /**
    * Defines the alertDialog's width.
@@ -889,22 +911,22 @@ declare interface AlertDialogParam {
   /**
    * Defines the alertDialog's border width.
    *
-   * @type { ?(Dimension | EdgeWidths) }
+   * @type { ?(Dimension | EdgeWidths | LocalizedEdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  borderWidth?: Dimension | EdgeWidths;
+  borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
   /**
    * Defines the alertDialog's border color.
    *
-   * @type { ?(ResourceColor | EdgeColors) }
+   * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 12
    */
-  borderColor?: ResourceColor | EdgeColors;
+  borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
   /**
    * Defines the alertDialog's border style.
@@ -925,6 +947,17 @@ declare interface AlertDialogParam {
    * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
+
+  /**
+   * Set the alertDialog's textStyle.
+   *
+   * @type { ?TextStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  textStyle?: TextStyle;
 }
 
 /**
@@ -1674,9 +1707,3 @@ declare class AlertDialog {
   static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions);
 }
 
-declare module "AlertDialogParam" {
-  module "AlertDialogParam" {
-    // @ts-ignore
-    export { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, DialogAlignment, DialogButtonDirection, AlertDialogParamWithOptions };
-  }
-}

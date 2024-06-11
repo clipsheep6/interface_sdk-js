@@ -19,8 +19,6 @@
  */
 
 import { UIContext } from '../@ohos.arkui.UIContext';
-import { WrappedBuilder } from 'wrappedBuilderObject';
-import { TouchEvent } from 'touchEvent';
 import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
 
@@ -269,4 +267,23 @@ export class BuilderNode<Args extends Object[]> {
    * @since 12
    */
   dispose(): void;
+
+  /**
+   * Reuse the BuilderNode based on the provided parameters.
+   *
+   * @param { Object } [param] - Parameters for reusing BuilderNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  reuse(param?: Object): void;
+
+  /**
+   * Recycle the BuilderNode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  recycle(): void;
 }

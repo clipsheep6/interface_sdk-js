@@ -399,6 +399,17 @@ interface ImageInterface {
    * @form
    */
   (src: PixelMap | ResourceStr | DrawableDescriptor): ImageAttribute;
+
+  /**
+   * Set src and ai options to obtain images
+   *
+   * @param { PixelMap | ResourceStr | DrawableDescriptor } src
+   * @param { ImageAIOptions } imageAIOptions
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 12
+   */
+  (src: PixelMap | ResourceStr | DrawableDescriptor, imageAIOptions: ImageAIOptions): ImageAttribute;
 }
 
 /**
@@ -983,7 +994,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Enable image dragging.
-   * Default value is false.
+   * Default value is true.
    *
    * @param { boolean } value
    * @returns { ImageAttribute }
