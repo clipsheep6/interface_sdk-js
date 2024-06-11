@@ -519,6 +519,17 @@ declare namespace camera {
     muteCamera(mute: boolean): void;
 
     /**
+     * Mute camera by PolicyType
+     *
+     * @param { boolean } mute - Mute camera if TRUE, otherwise unmute camera.
+     * @param { PolicyType } policyType - Mute camera policyType.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 12
+     */
+    muteCameraPersistent(mute: boolean, type: PolicyType): void;
+
+    /**
      * Creates a CameraInput instance by camera.
      *
      * @permission ohos.permission.CAMERA
@@ -2933,7 +2944,24 @@ declare namespace camera {
     BLACK_WHITE = 3
   }
 
+  /**
+   * Enum for mute policyType.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @since 12
+   */
+  enum PolicyType {
     /**
+     * The mute policy type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 12
+     */
+    PRIVACY = 1,
+  }
+
+  /**
    * Color Effect Query object.
    *
    * @interface ColorEffectQuery
