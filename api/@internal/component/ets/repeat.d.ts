@@ -76,6 +76,15 @@ declare class RepeatAttribute<T> {
    * @form
    */
   key(keyGenerator: (item: T, index: number) => string): RepeatAttribute<T>;
+
+  templateId(typeFunc: (item: T, index: number)=>string): RepeatAttribute<T>;
+
+  template(type: string, itemGenerator: (repeatItem: RepeatItem<T>) => void, options?: {cacheCount?: number}): RepeatAttribute<T>;
+
+  virtualScroll(options:{
+    totalCount: number,
+    onLazyLoading?: (index: number, direction: "Up" | "Down") => void
+  }): RepeatAttribute<T>;
 }
 
 /**
