@@ -2666,6 +2666,64 @@ declare namespace webview {
   }
 
   /**
+   * Enum type supplied to {@link FileAccessDirPair} for indicating the type of base file dicectory.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  enum FileAccessBaseDir {
+    /**
+     * Indicate dir "/data/storage/el2/base/files".
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    APPFILE_DIR,
+
+    /**
+     * Indicate dir "/data/storage/el1/bundle/entry/resources/resfile".
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    RESFILE_DIR,
+  }
+
+  /**
+   * Define allow access from file URLs dirs.
+   * @interface FileAccessDirPair
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 12
+   */
+  interface FileAccessDirPair {
+    /**
+     * Base directory.
+     *
+     * @type { FileAccessBaseDir }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    baseDir: FileAccessBaseDir;
+
+    /**
+     * Module name
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    moduleName?: string;
+
+    /**
+     * Sub directory.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    subDir?: string;
+  }
+
+  /**
    * Provides methods for controlling the web controller.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -4882,6 +4940,13 @@ declare namespace webview {
      * @since 12
      */
     setUrlTrustList(urlTrustList: string): void;
+
+    /**
+     * 
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 12
+     */
+    setDirsAllowUniversalAccessFromFileURLs(dirs: Array<FileAccessDirPair>): void;
   }
 
   /**
