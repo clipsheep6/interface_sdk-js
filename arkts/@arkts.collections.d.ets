@@ -31,6 +31,16 @@ import lang from './@arkts.lang'
  */
 declare namespace collections {
   /**
+   * Callback function used in the Array's 'from' function.
+   * 
+   * @param { FromElementType } value - The value in the original array.
+   * @param { number } index - The index in the original array.
+   * @returns { ToElementType } The transformed value.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 12
+   */
+  type ArrayFromMapFn<FromElementType, ToElementType> = (value: FromElementType, index: number) => ToElementType;
+  /**
    * Callback function used in the typed Array's 'from' function.
    * 
    * @typedef { function } TypedArrayFromMapFn
@@ -224,6 +234,47 @@ declare namespace collections {
      * @since 12
      */
     static from<T>(arrayLike: ArrayLike<T>): Array<T>;
+    /**
+     * Creates an ArkTS Array from an array-like object.
+     * 
+     * @param { ArrayLike<T> } arrayLike - An array-like object to convert to an ArkTS Array.
+     * @param { ArrayFromMapFn<T, U> } mapFn - A mapping function to call on every element of the array.
+     * @returns { Array<T> } A new Array instance
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The from method cannot be bound.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    static from<T, U>(arrayLike: ArrayLike<T>, mapFn: ArrayFromMapFn<T, U>): Array<T>;
+    /**
+    * Checks if a given value is an instance of the ArkTS Array class.
+    *
+    * @param { ISendable | Object | null | undefined } value - The value to check.
+    * @returns { boolean } True if the value is an instance of the ArkTS Array class; otherwise, false.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+    * @throws { BusinessError } 10200011 - The isArray method cannot be bound.
+    * @syscap SystemCapability.Utils.Lang
+    * @since 12
+    */
+    static isArray(value: ISendable | Object | null | undefined): boolean;
+    /**
+    * Creates an ArkTS Array from an array-like object.
+    * 
+    * @param { T[] } items - An array-like object to convert to an ArkTS Array.
+    * @returns { Array<T> } A new Array instance
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:
+    *                                    1.Mandatory parameters are left unspecified.
+    *                                    2.Incorrect parameter types.
+    * @throws { BusinessError } 10200011 - The of method cannot be bound.
+    * @static
+    * @syscap SystemCapability.Utils.Lang
+    * @since 12
+    */
+    static of<T>(...items: T[]): Array<T>;
     /**
      * A constructor used to create an ArkTS Array.
      *
@@ -451,11 +502,18 @@ declare namespace collections {
      * @crossplatform
      * @atomicservice
      * @since 12
-    */
-    reduce<U>(
+     */
+    reduce<U = number>(
       callbackFn: (previousValue: U, currentValue: T, currentIndex: number, array: Array<T>) => U,
       initialValue: U
     ): U;
+
+    reduceRight(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array<T>) => T): T; // TODO(hzzhouzebin): Add JSDoc.
+    // reduceRight(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array<T>) => T, initialValue: T): T; // TODO(hzzhouzebin): remove it when the following declaration is ok.
+    reduceRight<U = T>(
+      callbackFn: (previousValue: U, currentValue: T, currentIndex: number, array: Array<T>) => U,
+      initialValue: U
+    ): U; // TODO(hzzhouzebin): Add JSDoc.
     /**
      * Returns the item located at the specified index.
      *
@@ -527,6 +585,25 @@ declare namespace collections {
      * @since 12
      */
     find(predicate: (value: T, index: number, obj: Array<T>) => boolean): T | undefined;
+    /**
+     * Copies a section of an ArkTS Array, with start and end indices, to the same array starting at a given index.
+     *
+     * @param { number } target - The starting index of the section of the array where copying will take place.
+     * @param { number } [start] - The beginning index of the specified portion of the array.
+     *     If start is undefined, then the copyWithin method will start at index 0.
+     * @param { number } [end] - The end index of the specified portion of the array.
+     *     This is exclusive of the element at the index 'end'.
+     *     If end is undefined, then the copyWithin method will extend to the end of the array.
+     * @returns { Array<T> } The array itself.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The copyWithin method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    copyWithin(target: number, start: number, end?: number): Array<T>;
     /**
      * Determines whether an array includes a certain element, returning true or false as appropriate.
      *
@@ -636,6 +713,93 @@ declare namespace collections {
      * @since 12
      */
     concat(...items: ConcatArray<T>[]): Array<T>;
+    /**
+     * Returns an iterable iterator object that contains the elements of the array.
+     *
+     * @returns { IterableIterator<T> } A new iterable iterator object.
+     * @throws { BusinessError } 10200011 - The [Symbol.iterator] method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<T>;
+    /**
+     * Returns a string representation of the array.
+     *
+     * @returns { string } A string representation of the array.
+     * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    toString(): string;
+    /**
+     * Reverses the order of the elements in the array.
+     *
+     * @returns { Array<T> } The reference to the original array, now reversed.
+     *     <br>Note that the array is reversed in place, and no copy is made.
+     * @throws { BusinessError } 10200011 - The reverse method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    reverse(): Array<T>;
+    /**
+     * Removes elements from the array and, if necessary, inserts new elements at the specified position.
+     *
+     * @param { number } start - The zero-based index at which to start changing the contents of the array.
+     * @param { number } [deleteCount] - The number of elements to remove from the array,
+     *    starting at the index specified by the start parameter.
+     *    If deleteCount is not specified, or its value is 0, no elements are removed.
+     * @returns { Array<T> } The modified array.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The splice method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    splice(start: number, deleteCount?: number): Array<T>;
+    /**
+     * Removes elements from the array and, if necessary, inserts new elements at the specified position.
+     *
+     * @param { number } start - The zero-based index at which to start changing the contents of the array.
+     * @param { number } deleteCount - The number of elements to remove from the array,
+     *    starting at the index specified by the start parameter.
+     * @param { T[] } items - An array of elements to insert into the array,
+     *    starting at the index specified by the start parameter.
+     * @returns { Array<T> } The modified array.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The splice method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    splice(start: number, deleteCount: number, ...items: T[]): Array<T>;
+    /**
+     * Returns the index of the last occurrence of a specified element in the array.
+     *
+     * @param { T } searchElement - The element to search for.
+     * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
+     *    If fromIndex is a negative value, it is treated as array.length + fromIndex.
+     * @returns { number } The index of the last occurrence of the specified element in the array,
+     *    or -1 if the element is not present in the array.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    lastIndexOf(searchElement: T, fromIndex?: number): number;
+    every(predicate: (value: T, index: number, array: T[])=> boolean): boolean; // TODO(hzzhouzebin): Add JSDoc. a little different
+    some(predicate: (value: T, index: number, array: T[])=> boolean): boolean; // TODO(hzzhouzebin): Add JSDoc. a little different falsable and boolean.
   }
   
   /**
@@ -1297,6 +1461,23 @@ declare namespace collections {
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
+     * Returns the index of the last occurrence of a specified element in the array.
+     *
+     * @param { number } searchElement - The element to search for.
+     * @param { number } [fromIndex] - The position in this array at which to begin searching for searchElement.
+     *    If fromIndex is a negative value, it is treated as array.length + fromIndex.
+     * @returns { number } The index of the last occurrence of the specified element in the array,
+     *    or -1 if the element is not present in the array.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    lastIndexOf(searchElement: number, fromIndex?: number): number;
+    /**
      * Adds all the elements of an array separated by the specified separator string.
      * @param { string } [separator] - A string used to separate one element of an array from the next in the
      *     resulting String. If omitted, the array elements are separated with a comma.
@@ -1391,6 +1572,76 @@ declare namespace collections {
      * @since 12
      */
     reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U;
+    /**
+     * Reduces the elements of the array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<number, number, Int8Array> } callbackFn - A function that
+     *     accepts up to four arguments.
+     *     The reduceRight method calls the callbackfn function one time for each element in the array.
+     * @returns { number } The value that results from running the "reducer" callback function to
+     *     completion over the entire typed array.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): number;
+    /**
+     * Reduces the elements of the array from right to left.
+     *
+     * @param { TypedArrayReduceCallback<U, number, Int8Array> } callbackFn - A function that
+     *     accepts up to four arguments.
+     *     The reduceRight method calls the callbackfn function one time for each element in the array.
+     * @param { U } initialValue - If initialValue is specified, it is used as the initial value to start
+     *     the accumulation. The first call to the callbackfn function provides this value as an argument
+     *     instead of an array value.
+     * @returns { U } The value that results from running the "reducer" callback function to
+     *     completion over the entire typed array.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @throws { BusinessError } 10200011 - The reduceRight method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U;
+    /**
+    * Returns a string representation of the array.
+    *
+    * @returns { string } A string representation of the array.
+    * @throws { BusinessError } 10200011 - The toString method cannot be bound.
+    * @throws { BusinessError } 10200201 - Concurrent modification error.
+    * @syscap SystemCapability.Utils.Lang
+    * @since 12
+    */
+    toString(): string;
+    /**
+     * Returns an iterable of elements in the array.
+     *
+     * @returns { IterableIterator<number> } An iterable iterator object.
+     * @throws { BusinessError } 10200011 - The [Symbol.iterator] method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    [Symbol.iterator](): IterableIterator<number>;
+    /**
+     * Creates a new Int8Array instance from the provided elements.
+     *
+     * @param { number[] } items - A variable number of elements to initialize the new Int8Array instance.
+     * @returns { Int8Array } A new Int8Array instance initialized with the provided elements.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                    1.Mandatory parameters are left unspecified.
+     *                                    2.Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Utils.Lang
+     * @since 12
+     */
+    static of(...items: number[]): Int8Array;
     /**
      * Reverses the elements in an Array.
      *
