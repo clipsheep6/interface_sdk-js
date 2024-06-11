@@ -223,6 +223,15 @@ declare enum InputType {
    * @since 11
    */
   NUMBER_DECIMAL = 12,
+
+  /**
+   * Url entry mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 12
+   */
+  URL = 13,
 }
 
 /**
