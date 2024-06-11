@@ -17977,7 +17977,19 @@ declare class CommonMethod<T> {
    * @since 11
    * @form
    */
-  overlay(value: string | CustomBuilder, options?: { align?: Alignment; offset?: { x?: number; y?: number } }): T;
+  /**
+   * Add mask text to the current component. The layout is the same as that of the current component.
+   *
+   * @param { string | CustomBuilder | ComponentContent } value
+   * @param { object } options
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   * @form
+   */
+  overlay(value: string | CustomBuilder | ComponentContent, options?: { align?: Alignment; offset?: { x?: number; y?: number } }): T;
 
   /**
    * Linear Gradient
