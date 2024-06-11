@@ -203,6 +203,8 @@ declare namespace systemDateTime {
    * @param { TimeType } timeType - indicates the type of get uptime. It can only be `STARTUP` or `ACTIVE`.
    * @param { boolean } [ isNanoseconds ] - True if the result is in nanoseconds, otherwise in milliseconds
    * @returns { number } The timestamp returned of getUpTime.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+   * 3.Parameter verification failed;
    * @syscap SystemCapability.MiscServices.Time
    * @since 10
    */
