@@ -200,6 +200,36 @@ declare namespace backup {
   interface File extends FileMeta, FileData, FileManifestData {}
 
   /**
+   * Provides configuration parameters for scenarios where both package name and information need to be obtained.
+   *
+   * @interface BackupParams
+   * @syscap SystemCapability.FileManagement.StorageService.Backup
+   * @systemapi
+   * @since 12
+   */
+  interface ReportInfo {
+    /**
+     * Indicates the name of a bundle.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 12
+     */
+    bundleName: string;
+
+    /**
+     * Information returned by the application to the caller.
+     *
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.StorageService.Backup
+     * @systemapi
+     * @since 12
+     */
+    result: string;
+  }
+
+  /**
    * Obtain a Json file that describes local capabilities.
    *
    * @permission ohos.permission.BACKUP
@@ -411,7 +441,8 @@ declare namespace backup {
     
     /**
      * Callback called when the backup service return result information.
-     * The first return string parameter indicates the result of the bundle.
+     * The first return string parameter indicates the bundleName that triggers the callback.
+     * The second return string parameter indicates the result of the bundle.
      *
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -425,7 +456,7 @@ declare namespace backup {
      * @systemapi
      * @since 12
      */
-    onResultReport: AsyncCallback<string>;
+    onResultReport: AsyncCallback<ReportInfo>;
   }
 
   /**
