@@ -1193,6 +1193,14 @@ declare namespace commonEventManager {
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_CANCEL = 'usual.event.bluetooth.remotedevice.CONNECT_CANCEL',
 
     /**
+     * bluetooth.remotedevice.connect.status.value.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 12
+     */
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_STATUS_VALUE = 'usual.event.bluetooth.remotedevice.CONNECT_STATUS_VALUE',
+
+    /**
      * Bluetooth.handsfreeunit.connect.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
