@@ -4882,6 +4882,15 @@ declare namespace webview {
      * @since 12
      */
     setUrlTrustList(urlTrustList: string): void;
+
+    /**
+     * Clear cache to free up memory.
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 12
+     */
+    clearCache(): void;
   }
 
   /**
