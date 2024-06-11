@@ -1103,7 +1103,18 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @since 11
    * @form
    */
-  selectedColor(value: ResourceColor): SliderAttribute;
+  /**
+   * Called when the slider of the slider bar is set to slide over the area color.
+   *
+   * @param { ResourceColor | LinearGradient } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
+  selectedColor(value: ResourceColor | LinearGradient): SliderAttribute;
 
   /**
    * Called when the minimum label is set.
