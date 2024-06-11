@@ -56,6 +56,20 @@ declare namespace uiEffect {
      * @since 12
      */
     blur(blurRadius: number): Filter;
+
+    /**
+     * Set waterRipple effect of the Component.
+     *
+     * @param { number } progress - Controlling water ripple speed.
+     * @param { number } waveNum - Control the number of water ripples.
+     * @param { Array<number> } rippleCenter - Controls the center point where water ripples appear.
+     * @returns { Filter } - A water ripple filter object is returned.
+     * @throws {BusinessError} 202 - Not system application.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 12
+     */
+    waterRipple(progress: number, waveNum: number, rippleCenter: Array<number>): Filter;
   }
 
   /**
