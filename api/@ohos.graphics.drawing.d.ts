@@ -1704,6 +1704,134 @@ declare namespace drawing {
      */
     REPLACE = 5
   }
+
+  /**
+   * Describes a shader effect object.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  class ShaderEffect {
+    /**
+     * Create a color shader.
+     * @param { number } color - The range of color channels must be [0, 255].
+     * @returns { ShaderEffect } Returns ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createColorShader(color: number): ShaderEffect;
+
+    /**
+     * Create a linear gradient.
+     * @param { Point } startPt - Coordinate of the text start point.
+     * @param { Point } endPt - Coordinate of the text end point.
+     * @param { number } colors - The range of color channels must be [0, 255].
+     * @param { number } pos - Range of color linear gradients and can default to empty.
+     * @param { TileMode } mode - TileMode type.
+     * @param { Matrix } matrix - Matrix can default to nullptr.
+     * @returns { ShaderEffect } Returns shaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createLinearGradient(startPt: common2D.Point, endPt: common2D.Point, colors: Array<number>,
+      pos: Array<number> | null, mode: TileMode, matrix?: Matrix | null): ShaderEffect;
+
+    /**
+     * Create a radial gradient.
+     * @param { Point } startPt - Coordinate of the text start point.
+     * @param { number } radius - The radius of the circle must be greater than 0.
+     * @param { number } colors - The range of color channels must be [0, 255].
+     * @param { number } pos - Range of color linear gradients and can default to empty.
+     * @param { TileMode } mode - TileMode type.
+     * @param { Matrix } matrix - Matrix can default to nullptr.
+     * @returns { ShaderEffect } Returns ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createRadialGradient(startPt: common2D.Point, radius: number, colors: Array<number>,
+      pos: Array<number> | null, mode: TileMode, matrix?: Matrix | null): ShaderEffect;
+
+    /**
+     * Create a sweep gradient.
+     * @param { Point } startPt - Coordinate of the text start point.
+     * @param { number } radius - The radius of the circle must be greater than 0.
+     * @param { number } colors - The range of color channels must be [0, 255].
+     * @param { number } pos - Range of color linear gradients and can default to empty.
+     * @param { TileMode } mode - TileMode type.
+     * @param { number } startAngle - The starting angle of the gradient.
+     * @param { number } endAngle - The ending angle of the gradient.
+     * @param { Matrix } matrix - Matrix can default to nullptr.
+     * @returns { ShaderEffect } Returns ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static createSweepGradient(startPt: common2D.Point, radius: number, colors: Array<number>,
+      pos: Array<number> | null, mode: TileMode, startAngle: number, endAngle: number,
+      matrix?: Matrix | null): ShaderEffect;
+
+    /**
+     * Create two point conical.
+     * @param { Point } startPt - Coordinate of the text start point.
+     * @param { number } startRadius - The radius of the circle must be greater than 0.
+     * @param { Point } endPt - Coordinate of the text end point.
+     * @param { number } endRadius - The radius of the circle must be greater than 0.
+     * @param { number } colors - The range of color channels must be [0, 255].
+     * @param { number } pos - Range of color linear gradients and can default to empty.
+     * @param { TileMode } mode - TileMode type.
+     * @param { Matrix } matrix - Matrix can default to nullptr.
+     * @returns { ShaderEffect } Returns ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    static CreateTwoPointConical(startPt: common2D.Point, startRadius: number, endPt: common2D.Point,
+      endRadius: number, colors: Array<number>, pos: Array<number> | null,
+      mode: TileMode, matrix?: Matrix | null): ShaderEffect;
+  }
+
+  /**
+   * A tiling pattern that describes an image or texture.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  enum TileMode {
+    /**
+     * Stretching the edges of an image.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    CLAMP = 0,
+
+    /**
+     * The texture will be repeatedly tiled.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    REPEAT = 1,
+
+    /**
+     * Textures are tiled in a mirror manner.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    MIRROR = 2,
+
+    /**
+     * The texture is attached to the surface of the object without tiling.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    DECAL = 3,
+  }
 }
 
 export default drawing;
