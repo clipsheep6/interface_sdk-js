@@ -711,9 +711,9 @@ declare interface LocalizedEdgeWidths {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare type EdgeOutlineWidths = {
   /**
@@ -724,6 +724,16 @@ declare type EdgeOutlineWidths = {
    * @crossplatform
    * @since 11
    * @form
+   */
+  /**
+   * top outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   top?: Dimension;
 
@@ -736,6 +746,16 @@ declare type EdgeOutlineWidths = {
    * @since 11
    * @form
    */
+  /**
+   * right outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   right?: Dimension;
 
   /**
@@ -747,6 +767,16 @@ declare type EdgeOutlineWidths = {
    * @since 11
    * @form
    */
+  /**
+   * bottom outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   bottom?: Dimension;
 
   /**
@@ -757,6 +787,16 @@ declare type EdgeOutlineWidths = {
    * @crossplatform
    * @since 11
    * @form
+   */
+  /**
+   * left outline width property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   left?: Dimension;
 };
@@ -971,9 +1011,9 @@ declare interface LocalizedBorderRadiuses  {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare type OutlineRadiuses = {
   /**
@@ -984,6 +1024,16 @@ declare type OutlineRadiuses = {
    * @crossplatform
    * @since 11
    * @form
+   */
+  /**
+   * top-left property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   topLeft?: Dimension;
 
@@ -996,6 +1046,16 @@ declare type OutlineRadiuses = {
    * @since 11
    * @form
    */
+  /**
+   * top-right property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   topRight?: Dimension;
 
   /**
@@ -1007,6 +1067,16 @@ declare type OutlineRadiuses = {
    * @since 11
    * @form
    */
+  /**
+   * bottom-left property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   bottomLeft?: Dimension;
 
   /**
@@ -1017,6 +1087,16 @@ declare type OutlineRadiuses = {
    * @crossplatform
    * @since 11
    * @form
+   */
+  /**
+   * bottom-right property.
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   bottomRight?: Dimension;
 };
@@ -1389,9 +1469,9 @@ declare type EdgeStyles = {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 12
- * @form
  */
 declare type EdgeOutlineStyles = {
   /**
@@ -1402,6 +1482,16 @@ declare type EdgeOutlineStyles = {
    * @crossplatform
    * @since 11
    * @form
+   */
+  /**
+   * top property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   top?: OutlineStyle;
 
@@ -1414,6 +1504,16 @@ declare type EdgeOutlineStyles = {
    * @since 11
    * @form
    */
+  /**
+   * right property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   right?: OutlineStyle;
 
   /**
@@ -1425,6 +1525,16 @@ declare type EdgeOutlineStyles = {
    * @since 11
    * @form
    */
+  /**
+   * bottom property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
+   */
   bottom?: OutlineStyle;
 
   /**
@@ -1435,6 +1545,16 @@ declare type EdgeOutlineStyles = {
    * @crossplatform
    * @since 11
    * @form
+   */
+  /**
+   * left property.
+   *
+   * @type { ?OutlineStyle }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12
    */
   left?: OutlineStyle;
 };

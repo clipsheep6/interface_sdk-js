@@ -131,6 +131,15 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
      * @crossplatform
      * @since 11
      */
+    /**
+     * folder state.
+     *
+     * @type { FoldStatus }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
     foldStatus: FoldStatus
   }) => void): FolderStackAttribute;
 
