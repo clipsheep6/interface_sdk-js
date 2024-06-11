@@ -363,7 +363,6 @@ declare namespace relationalStore {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
      * @since 12
      */
     vector?: boolean;
@@ -2932,7 +2931,6 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @systemapi
      * @since 12
      */
     getFloat32Array(columnIndex: number): Float32Array;
